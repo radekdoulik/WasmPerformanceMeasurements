@@ -1,0 +1,15 @@
+commit 6253efeab73fd39ba76e4a7ccaaa480bc52842e0
+Author: Radek Zikmund <32671551+rzikm@users.noreply.github.com>
+Date:   Fri Dec 8 10:19:55 2023 +0100
+
+    Use full TLS record size for application data on Windows (#95595)
+    
+    * Replace pointers by spans and refs in SslStreamPal.Windows
+    
+    * Correctly calculate the MaxDataSize
+    
+    * Remove unwanted change
+    
+    * Fixes after rebase
+    
+    * Remove couple of unsafe usages
