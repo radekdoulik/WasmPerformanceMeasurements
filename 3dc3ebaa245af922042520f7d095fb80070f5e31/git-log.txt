@@ -1,0 +1,11 @@
+commit 3dc3ebaa245af922042520f7d095fb80070f5e31
+Author: SingleAccretion <62474226+SingleAccretion@users.noreply.github.com>
+Date:   Sun Jun 19 23:44:36 2022 +0300
+
+    Enable `TYP_STRUCT` `LCL_VAR/LCL_FLD` call args on Windows x64 (#70777)
+    
+    * Fix forward sub
+    
+    * Enable folding in local morph
+    
+    * Morph: TYP_STRUCT LCL_FLD

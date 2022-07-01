@@ -1,0 +1,9 @@
+commit 78a4ffa9f860d2efd44483aa46c7faa2c64209da
+Author: SingleAccretion <62474226+SingleAccretion@users.noreply.github.com>
+Date:   Sat Jun 25 21:06:34 2022 +0300
+
+    TYP_STRUCT LCL_FLD on the LHS (#70782)
+    
+    For now, we'll do the simple thing and lower it as STORE_OBJ/BLK.
+    
+    Almost no diffs.

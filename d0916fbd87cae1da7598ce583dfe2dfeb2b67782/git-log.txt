@@ -1,0 +1,5 @@
+commit d0916fbd87cae1da7598ce583dfe2dfeb2b67782
+Author: John Salem <josalem@microsoft.com>
+Date:   Thu Apr 21 14:57:44 2022 -0700
+
+    Fix in-process decoding of DateTime in EventSource (#67557)

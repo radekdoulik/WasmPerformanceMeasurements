@@ -1,0 +1,13 @@
+commit d44343b4018bfbe266e93020c5aee66565cd158f
+Author: Vladimir Sadov <vsadov@microsoft.com>
+Date:   Wed May 4 14:51:31 2022 -0700
+
+    Fix singlefile on OSX ARM64 (#68845)
+    
+    * Same alignment in the bundle on OSX as on Linux
+    
+    * Extra VA gap between section in casse we run from sf bundle
+    
+    * Rename prevSectionEnd -> prevSectionEndAligned and make it aligned.
+    
+    * Suppress assert for now on OSX

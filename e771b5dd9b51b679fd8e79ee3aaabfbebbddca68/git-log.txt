@@ -1,0 +1,11 @@
+commit e771b5dd9b51b679fd8e79ee3aaabfbebbddca68
+Author: Bruce Forstall <brucefo@microsoft.com>
+Date:   Sat Jun 18 12:53:53 2022 -0700
+
+    superpmi.py: Add `-jitoption` for asmdiffs (#70939)
+    
+    The new `-jitoption` option passes the argument options to both baseline and diff
+    compilers. This is a convenience option: there already is `-base_jit_option` and
+    `-diff_jit_option` to specify passing options to either baseline or diff.
+    
+    The name of the option is the same as that used for `replay`.

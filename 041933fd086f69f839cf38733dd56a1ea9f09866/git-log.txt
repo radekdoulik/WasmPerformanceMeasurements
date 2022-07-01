@@ -1,0 +1,11 @@
+commit 041933fd086f69f839cf38733dd56a1ea9f09866
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Sat Apr 2 16:24:37 2022 -0400
+
+    Add {ReadOnly}Span ctor (internal for now) that takes a ref and no length (#67447)
+    
+    * Add {ReadOnly}Span ctor (internal for now) that takes an in and no length
+    
+    * Address PR feedback
+    
+    * Fix native references to _pointer

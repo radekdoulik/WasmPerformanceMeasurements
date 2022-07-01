@@ -1,0 +1,9 @@
+commit 20120e0d1c5f091e3596cb6dcb163ac2501220b7
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Sat May 14 17:55:38 2022 -0400
+
+    Improve some use of Regex (#68961)
+    
+    - Use IsMatch instead of Match(...).Success
+    - Use EnumerateMatches when Index/Length are needed but not captures
+    - Remove Regex that could just be IndexOf

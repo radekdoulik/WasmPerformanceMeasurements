@@ -1,0 +1,5 @@
+commit c2dbee1e3af4b7b0a74c192d51970633e8df2a37
+Author: Robin Lindner <robin@deeprobin.de>
+Date:   Thu Apr 14 22:50:18 2022 +0200
+
+    Use new `TimeSpan.TotalMicroseconds` API in `Socket.ToTimeoutMicroseconds` (#68030)

@@ -1,0 +1,26 @@
+commit e2cddabc4cc7b8f646472728ada658c922dfb001
+Author: Stephen Halter <halter73@gmail.com>
+Date:   Mon Jun 20 14:40:30 2022 -0700
+
+    Add AddSystemd() and AddWindowsService() IServiceCollection extension methods (#68580)
+    
+    * Add AddSystemd() IServiceCollection extension method
+    
+    * Add AddWindowsService() IServiceCollection extension method
+    
+    * Don't default to CWD if in C:\Windows\system32
+    - instead, when CWD is C:\Windows\system32 Hosting will use AppContext.BaseDirectory. This way Windows apps and services that are launched will work by default. HostApplicationBuilder.ContentRootPath can't be changed after construction, so setting it to a workable default for Windows apps.
+    
+    Co-authored-by: Eric Erhardt <eric.erhardt@microsoft.com>
+    Co-authored-by: Martin Costello <martin@martincostello.com>
+    
+    * Use RemoteExecutor
+    
+    * Update src/libraries/Microsoft.Extensions.Hosting/tests/UnitTests/HostTests.cs
+    
+    * Skip test on Windows nano server
+    
+    * Respond to PR feedback
+    
+    Co-authored-by: Eric Erhardt <eric.erhardt@microsoft.com>
+    Co-authored-by: Martin Costello <martin@martincostello.com>

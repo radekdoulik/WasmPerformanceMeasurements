@@ -1,0 +1,14 @@
+commit 917a0b1bfce3d664fe46587faceb056bca8936f6
+Author: madelson <1269046+madelson@users.noreply.github.com>
+Date:   Mon Mar 14 18:08:17 2022 -0400
+
+    Avoid Attribute.GetCustomAttributes() returning null for open generic type
+    
+    * Revert "Revert "Avoid Attribute.GetCustomAttributes() returning null for open generic type (#65237)" (#66508)"
+    
+    This reverts commit f99ba2e2b8fbf03be5058ad23e8cdce9c4a09da6.
+    
+    * Make DynamicMethod.GetCustomAttributes() return well-typed arrays.
+    
+    This change makes DynamicMethod.GetCustomAttributes() compatible with
+    Attribute.GetCustomAttributes().

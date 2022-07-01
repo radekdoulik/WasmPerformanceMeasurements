@@ -1,0 +1,9 @@
+commit f3c63d87d0014e6548bc8d1e54d8b35ac1dc7a8b
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Fri Jun 24 17:51:11 2022 -0400
+
+    Use IndexOfAnyExcept in a few more places (#71146)
+    
+    * Use IndexOfAnyExcept in a few more places
+    
+    * Address PR feedback

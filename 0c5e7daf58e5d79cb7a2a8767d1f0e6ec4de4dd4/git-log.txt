@@ -1,0 +1,9 @@
+commit 0c5e7daf58e5d79cb7a2a8767d1f0e6ec4de4dd4
+Author: Aleksey Kliger (λgeek) <aleksey@lambdageek.org>
+Date:   Tue Apr 5 16:45:16 2022 -0400
+
+    [tests] Re-enable generic math Create tests on iOS (#67542)
+    
+    Fixes https://github.com/dotnet/runtime/issues/61920
+    
+    Fixed by https://github.com/dotnet/runtime/pull/66739

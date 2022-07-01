@@ -1,0 +1,11 @@
+commit ff6af23ae9d03b3b72b2bfe01ee665f7062c6ee4
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Mon May 2 23:16:24 2022 +0200
+
+    Remove GTF_GLOB_REF on a few more addressing nodes (#68741)
+    
+    GTF_GLOB_REF is necessary on a GT_ADDR node only if the child actually
+    uses a tree with this flag as a value (and not as a location). This
+    removes the flag in a few more places by using IsLocalAddrExpr.
+    
+    Fixes #68669

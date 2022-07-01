@@ -1,0 +1,5 @@
+commit 118a1628c959e5c5895f9971104739c38cdc253b
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Sat May 7 15:00:05 2022 -0400
+
+    Add Interlocked.{Compare}Exchange for UIntPtr (#68966)

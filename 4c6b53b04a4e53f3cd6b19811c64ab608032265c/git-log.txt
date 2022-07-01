@@ -1,0 +1,7 @@
+commit 4c6b53b04a4e53f3cd6b19811c64ab608032265c
+Author: Filip Navara <navara@emclient.com>
+Date:   Wed Jun 15 23:36:10 2022 +0200
+
+    Remove GSS_KRB5_CRED_NO_CI_FLAGS_X code (#70772)
+    
+    The support for building with GSS_KRB5_CRED_NO_CI_FLAGS_X was broken for quite some time. Attempts to reenable it failed due to bug in the krb5 GSSAPI implementation resulting in invalid memory accesses.

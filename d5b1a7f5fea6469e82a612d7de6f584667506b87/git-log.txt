@@ -1,0 +1,19 @@
+commit d5b1a7f5fea6469e82a612d7de6f584667506b87
+Author: Marie Píchová <11718369+ManickaP@users.noreply.github.com>
+Date:   Fri Apr 1 23:26:31 2022 +0200
+
+    [QUIC] Update to msquic 2 (#67383)
+    
+    * Update to msquic 2, test and code fixes
+    
+    * feedback
+    
+    * Fixed more HTTP/3 bugs
+    
+    * updated fedora image to contain the newest msquic
+    
+    * Better test debugging, fixed some timeouts
+    
+    * feedback
+    
+    * Return some msquic calls into a lock

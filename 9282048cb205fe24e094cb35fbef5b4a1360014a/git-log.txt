@@ -1,0 +1,9 @@
+commit 9282048cb205fe24e094cb35fbef5b4a1360014a
+Author: Omair Majid <omajid@redhat.com>
+Date:   Wed Mar 30 17:42:41 2022 -0400
+
+    Show the actual value of the X09VerifyStatusCode on error
+    
+    Right now, the Debug.Fail just shows the literal text `Unrecognized
+    X509VerifyStatusCode:Interop+Crypto+X509VerifyStatusCode`, which isn't
+    very helpful.

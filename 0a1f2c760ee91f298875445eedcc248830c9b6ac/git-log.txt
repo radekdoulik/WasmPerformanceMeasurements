@@ -1,0 +1,9 @@
+commit 0a1f2c760ee91f298875445eedcc248830c9b6ac
+Author: Radek Zikmund <32671551+rzikm@users.noreply.github.com>
+Date:   Mon May 16 22:58:57 2022 +0200
+
+    Move MsQuicStream._streamId into MsQuicStream.State (#69382)
+    
+    * Move StreamId into State
+    
+    * Code review feedback

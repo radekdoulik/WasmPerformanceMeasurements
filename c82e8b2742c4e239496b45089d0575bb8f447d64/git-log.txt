@@ -1,0 +1,10 @@
+commit c82e8b2742c4e239496b45089d0575bb8f447d64
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Sun Apr 24 13:16:46 2022 +0200
+
+    Update jitrollingbuild.py to use retrying download from jitutil.py (#68442)
+    
+    Fix spurious downloading failures.
+    
+    Also use Python's logging library for it (necessary to get output from
+    jitutil.py)

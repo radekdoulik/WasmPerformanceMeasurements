@@ -1,0 +1,5 @@
+commit c504512a0c62e3ede450d4ac3689c750d3ef09de
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Thu Apr 28 17:51:38 2022 -0400
+
+    Avoid Path.Join(string, ...) allocations for null/empty inputs (#68662)

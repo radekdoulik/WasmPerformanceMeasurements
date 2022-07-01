@@ -1,0 +1,23 @@
+commit 051b4828c7d3a0cad3289830ef9fd2120f45bb2b
+Author: Carlos Sanchez <1175054+carlossanlop@users.noreply.github.com>
+Date:   Fri Jun 17 14:02:07 2022 -0700
+
+    Fix bug in Tar preventing extraction of hardlinks or entries starting with `.\` (#70853)
+    
+    * Add PlatformDetection.SupportsHardLinkCreation property.
+    
+    * Fix how paths are combined/joined and sanitized on extraction, to ensure paths with redundant segments get properly handled.
+    
+    * Add tests that verify archives with entries whose paths start with .\, including the root folder itself.
+    
+    * Re-enable the hardlink test, condition it to not run if platform does not support extraction of hardlinks.
+    
+    * Remove unnecessary test - This same code is already being tested by TarReader_ExtractToFile_Tests.ExtractEntriesWithSlashDotPrefix
+    
+    * Reuse test code that retrieves memory stream.
+    
+    * Bump test data package version
+    
+    * Add missing typeof(PlatformDetection) in ConditionalFact
+    
+    Co-authored-by: carlossanlop <carlossanlop@users.noreply.github.com>

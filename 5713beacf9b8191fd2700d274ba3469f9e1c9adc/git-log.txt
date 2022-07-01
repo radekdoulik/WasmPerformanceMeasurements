@@ -1,0 +1,9 @@
+commit 5713beacf9b8191fd2700d274ba3469f9e1c9adc
+Author: Jan Kotas <jkotas@microsoft.com>
+Date:   Thu Jun 16 14:51:46 2022 -0700
+
+    Fix corerun for assemblies with mismatched filename (#70800)
+    
+    corerun gracefully handled filename not matching the assembly name. Handling of this case regressed in #68186. This change is fixing the regression.
+    
+    Fixes #68455

@@ -1,0 +1,9 @@
+commit 1bebb1479baf2de0ad41a9b186bb23bd3173dd86
+Author: SingleAccretion <62474226+SingleAccretion@users.noreply.github.com>
+Date:   Fri Jun 10 00:21:38 2022 +0300
+
+    Set `UnusedValue` correctly for the operands of `ARR_ADDR`/`BOX` (#70498)
+    
+    * Add a test
+    
+    * Fix the issue

@@ -1,0 +1,5 @@
+commit 04e65d2b871211832f9999256435787c727afd0f
+Author: Jeremy Koritzinsky <jekoritz@microsoft.com>
+Date:   Thu May 12 14:53:12 2022 -0700
+
+    Generate the DAC table on Windows with MSVC linker directives instead of resource injection (#68065)

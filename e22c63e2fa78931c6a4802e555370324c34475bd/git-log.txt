@@ -1,0 +1,15 @@
+commit e22c63e2fa78931c6a4802e555370324c34475bd
+Author: Jan Kotas <jkotas@microsoft.com>
+Date:   Sun May 15 11:57:22 2022 -0700
+
+    Fix UTF8 string marshalling regression (#69360)
+    
+    * Fix UTF8 string marshalling regression
+    
+    We need to compensate for the differences in lifetime management patterns used by built-in marshalling system vs. the publicly explosed marshallers.
+    
+    Fixes #69349
+    
+    * Call Marshal.FreeCoTaskMem in the AOT compiler built-in marshalling
+    
+    * Use Marshal.StringToCoTaskMemUni in Utf16StringMarshaller implementation
