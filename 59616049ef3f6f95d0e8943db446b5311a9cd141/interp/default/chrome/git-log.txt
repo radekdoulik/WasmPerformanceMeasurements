@@ -1,0 +1,5 @@
+commit 59616049ef3f6f95d0e8943db446b5311a9cd141
+Author: Qiao Pengcheng <qiaopengcheng@loongson.cn>
+Date:   Sun Jul 3 12:26:07 2022 +0800
+
+    [LoongArch64] Fixed the assert error "(regRecord->assignedInterval == nullptr)" (#71576)
