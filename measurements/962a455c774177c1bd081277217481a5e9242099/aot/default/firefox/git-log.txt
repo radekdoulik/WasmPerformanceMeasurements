@@ -1,0 +1,43 @@
+commit 962a455c774177c1bd081277217481a5e9242099
+Author: Vlad Brezae <brezaevlad@gmail.com>
+Date:   Thu May 26 00:55:56 2022 +0300
+
+    [mono][interp] Add tiering within interpreter (#68823)
+    
+    * [mono][interp] Remove error argument from mono_interp_get_imethod
+    
+    It is unused
+    
+    * [mono][interp] Implement tiering at method execution start
+    
+    For a single MonoMethod*, we can have two InterpMethod* instances, one with optimized flag false and the other with true. When tiering is enabled, when first getting an InterpMethod* for a MonoMethod* we set the optimized flag to false. When generatig code for this method, if optimized is false we must emit a special MINT_TIER_ENTER_METHOD at the start and later in the codegen process we skip applying optimizations to method code.
+    
+    MINT_TIER_ENTER_METHOD opcode is invoked with every method start and it will bump a counter. Once we hit the limit, the method will be tiered up. This process consists of creating a new InterpMethod* instance which have optimized set and storing it in the interp_code_hash, changing the mapping from the old MonoMethod. The optimized and unoptimized method use the same argument space, so tiering the method up requires just to set the ip to the start of the tiered up method code.
+    
+    An additional problem that happens with tiering is that we have to replace all instances of the untiered method from generated code. InterpMethod* instances are stored stored inside data_items of other methods and also inside vtables. When generating code for any method, we have to store in a hash table mappings from untiered InterpMethod* instance to addresses where this instance was stored. When we tier up the unoptimized method, we will traverse the list of addresses where this references is stored and update it to the optimized version.
+    
+    * [mono][interp] Add option to enable/disable optimizations
+    
+    Some optimizations might not be enabled by default, so add option to enable them.
+    
+    * [mono][interp] Implement on stack replacement tiering up
+    
+    In unoptimized code, we add a patchpoint instruction when entering basic blocks that are targets of backward branches, if the stack state is empty. This means that when tiering up a frame we just need to jump to the equivalent basic block in the tiered up method and execution can continue. Since the arguments and IL locals reside in the same space in both versions of the method (their offsets are computed in interp_method_compute_offsets)
+    
+    * [mono][interp] Remove calc_section mutex
+    
+    We always take jit_mm lock when finishing compilation of method, use it also for publishing InterpMethod* fields. This also prevents weird races where the method can be tiered up before the we take the jit_mm lock, resulting in publishing the seq_points for the untiered method
+    
+    * [mono][interp] Fix incorrect linking of bblocks
+    
+    Once we emit a tailcall, execution in the current bblock is finished.
+    
+    * [mono][interp] Fix implicit conversion from i4 to native int
+    
+    We were doing unsigned conversion before
+    
+    * [mono][interp] Fix execution of clauses from il state when tiering is enabled
+    
+    When invoking these clauses we obtained the InterpMethod from the MonoMethod* and make use of the jit info stored during frame unwinding. However, the method might have been tiered up since storing the jit info, so the native offsets stored there will no longer be relative to the optimized imethod. Fetch again the MonoJitInfo* from the imethod that we will be executing.
+    
+    * [mono][interp] Enable tiering by default
