@@ -76,6 +76,8 @@ hardware: Odroid N2+ arm64
 
 5/31/2022 - [2adf205](https://github.com/dotnet/runtime/commit/2adf20521c52f7ff3d104fc6d590966b19f95f2a) :: [aot.default.chrome](measurements/2adf20521c52f7ff3d104fc6d590966b19f95f2a/aot/default/chrome)
 
+5/24/2022 - [c5f949e](https://github.com/dotnet/runtime/commit/c5f949efa20bcb555c453037fa954fcc403f9490) :: [aot.default.chrome](measurements/c5f949efa20bcb555c453037fa954fcc403f9490/aot/default/chrome) :: [aot.default.firefox](measurements/c5f949efa20bcb555c453037fa954fcc403f9490/aot/default/firefox) :: [interp.default.chrome](measurements/c5f949efa20bcb555c453037fa954fcc403f9490/interp/default/chrome) :: [interp.default.firefox](measurements/c5f949efa20bcb555c453037fa954fcc403f9490/interp/default/firefox)
+
 5/23/2022 - [dfedca1](https://github.com/dotnet/runtime/commit/dfedca13acf2ba369fe085efda558a0c3c21be70) :: [aot.default.chrome](measurements/dfedca13acf2ba369fe085efda558a0c3c21be70/aot/default/chrome)
 
 5/22/2022 - [9e5773c](https://github.com/dotnet/runtime/commit/9e5773cf180eca3972cce44d56f055f0957f8eab) :: [aot.default.chrome](measurements/9e5773cf180eca3972cce44d56f055f0957f8eab/aot/default/chrome)

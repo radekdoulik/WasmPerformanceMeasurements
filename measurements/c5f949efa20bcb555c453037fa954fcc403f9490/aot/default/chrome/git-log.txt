@@ -1,0 +1,5 @@
+commit c5f949efa20bcb555c453037fa954fcc403f9490
+Author: Jeremy Koritzinsky <jekoritz@microsoft.com>
+Date:   Tue May 24 14:46:06 2022 -0700
+
+    Fix tracking for if a type has auto-layout fields for the managed type system. (#69451)
