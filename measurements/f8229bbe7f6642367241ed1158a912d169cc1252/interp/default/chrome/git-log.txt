@@ -1,0 +1,13 @@
+commit f8229bbe7f6642367241ed1158a912d169cc1252
+Author: Huo Yaoyuan <huoyaoyuan@hotmail.com>
+Date:   Sun May 29 01:07:24 2022 +0800
+
+    Remove unused MissingMemberException.FormatSignature (#69890)
+    
+    * Remove unused native code
+    
+    * Remove FormatSignature
+    
+    * Add comment and adjust message formatting
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
