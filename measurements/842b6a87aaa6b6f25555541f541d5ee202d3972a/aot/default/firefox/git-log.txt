@@ -1,0 +1,7 @@
+commit 842b6a87aaa6b6f25555541f541d5ee202d3972a
+Author: Vlad Brezae <brezaevlad@gmail.com>
+Date:   Mon May 30 23:02:30 2022 +0300
+
+    [mono][interp] Fix invocation of finally clauses with tiering enabled (#69909)
+    
+    When unwinding the stack during EH, we first populate a StackFrameInfo with various data, like native_offset and jinfo. Let's assume this data is for an untiered method. If this frame has multiple finally clauses that need to be invoked, a finally invocation could tier up the InterpFrame that it is executing. The future finally invocations would use the IPs from the previously resolved untiered method. This change makes the interpreter receive only the clause index (in interp_run_finally) so we correctly resolve the native offsets of the handler.
