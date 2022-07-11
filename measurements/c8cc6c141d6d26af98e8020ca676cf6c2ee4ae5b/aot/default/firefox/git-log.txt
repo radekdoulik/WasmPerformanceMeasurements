@@ -1,0 +1,20 @@
+commit c8cc6c141d6d26af98e8020ca676cf6c2ee4ae5b
+Author: Huo Yaoyuan <huoyaoyuan@hotmail.com>
+Date:   Mon Jul 11 05:42:20 2022 +0800
+
+    Redo minor cleanups in System.Runtime.Numerics (#71274)
+    
+    * Replace union with BitConverter
+    
+    * Cleanup complex
+    
+    * Use HashCode
+    
+    * Update src/libraries/System.Runtime.Numerics/src/System/Numerics/NumericsHelpers.cs
+    
+    * Update src/libraries/System.Runtime.Numerics/src/System/Numerics/BigInteger.cs
+    
+    Co-authored-by: Tanner Gooding <tagoo@outlook.com>
+    
+    Co-authored-by: Stephen Toub <stoub@microsoft.com>
+    Co-authored-by: Tanner Gooding <tagoo@outlook.com>
