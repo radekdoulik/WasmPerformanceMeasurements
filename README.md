@@ -6,6 +6,8 @@ hardware: Odroid N2+ arm64
 
 # Results
 
+7/9/2022 - [d5f084e](https://github.com/dotnet/runtime/commit/d5f084e5a36eec83f60beccfed9ded3f4473a5bf) :: [aot.default.chrome](measurements/d5f084e5a36eec83f60beccfed9ded3f4473a5bf/aot/default/chrome) :: [aot.default.firefox](measurements/d5f084e5a36eec83f60beccfed9ded3f4473a5bf/aot/default/firefox) :: [interp.default.chrome](measurements/d5f084e5a36eec83f60beccfed9ded3f4473a5bf/interp/default/chrome) :: [interp.default.firefox](measurements/d5f084e5a36eec83f60beccfed9ded3f4473a5bf/interp/default/firefox)
+
 7/8/2022 - [983c8f2](https://github.com/dotnet/runtime/commit/983c8f239a98812498d874ed36b7001bd764fdfe) :: [aot.default.chrome](measurements/983c8f239a98812498d874ed36b7001bd764fdfe/aot/default/chrome) :: [aot.default.firefox](measurements/983c8f239a98812498d874ed36b7001bd764fdfe/aot/default/firefox) :: [interp.default.chrome](measurements/983c8f239a98812498d874ed36b7001bd764fdfe/interp/default/chrome) :: [interp.default.firefox](measurements/983c8f239a98812498d874ed36b7001bd764fdfe/interp/default/firefox)
 
 7/7/2022 - [52b3411](https://github.com/dotnet/runtime/commit/52b341158ba294d01bf7eeb2590272efadcbe9a1) :: [aot.default.chrome](measurements/52b341158ba294d01bf7eeb2590272efadcbe9a1/aot/default/chrome) :: [aot.default.firefox](measurements/52b341158ba294d01bf7eeb2590272efadcbe9a1/aot/default/firefox) :: [interp.default.chrome](measurements/52b341158ba294d01bf7eeb2590272efadcbe9a1/interp/default/chrome) :: [interp.default.firefox](measurements/52b341158ba294d01bf7eeb2590272efadcbe9a1/interp/default/firefox)
