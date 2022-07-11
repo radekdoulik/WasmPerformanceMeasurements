@@ -1,0 +1,7 @@
+commit 983c8f239a98812498d874ed36b7001bd764fdfe
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Fri Jul 8 17:55:09 2022 -0400
+
+    Fix more warnings from updated IDE rules (#71779)
+    
+    A newer version of Microsoft.CodeAnalysis.* causes some of the rules to fire in more cases.  Fixing them proactively before we ingest newer versions of these libs.
