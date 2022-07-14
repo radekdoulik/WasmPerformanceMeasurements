@@ -1,0 +1,5 @@
+commit 756f413727801cb350fd71558770e5acaf3bf0ce
+Author: Jeremy Koritzinsky <jekoritz@microsoft.com>
+Date:   Wed Jul 13 14:29:46 2022 -0700
+
+    If the base type is a sequential zero-sized type, treat a derived auto-layout type as starting from field offset 0. (#72065)
