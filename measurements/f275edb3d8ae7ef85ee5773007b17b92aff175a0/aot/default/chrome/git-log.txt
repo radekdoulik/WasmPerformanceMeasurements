@@ -1,0 +1,11 @@
+commit f275edb3d8ae7ef85ee5773007b17b92aff175a0
+Author: Tomas Weinfurt <tweinfurt@yahoo.com>
+Date:   Sun Jul 17 07:02:19 2022 -0700
+
+    fix assert in ssl options clone (#72326)
+    
+    * fix assert in ssl options clone
+    
+    * add CertificateChainPolicy
+    
+    * remove extra assert
