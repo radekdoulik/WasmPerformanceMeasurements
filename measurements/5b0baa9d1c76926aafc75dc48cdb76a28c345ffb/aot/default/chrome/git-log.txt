@@ -1,0 +1,5 @@
+commit 5b0baa9d1c76926aafc75dc48cdb76a28c345ffb
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Thu Jul 21 17:14:58 2022 -0400
+
+    [mono][aot] Pass -mattr=crc32 to opt/llc when sse4.2 is enabled and using llvm 14. (#72579)
