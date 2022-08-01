@@ -1,0 +1,15 @@
+commit aa8489c135ff53bd6ed03d948502f114e7ac12e0
+Author: Tomáš Rylek <trylek@microsoft.com>
+Date:   Sat Jul 30 17:39:54 2022 +0200
+
+    Implement test checking whether CET is active (#71509)
+    
+    As part of Control Flow Enforcement Technology (CET) testing we need
+    to make sure that CET is actually active on the execution machines;
+    otherwise subtle infra changes could easily regress the testing by
+    inadvertently deactivating CET without anyone noticing. This change
+    introduces an initial CET availability test for this purpose.
+    
+    Thanks
+    
+    Tomas
