@@ -1,0 +1,13 @@
+commit bb3be81976a9c62289a4ff813f2407a7a1ab40e3
+Author: Ankit Jain <radical@gmail.com>
+Date:   Wed Aug 3 17:41:51 2022 -0400
+
+    [wasm] Make Wasm.Build.Tests on CI, green again (#73314)
+    
+    * [wasm] Fix Wasm.Build.Tests builds
+    
+    Issue: https://github.com/dotnet/runtime/issues/73312
+    
+    * [wasm] Disable failing Wasm.Build.Tests test on windows
+    
+    Issue: https://github.com/dotnet/runtime/issues/71887
