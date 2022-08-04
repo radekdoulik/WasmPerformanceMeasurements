@@ -1,0 +1,25 @@
+Task - Measurement,8/3/2022
+AppStart - Page show,133.28571428571428
+AppStart - Reach managed,967.375
+Exceptions - NoExceptionHandling,0.00039174775586348884
+Exceptions - TryCatch,0.0005894307154985088
+Exceptions - TryCatchFilter,0.0005095974864150944
+Exceptions - TryCatchFilterInline,0.00033238925628430014
+Exceptions - TryCatchFilterThrow,0.0599637542714281
+Exceptions - TryCatchFilterThrowApplies,0.051347126063387004
+Exceptions - TryCatchThrow,0.0325009406499396
+Json - large deserialize,51.36893203883495
+Json - large serialize,30.765060240963855
+Json - non-ASCII text deserialize,1.8943581976524044
+Json - non-ASCII text serialize,1.2109769484083426
+Json - small deserialize,0.19159270808347326
+Json - small serialize,0.10875649740103958
+Vector - Add 2 Vector128's,0.00035257270431266976
+Vector - Create Vector128,0.00032976838163390035
+Vector - Multiply 2 Vector128's,0.0003780995713646712
+WebSocket - PartialReceive_100KB,0.03
+WebSocket - PartialReceive_10KB,0.027944111776447105
+WebSocket - PartialReceive_1B,0.019869130100076984
+WebSocket - PartialSend_1B,0.00698804780876494
+WebSocket - PartialSend_1MB,1.9090909090909092
+WebSocket - PartialSend_64KB,0.13125
