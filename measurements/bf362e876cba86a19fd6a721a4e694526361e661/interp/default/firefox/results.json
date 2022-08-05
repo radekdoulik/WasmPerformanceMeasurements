@@ -1,0 +1,751 @@
+{
+  "results": [
+    {
+      "span": "00:00:04.5490000",
+      "steps": 6,
+      "taskName": "AppStart",
+      "measurementName": "Page show"
+    },
+    {
+      "span": "00:00:05.6560000",
+      "steps": 40,
+      "taskName": "AppStart",
+      "measurementName": "Page show"
+    },
+    {
+      "span": "00:00:06.1230000",
+      "steps": 45,
+      "taskName": "AppStart",
+      "measurementName": "Page show"
+    },
+    {
+      "span": "00:00:05.0990000",
+      "steps": 39,
+      "taskName": "AppStart",
+      "measurementName": "Page show"
+    },
+    {
+      "span": "00:00:05.5500000",
+      "steps": 43,
+      "taskName": "AppStart",
+      "measurementName": "Page show"
+    },
+    {
+      "span": "00:00:07.5940000",
+      "steps": 7,
+      "taskName": "AppStart",
+      "measurementName": "Reach managed"
+    },
+    {
+      "span": "00:00:07.4430000",
+      "steps": 7,
+      "taskName": "AppStart",
+      "measurementName": "Reach managed"
+    },
+    {
+      "span": "00:00:07.6560000",
+      "steps": 7,
+      "taskName": "AppStart",
+      "measurementName": "Reach managed"
+    },
+    {
+      "span": "00:00:07.5070000",
+      "steps": 7,
+      "taskName": "AppStart",
+      "measurementName": "Reach managed"
+    },
+    {
+      "span": "00:00:07.4950000",
+      "steps": 7,
+      "taskName": "AppStart",
+      "measurementName": "Reach managed"
+    },
+    {
+      "span": "00:00:00.9960000",
+      "steps": 2529355,
+      "taskName": "Exceptions",
+      "measurementName": "NoExceptionHandling"
+    },
+    {
+      "span": "00:00:00.9970000",
+      "steps": 2536018,
+      "taskName": "Exceptions",
+      "measurementName": "NoExceptionHandling"
+    },
+    {
+      "span": "00:00:00.9970000",
+      "steps": 2539372,
+      "taskName": "Exceptions",
+      "measurementName": "NoExceptionHandling"
+    },
+    {
+      "span": "00:00:00.9970000",
+      "steps": 2532679,
+      "taskName": "Exceptions",
+      "measurementName": "NoExceptionHandling"
+    },
+    {
+      "span": "00:00:00.9940000",
+      "steps": 2519467,
+      "taskName": "Exceptions",
+      "measurementName": "NoExceptionHandling"
+    },
+    {
+      "span": "00:00:01.0140000",
+      "steps": 2496884,
+      "taskName": "Exceptions",
+      "measurementName": "TryCatch"
+    },
+    {
+      "span": "00:00:01.0170000",
+      "steps": 2493713,
+      "taskName": "Exceptions",
+      "measurementName": "TryCatch"
+    },
+    {
+      "span": "00:00:01.0150000",
+      "steps": 2500069,
+      "taskName": "Exceptions",
+      "measurementName": "TryCatch"
+    },
+    {
+      "span": "00:00:01.0170000",
+      "steps": 2493713,
+      "taskName": "Exceptions",
+      "measurementName": "TryCatch"
+    },
+    {
+      "span": "00:00:01.0170000",
+      "steps": 2496884,
+      "taskName": "Exceptions",
+      "measurementName": "TryCatch"
+    },
+    {
+      "span": "00:00:05.5360000",
+      "steps": 951788,
+      "taskName": "Exceptions",
+      "measurementName": "TryCatchThrow"
+    },
+    {
+      "span": "00:00:05.5250000",
+      "steps": 936120,
+      "taskName": "Exceptions",
+      "measurementName": "TryCatchThrow"
+    },
+    {
+      "span": "00:00:05.5170000",
+      "steps": 936120,
+      "taskName": "Exceptions",
+      "measurementName": "TryCatchThrow"
+    },
+    {
+      "span": "00:00:05.5280000",
+      "steps": 937520,
+      "taskName": "Exceptions",
+      "measurementName": "TryCatchThrow"
+    },
+    {
+      "span": "00:00:05.5190000",
+      "steps": 936120,
+      "taskName": "Exceptions",
+      "measurementName": "TryCatchThrow"
+    },
+    {
+      "span": "00:00:03.8480000",
+      "steps": 10738297,
+      "taskName": "Exceptions",
+      "measurementName": "TryCatchFilter"
+    },
+    {
+      "span": "00:00:03.9220000",
+      "steps": 10969565,
+      "taskName": "Exceptions",
+      "measurementName": "TryCatchFilter"
+    },
+    {
+      "span": "00:00:03.9220000",
+      "steps": 10969565,
+      "taskName": "Exceptions",
+      "measurementName": "TryCatchFilter"
+    },
+    {
+      "span": "00:00:03.8400000",
+      "steps": 10738297,
+      "taskName": "Exceptions",
+      "measurementName": "TryCatchFilter"
+    },
+    {
+      "span": "00:00:03.9430000",
+      "steps": 10969565,
+      "taskName": "Exceptions",
+      "measurementName": "TryCatchFilter"
+    },
+    {
+      "span": "00:00:03.6510000",
+      "steps": 12004761,
+      "taskName": "Exceptions",
+      "measurementName": "TryCatchFilterInline"
+    },
+    {
+      "span": "00:00:03.6380000",
+      "steps": 12004761,
+      "taskName": "Exceptions",
+      "measurementName": "TryCatchFilterInline"
+    },
+    {
+      "span": "00:00:03.5690000",
+      "steps": 11727906,
+      "taskName": "Exceptions",
+      "measurementName": "TryCatchFilterInline"
+    },
+    {
+      "span": "00:00:03.5670000",
+      "steps": 11727906,
+      "taskName": "Exceptions",
+      "measurementName": "TryCatchFilterInline"
+    },
+    {
+      "span": "00:00:03.5690000",
+      "steps": 11727906,
+      "taskName": "Exceptions",
+      "measurementName": "TryCatchFilterInline"
+    },
+    {
+      "span": "00:00:05.7110000",
+      "steps": 731313,
+      "taskName": "Exceptions",
+      "measurementName": "TryCatchFilterThrow"
+    },
+    {
+      "span": "00:00:05.7230000",
+      "steps": 725782,
+      "taskName": "Exceptions",
+      "measurementName": "TryCatchFilterThrow"
+    },
+    {
+      "span": "00:00:05.7300000",
+      "steps": 724219,
+      "taskName": "Exceptions",
+      "measurementName": "TryCatchFilterThrow"
+    },
+    {
+      "span": "00:00:05.7350000",
+      "steps": 725782,
+      "taskName": "Exceptions",
+      "measurementName": "TryCatchFilterThrow"
+    },
+    {
+      "span": "00:00:05.7280000",
+      "steps": 725782,
+      "taskName": "Exceptions",
+      "measurementName": "TryCatchFilterThrow"
+    },
+    {
+      "span": "00:00:05.4800000",
+      "steps": 960585,
+      "taskName": "Exceptions",
+      "measurementName": "TryCatchFilterThrowApplies"
+    },
+    {
+      "span": "00:00:05.4650000",
+      "steps": 954700,
+      "taskName": "Exceptions",
+      "measurementName": "TryCatchFilterThrowApplies"
+    },
+    {
+      "span": "00:00:05.4820000",
+      "steps": 957632,
+      "taskName": "Exceptions",
+      "measurementName": "TryCatchFilterThrowApplies"
+    },
+    {
+      "span": "00:00:05.4820000",
+      "steps": 957632,
+      "taskName": "Exceptions",
+      "measurementName": "TryCatchFilterThrowApplies"
+    },
+    {
+      "span": "00:00:05.4740000",
+      "steps": 956164,
+      "taskName": "Exceptions",
+      "measurementName": "TryCatchFilterThrowApplies"
+    },
+    {
+      "span": "00:00:05.4170000",
+      "steps": 131,
+      "taskName": "Json",
+      "measurementName": "non-ASCII text serialize"
+    },
+    {
+      "span": "00:00:05.4270000",
+      "steps": 131,
+      "taskName": "Json",
+      "measurementName": "non-ASCII text serialize"
+    },
+    {
+      "span": "00:00:05.4050000",
+      "steps": 131,
+      "taskName": "Json",
+      "measurementName": "non-ASCII text serialize"
+    },
+    {
+      "span": "00:00:05.4160000",
+      "steps": 131,
+      "taskName": "Json",
+      "measurementName": "non-ASCII text serialize"
+    },
+    {
+      "span": "00:00:05.3950000",
+      "steps": 131,
+      "taskName": "Json",
+      "measurementName": "non-ASCII text serialize"
+    },
+    {
+      "span": "00:00:05.7750000",
+      "steps": 73,
+      "taskName": "Json",
+      "measurementName": "non-ASCII text deserialize"
+    },
+    {
+      "span": "00:00:05.7090000",
+      "steps": 72,
+      "taskName": "Json",
+      "measurementName": "non-ASCII text deserialize"
+    },
+    {
+      "span": "00:00:05.7830000",
+      "steps": 73,
+      "taskName": "Json",
+      "measurementName": "non-ASCII text deserialize"
+    },
+    {
+      "span": "00:00:05.7800000",
+      "steps": 73,
+      "taskName": "Json",
+      "measurementName": "non-ASCII text deserialize"
+    },
+    {
+      "span": "00:00:05.7170000",
+      "steps": 72,
+      "taskName": "Json",
+      "measurementName": "non-ASCII text deserialize"
+    },
+    {
+      "span": "00:00:05.0830000",
+      "steps": 5565,
+      "taskName": "Json",
+      "measurementName": "small serialize"
+    },
+    {
+      "span": "00:00:05.0730000",
+      "steps": 5565,
+      "taskName": "Json",
+      "measurementName": "small serialize"
+    },
+    {
+      "span": "00:00:04.5650000",
+      "steps": 5010,
+      "taskName": "Json",
+      "measurementName": "small serialize"
+    },
+    {
+      "span": "00:00:04.1480000",
+      "steps": 4555,
+      "taskName": "Json",
+      "measurementName": "small serialize"
+    },
+    {
+      "span": "00:00:04.1500000",
+      "steps": 4555,
+      "taskName": "Json",
+      "measurementName": "small serialize"
+    },
+    {
+      "span": "00:00:02.2710000",
+      "steps": 1861,
+      "taskName": "Json",
+      "measurementName": "small deserialize"
+    },
+    {
+      "span": "00:00:04.5400000",
+      "steps": 3856,
+      "taskName": "Json",
+      "measurementName": "small deserialize"
+    },
+    {
+      "span": "00:00:04.9090000",
+      "steps": 4176,
+      "taskName": "Json",
+      "measurementName": "small deserialize"
+    },
+    {
+      "span": "00:00:04.9170000",
+      "steps": 4176,
+      "taskName": "Json",
+      "measurementName": "small deserialize"
+    },
+    {
+      "span": "00:00:04.5310000",
+      "steps": 3856,
+      "taskName": "Json",
+      "measurementName": "small deserialize"
+    },
+    {
+      "span": "00:00:05.7110000",
+      "steps": 20,
+      "taskName": "Json",
+      "measurementName": "large serialize"
+    },
+    {
+      "span": "00:00:05.6820000",
+      "steps": 20,
+      "taskName": "Json",
+      "measurementName": "large serialize"
+    },
+    {
+      "span": "00:00:05.7010000",
+      "steps": 20,
+      "taskName": "Json",
+      "measurementName": "large serialize"
+    },
+    {
+      "span": "00:00:05.6840000",
+      "steps": 20,
+      "taskName": "Json",
+      "measurementName": "large serialize"
+    },
+    {
+      "span": "00:00:05.7040000",
+      "steps": 20,
+      "taskName": "Json",
+      "measurementName": "large serialize"
+    },
+    {
+      "span": "00:00:05.9930000",
+      "steps": 18,
+      "taskName": "Json",
+      "measurementName": "large deserialize"
+    },
+    {
+      "span": "00:00:06.0030000",
+      "steps": 18,
+      "taskName": "Json",
+      "measurementName": "large deserialize"
+    },
+    {
+      "span": "00:00:06.0020000",
+      "steps": 18,
+      "taskName": "Json",
+      "measurementName": "large deserialize"
+    },
+    {
+      "span": "00:00:06.0010000",
+      "steps": 18,
+      "taskName": "Json",
+      "measurementName": "large deserialize"
+    },
+    {
+      "span": "00:00:06.0010000",
+      "steps": 18,
+      "taskName": "Json",
+      "measurementName": "large deserialize"
+    },
+    {
+      "span": "00:00:04.2820000",
+      "steps": 8296721,
+      "taskName": "Vector",
+      "measurementName": "Create Vector128"
+    },
+    {
+      "span": "00:00:04.3610000",
+      "steps": 8433333,
+      "taskName": "Vector",
+      "measurementName": "Create Vector128"
+    },
+    {
+      "span": "00:00:04.2790000",
+      "steps": 8296721,
+      "taskName": "Vector",
+      "measurementName": "Create Vector128"
+    },
+    {
+      "span": "00:00:04.2830000",
+      "steps": 8296721,
+      "taskName": "Vector",
+      "measurementName": "Create Vector128"
+    },
+    {
+      "span": "00:00:04.3570000",
+      "steps": 8433333,
+      "taskName": "Vector",
+      "measurementName": "Create Vector128"
+    },
+    {
+      "span": "00:00:04.7200000",
+      "steps": 3946153,
+      "taskName": "Vector",
+      "measurementName": "Add 2 Vector128\u0027s"
+    },
+    {
+      "span": "00:00:04.8590000",
+      "steps": 4068253,
+      "taskName": "Vector",
+      "measurementName": "Add 2 Vector128\u0027s"
+    },
+    {
+      "span": "00:00:04.7780000",
+      "steps": 3975968,
+      "taskName": "Vector",
+      "measurementName": "Add 2 Vector128\u0027s"
+    },
+    {
+      "span": "00:00:04.7780000",
+      "steps": 3975968,
+      "taskName": "Vector",
+      "measurementName": "Add 2 Vector128\u0027s"
+    },
+    {
+      "span": "00:00:04.8140000",
+      "steps": 4006250,
+      "taskName": "Vector",
+      "measurementName": "Add 2 Vector128\u0027s"
+    },
+    {
+      "span": "00:00:04.6550000",
+      "steps": 3859398,
+      "taskName": "Vector",
+      "measurementName": "Multiply 2 Vector128\u0027s"
+    },
+    {
+      "span": "00:00:04.7310000",
+      "steps": 3916793,
+      "taskName": "Vector",
+      "measurementName": "Multiply 2 Vector128\u0027s"
+    },
+    {
+      "span": "00:00:04.7650000",
+      "steps": 3946153,
+      "taskName": "Vector",
+      "measurementName": "Multiply 2 Vector128\u0027s"
+    },
+    {
+      "span": "00:00:04.7260000",
+      "steps": 3916793,
+      "taskName": "Vector",
+      "measurementName": "Multiply 2 Vector128\u0027s"
+    },
+    {
+      "span": "00:00:04.7930000",
+      "steps": 3975968,
+      "taskName": "Vector",
+      "measurementName": "Multiply 2 Vector128\u0027s"
+    },
+    {
+      "span": "00:00:02.7980000",
+      "steps": 251000,
+      "taskName": "WebSocket",
+      "measurementName": "PartialSend_1B"
+    },
+    {
+      "span": "00:00:02.7980000",
+      "steps": 251000,
+      "taskName": "WebSocket",
+      "measurementName": "PartialSend_1B"
+    },
+    {
+      "span": "00:00:02.8240000",
+      "steps": 251000,
+      "taskName": "WebSocket",
+      "measurementName": "PartialSend_1B"
+    },
+    {
+      "span": "00:00:02.8400000",
+      "steps": 251000,
+      "taskName": "WebSocket",
+      "measurementName": "PartialSend_1B"
+    },
+    {
+      "span": "00:00:02.8350000",
+      "steps": 251000,
+      "taskName": "WebSocket",
+      "measurementName": "PartialSend_1B"
+    },
+    {
+      "span": "00:00:00.4550000",
+      "steps": 4000,
+      "taskName": "WebSocket",
+      "measurementName": "PartialSend_64KB"
+    },
+    {
+      "span": "00:00:00.6360000",
+      "steps": 4000,
+      "taskName": "WebSocket",
+      "measurementName": "PartialSend_64KB"
+    },
+    {
+      "span": "00:00:00.6030000",
+      "steps": 4000,
+      "taskName": "WebSocket",
+      "measurementName": "PartialSend_64KB"
+    },
+    {
+      "span": "00:00:00.6030000",
+      "steps": 4000,
+      "taskName": "WebSocket",
+      "measurementName": "PartialSend_64KB"
+    },
+    {
+      "span": "00:00:00.6030000",
+      "steps": 4000,
+      "taskName": "WebSocket",
+      "measurementName": "PartialSend_64KB"
+    },
+    {
+      "span": "00:00:00.2100000",
+      "steps": 110,
+      "taskName": "WebSocket",
+      "measurementName": "PartialSend_1MB"
+    },
+    {
+      "span": "00:00:00.2020000",
+      "steps": 110,
+      "taskName": "WebSocket",
+      "measurementName": "PartialSend_1MB"
+    },
+    {
+      "span": "00:00:00.1930000",
+      "steps": 110,
+      "taskName": "WebSocket",
+      "measurementName": "PartialSend_1MB"
+    },
+    {
+      "span": "00:00:00.2380000",
+      "steps": 110,
+      "taskName": "WebSocket",
+      "measurementName": "PartialSend_1MB"
+    },
+    {
+      "span": "00:00:00.1690000",
+      "steps": 110,
+      "taskName": "WebSocket",
+      "measurementName": "PartialSend_1MB"
+    },
+    {
+      "span": "00:00:02.4260000",
+      "steps": 129900,
+      "taskName": "WebSocket",
+      "measurementName": "PartialReceive_1B"
+    },
+    {
+      "span": "00:00:02.4140000",
+      "steps": 129900,
+      "taskName": "WebSocket",
+      "measurementName": "PartialReceive_1B"
+    },
+    {
+      "span": "00:00:02.4070000",
+      "steps": 129900,
+      "taskName": "WebSocket",
+      "measurementName": "PartialReceive_1B"
+    },
+    {
+      "span": "00:00:02.4020000",
+      "steps": 129900,
+      "taskName": "WebSocket",
+      "measurementName": "PartialReceive_1B"
+    },
+    {
+      "span": "00:00:02.3760000",
+      "steps": 129900,
+      "taskName": "WebSocket",
+      "measurementName": "PartialReceive_1B"
+    },
+    {
+      "span": "00:00:00.0190000",
+      "steps": 501,
+      "taskName": "WebSocket",
+      "measurementName": "PartialReceive_10KB"
+    },
+    {
+      "span": "00:00:00.0220000",
+      "steps": 501,
+      "taskName": "WebSocket",
+      "measurementName": "PartialReceive_10KB"
+    },
+    {
+      "span": "00:00:00.0120000",
+      "steps": 501,
+      "taskName": "WebSocket",
+      "measurementName": "PartialReceive_10KB"
+    },
+    {
+      "span": "00:00:00.0230000",
+      "steps": 501,
+      "taskName": "WebSocket",
+      "measurementName": "PartialReceive_10KB"
+    },
+    {
+      "span": "00:00:00.0250000",
+      "steps": 501,
+      "taskName": "WebSocket",
+      "measurementName": "PartialReceive_10KB"
+    },
+    {
+      "span": "00:00:00.0020000",
+      "steps": 100,
+      "taskName": "WebSocket",
+      "measurementName": "PartialReceive_100KB"
+    },
+    {
+      "span": "00:00:00.0060000",
+      "steps": 100,
+      "taskName": "WebSocket",
+      "measurementName": "PartialReceive_100KB"
+    },
+    {
+      "span": "00:00:00.0030000",
+      "steps": 100,
+      "taskName": "WebSocket",
+      "measurementName": "PartialReceive_100KB"
+    },
+    {
+      "span": "00:00:00.0040000",
+      "steps": 100,
+      "taskName": "WebSocket",
+      "measurementName": "PartialReceive_100KB"
+    },
+    {
+      "span": "00:00:00.0060000",
+      "steps": 100,
+      "taskName": "WebSocket",
+      "measurementName": "PartialReceive_100KB"
+    }
+  ],
+  "minTimes": {
+    "AppStart, Page show": 129.06976744186048,
+    "AppStart, Reach managed": 1063.2857142857142,
+    "Exceptions, NoExceptionHandling": 0.0003926167572139883,
+    "Exceptions, TryCatch": 0.00040598879470926604,
+    "Exceptions, TryCatchThrow": 0.0058164213039038105,
+    "Exceptions, TryCatchFilter": 0.0003575346880209015,
+    "Exceptions, TryCatchFilterInline": 0.00030304643299437615,
+    "Exceptions, TryCatchFilterThrow": 0.007809241733703626,
+    "Exceptions, TryCatchFilterThrowApplies": 0.005704856936137874,
+    "Json, non-ASCII text serialize": 41.18320610687023,
+    "Json, non-ASCII text deserialize": 79.10958904109589,
+    "Json, small serialize": 0.9106476399560922,
+    "Json, small deserialize": 1.175051867219917,
+    "Json, large serialize": 284.1,
+    "Json, large deserialize": 332.94444444444446,
+    "Vector, Create Vector128": 0.0005157459193818859,
+    "Vector, Add 2 Vector128\u0027s": 0.0011943701633108856,
+    "Vector, Multiply 2 Vector128\u0027s": 0.0012054925995380245,
+    "WebSocket, PartialSend_1B": 0.011147410358565738,
+    "WebSocket, PartialSend_64KB": 0.11375,
+    "WebSocket, PartialSend_1MB": 1.5363636363636364,
+    "WebSocket, PartialReceive_1B": 0.018290993071593535,
+    "WebSocket, PartialReceive_10KB": 0.023952095808383235,
+    "WebSocket, PartialReceive_100KB": 0.02
+  },
+  "timeStamp": "2022-08-05T11:43:02.443Z"
+}
