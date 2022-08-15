@@ -1,0 +1,11 @@
+commit 347847265d0832def96a2ff4057029999ffc70b1
+Author: Bruce Forstall <brucefo@microsoft.com>
+Date:   Sat Aug 13 14:49:23 2022 -0700
+
+    Fix arm64 scalar intrinsic use with small arguments (#73876)
+    
+    The code already uses `emitActualTypeSize` in the scalar case;
+    this also uses `genActualType` to get the "actual" type of small
+    types when deciding the intrinsic base type, used in codegen.
+    
+    Fixes #73804
