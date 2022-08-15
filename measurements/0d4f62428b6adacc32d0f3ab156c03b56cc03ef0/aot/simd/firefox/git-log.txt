@@ -1,0 +1,7 @@
+commit 0d4f62428b6adacc32d0f3ab156c03b56cc03ef0
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Fri Aug 12 05:51:28 2022 +0900
+
+    Fix handling of no metadata type (#73759)
+    
+    Turns out we do have one situation where a MethodTable would have no metadata - when it's the unconstructed MethodTable. User code doesn't see them.
