@@ -1,0 +1,9 @@
+commit bc0c9f4a8b2ca23567a3752c04cd6b70fe2e3b1c
+Author: Vladimir Sadov <vsadov@microsoft.com>
+Date:   Sun Aug 14 13:38:41 2022 -0700
+
+    [NativeAOT] Fix a stress crash in thread detach at process shutdown. (#73912)
+    
+    * Fix a stress crash in thread detach at process shutdown.
+    
+    * release alloc context
