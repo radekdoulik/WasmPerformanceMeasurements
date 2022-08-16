@@ -1,0 +1,11 @@
+commit 00f34fbdca48c8fbc8a744dce7ea73103ae047d1
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Tue Aug 16 06:55:02 2022 +0900
+
+    Add generation of structured object file dumps (#73913)
+    
+    The compiler can currently emit an XML file with everything that was emitted into the output object file. This works and it's easily human readable. But the captured information is not very structured and cannot be used to generate aggregate information like 'this assembly contributed X bytes".
+    
+    This adds another dumper format similar to what we do for MIBC and others: it's ECMA-335 based and uses ldtoken/ldstr/ldc to encode the data.
+    
+    This can be used to build better tools. There's currently none but ILDASM, but it would be good to have it for 7.0. Good hackathon project.
