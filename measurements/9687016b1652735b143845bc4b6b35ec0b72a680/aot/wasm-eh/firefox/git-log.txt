@@ -1,0 +1,8 @@
+commit 9687016b1652735b143845bc4b6b35ec0b72a680
+Author: Jo Shields <directhex@apebox.org>
+Date:   Tue Aug 9 17:33:37 2022 -0400
+
+    PlatformNotSupportedException for UNIX domain sockets on iOS/tvOS (#73374)
+    
+    * PNSE for domain sockets on iOS/tvOS
+    * Re-enable some tests which SHOULD now throw PNSE
