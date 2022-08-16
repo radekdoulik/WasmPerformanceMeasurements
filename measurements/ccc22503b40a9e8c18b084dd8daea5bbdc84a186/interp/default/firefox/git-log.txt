@@ -1,0 +1,33 @@
+commit ccc22503b40a9e8c18b084dd8daea5bbdc84a186
+Author: Dan Espinosa <30415120+danespinosa@users.noreply.github.com>
+Date:   Sat Aug 6 12:06:59 2022 -0700
+
+    Process incoming frames before sending frames for Http2Connection. (#73307)
+    
+    * Process incoming frames before sending frames for Http2Connection.
+    
+    Moves the ProcessIncomingFramesAsync method before sending the preface.
+    This fixes a deadlock when using a NamedPipe as a transport where
+    incoming frames need to be read before being able to write.
+    Also rename _expectingSettingsAck to _receivedSettingsAck to clearly
+    specify that the settings frame has being received.
+    
+    Fix #73097
+    
+    * Addressed PR Feedback.
+    
+    Added test that will prevent regresions when using Http2 with NamedPipe as a transport.
+    Addressed PR Feedback
+    
+    Fix #73307
+    
+    * Update ConnectCallback_UseNamedPipe_Success test
+    
+    Fix #73307
+    
+    * Moved ConnectCallback_UseNamedPipe_Success test to
+    SocketsHttpHandlerTest_ConnectCallback_Http2 class
+    
+    Fix #73307
+    
+    Co-authored-by: Daniel Espinosa <luespino@microsoft.com>
