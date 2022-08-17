@@ -9,8 +9,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="modulepreload" href="./main.js" />
     <link rel="modulepreload" href="./dotnet.js" />
+    <style>
+        div {
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        text {
+            cursor: default;
+        }
+    </style>
 </head>
 <body>
+
+    <h1>List of charts</h1>
+    <h2>
+        <label for="startDate">Start Date:</label>
+        <input type="date" id="startDate">
+        <br />
+        <label for="endDate">End Date:</label>
+        <input type="date" id="endDate">
+        <br />
+        <input type="submit" id="submit">
+    </h2>
+    <script>
+        var today = new Date();
+        var weeksAgo = new Date();
+        weeksAgo.setDate(today.getDate() - 14);
+        document.getElementById("startDate").valueAsDate = weeksAgo;
+        document.getElementById("endDate").valueAsDate = today;
+    </script>
+
     <script type='module' src="./main.js"></script>
     <div id="graphs"></div>
 </body>

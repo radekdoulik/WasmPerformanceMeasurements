@@ -1,26 +1,23 @@
 ﻿import { App } from './app-support.js'
 
 App.main = async function (applicationArguments) {
-    App.IMPORTS.window = {
-        location: {
-            href: () => globalThis.window.location.href
-        }
-    };
+
+    const regex = /[^a-zA-Z]/gi;
+    const measurementsUrl = "https://raw.githubusercontent.com/radekdoulik/WasmPerformanceMeasurements/main/measurements/";
+    const margin = { top: 60, right: 120, bottom: 80, left: 120 };
 
     function mapByFlavor(data) {
         var obj = data.reduce((map, e) => ({
             ...map,
             [e.flavor]: [...(map[e.flavor] ?? []), e]
         }), {});
-
         return new Map(Object.entries(obj));
-
     }
 
-    function getWantedTestResults(test, testNumber, numTests = 24) {
+    function getWantedTestResults(data, testNumber, numTests = 28) {
         var array = [];
-        for (let i = testNumber; i < test.length; i += numTests) {
-            array.push(test[i]);
+        for (let i = testNumber; i < data.length; i += numTests) {
+            array.push(data[i]);
         }
         return array;
     }
@@ -41,42 +38,68 @@ App.main = async function (applicationArguments) {
         return result;
     }
 
-    function circlePoints(dataGroup, data, color, x, y, flavor) {
+    function getResultsBetweenDates(allData, startDate, endDate) {
+        var result = allData.filter(function (d) {
+            var date = new Date(d.commitTime);
+            return date.getTime() >= startDate.getTime()
+                && date.getTime() <= endDate.getTime();
+        });
+        return result;
+    }
+
+    function circlePoints(dataGroup, data, color, x, y, flavor, escapedFlavor, taskMeasurementNumber) {
         var radius = 3;
-        var circleGroup = dataGroup.append("g")
-            .attr("class", "circleData");
-        data.forEach(function (point) {
-            circleGroup.append("circle")
+        var circleGroupName = escapedFlavor + "circleData" + taskMeasurementNumber;
+        d3.select("." + circleGroupName).remove();
+        if (data.length !== 0) {
+            var circleGroup = dataGroup.append("g")
+                .attr("class", circleGroupName)
+                .selectAll("circle")
+                .data(data);
+            circleGroup
+                .enter()
+                .append("circle")
+                .merge(circleGroup)
+                .on("click", function (_, i) {
+                    window.open(i.gitLogUrl, '_blank');
+                })
                 .attr("fill", color)
                 .attr("r", radius)
-                .attr("cx", x(new Date(point.commitTime)))
-                .attr("cy", y(+point.minTime))
+                .attr("cx", function (d) { return x(new Date(d.commitTime)); })
+                .attr("cy", function (d) { return y(+d.minTime) })
                 .append("title")
-                .text("Exact date: " + point.commitTime + "\n" + "Flavor: " + flavor + "\n" + "Result: " + +point.minTime + " ms");
-        });
-        return circleGroup;
+                .text(function (d) { return "Exact date: " + d.commitTime + "\n" + "Flavor: " + flavor + "\n" + "Result: " + +d.minTime + ` ${data[0].unit}`; });
+        }
     }
 
-    function plotVariable(dataGroup, color, data, x, y, flavor, taskMeasurementName) {
-        var flavorTestGroup = dataGroup
-            .append("g")
-            .append("path")
-            .attr("class", flavor + taskMeasurementName)
-            .datum(data)
-            .attr("fill", "none")
-            .attr("stroke", color)
-            .attr("stroke-width", 1.5)
-            .attr("d", d3.line()
-                .x(function (d) { return x(new Date(d.commitTime)); })
-                .y(function (d) { return y(+d.minTime); })
-            );
-        return flavorTestGroup;
+    function plotVariable(dataGroup, color, data, x, y, flavor, taskMeasurementNumber) {
+        var className = flavor + taskMeasurementNumber;
+        d3.select("." + className).remove();
+        if (data.length !== 0) {
+            var lineGroup = dataGroup.append("g")
+                .selectAll("path")
+                .data([data]);
+
+            lineGroup
+                .enter()
+                .append("path")
+                .attr("class", className)
+                .merge(lineGroup)
+                .attr("fill", "none")
+                .attr("stroke", color)
+                .attr("stroke-width", 1)
+                .attr("d", d3.line().curve(d3.curveMonotoneX)
+                    .x(function (d) { return x(new Date(d.commitTime)); })
+                    .y(function (d) { return y(+d.minTime); })
+                );
+        }
     }
 
-    function addSimpleText(dataGroup, xCoord, yCoord, textSize, text, color) {
+    function addSimpleText(dataGroup, xCoord, yCoord, textSize, text, color, rotation = 0) {
         return dataGroup.append("g")
             .append("text")
             .text(text)
+            .attr("transform", `rotate(${rotation})`)
             .attr("font-size", textSize)
             .attr("fill", color)
             .attr("text-anchor", "middle")
@@ -84,131 +107,133 @@ App.main = async function (applicationArguments) {
             .attr("y", yCoord);
     }
 
-    function addLegendBorder(dataGroup, xCoord, startY, flavors) {
-        var textSpacing = 15;
-        var rectWidth = 100;
-        var rectHeight = (flavors.length + 1) * textSpacing;
-        var legend = dataGroup.append("g")
+    function addLegendBorder(dataGroup) {
+        var legend = dataGroup
+            .append("div")
+            .attr("width", 400)
+            .attr("height", 400)
+            .append("form")
             .attr("class", "chart-legend");
-        legend.append("rect")
-            .attr("class", "legend")
-            .attr("x", xCoord - 10)
-            .attr("y", startY - 20)
-            .attr("rx", "5px")
-            .attr("width", rectWidth)
-            .attr("height", rectHeight)
-            .attr("stroke", "black")
-            .attr("fill", "white");
-        addSimpleText(legend, xCoord + 40, startY - 10, "10pt", "Chart Legend", "black");
+
+        legend
+            .append("p")
+            .html("Chart Legend");
         return legend;
     }
 
-    function addLegendContent(legend, lineGroup, circleGroup, xCoord, yCoord, color, flavor, taskMeasurementName) {
-        /*var circleRadius = 5;
-        var textSpacing = 15;
-                legend.append("circle")
-                    .attr("cx", xCoord)
-                    .attr("cy", yCoord)
-                    .attr("r", circleRadius)
-                    .style("fill", color);*/
-        legend.append("text")
-            .text(flavor)
-            .attr("font-size", "7pt")
-            .attr("fill", color)
-            .attr("text-anchor", "middle")
-            .attr("x", xCoord)
-            .attr("y", yCoord)
-            .on("click", function () {
-                var visibility = lineGroup.style("visibility");
-                lineGroup.transition().style("visibility", visibility == "visible" ? "hidden" : "visible");
-                circleGroup.transition().style("visibility", visibility == "visible" ? "hidden" : "visible");
-                var textStyle = d3.select(this).style("text-decoration");
-                d3.select(this).transition().style("text-decoration", textStyle == "line-through" ? "none" : "line-through");
-            });
+    function addLegendContent(legend, colors, flavors, taskMeasurementNumber, x, xAxis, y, yAxis, data, dataGroup) {
+        for (var i = 0; i < flavors.length; i++) {
+            var escapedFlavor = flavors[i].replaceAll(regex, '');
+            var lineClass = ".path " + escapedFlavor + taskMeasurementNumber;
+            // var circleClass = ".path " + escapedFlavor + "circleData" + taskMeasurementNumber;
+            legend.append("br");
+            legend.append("input")
+                .attr("type", "checkbox")
+                .attr("checked", "true")
+                .attr("id", lineClass)
+                .on("click", function () {
+                    // should update on click
+                    // update(dataGroup, updatedData, x, xAxis, y, yAxis, flavors, colors, taskMeasurementNumber);
+                });
+            legend.append("label")
+                .attr("for", lineClass)
+                .style("color", colors[i])
+                .html(flavors[i]);
+        }
 
     }
 
-    function buildGraph(data, flavors, numOfDays, margin, taskMeasurementName) {
+    function update(selection, data, x, xAxis, y, yAxis, flavors, colors, taskMeasurementNumber) {
+        x.domain(d3.extent(data, function (d) { return new Date(d.commitTime); }));
+        xAxis.transition().duration(1500).call(d3.axisBottom(x)
+            .tickFormat(d3.timeFormat("%m/%d/%Y")));
+
+        y.domain(d3.extent(data, function (d) { return +d.minTime; }));
+        yAxis.transition().duration(1500).call(d3.axisLeft(y));
+
+        var filteredData = mapByFlavor(data);
+        console.log(filteredData);
+        d3.selectAll(".xAxis .tick text")
+            .attr("transform", "rotate(-15)");
+
+        for (var i = 0; i < flavors.length; i++) {
+            var escapedFlavor = flavors[i].replaceAll(regex, '');
+            plotVariable(selection, colors[i], filteredData.get(flavors[i]), x, y, escapedFlavor, taskMeasurementNumber);
+            circlePoints(selection, filteredData.get(flavors[i]), colors[i], x, y, flavors[i], escapedFlavor, taskMeasurementNumber);
+
+        }
+    }
+
+    function buildGraph(allData, flavors, taskMeasurementNumber) {
 
         const width = 800 - margin.left - margin.right;
         const height = 400 - margin.top - margin.bottom;
 
-        var dataGroup = d3.select("body")
-            .append("div")
-            .style("display", "inline")
+        var startDate;
+        var endDate = new Date();
+
+        var data = getLastDaysData(allData, 14);
+        var collapsible = d3.select("#graphs")
+            .append("details");
+        collapsible.append("summary")
+            .html(data[0].taskMeasurementName);
+        var dataGroup1 = collapsible.append("div");
+        var dataGroup = dataGroup1
             .append("svg")
             .attr("width", width + margin.left + margin.right)
             .attr("height", height + margin.top + margin.bottom)
             .append("g")
             .attr("transform", `translate(${margin.left},${margin.top})`);
 
-        var filteredData = mapByFlavor(data);
         var colors = d3.schemeCategory10;
 
-        const x = d3.scaleTime()
-            .domain(d3.extent(data, function (d) { return new Date(d.commitTime); }))
+        var x = d3.scaleTime()
             .range([0, width])
             .nice();
 
-        const y = d3.scaleLinear()
-            .domain(d3.extent(data, function (d) { return +d.minTime; }))
+        var xAxis = dataGroup
+            .append("g")
+            .attr("class", "xAxis")
+            .attr("transform", "translate(0, " + height + ")");
+
+        var y = d3.scaleLinear()
             .range([height, 0])
             .nice();
 
-        var xAxisGroup = dataGroup
+        var yAxis = dataGroup
             .append("g")
-            .attr("class", "xAxisGroup")
-            .attr("transform", "translate(0, " + height + ")");
+            .attr("class", "yAxis");
 
-        var xAxis = d3.axisBottom(x)
-            .tickFormat(d3.timeFormat("%m/%d/%Y"))
-            .ticks(numOfDays);
+        var yLegendName = addSimpleText(dataGroup, - margin.left, - margin.top, "15pt", `Results (${data[0].unit})`, "black", -90);
+        var legend = addLegendBorder(collapsible);
+        addLegendContent(legend, colors, flavors, taskMeasurementNumber, x, xAxis, y, yAxis, data, dataGroup);
 
-        var yAxisGroup = dataGroup
-            .append("g")
-            .attr("class", "yAxisGroup");
+        update(dataGroup, data, x, xAxis, y, yAxis, flavors, colors, taskMeasurementNumber);
 
-        var yAxis = d3.axisLeft(y);
+        d3.selectAll("#startDate").on("change", function () {
+            startDate = new Date(this.value);
+        });
 
-        var flavorLineGroups = [];
-        var flavorCircleGroups = [];
-        for (var i = 0; i < flavors.length; i++) {
-            var lineGroup = plotVariable(dataGroup, colors[i], filteredData.get(flavors[i]), x, y, flavors[i], taskMeasurementName);
-            flavorLineGroups.push(lineGroup);
-            var circleGroup = circlePoints(dataGroup, filteredData.get(flavors[i]), colors[i], x, y, flavors[i]);
-            flavorCircleGroups.push(circleGroup);
-        }
-        var title = addSimpleText(dataGroup, width / 2, 10 - (margin.top / 2), "12pt", data[0].taskMeasurementName, "black");
-        var yAxisName = addSimpleText(dataGroup, 0 - margin.top / 2, 0 - (margin.top / 2) + 10, "12pt", "Results (ms)", "black");
-        var startY = (height - flavors.length * 20) / 2;
-        var legend = addLegendBorder(dataGroup, width, startY, flavors);
+        d3.selectAll("#endDate").on("change", function () {
+            endDate = new Date(this.value);
+        });
 
-        for (var i = 0; i < flavors.length; i++) {
-            addLegendContent(legend, flavorLineGroups[i], flavorCircleGroups[i], width + 40, startY + 5, colors[i], flavors[i], taskMeasurementName);
-            startY += 15;
-        }
-        yAxis(yAxisGroup);
-        xAxis(xAxisGroup);
-        d3.selectAll(".xAxisGroup .tick text")
-            .attr("transform", "rotate(-15)");
+        d3.selectAll("#submit").on("click", function () {
+            data = getResultsBetweenDates(allData, startDate, endDate);
+            update(dataGroup, data, x, xAxis, y, yAxis, flavors, colors, taskMeasurementNumber);
+        });
 
     }
 
     const exports = await App.MONO.mono_wasm_get_assembly_exports("PerformanceTool.dll");
-    const promise = exports.MyClass.loadData();
-    promise.then(value => {
-        var data = JSON.parse(value);
-        var wantedData = getLastDaysData(data, 14);
-        var flavors = getFlavors(data);
-        const margin = { top: 60, right: 120, bottom: 80, left: 80 };
-        for (var i = 0; i < 24; i++) {
-            var firstTry = getWantedTestResults(wantedData, i);
-            buildGraph(firstTry, flavors, 14, margin, "ceva");
-        }
-
-    });
+    const promise = exports.Program.loadData(measurementsUrl);
+    var value = await promise;
+    var data = JSON.parse(value);
+    var flavors = getFlavors(data);
+    for (var i = 0; i < 28; i++) {
+        var testData = getWantedTestResults(data, i);
+        buildGraph(testData, flavors, i);
+    }
     await App.MONO.mono_run_main("PerformanceTool.dll", applicationArguments);
-
-
 }
 
