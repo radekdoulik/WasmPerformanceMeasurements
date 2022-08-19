@@ -1,0 +1,17 @@
+commit 64d27bb1bd854cd7760393607572a1586a12c949
+Author: Kunal Pathak <Kunal.Pathak@microsoft.com>
+Date:   Thu Aug 18 15:30:42 2022 -0700
+
+    Disable matching constants for vectors that needs upper half to be save/restore (#74110)
+    
+    * Revert "Ensure that GT_CNS_VEC is handled in LinearScan::isMatchingConstant (#70171)"
+    
+    This reverts commit 24f5de4bb10976dfb391e9b6affe5481f55a2d00.
+    
+    * Revert "Revert "Ensure that GT_CNS_VEC is handled in LinearScan::isMatchingConstant (#70171)""
+    
+    This reverts commit 984120f0cde0d26f9768112296e68164cfe76c8e.
+    
+    * Add partial save check
+    
+    * Use the correct register type
