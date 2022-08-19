@@ -1,0 +1,9 @@
+commit 55f5c7c0e0eb1d2a610b600da93c6415d7d46c98
+Author: Katelyn Gadd <kg@luminance.org>
+Date:   Fri Aug 12 04:05:27 2022 -0700
+
+    Introduce a default synchronization context for wasm (#72652)
+    
+    Introduce a JSSynchronizationContext that automatically remotes function calls back to the browser thread and queues them as background jobs.
+    Exercise sync context in threads sample to display the complete progress indicator
+    Clean up an old copy-paste error in the typescript
