@@ -1,0 +1,19 @@
+commit 9cd1a32332daec34ca6a8b13d638b2904e797ae7
+Author: Andy Ayers <andya@microsoft.com>
+Date:   Fri Aug 19 15:54:59 2022 -0700
+
+    Convert more jit phases to opt into common post phase checks (#74041)
+    
+    * Rework the post importation phase
+    * Rework the morph init phase
+    * Rework fgAddInternal
+    * Rework flow graph update phases, compute preds, and update finally flags
+    * Rework struct promotion phase
+    * Rework local morph
+    * Rework morph implicit byrefs
+    * Rework GS cookie phase
+    * Rework compute block and edge weights
+    * Rework create funclets
+    * no funclets on x86, so no phase
+    * account for some jit stress changes
+    * review feedback
