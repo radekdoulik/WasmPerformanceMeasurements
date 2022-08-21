@@ -1,0 +1,11 @@
+commit 729844af1a22c02e6afe53d8053dbd5ec9c5db7e
+Author: Ivan Diaz Sanchez <ivdiazsa@microsoft.com>
+Date:   Sat Aug 20 12:42:33 2022 -0700
+
+    Reenable test Runtime_34170 outside of Arm32 runs (#74185)
+    
+    * Reenable test 34170 outside of Arm32 runs.
+    
+    * Created a specific new section for Crossgen2-Arm32 test disables.
+    
+    Co-authored-by: Ivan Diaz <bluehorizon186@gmail.com>
