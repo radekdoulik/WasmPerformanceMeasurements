@@ -1,0 +1,5 @@
+commit 20aa900f5cc9066b2a394d6588aa0893db39b018
+Author: Simon Rozsival <simon@rozsival.com>
+Date:   Sun Aug 21 21:03:28 2022 +0200
+
+    Prevent awaiting promise that never resolves (#74240)
