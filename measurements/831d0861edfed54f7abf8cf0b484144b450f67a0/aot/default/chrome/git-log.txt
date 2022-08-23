@@ -1,0 +1,134 @@
+commit 831d0861edfed54f7abf8cf0b484144b450f67a0
+Author: dotnet-maestro[bot] <42748379+dotnet-maestro[bot]@users.noreply.github.com>
+Date:   Fri Aug 12 09:24:18 2022 +0200
+
+    [main] Update dependencies from 8 repositories (#72934)
+    
+    * Update dependencies from https://github.com/dotnet/runtime-assets build 20220726.1
+    
+    Microsoft.DotNet.CilStrip.Sources , System.ComponentModel.TypeConverter.TestData , System.Drawing.Common.TestData , System.Formats.Tar.TestData , System.IO.Compression.TestData , System.IO.Packaging.TestData , System.Net.TestData , System.Private.Runtime.UnicodeData , System.Runtime.Numerics.TestData , System.Runtime.TimeZoneData , System.Security.Cryptography.X509Certificates.TestData , System.Text.RegularExpressions.TestData , System.Windows.Extensions.TestData
+     From Version 7.0.0-beta.22361.2 -> To Version 7.0.0-beta.22376.1
+    
+    * Update dependencies from https://github.com/dotnet/emsdk build 20220726.1
+    
+    Microsoft.NET.Workload.Emscripten.Manifest-7.0.100
+     From Version 7.0.0-rc.1.22368.1 -> To Version 7.0.0-rc.1.22376.1
+    
+    * Update dependencies from https://github.com/dotnet/roslyn-analyzers build 20220728.2
+    
+    Microsoft.CodeAnalysis.NetAnalyzers
+     From Version 7.0.0-preview1.22373.2 -> To Version 7.0.0-preview1.22378.2
+    
+    * Update dependencies from https://github.com/dotnet/roslyn-analyzers build 20220729.1
+    
+    Microsoft.CodeAnalysis.NetAnalyzers
+     From Version 7.0.0-preview1.22373.2 -> To Version 7.0.0-preview1.22379.1
+    
+    * Update dependencies from https://github.com/dotnet/runtime build 20220731.5
+    
+    Microsoft.NET.Sdk.IL , Microsoft.NETCore.App.Runtime.win-x64 , Microsoft.NETCore.DotNetHost , Microsoft.NETCore.DotNetHostPolicy , Microsoft.NETCore.ILAsm , runtime.native.System.IO.Ports , System.Text.Json
+     From Version 7.0.0-rc.1.22374.4 -> To Version 7.0.0-rc.1.22381.5
+    
+    * Update dependencies from https://github.com/dotnet/icu build 20220802.1
+    
+    Microsoft.NETCore.Runtime.ICU.Transport
+     From Version 7.0.0-rc.1.22375.1 -> To Version 7.0.0-rc.1.22402.1
+    
+    * Update dependencies from https://github.com/dotnet/xharness build 20220801.2
+    
+    Microsoft.DotNet.XHarness.CLI , Microsoft.DotNet.XHarness.TestRunners.Common , Microsoft.DotNet.XHarness.TestRunners.Xunit
+     From Version 1.0.0-prerelease.22375.5 -> To Version 1.0.0-prerelease.22401.2
+    
+    * Update dependencies from https://github.com/dotnet/emsdk build 20220801.1
+    
+    Microsoft.NET.Workload.Emscripten.Manifest-7.0.100
+     From Version 7.0.0-rc.1.22368.1 -> To Version 7.0.0-rc.1.22401.1
+    
+    * Update dependencies from https://github.com/dotnet/runtime-assets build 20220802.1
+    
+    Microsoft.DotNet.CilStrip.Sources , System.ComponentModel.TypeConverter.TestData , System.Drawing.Common.TestData , System.Formats.Tar.TestData , System.IO.Compression.TestData , System.IO.Packaging.TestData , System.Net.TestData , System.Private.Runtime.UnicodeData , System.Runtime.Numerics.TestData , System.Runtime.TimeZoneData , System.Security.Cryptography.X509Certificates.TestData , System.Text.RegularExpressions.TestData , System.Windows.Extensions.TestData
+     From Version 7.0.0-beta.22361.2 -> To Version 7.0.0-beta.22402.1
+    
+    * Update dependencies from https://github.com/dotnet/roslyn-analyzers build 20220803.2
+    
+    Microsoft.CodeAnalysis.NetAnalyzers
+     From Version 7.0.0-preview1.22373.2 -> To Version 7.0.0-preview1.22403.2
+    
+    * Update dependencies from https://github.com/dotnet/msquic build 20220803.1
+    
+    System.Net.MsQuic.Transport
+     From Version 7.0.0-alpha.1.22371.1 -> To Version 7.0.0-alpha.1.22403.1
+    
+    * Update dependencies from https://github.com/dotnet/llvm-project build 20220804.1
+    
+    runtime.linux-arm64.Microsoft.NETCore.Runtime.ObjWriter , runtime.linux-musl-arm64.Microsoft.NETCore.Runtime.ObjWriter , runtime.linux-musl-x64.Microsoft.NETCore.Runtime.ObjWriter , runtime.linux-x64.Microsoft.NETCore.Runtime.ObjWriter , runtime.osx.11.0-arm64.Microsoft.NETCore.Runtime.ObjWriter , runtime.osx.10.12-x64.Microsoft.NETCore.Runtime.ObjWriter , runtime.win-arm64.Microsoft.NETCore.Runtime.ObjWriter , runtime.win-x64.Microsoft.NETCore.Runtime.ObjWriter
+     From Version 1.0.0-alpha.1.22364.1 -> To Version 1.0.0-alpha.1.22404.1
+    
+    * Update dependencies from https://github.com/dotnet/xharness build 20220805.1
+    
+    Microsoft.DotNet.XHarness.CLI , Microsoft.DotNet.XHarness.TestRunners.Common , Microsoft.DotNet.XHarness.TestRunners.Xunit
+     From Version 1.0.0-prerelease.22375.5 -> To Version 1.0.0-prerelease.22405.1
+    
+    * Update dependencies from https://github.com/dotnet/emsdk build 20220805.3
+    
+    Microsoft.NET.Workload.Emscripten.Manifest-7.0.100
+     From Version 7.0.0-rc.1.22368.1 -> To Version 7.0.0-rc.1.22405.3
+    
+    * Update dependencies from https://github.com/dotnet/msquic build 20220805.1
+    
+    System.Net.MsQuic.Transport
+     From Version 7.0.0-alpha.1.22371.1 -> To Version 7.0.0-alpha.1.22405.1
+    
+    * Update dependencies from https://github.com/dotnet/llvm-project build 20220806.4
+    
+    runtime.linux-arm64.Microsoft.NETCore.Runtime.Mono.LLVM.Sdk , runtime.linux-arm64.Microsoft.NETCore.Runtime.Mono.LLVM.Tools , runtime.linux-x64.Microsoft.NETCore.Runtime.Mono.LLVM.Sdk , runtime.linux-x64.Microsoft.NETCore.Runtime.Mono.LLVM.Tools , runtime.osx.10.12-x64.Microsoft.NETCore.Runtime.Mono.LLVM.Sdk , runtime.osx.10.12-x64.Microsoft.NETCore.Runtime.Mono.LLVM.Tools , runtime.win-x64.Microsoft.NETCore.Runtime.Mono.LLVM.Sdk , runtime.win-x64.Microsoft.NETCore.Runtime.Mono.LLVM.Tools
+     From Version 11.1.0-alpha.1.22376.4 -> To Version 11.1.0-alpha.1.22406.4
+    
+    * Update dependencies from https://github.com/dotnet/runtime build 20220807.4
+    
+    Microsoft.NET.Sdk.IL , Microsoft.NETCore.App.Runtime.win-x64 , Microsoft.NETCore.ILAsm , runtime.native.System.IO.Ports , System.Text.Json
+     From Version 7.0.0-rc.1.22374.4 -> To Version 7.0.0-rc.1.22407.4
+    
+    * Update dependencies from https://github.com/dotnet/icu build 20220808.1
+    
+    Microsoft.NETCore.Runtime.ICU.Transport
+     From Version 7.0.0-rc.1.22375.1 -> To Version 7.0.0-rc.1.22408.1
+    
+    * Update dependencies from https://github.com/dotnet/xharness build 20220808.1
+    
+    Microsoft.DotNet.XHarness.CLI , Microsoft.DotNet.XHarness.TestRunners.Common , Microsoft.DotNet.XHarness.TestRunners.Xunit
+     From Version 1.0.0-prerelease.22375.5 -> To Version 1.0.0-prerelease.22408.1
+    
+    * Update dependencies from https://github.com/dotnet/emsdk build 20220808.2
+    
+    Microsoft.NET.Workload.Emscripten.Manifest-7.0.100
+     From Version 7.0.0-rc.1.22368.1 -> To Version 7.0.0-rc.1.22408.2
+    
+    * Update dependencies from https://github.com/dotnet/llvm-project build 20220808.2
+    
+    runtime.linux-arm64.Microsoft.NETCore.Runtime.Mono.LLVM.Sdk , runtime.linux-arm64.Microsoft.NETCore.Runtime.Mono.LLVM.Tools , runtime.linux-x64.Microsoft.NETCore.Runtime.Mono.LLVM.Sdk , runtime.linux-x64.Microsoft.NETCore.Runtime.Mono.LLVM.Tools , runtime.osx.10.12-x64.Microsoft.NETCore.Runtime.Mono.LLVM.Sdk , runtime.osx.10.12-x64.Microsoft.NETCore.Runtime.Mono.LLVM.Tools , runtime.win-x64.Microsoft.NETCore.Runtime.Mono.LLVM.Sdk , runtime.win-x64.Microsoft.NETCore.Runtime.Mono.LLVM.Tools
+     From Version 11.1.0-alpha.1.22376.4 -> To Version 11.1.0-alpha.1.22408.2
+    
+    * Update dependencies from https://github.com/dotnet/runtime-assets build 20220809.1
+    
+    Microsoft.DotNet.CilStrip.Sources , System.ComponentModel.TypeConverter.TestData , System.Drawing.Common.TestData , System.Formats.Tar.TestData , System.IO.Compression.TestData , System.IO.Packaging.TestData , System.Net.TestData , System.Private.Runtime.UnicodeData , System.Runtime.Numerics.TestData , System.Runtime.TimeZoneData , System.Security.Cryptography.X509Certificates.TestData , System.Text.RegularExpressions.TestData , System.Windows.Extensions.TestData
+     From Version 7.0.0-beta.22361.2 -> To Version 7.0.0-beta.22409.1
+    
+    * Use stable VS2022 build images
+    
+    llvm-project uses that one too now so we shouldn't hit the MSVC ABI issue
+    
+    * Update dependencies from https://github.com/dotnet/llvm-project build 20220811.1
+    
+    runtime.linux-arm64.Microsoft.NETCore.Runtime.ObjWriter , runtime.linux-musl-arm64.Microsoft.NETCore.Runtime.ObjWriter , runtime.linux-musl-x64.Microsoft.NETCore.Runtime.ObjWriter , runtime.linux-x64.Microsoft.NETCore.Runtime.ObjWriter , runtime.osx.11.0-arm64.Microsoft.NETCore.Runtime.ObjWriter , runtime.osx.10.12-x64.Microsoft.NETCore.Runtime.ObjWriter , runtime.win-arm64.Microsoft.NETCore.Runtime.ObjWriter , runtime.win-x64.Microsoft.NETCore.Runtime.ObjWriter
+     From Version 1.0.0-alpha.1.22364.1 -> To Version 1.0.0-alpha.1.22411.1
+    
+    * Update dependencies from https://github.com/dotnet/emsdk build 20220811.1
+    
+    Microsoft.NET.Workload.Emscripten.Manifest-7.0.100
+     From Version 7.0.0-rc.1.22368.1 -> To Version 7.0.0-rc.1.22411.1
+    
+    Co-authored-by: dotnet-maestro[bot] <dotnet-maestro[bot]@users.noreply.github.com>
+    Co-authored-by: Larry Ewing <lewing@microsoft.com>
+    Co-authored-by: Ankit Jain <radical@gmail.com>
+    Co-authored-by: Alexander Köplinger <alex.koeplinger@outlook.com>
