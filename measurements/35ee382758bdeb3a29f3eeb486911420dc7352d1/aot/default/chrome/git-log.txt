@@ -1,0 +1,5 @@
+commit 35ee382758bdeb3a29f3eeb486911420dc7352d1
+Author: Theodore Tsirpanis <teo@tsirpanis.gr>
+Date:   Fri Aug 12 04:47:38 2022 +0300
+
+    Fix `IBinaryInteger.Read***Endian` to accept a `ReadOnlySpan<byte>`. (#73802)
