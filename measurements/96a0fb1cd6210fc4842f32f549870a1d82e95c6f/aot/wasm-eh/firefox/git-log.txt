@@ -1,0 +1,9 @@
+commit 96a0fb1cd6210fc4842f32f549870a1d82e95c6f
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Mon Aug 22 18:58:38 2022 -0400
+
+    Fix a few Tar issues post perf improvements (#74338)
+    
+    * Fix a few Tar issues post perf improvements
+    
+    * Update src/libraries/System.Formats.Tar/src/System/Formats/Tar/TarHeader.Write.cs
