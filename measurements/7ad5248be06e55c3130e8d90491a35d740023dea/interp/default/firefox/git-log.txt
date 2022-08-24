@@ -1,0 +1,5 @@
+commit 7ad5248be06e55c3130e8d90491a35d740023dea
+Author: Thays Grazia <thaystg@gmail.com>
+Date:   Tue Aug 23 17:42:14 2022 -0300
+
+    Fixes trying to evaluate a debugger helper function in a non-wasm page. (#74434)
