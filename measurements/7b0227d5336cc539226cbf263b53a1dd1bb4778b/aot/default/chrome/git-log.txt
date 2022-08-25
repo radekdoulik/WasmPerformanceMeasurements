@@ -1,0 +1,5 @@
+commit 7b0227d5336cc539226cbf263b53a1dd1bb4778b
+Author: Steve Molloy <smolloy@microsoft.com>
+Date:   Wed Aug 24 23:55:57 2022 -0700
+
+    Don't re-use XmlSchemaSet - it's not threadsafe. (#74524)
