@@ -1,0 +1,12 @@
+commit b9e22141682ccef96459c4c18591aed40518340a
+Author: Aleksey Kliger (λgeek) <alklig@microsoft.com>
+Date:   Thu Aug 25 18:48:00 2022 -0400
+
+    [mini] Disable passing valuetypes in SIMD registers (#74582)
+    
+    Partially reverts https://github.com/dotnet/runtime/pull/68991
+    
+    When LLVM code calls non-LLVM code it will pass arguments in SIMD
+    registers which the non-LLVM code doesn't expect
+    
+    Fixes https://github.com/dotnet/runtime/issues/73454 (issue 1)
