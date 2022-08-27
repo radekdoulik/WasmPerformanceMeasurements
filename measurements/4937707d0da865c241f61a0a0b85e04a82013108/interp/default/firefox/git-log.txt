@@ -1,0 +1,9 @@
+commit 4937707d0da865c241f61a0a0b85e04a82013108
+Author: Eric Erhardt <eric.erhardt@microsoft.com>
+Date:   Fri Aug 26 16:53:12 2022 -0500
+
+    Enable Console Logging test in NativeAOT (#74381)
+    
+    Log_WritingScopes_LogsWithCorrectColorsWhenColorEnabled appears to be passing for me in NativeAOT on both Windows and Linux.
+    
+    Contributes to #73436
