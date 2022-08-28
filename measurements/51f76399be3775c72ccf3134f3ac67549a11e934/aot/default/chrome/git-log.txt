@@ -1,0 +1,19 @@
+commit 51f76399be3775c72ccf3134f3ac67549a11e934
+Author: Hafthor Stefansson <Github@hafthor.net>
+Date:   Sat Aug 27 18:49:59 2022 -0400
+
+    Non-canonical NaN tests for Vector Equals method (Issue #68710) (#74517)
+    
+    * Non-canonical NaN tests for Vector Equals method (Issue #68710)
+    
+    * remove System.Half tests since Vectors do not support .Equals on those yet
+    
+    * address PR comments
+    
+    * address PR comments
+    
+    * adds Vector64, Vector128 and Vector256 tests
+    
+    * address PR comment - fix incorrect snan
+    
+    Co-authored-by: Hafthor Stefansson <hstefansson@microsoft.com>
