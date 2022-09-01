@@ -1,0 +1,10 @@
+commit 7922d61f2e82cdcb5110c2a730a3547fe698c594
+Author: Marek Fišera <mara@neptuo.com>
+Date:   Wed Aug 31 21:50:47 2022 +0200
+
+    [wasm] Fix JSExport on structs, records and expression bodied methos (#74763)
+    
+    - Fix generating qualified name for JSExport on structs, record classes and record structs.
+    - Fix using expression bodied methods for JSExport.
+    - Add unit test using all these variants with and without namespace and nested types.
+    - Rewrite concatenating method name.
