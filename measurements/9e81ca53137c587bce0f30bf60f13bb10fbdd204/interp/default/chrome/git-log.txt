@@ -1,0 +1,11 @@
+commit 9e81ca53137c587bce0f30bf60f13bb10fbdd204
+Author: SingleAccretion <62474226+SingleAccretion@users.noreply.github.com>
+Date:   Sat Sep 3 21:04:34 2022 +0300
+
+    Preference sources of copy-like casts to destinations (#74777)
+    
+    * Preference sources of copy-like casts to destinations
+    
+    * Remove invalid BITCAST usage
+    
+    Couple improvements because of CAST's better preferencing.
