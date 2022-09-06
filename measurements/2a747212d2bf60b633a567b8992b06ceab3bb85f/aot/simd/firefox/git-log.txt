@@ -1,0 +1,30 @@
+commit 2a747212d2bf60b633a567b8992b06ceab3bb85f
+Author: Johan Lorensson <lateralusx.github@gmail.com>
+Date:   Tue Sep 6 18:41:13 2022 +0200
+
+    [Mono] Fix Mono Windows x86 build and runtime crash. (#74639)
+    
+    Fix Mono Windows x86 build and runtime crash.
+    
+    Trying to validate a fix on x86 Windows Mono crashed runtime with
+    stack overflow. After some investigation it turns out that Mono
+    Windows x86 have SIMD disabled, but S.P.C was still build with
+    System.Runtime.Intrinsics support and implementation of methods
+    like get_IsSupported is implemented as follow:
+    
+    .method public hidebysig specialname static
+            bool  get_IsSupported() cil managed
+    {
+      // Code size       6 (0x6)
+      .maxstack  8
+      IL_0000:  call       bool System.Runtime.Intrinsics.X86.Popcnt::get_IsSupported()
+      IL_0005:  ret
+    } // end of method Popcnt::get_IsSupported
+    
+    causing a stack overflow when called at runtime.
+    
+    Fix make sure we won't add support for System.Runtime.Intrinsics
+    in S.P.C for Mono Windows x86 builds.
+    
+    There was also a warning in debugger-agent.c when building debug
+    that caused build to fail, including fix for that as well.
