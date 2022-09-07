@@ -1,0 +1,7 @@
+commit 733a51b38553846a0239d37c3ffc7dfa9b9cba38
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Tue Sep 6 17:35:47 2022 -0400
+
+    Add a few missing char.IsXx helpers usage to RegexGenerator.Emitter.cs (#75101)
+    
+    Just pretties up the generated code if these ranges are used.  With this, all of the char.IsXx helpers can be emitted.
