@@ -1,0 +1,13 @@
+commit 005f654c31896de7b1f7b8ef94363a49d9779a56
+Author: Eirik Tsarpalis <eirik.tsarpalis@gmail.com>
+Date:   Mon Jul 11 15:56:29 2022 +0100
+
+    Improve JsonSerializerContext error messages in combined contexts. (#71936)
+    
+    * Improve JsonSerializerContext error messages in combined contexts.
+    
+    * Update src/libraries/System.Text.Json/src/System/Text/Json/Serialization/JsonSerializerOptions.cs
+    
+    Co-authored-by: Krzysztof Wicher <mordotymoja@gmail.com>
+    
+    Co-authored-by: Krzysztof Wicher <mordotymoja@gmail.com>
