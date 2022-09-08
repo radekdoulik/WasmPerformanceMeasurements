@@ -1,0 +1,15 @@
+commit ebd80ad07516c7cbf126789c441700db94acbec8
+Author: SingleAccretion <62474226+SingleAccretion@users.noreply.github.com>
+Date:   Wed Sep 7 23:50:26 2022 +0300
+
+    Do not create `ADDR(HWI/SIMD)` in the inliner (#74276)
+    
+    * Simplify some inlining code
+    
+    * Fix up the tail call hackaround
+    
+    Integer zero works better with ASG parents (they turn into init blks).
+    
+    * Add a test for the implicit byref bug
+    
+    * Fix the implicit byref bug
