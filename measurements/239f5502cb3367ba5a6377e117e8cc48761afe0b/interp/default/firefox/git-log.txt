@@ -1,0 +1,9 @@
+commit 239f5502cb3367ba5a6377e117e8cc48761afe0b
+Author: Olli Saarikivi <olsaarik@microsoft.com>
+Date:   Thu Sep 8 15:00:03 2022 -0700
+
+    Fix RegexOptions.NonBacktracking matching end anchors at timeout check boundaries (#74525)
+    
+    Pass integer bound into innermost matching loop rather than slicing the input
+    span, which was causing end anchors to improperly match before input end.
+    Add test that fails when timeout check boundaries get treated as end-of-input.
