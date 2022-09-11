@@ -1,0 +1,10 @@
+commit cb1343dacb8718aff22fc74218218ebc05520277
+Author: Andy Ayers <andya@microsoft.com>
+Date:   Sat Sep 10 09:26:41 2022 -0700
+
+    JIT: block copy/zero assertion gen for structs with exposed promoted fields (#75375)
+    
+    If a struct has an exposed field, we can't safely reason about is value in
+    local assertion prop.
+    
+    Closes #75249.
