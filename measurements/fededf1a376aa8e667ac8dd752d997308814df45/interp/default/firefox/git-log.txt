@@ -1,0 +1,9 @@
+commit fededf1a376aa8e667ac8dd752d997308814df45
+Author: Vitek Karas <10670590+vitek-karas@users.noreply.github.com>
+Date:   Mon Jul 11 10:54:09 2022 -0700
+
+    Don't use Newtonsoft.Json as a test dependency name in ResolveComponentDependencies host test. (#71946)
+    
+    Use a made up generic name in a test dependency. Using a valid NuGet package name can trigger repo-wide checks for stale versions of dependencies.
+    
+    In the case of this test it's just a name, the test actually doesn't use the binary (it makes up an empty file with that name).
