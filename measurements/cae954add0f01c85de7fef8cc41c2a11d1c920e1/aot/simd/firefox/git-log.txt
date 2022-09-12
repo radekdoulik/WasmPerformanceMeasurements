@@ -1,0 +1,12 @@
+commit cae954add0f01c85de7fef8cc41c2a11d1c920e1
+Author: Bruce Forstall <brucefo@microsoft.com>
+Date:   Mon Jul 11 12:31:11 2022 -0700
+
+    Fix JitDoSsa=0 (#71789)
+    
+    If we don't do SSA, we don't do liveness, but Lowering depends on
+    liveness-created lvDoNotEnregister, so if we're not doing SSA,
+    at least run local var liveness. Note that in the MinOpts case,
+    `lvSetMinOptsDoNotEnreg()` sets all locals to do-not-enregister.
+    
+    Fixes #62251
