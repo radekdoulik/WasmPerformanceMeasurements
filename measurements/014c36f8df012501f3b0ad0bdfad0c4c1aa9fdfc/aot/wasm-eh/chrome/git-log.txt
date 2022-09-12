@@ -1,0 +1,9 @@
+commit 014c36f8df012501f3b0ad0bdfad0c4c1aa9fdfc
+Author: Steve Pfister <steveisok@users.noreply.github.com>
+Date:   Sun Sep 11 15:20:57 2022 -0700
+
+    Fix WebSockets.Client.ConnectTest crash for apple mobile platforms (#75344)
+    
+    https://github.com/dotnet/runtime/pull/74473 had a change where we started adding a client certificate that is not supported on apple mobile platforms. This lead to an unhandled exception in the MemberData setup of ConnectAsync_CustomInvokerWithIncompatibleWebSocketOptions_ThrowsArgumentException and resulted in an app crash.
+    
+    Addresses https://github.com/dotnet/runtime/issues/75307
