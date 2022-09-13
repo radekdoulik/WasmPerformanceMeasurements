@@ -1,0 +1,10 @@
+commit 4a2ebf204801dc099d4e58dcdaf715dcecedcfda
+Author: Pavel Savara <pavel.savara@gmail.com>
+Date:   Mon Jul 11 23:06:41 2022 +0200
+
+    [wasm] reduce eval in production code (#71932)
+    
+    * reduce eval in production code
+    * fix for JSExport nested types
+    * update benchmark to use JSExport/JSImport instead of reflection
+    * fix console benchmark
