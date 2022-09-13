@@ -1,0 +1,7 @@
+commit 933d78cbf0a979d9381236edc57faa299a3358d5
+Author: Buyaa Namnan <bunamnan@microsoft.com>
+Date:   Mon Jul 11 14:49:18 2022 -0700
+
+    Make MetadataReader.GetAssemblyName(string assemblyFile) public (#71801)
+    
+    Co-authored-by: Stephen Toub <stoub@microsoft.com>
