@@ -1,0 +1,9 @@
+commit 3c8bab65f7874925080abb5ba0b8e9a783150a96
+Author: Parker Bibus <parkerbibus@microsoft.com>
+Date:   Mon Sep 12 16:35:55 2022 -0500
+
+    [Perf] Update shared/Microsoft.NETCore.App path from 7.0.0 to 8.0.0 path for main runs. (#75285)
+    
+    * Change 7.0.0 to 8.0.0 path for main runs.
+    
+    * Fix path in another location.
