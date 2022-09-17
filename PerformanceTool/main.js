@@ -16,8 +16,19 @@ async function mainJS() {
     const regex = /[^a-zA-Z]/gi;
     const measurementsUrl = "https://raw.githubusercontent.com/radekdoulik/WasmPerformanceMeasurements/main/measurements/";
     const margin = { top: 60, right: 120, bottom: 80, left: 120 };
-    const width = screen.width * 0.8 - margin.left - margin.right;
+    const width = screen.width * 0.75 - margin.left - margin.right;
     const height = 500 - margin.top - margin.bottom;
+    const greenShade = d3.scaleLinear().domain([0, 100])
+        .range(["white", "darkgreen"]);
+    const redShade = d3.scaleLinear().domain([0, 100])
+        .range(["white", "darkred"]);
+    const datePresets = ["last week", "last 14 days", "last month", "last 3 months", "whole history"];
+    const colors = d3.schemeCategory10;
+    var tasksIds = new Map();
+    var numTests = 0;
+    var firstDate = null;
+    var testsData = [];
+
     class TaskData {
         constructor(taskId, legendName, dataGroup, allData, flavors, x, y, xAxis, xGrid, yGrid, yAxisLeft, yAxisRight) {
             this.taskId = taskId;
@@ -50,34 +61,12 @@ async function mainJS() {
         return testsMap;
     }
 
-    function getFirstTestDate(data) {
-        let datesArray = data.map(d => d.time);
-        return new Date(Math.min(...datesArray));
-    }
-
-    function getContentFromFlavor(flavors) {
-        let set = new Set();
-        flavors.forEach(function (flavor) {
-            let values = flavor.split(".");
-            values.forEach(value => set.add(value));
-        });
-        let keys = [...set];
-        return keys;
-    }
-
     function mapByField(data, property) {
         let obj = data.reduce((map, e) => ({
             ...map,
             [e[property]]: [...(map[e[property]] ?? []), e]
         }), {});
         return new Map(Object.entries(obj));
-    }
-
-    function getDataProperties(data, property) {
-        let set = new Set();
-        data.forEach(d => set.add(d[property]));
-        let keys = [...set];
-        return keys;
     }
 
     function getResultsBetweenDates(allData, startDate, endDate) {
@@ -245,6 +234,9 @@ async function mainJS() {
         testData.yGrid.call(yAxisGrid);
 
         removeOldData(testData);
+
+        d3.selectAll(".xAxis .tick text")
+            .attr("transform", "rotate(-15)");
 
         let escapedFlavor = "";
         let filteredData = mapByField(testData.data, "flavor");
@@ -505,7 +497,6 @@ async function mainJS() {
     }
 
     function createTable(modalName, tableButton, taskNames) {
-
         d3.select("#" + tableButton).on("click", function () {
             d3.select(".table").remove();
             let table = d3.select("#" + modalName).append("table")
@@ -589,14 +580,24 @@ async function mainJS() {
         let wantedData = getWantedData(taskNames);
         let markDown = [];
         let testsLen = wantedData.length;
+        let availableFlavors = wantedData[0].availableFlavors;
         if (testsLen > 0) {
             let availableFlavors = wantedData[0].availableFlavors;
             let availableFlavorsLen = availableFlavors.length;
             for (let i = 0; i < testsLen; i++) {
                 let commits = [...mapByField(wantedData[i].data, "commitHash").keys()];
                 let results = mapByField(wantedData[i].data, "flavor");
-                let commitsLen = commits.length;
-                markDown.push("|");
+                var mapAsObject = Object.fromEntries(results);
+                let title = tasksIds.get(wantedData[i].taskId);
+                let availableFlavorsJson = JSON.stringify(availableFlavors);
+                let availableCommitsJson = JSON.stringify(commits);
+                for (let j = 0; j < availableFlavors.length; j++) {
+                    let currentFlavor = availableFlavors[j];
+                    let neededData = JSON.stringify(results.get);
+                    console.log(neededData);
+                }
+
+                /*markDown.push("|");
                 markDown.push(tasksIds.get(wantedData[i].taskId));
                 markDown.push(`(${commits[0].substring(0, 7)})`);
                 markDown.push("|");
@@ -628,7 +629,7 @@ async function mainJS() {
                     }
                     markDown.push('\n');
                 }
-                markDown.push('\n');
+                markDown.push('\n');*/
             }
             let firstCommit = wantedData[0].data[0].commitHash.substring(0, 7);
             let endCommit = wantedData[testsLen - 1].data[wantedData[testsLen - 1].data.length - 1].commitHash.substring(0, 7);
@@ -640,47 +641,29 @@ async function mainJS() {
     }
 
     function processData(data, flavors) {
-        let tests = mapByField(data, "taskMeasurementName");
-        for (let i = 0; i < numTests; i++) {
-            let task = tests.get(tasksIds.get(i));
-            let flavorTests = mapByField(task, "flavor");
-            for (let j = 0; j < flavors.length; j++) {
-                let curTest = flavorTests.get(flavors[j]);
-                let curTestLength = curTest.length;
-                curTest[0].percentge = 0;
-                curTest[0].time = new Date(curTest[0].commitTime);
-                for (let k = 1; k < curTestLength; k++) {
-                    curTest[k].time = new Date(curTest[k].commitTime);
-                    curTest[k].percentage = (-1) * (curTest[k - 1].minTime - curTest[k].minTime) / curTest[k - 1].minTime * 100;
-                }
-            }
+        let dataLen = data.length;
+        for (let i = 0; i < dataLen; i++) {
+            data[i].time = new Date(data[i].commitTime);
         }
     }
 
     const promise = exports.Program.loadData(measurementsUrl);
     var value = await promise;
-    let data = JSON.parse(value);
-    let flavors = getDataProperties(data, "flavor");
-    let testNames = getDataProperties(data, "taskMeasurementName");
-    let datePresets = ["last week", "last 14 days", "last month", "last 3 months", "whole history"];
-    let graphFilters = getContentFromFlavor(flavors);
-    var numTests = testNames.length;
-    var tasksIds = new Map();
-    const testToTask = mapTestsToTasks(testNames);
+    let unfilteredData = JSON.parse(value);
+    let data = unfilteredData.graphPoints;
+    let flavors = unfilteredData.flavors;
+    let testNames = unfilteredData.taskNames.sort();
+    numTests = testNames.length;
+    let graphFilters = JSON.parse(exports.Program.GetSubFlavors(JSON.stringify(flavors)));
+    var testToTask = mapTestsToTasks(testNames);
     testNames.map(function (d, i) {
         tasksIds.set(i, d);
     });
-    var greenShade = d3.scaleLinear().domain([0, 100])
-        .range(["white", "darkgreen"]);
-    var redShade = d3.scaleLinear().domain([0, 100])
-        .range(["white", "darkred"]);
     processData(data, flavors);
-    var firstDate = getFirstTestDate(data);
-    let colors = d3.schemeCategory10;
+    firstDate = data[0].time;
     var ordinal = d3.scaleOrdinal()
         .domain(flavors)
         .range(colors);
-    let testsData = [];
     appendCollapsibles("graphs", testToTask);
     for (let i = 0; i < numTests; i++) {
         testsData.push(buildGraph(data, flavors, i));
