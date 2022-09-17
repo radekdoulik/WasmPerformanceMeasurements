@@ -1,0 +1,13 @@
+commit 242c95aab1085dc5af9a017c00fe78c58386229f
+Author: DeepakRajendrakumaran <deepak.rajendrakumaran@intel.com>
+Date:   Fri Sep 16 13:58:59 2022 -0700
+
+    Adding zmmStateSupport and  AVX512F, AVX512CD, AVX512BW, AVX512DQ and AVX512VL ISAs. (#74113)
+    
+    * Adding avx512StateSupport().
+    
+    This adds the helper functions to check if avx512 functionality is supported.
+    
+    * Adding AVX512F, AVX512CD, AVX512BW, AVX512DQ and AVX512VL ISAs.
+    
+    * Updating JIT/EE Version Guid.
