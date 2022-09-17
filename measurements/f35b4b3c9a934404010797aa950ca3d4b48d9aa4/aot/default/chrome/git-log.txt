@@ -1,0 +1,7 @@
+commit f35b4b3c9a934404010797aa950ca3d4b48d9aa4
+Author: Adam Sitnik <adam.sitnik@gmail.com>
+Date:   Wed Aug 17 17:53:31 2022 +0200
+
+    Vectorize {Last}IndexOf{Any}{Except} without code duplication (#73768)
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
