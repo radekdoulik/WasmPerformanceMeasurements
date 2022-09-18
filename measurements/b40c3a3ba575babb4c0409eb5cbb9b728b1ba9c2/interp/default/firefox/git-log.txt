@@ -1,0 +1,34 @@
+commit b40c3a3ba575babb4c0409eb5cbb9b728b1ba9c2
+Author: Tanner Gooding <tagoo@outlook.com>
+Date:   Sat Sep 17 13:16:17 2022 -0700
+
+    Updating Vector*.IsHardwareAccelerated to be recursive (#69578)
+    
+    * Updating Vector*.IsHardwareAccelerated to be recursive so it works in the debugger
+    
+    * Adding tests validating indirect and direct invocation of get_IsHardwareAccelerated return the same value
+    
+    * Ensure that Vector<T>.IsHardwareAccelerated supports being recursive
+    
+    * Apply suggestions from code review
+    
+    Co-authored-by: Stephen Toub <stoub@microsoft.com>
+    
+    * Update src/libraries/System.Numerics.Vectors/tests/GenericVectorTests.cs
+    
+    * Detect the one legal violation of the behaves the same rule for intrinsics in CoreLib
+    - The functions which detect if an intrinsic is actually available are allowed to have behavior which differs based on which intrinsics are available at runtime
+    
+    * [mono] Intrinsify IsHardwareAccelerated in the interpreter.
+    
+    * Add a fallback path for unhandled recursive intrinsics in System.Numerics
+    
+    * Move the Vector.IsHardwareAccelerated handling into SimdAsHWIntrinsicInfo.lookupId
+    
+    * Fixinng a compiler error due to an unresolved member
+    
+    * Adjust the NI_IsSupported_Dynamic checks to be NAOT only
+    
+    Co-authored-by: Stephen Toub <stoub@microsoft.com>
+    Co-authored-by: David Wrighton <davidwr@microsoft.com>
+    Co-authored-by: Zoltan Varga <vargaz@gmail.com>
