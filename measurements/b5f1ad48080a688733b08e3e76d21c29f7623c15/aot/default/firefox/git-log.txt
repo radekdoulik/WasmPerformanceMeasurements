@@ -1,0 +1,11 @@
+commit b5f1ad48080a688733b08e3e76d21c29f7623c15
+Author: Huo Yaoyuan <huoyaoyuan@hotmail.com>
+Date:   Sun Sep 18 22:31:46 2022 +0800
+
+    Simplify windows version detection in vm (#75254)
+    
+    * Simplify windows version detection in vm
+    
+    * Update ifdef and include
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
