@@ -280,7 +280,7 @@ async function mainJS() {
                 let firstCommit = brushedData[0];
                 let lastCommit = brushedData[brushedData.length - 1];
                 document.getElementById("firstCommit").value = firstCommit.commitHash;
-                document.getElementById("secondCommit").value = lastCommit.commitHash;
+                document.getElementById("lastCommit").value = lastCommit.commitHash;
                 document.getElementById("startDate").valueAsDate = firstCommit.time;
                 document.getElementById("endDate").valueAsDate = lastCommit.time;
                 for (let i = 0; i < numTests; i++) {
@@ -354,7 +354,7 @@ async function mainJS() {
     function addCommitDiffButton(domName) {
         d3.select("#" + domName).on("click", function () {
             let firstHash = document.getElementById("firstCommit").value;
-            let secondHash = document.getElementById("secondCommit").value;
+            let secondHash = document.getElementById("lastCommit").value;
             window.open("https://github.com/dotnet/runtime/compare/" + firstHash + "..." + secondHash, '_blank');
         });
     }
@@ -605,8 +605,9 @@ async function mainJS() {
         }
     }
 
-    const promise = exports.Program.loadData(measurementsUrl);
-    var value = await promise;
+    const exports = await App.MONO.mono_wasm_get_assembly_exports("PerformanceTool.dll");
+    const promise = exports.Program.LoadData(measurementsUrl);
+    let value = await promise;
     let unfilteredData = JSON.parse(value);
     let data = unfilteredData.graphPoints;
     let flavors = unfilteredData.flavors;
