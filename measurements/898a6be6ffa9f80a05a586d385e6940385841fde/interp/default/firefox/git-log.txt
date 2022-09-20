@@ -1,0 +1,24 @@
+commit 898a6be6ffa9f80a05a586d385e6940385841fde
+Author: Radek Doulik <radekdoulik@gmail.com>
+Date:   Tue Sep 20 08:55:31 2022 +0200
+
+    [wasm] Add Vector128:ExtractMostSignificantBits (#75844)
+    
+    Implement `Vector128:ExtractMostSignificantBits` intrinsic. It is used in many places, so this should improve overall performance.
+    
+    Also fix typo in i16x8 version.
+    
+    The improvements are visible in the Json and Span measurements*:
+    
+    |                      measurement |    before |     after |
+    | -------------------------------: | --------: | --------: |
+    |              Span, IndexOf bytes |  0.3733us |  0.0992us |
+    |              Span, IndexOf chars |  0.0031ms |  0.0027ms |
+    |   Json, non-ASCII text serialize |  1.1966ms |  0.2430ms |
+    | Json, non-ASCII text deserialize |  2.0456ms |  0.5030ms |
+    |            Json, small serialize |  0.0437ms |  0.0274ms |
+    |          Json, small deserialize |  0.0532ms |  0.0497ms |
+    |            Json, large serialize | 13.6972ms |  7.4649ms |
+    |          Json, large deserialize | 17.6993ms | 14.0079ms |
+    
+    * The above was measured with the aot compiler temporary hack to avoid shared generics in Span.
