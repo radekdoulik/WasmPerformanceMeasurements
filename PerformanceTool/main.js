@@ -484,11 +484,19 @@ async function mainJS() {
         permalinkDates(startDate, endDate);
     }
 
+    function formatDate(date) {
+        return [
+            (date.getMonth() + 1).toString().padStart(2, '0'),
+            date.getDate().toString().padStart(2, '0'),
+            date.getFullYear().toString().padStart(4, '0'),
+        ].join('/');
+    }
+
     function permalinkDates(startDate, endDate) {
         let url = new URL(decodeURI(window.location));
         let params = new URLSearchParams(url.search);
-        params.set("startDate", startDate.toISOString().split('T'));
-        params.set("endDate", endDate.toISOString().split('T'));
+        params.set("startDate", formatDate(startDate));
+        params.set("endDate", formatDate(endDate));
         url.search = params;
         window.history.replaceState("", "", url.toString());
     }
@@ -547,9 +555,12 @@ async function mainJS() {
     }
 
     function addURLButton(domname) {
-        d3.select("#" + domname).on("click", function () {
-            navigator.clipboard.writeText(window.location.href);
-        });
+        d3.select("#" + domname)
+            .on("click", function () {
+                navigator.clipboard.writeText(window.location.href);
+                d3.select(this).html("Copied!");
+                setTimeout(_ => d3.select(this).html("Copy Permalink"), 3000);
+            });
     }
 
     function addDatePickers(firstDatePicker, secondDatePicker, submitButton) {
@@ -638,7 +649,7 @@ async function mainJS() {
                             row.append("td")
                                 .attr("class", "text-center")
                                 .style("background-color", wantedTest.percentage < 0 ? greenShade((-1) * wantedTest.percentage) : redShade(wantedTest.percentage))
-                                .attr("title", `Test Result: ${wantedTest.minTime}`)
+                                .attr("title", `Test Result: ${wantedTest.minTime} \n Percentage: ${wantedTest.percentage}`)
                                 .html(`${roundAccurately(wantedTest.percentage, 3)} % `);
                         } else {
                             row.append("td")
@@ -719,6 +730,7 @@ async function mainJS() {
     });
     processTime(data);
     firstDate = data[0].time;
+    console.log(data);
     var ordinal = d3.scaleOrdinal()
         .domain(flavors)
         .range(colors);
