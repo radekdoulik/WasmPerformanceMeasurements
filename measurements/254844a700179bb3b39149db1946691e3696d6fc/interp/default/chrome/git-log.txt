@@ -1,0 +1,17 @@
+commit 254844a700179bb3b39149db1946691e3696d6fc
+Author: Adam Sitnik <adam.sitnik@gmail.com>
+Date:   Thu Sep 22 02:33:20 2022 +0200
+
+    [Mono] Restore old code to solve the recent SpanHelpers regressions (#75917)
+    
+    * bring back the old code...
+    
+    * bring back more old code
+    
+    * Use an ifdef around clr code instead of a separate file
+    
+    * Delete SpanHelpers.Clr.cs
+    
+    * Remove a remaining INumber<T> helper from mono
+    
+    Co-authored-by: Jeff Handley <jeffhandley@users.noreply.github.com>
