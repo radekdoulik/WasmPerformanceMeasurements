@@ -197,7 +197,8 @@ async function mainJS() {
     function addSelectAllButton(domName) {
         let chartParagraph = d3.select("#" + domName);
         let selection = chartParagraph.append("li");
-        selection.append("button")
+        selection.append("center")
+            .append("button")
             .attr("class", "btn btn-block btn-primary")
             .attr("type", "submit")
             .attr("id", "legendSubmit")
@@ -423,7 +424,6 @@ async function mainJS() {
             curTest.data = curTest.data.filter(function (d) {
                 return wantedFlavors.includes(d.flavor);
             });
-            curTest.availableFlavors.length = 0;
             curTest.availableFlavors = Array.from(wantedFlavors);
             updateGraph(curTest);
         }
@@ -546,6 +546,12 @@ async function mainJS() {
         }
     }
 
+    function addURLButton(domname) {
+        d3.select("#" + domname).on("click", function () {
+            navigator.clipboard.writeText(window.location.href);
+        });
+    }
+
     function addDatePickers(firstDatePicker, secondDatePicker, submitButton) {
         let startDate = null,
             endDate = null;
@@ -595,7 +601,7 @@ async function mainJS() {
             let table = d3.select("#" + modalName).append("table")
                 .attr("id", "table")
                 .attr("class", "table table-hover table-bordered");
-            let wantedData = getWantedData(taskNames);
+            let wantedData = getOpenedChartsData(taskNames);
             let testsLen = wantedData.length;
             for (let i = 0; i < testsLen; i++) {
                 let commits = [...mapByField(wantedData[i].data, "commitHash").keys()];
@@ -644,7 +650,7 @@ async function mainJS() {
         });
     }
 
-    function getWantedData(taskNames) {
+    function getOpenedChartsData(taskNames) {
         let tasksLen = taskNames.length;
         let neededData = [];
         for (let i = 0; i < tasksLen; i++) {
@@ -670,7 +676,7 @@ async function mainJS() {
     }
 
     function createMarkdown(taskNames) {
-        let wantedData = getWantedData(taskNames);
+        let wantedData = getOpenedChartsData(taskNames);
         let availableTests = [];
         for (let i = 0; i < wantedData.length; i++) {
             availableTests.push(tasksIds.get(wantedData[i].taskId));
@@ -716,6 +722,7 @@ async function mainJS() {
     var ordinal = d3.scaleOrdinal()
         .domain(flavors)
         .range(colors);
+    createInitialState();
     appendCollapsibles("graphs", testToTask);
     for (let i = 0; i < numTests; i++) {
         testsData.push(buildGraph(data, flavors, i));
@@ -733,7 +740,7 @@ async function mainJS() {
         let [filename, text] = createMarkdown([...testToTask.keys()].sort());
         download(filename, text);
     });
-    createInitialState();
+    addURLButton("copyURL");
     decodeURL();
     document.querySelector("#loadingCircle").style.display = 'none';
     document.querySelector("#main").style.display = '';
