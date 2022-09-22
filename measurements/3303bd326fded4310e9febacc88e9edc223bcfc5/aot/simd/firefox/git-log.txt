@@ -1,0 +1,10 @@
+commit 3303bd326fded4310e9febacc88e9edc223bcfc5
+Author: Koundinya Veluri <kouvel@users.noreply.github.com>
+Date:   Wed Sep 21 15:30:10 2022 -0700
+
+    Fail-fast on SuspendThread/ResumeThread failures (#75845)
+    
+    - They would fail typically if the handle is invalid (perhaps because it was erroneously closed, or it's not a thread handle).
+    - In the places where they are called the handle should be a valid thread handle. Failures can lead to less desirable behaviors, like a deadlock. Added and used `ClrSuspendThread` and `ClrResumeThread` instead, which check for errors and fail-fast.
+    
+    Fixes https://github.com/dotnet/runtime/issues/13327
