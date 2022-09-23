@@ -1,0 +1,15 @@
+commit 32a72d30447ee0309b3789a0210dfc7f17dede17
+Author: Parker Bibus <parkerbibus@microsoft.com>
+Date:   Thu Sep 22 17:21:37 2022 -0500
+
+    [PERF][MAUI] Update 6.0 dotnet install quality (#75722)
+    
+    * Updated the Maui Perf net6.0 to get the latest daily 6.0 version.
+    
+    * Remove TODO comment.
+    
+    * Setup for testing.
+    
+    * Revert "Setup for testing."
+    
+    This reverts commit 903014e269670595b05e08eca4d6de1b8edeab9f.
