@@ -1,0 +1,8 @@
+commit 26009099984a5e881738bed898dcf12f6f68a580
+Author: Karel Zikmund <karelz@microsoft.com>
+Date:   Sat Sep 24 22:58:25 2022 +0200
+
+    Disable failing test SignedXmlTest.VerifyXmlResolver (#76129)
+    
+    PR #75369 tried to fix the problem and re-enabled the test, but it is still failing.
+    Tracked by #74115
