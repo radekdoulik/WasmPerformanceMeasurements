@@ -1,0 +1,7 @@
+commit f9319be338de43fa2807f31435d71c5208aeb41b
+Author: Rose <83477269+AtariDreams@users.noreply.github.com>
+Date:   Sun Sep 25 17:58:38 2022 -0400
+
+    Remove redundant tmp check (#76154)
+    
+    The function has an early return if tmp is ever null, so there is no need to have this check here.
