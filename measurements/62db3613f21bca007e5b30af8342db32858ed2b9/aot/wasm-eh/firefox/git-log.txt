@@ -1,0 +1,25 @@
+commit 62db3613f21bca007e5b30af8342db32858ed2b9
+Author: Miepee <38186597+Miepee@users.noreply.github.com>
+Date:   Tue Sep 27 00:49:59 2022 +0200
+
+    Fix some incorrect SpecialFolder entries for Unix (#68610)
+    
+    * Fix incorrect SpecialFolder entries for Unix
+    
+    This fixes an incorrect Documents/Personal for Linux+Mac entry,
+    incorrect Videos Mac entry,
+    and an incorrect (Local) ApplicationData Mac entry.
+    
+    Fix #63214
+    
+    * Don't make Unix tests assume Personal is Home
+    
+    * Use the same value for Mac's (Local)ApplicationData
+    
+    * Use NSPaths for OSX Special Folder
+    
+    The Apple documentation recommends to use these instead of hardcoding the paths, so the paths that had NSPath equivalents have been replaced.
+    
+    * Change System.Native CMakeLists to include OSX for SearchPath
+    
+    `a17e73466ca639388a3d89f4d6be0ab9703802fc` made OSX call the native NSearchPath functions, however a stub was initially called. This fixes it to call the native functions.
