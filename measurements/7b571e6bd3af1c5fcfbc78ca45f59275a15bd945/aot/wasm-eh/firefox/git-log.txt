@@ -1,0 +1,21 @@
+commit 7b571e6bd3af1c5fcfbc78ca45f59275a15bd945
+Author: Tanner Gooding <tagoo@outlook.com>
+Date:   Tue Sep 27 15:14:47 2022 -0700
+
+    Support containing HWIntrinsics that can operate like a store (#76212)
+    
+    * Support containing HWIntrinsics that can operate like a store
+    
+    * Applying formatting patch
+    
+    * Ensure code is properly under #if defined(FEATURE_HW_INTRINSICS)
+    
+    * Resolve an assert in lsrabuild
+    
+    * Update src/coreclr/jit/emitxarch.cpp
+    
+    Co-authored-by: SingleAccretion <62474226+SingleAccretion@users.noreply.github.com>
+    
+    * Update src/coreclr/jit/codegenlinear.cpp
+    
+    Co-authored-by: SingleAccretion <62474226+SingleAccretion@users.noreply.github.com>
