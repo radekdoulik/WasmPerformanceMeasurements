@@ -1,0 +1,28 @@
+commit 70b33f8f69128eeb1463691e24646987b54a0e3d
+Author: Eric Erhardt <eric.erhardt@microsoft.com>
+Date:   Wed Sep 28 16:30:44 2022 -0500
+
+    Fix DiagnosticSource to work with NativeAOT (#76109)
+    
+    * Fix DiagnosticSource to work with NativeAOT
+    
+    There were 2 problems:
+    
+    1. The use of MakeGenericType doesn't work when a property is a ValueType.
+    An app will crash when a listener is enabled and DiagnosticSourceEventSource tries
+    writing values.
+    2. The properties on KeyValuePair were not being preserved correctly, so the Arguments
+    of the DiagnosticSourceEventSource methods were not being serialized correctly.
+    
+    Add test (and infrastructure) to ensure DiagnosticSource works in a NativeAOT app
+    
+    Fix #75945
+    
+    * Enable new NativeAotTests in CI
+    
+    - Only run them in Release configuration
+    - Suppress IL2026 warning
+    
+    * Don't run NativeAot published app tests on OSX since it isn't supported
+    
+    Set EventSourceSupport only on the projects that need it.
