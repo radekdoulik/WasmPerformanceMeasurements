@@ -1,0 +1,9 @@
+commit 8ff1bd04dfce1ca7e80401053b8983e22798a29d
+Author: Mitchell Hwang <16830051+mdh1418@users.noreply.github.com>
+Date:   Thu Sep 29 16:01:59 2022 -0400
+
+    [tests] Disable source generator tests mobile (#75609)
+    
+    * Disable Source generator tests on all mobile platforms
+    
+    * Remove redundant source generator test suite exclusions
