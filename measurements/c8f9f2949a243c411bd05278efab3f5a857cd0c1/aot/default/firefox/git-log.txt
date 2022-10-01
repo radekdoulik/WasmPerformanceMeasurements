@@ -1,0 +1,28 @@
+commit c8f9f2949a243c411bd05278efab3f5a857cd0c1
+Author: Filip Navara <navara@emclient.com>
+Date:   Fri Sep 30 23:31:11 2022 +0200
+
+    [NativeAOT] Enable CI for macOS x64/arm64 (#75421)
+    
+    * [NativeAOT] Enable CI for macOS x64/arm64
+    
+    * Update CppCompilerAndLinker condition
+    
+    * Enable NativeAOT osx-arm64 build in regular runtime pipeline
+    
+    * Enable cross-compilation on macOS
+    
+    * Fix HAVE_SHM_OPEN_THAT_WORKS_WELL_ENOUGH_WITH_MMAP when cross-compiling
+    
+    * Update OSVersion_ValidVersion_OSX test on NativeAOT
+    
+    The test tries to validate Environment.OSVersion.Version which works correctly. RuntimeInformation.RuntimeIdentifier, however, doesn't use versioned RIDs when NativeAOT is used.
+    
+    * Add hack to stop linker from corrupting DWARF CFI, bump darwin version in triple to get compact unwinding tables generated
+    
+    * Bump ObjWriter packages
+    
+    * Disable MessageSendTests on NativeAOT
+    
+    Co-authored-by: Adeel <3840695+am11@users.noreply.github.com>
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
