@@ -1,0 +1,15 @@
+commit d320fd90a2976b388169dd51b3732ad01bcb4266
+Author: yowl <scott.waye@hubse.com>
+Date:   Sat Oct 1 14:19:07 2022 -0500
+
+    Reinstate strict prototypes warning (#76463)
+    
+    * reinstate strict-prototype warning
+    
+    * More fixes
+    
+    * Need to keep the warning disabled for zlib
+    
+    https://github.com/madler/zlib/issues/633
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
