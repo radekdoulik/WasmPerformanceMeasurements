@@ -1,0 +1,9 @@
+commit 144a33a01251fce466d7be9b7cafff02f05ae6cc
+Author: Tanner Gooding <tagoo@outlook.com>
+Date:   Sun Oct 2 09:42:49 2022 -0700
+
+    Ensure NI_Vector128_AsVector128 (aka `Vector128<T> AsVector128(this Vector<T> value)`) doesn't have a side-effect in its assert (#76460)
+    
+    * Ensure NI_Vector128_AsVector128 (aka `Vector128<T> AsVector128(this Vector<T> value)`) doesn't have a side-effect in its assert
+    
+    * CorInfoType no var_types
