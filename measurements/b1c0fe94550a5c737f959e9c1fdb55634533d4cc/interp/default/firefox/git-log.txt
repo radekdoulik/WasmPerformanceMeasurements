@@ -1,0 +1,55 @@
+commit b1c0fe94550a5c737f959e9c1fdb55634533d4cc
+Author: Ankit Jain <radical@gmail.com>
+Date:   Mon Oct 3 18:42:38 2022 -0400
+
+    [wasm] Wasm.Build.Tests improvements (#76381)
+    
+    * InstallWorkloadFromArtifacts: Remove hack because we have an updated sdk now
+    
+    * [wasm] WBT: Make project names unique
+    
+    * [wasm] WBT: Use a clean NUGET_PACKAGES dir separate from the project directory
+    
+    * [wasm] WBT: Fixes to work with latest sdk
+    
+    - Use only one source of which tfm to use
+    - Allow a different tfm for blazor
+    - Add `dotnet8` nuget feed for tests
+    - Support more than one choice for nuget.config, like for net7, or net8
+    
+    * WBT: Revert to test projects created in bindir, instead of a temp one
+    
+    This was necessary because on windows the tmp path is very long, causing
+    the test project paths to become too long causing build failures.
+    
+    * [wasm] fix weird build failures
+    
+    `MSBuildSDKsPath` is set by runtime repo, and that interferes with the
+    test projects. To avoid this the `MSBuildSDKsPath` was set to `""` in
+    the test environment. But even that can negatively affect the build
+    because msbuild treats environment variables as "global properties" that
+    cannot be changed. This manifests when running:
+    
+    `$ dotnet run --no-build`
+    
+    .. it would fail with `/foo/bar.csproj is not a valid project file`.
+    
+    Instead, explicitly *remove* `MSBuildSDKsPath` from the environment when
+    invoking the process.
+    
+    * WBT: PInvokeTableGenerator: Find path to WasmAppBuilder.dll at test time
+    
+    .. instead of depending on *one* runtime pack version. This is needed
+    when we have more than one workload installed.
+    
+    * WBT: Don't use the nuget packages directory as fallback.
+    
+    .. because we explicitly set `NUGET_PACKAGES` envvar now.
+    
+    * [wasm] Use the latest sdk for Wasm.Build.Tests
+    
+    * WBT: Add missing nuget8.config
+    
+    * WBT: workaround for https://github.com/dotnet/runtime/issues/76201
+    
+    * WasmAppHost: add rollforward=latestMajor
