@@ -1,0 +1,13 @@
+commit 8fd74f342695704cbb28cb39a47d6f456acc6bbd
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Wed Oct 5 07:23:05 2022 +0900
+
+    [NativeAot] Start running S.R.Metadata tests (#76583)
+    
+    * Check if S.R.Metadata tests now pass
+    
+    This was hitting a compiler crash due to System.Reflection.Metadata bug around generic attributes. Since we now host the compiler with RC1 bits, the problem should be gone.
+    
+    No merge for now because this should not be promoted to a smoke test, just unblocked in the extra-platforms run.
+    
+    * Update tests.proj
