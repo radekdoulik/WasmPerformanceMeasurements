@@ -1,69 +1,69 @@
 {
   "results": [
     {
-      "span": "00:00:00.1480000",
-      "steps": 3,
+      "span": "00:00:04.8560000",
+      "steps": 130,
       "taskName": "AppStart",
-      "measurementName": "Page show Could not resolve type with token 01000029 from typeref (expected class \u0027System.Span\u00601\u0027 in assembly \u0027System.Runtime, Version=7.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a\u0027)"
+      "measurementName": "Page show"
     },
     {
-      "span": "00:00:00.0010000",
-      "steps": 3,
+      "span": "00:00:05.6310000",
+      "steps": 141,
       "taskName": "AppStart",
-      "measurementName": "Page show Could not resolve type with token 01000029 from typeref (expected class \u0027System.Span\u00601\u0027 in assembly \u0027System.Runtime, Version=7.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a\u0027)"
+      "measurementName": "Page show"
     },
     {
-      "span": "00:00:00",
-      "steps": 3,
+      "span": "00:00:05.0310000",
+      "steps": 123,
       "taskName": "AppStart",
-      "measurementName": "Page show Could not resolve type with token 01000029 from typeref (expected class \u0027System.Span\u00601\u0027 in assembly \u0027System.Runtime, Version=7.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a\u0027)"
+      "measurementName": "Page show"
     },
     {
-      "span": "00:00:00.0010000",
-      "steps": 3,
+      "span": "00:00:05.4670000",
+      "steps": 138,
       "taskName": "AppStart",
-      "measurementName": "Page show Could not resolve type with token 01000029 from typeref (expected class \u0027System.Span\u00601\u0027 in assembly \u0027System.Runtime, Version=7.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a\u0027)"
+      "measurementName": "Page show"
     },
     {
-      "span": "00:00:00.0010000",
-      "steps": 3,
+      "span": "00:00:04.6800000",
+      "steps": 117,
       "taskName": "AppStart",
-      "measurementName": "Page show Could not resolve type with token 01000029 from typeref (expected class \u0027System.Span\u00601\u0027 in assembly \u0027System.Runtime, Version=7.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a\u0027)"
+      "measurementName": "Page show"
     },
     {
-      "span": "00:00:00.0010000",
-      "steps": 3,
+      "span": "00:00:06.7800000",
+      "steps": 10,
       "taskName": "AppStart",
-      "measurementName": "Reach managed Could not resolve type with token 01000029 from typeref (expected class \u0027System.Span\u00601\u0027 in assembly \u0027System.Runtime, Version=7.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a\u0027)"
+      "measurementName": "Reach managed"
     },
     {
-      "span": "00:00:00",
-      "steps": 3,
+      "span": "00:00:06.7250000",
+      "steps": 10,
       "taskName": "AppStart",
-      "measurementName": "Reach managed Could not resolve type with token 01000029 from typeref (expected class \u0027System.Span\u00601\u0027 in assembly \u0027System.Runtime, Version=7.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a\u0027)"
+      "measurementName": "Reach managed"
     },
     {
-      "span": "00:00:00.0010000",
-      "steps": 3,
+      "span": "00:00:06.5090000",
+      "steps": 10,
       "taskName": "AppStart",
-      "measurementName": "Reach managed Could not resolve type with token 01000029 from typeref (expected class \u0027System.Span\u00601\u0027 in assembly \u0027System.Runtime, Version=7.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a\u0027)"
+      "measurementName": "Reach managed"
     },
     {
-      "span": "00:00:00.0010000",
-      "steps": 3,
+      "span": "00:00:06.5050000",
+      "steps": 10,
       "taskName": "AppStart",
-      "measurementName": "Reach managed Could not resolve type with token 01000029 from typeref (expected class \u0027System.Span\u00601\u0027 in assembly \u0027System.Runtime, Version=7.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a\u0027)"
+      "measurementName": "Reach managed"
     },
     {
-      "span": "00:00:00.0010000",
-      "steps": 3,
+      "span": "00:00:06.3950000",
+      "steps": 10,
       "taskName": "AppStart",
-      "measurementName": "Reach managed Could not resolve type with token 01000029 from typeref (expected class \u0027System.Span\u00601\u0027 in assembly \u0027System.Runtime, Version=7.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a\u0027)"
+      "measurementName": "Reach managed"
     }
   ],
   "minTimes": {
-    "AppStart, Page show Could not resolve type with token 01000029 from typeref (expected class \u0027System.Span\u00601\u0027 in assembly \u0027System.Runtime, Version=7.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a\u0027)": 0,
-    "AppStart, Reach managed Could not resolve type with token 01000029 from typeref (expected class \u0027System.Span\u00601\u0027 in assembly \u0027System.Runtime, Version=7.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a\u0027)": 0
+    "AppStart, Page show": 37.353846153846156,
+    "AppStart, Reach managed": 639.5
   },
-  "timeStamp": "2022-10-06T13:37:44.125Z"
+  "timeStamp": "2022-10-06T14:26:09.597Z"
 }
