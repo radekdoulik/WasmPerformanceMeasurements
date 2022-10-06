@@ -1,0 +1,69 @@
+{
+  "results": [
+    {
+      "span": "00:00:04.4320000",
+      "steps": 6,
+      "taskName": "AppStart",
+      "measurementName": "Page show"
+    },
+    {
+      "span": "00:00:03.5990000",
+      "steps": 25,
+      "taskName": "AppStart",
+      "measurementName": "Page show"
+    },
+    {
+      "span": "00:00:05.8480000",
+      "steps": 44,
+      "taskName": "AppStart",
+      "measurementName": "Page show"
+    },
+    {
+      "span": "00:00:05.6870000",
+      "steps": 47,
+      "taskName": "AppStart",
+      "measurementName": "Page show"
+    },
+    {
+      "span": "00:00:05.5880000",
+      "steps": 44,
+      "taskName": "AppStart",
+      "measurementName": "Page show"
+    },
+    {
+      "span": "00:00:06.2970000",
+      "steps": 10,
+      "taskName": "AppStart",
+      "measurementName": "Reach managed"
+    },
+    {
+      "span": "00:00:06.2390000",
+      "steps": 10,
+      "taskName": "AppStart",
+      "measurementName": "Reach managed"
+    },
+    {
+      "span": "00:00:06.5690000",
+      "steps": 11,
+      "taskName": "AppStart",
+      "measurementName": "Reach managed"
+    },
+    {
+      "span": "00:00:06.6090000",
+      "steps": 10,
+      "taskName": "AppStart",
+      "measurementName": "Reach managed"
+    },
+    {
+      "span": "00:00:06.1280000",
+      "steps": 9,
+      "taskName": "AppStart",
+      "measurementName": "Reach managed"
+    }
+  ],
+  "minTimes": {
+    "AppStart, Page show": 121,
+    "AppStart, Reach managed": 597.1818181818181
+  },
+  "timeStamp": "2022-10-06T13:39:11.346Z"
+}
