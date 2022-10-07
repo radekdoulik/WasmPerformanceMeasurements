@@ -1,0 +1,29 @@
+commit be5a4d36c04e6d8f4d0ecd58404bb0e49246f8d3
+Author: SingleAccretion <62474226+SingleAccretion@users.noreply.github.com>
+Date:   Thu Oct 6 23:38:37 2022 +0300
+
+    Simplify handling of multi-reg returns (#74499)
+    
+    * Simplify handling of return ABI info
+    
+    Add the return type descriptor to compiler and use it.
+    
+    Delete target-specific code from "impFixupStructReturnType".
+    
+    The main target of this change is getting rid of the dependency
+    of multi-reg RETURN backend code on exact struct handles on temps
+    it expects as the sources.
+    
+    * Work around diffs on ARM
+    
+    Due to the buggy nature of the old code, the matrix for what
+    substititions were allowed was as follows:
+    
+           ARM         x86
+    LONG   not-LCL_VAR NONE
+    STRUCT LCL_VAR     LCL_VAR
+    
+    This commit preserves this extremely quirky behavior.
+    
+    Unfortunately, just enabling the propagation is a CQ regression
+    due to some RA issues.
