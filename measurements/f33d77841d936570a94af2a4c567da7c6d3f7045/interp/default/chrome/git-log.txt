@@ -1,0 +1,10 @@
+commit f33d77841d936570a94af2a4c567da7c6d3f7045
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Sat Oct 8 12:08:47 2022 +0200
+
+    JIT: Streamline SIMD recognition (#76613)
+    
+    Put it on the same plan as HW intrinsics. Use names from metadata and
+    use getTypeInstantiationArgument to get the base type. This avoids
+    relying on appendClassName and how the EE side formats instantiations
+    with it.
