@@ -1,0 +1,15 @@
+commit acd52cb38907ee29a21aae8527c00d9aeb7c605b
+Author: Tanner Gooding <tagoo@outlook.com>
+Date:   Wed Oct 5 12:15:07 2022 -0700
+
+    Updating Vector128 to have its software fallback be 2x Vector64<T> ops (#76592)
+    
+    * Cleanup the Vector128 fallback to be 2x Vector64 ops
+    
+    * Use || for Any methods, not &&
+    
+    * Don't mark Vector128<T>.IsSupported as Intrinsic
+    
+    * Use SetLowerUnsafe
+    
+    * Ensure the ThrowForUnsupportedIntrinsicsVector128BaseType check is kept for WithLower/Upper
