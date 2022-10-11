@@ -1,0 +1,12 @@
+commit 18d0ead1f33808def27f8b57ccd907ec9efb14ac
+Author: Brian Bohe <brianbohe@gmail.com>
+Date:   Mon Oct 10 15:25:56 2022 -0700
+
+    Fixing repro command line arguments (#76820)
+    
+    * Fixing repro command line args
+    
+    * Update src/coreclr/tools/aot/crossgen2/Program.cs
+    
+    Co-authored-by: Brian Bohe <brianbohe@microsoft.com>
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
