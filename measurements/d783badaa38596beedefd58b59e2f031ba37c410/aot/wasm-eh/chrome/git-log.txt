@@ -1,0 +1,9 @@
+commit d783badaa38596beedefd58b59e2f031ba37c410
+Author: Eirik Tsarpalis <eirik.tsarpalis@gmail.com>
+Date:   Wed Oct 12 20:36:52 2022 +0100
+
+    Ensure source generated metadata properties are read-only. (#76540)
+    
+    * Ensure source generated metadata properties are read-only.
+    
+    * Add JsonTypeInfo.IsReadOnly/MakeReadOnly() APIs.
