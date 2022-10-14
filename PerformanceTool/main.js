@@ -732,7 +732,7 @@ async function mainJS() {
     });
     processTime(data);
     firstDate = data[0].time;
-    console.log(data);
+    //console.log(data);
     var ordinal = d3.scaleOrdinal()
         .domain(flavors)
         .range(colors);
@@ -758,7 +758,10 @@ async function mainJS() {
     decodeURL();
     document.querySelector("#loadingCircle").style.display = 'none';
     document.querySelector("#main").style.display = '';
-    await App.MONO.mono_run_main("PerformanceTool.dll", applicationArguments);
+
+    console.log("end of mainJS: " + (new Date().getTime() - startTime));
+
+    await runMainAndExit(config.mainAssemblyName, []);
 }
 
 await mainJS();
