@@ -1,6 +1,7 @@
 {
-  "assembly_root": "managed",
-  "debug_level": 0,
+  "mainAssemblyName": "PerformanceTool.dll",
+  "assemblyRootFolder": "managed",
+  "debugLevel": 0,
   "assets": [
     {
       "behavior": "assembly",
@@ -25,6 +26,10 @@
     {
       "behavior": "assembly",
       "name": "System.IO.Compression.dll"
+    },
+    {
+      "behavior": "assembly",
+      "name": "System.Linq.dll"
     },
     {
       "behavior": "assembly",
@@ -63,25 +68,29 @@
       "name": "System.Text.Json.dll"
     },
     {
-      "virtual_path": "runtimeconfig.bin",
+      "behavior": "assembly",
+      "name": "System.Text.RegularExpressions.dll"
+    },
+    {
+      "virtualPath": "runtimeconfig.bin",
       "behavior": "vfs",
       "name": "supportFiles/0_runtimeconfig.bin"
     },
     {
-      "virtual_path": "dotnet.js.symbols",
-      "behavior": "vfs",
-      "name": "supportFiles/1_dotnet.js.symbols"
-    },
-    {
-      "load_remote": false,
+      "loadRemote": false,
       "behavior": "icu",
       "name": "icudt.dat"
     },
     {
-      "virtual_path": "/usr/share/zoneinfo/",
+      "virtualPath": "/usr/share/zoneinfo/",
       "behavior": "vfs",
       "name": "dotnet.timezones.blat"
+    },
+    {
+      "behavior": "dotnetwasm",
+      "name": "dotnet.wasm"
     }
   ],
-  "remote_sources": []
+  "remoteSources": [],
+  "pthreadPoolSize": 0
 }
