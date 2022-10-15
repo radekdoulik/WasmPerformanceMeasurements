@@ -1,0 +1,51 @@
+Task - Measurement,10/14/2022
+AppStart - Page show,43.91056910569106
+AppStart - Reach managed,648.2
+Exceptions - NoExceptionHandling,6.031839754820437E-05
+Exceptions - TryCatch,8.317264075531305E-05
+Exceptions - TryCatchFilter,8.44311377245509E-05
+Exceptions - TryCatchFilterInline,8.445109780439122E-05
+Exceptions - TryCatchFilterThrow,0.07290461527508321
+Exceptions - TryCatchFilterThrowApplies,0.06209349480892178
+Exceptions - TryCatchThrow,0.052161265628986986
+JSInterop - JSExportInt,15.065088757396449
+JSInterop - JSExportString,163.14705882352942
+JSInterop - JSImportFail,877.5
+JSInterop - JSImportInt,3.4645340751043117
+JSInterop - JSImportManyArgs,169.23529411764707
+JSInterop - JSImportString,152.45945945945945
+JSInterop - JSImportTask,396.53846153846155
+JSInterop - JSImportTaskFail,3096
+JSInterop - LegacyExportInt,23.439252336448597
+JSInterop - LegacyExportString,176.96875
+Json - large deserialize,54.333333333333336
+Json - large serialize,32.935064935064936
+Json - non-ASCII text deserialize,2.280017528483786
+Json - non-ASCII text serialize,1.416922647305222
+Json - small deserialize,0.191203518592563
+Json - small serialize,0.11315736852629474
+Span - IndexOf bytes,0.00022915416916616677
+Span - IndexOf chars,0.10535678592844293
+Span - Reverse bytes,0.019269479437445843
+Span - Reverse chars,0.04667733120042658
+Vector - Add 2 Vector128's,5.6193294993950595E-05
+Vector - Create Vector128,5.453649022754419E-05
+Vector - Dot product double,5.8540435079693E-05
+Vector - Dot product float,6.220472440944882E-05
+Vector - Dot product int,6.141732283464567E-05
+Vector - Dot product ulong,5.95069045267634E-05
+Vector - Max double,5.7159764441020995E-05
+Vector - Max float,5.6331362057817795E-05
+Vector - Min double,5.7988166824224195E-05
+Vector - Min float,5.7573965632622595E-05
+Vector - Multiply 2 Vector128's,5.6883630313286595E-05
+Vector - Sum double,5.7435898568755395E-05
+Vector - Sum sbyte,6.566929133858268E-05
+Vector - Sum short,6.314960629921259E-05
+Vector - Sum uint,6.061144103770101E-05
+WebSocket - PartialReceive_100KB,0.01
+WebSocket - PartialReceive_10KB,0.011976047904191617
+WebSocket - PartialReceive_1B,0.008645111624326405
+WebSocket - PartialSend_1B,0.0052868525896414345
+WebSocket - PartialSend_1MB,2.418181818181818
+WebSocket - PartialSend_64KB,0.17575
