@@ -1,0 +1,7 @@
+commit 4a8c04c4c667d00e0358576277e96805a809de32
+Author: Jan Kotas <jkotas@microsoft.com>
+Date:   Sat Oct 15 14:29:34 2022 -0700
+
+    Cleanup file descriptions baked into Windows unmanaged .dlls (#77080)
+    
+    Delete Microsoft and .NET Framework from the descriptions
