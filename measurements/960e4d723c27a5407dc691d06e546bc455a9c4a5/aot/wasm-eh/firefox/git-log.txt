@@ -1,0 +1,98 @@
+commit 960e4d723c27a5407dc691d06e546bc455a9c4a5
+Author: Viktor Hofer <viktor.hofer@microsoft.com>
+Date:   Sun Oct 16 15:15:28 2022 +0200
+
+    Leverage the shipping, roslyn based ApiCompat in dotnet/runtime (#73263)
+    
+    * ApiCompat infra changes
+    
+    * Convert baseline to suppression files
+    
+    * ApiCompat.proj
+    
+    * update suppressions
+    
+    * sorted suppressions
+    
+    * rebase and update suppressions
+    
+    * enable attribute and param rules
+    
+    * Enable optional rules
+    
+    * WebAssemblyThreading proj
+    
+    * CompatSuppression for XmlREaderWriter
+    
+    * Enable optional rules correctly...
+    
+    * ThreadPool UnsupportedOSPlatformAttribute
+    
+    * VBCore CP0017
+    
+    * Migrate all CoreLibs over
+    
+    * Update ApiCompat.proj
+    
+    * Add ApiCompat.proj baselines
+    
+    * Update ApiCompat.proj
+    
+    * Clean-up suppression files with nint/IntPtr fix
+    
+    * Clean-up CoreLib suppression
+    
+    * Update suppression files with latest apicompat fix
+    
+    * Update suppression files
+    
+    * update suppressions
+    
+    * Update suppression files
+    
+    * Clean-up obsolete suppression files
+    
+    * Update suppression files
+    
+    * update suppressions
+    
+    * huge reduction in suppression file size
+    
+    * update suppressions
+    
+    * more suppressions removed
+    
+    * update suppressions
+    
+    * Update dependencies and clean-up
+    
+    * Add suppression files for CoreLib and fix path
+    
+    * Update CoreLib coreclr suppression file
+    
+    * Update coreclr suppression files
+    
+    * Suppression file fixes and Linux path fixes
+    
+    * Update coreclr suppression again)
+    
+    * Fix suppression file path calculation
+    
+    * Fix previous mistake
+    
+    * Diagnostics.Tracing suppression file
+    
+    * Threading suppression file fix
+    
+    * use global suppression for CryptoSignedXmlRecursionException
+    
+    * Add Specification.Tests suppression
+    
+    * Disable NoTargets ref copying
+    
+    * Fix for coreclr build
+    
+    * Avoid duplicate project evals
+    
+    Co-authored-by: smasher164 <akhilindurti@microsoft.com>
+    Co-authored-by: Akhil Indurti <aindurti@gmail.com>
