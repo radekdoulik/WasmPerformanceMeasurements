@@ -1,0 +1,5 @@
+commit 3ba1dd21d91ddbe97dc571e45dc608610660c4f3
+Author: David Mason <davmason@microsoft.com>
+Date:   Mon Oct 17 13:10:07 2022 -0700
+
+    Emit ICorProfiler ModuleLoadFinished for dynamic modules (#77068)
