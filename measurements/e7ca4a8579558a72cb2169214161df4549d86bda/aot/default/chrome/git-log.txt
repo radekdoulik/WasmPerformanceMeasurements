@@ -1,0 +1,5 @@
+commit e7ca4a8579558a72cb2169214161df4549d86bda
+Author: Igor Bagdamyan <37334640+En3Tho@users.noreply.github.com>
+Date:   Wed Oct 19 01:18:37 2022 +0300
+
+    Fixes a wrong not node insertion producing broken lir range on macos arm64 (#77166)
