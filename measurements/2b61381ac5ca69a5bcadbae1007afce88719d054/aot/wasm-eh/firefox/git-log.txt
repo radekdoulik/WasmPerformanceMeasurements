@@ -1,0 +1,34 @@
+commit 2b61381ac5ca69a5bcadbae1007afce88719d054
+Author: SingleAccretion <62474226+SingleAccretion@users.noreply.github.com>
+Date:   Thu Oct 20 01:29:50 2022 +0300
+
+    Add IR support for modeling multiple SSA definitions as one store (#76139)
+    
+    * Change how we track use SSA numbers for partial defs
+    
+    Store them in the SSA descriptor instead of a map.
+    
+    Memory (x64): +0.18%
+    PIN    (x64): -0.04%
+    
+    The memory regression is not small...
+    
+    * SsaNumInfo support
+    
+    * Support in SSA, VN and CopyProp
+    
+    For now, just the "CanBeReplacedWithItsField" case.
+    This enables some nice simplifications, even as the
+    general case gets more complex.
+    
+    Two quirks have been added to attain zero diffs.
+    
+    * Support in dumping
+    
+    * TP tuning
+    
+    Gets us back 0.05% on the PIN counter. Hard to believe but true.
+    
+    * More TP tuning
+    
+    Another 0.025%.
