@@ -1,0 +1,11 @@
+commit 4fc3eb443a3f8f8917038fbdba9049caf288020c
+Author: Jan Vorlicek <janvorli@microsoft.com>
+Date:   Fri Oct 21 00:19:58 2022 +0200
+
+    Fix the __int64 to be long long on macOS only (#77268)
+    
+    It turned out that my recent change to redefine __int64 on Unix is
+    actually correct for macOS only. For other 64 bit Unixes, the __int64
+    should be defined as long.
+    
+    This change fixes it.
