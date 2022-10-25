@@ -1,0 +1,9 @@
+commit 9290f85d9cd4e6dd523f11f0c3fef7a2b7e15ee4
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Tue Oct 25 00:11:47 2022 +0200
+
+    SPMI: More information on CI failures (#77361)
+    
+    This enhances parts of the SPMI process with more information on failures.
+    
+    Also fixes a bug I introduced when I added tpdiffs: when asmdiffs fails, it was not marking the entire pipeline as failing.
