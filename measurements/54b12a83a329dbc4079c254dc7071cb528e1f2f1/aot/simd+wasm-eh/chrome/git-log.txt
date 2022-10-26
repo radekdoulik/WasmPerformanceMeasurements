@@ -1,0 +1,15 @@
+commit 54b12a83a329dbc4079c254dc7071cb528e1f2f1
+Author: John Tur <john-tur@outlook.com>
+Date:   Tue Oct 25 18:16:52 2022 -0400
+
+    Implement Array.Initialize in C# (#77336)
+    
+    * Implement Array.Initialize in C#
+    
+    * Add Mono implementation of Initialize
+    
+    * Fix test failure
+    
+    * Implement for NativeAOT
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
