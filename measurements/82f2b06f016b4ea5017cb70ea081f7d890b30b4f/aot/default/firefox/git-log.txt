@@ -1,0 +1,9 @@
+commit 82f2b06f016b4ea5017cb70ea081f7d890b30b4f
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Sat Oct 29 06:36:15 2022 +0900
+
+    Disable ComInterfaceGenerator.Unit.Tests for NativeAOT (#77522)
+    
+    * Disable ComInterfaceGenerator.Unit.Tests for NativeAOT
+    
+    * Also disable ComInterfaceGenerator.Tests
