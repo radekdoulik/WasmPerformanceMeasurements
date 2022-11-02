@@ -1,0 +1,5 @@
+commit 4ad19b10efabbbf8de5a38185bf3402661e01a5a
+Author: Tarek Mahmoud Sayed <tarekms@microsoft.com>
+Date:   Tue Nov 1 15:53:48 2022 -0700
+
+    Fix Activity.OperationName when Activity is created with null value (#77746)
