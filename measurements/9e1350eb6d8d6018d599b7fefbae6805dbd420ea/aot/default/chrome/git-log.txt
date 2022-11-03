@@ -1,0 +1,8 @@
+commit 9e1350eb6d8d6018d599b7fefbae6805dbd420ea
+Author: Aaron Robinson <arobins@microsoft.com>
+Date:   Thu Oct 27 14:29:16 2022 -0700
+
+    Free LOADERHANDLE DispatchMemberInfo dtor (#77554)
+    
+    This is a regression from NETFX with the introduction
+    of collectable assemblies in .NET Core 3.1 (dotnet/coreclr#20919).
