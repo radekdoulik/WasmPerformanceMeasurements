@@ -1,0 +1,17 @@
+commit ae1ada9ec291e24749cfdce8f4cad03c624bbf58
+Author: Alexandre Mutel <alexandre_mutel@live.com>
+Date:   Thu Nov 3 21:45:56 2022 +0100
+
+    Optimize XxHash3 (#77756)
+    
+    * Optimize XxHash3
+    
+    * Update src/libraries/System.IO.Hashing/src/System/IO/Hashing/XxHash3.cs
+    
+    * Fix var
+    
+    * Fix compilation errors for < .NET 7.0
+    
+    * Fix issue on scalar code path
+    
+    Co-authored-by: Stephen Toub <stoub@microsoft.com>
