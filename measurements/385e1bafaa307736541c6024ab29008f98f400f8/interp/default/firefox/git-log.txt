@@ -1,0 +1,5 @@
+commit 385e1bafaa307736541c6024ab29008f98f400f8
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Sat Oct 29 18:38:27 2022 +0200
+
+    JIT: Stop propagating BBF_SPLIT_FLAGS from inlinee's parent (#77600)
