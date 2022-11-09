@@ -1,0 +1,27 @@
+commit 13d4e6de2c4ecd1414bd29d5240fb6fe2e33b9fa
+Author: Tanner Gooding <tagoo@outlook.com>
+Date:   Wed Nov 2 09:25:40 2022 -0700
+
+    Mark and expose additional Vector functions as Intrinsic (#77562)
+    
+    * Mark and expose additional Vector functions as Intrinsic
+    
+    * Applying formatting patch
+    
+    * Ensure Vector64.CreateScalarUnsafe for long/ulong/double is handled
+    
+    * Ensure we use the right Count
+    
+    * Ensure small types don't sign extend up to int
+    
+    * Ensure reflection invocation is correct for Vector<T> bitwise ops
+    
+    * Adding tests and fixing a couple small typing issues
+    
+    * Fixing the name of the One property
+    
+    * Assert GT_RSH for simd isn't TYP_LONG on xarch
+    
+    * Ensure the correct operation is picked for vector ShiftRightArithmetic
+    
+    * Fixing StoreAlignedNonTemporal on Arm64
