@@ -1,0 +1,38 @@
+commit c04cf0ca8068c6306c135abb3ce98a33de13579c
+Author: SingleAccretion <62474226+SingleAccretion@users.noreply.github.com>
+Date:   Wed Nov 9 23:56:48 2022 +0300
+
+    Split and simplify `fgMorphOneAsgBlockOp` (#76793)
+    
+    * Delete gtNewCpObjNode
+    
+    * Import INITOBJ of primitives as STIND
+    
+    No point in creating block nodes for simple types.
+    
+    * Retype local FP stores too
+    
+    Avoids a couple regressions.
+    
+    * Handle a bit of what OneAsg morphing does in block morphing
+    
+    * Slim down fgMorphOneAsgBlockOp
+    
+    A zero-diff checkpoint.
+    
+    * Slim down fgMorphOneAsgBlockOp, part 2
+    
+    A zero-diff checkpoint.
+    
+    * Slim down fgMorphOneAsgBlockOp, final part
+    
+    3 small regressions across all of SPMI due to less aggressive
+    CSEing ("LCL_FLD" is costed cheaper than "IND(ADDR(LCL_VAR))").
+    
+    * Don't call OneAsg for init blocks
+    
+    * Delete assertion killing dead code
+    
+    PrepareDst will have killed assertions already.
+    
+    * Don't call gtSetObjGcInfo
