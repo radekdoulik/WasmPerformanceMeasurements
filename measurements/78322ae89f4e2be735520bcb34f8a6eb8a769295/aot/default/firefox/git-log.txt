@@ -1,0 +1,42 @@
+commit 78322ae89f4e2be735520bcb34f8a6eb8a769295
+Author: SingleAccretion <62474226+SingleAccretion@users.noreply.github.com>
+Date:   Fri Nov 11 02:11:41 2022 +0300
+
+    Introduce `FIELD_ADDR` and use it for TLS statics and instance class fields (#77353)
+    
+    * Introduce GT_FIELD_ADDR
+    
+    * Add FIELD_ADDR to fgAddrCouldBeNull
+    
+    * Add gtNewFieldAddrNode; move gtNewFieldRef
+    
+    * Implement Windows x86 TLS via FIELD_ADDR
+    
+    Tested manually to work as well as it did before.
+    
+    * Silence the IR checker
+    
+    * Minor code cleanup
+    
+    * Prepare morph for instance FIELD_ADDRs
+    
+    * Fix ObjectAllocator
+    
+    * Use FIELD_ADDR in ld[s]flda import
+    
+    * Work around morphing issues
+    
+    With NativeAOT, we can have FIELD_ADDR nodes that are
+    effectively NOPs (those for the method table pointer field).
+    
+    This means not all operators that the expansion produces
+    will be simple (in fact, they can be more or less arbitrary).
+    
+    This means we cannot simply call "fgMorphSmpOp" as we used to.
+    Unfortunately, we cannot just call "fgMorphTree" either, because
+    it propagates assertions on newly created (or, I suppose, bashed)
+    IND nodes. This creates lots of new cases where GTF_ORDER_SIDEEFF
+    is applied to these nodes, affecting CQ.
+    
+    Work around this by calling "fgMorphTree" for non-simple operators
+    only.
