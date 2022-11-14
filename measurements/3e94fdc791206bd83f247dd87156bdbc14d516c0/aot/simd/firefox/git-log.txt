@@ -1,0 +1,13 @@
+commit 3e94fdc791206bd83f247dd87156bdbc14d516c0
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Fri Nov 11 17:59:41 2022 -0500
+
+    React to CheckForOverflowUnderflow in regex source generator (#78228)
+    
+    * React to CheckForOverflowUnderflow in regex source generator
+    
+    The regex source generator uses code patterns that might have arithmetic overflows, e.g. a bounds check with `(uint)index < span.Length`.  These are intentional, and they're benign... unless the project/compilation has opted-in to overflow/underflow checking (CheckForOverflowUnderflow).  In that case, the code for many patterns can start throwing false positive overflow exceptions, making the source generator unusable.
+    
+    This commit causes the generator to look at the CheckOverflow setting in the compilation options, and if it's set, to emit `unchecked { ... }` around all the relevant code.
+    
+    * Address PR feedback
