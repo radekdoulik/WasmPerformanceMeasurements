@@ -1,0 +1,7 @@
+commit b6deba5721419d14e8b71670fdce8a2c78b0d84e
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Mon Nov 14 08:44:30 2022 +0900
+
+    Fix `--singlemethodname` (#78207)
+    
+    Single method compilation mode broke with the change to use System.CommandLine. "Not specified" no longer means `null`.
