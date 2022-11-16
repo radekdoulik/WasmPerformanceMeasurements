@@ -1,0 +1,9 @@
+commit ce5891530ed1504f766360d5fbc7ed07ee557cb8
+Author: Katelyn Gadd <kg@luminance.org>
+Date:   Tue Nov 15 14:02:59 2022 -0800
+
+    Introduce WASM JITs for interpreter opcodes, do_jit_call, and interp_entry wrappers (#76477)
+    
+    This PR introduces a "jiterpreter" just-in-time WASM compiler for interpreter opcodes along with a set of specialized WASM JIT compilers to improve the performance of interp_entry and do_jit_call. The result is significantly improved performance for pure-interpreter workloads along with measurable speedups for interp->aot and aot->interp transitions in mixed mode AOT applications. In this commit it is disabled by default, with the exception of an optimization to use wasm exception handling if available for do_jit_call (as a replacement for mono_llvm_catch_cpp_exception).
+    
+    It will be enabled by default in a future PR.
