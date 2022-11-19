@@ -1,0 +1,33 @@
+commit a62c393e3cc23a80e2f9af5d835ece8333835c13
+Author: Tanner Gooding <tagoo@outlook.com>
+Date:   Fri Nov 18 15:46:51 2022 -0800
+
+    Improve the handling of Create, CreateScalar, and CreateScalarUnsafe for vectors (#78236)
+    
+    * Ensure we create GenTreeVecCon nodes where possible
+    
+    * Expose gtNewSimdCreateScalarNode and gtNewSimdCreateScalarUnsafeNode
+    
+    * Applying formatting patch
+    
+    * Remove some unnecessary handling for simd create
+    
+    * Responding to PR feedback
+    
+    * Don't use numeric literal separators for C++
+    
+    * Use simdType not retType
+    
+    * Ensure the vector constant initialization logic sets the right indices
+    
+    * Ensure gtNewSimdAbsNode correctly initializes the constant for f32
+    
+    * Use InsertNewSimdCreateScalarUnsafeNode on Arm64
+    
+    * Ensure the right stack index is checked for `CreateBroadcast`
+    
+    * Workaround an issue with -0.0 on x86
+    
+    * Revert "Remove some unnecessary handling for simd create"
+    
+    This reverts commit b155fa5263ceb2bfb8ee4ec458abf05b68620e7e.
