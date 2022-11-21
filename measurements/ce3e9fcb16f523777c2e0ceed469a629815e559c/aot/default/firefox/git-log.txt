@@ -1,0 +1,11 @@
+commit ce3e9fcb16f523777c2e0ceed469a629815e559c
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Mon Nov 21 08:32:49 2022 +0900
+
+    Allow inline relocations in dehydrated data (#78545)
+    
+    This is a follow up to #77884. In the original pull request, all relocation targets went into a lookup table. This is not a very efficient way to represent rarely used relocs. In this update, I'm extending the dehydration format to allow representing relocations inline - instead of indirecting through the lookup table, the target immediately follows the instruction. I'm changing the emitter to emit this if there's less than 3 references to the reloc.
+    
+    This produces a ~0.5% size saving. It likely also speeds up the decoding at runtime since there's less cache thrashing. On a hello world, the lookup table originally had about 11k entries. With this change, the lookup table only has 1700 entries.
+    
+    If multiple relocations follow after each other, generate a single command with the payload specifying the number of subsequent relocations. This saves additional 0.1%.
