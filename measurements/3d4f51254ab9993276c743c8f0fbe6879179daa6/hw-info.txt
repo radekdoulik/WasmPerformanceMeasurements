@@ -1,0 +1,110 @@
+=== outpuf of: free
+               total        used        free      shared  buff/cache   available
+Mem:         3754232      344968      734484       73616     2674780     3237320
+Swap:        2097148      528264     1568884
+=== outpuf of: cat /proc/meminfo
+MemTotal:        3754232 kB
+MemFree:          734232 kB
+MemAvailable:    3237068 kB
+Buffers:          258348 kB
+Cached:          2108664 kB
+SwapCached:        15320 kB
+Active:           949140 kB
+Inactive:        1486816 kB
+Active(anon):      39884 kB
+Inactive(anon):   102700 kB
+Active(file):     909256 kB
+Inactive(file):  1384116 kB
+Unevictable:       72476 kB
+Mlocked:               0 kB
+SwapTotal:       2097148 kB
+SwapFree:        1568884 kB
+Dirty:             51164 kB
+Writeback:             0 kB
+AnonPages:        138912 kB
+Mapped:            96352 kB
+Shmem:             73616 kB
+KReclaimable:     307768 kB
+Slab:             401360 kB
+SReclaimable:     307768 kB
+SUnreclaim:        93592 kB
+KernelStack:        7800 kB
+PageTables:        13860 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:     3974264 kB
+Committed_AS:    3861320 kB
+VmallocTotal:   133143592960 kB
+VmallocUsed:       23632 kB
+VmallocChunk:          0 kB
+Percpu:             3792 kB
+HardwareCorrupted:     0 kB
+AnonHugePages:     38912 kB
+ShmemHugePages:        0 kB
+ShmemPmdMapped:        0 kB
+FileHugePages:         0 kB
+FilePmdMapped:         0 kB
+CmaTotal:         819200 kB
+CmaFree:          266596 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       2048 kB
+Hugetlb:               0 kB
+=== outpuf of: cat /proc/cpuinfo
+processor	: 0
+BogoMIPS	: 48.00
+Features	: fp asimd evtstrm aes pmull sha1 sha2 crc32 cpuid
+CPU implementer	: 0x41
+CPU architecture: 8
+CPU variant	: 0x0
+CPU part	: 0xd03
+CPU revision	: 4
+
+processor	: 1
+BogoMIPS	: 48.00
+Features	: fp asimd evtstrm aes pmull sha1 sha2 crc32 cpuid
+CPU implementer	: 0x41
+CPU architecture: 8
+CPU variant	: 0x0
+CPU part	: 0xd03
+CPU revision	: 4
+
+processor	: 2
+BogoMIPS	: 48.00
+Features	: fp asimd evtstrm aes pmull sha1 sha2 crc32 cpuid
+CPU implementer	: 0x41
+CPU architecture: 8
+CPU variant	: 0x0
+CPU part	: 0xd09
+CPU revision	: 2
+
+processor	: 3
+BogoMIPS	: 48.00
+Features	: fp asimd evtstrm aes pmull sha1 sha2 crc32 cpuid
+CPU implementer	: 0x41
+CPU architecture: 8
+CPU variant	: 0x0
+CPU part	: 0xd09
+CPU revision	: 2
+
+processor	: 4
+BogoMIPS	: 48.00
+Features	: fp asimd evtstrm aes pmull sha1 sha2 crc32 cpuid
+CPU implementer	: 0x41
+CPU architecture: 8
+CPU variant	: 0x0
+CPU part	: 0xd09
+CPU revision	: 2
+
+processor	: 5
+BogoMIPS	: 48.00
+Features	: fp asimd evtstrm aes pmull sha1 sha2 crc32 cpuid
+CPU implementer	: 0x41
+CPU architecture: 8
+CPU variant	: 0x0
+CPU part	: 0xd09
+CPU revision	: 2
+
