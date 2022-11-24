@@ -1,0 +1,15 @@
+commit 78b3f9ddfab76eb99cd02c2744d3c2d055ed7270
+Author: Jämes Ménétrey <james@menetrey.org>
+Date:   Thu Nov 24 00:56:05 2022 +0100
+
+    NativeAOT exports marked functions for exe apps. (#78738)
+    
+    Functions decorated with the attribute UnmanagedCallersOnlyAttribute
+    are not inserted in the export table of the compiled file when the
+    .NET project is an executable (i.e., as opposed to a library).
+    This change removes the difference between a library and an executable
+    regarding the handling of the attribute UnmanagedCallersOnlyAttribute.
+    As such, decorated functions with this attribute are now adequately
+    exported for libraries and executables.
+    
+    Fix #78663
