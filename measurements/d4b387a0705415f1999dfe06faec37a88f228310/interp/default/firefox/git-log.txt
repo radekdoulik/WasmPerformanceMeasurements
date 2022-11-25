@@ -1,0 +1,17 @@
+commit d4b387a0705415f1999dfe06faec37a88f228310
+Author: SingleAccretion <62474226+SingleAccretion@users.noreply.github.com>
+Date:   Fri Nov 25 19:51:57 2022 +0300
+
+    Move the `[With|Get]Element(SIMD)` folding to local morph (#76491)
+    
+    * Migrate [Get|With]Element to local morph
+    
+    * Delete code from morph
+    
+    * Move fgMorphCombineSIMDFieldAssignments to local morph
+    
+    * Save uses in Values instead of nodes
+    
+    * Remove ReplaceWith
+    
+    * Add ifdefs for clarity and to avoid regressing ARM
