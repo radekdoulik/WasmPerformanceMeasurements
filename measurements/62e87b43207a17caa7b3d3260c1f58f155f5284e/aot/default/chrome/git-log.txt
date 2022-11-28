@@ -1,0 +1,15 @@
+commit 62e87b43207a17caa7b3d3260c1f58f155f5284e
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Sun Nov 27 11:37:47 2022 -0500
+
+    Change MetricSpec.TryParse to be Parse (#78729)
+    
+    * Change MetricSpec.TryParse to be Parse
+    
+    It was always creating a MetricSpec and returning true.
+    
+    * Update src/libraries/System.Diagnostics.DiagnosticSource/src/System/Diagnostics/Metrics/MetricsEventSource.cs
+    
+    Co-authored-by: Theodore Tsirpanis <teo@tsirpanis.gr>
+    
+    Co-authored-by: Theodore Tsirpanis <teo@tsirpanis.gr>
