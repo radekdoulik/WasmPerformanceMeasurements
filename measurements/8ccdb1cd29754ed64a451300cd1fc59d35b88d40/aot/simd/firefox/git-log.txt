@@ -1,0 +1,8 @@
+commit 8ccdb1cd29754ed64a451300cd1fc59d35b88d40
+Author: Tarek Mahmoud Sayed <tarekms@microsoft.com>
+Date:   Tue Nov 29 15:48:02 2022 -0800
+
+    Implement DateTimeOffset.TotalOffsetMinutes (#78943)
+    
+    Co-authored-by: Eirik Tsarpalis <eirik.tsarpalis@gmail.com>
+    Fixes https://github.com/dotnet/runtime/issues/52081
