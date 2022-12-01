@@ -1,0 +1,18 @@
+commit 85a9dfcdeea437c0d7c8be77a2be71a8786a6727
+Author: Ankit Jain <radical@gmail.com>
+Date:   Wed Nov 30 18:31:32 2022 -0500
+
+    [wasm] Correctly escape library names when generating symbols for .c (#79007)
+    
+    * [wasm] Correctly escape library names when generating symbols for .c files.
+    Use the existing `FixupSymbolName` method for fixing library names too,
+    when converting to symbols.
+    
+    * [wasm] *TableGenerator task: Cache the symbol name fixups
+    .. as it is called frequently, and for repeated strings. For a
+    consolewasm template build, we get 490 calls but only 140 of them are
+    for unique strings.
+    
+    * Add tests
+    
+    Fixes https://github.com/dotnet/runtime/issues/78992 .
