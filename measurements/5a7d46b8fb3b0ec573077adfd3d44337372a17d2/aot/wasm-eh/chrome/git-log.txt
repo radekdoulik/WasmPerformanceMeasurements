@@ -1,0 +1,9 @@
+commit 5a7d46b8fb3b0ec573077adfd3d44337372a17d2
+Author: Katelyn Gadd <kg@luminance.org>
+Date:   Fri Dec 2 01:58:07 2022 -0800
+
+    Wasm jiterpreter cleanup and bug fixes pt. 3 (#78782)
+    
+        Fix semantics of floating point relops in the jiterpreter. This only causes test failures when the new tier_instantly option is enabled.
+        Unroll memmoves in the jiterpreter like memsets in the previous PR
+        Turn interp_exec_method back into a static function, and move jiterp code around to enable it to still work. This seems to arbitrarily change the performance of the interpreter (mostly for the worse, but positively on some test cases) on all platforms for some reason even though it shouldn't.
