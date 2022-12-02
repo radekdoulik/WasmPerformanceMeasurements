@@ -1,0 +1,44 @@
+commit ab35b89f037b0fa7cb68668ad2dfa93b6bc38462
+Author: hrrrrustic <hrrrrustic@gmail.com>
+Date:   Fri Dec 2 02:48:13 2022 +0300
+
+    ArgOutOfRangeException throw helpers (#78222)
+    
+    * add implementation
+    
+    * add docs
+    
+    * Add some tests
+    
+    * Some replacements in CoreLib root namespace
+    
+    * Apply suggestions from code review
+    
+    Co-authored-by: Stephen Toub <stoub@microsoft.com>
+    
+    * Inline negativeorzero
+    
+    * fix messages
+    
+    * fix throwing
+    
+    * fix paramnames
+    
+    * fix nullability
+    
+    * one more paramname fix
+    
+    * make private throwers generic
+    
+    * Apply suggestions from code review
+    
+    Co-authored-by: Dan Moseley <danmose@microsoft.com>
+    
+    * apply review comments
+    
+    * few more cleanups
+    
+    * Address my own PR feedback and use helpers in more places
+    
+    Co-authored-by: Stephen Toub <stoub@microsoft.com>
+    Co-authored-by: Dan Moseley <danmose@microsoft.com>
