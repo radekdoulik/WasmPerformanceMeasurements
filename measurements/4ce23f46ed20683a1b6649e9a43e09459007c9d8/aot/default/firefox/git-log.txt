@@ -1,0 +1,7 @@
+commit 4ce23f46ed20683a1b6649e9a43e09459007c9d8
+Author: Alexandre Mutel <alexandre_mutel@live.com>
+Date:   Sat Dec 3 12:38:23 2022 +0100
+
+    Fix XxHash3/XxHash128 DeriveSecretFromSeed scalar fallback on big endian (#79186)
+    
+    Backport of #78084
