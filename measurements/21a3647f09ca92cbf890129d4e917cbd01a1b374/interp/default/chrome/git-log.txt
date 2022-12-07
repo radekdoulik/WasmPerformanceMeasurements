@@ -1,0 +1,5 @@
+commit 21a3647f09ca92cbf890129d4e917cbd01a1b374
+Author: Tomas Weinfurt <tweinfurt@yahoo.com>
+Date:   Mon Dec 5 13:44:53 2022 -0800
+
+    add SEC_E_CONTEXT_EXPIRED to avoid throwing InternalException (#79129)
