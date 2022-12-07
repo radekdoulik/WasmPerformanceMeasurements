@@ -1,0 +1,7 @@
+commit c6d6b19da5427ae78eab241d2af596a3320a5e5b
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Wed Dec 7 00:39:16 2022 +0100
+
+    JIT: Avoid containing small memory operands in GT_SELECT (#79296)
+    
+    Fix #79290
