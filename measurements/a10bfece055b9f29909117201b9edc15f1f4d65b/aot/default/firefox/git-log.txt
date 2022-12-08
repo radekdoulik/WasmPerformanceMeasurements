@@ -1,0 +1,9 @@
+commit a10bfece055b9f29909117201b9edc15f1f4d65b
+Author: Mike McLaughlin <mikem@microsoft.com>
+Date:   Wed Dec 7 15:17:41 2022 -0800
+
+    Fix dump creation on MacOS Ventura (#79356)
+    
+    Use the task_info(TASK_DYLD_INFO) API to get the dylinker info instead of
+    enumerating all the memory regions. This works on Ventura and simplifies
+    the module enumeration quite a bit.
