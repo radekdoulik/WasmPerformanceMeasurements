@@ -1,0 +1,11 @@
+commit 41ae1aebcce81dbe742bad16533b70d0f46ef7c8
+Author: Jeff Handley <jeffhandley@users.noreply.github.com>
+Date:   Thu Dec 8 13:50:09 2022 -0800
+
+    Add ImmutableArray<T>.Builder.DrainToImmutable() (#79385)
+    
+    * Add ImmutableArray<T>.Builder.DrainToImmutable
+    
+    * Refactor DrainToImmutable for a more optimized implementation
+    
+    * Augment and refine DrainToImmutable unit tests
