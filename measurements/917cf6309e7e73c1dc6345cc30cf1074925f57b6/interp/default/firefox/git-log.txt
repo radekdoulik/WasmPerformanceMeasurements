@@ -1,0 +1,50 @@
+commit 917cf6309e7e73c1dc6345cc30cf1074925f57b6
+Author: Radek Doulik <radek.doulik@gmail.com>
+Date:   Fri Dec 9 18:38:28 2022 +0100
+
+    [wasm] Add Vector128.Narrow intrinsics (#79447)
+    
+    Add intrinsics for
+    
+        i8x16.narrow_i16x8_s(a: v128, b: v128) -> v128
+        i8x16.narrow_i16x8_u(a: v128, b: v128) -> v128
+        i16x8.narrow_i32x4_s(a: v128, b: v128) -> v128
+        i16x8.narrow_i32x4_u(a: v128, b: v128) -> v128
+    
+    These improve string handling, where the i16x8.narrow_i32x4_u is used.
+    
+    Like:
+    
+        > wa-info -d -f corlib_System_Text_ASCIIUtility_ExtractAsciiVector_System_Runtime_Intrinsics_Vector128_1_uint16_System_Runtime_Intrinsics_Vector128_1_uint16 dotnet.wasm
+        (func corlib_System_Text_ASCIIUtility_ExtractAsciiVector_System_Runtime_Intrinsics_Vector128_1_uint16_System_Runtime_Intrinsics_Vector128_1_uint16(param $0 i32, $1 i32, $2 i32, $3 i32))
+           local.get $0
+           local.get $1
+           v128.load align:4    [SIMD]
+           local.get $2
+           v128.load align:4    [SIMD]
+           i8x16.narrow.i16x8.u    [SIMD]
+           v128.store    [SIMD]
+    
+        > wa-info -d -f corlib_System_Text_ASCIIUtility_NarrowUtf16ToAscii_Intrinsified_char__byte__uintptr dotnet.wasm
+        (func corlib_System_Text_ASCIIUtility_NarrowUtf16ToAscii_Intrinsified_char__byte__uintptr(param $0 i32, $1 i32, $2 i32, $3 i32) (result i32))
+           ...
+           v128.load    [SIMD]
+           local.tee $5
+           v128.const 0xff80ff80ff80ff80ff80ff80ff80ff80    [SIMD]
+           local.tee $6
+           v128.and    [SIMD]
+           v128.any.true    [SIMD]
+           br.if
+           local.get $1
+           i32.eqz
+           br.if
+           local.get $1
+           local.get $5
+           local.get $5
+           i8x16.narrow.i16x8.u    [SIMD]
+           v128.store64.lane 0    [SIMD]
+           ...
+    
+    It is also measurable in the browser-bench, where
+    `Json, non-ASCII text deserialize` improves from 0.5048ms to 0.4428ms
+    for simd on chrome.
