@@ -1,0 +1,11 @@
+commit b33aede9f365f9231108c2d9f26ad8955c4e36a1
+Author: Radek Doulik <radek.doulik@gmail.com>
+Date:   Mon Dec 12 23:21:55 2022 +0100
+
+    [wasm] Enable System.Numerics vectors SIMD (#78068)
+    
+    This helps in cases where there's only S.N.Vector path in the BCL code, like `SpanHelpers.IndexOfChar(ref char searchSpace, char value, int length)`. In this case the `Span:IndexOf char` measurement improves from 0.0143ms to 0.0114ms.
+    
+    * [wasm] Enable System.Numerics vectors SIMD
+    
+    * Do not hardcode S.N.Vector IsHardwareAccelerated
