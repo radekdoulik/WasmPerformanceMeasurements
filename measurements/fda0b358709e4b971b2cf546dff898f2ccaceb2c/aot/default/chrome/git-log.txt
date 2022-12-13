@@ -1,0 +1,7 @@
+commit fda0b358709e4b971b2cf546dff898f2ccaceb2c
+Author: Pavel Savara <pavel.savara@gmail.com>
+Date:   Mon Dec 12 13:13:44 2022 +0100
+
+    [wasm] reduce MethodImplOptions.NoInlining (#79457)
+    
+    * reduce MethodImplOptions.NoInlining
