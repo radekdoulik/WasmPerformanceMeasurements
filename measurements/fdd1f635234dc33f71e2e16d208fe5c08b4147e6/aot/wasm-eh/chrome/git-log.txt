@@ -1,0 +1,9 @@
+commit fdd1f635234dc33f71e2e16d208fe5c08b4147e6
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Mon Dec 12 21:16:37 2022 +0100
+
+    JIT: Add missing case to relational with constant optimization (#79541)
+    
+    Almost all cases of #11349 were fixed, except for this missing one.
+    
+    Fix #11349
