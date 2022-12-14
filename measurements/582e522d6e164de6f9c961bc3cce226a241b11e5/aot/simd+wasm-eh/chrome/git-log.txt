@@ -1,0 +1,13 @@
+commit 582e522d6e164de6f9c961bc3cce226a241b11e5
+Author: Ankit Jain <radical@gmail.com>
+Date:   Tue Dec 13 18:04:15 2022 -0500
+
+    [wasm] Disable running blazor template projects (#79536)
+    
+    * [wasm] Print browser console messages to the test output to catch blazor issues
+    
+    * WBT: Remove unused AppRefDir arguments
+    
+    * Re-enable the tests without the blazor-run parts
+    
+    * fix build
