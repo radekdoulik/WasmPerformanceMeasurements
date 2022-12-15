@@ -1,0 +1,14 @@
+commit a78811401f3b2fa8be2d8e40b9bb1e706a9e8501
+Author: Radek Doulik <radek.doulik@gmail.com>
+Date:   Thu Dec 15 00:14:18 2022 +0100
+
+    [wasm] Add the illink substitutions for SIMD (#79672)
+    
+    This should fix size regression introduce with https://github.com/dotnet/runtime/pull/78068
+    
+    The untrimmed S.N.Vector class added few kilobytes to the assemblies
+    of the bench sample. That wasn't that bad, OTOH the code produced
+    by the aot compiler was much larger, 5MB in this case.
+    
+    So this will case default non-SIMD case. In the case of SIMD build we
+    will need more investigation.
