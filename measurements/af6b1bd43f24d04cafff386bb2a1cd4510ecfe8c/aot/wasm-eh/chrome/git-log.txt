@@ -1,0 +1,55 @@
+commit af6b1bd43f24d04cafff386bb2a1cd4510ecfe8c
+Author: Radek Doulik <radek.doulik@gmail.com>
+Date:   Fri Dec 16 09:50:03 2022 +0100
+
+    [wasm] Improve SIMD vector equality operator (#79719)
+    
+    Improve the code we emit for vector equality. Instead of using multiple shuffles, use alltrue instructions
+    
+        i8x16.all_true(a: v128) -> i32
+        i16x8.all_true(a: v128) -> i32
+        i32x4.all_true(a: v128) -> i32
+        i64x2.all_true(a: v128) -> i32
+    
+    That saves size and greatly improves performance. For example Span's SequenceEqual improves like this on chrome.
+    
+    | measurement | old | new |
+    |-:|-:|-:|
+    |              Span, SequenceEqual bytes |     0.0087ms |     0.0021ms |
+    |              Span, SequenceEqual chars |     0.0174ms |     0.0042ms |
+    
+    The dotnet.wasm size drops by cca 20kbytes for bench sample.
+    
+    The code diff:
+    
+    ```
+    > wa-diff -d -f corlib_System_SpanHelpers_SequenceEqual_byte__byte__uintptr dotnet.old.wasm dotnet.new.wasm
+    ...
+              v128.load    [SIMD]
+              i8x16.eq    [SIMD]
+    -         local.tee $4
+    +         i8x16.all.true    [SIMD]
+    -         local.get $4
+    -         i8x16.shuffle 0x00000000000000000f0e0d0c0b0a0908    [SIMD]
+    -         local.get $4
+    -         v128.and    [SIMD]
+    -         local.tee $4
+    -         local.get $4
+    -         i8x16.shuffle 0x00000000000000000000000007060504    [SIMD]
+    -         local.get $4
+    -         v128.and    [SIMD]
+    -         local.tee $4
+    -         local.get $4
+    -         i8x16.shuffle 0x00000000000000000000000000000302    [SIMD]
+    -         local.get $4
+    -         v128.and    [SIMD]
+    -         local.tee $4
+    -         local.get $4
+    -         i8x16.shuffle 0x00000000000000000000000000000001    [SIMD]
+    -         local.get $4
+    -         v128.and    [SIMD]
+    -         i8x16.extract.lane.u 0    [SIMD]
+              i32.eqz
+              if
+    ...
+    ```
