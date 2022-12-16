@@ -1,0 +1,11 @@
+commit c0ebf2bdcdcef90f82c67d357750c34bb56c3f4c
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Thu Dec 15 21:20:21 2022 +0100
+
+    JIT: Refactor gtExtractSideEffList (#79611)
+    
+    Inline gtBuildCommaList (this is the only usage) and build it in the
+    right order to allow doing it during the walk. Also fix propagation of
+    GTF_DEBUG_NODE_MORPHED flag.
+    
+    Fix #79543
