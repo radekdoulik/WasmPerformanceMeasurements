@@ -1,0 +1,21 @@
+commit c6045adbf8f9092acc8c273946a3398f6309b80e
+Author: Tanner Gooding <tagoo@outlook.com>
+Date:   Fri Dec 16 14:05:39 2022 -0800
+
+    Ensure that `TryGetContainableHWIntrinsicOp` is non-mutating (#79363)
+    
+    * Ensure that `TryGetContainableHWIntrinsicOp` is non-mutating
+    
+    * Applying formatting patch
+    
+    * Ensure BuildOperandUses handles CreateScalarUnsafe being contained
+    
+    * Ensure CreateScalarUnsafe is only contained for regOptional when the op1 type is a floating-point
+    
+    * Directly check that op1 is contained/regOptional
+    
+    * Ensure FusedMultiplyAdd rechecks CreateScalarUnsafe containment after removing NEG nodes
+    
+    * Ensure BroadcastScalarToVector doesn't regress containable scenarios
+    
+    * Applying formatting patch
