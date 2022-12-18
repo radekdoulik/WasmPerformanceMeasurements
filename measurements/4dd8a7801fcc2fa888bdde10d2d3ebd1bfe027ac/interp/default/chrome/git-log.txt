@@ -1,0 +1,7 @@
+commit 4dd8a7801fcc2fa888bdde10d2d3ebd1bfe027ac
+Author: madelson <1269046+madelson@users.noreply.github.com>
+Date:   Sat Dec 17 17:44:50 2022 -0500
+
+    Ensure that OptionsCache only permits creating a single options instance per name (#79639)
+    
+    fix https://github.com/dotnet/runtime/issues/79529
