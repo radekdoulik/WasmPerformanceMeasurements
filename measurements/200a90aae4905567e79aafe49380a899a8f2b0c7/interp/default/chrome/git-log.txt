@@ -1,0 +1,118 @@
+commit 200a90aae4905567e79aafe49380a899a8f2b0c7
+Author: Vlad Brezae <brezaevlad@gmail.com>
+Date:   Sun Dec 18 14:43:31 2022 +0200
+
+    Remove mono specific SpanHelpers (#79215)
+    
+    * Revert "[Mono] Restore old code to solve the recent SpanHelpers regressions (#75917)"
+    
+    This reverts commit 254844a700179bb3b39149db1946691e3696d6fc.
+    
+    * [System.Span] Refactor hot loop code
+    
+    This would replace code like
+    
+    ```
+    load
+    b.neq
+      add
+      ret
+    load
+    b.neq
+      add
+      ret
+    load
+    ....
+    ```
+    with
+    
+    ```
+    load
+    b.eq
+    load
+    b.eq
+    load
+    ...
+    ```
+    
+    This makes the code more compact in the hot loop, reduces overall code size and thus improves performance. This pattern is widely used and it was also used before with Span lookups.
+    
+    * [mono][interp] Replace compare + brfalse/brtrue with single conditional branch
+    
+    * [mono][interp] Dump in/out links for bblocks during verbose logging
+    
+    * [mono][interp] Improve detection of dead bblocks
+    
+    Before we were marking bblocks as dead if they had their in_count 0. This is not enough however, since it doesn't account for loops. We now do a full traversal of the bblock graph to detect unreachable bblocks.
+    
+    * [mono][interp] Reorder bblocks to facilitate propagation of values
+    
+    Consider for example the following pattern used commonly with conditional branches:
+    ```
+         br.s           [nil <- nil], BB0
+         ...
+         ceq0.i4        [32 <- 40],
+         br.s           [nil <- nil], BB1
+    
+    BB0: ldc.i4.0       [32 <- nil],
+    BB1: brfalse.i4.s   [nil <- 32], BB_EXIT
+    
+    BB2: ldstr          [56 <- nil], 2
+    
+    ```
+    This commit reorders this code to look like:
+    ```
+         br.s           [nil <- nil], BB0
+         ...
+         ceq0.i4        [32 <- 40],
+         brfalse.i4.s   [nil <- 32], BB_EXIT
+         br.s           [nil <- nil], BB2
+    
+    BB0  ldc.i4.0       [32 <- nil],
+    BB1: brfalse.i4.s   [nil <- 32], BB_EXIT
+    
+    BB2: ldstr          [56 <- nil], 2
+    
+    ```
+    
+    This means we will have duplicated brfalse instructions, but every basic block reaching the conditional branch will have information about the condition. For example ceq0.i4 + brfalse is equivalent to brtrue, ldc.i4.0 + brfalse is equivalent to unconditional branch. After other future optimizations applied on the bblocks graph, like removal, merging and propagation of target, the resulting code in this example would look like:
+    ```
+         br.s           [nil <- nil], BB_EXIT
+         ...
+         brtrue.i4.s    [nil <- 40], BB_EXIT
+    BB2: ldstr          [56 <- nil], 2
+    
+    ```
+    Which is a great simplification over the original code.
+    
+    * [mono][interp] Don't optimize out bblocks that are tiering patchpoint targets
+    
+    Even though they can be become unreachable in the current method, they can still be called when the unoptimized method gets tiered at this point.
+    
+    Add assert to prevent such issues in the future.
+    
+    * [mono][interp] Make bblock reordering more conservative
+    
+    If we are unlikely to gain anything from propagating the condition (if we don't have information about any of the condition operand vars), simply avoid the optimization.
+    
+    * [mono][interp] Add basic removal of unused defines
+    
+    If we store in a var and this var is not used and redefined by the end of the basic block, then we can clear the original store.
+    
+    * [mono][interp] Clear unused defines of local only vars
+    
+    We detect if a var's value never escapes the definition of a bblock. We mark such vars and clear unused definitions of that var from other bblocks.
+    
+    * [mono][interp] Propagate target branches
+    
+    If a bblock contains only an unconditional br, then all bblocks branching into it can just call the target directly instead.
+    
+    * [mono][interp] Add super instruction for (var + ct1) * ct2
+    
+    This pattern is used in low level unsafe code when using (var + ct1) as an index into an array, where ct2 is the sizeof of array element.
+    
+    Also fix diplay of two shorts when dumping instructions.
+    
+    * [mono][interp] Add new ldind super instruction
+    
+    These new instructions can apply addition and multiplication with constant to the offset var.
