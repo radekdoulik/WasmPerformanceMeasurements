@@ -1,0 +1,9 @@
+commit 0579209324586b993ca417435cf70fd44213cadc
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Tue Dec 20 07:34:07 2022 +0900
+
+    Skip parsing types in ILLinkTrim.Descriptors if not needed (#79803)
+    
+    We should not even be using this parser (#79802). It's surprisingly slow to use this.
+    
+    This saves about 10% of wallclock time when compiling Hello World (yes, I can't believe my measurements either). We parse the descriptors for the purposes of manifest resources pretty late in the single threaded phase.
