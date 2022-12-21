@@ -1,0 +1,10 @@
+commit 429cda764dcdc0de5cf2de556bfb2cf064d4067a
+Author: Katelyn Gadd <kg@luminance.org>
+Date:   Tue Dec 20 15:23:14 2022 -0800
+
+    Wasm jiterpreter cleanup and bug fixes pt. 4 (#79324)
+    
+    * Instead of jitting interp_entry wrappers for every entry point, record a hit count for each one and then queue it for JIT compilation once it's hit enough times
+    * Add prefs controlling interp entry queue thresholds
+    * Add support for using imported globals for pointer constants (to enable future threading/caching), off by default
+    * Use base 36 for jiterpreter import names to save space
