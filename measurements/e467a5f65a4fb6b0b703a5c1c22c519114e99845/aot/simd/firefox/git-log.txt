@@ -1,0 +1,11 @@
+commit e467a5f65a4fb6b0b703a5c1c22c519114e99845
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Fri Dec 23 08:26:05 2022 +0900
+
+    Avoid delegate allocation in generic cycle detector (#79842)
+    
+    Removes 1,000,000 (one million) allocations while compiling a hello world. We were allocating a delegate and a closure each time we saw a reference from something generic to something generic.
+    
+    This replaces the delegate with a manual closure allocated on the stack. The number of stack allocated entries was chosen arbitrarily. The highest recursion we see in CoreLib is for 3 elements, so 4 includes a bit of a buffer.
+    
+    Maybe it's a tiny bit less readable, but not that much.
