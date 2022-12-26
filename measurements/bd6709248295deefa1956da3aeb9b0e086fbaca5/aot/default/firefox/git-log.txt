@@ -1,0 +1,9 @@
+commit bd6709248295deefa1956da3aeb9b0e086fbaca5
+Author: Andrii Kurdiumov <kant2002@gmail.com>
+Date:   Mon Dec 26 05:45:49 2022 +0600
+
+    Fix type name parsing in NativeAOT (#79963)
+    
+    Simplified type name parsing was breaking if full name or assembly name has underscode ('_') in it. That breaks referencing `SQLitePCL.Batteries_V2, SQLitePCLRaw.batteries_v2` type inside `Microsoft.Data.Sqlite`
+    
+    Fixes https://github.com/dotnet/efcore/issues/29725
