@@ -1,0 +1,7 @@
+commit fa7d049aad0261f8ed6c0584f1ccf2ad08aec23c
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Wed Dec 28 13:20:56 2022 -0500
+
+    [mono] Reuse handles inside a loop in reflection_create_dynamic_method (). (#79716)
+    
+    This fixes the 'reflection_create_dynamic_method USED x handles' warnings.
