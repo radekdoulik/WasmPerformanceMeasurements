@@ -1,0 +1,7 @@
+commit 96b849ecfc8c535eafd01e0ae82c8a54488aacfb
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Fri Dec 30 00:42:58 2022 +0900
+
+    Fix stringification of types in managed type system (#80036)
+    
+    This part was deleted too enthusiastically. We still need it. I don't know what I was thinking.
