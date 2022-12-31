@@ -1,0 +1,31 @@
+commit 92e8eab1bae0487be0405102be33d0e36d59a9e4
+Author: Vladimir Sadov <vsadov@microsoft.com>
+Date:   Fri Dec 30 15:24:32 2022 -0800
+
+    [NativeAOT] Cleanup and rationalizing process/thread termination scenario (#80063)
+    
+    * remove m_pTEB
+    
+    * set g_threadPerformingShutdown in DllMain
+    
+    * more thread detach cleanup
+    
+    * rationalizing DetachCurrentThread
+    
+    * OnProcessExit
+    
+    * Remove g_SuspendEELock
+    
+    * fixes
+    
+    * comment tweak
+    
+    * fix assert (thread could be detached before ending up performing shutdown)
+    
+    * Apply suggestions from code review
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
+    
+    * remove unused RtuDllMain
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
