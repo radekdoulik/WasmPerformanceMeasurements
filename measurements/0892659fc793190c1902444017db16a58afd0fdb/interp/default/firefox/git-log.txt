@@ -1,0 +1,9 @@
+commit 0892659fc793190c1902444017db16a58afd0fdb
+Author: Miha Zupan <mihazupan.zupan1@gmail.com>
+Date:   Sun Jan 1 05:21:04 2023 +0100
+
+    Use ArrayBuffer for read buffer management in HttpConnection (#79524)
+    
+    * Use ArrayBuffer for read buffer management in HttpConnection
+    
+    * Update outdated comment
