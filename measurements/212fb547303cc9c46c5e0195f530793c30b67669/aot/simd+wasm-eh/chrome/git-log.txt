@@ -1,0 +1,16 @@
+commit 212fb547303cc9c46c5e0195f530793c30b67669
+Author: Viktor Hofer <viktor.hofer@microsoft.com>
+Date:   Mon Jan 2 21:42:52 2023 +0100
+
+    Use shipping runtime.json for RID targeting (#80074)
+    
+    * Use shipping runtime.json for RID targeting
+    
+    - Use the shipping runtime.json file to target RIDs when building
+      instead of the custom OSGroups.json which only contained a subset of
+      the available rids.
+    - To facilitate that, lower-case the existing platforms in the target
+      frameworks strings which is the expected format anyway by the SDK and
+      msbuild. This will eventually make it possible to bring some of the
+      custom build infrastructure back into the SDK.
+    - Remove a few outdated code pieces and update docs.
