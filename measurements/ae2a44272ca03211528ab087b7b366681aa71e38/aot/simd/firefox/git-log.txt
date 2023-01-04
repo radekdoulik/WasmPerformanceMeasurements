@@ -1,0 +1,38 @@
+commit ae2a44272ca03211528ab087b7b366681aa71e38
+Author: Radek Doulik <radek.doulik@gmail.com>
+Date:   Tue Jan 3 21:54:52 2023 +0100
+
+    [wasm] Add WidenUpper and WidenLower SIMD intrins (#80117)
+    
+    * [wasm] Add WidenUpper and WidenLower SIMD intrins
+    
+    This improves performance in string related areas. Example code:
+    
+        > wa-info -d -f Ascii.*WidenFourAsciiBytesToUtf16AndWriteToBuffer dotnet.wasm
+        (func corlib_System_Text_Ascii_WidenFourAsciiBytesToUtf16AndWriteToBuffer_char__uint(param $0 i32, $1 i32, $2 i32))
+         local.get $0
+         i32.eqz
+         if
+          call mini_llvmonly_throw_nullref_exception
+          unreachable
+    
+         local.get $0
+         local.get $1
+         i32x4.splat    [SIMD]
+         i16x8.extend.low.i8x16.u    [SIMD]
+         v128.store64.lane 0    [SIMD]
+    
+    It is also visible in the bench sample Json task, where it improves
+    serialization times:
+    
+    | measurement | before | after |
+    |-:|-:|-:|
+    |         Json, non-ASCII text serialize |     0.2939ms |     0.2174ms |
+    |                  Json, small serialize |     0.0274ms |     0.0262ms |
+    |                  Json, large serialize |     7.5466ms |     7.0948ms |
+    
+    It would be enough to do zero/sign extensions instead of zero shifts, I
+    left the shifts in place though as I am not sure whether there is
+    a reason for that on arm64.
+    
+    * Fix build
