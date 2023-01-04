@@ -1,0 +1,30 @@
+commit 3454d8c7fc1ee1a1a64f61b3b7df27d1b922b922
+Author: Radek Doulik <radek.doulik@gmail.com>
+Date:   Wed Jan 4 10:39:29 2023 +0100
+
+    [wasm] Add ConditionalSelect SIMD intrinsics (#80145)
+    
+    It uses existing `OP_BSL`, which does And, Not, And and Or operations.
+    llvm emits it as `v128.bitselect` for us. So I think we don't need
+    to use the `llvm.wasm.bitselect.*` intrinsics.
+    
+    This should help in few areas, SpanHelper.ReplaceValueType and
+    IndexOfAnyAsciiSearcher.IndexOfAnyLookup'1.
+    
+    It improves the Json deserialization a bit:
+    
+    | measurement | before | after |
+    |-:|-:|-:|
+    |       Json, non-ASCII text deserialize |     0.4343ms |     0.4275ms |
+    |                Json, small deserialize |     0.0517ms |     0.0497ms |
+    |                Json, large deserialize |    14.3995ms |    13.8217ms |
+    
+    Example of emitted code:
+    
+        > wa-info -d -f SpanHelper.*ReplaceValueType src\mono\sample\wasm\browser-bench\bin\Release\AppBundle\dotnet.wasm
+        (func corlib_System_SpanHelpers_ReplaceValueType_uint16_uint16__uint16__uint16_uint16_uintptr(param $0 i32, $1 i32, $2 i32, $3 i32, $4 i32, $5 i32))
+        ...
+            i16x8.eq    [SIMD]
+            v128.bitselect    [SIMD]
+            v128.store    [SIMD]
+        ...
