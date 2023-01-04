@@ -1,0 +1,14 @@
+commit ad4bdd1943e4cfefd905d5cc5c874a2d12a24e9c
+Author: Aaron Robinson <arobins@microsoft.com>
+Date:   Tue Jan 3 15:24:32 2023 -0800
+
+    Remove some instances of `%S` and `%ls` (#78894)
+    
+    * Remove unused NativeImagePerfMap
+    
+    * Allocate enough for UTF8 conversion
+    
+    * Missed VariantAsString API.
+    Change local `sFlags` to generic `szTempBuf`
+    
+    * Remove all "entry point" logging for metadata APIs.
