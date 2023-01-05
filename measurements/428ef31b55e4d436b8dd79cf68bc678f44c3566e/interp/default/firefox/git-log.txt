@@ -1,0 +1,13 @@
+commit 428ef31b55e4d436b8dd79cf68bc678f44c3566e
+Author: Miha Zupan <mihazupan.zupan1@gmail.com>
+Date:   Thu Jan 5 00:50:27 2023 +0100
+
+    Fix HTTP/2 extended connect hang (#80066)
+    
+    * Fix HTTP/2 extended connect hang
+    
+    * Remove short test timeout
+    
+    * Fix tests
+    
+    * Avoid reusing the same exception instance
