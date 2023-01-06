@@ -1,0 +1,8 @@
+commit 1801b56a60576cdd156134ad80872dbf984e62e7
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Thu Jan 5 18:35:29 2023 -0500
+
+    [wasm] Disable llvm for methods/calls with more than 1000 parameters. (#80243)
+    
+    Some test suites are using methods like it and it causes a load
+    error in some v8 versions.
