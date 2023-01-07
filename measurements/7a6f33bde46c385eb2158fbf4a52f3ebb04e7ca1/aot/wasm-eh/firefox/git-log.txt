@@ -1,0 +1,57 @@
+commit 7a6f33bde46c385eb2158fbf4a52f3ebb04e7ca1
+Author: Vladimir Sadov <vsadov@microsoft.com>
+Date:   Fri Jan 6 15:45:45 2023 -0800
+
+    [NativeAOT] Use QueueUserAPC2 in GC suspension, if available. (#80087)
+    
+    * QueueUserAPC2
+    
+    * fixes, do not stack APCs
+    
+    * adjust for newer SDK
+    
+    * force a failure - to see if lab machines have support for this
+    
+    * cleanup some includes
+    
+    * FEATURE_SUSPEND_APC2
+    
+    * remove intentional failure
+    
+    * one more case of FEATURE_SUSPEND_APC2
+    
+    * comment
+    
+    * fail if QUEUE_USER_APC_CALLBACK_DATA_CONTEXT supported
+    
+    * Apply suggestions from code review
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
+    
+    * FEATURE_SUSPEND_APC2 -> FEATURE_SPECIAL_USER_MODE_APC
+    
+    * throw - to make sure this fails on Release builds
+    
+    * un-break the feature
+    
+    * fix for a stress issue.
+    
+    * check for a failure to queue an APC.
+    
+    * use the same activation optimization on Unix
+    
+    * PR feedback
+    
+    * unmark ActivationPending if APC failed to queue.
+    
+    * a bit more robust against sharing the signal with something else.
+    
+    * initialize QueueUserAPC2 on demand
+    
+    * Check for STATUS_INVALID_PARAMETER
+    
+    * print the error
+    
+    * STATUS_INVALID_PARAMETER -> ERROR_INVALID_PARAMETER
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
