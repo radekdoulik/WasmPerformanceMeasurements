@@ -1,0 +1,19 @@
+commit 699acfac91ed44790e528cceae16377ba10a899c
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Sat Jan 7 15:48:01 2023 -0500
+
+    Enable new analyzers CA1510/11/12/13 and CA1856/57/58 (#80149)
+    
+    * Enable new analyzers CA1510/11/12/13 and CA1856/57/58
+    
+    CA1510: Use ArgumentNullException throw helper
+    CA1511: Use ArgumentException throw helper
+    CA1512: Use ArgumentOutOfRangeException throw helper
+    CA1513: Use ObjectDisposedException throw helper
+    CA1856: Incorrect usage of ConstantExpected attribute
+    CA1857: A constant is expected for the parameter
+    CA1858: Use 'StartsWith' instead of 'IndexOf'
+    
+    * More fixes
+    
+    * Address PR feedback
