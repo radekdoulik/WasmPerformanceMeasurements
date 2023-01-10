@@ -1,0 +1,9 @@
+commit 78f5a9839ac7d49a3cfaa6f4015a90b1cc846fa1
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Tue Jan 10 00:38:05 2023 +0100
+
+    AOT: Handle printing names of generic parameter types (#80371)
+    
+    This case is hittable with tokens representing open generic types that
+    may have their full type names printed as a comment in JIT disasm after
+    e398ba2.
