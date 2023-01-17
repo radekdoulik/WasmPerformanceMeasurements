@@ -1,0 +1,7 @@
+commit 89595409d0e1f3d0c62cf2a9a882527c7ae55b88
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Tue Jan 17 08:28:31 2023 +0900
+
+    Generate fewer templates for generic virtual methods (#80600)
+    
+    The only reason left why we needed the extra template was because when we're breaking down a `RuntimeMethodHandle` into components, we were trying to break it down into `RuntimeTypeHandle`s. But what we need is a `MethodDesc`. So shortcut the codepath that computes `MethodDesc`, then breaks it down into various type handles and then get a `MethodDesc` again.
