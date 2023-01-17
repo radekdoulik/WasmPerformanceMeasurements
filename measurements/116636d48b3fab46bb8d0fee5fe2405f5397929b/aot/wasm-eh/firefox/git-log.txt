@@ -1,0 +1,5 @@
+commit 116636d48b3fab46bb8d0fee5fe2405f5397929b
+Author: Egor Bogatov <egorbo@gmail.com>
+Date:   Tue Jan 17 12:47:29 2023 +0100
+
+    Don't try to fold ADD(CNS, CNS-handle) in gtWalkOp (#80704)
