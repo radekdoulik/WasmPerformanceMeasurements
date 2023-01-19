@@ -1,0 +1,7 @@
+commit f429780c9ccce3546e9c9e25c05ed083318428bd
+Author: Ivan Povazan <55002338+ivanpovazan@users.noreply.github.com>
+Date:   Thu Jan 19 11:17:02 2023 +0100
+
+    [mono] Prefix exported symbols via UnmanagedCallersOnly attribute (#79880)
+    
+    Fixes https://github.com/dotnet/runtime/issues/79491
