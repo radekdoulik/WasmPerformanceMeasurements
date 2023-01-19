@@ -1,0 +1,62 @@
+commit d9a7c2831069b015ed8eb6a7a5fc2fe8cc5f4c42
+Author: LateApexEarlySpeed <72254037+lateapexearlyspeed@users.noreply.github.com>
+Date:   Thu Jan 19 07:55:40 2023 +0800
+
+    Make WriteCommentValue overloads have same behavior (#75074)
+    
+    Squashed commit of the following:
+    
+    commit e89bcfe2d8c3f45232f3d0b861be34ccede948f1
+    Author: lateapexearlyspeed <lateapexearlyspeed@163.com>
+    Date:   Wed Nov 9 11:56:41 2022 +0800
+    
+        Change comment behavior: add newline between comments.
+    
+    commit 60d730ae151c9c2bffdaf7b6ca3cfa68180ba8b8
+    Author: lateapexearlyspeed <lateapexearlyspeed@163.com>
+    Date:   Thu Oct 27 15:36:43 2022 +0800
+    
+        Fix comment: test multiple comments in same line.
+    
+    commit 977e76a298e52ad184adf78ab7172be99b97b9e2
+    Merge: 64b6be97fd4 9b9b0c95c67
+    Author: LateApexEarlySpeed <72254037+lateapexearlyspeed@users.noreply.github.com>
+    Date:   Fri Sep 23 12:56:01 2022 +0800
+    
+        Merge branch 'main' into lateapexearlyspeed-MakeWriteCommentValueOverloadSameBehavior
+    
+    commit 64b6be97fd4c9b59fc601db8a0e6ddd8a8b97a7f
+    Author: lateapexearlyspeed <lateapexearlyspeed@163.com>
+    Date:   Thu Sep 22 10:39:32 2022 +0800
+    
+        Fix comment: keep newtonsoft.json asserting tests; add non-indented tests; use pattern match.
+    
+    commit e3a772ac985801eb89abc028f5a71f2ad502cd55
+    Author: lateapexearlyspeed <lateapexearlyspeed@163.com>
+    Date:   Tue Sep 20 16:20:59 2022 +0800
+    
+        Inline expectedIndentedJson to local var.
+    
+    commit 9e16463cc8826890e6fbeb115ba9a05867ee5017
+    Author: lateapexearlyspeed <lateapexearlyspeed@163.com>
+    Date:   Tue Sep 20 11:46:44 2022 +0800
+    
+        Fix comment: update test cases to use string literal to assert.
+    
+    commit bebb09c0c9bc7b7b1c5076ab6dbcf1f5ec1d884a
+    Author: lateapexearlyspeed <lateapexearlyspeed@163.com>
+    Date:   Thu Sep 15 17:56:44 2022 +0800
+    
+        Add tests.
+    
+    commit 2f9dbff3629f0b9b8b24f2bb2c32ec9c620a6fcd
+    Author: lateapexearlyspeed <lateapexearlyspeed@163.com>
+    Date:   Wed Sep 7 11:01:11 2022 +0800
+    
+        Add NewLine between comment and start of (object and array).
+    
+    commit 9c1bb280f59e3755227747251a1a51fdca9eeab1
+    Author: lateapexearlyspeed <lateapexearlyspeed@163.com>
+    Date:   Mon Sep 5 15:11:57 2022 +0800
+    
+        Make WriteCommentValue() overloads have same behavior.
