@@ -1,0 +1,7 @@
+commit a1de0503d62f32bcf8b8c2e1f1e7660989feffb1
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Fri Jan 20 08:52:57 2023 +0900
+
+    Make the type components cache factory even more lazy (#80843)
+    
+    Follow up to #80726. Needed a bit more laziness to really get everything out of the picture.
