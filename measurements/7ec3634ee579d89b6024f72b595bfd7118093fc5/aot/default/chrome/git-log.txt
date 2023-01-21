@@ -1,0 +1,9 @@
+commit 7ec3634ee579d89b6024f72b595bfd7118093fc5
+Author: Milos Kotlar <kotlarmilos@gmail.com>
+Date:   Sat Jan 21 09:03:21 2023 +0100
+
+    [mono][interp] Ensure call offset is greater than offset of other active calls (#80728)
+    
+    * Add deferred call resolution for active calls. The base offset of the call must be greater than the offset of any argument of other active call args. The base offset is computed as max offset of all call offsets on which the call depends. Stack ensures that all call offsets on which the call depends are calculated before the call in question, by deferring calls from the last to the first one.
+    
+    * Move call_args to InterpCallInfo struct. Allocate InterpCallInfo per call instruction.
