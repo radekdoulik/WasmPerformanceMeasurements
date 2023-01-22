@@ -1,0 +1,131 @@
+commit 68d1b8ffabc3fe5f3210fd30981f59f819f32011
+Author: Aleksey Kliger (λgeek) <alklig@microsoft.com>
+Date:   Sat Jan 21 18:57:09 2023 -0500
+
+    [mono][wasm] Bundle assemblies as WebCIL (#79416)
+    
+    Define a new container format for .NET assemblies that looks less like a Windows PE file. Use it for bundling assemblies in wasm projects.
+    
+    * Implement WebCIL loader
+    
+      It will try to look for WebCIL formatted images instread of normal .dll files
+    
+    * Checkpoint works on wasm sample; add design doc
+    
+    * Push .dll->.webcil probing lower in the bundle logic
+    
+    * Also convert satellite assemblies and implement satellite matching
+    
+    * [wasm] don't leak .webcil image names to the debugger
+    
+       In particular this will make source and breakpoint URLs look like `dotnet://foo.dll/Foo.cs` which means that grabbing PDBs via source link will work, etc.
+    
+    * Add PE DebugTableDirectory to webcil
+    
+       This is used to retrieve the PPDB data and/or the PDB checksum from an image.
+    
+       Refactor mono_has_pdb_checksum to support webcil in addition to PE images
+    
+    * Implement a WebcilReader for BorwserDebugProxy like PEReader
+    
+      This needs some improvements:
+       - add support for reading CodeView and EmbeddedPDB data
+       - copy/paste less from the WebcilWriter task
+       - copy/paste less from PEReader (will require moving WebcilReader to SRM)
+    
+    * [debug] Match bundled pdbs if we're looking up .webcil files
+    
+      The pdbs are registered by wasm with a notional .dll filename. if the debugger does a lookup using a .webcil name instead, allow the match
+    
+    * Adjust debug directory entries when writing webcil files
+    
+       the PE COFF debug directory entries contain a 'pointer' field which is an offset from the start of the file.
+    
+       When writing the webcil file, the header is typically smaller than a PE file, so the offsets are wrong.  Adjust the offsets by the size of the file.
+    
+       We assume (and assert) the debug directory entries actually point at some PE COFF sections in the PE file (as opposed to somewhere past the end of the known PE data).
+    
+       When writing, we initially just copy all the sections directly, then seek to where the debug directory entries are, and overwrite them with updated entries that have the correct 'pointer'
+    
+    * Fix bug in WebcilWriter
+    
+       Stream.CopyTo takes a buffer size, not the number of bytes to copy.
+    
+    * bugfix: the debug directory is at pe_debug_rva not at the CLI header
+    
+    * skip debug fixups if there's no debug directory
+    
+    * WebcilReader: implement CodeView and Emebedded PPDB support
+    
+    * [WBT] Add UseWebcil option (default to true)
+    
+    * rename WebcilWriter -> WebcilConverter [NFC]
+    
+    * fixup AssemblyLoadedEventTest
+    
+    * hack: no extension on assembly for breakpoint
+    
+    * pass normal .dll name for MainAssemblyName in config
+    
+       let the runtime deal with it - bundle matching will resolve it to the .webcil file
+    
+    * Wasm.Debugger.Tests: give CI 10 more minutes
+    
+    * Add Microsoft.NET.WebAssembly.Webcil assembly project
+    
+       Mark it as shipping, but not shipping a nuget package.
+    
+       The idea is that it will be shipped along with the WasmAppBuilder msbuild task, and with the BrowserDebugProxy tool.
+    
+    * Move WebcilConverter to Microsoft.NET.WebAssembly.Webcil
+    
+    * Move WebcilReader to Microsoft.NET.WebAssembly.Webcil
+    
+       delete the duplicated utility classes
+    
+    * make the webcil magic and version longer
+    
+    * Code style improvements from review
+    
+    * Improve some exception messages, when possible
+    
+    * Suggestings from code review
+    
+    * Add WasmEnableWebcil msbuild property.  Off by default
+    
+    * Build non-wasm runtimes without .webcil support
+    
+    * Run WBT twice: with and without webcil
+    
+       This is a total of 4 runs: with and without workloads x with and without webcil
+    
+    * do the cartesian product correctly in msbuild
+    
+    * also add webcil to template projects
+    
+    * environment variable has to be non-null and "true"
+    
+       We set it to "false" sometimes
+    
+    * Fix wasm work items
+    
+       They should be the same whether or not webcil is used.  Just the WorkloadItemPrefix should be used to change the name.
+    
+    * Update src/libraries/sendtohelix-wasm.targets
+    
+    * PInvokeTableGeneratorTests: don't try to use the net472 WasmAppBuilder
+    
+       Look for the default target framework subdirectory under the tasks directory in the runtime pack when trying to find the tasks dll. In particular don't try to load the net472 version on modern .NET
+    
+    * PInvokeTableGeneratorTests: Add more diagnostic output if tasksDir is not found
+    
+    * simplify prefix comparison in bundled_assembly_match
+    
+    * WasmAppBuilder improve logging
+    
+       Just emit a single Normal importance message about webcil; details as Low importance.
+    
+    * Add missing using
+    
+    Co-authored-by: Ankit Jain <radical@gmail.com>
+    Co-authored-by: Larry Ewing <lewing@microsoft.com>
