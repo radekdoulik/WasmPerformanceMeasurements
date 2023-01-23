@@ -1,0 +1,7 @@
+commit e926cf5f0398f03fb74e743c67988f6b84832359
+Author: Radek Doulik <radek.doulik@gmail.com>
+Date:   Mon Jan 23 18:43:30 2023 +0100
+
+    [wasm] Disable legacy interop measurements (#81027)
+    
+    Temporarily as they currently don't work
