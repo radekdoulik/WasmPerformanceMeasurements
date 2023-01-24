@@ -1,0 +1,11 @@
+commit 1631f312c6776c9e1d6aff0f13b3806f32bf250c
+Author: Martin Taillefer <geeknoid@users.noreply.github.com>
+Date:   Tue Jan 24 03:54:43 2023 -0800
+
+    Speed up frozen string dictionaries and sets by ~25-30% (#81021)
+    
+    - Replace the specialized comparer types with specialized dictionary
+    and set types, to avoid virtual dispatch overhead and enable better
+    inlining.
+    
+    Co-authored-by: Martin Taillefer <mataille@microsoft.com>
