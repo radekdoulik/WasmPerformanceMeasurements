@@ -1,0 +1,61 @@
+commit 4c992b1b540c5470873a42cfbdfabc0b87d64e47
+Author: Thays Grazia <thaystg@gmail.com>
+Date:   Mon Jan 23 19:43:32 2023 -0300
+
+    [wasm][debugger] Implement support to symbolOptions from dap. (#79284)
+    
+    * Draft to implement support to symbolOptions from dap.
+    
+    * removing debugger.launch
+    
+    * Adding tests and fix compilation error
+    
+    * Adding test case.
+    
+    * Fix test cases, and implement support to PDBChecksum used on nuget.org to get symbols.
+    
+    * merge
+    
+    * Fixing tests.
+    
+    * Tests are timing out.
+    
+    * Apply suggestions from code review
+    
+    Co-authored-by: Larry Ewing <lewing@microsoft.com>
+    Co-authored-by: Ankit Jain <radical@gmail.com>
+    
+    * adressing @radical comments.
+    
+    * Addressing @radical comment.
+    
+    * Addressing @radical comments.
+    
+    * Apply suggestions from code review
+    
+    Co-authored-by: Ankit Jain <radical@gmail.com>
+    
+    * Addressing @radical comments.
+    
+    * Addressing @radical comments
+    Changing when the symbols from symbol server is loaded because it takes a long time to load, as there are a lot of assemblies loaded not found on symbol servers.
+    
+    * use MicrosoftCodeAnalysisCSharpVersion for scripting package.
+    
+    * Adding more tests as asked by @radical
+    Removing timeout change as @radical has split it into 2 files
+    Fixing test behavior, when justMyCode is disabled but the symbols are not loaded from symbol server.
+    
+    * [wasm] some cleanup
+    
+    - Don't call `UpdateSymbolStore` from `DebugStore..ctor` because that
+    gets called multiple times in `LoadStore`, but only once instance gets
+    used.
+    - Use an isolated symbol cache path per test
+    
+    * remove debug spew
+    
+    * Addressing radical comment.
+    
+    Co-authored-by: Larry Ewing <lewing@microsoft.com>
+    Co-authored-by: Ankit Jain <radical@gmail.com>
