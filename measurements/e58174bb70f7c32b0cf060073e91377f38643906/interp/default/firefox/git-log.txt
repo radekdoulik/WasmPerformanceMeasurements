@@ -1,0 +1,16 @@
+commit e58174bb70f7c32b0cf060073e91377f38643906
+Author: Andy Ayers <andya@microsoft.com>
+Date:   Tue Jan 24 15:24:10 2023 -0800
+
+    JIT: build pred lists before inlining (#81000)
+    
+    Move pred list building up a bit further. Note that this impacts both the root
+    method and all inlinees, since we run a number of the initial phases on both.
+    
+    Since inlinees build their basic blocks and flow edges in the root compiler's
+    memory pool, the only work required to unify the pred lists for a successful
+    inline is to get things right at the boundaries. And for failed inlines there
+    is no cross-referencing so we can just let the new pred lists leak away (like
+    we already do for the inlinee blocks).
+    
+    Contributes towards #80193.
