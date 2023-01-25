@@ -1,0 +1,11 @@
+commit 9b76c28567640e4cbe0d20e18b765b8f1a47473f
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Wed Jan 25 09:05:29 2023 +0100
+
+    JIT: Fix tailcall-to-loop improper locals zeroing (#81083)
+    
+    The zeroing that the tailcall-to-loop optimization does was zeroing the
+    promoted copies for implicit byrefs even when promotion of them was undone.
+    This was introducing unexpected references to the promoted fields.
+    
+    Fix #81081
