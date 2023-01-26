@@ -1,0 +1,13 @@
+commit 26b58b99aeef79c48b8e29463a1e6f1855174e1b
+Author: Tanner Gooding <tagoo@outlook.com>
+Date:   Thu Jan 26 02:17:57 2023 -0800
+
+    Add Lerp to IFloatingPointIeee754 (#81186)
+    
+    * Add Lerp to IFloatingPointIeee754
+    
+    * Add tests covering Lerp
+    
+    * Fix build error
+    
+    * Handle negative zero
