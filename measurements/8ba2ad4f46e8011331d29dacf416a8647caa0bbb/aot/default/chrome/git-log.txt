@@ -1,0 +1,7 @@
+commit 8ba2ad4f46e8011331d29dacf416a8647caa0bbb
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Thu Jan 26 18:31:54 2023 -0500
+
+    Remove defensive Task[] copy from non-generic Task.WhenAll (#81065)
+    
+    When calling it with a `Task[]` or `List<Task>`, we'll no longer generate a temporary array; the only allocation in those cases will be for the returned Task itself, at least if it completes successfully (if multiple of the constituent tasks fail or are canceled, we'll end up with an additional list allocation beyond what we had before).  If you call it with an enumerable that's not an `ICollection<Task>`, we'll also save a `Task[]`.
