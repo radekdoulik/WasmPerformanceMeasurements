@@ -1,0 +1,7 @@
+commit 084998ce5a8078d317380ff531b662c70b28b294
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Fri Jan 27 06:36:27 2023 -0500
+
+    Add additional bool-only ToFrozenDictionary/Set overloads (#81256)
+    
+    API review decided to include additional overloads to enable only specifying the bool.
