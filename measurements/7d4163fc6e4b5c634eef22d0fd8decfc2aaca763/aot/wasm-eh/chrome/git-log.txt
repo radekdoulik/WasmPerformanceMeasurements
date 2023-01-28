@@ -1,0 +1,7 @@
+commit 7d4163fc6e4b5c634eef22d0fd8decfc2aaca763
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Sat Jan 28 04:54:07 2023 -0500
+
+    [mono][wasm] Avoid passing the icall name/c function name to mono_register_jit_icall_info () on wasm. (#81293)
+    
+    It creates unused string literals.
