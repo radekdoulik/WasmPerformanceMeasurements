@@ -1,0 +1,7 @@
+commit dfe1076090adad6990747e6abed8bf6699371877
+Author: kkeirstead <85592574+kkeirstead@users.noreply.github.com>
+Date:   Sat Jan 28 16:56:15 2023 -0800
+
+    Publish `UpDownCounter` and `ObservableUpDownCounter` Events for System.Diagnostics.Metrics (#81041)
+    
+    Add support for publishing UpDownCounter (and Observable...) - also added in the missing testing for this.
