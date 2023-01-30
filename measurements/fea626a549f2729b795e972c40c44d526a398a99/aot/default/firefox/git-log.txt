@@ -1,0 +1,7 @@
+commit fea626a549f2729b795e972c40c44d526a398a99
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Mon Jan 30 20:52:26 2023 +0900
+
+    More thoroughly check for function pointers (#81344)
+    
+    Fixes #81117.
