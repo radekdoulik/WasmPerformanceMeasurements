@@ -1,0 +1,123 @@
+commit ac18cc941a4c611727d6d4d62d0413ff4fc8dcd1
+Author: Thays Grazia <thaystg@gmail.com>
+Date:   Wed Feb 1 20:20:33 2023 -0300
+
+    [wasm] [debugger] First version of multithreaded debugging (#74820)
+    
+    * First version of multithreaded debugging.
+    
+    * Revert package-lock.json
+    
+    * New line at package-lock.json
+    
+    * Fix not used variable.
+    
+    * Fix debugger on firefox.
+    
+    * Rewrite code to avoid duplicated code.
+    
+    * Fix where mono_init_debugger_agent_common is called.
+    
+    * Remove whitespace.
+    
+    * Update src/mono/wasm/debugger/BrowserDebugProxy/MonoSDBHelper.cs
+    
+    Co-authored-by: Ankit Jain <radical@gmail.com>
+    
+    * Update src/mono/wasm/debugger/BrowserDebugProxy/DevToolsHelper.cs
+    
+    Co-authored-by: Ankit Jain <radical@gmail.com>
+    
+    * Update src/mono/wasm/debugger/BrowserDebugProxy/DevToolsHelper.cs
+    
+    Co-authored-by: Ankit Jain <radical@gmail.com>
+    
+    * [wasm] Debugger tests: support running with multithreaded runtime
+    
+    * Add runtime-wasm-dbgtests pipeline with debugger tests running on a multi-threaded runtime
+    
+    * Add multi-threaded debugger tests to runtime-wasm
+    
+    * fix yml
+    
+    * Always run the new tests when the pipeline is invoked manually
+    
+    * Pass through extra build args for wasm debugger tests
+    
+    * Addressing @radical comments.
+    
+    * Apply suggestions from code review
+    
+    Co-authored-by: Ankit Jain <radical@gmail.com>
+    
+    * addressing radical comments
+    
+    * Fixing tests failures and adding a schema to run a test that will only run in a multithreaded environment.
+    
+    * Adding support for run debugger-tests in a multithreaded runtime.
+    
+    * Fix running debugger tests for multithreaded runtime, passing sessionId where it's necessary.
+    
+    * Fix CI.
+    
+    * Addressing @radical comments
+    Adding a test case.
+    
+    * Update src/mono/wasm/debugger/DebuggerTestSuite/DebuggerTestBase.cs
+    
+    Co-authored-by: Ankit Jain <radical@gmail.com>
+    
+    * Update src/mono/wasm/debugger/DebuggerTestSuite/MiscTests.cs
+    
+    Co-authored-by: Ankit Jain <radical@gmail.com>
+    
+    * Update src/mono/wasm/debugger/DebuggerTestSuite/InspectorClient.cs
+    
+    Co-authored-by: Ankit Jain <radical@gmail.com>
+    
+    * Dictionary with the scriptId also uses sessionId.
+    
+    * Addressing @radical review.
+    
+    * Apply suggestions from code review
+    
+    Co-authored-by: Ankit Jain <radical@gmail.com>
+    
+    * Avoiding getting this error: Cannot transition thread 0x2a15360 from STATE_BLOCKING with DO_BLOCKING.
+    In the transport_send we don't save the thread context, we save it before the send function.
+    
+    * Addressing @radical comments.
+    
+    * Using more threads in unit test.
+    
+    * Apply suggestions from code review
+    
+    Co-authored-by: Ankit Jain <radical@gmail.com>
+    
+    * Addressing @radical comments, and trying to fix ci.
+    
+    * Removing unnecessary changes.
+    
+    * Export function used on mini-wasm-debugger.
+    
+    * Fixing line number.
+    
+    * Fix run tests on release.
+    
+    * fix compilation for multithread runtime
+    
+    * trying to fix multithread debugger tests on ci
+    
+    * trying to fix debugger tests on ci
+    
+    * disabling tests on multithreaded runtime
+    
+    * Update eng/pipelines/extra-platforms/runtime-extra-platforms-wasm.yml
+    
+    Co-authored-by: Ankit Jain <radical@gmail.com>
+    
+    * Throwing an exception if the "what" is not the one that is being get from the nextNotificationQueue.
+    
+    ---------
+    
+    Co-authored-by: Ankit Jain <radical@gmail.com>
