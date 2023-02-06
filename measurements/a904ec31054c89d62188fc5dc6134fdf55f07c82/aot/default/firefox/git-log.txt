@@ -1,0 +1,5 @@
+commit a904ec31054c89d62188fc5dc6134fdf55f07c82
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Sun Feb 5 18:24:06 2023 -0500
+
+    Suppress unobserved task exceptions for channel Completion tasks (#81652)
