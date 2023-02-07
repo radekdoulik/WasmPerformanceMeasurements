@@ -1,0 +1,9 @@
+commit 4b98c1ef3378d419240351e242f26512e4f393c6
+Author: Eric Erhardt <eric.erhardt@microsoft.com>
+Date:   Fri Feb 3 16:29:12 2023 -0600
+
+    Respect HostApplicationBuilderSettings.Args when DisableDefaults=true (#81568)
+    
+    If the Args was specified, always add it to the Configuration.
+    
+    Fix #81445
