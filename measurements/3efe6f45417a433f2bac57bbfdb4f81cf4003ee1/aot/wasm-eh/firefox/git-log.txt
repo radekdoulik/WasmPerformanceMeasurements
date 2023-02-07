@@ -1,0 +1,7 @@
+commit 3efe6f45417a433f2bac57bbfdb4f81cf4003ee1
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Tue Feb 7 08:54:55 2023 +0900
+
+    Adjust workaround for event source resource stripping (#81528)
+    
+    The used approach only worked in debug builds. `InlineableStringResource` is not one of the nodes that survives from scanning phase to compilation phase. Make the compiler think `GetResourceString` was reflected on instead.
