@@ -1,0 +1,25 @@
+commit 43a60c8ed073a4c6134facadd01c9c1c2643e41a
+Author: Radek Doulik <radek.doulik@gmail.com>
+Date:   Wed Feb 8 13:20:29 2023 +0100
+
+    [json] Use S.R.I vectors in JsonReaderHelper (#81758)
+    
+    * [json] Use S.R.I vectors in JsonReaderHelper
+    
+    wasm performance improvement
+    
+    | measurement | new simd | old simd | nosimd |
+    |-:|-:|-:|-:|
+    |       Json, non-ASCII text deserialize |     0.4234ms |     0.4280ms |     0.4234ms |
+    |                Json, small deserialize |     0.0376ms |     0.0402ms |     0.0397ms |
+    |                Json, large deserialize |    10.4231ms |    11.1614ms |    11.0021ms |
+    
+    microbenchmarks perf
+    
+        --filter *Text.Json*Read*
+        summary:
+        better: 170, geomean: 1.120
+        worse: 15, geomean: 1.080
+        total diff: 185
+    
+    * Use SRI vectors only on net7 and later
