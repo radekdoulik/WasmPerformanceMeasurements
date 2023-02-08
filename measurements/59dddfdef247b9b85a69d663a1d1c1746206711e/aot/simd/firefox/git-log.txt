@@ -1,0 +1,9 @@
+commit 59dddfdef247b9b85a69d663a1d1c1746206711e
+Author: Austin Wise <AustinWise@gmail.com>
+Date:   Tue Feb 7 15:50:01 2023 -0800
+
+    [Jiterpreter] Add support for TryGetHashCode intrinsic (#81644)
+    
+    #80520 added support in the Jiterpreter for the intrinsic that underlies RuntimeHelpers.GetHashCode. This PR adds similar support for the intrinsic that underlies RuntimeHelpers.TryGetHashCode.
+    
+    For reference RuntimeHelpers.TryGetHashCode was added in #80059. It is currently only used in ConditionalWeakTable.TryGetValue.
