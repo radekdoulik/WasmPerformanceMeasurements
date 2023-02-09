@@ -1,0 +1,127 @@
+commit ad52afd27433d50b932708276fe4a3afbe7481cc
+Author: anthonycanino <anthony.canino@intel.com>
+Date:   Wed Feb 8 15:10:39 2023 -0800
+
+    Enable AVX512 Additional 16 SIMD Registers (#79544)
+    
+    * Change regMask_enum and regMaskTP to unsigned __int64_t on AMD64.
+    
+    This allows for more registers to be encoded in the register allocator.
+    
+    * Add upper 16 SIMD registers to allocator.
+    
+    Commit includes refactoring code to use `const instrDesc *` instead of `instruction`
+    so information about when EVEX is needed (due to high SIMD registers) is
+    available to the emitter.
+    
+    * Limit high SIMD reg to compatible intrinsics lsra build.
+    
+    * Limit high SIMD reg to compatible intrinsics lsra build.
+    
+    * Limit high SIMD reg to compatible intrinsics and gentree nodes.
+    
+    Commit constrains certain hw intrinsics and gentree nodes to use
+    lower SIMD registers even if upper SIMD registers are available due
+    to limitations of EVEX encoding for certain instructions.
+    
+    For example, SSE `Reciprocal` lowers to `rcpps` which does not have an
+    EVEX encoding form, hence, we cannot allow that hw intrincis node to use
+    a high SIMD register.
+    
+    These intrinsics are marked with `HW_Flag_NoEvexSemantics`. Other such
+    intructions related to masking (typically marked with
+    `HW_Flag_ReturnsPerElementMask`) also have similar issues (though they
+    can be replaced with the EVEX k registers and associated masking when
+    implemented).
+    
+    In addition, the callee/calleer save registers have also been adjusted
+    to properly handle the presence and absence of AVX512 upper simd
+    registers at runtime.
+    
+    * Fix for X86 throughput.
+    
+    * Add upper simd stress test to the AVX512 testing pipeline.
+    
+    * Formatting.
+    
+    * Fix wrong-sized attr for simd mov instruction.
+    
+    * Fix non-AMD64 LSRA stress mask.
+    
+    * Update src/coreclr/jit/compiler.h
+    
+    Co-authored-by: Bruce Forstall <brucefo@microsoft.com>
+    
+    * Update src/coreclr/jit/compiler.cpp
+    
+    Co-authored-by: Bruce Forstall <brucefo@microsoft.com>
+    
+    * Update src/coreclr/jit/gentree.cpp
+    
+    Co-authored-by: Bruce Forstall <brucefo@microsoft.com>
+    
+    * Update src/coreclr/jit/hwintrinsic.h
+    
+    Co-authored-by: Bruce Forstall <brucefo@microsoft.com>
+    
+    * Update src/coreclr/jit/target.h
+    
+    Co-authored-by: Bruce Forstall <brucefo@microsoft.com>
+    
+    * Update src/coreclr/jit/emitxarch.cpp
+    
+    Co-authored-by: Bruce Forstall <brucefo@microsoft.com>
+    
+    * Remove unneeded vars
+    
+    * Address PR comments.
+    
+    * Allow `emitinl.h` access to the `rbm` variables.
+    
+    * Replace RBM_LOWSIMD with `BuildEvexIncompatibleMask`.
+    
+    * Move AVX512 dependent `targetamd.h` vars into compiler object.
+    
+    * Fixing some edge cases for `targetamd.h` variables.
+    
+    * Fix a merge/rebase bug.
+    
+    * Update src/coreclr/jit/compiler.h
+    
+    Co-authored-by: Bruce Forstall <brucefo@microsoft.com>
+    
+    * Update src/coreclr/jit/lsra.cpp
+    
+    Co-authored-by: Bruce Forstall <brucefo@microsoft.com>
+    
+    * Update src/coreclr/jit/compiler.h
+    
+    Co-authored-by: Bruce Forstall <brucefo@microsoft.com>
+    
+    * Fix nits.
+    
+    * Trying VM changes.
+    
+    * VM hack.
+    
+    * VM hack.
+    
+    * Revert "VM hack."
+    
+    This reverts commit 91cf3db9115e94ca1d759045fe4da6a496228cfc.
+    
+    * Adjust ACTUAL_REG_COUNT based on availability of AVX512.
+    
+    * Use inline accessor functions instead of macros
+    
+    Convert from macros to accessor functions for
+    RBM_ALLFLOAT, RBM_FLT_CALLEE_TRASH, CNT_CALLEE_TRASH_FLOAT.
+    Convert LSRA use of ACTUAL_REG_COUNT to AVAILABLE_REG_COUNT,
+    and create an accessor for that value for AMD64 as well.
+    
+    * Clearifying comments.
+    
+    ---------
+    
+    Co-authored-by: Bruce Forstall <brucefo@microsoft.com>
+    Co-authored-by: Kunal Pathak <Kunal.Pathak@microsoft.com>
