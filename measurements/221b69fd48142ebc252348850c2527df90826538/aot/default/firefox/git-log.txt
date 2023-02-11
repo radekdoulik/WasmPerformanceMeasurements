@@ -1,0 +1,12 @@
+commit 221b69fd48142ebc252348850c2527df90826538
+Author: Bruce Forstall <brucefo@microsoft.com>
+Date:   Fri Feb 10 16:58:08 2023 -0700
+
+    Tweak coreclr test build script (#81975)
+    
+    1. No longer use `-priority=1` syntax: use `-priority 1` instead.
+    It was already documented this way, and probably works both ways on
+    Windows because batch scripts "eat" the `=` sign sometimes.
+    2. Fix a YML script to not pass the `=`. This is probably unused code
+    currently because we build tests in CoreCLR on Linux.
+    3. Add a few more `%MsgPrefix%` output lines.
