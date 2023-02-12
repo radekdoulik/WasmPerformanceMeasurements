@@ -1,0 +1,21 @@
+commit 845820193905607901041760d3b1249d5c36fb56
+Author: Tanner Gooding <tagoo@outlook.com>
+Date:   Sat Feb 11 15:30:05 2023 -0800
+
+    Add basic support for folding SIMD intrinsics (#81547)
+    
+    * Create a helper ValueNumStore::EvalHWIntrinsicFunBinary
+    
+    * Adding some basic support for folding SIMD unary and binary operations
+    
+    * Refactor SIMD constant folding logic to not depend on C++ 14
+    
+    * Apply formatting patch
+    
+    * Handle identity folding for simd add/sub
+    
+    * Add some basic tests covering SIMD constant folding
+    
+    * Move genTreeOps to its own header so simd.h can use it in Evaluate*Simd
+    
+    * Applying formatting patch
