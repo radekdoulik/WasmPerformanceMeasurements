@@ -1,0 +1,7 @@
+commit 252018c3d3fffdb592413cf61d5b80cf751e0a59
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Sun Feb 12 18:53:55 2023 -0500
+
+    Avoid taking lock for empty bucket in ConcurrentDictionary.TryRemove (#82004)
+    
+    Even when uncontended, the lock represents the most expensive work performed by the method.  We can avoid taking it if we see that the bucket's count is empty.
