@@ -1,0 +1,7 @@
+commit be84df7642f21702b0e7859f0c134e4d6cfc67eb
+Author: Austin Wise <AustinWise@gmail.com>
+Date:   Sun Feb 12 19:34:57 2023 -0800
+
+    Tweak NativeAOT repro instructions (#82018)
+    
+    These work regardless where you copy of dotnet/runtime is checked out.
