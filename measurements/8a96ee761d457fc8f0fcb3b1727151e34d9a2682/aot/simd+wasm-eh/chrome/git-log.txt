@@ -1,0 +1,10 @@
+commit 8a96ee761d457fc8f0fcb3b1727151e34d9a2682
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Tue Feb 14 12:21:41 2023 +0100
+
+    JIT: Optimize zero inits out only for locals that aren't candidates to be tracked (#82042)
+    
+    Otherwise we may track it after lowering and invalidate the assumptions
+    made by the optimization.
+    
+    Fix #82020
