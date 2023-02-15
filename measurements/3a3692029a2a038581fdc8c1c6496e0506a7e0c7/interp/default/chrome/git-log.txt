@@ -1,0 +1,14 @@
+commit 3a3692029a2a038581fdc8c1c6496e0506a7e0c7
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Wed Feb 15 11:38:06 2023 +0100
+
+    SPMI: Ensure we disable loop alignment consistently (#82100)
+    
+    Recently we disabled loop alignment in SPMI diffs, but this was only
+    done for the SPMI invocations when we generate disassembly. This would
+    result in the diffs run seeing different generated code than subsequent
+    disassembly runs.
+    
+    This splits the environment variables we want to have enabled in the
+    diffs SPMI invocation out into its own dictionary. These are force
+    overridden.
