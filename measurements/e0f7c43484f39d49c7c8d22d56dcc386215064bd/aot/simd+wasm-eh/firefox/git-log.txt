@@ -1,0 +1,9 @@
+commit e0f7c43484f39d49c7c8d22d56dcc386215064bd
+Author: Bruce Forstall <brucefo@microsoft.com>
+Date:   Tue Feb 14 16:18:21 2023 -0700
+
+    Disable rundownvalidation test on GCStress for arm (#82118)
+    
+    Linux arm GCStress 3 times out
+    
+    Tracking: https://github.com/dotnet/runtime/issues/81323
