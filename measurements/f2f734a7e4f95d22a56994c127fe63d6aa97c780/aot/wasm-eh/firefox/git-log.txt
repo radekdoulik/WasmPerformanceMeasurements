@@ -1,0 +1,73 @@
+commit f2f734a7e4f95d22a56994c127fe63d6aa97c780
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Thu Feb 16 10:36:08 2023 +0100
+
+    JIT: Slightly refactor handling of conditions/conditional branches in the backend (#82020)
+    
+    Slightly refactor how compares are represented and processed in the backend in
+    preparation of lifting the remaining cmov restrictions.
+    
+    - Change all compare nodes to always produce values and never set flags. That
+      is, GT_EQ/GT_NE/GT_LT/GT_LE/GT_GE/GT_GT/GT_TEST_EQ/GT_TEST_NE now are all
+      "normal" nodes, always.
+    
+    - Stop optimizing compares by looking for a user JTRUE node. Instead, we
+      optimize the compare when we see it (for example, EQ/NE(AND(x, y), 0) is
+      turned into GT_TEST_EQ/GT_TEST_NE(x, y)), but we do not change the user JTRUE
+      node to a JCC node. We now never create SETCC nodes when we see the compare,
+      and we always turn JTRUE nodes into JCC nodes with a proper condition.
+    
+    - Handle the transformation from JTRUE to JCC when we actually get to JTRUE. The
+      transformation that now happens is:
+    
+      1. The compare node is turned into a GT_CMP (for GT_EQ to GT_GT) or GT_TEST
+      node (for GT_TEST_EQ/GT_TEST_NE) node. These nodes are always void-typed and
+      do not produce values; they only set the CPU flags, and correspond directly to
+      low-level target instructions (like cmp/test).
+    
+      2. The JTRUE is turned into JCC with the condition from the compare.
+    
+      For arm64/xarch, we handle optimizing EQ/NE(node_that_sets_zero_flag, 0) at
+      this stage too now.
+    
+    - Introduce new xarch backend-only GT_BITTEST_EQ/GT_BITTEST_NE that semantically
+      correspond to (x & (1 << y)) != 0. The corresponding "set flags" node is GT_BT
+      and already exists. We would previously transform (x & (1 << y)) != 0 into
+      GT_BT + GT_SETCC (when the user was not a JTRUE). This is now transformed into
+      GT_BITTEST_EQ/GT_BITTEST_NE instead, which are completely normal nodes. The
+      processing of JTRUE handles the transformation into BT + JCC.
+    
+    - Change some of the emitter compare peepholes to work with this scheme. This
+      requires some lookahead when we see them, but allows us to get rid of an
+      "ugly" flag.
+    
+    - Allow liveness to DCE GT_CMP/GT_TEST when they have had GTF_SET_FLAGS unset
+      (due to FG optimizations). We already allowed this for GT_EQ, so this showed
+      up as some regressions.
+    
+    Some example LIR diffs:
+    
+    ```diff
+      Generating: N033 (???,???) [000136] -----------                            IL_OFFSET void   INLRT @ 0x00A[E-] REG NA
+      Generating: N035 (  1,  1) [000009] -----------                    t9 =    LCL_VAR   int    V02 loc1         u:1 ecx REG ecx $141
+      Generating: N037 (  1,  1) [000011] -c---------                   t11 =    CNS_INT   int    16 REG NA $42
+                                                                              ┌──▌  t9     int
+                                                                              ├──▌  t11    int
+    - Generating: N039 (  3,  3) [000012] N------N-U-                         ▌  GE        void   REG NA $142
+    + Generating: N039 (  3,  3) [000012] -------N-U-                         ▌  CMP       void   REG NA
+      IN0005:        cmp      ecx, 16
+    - Generating: N041 (  5,  5) [000013] -----------                         ▌  JTRUE     void   REG NA $VN.Void
+    + Generating: N041 (???,???) [000144] -----------                            JCC       void   cond=UGE REG NA
+      IN0006:        jae      L_M20112_BB03
+                                                                              ┌──▌  t112   ubyte
+                                                                              ├──▌  t54    int
+    - Generating: N061 ( 22, 14) [000060] ---XGO-----                         ▌  BT        void   REG NA
+    + Generating: N061 ( 22, 14) [000060] ---XGO-----                   t60 = ▌  BITTEST_NE int    REG eax
+      IN0009:        bt       eax, esi
+    - Generating: N063 (???,???) [000144] -----------                  t144 =    SETCC     int    cond=C REG eax
+      IN000a:        setb     al
+      IN000b:        movzx    eax, al
+    -                                                                         ┌──▌  t144   int
+    +                                                                         ┌──▌  t60   int
+      Generating: N065 ( 23, 15) [000061] ---XGO-----                         ▌  RETURN    int    REG NA <l:$1c8, c:$1c7>
+    ```
