@@ -1,0 +1,7 @@
+commit fc3303de655f69ede541c795ce054c5673d45b49
+Author: Johan Lorensson <lateralusx.github@gmail.com>
+Date:   Fri Feb 17 11:37:11 2023 +0100
+
+    Fix ds-ipc-pal-socket.c Windows build. (#77840)
+    
+    Mainly build on mobile platforms, but beneficial if it works on Windows in order to test Mono TCP/IP EventPipe transport.
