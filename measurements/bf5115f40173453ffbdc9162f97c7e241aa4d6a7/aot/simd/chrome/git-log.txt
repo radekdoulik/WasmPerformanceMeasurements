@@ -1,0 +1,11 @@
+commit bf5115f40173453ffbdc9162f97c7e241aa4d6a7
+Author: Adeel Mujahid <3840695+am11@users.noreply.github.com>
+Date:   Fri Feb 17 01:46:07 2023 +0200
+
+    Fix clr build on illumos-x64 (#82183)
+    
+    * Fix clr build on illumos-x64
+    
+    * Keep in sync with codeman
+    
+    * Use CPUID_XXX
