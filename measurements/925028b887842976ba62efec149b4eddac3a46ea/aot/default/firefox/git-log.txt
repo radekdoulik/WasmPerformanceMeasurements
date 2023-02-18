@@ -1,0 +1,65 @@
+commit 925028b887842976ba62efec149b4eddac3a46ea
+Author: Will Smith <lol.tihan@gmail.com>
+Date:   Fri Feb 17 15:19:40 2023 -0800
+
+    [JIT] LclMorph `GT_IND(GT_LCL_VAR_ADDR)` => `GT_CAST(GT_LCL_VAR)` narrow-cast only (#81454)
+    
+    * Experiment with folding IND(GT_LCL_VAR_ADDR)
+    
+    * Fix assertion
+    
+    * Remove duplicate code
+    
+    * Handling long types
+    
+    * Handling long types
+    
+    * Handling long types
+    
+    * Handling long types
+    
+    * Trying to fix build
+    
+    * Trying to fix build
+    
+    * Trying to fix builds
+    
+    * Added IndirTransform::CastOfLclVar
+    
+    * Fixing build
+    
+    * Some formatting
+    
+    * Skip isDef
+    
+    * Formatting
+    
+    * Fixed AV
+    
+    * Enable long
+    
+    * Renamed CastOfLclVar to NarrowCastOfLclVar
+    
+    * Trying out wide-cast ind(lcl_var_addr) => cast(lcl_var)
+    
+    * Formatting
+    
+    * Remove widening
+    
+    * Added a comment. Added disasm tests.
+    
+    * Fixing tests
+    
+    * Rename NarrowCastOfLclVar to NarrowCast
+    
+    * Feedback
+    
+    * Feedback
+    
+    * Update src/coreclr/jit/lclmorph.cpp
+    
+    Co-authored-by: SingleAccretion <62474226+SingleAccretion@users.noreply.github.com>
+    
+    ---------
+    
+    Co-authored-by: SingleAccretion <62474226+SingleAccretion@users.noreply.github.com>
