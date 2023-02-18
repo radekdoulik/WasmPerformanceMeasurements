@@ -1,0 +1,13 @@
+commit 3f228d827d82d71b0c29e2c1533eca01db270cba
+Author: Marie Píchová <11718369+ManickaP@users.noreply.github.com>
+Date:   Sat Feb 18 09:58:19 2023 +0100
+
+    Revert "update alpine test images" (#82309)
+    
+    * Revert "update alpine test images (#81841)"
+    
+    This reverts commit 82c891831b373b17c659fed036743e3652dda54d.
+    
+    * Update eng/pipelines/libraries/helix-queues-setup.yml
+    
+    * Update eng/pipelines/libraries/helix-queues-setup.yml
