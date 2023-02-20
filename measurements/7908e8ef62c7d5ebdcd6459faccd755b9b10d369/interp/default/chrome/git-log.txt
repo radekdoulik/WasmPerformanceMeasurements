@@ -1,0 +1,8 @@
+commit 7908e8ef62c7d5ebdcd6459faccd755b9b10d369
+Author: Bruce Forstall <brucefo@microsoft.com>
+Date:   Sun Feb 19 12:20:18 2023 -0700
+
+    Refactor computing lvaLongVars/lvaFloatVars (#82331)
+    
+    Compute them before loop hoisting, where they are actually used,
+    not at the beginning of value numbering.
