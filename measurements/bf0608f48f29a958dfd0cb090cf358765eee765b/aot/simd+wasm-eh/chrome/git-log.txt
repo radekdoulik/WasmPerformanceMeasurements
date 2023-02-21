@@ -1,0 +1,17 @@
+commit bf0608f48f29a958dfd0cb090cf358765eee765b
+Author: Ivan Diaz Sanchez <ivdiazsa@microsoft.com>
+Date:   Mon Feb 20 15:07:30 2023 -0800
+
+    [Continuation] - Enable the fundamentals behind libraries tests compiled via Crossgen2 (#80946)
+    
+    * Added the documentation regarding the new libraries test modes.
+    
+    * Enable the fundamentals behind libraries tests compiled via crossgen2.
+    
+    * Fixed a typo with SINGLE_FILE_TEST_RUNNER.
+    
+    * Addressed review comments.
+    
+    * Restored an accidentally deleted comment.
+    
+    * Fixed wrong Crossgen2 path and added comment with link to an important tracking SDK bug.
