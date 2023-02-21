@@ -1,0 +1,39 @@
+commit 463954dbc728470fb21a097188fc3dae91f6cbe4
+Author: Vitek Karas <10670590+vitek-karas@users.noreply.github.com>
+Date:   Tue Feb 21 02:04:36 2023 -0800
+
+    Fix generic parameter data flow validation in NativeAOT (#82392)
+    
+    [This is a revert of a revert of #81532 with additional fixes for #81779]
+    
+    This reworks how generic parameter data flow validation is done in the NativeAOT compiler.
+    
+    Previously generic data flow was done from generic dictionary nodes. Problem with that approach is that there's no origin information at that point. The warnings can't point to the place where the problematic instantiation is in the code - we only know that it exists.
+    Aside from it being unfriendly for the users, it means any RUC or suppressions don't work on these warnings the same way they do in linker/analyzer.
+    
+    This change modifies the logic to tag the method as "needs data flow" whenever we spot an instantiation of an annotated generic in it somewhere.
+    Then the actual validation/marking is done from data flow using the trim analysis patterns.
+    
+    The only exception to this is generic data flow for base types and interface implementations, that one is done on the EEType nodes.
+    
+    Note that AOT implements a much more precise version of the generic data flow validation as compared to linker/analyzer. See the big comment at the beginning of `GenericParameterWarningLocation.cs` for how that works.
+    
+    Due to an issue with DependencyInjection, this change also implements a behavior where if a method or field is reflection accessible, the compiler will perform generic argument data flow on all types in the signature of the method/field (which it normally wouldn't do). See #81358 for details about the issue and discussions on the fix approach.
+    
+    Due to the DI behavior described above, there's also the problem with nested generics. If a nested generic applies annotation on a specific type and this whole thing is done from within a DI, the compiler will not apply the annotation, since it doesn't see the type being used anywhere for real. See #81779 for detailed description of the issue. The fix for this is to extend the "needs data flow analysis" logic to look into generic arguments recursively and finding any annotation then triggers the data flow processing of the calling code. Then in that processing when applying generic argument data flow, do so recursively over all generic parameters.
+    
+    Test changes:
+    Adds the two tests from linker which cover this functionality.
+    
+    Change the test infra to use token to compare message origins for expected warnings. Consistently converting generic types/methods into strings across two type systems is just very difficult - the tokens are simple and reliable.
+    
+    Changes the tests to avoid expecting specific generic types/methods formatting in the messages - again, it's too hard to make this consistent without lot of effort. And the tests don't really need it.
+    
+    Adds a test for marking behavior related to generic argument data flow. This is to catch issues like #81779.
+    
+    Adds a smoke test which has a simplified version of the DI problem from https://github.com/dotnet/runtime/issues/81358.
+    
+    Fixes https://github.com/dotnet/runtime/issues/77455
+    Fixes https://github.com/dotnet/runtime/issues/75898
+    Fixes #81358
+    Fixes #81779
