@@ -1,0 +1,55 @@
+commit f7d95dabc4761cb7d9b71522d89278a02e6280c8
+Author: Aleksey Kliger (λgeek) <alklig@microsoft.com>
+Date:   Tue Feb 21 18:36:34 2023 -0500
+
+    [mono] Use more idiomatic cmake style (#82182)
+    
+    Make mono's build use a slightly more idiomatic `cmake` style:
+    * One `project()` per subdirectory, rather than just in `mini`
+    * toplevel `add_subdirectory` for each subdirectory
+    * specify sources relative to the current project source dir, rather than using `addprefix` to relativize everything from `mini`
+    * use object libraries for each logical grouping.  Set compile definitions, link libraries, etc on the object libraries.
+    * Have the final toplevel exes and shared libs (in mini; and components - when components are built to shared libs) pull in the object libraries. When building a static libmonosgen-2.0.a, pull in all the obejct libraries' objects to make a complete archive.
+    
+    Doesn't untangle `src/mono/mono/components`  from `src/mono/moni/mini` yet, although things could be grouped better there too.
+    
+    
+    * make eglib into a cmake object library
+    
+       The goal is to use the cmake targets instead of _sources and _headers variables as well as to use the cmake add_subdirectory commands to bring in parts of the build
+    
+    * make mono/utils into a cmake object library
+    
+    * make sgen into a cmake object library
+    
+    * make metadata into a cmake object library
+    
+    * set MONO_DLL_EXPORT when building the object libraries
+    
+    * add eglib_api target
+    
+       unlike eglib_objects, this one can be added by executables and static or shared libraries without pulling in the eglib sources.  This is what we want for dynamic runtime components, static interpreter and icall table libs, etc
+    
+    * when building a static library, include all the ojects
+    
+       otherwise it would only include the mini objects - it's not transitive
+    
+    * nit use target_compile_definitions for sgen
+    
+    * log profiler links eglib objects, not just headers
+    
+    * set project languages to C
+    
+       except for mini where we also enable CXX under some conditions (LLVM or ICU, or browser wasm)
+    
+    * fix darwin framework builds
+    
+    * fix for older cmake
+    
+       can't have sources directly on add_library(target INTERFACE ...)
+    
+    * fix windows build
+    
+    * remove unneeded define
+    
+       it's set later in the cmake file already
