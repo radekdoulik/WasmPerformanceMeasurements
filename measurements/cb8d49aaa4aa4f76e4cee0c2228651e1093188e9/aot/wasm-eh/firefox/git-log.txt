@@ -1,0 +1,9 @@
+commit cb8d49aaa4aa4f76e4cee0c2228651e1093188e9
+Author: Qiao Pengcheng <qiaopengcheng@loongson.cn>
+Date:   Wed Feb 22 05:41:06 2023 -0500
+
+    [LoongArch64] redesign the compare and condition-branch. (#82426)
+    
+    * [LoongArch64] redesign the compare and condition-branch.
+    
+    * delelet the unused GT_TEST* nodes.
