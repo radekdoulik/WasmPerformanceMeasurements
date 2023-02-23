@@ -1,0 +1,5 @@
+commit 71753c417b760a4f6900840b4497c7c6866ebf82
+Author: Filip Navara <navara@emclient.com>
+Date:   Thu Feb 23 12:55:45 2023 +0100
+
+    Fix passing Mac Catalyst -target flag to .mm builds (#82292)
