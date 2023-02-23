@@ -1,0 +1,9 @@
+commit 86bfe2a0e2dc95eb15c124a8d18f4f8ac2bca3f5
+Author: Eric Erhardt <eric.erhardt@microsoft.com>
+Date:   Wed Feb 22 14:28:11 2023 -0600
+
+    Refactor Logging.Console configure options (#82254)
+    
+    - Use nameof instead hard-coded strings
+    - Move the configuration binding code to the options class. This allows the configure method to be virtual and only need a single ConsoleFormatterOptions class.
+    - Minor cleanup
