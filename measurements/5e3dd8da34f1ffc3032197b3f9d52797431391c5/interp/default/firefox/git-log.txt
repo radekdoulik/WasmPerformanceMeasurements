@@ -1,0 +1,5 @@
+commit 5e3dd8da34f1ffc3032197b3f9d52797431391c5
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Tue Feb 28 17:43:01 2023 -0500
+
+    Make debug-only SafeHandle _ctorStackTrace coreclr-only (#82376)
