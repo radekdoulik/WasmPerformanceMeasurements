@@ -1,0 +1,9 @@
+commit 605d05ba54ccea0ff5486926a7dc630cee5db8cd
+Author: Ulrich Weigand <ulrich.weigand@de.ibm.com>
+Date:   Wed Mar 1 12:57:24 2023 +0100
+
+    [mono] Raise soft RLIMIT_NOFILE on Linux (#82429)
+    
+    Replace darwin_change_default_file_handles by a new routine increase_descriptor_limit, which mirrors the logic in the CoreCLR INIT_IncreaseDescriptorLimit routine.
+    
+    Fixes https://github.com/dotnet/runtime/issues/82428.
