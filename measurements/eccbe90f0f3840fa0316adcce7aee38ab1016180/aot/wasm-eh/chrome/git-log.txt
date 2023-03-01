@@ -1,0 +1,11 @@
+commit eccbe90f0f3840fa0316adcce7aee38ab1016180
+Author: SingleAccretion <62474226+SingleAccretion@users.noreply.github.com>
+Date:   Tue Feb 28 00:08:08 2023 +0300
+
+    Prevent tests from importing "normal" NuGet props/targets (#80573)
+    
+    We import them manually from a shared location.
+    
+    Usually this is not a problem because batch build (via the build script)
+    does its own restore thing, but it is a problem in case the project is
+    restored on its own, such as when it is built with "dotnet build".
