@@ -1,0 +1,11 @@
+commit 2ee941b5e33b68fc39d2c6c2a26f025e0d2efee6
+Author: Will Smith <lol.tihan@gmail.com>
+Date:   Sat Feb 25 12:26:37 2023 -0800
+
+    [JIT] Fixed regression for `AND(X, CNS(-1))` lowering optimization (#82659)
+    
+    * Fixed regression for `AND(X, CNS(-1))` lowering optimization
+    
+    * Feedback
+    
+    * Feedback
