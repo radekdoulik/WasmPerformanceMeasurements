@@ -1,0 +1,7 @@
+commit f2ac74bf23663b7ced738f0f363f97304a2e756e
+Author: Alexander Köplinger <alex.koeplinger@outlook.com>
+Date:   Thu Mar 2 12:15:04 2023 +0100
+
+    [mono] Move networking code to debugger component (#82785)
+    
+    The debugger is the only component left in Mono using the networking code, move the code there so we can avoid compiling it into the main runtime and also simplify it a bit.
