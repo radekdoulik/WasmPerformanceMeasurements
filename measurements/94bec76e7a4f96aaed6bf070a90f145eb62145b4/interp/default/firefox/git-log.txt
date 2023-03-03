@@ -1,0 +1,7 @@
+commit 94bec76e7a4f96aaed6bf070a90f145eb62145b4
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Fri Mar 3 06:43:56 2023 -0500
+
+    Allow default AsyncFlowControls rather than throwing (#82912)
+    
+    ExecutionContext.SuppressFlow currently throws an exception if flow is already suppressed.  This makes it complicated to use, as you need to check whether IsFlowSuppressed first and take two different paths based on the result.  If we instead just allow SuppressFlow to return a default AsyncFlowControl rather than throwing, and have AsyncFlowControl's Undo nop rather than throw if it doesn't contain a Thread, we can again make it simple to just always use SuppressFlow without any of the other complications.
