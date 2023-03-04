@@ -1,0 +1,15 @@
+commit 732ae12c9cdd8227ab2882f0949d798c3fcb446d
+Author: Huo Yaoyuan <huoyaoyuan@hotmail.com>
+Date:   Sat Mar 4 07:00:07 2023 +0800
+
+    Implement managed SegmentCommandLine (#82883)
+    
+    * Implement managed version of SegmentCommandLine
+    
+    * Remove P/Invoke for CommandLineToArgv
+    
+    * Update parsing to latest UCRT
+    
+    * Add test and fix trailing space in command
+    
+    * Fix test cases
