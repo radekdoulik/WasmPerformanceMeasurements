@@ -1,0 +1,11 @@
+commit 4027a08f94a74a10b0714aac011cbcbd2dfe53f0
+Author: Bruce Forstall <brucefo@microsoft.com>
+Date:   Sat Mar 4 13:55:37 2023 -0700
+
+    Clean up run.sh documentation (#82983)
+    
+    Add line about build configuration.
+    
+    Fix illink syntax help.
+    
+    Simplify a couple cases that just set environment variables.
