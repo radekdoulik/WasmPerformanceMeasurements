@@ -1,0 +1,37 @@
+commit 4eca676a57f0d818b94c0ff002d3fef03b14cb60
+Author: Will Smith <lol.tihan@gmail.com>
+Date:   Sun Mar 5 15:54:18 2023 -0800
+
+    [JIT] Fixed improper peephole zero-extension removal when cdq/cwde instructions are involved (#82733)
+    
+    * Fixed improper peephole zero-extension removal when cdq/cdqe/cwde instructions are involved
+    
+    * Update regression test
+    
+    * Formatting
+    
+    * Handle cdq differently
+    
+    * Handle cdq differently
+    
+    * Handle cdq differently
+    
+    * Take into account cmpxchg
+    
+    * Take into account cmpxchg
+    
+    * Feedback
+    
+    * Added emitIsInstrWritingToReg. Removed the previously added function.
+    
+    * Remove function from header
+    
+    * Quick fix
+    
+    * Added comment
+    
+    * Formatting
+    
+    * Feedback
+    
+    * Fix build
