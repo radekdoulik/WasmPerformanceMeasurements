@@ -1,0 +1,7 @@
+commit 0f1866ead5aef15d47983692bafb4ba20cd3aa98
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Tue Mar 7 20:50:15 2023 +0900
+
+    Make open method resolver pay for play (#83064)
+    
+    Resolver is called into from delegate thunks, so we can't get rid of it, but to construct a resolver one needs to do some reflection first. Make the resolution logic statically depend on resolver being constructed.
