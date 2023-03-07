@@ -1,0 +1,11 @@
+commit 27f781f9e3441c6b501e1f090989238ffea97596
+Author: Vitek Karas <10670590+vitek-karas@users.noreply.github.com>
+Date:   Mon Mar 6 13:56:15 2023 -0800
+
+    Adds a test for compiler generated trim warning suppression issue (#82957)
+    
+    This is adding a test for https://github.com/dotnet/runtime/issues/82956 (currently assumes the wrong behavior).
+    
+    Also adds a solution file which includes all three trim tools, illink, illink.analyzer and ilc. This brings several advantages:
+    - As we share more source files between the tools it will be much easier to work in.
+    - We already share test sources, so this makes it easy to run the modified test with all three tools at once (from one instance of VS)
