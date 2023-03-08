@@ -1,0 +1,49 @@
+commit d3c83801080867ff3153d26be1bfa5c88ae59ef5
+Author: dotnet-maestro[bot] <42748379+dotnet-maestro[bot]@users.noreply.github.com>
+Date:   Tue Mar 7 17:50:45 2023 -0600
+
+    [main] Update dependencies from 8 repositories (#83032)
+    
+    * Update dependencies from https://github.com/dotnet/runtime build 20230305.6
+    
+    Microsoft.NET.ILLink.Tasks , Microsoft.NET.Sdk.IL , Microsoft.NETCore.App.Runtime.win-x64 , Microsoft.NETCore.ILAsm , runtime.native.System.IO.Ports , System.Text.Json
+     From Version 8.0.0-preview.2.23126.3 -> To Version 8.0.0-preview.3.23155.6
+    
+    * Update dependencies from https://github.com/dotnet/llvm-project build 20230306.3
+    
+    runtime.linux-arm64.Microsoft.NETCore.Runtime.JIT.Tools , runtime.linux-arm64.Microsoft.NETCore.Runtime.Mono.LLVM.Sdk , runtime.linux-arm64.Microsoft.NETCore.Runtime.Mono.LLVM.Tools , runtime.linux-arm64.Microsoft.NETCore.Runtime.ObjWriter , runtime.linux-musl-arm64.Microsoft.NETCore.Runtime.JIT.Tools , runtime.linux-musl-arm64.Microsoft.NETCore.Runtime.ObjWriter , runtime.linux-musl-x64.Microsoft.NETCore.Runtime.JIT.Tools , runtime.linux-musl-x64.Microsoft.NETCore.Runtime.ObjWriter , runtime.linux-x64.Microsoft.NETCore.Runtime.JIT.Tools , runtime.linux-x64.Microsoft.NETCore.Runtime.Mono.LLVM.Sdk , runtime.linux-x64.Microsoft.NETCore.Runtime.Mono.LLVM.Tools , runtime.linux-x64.Microsoft.NETCore.Runtime.ObjWriter , runtime.osx-arm64.Microsoft.NETCore.Runtime.Mono.LLVM.Sdk , runtime.osx-arm64.Microsoft.NETCore.Runtime.Mono.LLVM.Tools , runtime.osx-x64.Microsoft.NETCore.Runtime.Mono.LLVM.Sdk , runtime.osx-x64.Microsoft.NETCore.Runtime.Mono.LLVM.Tools , runtime.win-arm64.Microsoft.NETCore.Runtime.JIT.Tools , runtime.win-arm64.Microsoft.NETCore.Runtime.ObjWriter , runtime.win-x64.Microsoft.NETCore.Runtime.JIT.Tools , runtime.win-x64.Microsoft.NETCore.Runtime.Mono.LLVM.Sdk , runtime.win-x64.Microsoft.NETCore.Runtime.Mono.LLVM.Tools , runtime.win-x64.Microsoft.NETCore.Runtime.ObjWriter
+     From Version 14.0.0-alpha.1.23124.1 -> To Version 14.0.0-alpha.1.23156.3
+    
+    * Update dependencies from https://github.com/dotnet/icu build 20230306.1
+    
+    Microsoft.NETCore.Runtime.ICU.Transport
+     From Version 8.0.0-preview.3.23151.1 -> To Version 8.0.0-preview.3.23156.1
+    
+    * Update dependencies from https://github.com/dotnet/runtime-assets build 20230306.1
+    
+    Microsoft.DotNet.CilStrip.Sources , System.ComponentModel.TypeConverter.TestData , System.Data.Common.TestData , System.Drawing.Common.TestData , System.Formats.Tar.TestData , System.IO.Compression.TestData , System.IO.Packaging.TestData , System.Net.TestData , System.Private.Runtime.UnicodeData , System.Runtime.Numerics.TestData , System.Runtime.TimeZoneData , System.Security.Cryptography.X509Certificates.TestData , System.Text.RegularExpressions.TestData , System.Windows.Extensions.TestData
+     From Version 8.0.0-beta.23127.1 -> To Version 8.0.0-beta.23156.1
+    
+    * Update dependencies from https://github.com/dotnet/emsdk build 20230306.1
+    
+    Microsoft.NET.Workload.Emscripten.Current.Manifest-8.0.100-preview.3 , Microsoft.NET.Workload.Emscripten.net6.Manifest-8.0.100-preview.3 , Microsoft.NET.Workload.Emscripten.net7.Manifest-8.0.100-preview.3
+     From Version 8.0.0-preview.3.23151.1 -> To Version 8.0.0-preview.3.23156.1
+    
+    * Update dependencies from https://github.com/dotnet/msquic build 20230306.1
+    
+    System.Net.MsQuic.Transport
+     From Version 8.0.0-alpha.1.23153.1 -> To Version 8.0.0-alpha.1.23156.1
+    
+    * Update dependencies from https://github.com/dotnet/hotreload-utils build 20230306.1
+    
+    Microsoft.DotNet.HotReload.Utils.Generator.BuildTool
+     From Version 1.1.0-alpha.0.23152.1 -> To Version 1.1.0-alpha.0.23156.1
+    
+    * Update dependencies from https://github.com/dotnet/cecil build 20230306.1
+    
+    Microsoft.DotNet.Cecil
+     From Version 0.11.4-alpha.23127.1 -> To Version 0.11.4-alpha.23156.1
+    
+    ---------
+    
+    Co-authored-by: dotnet-maestro[bot] <dotnet-maestro[bot]@users.noreply.github.com>
