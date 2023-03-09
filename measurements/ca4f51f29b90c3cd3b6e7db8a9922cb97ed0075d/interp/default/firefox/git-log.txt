@@ -1,0 +1,9 @@
+commit ca4f51f29b90c3cd3b6e7db8a9922cb97ed0075d
+Author: Eirik Tsarpalis <eirik.tsarpalis@gmail.com>
+Date:   Thu Mar 9 11:44:58 2023 +0000
+
+    Fix handling of required & init-only properties with custom property names in source gen. (#83147)
+    
+    * Fix handling of required & init-only properties with custom property names in source gen.
+    
+    * Address feedback.
