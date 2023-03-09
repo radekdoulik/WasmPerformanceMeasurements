@@ -1,0 +1,9 @@
+commit 1b2eb12a711410a358bdfa93af017a34a929d4cf
+Author: Tanner Gooding <tagoo@outlook.com>
+Date:   Wed Mar 8 15:14:40 2023 -0800
+
+    Ensure that the new Vector512 related ISAs are covered by ILLink Substitutions (#83040)
+    
+    * Ensure that the new Vector512 related ISAs are covered by ILLink Substitutions
+    
+    * Define the Avx512F and derived classes
