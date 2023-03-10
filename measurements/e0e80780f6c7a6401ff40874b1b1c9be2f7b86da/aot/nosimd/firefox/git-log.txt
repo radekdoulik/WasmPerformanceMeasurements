@@ -1,0 +1,18 @@
+commit e0e80780f6c7a6401ff40874b1b1c9be2f7b86da
+Author: Andy Ayers <andya@microsoft.com>
+Date:   Thu Mar 9 15:46:28 2023 -0800
+
+    JIT: treat synthesized profile data as pgo data, fix finally weights (#83185)
+    
+    Once synthesis arrives on the scene, we're not going to want phases in the JIT
+    to arbitrarily modifying block weights. There is already a guard of this sort
+    for regular profile data, so it makes sense to extend that to synthesized data
+    as well.
+    
+    When synthesizing counts, propagate counts to finallies from the associated
+    trys. This needs to be done carefully as we have make sure not to visit the
+    finally until the count in the try is set. We rely on some of the properties
+    of DFS pre and post number bracketing to do this efficiently, without needing
+    to track extra state.
+    
+    Contributes to #82964.
