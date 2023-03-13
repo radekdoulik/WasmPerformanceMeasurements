@@ -1,0 +1,5 @@
+commit 46f9533d9b0663aa652b6dc7001417d4924343d2
+Author: Filip Navara <navara@emclient.com>
+Date:   Mon Mar 13 11:19:02 2023 +0100
+
+    Fix address data emitted in the MonoProfilerGCRoots ETW event (#83284)
