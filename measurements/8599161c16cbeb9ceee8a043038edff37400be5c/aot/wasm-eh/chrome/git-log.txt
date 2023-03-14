@@ -1,0 +1,29 @@
+commit 8599161c16cbeb9ceee8a043038edff37400be5c
+Author: anthonycanino <anthony.canino@intel.com>
+Date:   Sun Mar 12 08:57:11 2023 -0700
+
+    Avx512 extract most significant bits (#82731)
+    
+    * Add `TYP_MASK` and `Vector512.ExtractMostSignificantBits`.
+    
+    * Rebase / rename error fix.
+    
+    * Review edits.
+    
+    * Formatting.
+    
+    * Review edits.
+    
+    * Review cleanup.
+    
+    * Build fixes.
+    
+    * Address throughput issues pertaining to `availableRegCount`.
+    
+    * kmov RR refactor.
+    
+    * Split kmov into kmov_msk and kmov_gpr.
+    
+    * Fix thread.
+    
+    * Review edits.
