@@ -1,0 +1,9 @@
+commit d9f453924f7c3cca9f02d920a57e1477293f216e
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Tue Mar 14 11:43:28 2023 +0100
+
+    JIT: Remove lvaPInvokeFrameRegSaveVar (#83309)
+    
+    This does not seem to be used for anything meaningful.
+    
+    Fix #83052
