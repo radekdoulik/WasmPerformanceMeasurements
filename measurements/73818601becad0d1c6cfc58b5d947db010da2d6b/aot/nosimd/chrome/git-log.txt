@@ -1,0 +1,7 @@
+commit 73818601becad0d1c6cfc58b5d947db010da2d6b
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Tue Mar 14 00:01:07 2023 +0100
+
+    JIT: Remove LclVarDsc::lvExactSize and LclVarDsc::lvSIMDType (#83307)
+    
+    Turn these into functions.
