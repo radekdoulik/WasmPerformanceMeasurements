@@ -1,0 +1,9 @@
+commit ccefbf9eb36cb3d8adb36f4b141914c2c6cc489b
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Wed Mar 15 11:57:55 2023 +0100
+
+    JIT: Remove "add copies" phase (#83310)
+    
+    This phase seems to try to do some ad-hoc live range splitting to improve things in assertion prop, but it almost barely kicks in.
+    When it does kick in it seems to overall be a regression, both in ASM diffs and in TP diffs.
+    Furthermore, we pay 16 bytes in every LclVarDsc (out of 88) for bookkeeping purposes for this pass, even in MinOpts.
