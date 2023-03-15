@@ -1,0 +1,23 @@
+commit 2efdd7ec8566369926a3527411b0c95f2691416c
+Author: Tomáš Rylek <trylek@microsoft.com>
+Date:   Tue Mar 14 23:59:42 2023 +0100
+
+    Add references to xunit.*.dll to CLRTest.Crossgen.targets (#83413)
+    
+    This change fixes the exceptions thrown from Crossgen2 JIT
+    interface when JIT tries to resolve tokens from xunit.assert.
+    As a secondary effect the frequent exception throws triggered
+    the race condition
+    
+    https://github.com/dotnet/runtime/issues/81884
+    
+    triggering non-deterministic native CoreCLR runtime failures on
+    arm64. I was originally reluctant to fix this primary issue until
+    the native runtime bug is understood as otherwise this fix would
+    just cause the issue to stop manifesting without being actually
+    fixed. As the runtime bug has been fixed by now, I am fixing
+    Crossgen2 executions to stop hitting these resolution exceptions.
+    
+    Thanks
+    
+    Tomas
