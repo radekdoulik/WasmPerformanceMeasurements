@@ -1,0 +1,9 @@
+commit 52652185bf5331ecf651ad4c0c575da720cab3c1
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Sat Mar 11 22:11:51 2023 +0100
+
+    JIT: Add a primitive to split statements at a specified tree (#83005)
+    
+    Add a gtSplitTree that can split a statement at an arbitrary tree: this creates new statements before the statement such that the original statement now executes the input tree as the very first non-invariant node.
+    
+    This can be used for example to introduce control flow at an arbitrary point within a tree.
