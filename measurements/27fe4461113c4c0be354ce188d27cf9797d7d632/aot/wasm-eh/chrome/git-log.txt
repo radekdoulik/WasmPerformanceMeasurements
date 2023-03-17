@@ -1,0 +1,8 @@
+commit 27fe4461113c4c0be354ce188d27cf9797d7d632
+Author: Katelyn Gadd <kg@luminance.org>
+Date:   Fri Mar 17 03:06:19 2023 -0700
+
+    [wasm] Implement rotate left/right immediate interp intrinsics in jiterpreter; implement clz/ctz/popcnt (#83573)
+    
+    * Implement rotate left/right immediate interp intrinsics
+    * Implement clz/ctz/popcnt
