@@ -1,0 +1,15 @@
+commit 5ab1c92d21697d670148e875adea5a5db2db1f64
+Author: Badre BSAILA <54767641+pedrobsaila@users.noreply.github.com>
+Date:   Fri Mar 17 00:35:23 2023 +0100
+
+    Convert to GeneratedRegexAttribute fixer should preserve references to const string fields (#81997)
+    
+    * Convert to GeneratedRegexAttribute fixer should preserve references to const string fields
+    
+    * add test to cover external const case
+    
+    * fix double slashes
+    
+    * simplify verbatime string generation
+    
+    * delete unused quote
