@@ -1,0 +1,11 @@
+commit 87b73f0f7c559376b1f8e14187830e422ab459d2
+Author: Steve Pfister <steveisok@users.noreply.github.com>
+Date:   Fri Mar 17 23:39:51 2023 -0400
+
+    [android][ios] Add SDK and workload to support library mode (#83487)
+    
+    Introduces the experimental workload mobile-librarybuilder-experimental that supports building self-contained shared or static native libraries on iOS and Android.
+    
+    Once installed, the workload can be activated when the runtime identifier is android, ios, tvos, or maccatalyst based and the project contains the property <NativeLib>true</NativeLib>. NativeLib is a property NativeAOT uses to activate library mode and we will use that for consistency.
+    
+    The Microsoft.NET.Runtime.LibraryBuilder.Sdk is a new nuget package will contain all of the necessary msbuild props and targets that drive the whole library builder process.
