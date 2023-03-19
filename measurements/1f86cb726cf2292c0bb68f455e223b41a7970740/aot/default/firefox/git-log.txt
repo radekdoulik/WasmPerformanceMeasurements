@@ -1,0 +1,11 @@
+commit 1f86cb726cf2292c0bb68f455e223b41a7970740
+Author: Fan Yang <52458914+fanyang-mono@users.noreply.github.com>
+Date:   Sat Mar 18 15:37:20 2023 -0400
+
+    [Mono] Intrinsify As* on ARM64 with mini JIT (#83544)
+    
+    * Intrinsify As* on arm64
+    
+    * Address review feedback
+    
+    * Uncomment
