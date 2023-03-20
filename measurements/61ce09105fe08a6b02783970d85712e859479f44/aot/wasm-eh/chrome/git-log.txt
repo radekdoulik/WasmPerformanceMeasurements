@@ -1,0 +1,15 @@
+commit 61ce09105fe08a6b02783970d85712e859479f44
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Mon Mar 20 07:25:43 2023 -0400
+
+    Fix ToString handling of [Flags] enums with negative values (#83616)
+    
+    * Fix ToString handling of [Flags] enums with negative values
+    
+    Our Enum rewrite earlier in .NET 8 broke the handling of ToString for [Flags] enums with negative values.  Prior to that rewrite, all of the enum values were stored as a sorted array of ulongs, regardless of the enum's underlying type. Now, they're stored as a sorted array of the underlying type.  However, that means that for signed underlying types, the position of negative values moved from the end to the beginning.  We knew this, and accordingly updated tests that reflected that order (which as an implementation detail is observable via APIs that get the underlying values).  But what we didn't notice because we didn't have tests covering it is that the logic for formatting [Flags] enums actually depends on those negative values being after the non-negative ones.  That's for two reasons.  First, there's logic that special-cases 0 and assumes that an enum value of 0 must be in the first slot of the values array if it exists.  Second, the logic for deciding which enum values should be included starts at the largest unsigned value and walks down subtracting out matching bit patterns as they're found; if the values are sorted differently, the resulting strings are different.  Not only might different names be included, but a number might be rendered if the order of evaluation means that no perfect subsetting is found even if there would have been had a different order been used.
+    
+    This fixes the issues by restoring the ordering based on the values being unsigned.  When we sort, we sort based on the unsigned version of the underlying primitive, even if it's signed.
+    
+    * Collapse GetEnumInfo for integer types to only be unsigned
+    
+    Rather than 13 possible `EnumInfo<T>`, we consolidate down to just 8, such that for all of the underlying types that are signed integers, we instead always use their unsigned counterparts.  This then ensures that the data for the values is always sorted according to the unsigned representation and all logic in Enum that performs searches based on value is always doing so consistently.
