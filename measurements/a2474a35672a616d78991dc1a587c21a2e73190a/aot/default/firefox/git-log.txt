@@ -1,0 +1,15 @@
+commit a2474a35672a616d78991dc1a587c21a2e73190a
+Author: Katelyn Gadd <kg@luminance.org>
+Date:   Fri Mar 17 14:25:32 2023 -0700
+
+    Various jiterpreter optimizations (#83322)
+    
+    * Implement CALL_HANDLER and CALL_HANDLER_S, since upon closer inspection they turned out to basically be a slightly more complex version of BR.
+    * Introduce persistent imported functions (similar to persistent types), which reduces the amount of time defining imports before compiling a trace.
+    * Don't call into C in order to emit single-byte unsigned LEB values (appendULeb is one of the hottest parts of the trace compiler).
+    * Track bailouts on a per-trace basis when bailout counting is enabled. This makes it easier to understand which traces have the worst performance problems. This does make bailout counting more expensive, but it was already expensive. (This probably needs more improvement to be truly useful, but it was helpful already.)
+    * Don't abort trace compiles for simple icalls, since in my testing many of them are in rarely-taken branches. They become bailouts instead.
+    * Unify the implementation of compressed names to simplify things.
+    * When defining an import you now pass the actual function (or function pointer) instead of manually providing it when instantiating the module.
+    * Various small optimizations to remove temporary JS allocations.
+    * Improve message formatting in the branch trace messages (off by default)
