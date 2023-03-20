@@ -1,0 +1,5 @@
+commit 98343399e9f320b834151ed6ade21879093f2907
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Sun Mar 19 18:05:03 2023 -0400
+
+    Fix missing comparer when creating FrozenDictionary (#83651)
