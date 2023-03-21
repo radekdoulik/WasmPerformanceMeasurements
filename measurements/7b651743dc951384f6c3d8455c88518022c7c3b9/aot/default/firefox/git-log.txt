@@ -1,0 +1,9 @@
+commit 7b651743dc951384f6c3d8455c88518022c7c3b9
+Author: Marc Brooks <IDisposable@gmail.com>
+Date:   Mon Mar 20 22:33:39 2023 -0500
+
+    Correct doc comment for IMultiplyOperators returns (#83693)
+    
+    Replaced _divided-by_ with _multiplied-by_ in both
+    IMultiplyOperators.cs and NFloat.cs.
+    Fixes https://github.com/dotnet/runtime/issues/80521
