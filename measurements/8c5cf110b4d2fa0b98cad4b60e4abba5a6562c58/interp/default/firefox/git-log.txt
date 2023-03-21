@@ -1,0 +1,25 @@
+commit 8c5cf110b4d2fa0b98cad4b60e4abba5a6562c58
+Author: Jan Dupej <109523496+jandupej@users.noreply.github.com>
+Date:   Tue Mar 21 10:37:45 2023 +0100
+
+    [mono][jit] Adding compare all/any intrinsics. (#83515)
+    
+    * xxAny, xAll comparisons in progress.
+    
+    * xxAny, xxAll comparisons, part 2.
+    
+    * [mono][jit] Adding compare all/any operations. Fixed umov,smov macros.
+    
+    * Removed superfluous changes.
+    
+    * Restored newline at the end of HelloWorld.
+    
+    * Fixed unmatched brace.
+    
+    * Indentation.
+    
+    * Normalized boolean values to 0/1. SIMD_EXTR_ constants have friendlier names. Equality/Inequality are now also intrinsics.
+    
+    * Fixed element type for comparisons.
+    
+    * Temporarily disabled intrinsics. Will be permanenty reenabled once all are implemented.
