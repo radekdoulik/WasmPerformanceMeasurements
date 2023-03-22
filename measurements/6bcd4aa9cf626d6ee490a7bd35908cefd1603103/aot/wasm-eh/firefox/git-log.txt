@@ -1,0 +1,5 @@
+commit 6bcd4aa9cf626d6ee490a7bd35908cefd1603103
+Author: Amal Abeygunawardana <amalabey@gmail.com>
+Date:   Thu Mar 23 02:40:18 2023 +1100
+
+    Add MemoryMappedFile.CreateFromFile(SafeFileHandle) overload (#83134), fixes #79187
