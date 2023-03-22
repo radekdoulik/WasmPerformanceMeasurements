@@ -1,0 +1,5 @@
+commit 5a99f1defea16d6725a7d8d3be82f52e1671973a
+Author: Andrew Au <andrewau@microsoft.com>
+Date:   Tue Mar 21 15:36:00 2023 -0700
+
+    Avoid losing messages for memory-mapped stress log (#81038)
