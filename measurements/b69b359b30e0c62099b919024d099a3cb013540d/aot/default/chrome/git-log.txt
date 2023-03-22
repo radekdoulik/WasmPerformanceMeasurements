@@ -1,0 +1,8 @@
+commit b69b359b30e0c62099b919024d099a3cb013540d
+Author: Ivan Povazan <55002338+ivanpovazan@users.noreply.github.com>
+Date:   Wed Mar 22 10:02:35 2023 +0100
+
+    [NativeAOT] Support exporting methods from referenced assemblies in a formal way (#83396)
+    
+    
+    Fixes https://github.com/dotnet/runtime/issues/65755
