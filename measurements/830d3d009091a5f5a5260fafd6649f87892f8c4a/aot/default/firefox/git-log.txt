@@ -1,0 +1,10 @@
+commit 830d3d009091a5f5a5260fafd6649f87892f8c4a
+Author: Sami Haq <sahaq2001@gmail.com>
+Date:   Thu Mar 23 10:59:44 2023 +0000
+
+    Mono: Replace exception strings with those stored in the resx file (#78341)
+    
+    Fixes https://github.com/dotnet/runtime/issues/34056
+    
+    Co-authored-by: Dan Moseley <danmose@microsoft.com>
+    Co-authored-by: Alexander Köplinger <alex.koeplinger@outlook.com>
