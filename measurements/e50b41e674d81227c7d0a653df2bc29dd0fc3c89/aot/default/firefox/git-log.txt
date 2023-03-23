@@ -1,0 +1,16 @@
+commit e50b41e674d81227c7d0a653df2bc29dd0fc3c89
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Wed Mar 22 18:50:22 2023 -0400
+
+    Remove another reference field from async state machines (#83737)
+    
+    The async state machine Task-derived type currently adds three fields:
+    - The StateMachine
+    - An Action field for caching any delegate created to MoveNext
+    - The ExecutionContext to flow to the next MoveNext invocation
+    
+    The other pending PR gets rid of the Action field by using the unused Action field from the base Task for that purpose.
+    
+    This PR gets rid of the ExecutionContext field by using the unused state object field from the base Task for that purpose.  The field is exposed via the public AsyncState property, so this also uses a bit from the state flags field to prevent this state object from being returned from that property.
+    
+    The combination of removing those two fields shaves 16 bytes off of every `async Task` state machine box on 64-bit.  The only remaining field added by the state machine type is for the state machine itself, which is required.
