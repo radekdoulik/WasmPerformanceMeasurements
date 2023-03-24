@@ -1,0 +1,14 @@
+commit fc66eacb277979d4c329732db4529f00021039f8
+Author: Tom Deseyn <tom.deseyn@gmail.com>
+Date:   Fri Mar 24 12:37:29 2023 +0100
+
+    eng/SourceBuild.props: when unset, let the repo determine RuntimeOS. (#82546)
+    
+    * eng/SourceBuild.props: when unset, let the repo determine RuntimeOS.
+    
+    When source-build builds runtime, it will pass RuntimeOS and BaseOS.
+    
+    When the repo is built directly using './build.sh --sb', let the repo
+    determine those values rather than calculating them in SourceBuild.props.
+    
+    * global-build-job.yml: remove unneeded runtimeOS param.
