@@ -1,0 +1,7 @@
+commit 96a003edd9e25a7b4b693b6a7717ad4d46937a8b
+Author: Viktor Hofer <viktor.hofer@microsoft.com>
+Date:   Fri Mar 24 15:55:56 2023 +0100
+
+    Update Microsoft.Build.* SDKs (#83877)
+    
+    Avoids net45 prebuilds in Traversal projects: https://github.com/microsoft/MSBuildSdks/pull/430
