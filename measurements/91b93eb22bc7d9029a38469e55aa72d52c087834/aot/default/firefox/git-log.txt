@@ -1,0 +1,19 @@
+commit 91b93eb22bc7d9029a38469e55aa72d52c087834
+Author: Jan Kotas <jkotas@microsoft.com>
+Date:   Fri Mar 24 20:46:49 2023 -0700
+
+    Unify managed runtime type name parsers (#83484)
+    
+    Contributes to #72833 and #77868
+    
+    The performance effect of this change on typical use of `Type.GetType` like `Type.GetType("MyType, MyAssembly")` is in the noise range. The typical use of `Type.GetType` spends most of the time in assembly loader and type loader. The time spent by parsing the type name is small fraction of the total and the performance improvement is hardly noticeable.
+    
+    When the type name parser performance is measured in isolation, it is several times faster compared to the existing unmanaged CoreCLR type name parser. For example:
+    ```
+    Type.GetType("System.Object, System.Private.CoreLib",
+           assemblyResolver: (an) => typeof(object).Assembly,
+           typeResolver: (assembly, name, ignoreCase) => typeof(object));
+    ```
+    is about 3x faster with this change on CoreCLR.
+    
+    Co-authored-by: Aaron Robinson <arobins@microsoft.com>
