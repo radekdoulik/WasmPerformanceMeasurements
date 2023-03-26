@@ -1,0 +1,12 @@
+commit 922c75c837fc95092e1d9e433a087ac62082953d
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Sun Mar 26 15:21:26 2023 +0200
+
+    SPMI: Fix recGetStaticFieldCurrentClass (#83843)
+    
+    getStaticFieldCurrentClass has very different behavior depending on
+    whether pIsSpeculative is passed or not, and we need to record the
+    resulting class handle in both cases.
+    
+    This fixes a case of replays not working after recording that I hit
+    while tracking down a separate issue.
