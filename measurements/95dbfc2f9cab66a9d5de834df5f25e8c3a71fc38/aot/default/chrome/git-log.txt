@@ -1,0 +1,9 @@
+commit 95dbfc2f9cab66a9d5de834df5f25e8c3a71fc38
+Author: Jan Kotas <jkotas@microsoft.com>
+Date:   Sat Mar 25 18:36:36 2023 -0700
+
+    Delete redundant test (#83931)
+    
+    This scenario has comprehensive test coverage under src/libraries
+    
+    Fixes #83929
