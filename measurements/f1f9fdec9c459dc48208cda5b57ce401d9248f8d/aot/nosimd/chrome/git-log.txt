@@ -1,0 +1,20 @@
+commit f1f9fdec9c459dc48208cda5b57ce401d9248f8d
+Author: Andy Ayers <andya@microsoft.com>
+Date:   Sun Mar 26 00:47:31 2023 -0700
+
+    JIT: import entire method for OSR, prune unneeded parts later (#83910)
+    
+    For OSR compiles, always import from the original entry point in addition
+    to the OSR entry point. This gives the OSR compiler a chance
+    to see all of the method and so properly compute address exposure,
+    instead of relying on the Tier0
+    analysis.
+    
+    Once address exposure has been determined, revoke special protection
+    for the original entry and try and prune away blocks that are no longer
+    needed (we actually wait until morph).
+    
+    Fixes #83783.
+    
+    May also fix some of the cases where OSR perf is lagging (though
+    don't expect this to fix them all).
