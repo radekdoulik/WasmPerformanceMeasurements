@@ -1,0 +1,19 @@
+commit 18435ba74b89e392f1dc0dfed5f8a5383bf7d14b
+Author: Tanner Gooding <tagoo@outlook.com>
+Date:   Sun Mar 26 19:29:43 2023 -0700
+
+    Ensure kmask registers are marked available  (#83927)
+    
+    * Revert "Disable EVEX support until the bug can be resolved"
+    
+    This reverts commit ce95709587a45d682ae147737071b7174d1c1e2d.
+    
+    * Ensure availableMaskRegs is included where required
+    
+    * Track a new regTyp entry in the typelist metadata
+    
+    * Utilize varTypeUsesIntReg and varTypeUsesMaskReg
+    
+    * Ensure we don't use TYP_MASK on platforms without FEATURE_SIMD
+    
+    * Responding to PR feedback
