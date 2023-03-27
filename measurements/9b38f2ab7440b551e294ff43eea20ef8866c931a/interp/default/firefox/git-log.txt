@@ -1,0 +1,18 @@
+commit 9b38f2ab7440b551e294ff43eea20ef8866c931a
+Author: Vitek Karas <10670590+vitek-karas@users.noreply.github.com>
+Date:   Mon Mar 27 04:28:03 2023 -0700
+
+    Implement checking for Requires* on attributes for NativeAOT (#83550)
+    
+    Any of the RUC/RDC/RAF attributes can be added to an attribute (either the type or the .ctor or properties). The compiler needs to check for these and produce warnings if such attribute is instantiated somewhere.
+    
+    This was added to "Dataflow" existing class, while it's not exactly data flow, adding a new abstraction didn't seem worth it.
+    
+    Also does a simple dedupe of RUC/RDC/RAF checks in some places.
+    
+    Adapt the tests to the new behavior. The most notable change is that NativeAOT will only look at attributes for reflection enabled members, so had to modify the tests to reflection access basically everything.
+    
+    Use GetDisplayName for anything which is supported by that extension method - this fixes wrong origin printed out for property/event (we would print out 'PropertyPseudoDescriptor').
+    
+    Mapping IL offset to source file/line number - if the PDB specifies that line as "hidden", then don't use it, instead look for the begining of the method - so first non-hidden sequence point in the method's body.
+    This is a copy of the logic implemented in illink already.
