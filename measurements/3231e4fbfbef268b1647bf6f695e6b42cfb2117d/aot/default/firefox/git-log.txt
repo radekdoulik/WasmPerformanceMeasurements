@@ -1,0 +1,7 @@
+commit 3231e4fbfbef268b1647bf6f695e6b42cfb2117d
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Tue Mar 28 06:24:48 2023 -0400
+
+    Fix infinite timeout passed to CancellationTokenSource.CancelAfter (#84009)
+    
+    The recent change to introduce ITimer broke CTS.CancelAfter(Timeout.InfiniteTimeSpan).  The TimeSpan's milliseconds were extracted as a uint but then ended up being cast to a long, such that rather than representing -1 milliseconds, it represented 4294967295 milliseconds.  With the uint representation in Timer, Timeout.UnsignedInfinite needs to be special-cased.
