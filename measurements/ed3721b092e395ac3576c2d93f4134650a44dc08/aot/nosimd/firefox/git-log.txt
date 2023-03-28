@@ -1,0 +1,11 @@
+commit ed3721b092e395ac3576c2d93f4134650a44dc08
+Author: Aaron Robinson <arobins@microsoft.com>
+Date:   Mon Mar 27 14:31:31 2023 -0700
+
+    Fix function pointer as fields inspection (#83981)
+    
+    This was missed when C# function pointers support
+    was added to the runtime. The current fix is reporting
+    all functions pointers as `IntPtr` type. It should be
+    possible in a future update to properly represent a
+    more accurate type for the function pointer.
