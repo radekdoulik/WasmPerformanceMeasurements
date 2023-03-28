@@ -1,0 +1,5 @@
+commit 39c02d99367d80e02757c2207d8652b937ebe5fb
+Author: Tanner Gooding <tagoo@outlook.com>
+Date:   Tue Mar 28 07:42:36 2023 -0700
+
+    Ensure that CONTEXT_XStateFeaturesMask is explicitly zeroed out on RtlCaptureContext (#84012)
