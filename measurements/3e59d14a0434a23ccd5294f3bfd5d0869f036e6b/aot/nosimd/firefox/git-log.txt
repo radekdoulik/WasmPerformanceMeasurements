@@ -1,0 +1,19 @@
+commit 3e59d14a0434a23ccd5294f3bfd5d0869f036e6b
+Author: Marc Brooks <IDisposable@gmail.com>
+Date:   Tue Mar 28 20:05:10 2023 -0500
+
+    Coalesce identical constant WordCategories (#84047)
+    
+    * Coalesce identical constant WordCategories
+    
+    There are four places the same mask is computed in this project, can't eliminate the one in RegexGenerator.Emitter or its matching unit test because that's outputting the actual C# source string.
+    Changed the name `WordCategoriesMask` to avoid a conflict with  existing member.
+    Removed the detritus in the comments from the copy-paste from Emitter source (trailing `"` and `,`)
+    
+    * Update src/libraries/System.Text.RegularExpressions/src/System/Text/RegularExpressions/RegexCharClass.cs
+    
+    Co-authored-by: Stephen Toub <stoub@microsoft.com>
+    
+    ---------
+    
+    Co-authored-by: Stephen Toub <stoub@microsoft.com>
