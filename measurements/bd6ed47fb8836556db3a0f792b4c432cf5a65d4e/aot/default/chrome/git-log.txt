@@ -1,0 +1,7 @@
+commit bd6ed47fb8836556db3a0f792b4c432cf5a65d4e
+Author: Lee Culver <leculver@microsoft.com>
+Date:   Tue Mar 28 14:03:03 2023 -0700
+
+    Restore original stack ref enumeration behavior (#84034)
+    
+    The previous change to ICorDebugGCReferenceEnum accidently inverted the logic for interior pointers.
