@@ -1,0 +1,9 @@
+commit ef15cfbbcebbfd8bcef2664bd6dad5c34ce66108
+Author: Vladimir Sadov <vsadov@microsoft.com>
+Date:   Wed Mar 29 19:51:09 2023 -0700
+
+    [NativeAOT] Making thread local storage completely managed. (#84060)
+    
+    * move m_pThreadLocalModuleStatics to managed
+    
+    * typo - should use newSize once computed
