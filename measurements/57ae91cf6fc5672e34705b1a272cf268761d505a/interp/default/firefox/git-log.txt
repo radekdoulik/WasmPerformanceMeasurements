@@ -1,0 +1,29 @@
+commit 57ae91cf6fc5672e34705b1a272cf268761d505a
+Author: Tanner Gooding <tagoo@outlook.com>
+Date:   Wed Mar 29 21:24:24 2023 -0700
+
+    Expose helper APIS for GetLower/Upper and WithLower/Upper (#83982)
+    
+    * Expose and use a gtNewSimdGetLowerNode and gtNewSimdGetUpperNode
+    
+    * Expose and use a gtNewSimdWithLowerNode and gtNewSimdWithUpperNode
+    
+    * Apply formatting patch
+    
+    * Ensure op1 and op2 are passed for WithLower/Upper
+    
+    * Ensure we aren't creating unnecessary idx nodes
+    
+    * Ensure args are popped in the right order
+    
+    * Ensure Vector512.WithUpper/Lower are handled as intrinsic
+    
+    * Ensure Vector512.GetLower/Upper and WithLower/Upper are fully hooked up
+    
+    * Applying formatting patch
+    
+    * Fix a copy/paste error
+    
+    * Move NI_Vector128_GetUpper to be handled in codegen to improve emitted code
+    
+    * Fix an assert
