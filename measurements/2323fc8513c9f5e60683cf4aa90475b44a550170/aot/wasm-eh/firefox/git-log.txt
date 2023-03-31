@@ -1,0 +1,7 @@
+commit 2323fc8513c9f5e60683cf4aa90475b44a550170
+Author: Theodor Zoulias <48834899+theodorzoulias@users.noreply.github.com>
+Date:   Fri Mar 31 03:57:13 2023 +0300
+
+    Correct three code comments in Dictionary.cs (#84128)
+    
+    Three code comments refer to the EqualityComparer<TValue>.Default, instead of the correct EqualityComparer<TKey>.Default.
