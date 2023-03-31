@@ -1,0 +1,5 @@
+commit 958b1e046cbfff5c0bc647f531b4fcf9eb197a6c
+Author: Egor Bogatov <egorbo@gmail.com>
+Date:   Fri Mar 31 10:29:50 2023 +0200
+
+    Fix assert when SpanHelpers.SequenceEqual is unused (#84155)
