@@ -1,0 +1,10 @@
+commit 62d6a8fe599ea3a77ef7af3c7660d398d692f062
+Author: Jan Vorlicek <janvorli@microsoft.com>
+Date:   Thu Mar 30 22:33:29 2023 +0200
+
+    Fix AREA alignment warning on Windows ARM64 (#84020)
+    
+    The arm64 build on Windows is warning about ALIGN instruction in the
+    asmhelpers.asm having alignment larger than the alignment of the current
+    area. This change fixes it by replacing TEXTAREA by an area with the
+    proper alignment set.
