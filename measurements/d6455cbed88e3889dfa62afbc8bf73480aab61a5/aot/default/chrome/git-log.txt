@@ -1,0 +1,14 @@
+commit d6455cbed88e3889dfa62afbc8bf73480aab61a5
+Author: Ruihan-Yin <107431934+Ruihan-Yin@users.noreply.github.com>
+Date:   Fri Mar 31 22:53:03 2023 -0700
+
+    Optimization on LinearScan::buildPhysRegRecords (#83862)
+    
+    * Optimization on LinearScan::buildPhysRegRecords by skipping non-AVX512 register if AVX512 not available.
+    
+    * code changes based on the reviews.
+    
+    * put the upper register group declaration in global
+    
+    fix the offset value when allocating upper registers, it should
+    be the length of the lower register group.
