@@ -1,0 +1,9 @@
+commit 79d0d7cbfa0b3390e1a991a73466d1bfa5aeca12
+Author: Jan Kotas <jkotas@microsoft.com>
+Date:   Fri Mar 31 14:30:34 2023 -0700
+
+    Delete unmanaged type name parser from CoreCLR (#84159)
+    
+    * Delete unmanaged type name parser from CoreCLR
+    
+    * Improve naming and comments
