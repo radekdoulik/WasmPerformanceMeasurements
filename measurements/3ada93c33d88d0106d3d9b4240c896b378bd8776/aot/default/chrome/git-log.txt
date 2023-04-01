@@ -1,0 +1,26 @@
+commit 3ada93c33d88d0106d3d9b4240c896b378bd8776
+Author: SwapnilGaikwad <swapnil.gaikwad@arm.com>
+Date:   Fri Mar 31 18:26:28 2023 +0100
+
+    Use ldp/stp with SIMD registers on Arm64 (#84135)
+    
+    * Use ldp/stp with SIMD registers on Arm64
+    
+    Use pairwise load/stores for
+    
+    1. the instructions using SIMD registers
+    ```
+    ldr     q1, [x0, #0x20]
+    ldr     q2, [x0, #0x30]     =>  ldp     q1, q2, [x0, #0x20]
+    ```
+    
+    2. the instructions using base and base plus immediate offset format
+    ```
+    ldr     w1, [x20]
+    ldr     w2, [x20, #0x04]    =>  ldp     w1, w2, [x20]
+    
+    ldr     q1, [x0]
+    ldr     q2, [x0, #0x10]     =>  ldp     q1, q2, [x0]
+    ```
+    
+    * Incorporate review comments
