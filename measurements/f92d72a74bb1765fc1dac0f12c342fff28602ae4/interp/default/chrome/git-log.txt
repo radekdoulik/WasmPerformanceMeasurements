@@ -1,0 +1,303 @@
+commit f92d72a74bb1765fc1dac0f12c342fff28602ae4
+Author: Kunal Pathak <Kunal.Pathak@microsoft.com>
+Date:   Mon Apr 3 19:05:51 2023 -0700
+
+    Arm64: Implement VectorTableLookup/VectorTableLookupExtension intrinsinsic + Consecutive registers support (#80297)
+    
+    * Add VectorTableLookup 2/3/4 in hwinstrinsiclistarm64.h
+    
+    * Add VectorTableLookup
+    
+    * fixes to libraries
+    
+    * Prototype of simple tbl
+    
+    * Some progress
+    
+    * Some more updates
+    
+    * working model
+    
+    * Vector64<byte> support
+    
+    * Add VectorTableLookup_3
+    
+    * Add VectorTableLookup_4
+    
+    * cleanup
+    
+    * Remove regCount from LclVarDsc
+    
+    * Some more cleanup
+    
+    Some more cleanup
+    
+    * setNextConsecutiveRegisterAssignment
+    
+    * Some more cleanup
+    
+    * TARGET_ARM64
+    
+    * Use getNextConsecutiveRefPositions instead of nextConsecutiveRefPosition field
+    
+    * jit format
+    
+    * Move getNextConsecutiveRefPosition
+    
+    * SA1141: Use tuple syntax
+    
+    * Remove the unwanted field list code
+    
+    * revert the flag that was mistakenly changed
+    
+    * Add test cases
+    
+    * FIELD_LIST
+    
+    * Use FIELD_LIST approach
+    
+    * jit format and fix arm build
+    
+    * fix assert failure
+    
+    * Add summary docs
+    
+    Add summary docs in all the required files.
+    
+    * Make APIs public again
+    
+    * cleanup
+    
+    * Handle case for reg mod 32
+    
+    * Remove references from ref until API is approved
+    
+    * Use generic getFreeCandidates()
+    
+    * Add entries in ExtraAPis
+    
+    * Set CLSCompliant=false
+    
+    * Move in inner class
+    
+    * Remove CLSCompliant flag
+    
+    * Add a suppression file for System.Runtime.Intrinsics on the new APIs until it they go through API review
+    
+    * Review feedback
+    
+    * Add workaround for building tests
+    
+    * review feedback
+    
+    * TP: remove needsConsecutive parameter from BuildUse()
+    
+    * TP: Remove pseudo intrinsic entries
+    
+    * More fixes
+    
+    * Add the missing csproj
+    
+    * Fix test cases
+    
+    * Add fake lib for AdvSimd.Arm64* as well
+    
+    * Remove the workaround
+    
+    * Use template to control if consecutive registers is needed or not
+    
+    * jit format
+    
+    * fix the workaround
+    
+    * Revert "fix the workaround"
+    
+    This reverts commit 1cb22d00d7159f40d33538ea29008e6764d52e45.
+    
+    * Revert "Remove the workaround"
+    
+    This reverts commit b0b6a5e9abea195bd6dc35c5a638d280f20d6ed2.
+    
+    * Add VectorTableLookupExtensions  in libraries
+    
+    * Add support for VectorTableLookupExtension
+    
+    * WIP: available regs
+    
+    * WIP: Remove test hacks
+    
+    * Update getFreeCandidates() for consecutive registers
+    
+    * Add missing resetRegState()
+    
+    * Do not assume the current assigned register for consecutiveRegisters refposition is good.
+    
+    If a refposition is marked as needConsecutive, then do not just assume that the existing register assigned
+    is good. We still go through the allocation for it to make sure that we allocate it a register such that the
+    consecutive registers are also free.
+    
+    * Handle case for copyReg
+    
+    For copyReg, if we assigned a different register, do not forget to free the existing register it was holding
+    
+    * Update setNextConsecutiveRegister() with UPPER_VECTOR_RESTORE
+    
+    * Update code around copyReg
+    
+    Updated code such that if the refPosition is already assigned a register, then
+    check if assignedRegister satisfies are needs (for first / non-first refposition).
+    If not, performs copyReg.
+    
+    TODO: Extract the code surrounding and including copyReg until where we `continue`.
+    
+    * Create the VectorTableLookup fake CoreLib as a reference assembly
+    
+    Make the AdvSimd.Arm64 tests reference the VectorTableLookup fake
+    CoreLib as reference assembly; and ensure that it is not included as a
+    ProjectReference by the toplevel HardwareIntrinsics merged test
+    runners.
+    
+    The upshot is that the AdvSimd.Arm64 tests can call the extra APIs via
+    a direct reference to CoreLib (instead of through System.Runtime), but
+    the fake library is not copied into any test artifact directories, and
+    the Mono AOT compiler never sees it.
+    
+    That said, after applying this, the test fails during AOT compilation
+    of the *real* CoreLib
+    
+    ```
+    Mono Ahead of Time compiler - compiling assembly /Users/alklig/work/dotnet-runtime/runtime-bugs2/artifacts/tests/coreclr/osx.arm64.Release/Tests/Core_Root/System.Private.CoreLib.dll
+      AOTID EA8D702E-9736-3BD5-435B-A9D5EEADCC78
+      %"System.ValueTuple`2<System.Runtime.Intrinsics.Vector128`1<byte>, System.Runtime.Intrinsics.Vector128`1<byte>>"* %arg_table
+      <16 x i8>
+    
+      * Assertion: should not be reached at /Users/alklig/work/dotnet-runtime/runtime-bugs2/src/mono/mono/mini/mini-llvm.c:1455
+    ```
+    
+    * Rename VectorTableLookup to VectorTableLookup.RefOnly
+    
+    * Start consecutive refpositions with RefTypeUse and never with RefTypeUpperVectorSave
+    
+    * Add test cases for VectorTableLookupExtension
+    
+    * Pass the missing defaultValues
+    
+    * Use platform neutral BitScanForward
+    
+    * jit format
+    
+    * Remove the fake testlib workaround
+    
+    * Fix mono failures
+    
+    * Fix x64 TP regression
+    
+    * Fix test cases
+    
+    * fix some more tp regression
+    
+    * Fix test build
+    
+    * misc. changes
+    
+    * Fix the bug where we were not freeing copyReg causing an assert in tier0
+    
+    * Refactor little bit to reduce checks for VectorTableLookup
+    
+    * Add template parameter for allocateReg/copyReg/select
+    
+    * Comments
+    
+    * Fix mono failures
+    
+    * Added some more comments
+    
+    * Call allocateReg/assignCopyReg/select methods only for refpositions that need consecutive registers
+    
+    * Add heuristics to pick best possible set of registers which will need less spilling
+    
+    * setNextConsecutiveRegisterAssignment() no longer checks for areNextConsecutiveRegistersFree()
+    
+    * Rename getFreeCandidates() -> getConsecutiveCandidates()
+    
+    * fix parameters to areNextConsecutiveRegistersFree()
+    
+    * Rename and update canAssignNextConsecutiveRegisters()
+    
+    * Add the missing setNextConsecutiveRegisterAssignment() calls
+    
+    * Fix a condition for upperVector
+    
+    * Update spill heurisitic to handle cases for jitstressregs
+    
+    * Misc. remove popcount() check from getConsecutiveRegisters()
+    
+    * jit format
+    
+    * Fix a bug in canAssignNextConsecutiveRegisters()
+    
+    * Add filterConsecutiveCandidates() and perform free/busy candidates scan
+    
+    * Consume the new free/busy consecutive candidates method
+    
+    * Handle case where 'copyReg == assignedReg'
+    
+    * Misc. cleanup
+    
+    * Include LsraExtraFPSetForConsecutive for stress regs
+    
+    * handle case where 'assignedInterval == nullptr' for try_SPILL_COST()
+    
+    * fix build error
+    
+    * Call consecutiveCandidates() only for first refposition
+    
+    * Only perform special handling for non-uppervectorrestore
+    
+    * jit format
+    
+    * Add impVectorTableLookup/impVectorTableLookupExtension
+    
+    * Add the missing break
+    
+    * Update assert
+    
+    * Move definitions in GenTree, fix assert
+    
+    * fix arm issue
+    
+    * Remove common functions
+    
+    * Rename info.needsConsecutiveRegisters to info.compNeedsConsecutiveRegisters
+    
+    * Use needsConsecutiveRegisters template parameter for all configurations
+    
+    * Handle case of round-robin in getConsecutiveRegisters()
+    
+    * Disable tests for Mono
+    
+    * Initialize outArray in test
+    
+    * Add IsSupported checks for VectorLookup/VectorLookupExtension
+    
+    * Fix the test cases for RunReflectionScenario_UnsafeRead()
+    
+    * Review feedback
+    
+    * wip
+    
+    * fix a typo in test case
+    
+    * Add filterConsecutiveCandidatesForSpill() to select range that needs fewer register spilling
+    
+    * Add mono support.
+    
+    * Delay free the registers for VectorTableLookupExtension
+    
+    * fix mono build error
+    
+    ---------
+    
+    Co-authored-by: Tanner Gooding <tagoo@outlook.com>
+    Co-authored-by: Aleksey Kliger <alklig@microsoft.com>
+    Co-authored-by: Zoltan Varga <vargaz@gmail.com>
