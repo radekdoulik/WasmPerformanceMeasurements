@@ -1,0 +1,9 @@
+commit e579ccb60acb044453f2cf1907482b165658488e
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Tue Apr 4 07:20:58 2023 -0400
+
+    Fix FrozenDictionary/Set handling of ValueTuple keys (#84280)
+    
+    For small collections of comparable value types, we were using an implementation that sorted the keys in order to a) quickly rule out values outside of the known contained range, and b) stop searching when we hit a value that was too small.  However, this can break for some well-known types. In particular, `ValueTuple<...>` implements `IComparable<ValueTuple<...>>`, but it might throw an exception if you actually try to use its `IComparable<>` implementation if any of the `T` types in the tuple are themselves not comparable.  Since we have no good way then to dynamically select an implementation based on whether it implements `IComparable<>`, I've simply removed those checks / calls from the implementation.
+    
+    Testing this also highlighted that our existing shared set tests don't like being given non-comparable types, as they use SortedSet which itself suffers from effectively the same issue (but there you can choose to not use SortedSet if it doesn't work for your data, and "sort"ing is part of the name).
