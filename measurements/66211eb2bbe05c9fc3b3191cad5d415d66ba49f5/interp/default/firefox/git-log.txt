@@ -1,0 +1,11 @@
+commit 66211eb2bbe05c9fc3b3191cad5d415d66ba49f5
+Author: Katelyn Gadd <kg@luminance.org>
+Date:   Wed Apr 5 05:23:38 2023 -0700
+
+    [wasm] Implement the ENDFINALLY opcode in the jiterpreter (#84273)
+    
+    * Mark the opcode following CALL_HANDLER interpreter opcodes as a back branch target
+    * In the jiterpreter, record each CALL_HANDLER location when compiling them
+    * Then when compiling an ENDFINALLY opcode check to see whether the branch target is one we recognize and if so do a branch, otherwise bail out
+    * Tweak CFG to filter out branch targets that are never used
+    * Add browser-bench measurement for try-finally
