@@ -1,0 +1,7 @@
+commit e13f0dc1e0327b5d0cd0602b55ee257ef554f0a1
+Author: Egor Bogatov <egorbo@gmail.com>
+Date:   Wed Apr 5 01:36:00 2023 +0200
+
+    Optimize stackalloc zeroing via BLK (#83255)
+    
+    Co-authored-by: SingleAccretion <62474226+SingleAccretion@users.noreply.github.com>
