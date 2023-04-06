@@ -1,0 +1,13 @@
+commit c93a93b75abe57a66be1e42b2e0f45eff291bdfc
+Author: Eric Erhardt <eric.erhardt@microsoft.com>
+Date:   Thu Apr 6 09:31:01 2023 -0500
+
+    Use better trimming message in ValidationContext (#84326)
+    
+    * Use better trimming message in ValidationContext
+    
+    Add more details about why ValidationContext requires unreferenced code.
+    
+    Fix #84324
+    
+    * Exclude RequiresUnreferencedCodeAttribute from baseline API compat
