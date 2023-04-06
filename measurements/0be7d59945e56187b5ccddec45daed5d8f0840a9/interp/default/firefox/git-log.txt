@@ -1,0 +1,18 @@
+commit 0be7d59945e56187b5ccddec45daed5d8f0840a9
+Author: SwapnilGaikwad <swapnil.gaikwad@arm.com>
+Date:   Thu Apr 6 03:47:28 2023 +0100
+
+    Arm64: Optimize pairs of "str wzr" to "str xzr" (#84350)
+    
+    Optimise following patterns
+    
+    ```
+    stp     wzr, wzr, [x2, #0x08]       =>     str     xzr, [x2, #0x08]
+    ```
+    
+    and
+    
+    ```
+    stp     wzr, wzr, [x14, #0x20]
+    str     xzr, [x14, #0x18]           =>     stp     xzr, xzr, [x14, #0x18]
+    ```
