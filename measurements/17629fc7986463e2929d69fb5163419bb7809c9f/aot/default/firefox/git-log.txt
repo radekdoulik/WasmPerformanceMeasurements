@@ -1,0 +1,7 @@
+commit 17629fc7986463e2929d69fb5163419bb7809c9f
+Author: Alexander Köplinger <alex.koeplinger@outlook.com>
+Date:   Fri Apr 7 16:04:00 2023 +0200
+
+    [mono] Fix build error due to undeclared identifier 'llvm' (#84473)
+    
+    `llvm` is only declared when ENABLE_LLVM is defined.
