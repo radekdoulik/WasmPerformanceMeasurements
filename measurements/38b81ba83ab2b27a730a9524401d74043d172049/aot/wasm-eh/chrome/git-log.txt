@@ -1,0 +1,27 @@
+commit 38b81ba83ab2b27a730a9524401d74043d172049
+Author: Vladimir Sadov <vsadov@microsoft.com>
+Date:   Thu Apr 6 19:04:47 2023 -0700
+
+    [NativeAOT] Using the same CastCache implementation as in CoreClr (#84430)
+    
+    * Getter
+    
+    * different limits on debug/release
+    
+    * tweaks
+    
+    * remove now unnecessary CrstCastCache
+    
+    * implement flushing
+    
+    * move coreclr castcache to a separate file
+    
+    * Unified CastCache implementation
+    
+    * comments and cleanups
+    
+    * couple more cleanups
+    
+    * trivial implementation of the cast cache for the Test.Corlib
+    
+    * use Numerics.BitOperations for bit math
