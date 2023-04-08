@@ -1,0 +1,11 @@
+commit 568292a3a88bf2f0b02fac987442c4729161aee2
+Author: VincentWu <43398706+Xinlong-Wu@users.noreply.github.com>
+Date:   Sat Apr 8 10:20:33 2023 +0800
+
+    [mono] [RISC-V] re-implement floating point arithmetic without r4fp (#84470)
+    
+    * fix no r4fp
+    
+    * format
+    
+    * defined MONO_ARCH_FLOAT32_SUPPORTED
