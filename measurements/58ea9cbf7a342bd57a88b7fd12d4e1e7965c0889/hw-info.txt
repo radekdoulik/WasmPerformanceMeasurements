@@ -1,52 +1,52 @@
 === outpuf of: free
                total        used        free      shared  buff/cache   available
-Mem:         3754392      321760     1920520       24892     1512112     3318108
-Swap:        2097148      511292     1585856
+Mem:         3754392      321432     1842392       24888     1590568     3311324
+Swap:        2097148      523316     1573832
 === outpuf of: cat /proc/meminfo
 MemTotal:        3754392 kB
-MemFree:         1920520 kB
-MemAvailable:    3318108 kB
+MemFree:         1842392 kB
+MemAvailable:    3311324 kB
 Buffers:               0 kB
-Cached:          1342400 kB
-SwapCached:        36060 kB
-Active:           759136 kB
-Inactive:         702728 kB
-Active(anon):      48752 kB
-Inactive(anon):    91028 kB
-Active(file):     710384 kB
-Inactive(file):   611700 kB
+Cached:          1410368 kB
+SwapCached:        42680 kB
+Active:           839732 kB
+Inactive:         682592 kB
+Active(anon):      44016 kB
+Inactive(anon):    91272 kB
+Active(file):     795716 kB
+Inactive(file):   591320 kB
 Unevictable:       23588 kB
 Mlocked:               0 kB
 SwapTotal:       2097148 kB
-SwapFree:        1585856 kB
+SwapFree:        1573832 kB
 Dirty:                 0 kB
 Writeback:             0 kB
-AnonPages:        122436 kB
-Mapped:            64352 kB
-Shmem:             24892 kB
-KReclaimable:     169712 kB
-Slab:             257732 kB
-SReclaimable:     169712 kB
-SUnreclaim:        88020 kB
-KernelStack:        7128 kB
-PageTables:        12848 kB
+AnonPages:        110216 kB
+Mapped:            57516 kB
+Shmem:             24888 kB
+KReclaimable:     180200 kB
+Slab:             270124 kB
+SReclaimable:     180200 kB
+SUnreclaim:        89924 kB
+KernelStack:        7152 kB
+PageTables:        12960 kB
 NFS_Unstable:          0 kB
 Bounce:                0 kB
 WritebackTmp:          0 kB
 CommitLimit:     3974344 kB
-Committed_AS:    3388760 kB
+Committed_AS:    3388768 kB
 VmallocTotal:   133143592960 kB
-VmallocUsed:       22836 kB
+VmallocUsed:       22852 kB
 VmallocChunk:          0 kB
 Percpu:             3576 kB
 HardwareCorrupted:     0 kB
-AnonHugePages:     34816 kB
+AnonHugePages:     32768 kB
 ShmemHugePages:        0 kB
 ShmemPmdMapped:        0 kB
 FileHugePages:         0 kB
 FilePmdMapped:         0 kB
 CmaTotal:         819200 kB
-CmaFree:          223544 kB
+CmaFree:          197184 kB
 HugePages_Total:       0
 HugePages_Free:        0
 HugePages_Rsvd:        0
