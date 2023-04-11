@@ -1,0 +1,17 @@
+commit e0120f0e7ed7c393fcffbc1e6ab84cc77f3beaf7
+Author: SingleAccretion <62474226+SingleAccretion@users.noreply.github.com>
+Date:   Tue Apr 11 04:47:49 2023 +0300
+
+    Delete `GT_OBJ` (#84221)
+    
+    * Delete dependencies on the handle from OBJ
+    
+    * Delete GT_OBJ
+    
+    GT_OBJ and GT_OBJ both represent struct loads. There is no need to have two.
+    
+    Delete GT_OBJ as the more derived one.
+    
+    * gtNewObjNode -> gtNewBlkIndir
+    
+    * Fix up RISC-V
