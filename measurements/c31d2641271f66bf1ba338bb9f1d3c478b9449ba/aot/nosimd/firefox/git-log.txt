@@ -1,0 +1,11 @@
+commit c31d2641271f66bf1ba338bb9f1d3c478b9449ba
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Wed Apr 12 10:55:27 2023 -0400
+
+    [mono][llvm] Avoid making volatile loads/stores to variables marked INDIRECT. (#84674)
+    
+    Variables in the JIT are marked INDIRECT when their address is taken.
+    Using volatile loads/stores prevents LLVM from optimizing away the
+    address taking.
+    
+    Re: https://github.com/dotnet/perf-autofiling-issues/issues/15699.
