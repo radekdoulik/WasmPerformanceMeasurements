@@ -1,0 +1,7 @@
+commit ae4c82babd3ca33e9eb75a051fc87b74ed26adfc
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Tue Apr 11 22:00:32 2023 -0400
+
+    [mono][jit] Intrinsify more calls to Type:op_Equality (). (#84653)
+    
+    Re: https://github.com/dotnet/perf-autofiling-issues/issues/15660.
