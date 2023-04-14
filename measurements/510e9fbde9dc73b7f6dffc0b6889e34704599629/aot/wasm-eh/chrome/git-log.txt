@@ -1,0 +1,5 @@
+commit 510e9fbde9dc73b7f6dffc0b6889e34704599629
+Author: Andrew Au <andrewau@microsoft.com>
+Date:   Thu Apr 13 19:36:35 2023 -0700
+
+    Avoid clearing mark array when it was not committed (#84734)
