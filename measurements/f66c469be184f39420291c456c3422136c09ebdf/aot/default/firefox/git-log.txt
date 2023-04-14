@@ -1,0 +1,52 @@
+commit f66c469be184f39420291c456c3422136c09ebdf
+Author: Dong-Heon Jung <clamp03@gmail.com>
+Date:   Fri Apr 14 23:32:25 2023 +0900
+
+    [RISC-V] coreclr-vm and other directories in coreclr (#82381)
+    
+    * [RISC-V] coreclr-vm and other directories in coreclr
+    
+    - Successfully cross-build for RISC-V.
+    - Run A simple application "helloworld"
+    - Fail a test in clr.paltest
+    
+    * Remove commented codes
+    
+    * Fix mistakes
+    
+    * Update by reviews
+    
+    * [VM] Fix test
+    
+    * [VM] Update
+    
+    Updated by review in #82380
+    
+    * [VM] Update assert and todo comments
+    
+    * [VM] Updated
+    
+    * [VM] Fix a bug
+    
+    * [VM] Add getRISCV64PassStructInRegisterFlags
+    
+    * Revert "[VM] Add getRISCV64PassStructInRegisterFlags"
+    
+    This reverts commit cd1ea45de36458a5e3ec66a325bf3e0c4812680d.
+    
+    * [VM] Restore getLoongArch64PassStructInRegisterFlags
+    
+    In coreclr-jit patch, it makes getRISCV64PassStructInRegisterFlags for
+    RISCV64. So restore getLoongArch64PassStructInRegisterFlags
+    
+    * [VM] FIX TEST ERRORS
+    
+    * [VM] Update Stubs
+    
+    * Fix exceptionhandling, stack smashing detected
+    
+    * [VM] Fix vm/riscv64
+    
+    ---------
+    
+    Co-authored-by: Timur Mustafin <t.mustafin@partner.samsung.com>
