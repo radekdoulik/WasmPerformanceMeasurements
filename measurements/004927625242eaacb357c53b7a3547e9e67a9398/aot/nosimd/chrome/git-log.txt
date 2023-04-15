@@ -1,0 +1,9 @@
+commit 004927625242eaacb357c53b7a3547e9e67a9398
+Author: Viktor Hofer <viktor.hofer@microsoft.com>
+Date:   Sat Apr 15 15:07:56 2023 +0200
+
+    Upgrade ILCompiler.Build.Tasks to repo msbuild version (#84883)
+    
+    "ILCompiler.Build.Tasks" referenced very old MSBuild packages which brought in the entire netstandard1.x dependency graph. Upgrading to the latest version defined in Versions.props which is also available in SBRP.
+    
+    Similar to https://github.com/dotnet/xliff-tasks/pull/765
