@@ -1,0 +1,11 @@
+commit 72586a7397aab4ba9a3afe7fdc6f9de1b7b6e77c
+Author: Tanner Gooding <tagoo@outlook.com>
+Date:   Fri Apr 14 19:33:02 2023 -0700
+
+    Implementing GetElement, ToScalar, and WithElement for Vector512 (#84791)
+    
+    * Implementing GetElement, ToScalar, and WithElement for Vector512
+    
+    * Minor cleanup of DecomposeHWIntrinsicGetElement
+    
+    * Resolve various issues with asserts and and AltJit
