@@ -1,0 +1,5 @@
+commit 8cb3bf89e4b28b66bf3b4e2957fd015bf925a787
+Author: David Wrighton <davidwr@microsoft.com>
+Date:   Sat Apr 15 18:56:43 2023 -0700
+
+    Fix stepping by removing the unnecessary logic in VirtualCallStubManagerManager (#84869)
