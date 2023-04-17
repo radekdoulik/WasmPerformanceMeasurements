@@ -1,0 +1,17 @@
+commit e3f55cbfd83162bc85d73d69c765e7f44c478e6d
+Author: Jan Dupej <109523496+jandupej@users.noreply.github.com>
+Date:   Mon Apr 17 16:42:45 2023 +0200
+
+    [mono][jit] Adding Vector128.Dot as intrinsic for arm64. (#84245)
+    
+    * [mono][jit] Adding Vector128.Dot as intrinsic for arm64.
+    
+    * Fixed the (u)int64 case, which now falls back to unoptimized code.
+    
+    * Fixed klass.
+    
+    * Disabled the intrinsic for native ints, enabled for LLVM.
+    
+    * Fixed COMPILE_LLVM condition.
+    
+    * Relaxing non-LLVM restriction for WASM.
