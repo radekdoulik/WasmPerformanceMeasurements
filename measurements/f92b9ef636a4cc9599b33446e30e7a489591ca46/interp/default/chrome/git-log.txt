@@ -1,0 +1,9 @@
+commit f92b9ef636a4cc9599b33446e30e7a489591ca46
+Author: Adeel Mujahid <3840695+am11@users.noreply.github.com>
+Date:   Mon Apr 17 04:30:24 2023 +0300
+
+    Generate SslConnectionInfo.Unix.cs with T4 template (#84690)
+    
+    * Generate SslConnectionInfo.Unix.cs with T4 template
+    
+    * Try fitting into ushort
