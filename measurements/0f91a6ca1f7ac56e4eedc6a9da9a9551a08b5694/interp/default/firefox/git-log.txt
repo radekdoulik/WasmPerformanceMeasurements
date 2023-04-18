@@ -1,0 +1,11 @@
+commit 0f91a6ca1f7ac56e4eedc6a9da9a9551a08b5694
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Tue Apr 18 10:49:47 2023 -0400
+
+    Add binary support to number formatting (#84889)
+    
+    * Add binary support to number formatting
+    
+    * Fix inlining of Convert.ToString
+    
+    It's now typically inlined by the JIT if toBase is a const.
