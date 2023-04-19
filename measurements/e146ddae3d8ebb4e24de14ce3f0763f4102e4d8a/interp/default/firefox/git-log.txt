@@ -1,0 +1,7 @@
+commit e146ddae3d8ebb4e24de14ce3f0763f4102e4d8a
+Author: Vlad Brezae <brezaevlad@gmail.com>
+Date:   Wed Apr 19 17:56:06 2023 +0300
+
+    [mono][sgen] Fix GetTotalMemory (#84480)
+    
+    The previous code was iterating over all blocks, and their freelist, without checking if the block has been swept in the first place. This would lead to incorrect size computation if the block wasn't swept and undefined behavior when racing with concurrent sweep.
