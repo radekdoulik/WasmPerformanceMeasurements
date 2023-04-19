@@ -1,0 +1,5 @@
+commit f20822f9f0e0d8d2faa40f41b8e04d651c5bf753
+Author: Katelyn Gadd <kg@luminance.org>
+Date:   Tue Apr 18 18:39:34 2023 -0700
+
+    Increase the opcode value for opcodes where the jiterpreter is able to unroll fixed-size sets and moves (#85007)
