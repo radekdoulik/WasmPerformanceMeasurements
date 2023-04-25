@@ -1,0 +1,7 @@
+commit 19d545c62c3eea1836e8c3830eb654e2a022cac7
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Tue Apr 25 17:51:41 2023 +0900
+
+    Add function pointer type support to type loader (#85287)
+    
+    So that we can create new function pointer types at runtime within the context of `MakeGenericXXX`.
