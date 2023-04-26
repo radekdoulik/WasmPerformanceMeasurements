@@ -1,0 +1,11 @@
+commit ac2b3535695fada0e0a2b5426a3dcaca0bc305e3
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Wed Apr 26 10:04:03 2023 +0200
+
+    JIT: Introduce GT_JTEST and clean up GT_JCMP flags (#85242)
+    
+    * Introduce GT_JTEST to replace GTF_JCMP_TEST
+    * Stop encoding JCMP conditions in GenTreeFlags by switching GT_JCMP to
+      a GenTreeOpCC node. This removes GTF_JCMP_EQ and the
+      LoongArch64/RISC-V specific mechanism to communicate condition codes
+      to the backend via gtFlags.
