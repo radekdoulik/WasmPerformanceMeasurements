@@ -1,0 +1,17 @@
+commit e029183d484dabf02c87140415a1632a101b4647
+Author: Andy Ayers <andya@microsoft.com>
+Date:   Wed Apr 26 18:05:59 2023 -0700
+
+    JIT: prefer edge counts; keep class profiles even if tossing counts (#85406)
+    
+    If there are both edge and block counts for a method, prefer to use the
+    edge counts (block counts are no longer the default, so are more likely
+    to be stale).
+    
+    Sometimes we decide not to use count data because of correlation or
+    solver issues. When this happens, keep the class profile data viable
+    and let the code that deals with class profiles handle the possibility
+    of stale or mismatched data.
+    
+    Addresses some aspects of #84446, though it's still not clear why we see
+    static profiles with both block and edge counts.
