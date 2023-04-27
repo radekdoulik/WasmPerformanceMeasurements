@@ -1,0 +1,11 @@
+commit b53f2ca015da7909f960762b6b0a1a85983c019f
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Thu Apr 27 22:43:27 2023 +0900
+
+    Delete support for IAT indirecting base type/interfaces (#85376)
+    
+    * Delete support for IAT indirecting base type/interfaces
+    
+    This is used if we have a SharedLibrary.dll a la .NET Native. SharedLibrary.dll model had a lot of problems around versioning and a "framework-dependent" deployment model like that is unlikely to come back. I think we can start to slowly get rid of and get marginally faster code and less maintenance cost in return.
+    
+    * Bump header
