@@ -1,0 +1,9 @@
+commit 08ba40db0abbfa0bd23bf9b523a8c3acaded7651
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Tue May 2 15:41:32 2023 +0900
+
+    Allow emitting function pointers in TypeSystemMetadataEmitter (#85626)
+    
+    This is handled. It's unclear to me why it was disallowed.
+    
+    Unfortunately, this means `IlcGenerateMstatFile` is going to be completely broken in .NET 8 Preview 4.
