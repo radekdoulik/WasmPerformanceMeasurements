@@ -1,0 +1,12 @@
+commit 4772b5d2b5facba2bbfcb6b25c4410c1a93d1557
+Author: Aaron Robinson <arobins@microsoft.com>
+Date:   Tue May 2 03:35:24 2023 -0700
+
+    ComWrappers test that allocate object can't inline (#85583)
+    
+    * ComWrappers test that allocate object can't inline
+    
+    There are some JIT stress settings that aggressively
+    inline functions, regardless of size/complexity. This
+    inlining can perturb the subtle GC assumptions
+    inherent in the COM wrappers tests.
