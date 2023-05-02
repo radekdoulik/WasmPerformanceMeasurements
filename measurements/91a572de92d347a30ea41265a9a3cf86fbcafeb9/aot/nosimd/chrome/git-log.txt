@@ -1,0 +1,13 @@
+commit 91a572de92d347a30ea41265a9a3cf86fbcafeb9
+Author: Viktor Hofer <viktor.hofer@microsoft.com>
+Date:   Tue May 2 16:28:08 2023 +0200
+
+    Remove unnecessary dependencies in System.Text.Json (#85640)
+    
+    * Remove unnecessary dependencies in System.Text.Json
+    
+    The `System.ValueTuple` dependency is already provided in-box in .NET Standard and therefore the down-level applicable package doesn't need to be referenced.
+    
+    * Update System.Text.Json.csproj
+    
+    * Update Versions.props
