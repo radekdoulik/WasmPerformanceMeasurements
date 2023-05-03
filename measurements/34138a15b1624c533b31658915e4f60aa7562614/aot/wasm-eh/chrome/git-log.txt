@@ -1,0 +1,7 @@
+commit 34138a15b1624c533b31658915e4f60aa7562614
+Author: Aaron Robinson <arobins@microsoft.com>
+Date:   Tue May 2 14:37:05 2023 -0700
+
+    Fix add/edit for generic methods scenario (#85655)
+    
+    Ensure the canonical MethodTable is always used.
