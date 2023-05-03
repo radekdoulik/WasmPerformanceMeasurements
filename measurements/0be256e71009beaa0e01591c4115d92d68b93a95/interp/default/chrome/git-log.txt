@@ -1,0 +1,7 @@
+commit 0be256e71009beaa0e01591c4115d92d68b93a95
+Author: Egor Bogatov <egorbo@gmail.com>
+Date:   Wed May 3 11:41:34 2023 +0200
+
+    Allocate Array.Empty<> on a frozen segment (NonGC heap) (#85559)
+    
+    Co-authored-by: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
