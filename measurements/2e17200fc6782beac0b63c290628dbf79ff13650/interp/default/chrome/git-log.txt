@@ -1,0 +1,17 @@
+commit 2e17200fc6782beac0b63c290628dbf79ff13650
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Thu May 4 12:11:14 2023 +0200
+
+    JIT: Refactor physical promotion in preparation of generalized assignment decomposition (#85728)
+    
+    This refactors the physical promotion to make the generalized assignment
+    decomposition PR more manageable to review.
+    
+    * Pull Replacement and ReplaceVisitor into the header
+    * Introduce promotiondecomposition.cpp that deals with handling
+      assignments, and move relevant code from promotion.cpp to this file
+    * Rename StatementList -> DecompositionStatementList and unnest it
+    * Rename Replacement::Name -> Replacement::Description which is more fitting
+    
+    Also adds some more JITDUMPs when picking promotions, but otherwise
+    should not affect behavior.
