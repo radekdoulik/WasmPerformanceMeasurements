@@ -1,0 +1,13 @@
+commit 1a51420aba757d3a4d13d950326593ae18a7a4d2
+Author: Andy Ayers <andya@microsoft.com>
+Date:   Thu May 4 07:43:34 2023 -0700
+
+    JIT: properly scrub SSA from return address buffers (#85746)
+    
+    These can be in SSA and were not getting their SSA numbers cleaned by
+    `fgResetForSsa`, so in repeat mode they might trigger SSA check failures.
+    
+    Also changed it so you can dump the SSA number without triggering an
+    assert.
+    
+    Fixes #85629
