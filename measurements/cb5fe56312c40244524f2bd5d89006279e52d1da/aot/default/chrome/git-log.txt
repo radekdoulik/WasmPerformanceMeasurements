@@ -1,0 +1,25 @@
+commit cb5fe56312c40244524f2bd5d89006279e52d1da
+Author: Tanner Gooding <tagoo@outlook.com>
+Date:   Wed May 3 19:44:24 2023 -0700
+
+    Expose various floating-point intrinsics for Avx512F and Avx512DQ (#85716)
+    
+    * Expose GetExponent and GetMantissa for Avx512F
+    
+    * Expose Reciprocal14 and ReciprocalSqrt14 for Avx512F
+    
+    * Expose RoundScale and Scale for Avx512F
+    
+    * Expose Fixup for Avx512F + Range and Reduce for Avx512DQ
+    
+    * Ensure the RMW handling for Fixup avoids allocating a register
+    
+    * Ensure the NI_AVX512F_Fixup handling in isRMWHWIntrinsic compiles
+    
+    * Ensure vrange is marked as INS_Flags_IsDstDstSrcAVXInstruction
+    
+    * Apply formatting patch
+    
+    * Ensure vfixupimm is correctly handled in the JIT
+    
+    * Ensure FixupScalar only checks the first element when doing RMW validation
