@@ -1,0 +1,9 @@
+commit c75757d3bca51e8f5746c885d88562b8a17ace63
+Author: Radek Doulik <radek.doulik@gmail.com>
+Date:   Fri May 5 11:30:58 2023 +0200
+
+    [wasm] PackedSimd, add floating point methods (#85705)
+    
+    * [wasm] PackedSimd, add floating point methods
+    
+    * Fix pmax/pmin
