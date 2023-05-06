@@ -1,0 +1,20 @@
+commit 40cad3c34fce34ca58bb616fcae2fb609c9d8be9
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Sat May 6 12:06:16 2023 +0200
+
+    JIT: Generalize assignment decomposition in physical promotion (#85323)
+    
+    Generalize assignment decomposition to handle arbitrary combinations of
+    physically promoted structs. Do this by introducing a DecompositionPlan
+    class that keeps track of the copies to do that involve replacement
+    fields. The first step is then to fill out this plan. In the general
+    case where both the source and destination are physically promoted this
+    involves iterating the replacements in lockstep. For promotions that map
+    exactly, a direct copy between their locals is queued into the plan; in
+    other cases (e.g. partial overlap) it may involve writing the source
+    back to the struct local.
+    
+    The plan is used to generate the IR and to figure out the best strategy to
+    use for the remaining parts of the struct. Additional it is used to check for
+    some optimization opportunities (e.g. we avoid superfluous write barriers
+    in some cases).
