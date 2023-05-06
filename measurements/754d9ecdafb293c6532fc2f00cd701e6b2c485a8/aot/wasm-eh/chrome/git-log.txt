@@ -1,0 +1,7 @@
+commit 754d9ecdafb293c6532fc2f00cd701e6b2c485a8
+Author: Sven Boemer <sbomer@gmail.com>
+Date:   Fri May 5 14:43:39 2023 -0700
+
+    Use Ubuntu 22.04 for runtime-dev-innerloop (#85836)
+    
+    This makes the innerloop runs more reflective on a typical dev environment - a recent Ubuntu, and not a cross build. These images don't have `lld` (see https://github.com/dotnet/dotnet-buildtools-prereqs-docker/pull/865).
