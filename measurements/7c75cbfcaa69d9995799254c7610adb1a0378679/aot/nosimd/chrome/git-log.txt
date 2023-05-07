@@ -1,0 +1,13 @@
+commit 7c75cbfcaa69d9995799254c7610adb1a0378679
+Author: Katelyn Gadd <kg@luminance.org>
+Date:   Sat May 6 22:11:33 2023 -0700
+
+    [wasm] Add Vector128 and PackedSimd support to the jiterpreter; add PackedSimd to the interpreter (#82773)
+    
+    * Add PackedSIMD support to the interpreter (off by default)
+    * Add SIMD support to the jiterpreter
+    * Add runtime options governing interpreter vector128 and packedsimd support
+    * Add some R4 vector128 operations to the interpreter
+    * Fix jiterpreter MINT_POPCNT_I8 implementation
+    * Enable compiling the runtime with wasm simd support so that intrinsics can be used
+    * Add browser-bench measurements for packing vector128
