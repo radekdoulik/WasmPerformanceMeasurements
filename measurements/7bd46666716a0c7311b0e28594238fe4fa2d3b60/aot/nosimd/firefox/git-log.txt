@@ -1,0 +1,5 @@
+commit 7bd46666716a0c7311b0e28594238fe4fa2d3b60
+Author: Tanner Gooding <tagoo@outlook.com>
+Date:   Sat May 6 09:09:26 2023 -0700
+
+    Ensure getMaxSIMDStructBytes doesn't report `compVerifyInstructionSetUnusable` (#85370)
