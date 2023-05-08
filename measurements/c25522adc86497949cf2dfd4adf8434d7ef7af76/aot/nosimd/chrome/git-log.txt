@@ -1,0 +1,35 @@
+commit c25522adc86497949cf2dfd4adf8434d7ef7af76
+Author: Vlad Brezae <brezaevlad@gmail.com>
+Date:   Mon May 8 13:39:51 2023 +0300
+
+    [mono][interp] Fix arg alignment issues when mixing with compiled code (#85153)
+    
+    * [mono][interp] Refactor arg offset computation to make code clearer
+    
+    * [mono][interp] Remove redundant assign
+    
+    * [mono][interp] Move mint_type out from header file
+    
+    It makes no sense to inline this big method into callers.
+    
+    * [mono][interp] Fix arg offset computation when doing pinvoke and aot/jit calls from interp
+    
+    The previous code wasn't handling alignment of simd types.
+    
+    * [mono][interp] Use the correct alignment for args when entering interp
+    
+    We stop computing the arguments on the fly since it's getting too expensive doing the alignment checks. We directly use `imethod->arg_offsets` instead which is computed once during the first call, while also ensuring consistency with the calculation.
+    
+    * [mono][interp] Fix arg offset computation when running clauses with interp
+    
+    * [mono][interp] Remove dead code
+    
+    * Temporaril disable jiterp for CI
+    
+    * Update jiterpreter interp_entry wrapper generator and re-enable jiterp
+    
+    * Revert options-def.h changes
+    
+    ---------
+    
+    Co-authored-by: Katelyn Gadd <kg@luminance.org>
