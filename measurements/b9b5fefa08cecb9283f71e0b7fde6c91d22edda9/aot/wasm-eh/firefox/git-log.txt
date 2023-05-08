@@ -1,0 +1,5 @@
+commit b9b5fefa08cecb9283f71e0b7fde6c91d22edda9
+Author: Pent Ploompuu <kaalikas@gmail.com>
+Date:   Mon May 8 01:29:39 2023 +0300
+
+    Fix JsonNode.ToString allocations (#85886)
