@@ -1,0 +1,7 @@
+commit 40438e009786fc10885f7ea4dbed185d5700a6aa
+Author: Alexander Speshilov <speshuric@gmail.com>
+Date:   Wed May 10 17:36:50 2023 +0300
+
+    Fix BigInteger parse hex strings on negative numbers (#84792)
+    
+    fixes dotnet#74758
