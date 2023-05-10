@@ -1,0 +1,7 @@
+commit eead6a328cf3a7426e62d1441343b4b0e1f57d19
+Author: Bruce Forstall <brucefo@microsoft.com>
+Date:   Tue May 9 23:05:58 2023 -0700
+
+    Disable HugeArray1 for crossgen2 x86 (#86020)
+    
+    Tracking: https://github.com/dotnet/runtime/issues/85747
