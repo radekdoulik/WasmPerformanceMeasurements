@@ -1,0 +1,5 @@
+commit c0bb81807a3f4aeecfc63da31a32cc963ff0532c
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Tue May 9 18:15:38 2023 -0400
+
+    Use string.IsNullOrEmpty and ArgumentException.ThrowIfNullOrEmpty in many more places (#85858)
