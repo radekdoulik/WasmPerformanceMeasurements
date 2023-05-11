@@ -1,0 +1,7 @@
+commit 2b394ac95aef197cf92f14e3303b9430bb052029
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Thu May 11 19:01:37 2023 +0900
+
+    Handle cctor dependency on RVA static access (#86081)
+    
+    Contributes to #68278.
