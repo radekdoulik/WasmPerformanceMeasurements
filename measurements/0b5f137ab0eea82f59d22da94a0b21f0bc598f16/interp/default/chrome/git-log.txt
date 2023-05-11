@@ -1,0 +1,7 @@
+commit 0b5f137ab0eea82f59d22da94a0b21f0bc598f16
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Wed May 10 15:36:48 2023 -0700
+
+    [mono][aot] Fix an assert. (#86054)
+    
+    Fixes https://github.com/dotnet/runtime/issues/86052.
