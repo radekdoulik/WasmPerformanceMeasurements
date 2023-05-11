@@ -1,0 +1,11 @@
+commit 51876eec648de4ef9bc3bd9db6e747b635d868b6
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Wed May 10 23:32:08 2023 -0700
+
+    [mono][llvm] Fix the emission of nonnull metadata on loads. (#86071)
+    
+    Fixes llvm verification errors in newer llvm versions:
+    ```
+    nonnull metadata must be empty
+       %49 = load ptr, ptr @aotconst_ldstr_21, align 8, !nonnull !1
+    ```
