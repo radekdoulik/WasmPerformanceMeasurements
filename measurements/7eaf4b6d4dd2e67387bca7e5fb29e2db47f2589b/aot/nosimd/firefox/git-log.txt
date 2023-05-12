@@ -1,0 +1,14 @@
+commit 7eaf4b6d4dd2e67387bca7e5fb29e2db47f2589b
+Author: Aaron Robinson <arobins@microsoft.com>
+Date:   Thu May 11 14:15:05 2023 -0700
+
+    Add necessary subset of wide char APIs to minipal (#86055)
+    
+    * Update minipal with UTF-16 functions
+    
+    * Remove function redefines from PAL header
+    
+    * Remove need of PAL_wcslen from LTTNG
+    generator.
+    
+    * Remove specified calling conventions for x86
