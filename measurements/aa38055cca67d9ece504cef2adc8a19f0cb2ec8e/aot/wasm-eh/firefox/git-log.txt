@@ -1,0 +1,24 @@
+commit aa38055cca67d9ece504cef2adc8a19f0cb2ec8e
+Author: Andy Ayers <andya@microsoft.com>
+Date:   Sat May 13 07:42:33 2023 -0700
+
+    JIT: do early block merging in more cases (#86157)
+    
+    OSR and PGO both rely on the fact that the early flowgraph the JIT builds is
+    the same flowgraph as the one seen in a previous JIT complation of that method,
+    since there is metadata (patchpoint offset, pgo schema) that refers to the
+    flowgraph. Previous work here (#85860) didn't ensure this for enough cases.
+    
+    In particular if Tier0 does not do early block merging, but OSR does, it's possible
+    for the OSR entry point to fall within a merged block range, which the JIT is not
+    prepared to handle. This lead to the asserts seen in #86125.
+    
+    The fix is to enable early block merging unless we're truly in a minopts or
+    debug codegen mode (previous to this Tier0 would not merge unless it also
+    was instrumenting; now it will always merge).
+    
+    An alternative fix would be to find the block containing the OSR entry IL
+    offset, scan its statements, and split the block at the right spot, but that
+    seemed more involved.
+    
+    Fixes #86125.
