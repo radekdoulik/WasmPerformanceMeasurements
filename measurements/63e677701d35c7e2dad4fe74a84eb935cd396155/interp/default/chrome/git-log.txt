@@ -1,0 +1,7 @@
+commit 63e677701d35c7e2dad4fe74a84eb935cd396155
+Author: Alexander Köplinger <alex.koeplinger@outlook.com>
+Date:   Mon May 15 20:46:12 2023 +0200
+
+    [mono] Update offsets-tool python clang binding so it works with newer clang (#86256)
+    
+    They introduced a breaking change to CursorKind.TRANSLATION_UNIT in https://github.com/llvm/llvm-project/commit/bb83f8e70bd1d56152f02307adacd718cd67e312, which means we hit an issue when using the binding against a newer clang. Update the binding to the latest upstream and add a tweak so it still works with older clang versions.
