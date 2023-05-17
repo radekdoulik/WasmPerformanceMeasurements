@@ -1,0 +1,12 @@
+commit d83506d6880a8a420ccf7b951bd8c7e430251734
+Author: Theon <theonm@gmail.com>
+Date:   Wed May 17 05:01:49 2023 +0700
+
+    Pooled async value task for HTTP 1 connection (#81426)
+    
+    Use PoolingAsyncValueTaskMethodBuilder for
+    System.Net.Http.HttpConnection to improve asynchronous performance.
+    
+    Fix dotnet#81318
+    
+    Co-authored-by: Theon McKendry <theon.mckendry@outlook.com>
