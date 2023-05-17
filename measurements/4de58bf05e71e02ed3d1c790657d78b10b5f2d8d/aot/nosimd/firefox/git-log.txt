@@ -1,0 +1,7 @@
+commit 4de58bf05e71e02ed3d1c790657d78b10b5f2d8d
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Wed May 17 11:28:21 2023 -0700
+
+    [mono][jit] Implement JIT support for the arm64 Crc and Dp intrinsics sets. (#86106)
+    
+    Also implement hw capacity detection for apple+arm64 platforms.
