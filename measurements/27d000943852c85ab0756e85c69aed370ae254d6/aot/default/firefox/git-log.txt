@@ -1,0 +1,10 @@
+commit 27d000943852c85ab0756e85c69aed370ae254d6
+Author: Tom Deseyn <tom.deseyn@gmail.com>
+Date:   Wed May 17 12:06:24 2023 +0200
+
+    ProcessTests: allow WorkingSet to be zero just after launching the process. (#85649)
+    
+    * ProcessTests: allow WorkingSet to be zero just after launching the process.
+    
+    The WorkingSet tests fail on Fedora 38+ because a zero working set value
+    is observed just after the process start.
