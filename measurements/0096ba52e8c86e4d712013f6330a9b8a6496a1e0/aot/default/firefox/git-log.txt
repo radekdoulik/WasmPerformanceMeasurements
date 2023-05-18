@@ -1,0 +1,13 @@
+commit 0096ba52e8c86e4d712013f6330a9b8a6496a1e0
+Author: Mark Plesko <markples@microsoft.com>
+Date:   Wed May 17 23:36:40 2023 -0700
+
+    Convert JIT/CodeGenBringUpTests to a merged test group (#85847)
+    
+    See https://github.com/markples/utils/tree/for-PR-dotnet-runtime-85847-others for ILTransform tool.  As usual, I recommend viewing the commit list since it partitions the changes in a more readable way and paying more attention to manual changes.
+    
+    * [ILTransform -public] Make test entrypoints accessible
+    * [ILTransform -ilfact] Main->TestEntryPoint, [Fact], remove OutputType=Exe
+    * Manual fixes for xUnit1013 - internal methods
+    * Add merged group
+    * Update porting-ryujit.md with info on merged test groups
