@@ -1,0 +1,9 @@
+commit b25f2bbfd07e1a55b0e1bea7793c3ab422358428
+Author: Elinor Fung <elfung@microsoft.com>
+Date:   Fri May 19 00:35:07 2023 +0200
+
+    Switch RhConfig from TCHAR to char (#86393)
+    
+    - Hide away the details of reading the environment variable as `wchar` vs `char`
+    - Keep embedded variables as as ASCII (they are embedded as such already)
+    - Stop using `TCHAR` for the `RhConfig` APIs, which seemed to just be more confusing to consume
