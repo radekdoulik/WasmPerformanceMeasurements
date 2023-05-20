@@ -1,0 +1,7 @@
+commit 408729ca215ef5e9ff5127d878b042c4ff3849e9
+Author: Justin Anderson <jander-msft@users.noreply.github.com>
+Date:   Sat May 20 00:45:57 2023 -0700
+
+    Allow using active host context in hostfxr_get_runtime_delegate (#86460)
+    
+    These changes allow for passing `nullptr` for the handle parameter of the `hostfxr_get_runtime_delegate` function. This allows in-process callers who do not have the real host context handle to invoke this function and get a runtime delegate for the primary runtime instance. Calling hostfxr_get_runtime_delegate without the handle will only work if there is an active host context, otherwise it will return StatusCode::HostInvalidState.
