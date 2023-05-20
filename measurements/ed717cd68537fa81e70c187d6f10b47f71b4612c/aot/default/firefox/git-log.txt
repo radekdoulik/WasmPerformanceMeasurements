@@ -1,0 +1,10 @@
+commit ed717cd68537fa81e70c187d6f10b47f71b4612c
+Author: Katelyn Gadd <kg@luminance.org>
+Date:   Fri May 19 11:41:46 2023 -0700
+
+    [wasm] Jiterpreter v128 misc optimizations (#86506)
+    
+    * Use v128 opcodes when unrolling memsets/memmoves
+    * Introduce builder v128_const method
+    * v8 doesn't optimize splats so use the enormous encoding for v128 zero
+    * Fix fast memset for nonzero values
