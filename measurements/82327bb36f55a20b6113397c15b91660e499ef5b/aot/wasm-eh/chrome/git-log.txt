@@ -1,0 +1,9 @@
+commit 82327bb36f55a20b6113397c15b91660e499ef5b
+Author: Tomas Weinfurt <tweinfurt@yahoo.com>
+Date:   Sat May 20 14:58:12 2023 -0700
+
+    avoid GCHandle in ConnectEx and SendTo on Windows (#86524)
+    
+    * avoid GCHandle in ConnectEx and SendTo on Windows
+    
+    * s/Span/ReadOnlySpan/ndd
