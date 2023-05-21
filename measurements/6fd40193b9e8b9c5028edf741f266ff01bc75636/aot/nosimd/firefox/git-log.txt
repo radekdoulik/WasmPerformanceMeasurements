@@ -1,0 +1,10 @@
+commit 6fd40193b9e8b9c5028edf741f266ff01bc75636
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Sun May 21 12:58:09 2023 +0900
+
+    Stop using LocalizationResources within framework (#86430)
+    
+    Fixes #81459.
+    
+    I moved the messages to `EventAttribute.Message` which I believe should be equivalent, but I would appreciate if someone could double-check.
+    I also removed all the now-unused resource strings. I believe they all need to be prefixed by one of well-known prefixes. I would appreciate if someone could double-check.
