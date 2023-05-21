@@ -1,0 +1,7 @@
+commit 72fb58b3dfd4f9a40d5f3b0f87e26d9f24136570
+Author: Egor Bogatov <egorbo@gmail.com>
+Date:   Sun May 21 22:41:51 2023 +0200
+
+    Use VEX xorps to zero a zmm reg (#86555)
+    
+    Co-authored-by: Tanner Gooding <tagoo@outlook.com>

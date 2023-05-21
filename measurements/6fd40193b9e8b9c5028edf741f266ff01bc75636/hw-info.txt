@@ -1,5 +1,6 @@
 === outpuf of: free
                total        used        free      shared  buff/cache   available
+<<<<<<< HEAD
 Mem:         3754392      663704     2160856       30760      929832     2973456
 Swap:        2097148           0     2097148
 === outpuf of: cat /proc/meminfo
@@ -30,10 +31,43 @@ SReclaimable:     129036 kB
 SUnreclaim:        72916 kB
 KernelStack:        6920 kB
 PageTables:        11644 kB
+=======
+Mem:         3754392      312408     1804304       24704     1637680     3315868
+Swap:        2097148      471372     1625776
+=== outpuf of: cat /proc/meminfo
+MemTotal:        3754392 kB
+MemFree:         1804304 kB
+MemAvailable:    3315868 kB
+Buffers:               0 kB
+Cached:          1452056 kB
+SwapCached:        39708 kB
+Active:           876400 kB
+Inactive:         683472 kB
+Active(anon):      44292 kB
+Inactive(anon):    87240 kB
+Active(file):     832108 kB
+Inactive(file):   596232 kB
+Unevictable:       23432 kB
+Mlocked:               0 kB
+SwapTotal:       2097148 kB
+SwapFree:        1625776 kB
+Dirty:                 0 kB
+Writeback:             0 kB
+AnonPages:        108432 kB
+Mapped:            52364 kB
+Shmem:             24704 kB
+KReclaimable:     185624 kB
+Slab:             275388 kB
+SReclaimable:     185624 kB
+SUnreclaim:        89764 kB
+KernelStack:        7096 kB
+PageTables:        12248 kB
+>>>>>>> 21fe1d81 (Add results for: 6fd40193b9e8b9c5028edf741f266ff01bc75636 Sun May 21 12:58:09 2023 +0900)
 NFS_Unstable:          0 kB
 Bounce:                0 kB
 WritebackTmp:          0 kB
 CommitLimit:     3974344 kB
+<<<<<<< HEAD
 Committed_AS:    3107948 kB
 VmallocTotal:   133143592960 kB
 VmallocUsed:       22352 kB
@@ -41,12 +75,25 @@ VmallocChunk:          0 kB
 Percpu:             3312 kB
 HardwareCorrupted:     0 kB
 AnonHugePages:    245760 kB
+=======
+Committed_AS:    3331704 kB
+VmallocTotal:   133143592960 kB
+VmallocUsed:       22748 kB
+VmallocChunk:          0 kB
+Percpu:             3504 kB
+HardwareCorrupted:     0 kB
+AnonHugePages:     32768 kB
+>>>>>>> 21fe1d81 (Add results for: 6fd40193b9e8b9c5028edf741f266ff01bc75636 Sun May 21 12:58:09 2023 +0900)
 ShmemHugePages:        0 kB
 ShmemPmdMapped:        0 kB
 FileHugePages:         0 kB
 FilePmdMapped:         0 kB
 CmaTotal:         819200 kB
+<<<<<<< HEAD
 CmaFree:          796512 kB
+=======
+CmaFree:          299120 kB
+>>>>>>> 21fe1d81 (Add results for: 6fd40193b9e8b9c5028edf741f266ff01bc75636 Sun May 21 12:58:09 2023 +0900)
 HugePages_Total:       0
 HugePages_Free:        0
 HugePages_Rsvd:        0
