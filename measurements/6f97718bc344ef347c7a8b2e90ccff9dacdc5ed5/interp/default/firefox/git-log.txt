@@ -1,0 +1,13 @@
+commit 6f97718bc344ef347c7a8b2e90ccff9dacdc5ed5
+Author: Buyaa Namnan <bunamnan@microsoft.com>
+Date:   Mon May 22 19:36:40 2023 -0700
+
+    Abstract out System.Reflection.Emit.ILGenerator (#86594)
+    
+    * Abstract out ILGenerator
+    
+    * Finish up abstracting
+    
+    * Remove protected abstract methods, use more public abstract instead
+    
+    * Use RuntimeILGenerator for Linq test
