@@ -1,0 +1,24 @@
+commit ce689d9189d549e249f4bb5e3d9aeef322464bfb
+Author: dotnet-maestro[bot] <42748379+dotnet-maestro[bot]@users.noreply.github.com>
+Date:   Tue May 23 15:43:31 2023 -0500
+
+    [main] Update dependencies from dotnet/runtime dotnet/xharness dotnet/hotreload-utils (#86582)
+    
+    * Update dependencies from https://github.com/dotnet/runtime build 20230522.1
+    
+    Microsoft.NET.ILLink.Tasks , Microsoft.NET.Sdk.IL , Microsoft.NETCore.App.Runtime.win-x64 , Microsoft.NETCore.ILAsm , runtime.native.System.IO.Ports , System.Text.Json
+     From Version 8.0.0-preview.5.23265.1 -> To Version 8.0.0-preview.5.23272.1
+    
+    * Update dependencies from https://github.com/dotnet/xharness build 20230522.1
+    
+    Microsoft.DotNet.XHarness.CLI , Microsoft.DotNet.XHarness.TestRunners.Common , Microsoft.DotNet.XHarness.TestRunners.Xunit
+     From Version 8.0.0-prerelease.23259.1 -> To Version 8.0.0-prerelease.23272.1
+    
+    * Update dependencies from https://github.com/dotnet/hotreload-utils build 20230522.2
+    
+    Microsoft.DotNet.HotReload.Utils.Generator.BuildTool
+     From Version 8.0.0-alpha.0.23265.2 -> To Version 8.0.0-alpha.0.23272.2
+    
+    ---------
+    
+    Co-authored-by: dotnet-maestro[bot] <dotnet-maestro[bot]@users.noreply.github.com>
