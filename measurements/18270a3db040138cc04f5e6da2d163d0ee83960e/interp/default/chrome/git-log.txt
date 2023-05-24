@@ -1,0 +1,45 @@
+commit 18270a3db040138cc04f5e6da2d163d0ee83960e
+Author: SingleAccretion <62474226+SingleAccretion@users.noreply.github.com>
+Date:   Wed May 24 13:51:33 2023 +0300
+
+    Delete `GT_ASG` (#85871)
+    
+    * Physical promotion
+    
+    * Early liveness
+    
+    * Local morph
+    
+    * Add internal blocks
+    
+    * Object allocator
+    
+    * Inlining
+    
+    * Indirect call transformer
+    
+    * Patchpoint transformation
+    
+    * Instrumentation
+    
+    * Importer: production
+    
+    * Importer: consumption
+    
+    * Delete assignment rationalization
+    
+    * Simple dead code removal
+    
+    * More code removal
+    
+    * Fix up some comments and variable names
+    
+    * Fix stress
+    
+    * Simplify BasicBlock::FirstNonPhiDef
+    
+    * Duplicate a comment
+    
+    * Remove dead code
+    
+    * Fix naming and comments
