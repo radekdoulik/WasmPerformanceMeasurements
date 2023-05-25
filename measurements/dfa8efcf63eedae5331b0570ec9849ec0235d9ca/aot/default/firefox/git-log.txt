@@ -1,0 +1,7 @@
+commit dfa8efcf63eedae5331b0570ec9849ec0235d9ca
+Author: Radek Doulik <radek.doulik@gmail.com>
+Date:   Wed May 24 23:05:45 2023 +0200
+
+    [wasm] Exports cleanup (#86718)
+    
+    Remove sections for old emscripten builds
