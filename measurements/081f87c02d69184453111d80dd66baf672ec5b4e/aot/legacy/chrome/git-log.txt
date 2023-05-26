@@ -1,0 +1,5 @@
+commit 081f87c02d69184453111d80dd66baf672ec5b4e
+Author: Eirik Tsarpalis <eirik.tsarpalis@gmail.com>
+Date:   Thu May 25 15:38:16 2023 +0100
+
+    Ensure that the generated JsonSerializerContext.Default static property returns a sigleton. (#86757)
