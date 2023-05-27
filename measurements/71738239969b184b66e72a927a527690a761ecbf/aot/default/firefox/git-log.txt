@@ -1,0 +1,9 @@
+commit 71738239969b184b66e72a927a527690a761ecbf
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Sat May 27 16:38:18 2023 +0900
+
+    Add NativeAOT build and runtime pack for linux-bionic (#86781)
+    
+    Build and runtime pack for linux-bionic (Android without the Java part).
+    
+    I tried not to regress the existing CoreCLR Android build that is based on a crossrootfs (#56622) - the if's basically deal with that. Note that it's likely broken anyway (#66562).
