@@ -1,0 +1,11 @@
+commit 93c8be655be2aee73aa5f43abbd41ca911502c97
+Author: Layomi Akinrinade <laakinri@microsoft.com>
+Date:   Fri May 26 14:58:23 2023 -0700
+
+    Add support for types with parameterized ctors to config binder gen (#86365)
+    
+    * Add support for types with parameterized ctors to config binder gen
+    
+    * Ensure param-prop binding & exception behavior match reflection implementation
+    
+    * Fix ctor preference logic and enable passing test
