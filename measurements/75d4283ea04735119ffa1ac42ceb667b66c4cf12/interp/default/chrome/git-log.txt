@@ -1,0 +1,23 @@
+commit 75d4283ea04735119ffa1ac42ceb667b66c4cf12
+Author: Marie Píchová <11718369+ManickaP@users.noreply.github.com>
+Date:   Mon May 29 12:47:10 2023 +0200
+
+    Fix unfailing helix test run when testResults.xml are missing (#86342)
+    
+    * Attempt to fix unfailing helix test run when testResults.xml are missing
+    
+    * Feedback and docker image attemted fix
+    
+    * Commenting out RHEL7 for a test run to see if there are any remaining problems elsewhere
+    
+    * AlmaLinux 8 instead of RHEL7
+    
+    * Test docker image
+    
+    * Kdepak asi soudruzi udelali chybu
+    
+    * Fixed docker from centos stream 9 to 8
+    
+    * Test with different Queue
+    
+    * Fixed docker image name
