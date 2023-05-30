@@ -1,0 +1,24 @@
+commit 182591af3ea67a09bca7e0516b950dafce71d5a6
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Tue May 30 06:06:42 2023 +0900
+
+    Faster ConstructorInfo.Invoke (#86855)
+    
+    * Faster ConstructorInfo.Invoke
+    
+    Speeds up reflection-invoking constructors by about 30%.
+    
+    Noticed we spend some time in the `ConstructorInfo` invocation infrastructure for no good reason.
+    
+    * We'd first allocate an instance of the object using a general purpose allocator (that first needs to dissect the `MethodTable` to figure out how to allocate), and then
+    * We'd call into general-purpose Invoke infrastructure that would validate the `this` is valid.
+    
+    Neither of those are necessary - we can figure out the right allocator at the time the method invoker is first accessed, and validating `this` is not necessary because we _just_ allocated the right one.
+    
+    * This is reachable and the old behavior was needed
+    
+    * Apply suggestions from code review
+    
+    ---------
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
