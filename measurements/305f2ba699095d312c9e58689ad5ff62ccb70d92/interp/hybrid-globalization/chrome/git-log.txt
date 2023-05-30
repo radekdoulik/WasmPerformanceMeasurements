@@ -1,0 +1,8 @@
+commit 305f2ba699095d312c9e58689ad5ff62ccb70d92
+Author: Vitek Karas <10670590+vitek-karas@users.noreply.github.com>
+Date:   Tue May 30 03:09:42 2023 -0700
+
+    Fix formatting issues in DependencyGraphViewer (#86890)
+    
+    Whitespace only change, to fix tabs/spaces and trailing spaces.
+    Without this the tool doesn't build.
