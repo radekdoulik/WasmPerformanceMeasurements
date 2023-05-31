@@ -1,0 +1,9 @@
+commit f9246538e3d49b90b0e9128d7b1defef57cd6911
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Wed May 31 18:34:54 2023 +0900
+
+    Use Knobs to populate AppContext switches (#86883)
+    
+    Previously AppContext switches were set by injecting a method that calls `AppContext.SetSwitch` at startup. Use the configuration blob added in #86068 instead. This makes startup a tiny bit faster and the outputs a tiny bit smaller.
+    
+    Fixes #77054.
