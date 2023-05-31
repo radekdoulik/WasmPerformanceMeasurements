@@ -1,0 +1,9 @@
+commit 4d709cd12269fcbb3d0fccfb2515541944475954
+Author: Eirik Tsarpalis <eirik.tsarpalis@gmail.com>
+Date:   Tue May 30 23:12:23 2023 +0100
+
+    Ensure Memory<T>/ReadOnlyMemory<T> are marked as unsupported types. (#86900)
+    
+    * Ensure Memory<T>/ReadOnlyMemory<T> are marked as unsupported types.
+    
+    * Update src/libraries/System.Text.Json/tests/System.Text.Json.Tests/Serialization/InvalidTypeTests.cs
