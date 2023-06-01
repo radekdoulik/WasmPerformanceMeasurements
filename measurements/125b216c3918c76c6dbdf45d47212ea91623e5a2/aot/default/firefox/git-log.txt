@@ -1,0 +1,9 @@
+commit 125b216c3918c76c6dbdf45d47212ea91623e5a2
+Author: Kevin Jones <kevin@vcsjones.com>
+Date:   Thu Jun 1 12:59:33 2023 -0400
+
+    Add support for SHA-3
+    
+    This adds API to interact with the SHA-3 algorithm to the framework.
+    
+    Like all other cryptographic algorithms in .NET, this only functions on OSes where the underlying system exposes the algorithm.
