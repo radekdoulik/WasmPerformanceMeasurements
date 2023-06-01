@@ -1,0 +1,7 @@
+commit 534d1dfdca50108b06504ade48b7970d4395a42e
+Author: Milos Kotlar <kotlarmilos@gmail.com>
+Date:   Thu Jun 1 12:15:14 2023 +0200
+
+    [nativeaot][tests] Add Native AOT iOS perf scenarios (#85317)
+    
+    This PR updates the CI jobs to include the Native AOT iOS performance scenarios. The changes include building the NativeAOT iOS scenarios and running them, as well as updating the underlying scripts and project files to support it. Additionally, it separates the scenarios from the current Mono AOT sample measurements.
