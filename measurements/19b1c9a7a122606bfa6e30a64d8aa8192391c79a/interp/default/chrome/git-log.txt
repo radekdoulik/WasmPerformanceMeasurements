@@ -1,0 +1,9 @@
+commit 19b1c9a7a122606bfa6e30a64d8aa8192391c79a
+Author: Ankit Jain <radical@gmail.com>
+Date:   Wed May 31 18:16:51 2023 -0400
+
+    [wasm] Use an older version of chrome for testing `113.0.5672.63` (#86968)
+    
+    .. because of crashes being hit on linux.
+    
+    Issue: https://github.com/dotnet/runtime/issues/86919
