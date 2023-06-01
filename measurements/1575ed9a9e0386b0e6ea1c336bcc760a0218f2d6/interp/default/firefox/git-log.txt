@@ -1,0 +1,17 @@
+commit 1575ed9a9e0386b0e6ea1c336bcc760a0218f2d6
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Wed May 31 21:04:59 2023 -0400
+
+    Use IUtf8SpanFormattable.TryFormat in a few more places (#86931)
+    
+    * Use IUtf8SpanFormattable.TryFormat in a few more places
+    
+    * Update src/libraries/System.Net.Http/src/System/Net/Http/SocketsHttpHandler/HttpConnection.cs
+    
+    * Update src/libraries/System.Net.Http/src/System/Net/Http/SocketsHttpHandler/HttpConnection.cs
+    
+    Co-authored-by: Eirik Tsarpalis <eirik.tsarpalis@gmail.com>
+    
+    ---------
+    
+    Co-authored-by: Eirik Tsarpalis <eirik.tsarpalis@gmail.com>
