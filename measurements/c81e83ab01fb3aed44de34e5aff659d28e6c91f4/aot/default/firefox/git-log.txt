@@ -1,0 +1,53 @@
+commit c81e83ab01fb3aed44de34e5aff659d28e6c91f4
+Author: Tanner Gooding <tagoo@outlook.com>
+Date:   Thu Jun 1 20:25:13 2023 -0700
+
+    Fixing the InstructionSetDesc implications (#86486)
+    
+    * Fixing the InstructionSetDesc implications
+    
+    * Adding more NAOT smoke tests covering the missed instruction sets
+    
+    * Simplify the HasInstructionSet(Avx512F) check in compSetProcessor
+    
+    * Fixing the NAOT smoke tests
+    
+    * Fixing some stale comments
+    
+    * Fixing build failure
+    
+    * Ensure the X86Serialize test lambda returns a bool
+    
+    * Fixing build failure
+    
+    * Ensure AVX2 isn't opportunistically supported and that dynamic checks work correctly for Vector128/256/512.IsHardwareAccelerated
+    
+    * Ensure Avx512Vbmi has [Intrinsic] on the right members
+    
+    * Fix the secondary isIsaSupported check to be properly opportunistic for NAOT
+    
+    * Ensure vpermb is covered
+    
+    * Allow opportunistic AvxVnni when Avx2 is opted into
+    
+    * Don't expect opportunistic Avx2 or AvxVnni in the smoke tests
+    
+    * Ensure Avx2.X64 checks ExpectedAvx2, not ExpectedAvx
+    
+    * Change the filter the AVX512 NAOT smoke test on OSX
+    
+    * Updating the CPUID test to cover new ISAs and correctly validate the hierarchy
+    
+    * Add two more NAOT smoke tests which cover explicit ISA exclusion
+    
+    * Add additional CpuId validation covering R2R scenarios using various ISA opt-in
+    
+    * Ensure new R2R tests actually use R2R
+    
+    * Don't try to expose an invalid --instruction-set combination
+    
+    * Ensure xarch r2r tests only run on xarch
+    
+    * Don't compare manufacturer name of CPUID 0x00000000 to 0x80000000
+    
+    * Filter out the CPUID test on Mono and account for AVX-512 being unsupported on MacOS
