@@ -1,0 +1,12 @@
+commit bebd6445c7ff00da6eecbfbe582996a281f11b53
+Author: Ankit Jain <radical@gmail.com>
+Date:   Thu Jun 1 18:58:30 2023 -0400
+
+    [wasm] CI: Add more wasm specific paths (#87029)
+    
+    `src/mono/nuget/Microsoft.NET.Runtime.WebAssembly.Wasi.Sdk/`
+    `src/mono/nuget/Microsoft.NET.Sdk.WebAssembly.Pack/`
+    `src/tasks/Microsoft.NET.Sdk.WebAssembly.Pack.Tasks/`
+    
+    - Adding these ensures that changes in these will trigger only wasm
+      jobs.
