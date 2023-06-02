@@ -1,0 +1,7 @@
+commit 0931b5299bd5379e709e9b6e283c35e173122687
+Author: Elinor Fung <elfung@microsoft.com>
+Date:   Thu Jun 1 19:21:19 2023 -0700
+
+    Mark some loader tests as NativeAotIncompatible (#87035)
+    
+    These tests are fundamentally not compatible with nativeaot - mark them as incompatible instead of disabling against an issue so that we stop building them.
