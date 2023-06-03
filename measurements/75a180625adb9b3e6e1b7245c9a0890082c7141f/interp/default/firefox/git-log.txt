@@ -1,0 +1,19 @@
+commit 75a180625adb9b3e6e1b7245c9a0890082c7141f
+Author: Aleksey Kliger (λgeek) <alklig@microsoft.com>
+Date:   Sat Jun 3 10:57:39 2023 -0400
+
+    [mono] Use underlying type in RuntimeHelpers.GetSpanDataFrom (#87019)
+    
+    * [mono] Use underlying type in RuntimeHelpers.GetSpanDataFrom
+    
+    Make it work correctly for spans of enums
+    
+    Fixes https://github.com/dotnet/runtime/issues/86865
+    
+    Note that in net8 RuntimeHelpers.CreateSpan<T> is an intrinsic, so
+    GetSpanDataFrom is never called directly.
+    
+    But in net7 CreateSpan is not intrinsified on Mono, so the underlying
+    method really does get called.
+    
+    * test: Print all hidden field names if we can't find the right one
