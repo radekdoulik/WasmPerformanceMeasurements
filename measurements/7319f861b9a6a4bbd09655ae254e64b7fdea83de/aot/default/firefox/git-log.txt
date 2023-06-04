@@ -1,0 +1,22 @@
+commit 7319f861b9a6a4bbd09655ae254e64b7fdea83de
+Author: Vitek Karas <10670590+vitek-karas@users.noreply.github.com>
+Date:   Sat Jun 3 13:53:59 2023 -0700
+
+    Unify trim warnings for accessing compiler generated code (#86816)
+    
+    This modifies the behavior of both the illink and ilc to match and to implement some changes we've discussed recently - https://github.com/dotnet/runtime/issues/86008.
+    
+    The semantic changes (mostly as compared to previous illink behavior):
+    * Reflection access to a RUC virtual method will produce warning on all methods which have RUC, regardless of their relationships. Specifically if both the override and base methods are accessed, and they both have RUC, they will both generate a warning. (This effectively removes an optimization which illink had to avoid "duplicate" warnings where it tried to warn only on the base methods in this case. But this has holes - see https://github.com/dotnet/runtime/issues/86008).
+    * Reflection access to compiler generated code will not produce warnings even if the target has RUC on it. It proved to be really difficult to design a good experience for reporting warnings in these cases. The problem is that developer has little control over the generated code and fully reporting all warnings leads to lot of noise. The above optimization in the illink tried to solve some of this, but it's not very successful. So we're removing all of these warnings. The reasoning is that reflection access to compiler generated members is an undefined behavior (even on non-trimmed, normal CLR) - and is likely to break for example between compiler versions - and there's no diagnostics about it ignoring trimming. Trimming/AOT just makes it a little bit worse.
+    * AOT compiler will not implement warnings caused by reflection access to compiler generated code which has annotations either (so `IL2118`, `IL2119` and `IL2120`). The plan is to eventually remove these from illink as well.
+    
+    Note that there are exceptions to the above rules, which can be described as: Accessing a token of a member in IL is considered a reflection access (because the token can be turned into a reflection object), but it is also considered a direct reference. So in that case marking is implemented as "reflection access", but diagnostics is implemented as "direct reference". What this means is that accessing a compiler generated member through its token will still produce all warnings (RUC or DAM) as for non-compiler-generated member. This is important for things like creation of `Action` from a lambda, where the lambda is a compiler generated method, but we need to produce warnings if it uses annotations for example.
+    
+    Refactorings:
+    * Refactored code in MarkStep to move most of the diagnostics logic into `ReportWarningsForReflectionAccess` - this is to mirror the design in ilc and also to make it more in sync with the already existing `ReportWarningsForTypeHierarchyReflectionAccess`.
+    
+    Test changes:
+    * Adapting existing tests to the new behavior
+    * Adding some new tests, specifically around reflection access to compiler generated code and token access to compiler generated code.
+    * Enables `CompilerGeneratedCodeAccessedViaReflection` for ilc
