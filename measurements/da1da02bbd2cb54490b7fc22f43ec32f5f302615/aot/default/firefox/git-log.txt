@@ -1,0 +1,15 @@
+commit da1da02bbd2cb54490b7fc22f43ec32f5f302615
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Sat Jun 3 20:53:30 2023 -0400
+
+    Add and use ConfigureAwaitOptions (#87067)
+    
+    * Add and use ConfigureAwaitOptions
+    
+    Adds the ability to further control how awaits are performed, with the ConfigureAwaitOptions enum.  For .NET 8 this is just for `Task` / `Task<TResult>`, and for the latter, the `SuppressThrowing` option isn't supported (as it can make the TResult erroneous).
+    
+    Also uses it throughout the repo to replace various custom awaiters, use of Task.Run, and places we were catching all exceptions to suppress them with awaits.  Some of these just help to clean up the code; others have / enable meaningful perf improvements.
+    
+    * Address PR feedback
+    
+    * Update src/libraries/System.Net.HttpListener/src/System/Net/Managed/HttpResponseStream.Managed.cs
