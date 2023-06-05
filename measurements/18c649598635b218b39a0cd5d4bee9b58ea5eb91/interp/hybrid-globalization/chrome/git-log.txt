@@ -1,0 +1,10 @@
+commit 18c649598635b218b39a0cd5d4bee9b58ea5eb91
+Author: Trung Nguyen <57174311+trungnt2910@users.noreply.github.com>
+Date:   Tue Jun 6 00:39:48 2023 +1000
+
+    [VM] Fix potential double free (#86207)
+    
+    Use a raw char `NewArrayHolder` instead of a `NewHolder` to store
+    the `StackingAllocator` to prevent its destructor from being
+    called twice since `StackingAllocatorHolder` has already taken
+    care of the destruction.
