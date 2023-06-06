@@ -1,0 +1,15 @@
+commit 4d94ad61e5a8e085eefb785fd9f5f9e3a36d147a
+Author: Ankit Jain <radical@gmail.com>
+Date:   Mon Jun 5 22:35:39 2023 -0400
+
+    [wasm] Perf blazor scenarios: Use the correct wasm sdk pack (#87075)
+    
+    - Make the built nuget for wasm sdk pack available when running the
+      blazor scenarios.
+    
+    ```
+    /home/helixbot/work/B975098B/p/performance/src/scenarios/blazorpizza/app/BlazingPizza.Client/BlazingPizza.Client.csproj
+    : warning NU1603: BlazingPizza.Client depends on Microsoft.NET.Sdk.WebAssembly.Pack (>= 8.0.0-ci) but Microsoft.NET.Sdk.WebAssembly.Pack 8.0.0-ci was not found. An approximate best match of Microsoft.NET.Sdk.WebAssembly.Pack 8.0.0-preview.4.23213.11 was resolved.
+    ```
+    
+    .. otherwise it resolves to an older package from the published sources.
