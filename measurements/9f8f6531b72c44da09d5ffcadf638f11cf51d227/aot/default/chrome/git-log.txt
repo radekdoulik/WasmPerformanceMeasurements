@@ -1,0 +1,11 @@
+commit 9f8f6531b72c44da09d5ffcadf638f11cf51d227
+Author: Mark Plesko <markples@microsoft.com>
+Date:   Mon Jun 5 03:43:22 2023 -0700
+
+    Save 260k in InitValueNumStoreStatics (#85945)
+    
+    It appears that the big #define for the intrinsics is causing InitValueNumStoreStatics to get big enough that C++ optimization ends up being disabled, which means a lot of constant operations aren't folded. This rewrites it as a const table. It adds some redundant information to the tables that we #include/#define in several places but currently includes many assertions that the old and new values match.
+    
+    Local size change of release clrjit_win_x64_x64.dll: 2,001,920 -> 1,735,680.  InitValueNumStoreStatics (261k) is replaced by 1.2k of static data.
+    
+    Resolves #85953
