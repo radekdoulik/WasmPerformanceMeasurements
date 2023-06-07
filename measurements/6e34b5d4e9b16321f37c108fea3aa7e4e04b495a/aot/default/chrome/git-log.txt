@@ -1,0 +1,9 @@
+commit 6e34b5d4e9b16321f37c108fea3aa7e4e04b495a
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Wed Jun 7 17:31:22 2023 +0900
+
+    Disable S.T.Json tests on NativeAOT (#87203)
+    
+    We're getting OOM-killed in the CI. See #87078.
+    
+    I'm also changing how we do warning suppressions. We still need to suppress most of AOT warnings because xUnit/tests are not warning clean, but the warning about generic recursion is critical for the product and should fail the build.
