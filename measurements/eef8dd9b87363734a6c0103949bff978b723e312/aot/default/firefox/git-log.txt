@@ -1,0 +1,11 @@
+commit eef8dd9b87363734a6c0103949bff978b723e312
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Thu Jun 8 09:48:44 2023 -0400
+
+    Remove Vector<T> fallbacks for Vector128<T> (#85916)
+    
+    * Remove Vector<T> fallbacks for Vector128<T>
+    
+    * ifdef instead of deleting Vector<T> code paths
+    
+    ifdef them to mono as they're not used by coreclr or nativeaot.  They can be deleted instead once mono's Vector128 support improves.
