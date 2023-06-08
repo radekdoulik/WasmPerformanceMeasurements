@@ -1,0 +1,9 @@
+commit 03f2be66ea268a1ea285899f56f55b81e5a25044
+Author: Thays Grazia <thaystg@gmail.com>
+Date:   Thu Jun 8 07:20:21 2023 -0300
+
+    [wasm][debugging] Enable debugging when Device Toolbar is enabled and Iphone is selected (#86920)
+    
+    * Enable debugging when Device Toolbar is enabled and Iphone is selected
+    * unify browser detection
+    Co-authored-by: pavelsavara <pavel.savara@gmail.com>
