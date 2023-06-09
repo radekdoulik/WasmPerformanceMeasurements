@@ -1,0 +1,9 @@
+commit aaffd8bf6e0743b204b273e8a1e48dd628ba5d0f
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Fri Jun 9 11:21:24 2023 +0900
+
+    Generate debug info even if managed debug info not present (#87251)
+    
+    The names/types of parameters are available even without a PDB in .NET - surface them to the native debugger.
+    
+    We could also surface fake information about locals because the type information is there (just no names/compiler generated bit), but it's unclear if that would be an improvement.
