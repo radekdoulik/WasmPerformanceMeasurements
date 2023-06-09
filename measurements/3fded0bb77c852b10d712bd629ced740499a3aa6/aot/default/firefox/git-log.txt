@@ -1,0 +1,50 @@
+commit 3fded0bb77c852b10d712bd629ced740499a3aa6
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Thu Jun 8 22:20:44 2023 +0200
+
+    JIT: Handle primitive remainder stores to regularly promoted fields in physical promotion (#87217)
+    
+    If the remainder of a block copy is handled as a primitive, then it is
+    possible that the destination or source is a regularly promoted field.
+    In this case we do not have to DNER it.
+    
+    Example. Before:
+    
+    ```
+    Processing block operation [000009] that involves replacements
+      V08 (field V02.hasValue (fldOffset=0x0)) <- V16 (V00.[000..001)) (last use)
+      Remainder: [004..008)
+      => Remainder strategy: int at +004
+    
+    Local V00 should not be enregistered because: was accessed as a local field
+    
+    Local V02 should not be enregistered because: was accessed as a local field
+    New statement:
+    STMT00003 ( 0x00D[E-] ... 0x00E )
+                   [000090] -A---------                         ▌  COMMA     void
+                   [000087] DA---------                         ├──▌  STORE_LCL_VAR bool   V08 tmp4
+                   [000086] -----------                         │  └──▌  LCL_VAR   bool   V16 tmp12         (last use)
+                   [000089] UA---------                         └──▌  STORE_LCL_FLD int   (P) V02 loc1         [+4]
+                                                                   ▌    bool   V02.<unknown class>:hasValue (offs=0x00) -> V08 tmp4
+                                                                   ▌    int    V02.<unknown class>:value (offs=0x04) -> V09 tmp5
+                   [000088] -----------                            └──▌  LCL_FLD   int    V00 arg0         [+4]
+    ```
+    
+    After:
+    
+    ```
+    Processing block operation [000009] that involves replacements
+      V08 (field V02.hasValue (fldOffset=0x0)) <- V16 (V00.[000..001)) (last use)
+      Remainder: [004..008)
+      => Remainder strategy: int at +004
+    
+    Local V00 should not be enregistered because: was accessed as a local field
+    New statement:
+    STMT00003 ( 0x00D[E-] ... 0x00E )
+                   [000090] -A---------                         ▌  COMMA     void
+                   [000087] DA---------                         ├──▌  STORE_LCL_VAR bool   V08 tmp4
+                   [000086] -----------                         │  └──▌  LCL_VAR   bool   V16 tmp12         (last use)
+                   [000089] DA---------                         └──▌  STORE_LCL_VAR int    V09 tmp5
+                   [000088] -----------                            └──▌  LCL_FLD   int    V00 arg0         [+4]
+    
+    ```
