@@ -1,0 +1,28 @@
+commit 454057de49d9e2ab337f808e1f65d1dda8dbe71a
+Author: Sven Boemer <sbomer@gmail.com>
+Date:   Fri Jun 9 15:45:29 2023 -0700
+
+    Incremental mibc merge (#87336)
+    
+    Before this change, the merged mibc file would inherit the
+    timestamp of the input (which are often days in the past, from
+    the optimization data nuget package). This caused merging to
+    happen on every incremental build, as dotnet-pgo.dll is always
+    newer than the output file.
+    
+    The timestamp was inherited to fix a different incremental build
+    issue, where updating to a newer optimization data package
+    wouldn't make the input timestamp new enough to trigger a
+    re-merge. See https://github.com/dotnet/runtime/pull/56397 for
+    context.
+    
+    This fixes both issues by caching the input modification
+    timestamps, so that the merged output file will get a new
+    timestamp when it is created, but will be considered out of date
+    whenever the input timestamps change.
+    
+    This reduces incremental build times on my machine by
+    ~3s. Contributes to
+    https://github.com/dotnet/runtime/issues/47022
+    
+    Also deletes the --inherit-timestamp logic.
