@@ -1,0 +1,7 @@
+commit 224927519c43aeb044d8856f0f1fe061d4e986a6
+Author: Alexander Soldatov <soldatov.a@samsung.com>
+Date:   Sat Jun 10 03:43:48 2023 +0300
+
+    [RISC-V] Fix Stubs for Generics (#87316)
+    
+    Fix register saving before passing generic instantiation parameter.
