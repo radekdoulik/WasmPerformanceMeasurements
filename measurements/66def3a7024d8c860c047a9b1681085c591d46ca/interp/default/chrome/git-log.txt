@@ -1,0 +1,7 @@
+commit 66def3a7024d8c860c047a9b1681085c591d46ca
+Author: Dong-Heon Jung <clamp03@gmail.com>
+Date:   Sat Jun 10 23:06:10 2023 +0900
+
+    Remove unused methods in cgencpu.h (#87357)
+    
+    - `isJump` and `isBackToBackJump`
