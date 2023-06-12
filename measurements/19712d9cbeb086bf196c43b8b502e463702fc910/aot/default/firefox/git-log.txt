@@ -1,0 +1,17 @@
+commit 19712d9cbeb086bf196c43b8b502e463702fc910
+Author: Milos Kotlar <kotlarmilos@gmail.com>
+Date:   Sun Jun 11 20:04:57 2023 +0200
+
+    [mono][tests] Run Mono iOS sample as functional test on the simulator and maccatalyst on Helix (#86578)
+    
+    * Add HelloiOS sample on iossimulator
+    
+    * Enable AOT compilation and JustInterp mode on iossimulator
+    
+    * Remove custom tasks from the sample app
+    
+    * Set default props for the sample app. Use diagnostics_tracing and marshal-ilgen for RuntimeComponents
+    
+    ---------
+    
+    Co-authored-by: Filip Navara <filip.navara@gmail.com>
