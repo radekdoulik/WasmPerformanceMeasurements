@@ -1,0 +1,12 @@
+commit 89f3a9ef41383bb409b69d1a0f0db910f3ed9a34
+Author: Peter Sollich <petersol@microsoft.com>
+Date:   Mon Jun 12 11:38:12 2023 +0200
+
+    Fixes and improvements: (#87218)
+    
+    - Fix hang bug caused by race condition in change_heap_count
+    - Change way we store dynamic heap input metrics to make it easier to surface them via ETW events.
+    - Refactor enter_spin_lock_msl into an inlineable part and a slower, more complex out-of-line part.
+    - Subtract time spent in safe_switch_to_thread and WiatLongerNoInstru from msl wait time - this makes this metric much less noisy.
+    - add more diagnostic output to check_heap_count and change_heap_count.
+    - add more spinning to EnterFinalizeLock to address slow suspensions in some ASP.NET benchmarks.
