@@ -1,0 +1,8 @@
+commit 8fb25a8b046621ef5fe0626e043b7976a71c0670
+Author: Hamish Arblaster <hamarb123@gmail.com>
+Date:   Wed Jun 14 00:58:17 2023 +1000
+
+    Clone files on OSX-like platforms when possible, instead of copying the whole file (#79243)
+    
+    Co-authored-by: Stephen Toub <stoub@microsoft.com>
+    Co-authored-by: Dan Moseley <danmose@microsoft.com>
