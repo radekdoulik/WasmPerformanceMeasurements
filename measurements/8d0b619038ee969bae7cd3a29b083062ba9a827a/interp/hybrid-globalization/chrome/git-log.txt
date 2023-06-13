@@ -1,0 +1,21 @@
+commit 8d0b619038ee969bae7cd3a29b083062ba9a827a
+Author: Dan Moseley <danmose@microsoft.com>
+Date:   Mon Jun 12 19:05:13 2023 -0700
+
+    Disable StressTestDeepNestingOfLoops for NonBacktracking engine (#87369)
+    
+    * Disable hanging RE test
+    
+    * feedback
+    
+    * Oops
+    
+    * Apply suggestions from code review
+    
+    Co-authored-by: Stephen Toub <stoub@microsoft.com>
+    
+    * Update testing.md
+    
+    ---------
+    
+    Co-authored-by: Stephen Toub <stoub@microsoft.com>
