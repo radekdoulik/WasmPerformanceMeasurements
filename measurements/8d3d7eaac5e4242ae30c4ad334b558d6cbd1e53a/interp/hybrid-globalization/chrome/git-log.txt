@@ -1,0 +1,7 @@
+commit 8d3d7eaac5e4242ae30c4ad334b558d6cbd1e53a
+Author: Elinor Fung <elfung@microsoft.com>
+Date:   Wed Jun 14 06:40:36 2023 -0700
+
+    Add delay load hook for singlefilehost and enable delay load of version.dll (#87495)
+    
+    `coreclr` delay loads `version.dll` and adds a hook such that it loads from the system directory. In single-file, we lost this behaviour since it uses static library version of `coreclr`. This adds the same mechanism to single-file.
