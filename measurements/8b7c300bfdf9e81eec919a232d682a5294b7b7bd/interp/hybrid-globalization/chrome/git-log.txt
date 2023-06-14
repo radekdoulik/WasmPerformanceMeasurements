@@ -1,0 +1,14 @@
+commit 8b7c300bfdf9e81eec919a232d682a5294b7b7bd
+Author: Eric Erhardt <eric.erhardt@microsoft.com>
+Date:   Tue Jun 13 20:47:39 2023 -0600
+
+    Fix DependencyContext splitting on semi-colon (#87518)
+    
+    * Fix DependencyContext splitting on semi-colon
+    
+    https://github.com/dotnet/runtime/commit/5e67657e20665c32c2bd5c4ac1c8b1af78c9677e introduced a bug in DependencyContextPaths where the static array is not initialized before it is being used in the Create static method.
+    
+    This fix removes the static array since it is only used once.
+    
+    - Don't cache the semicolon array since it is only used once at startup
+    - Skip test on netfx since it doesn't work.
