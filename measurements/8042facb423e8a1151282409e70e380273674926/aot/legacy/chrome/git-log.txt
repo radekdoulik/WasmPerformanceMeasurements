@@ -1,0 +1,58 @@
+commit 8042facb423e8a1151282409e70e380273674926
+Author: David Wrighton <davidwr@microsoft.com>
+Date:   Tue Jun 13 15:25:50 2023 -0700
+
+    Improve the performance of the type loader through various tweaks (#85743)
+    
+    * Skip type validation by default in ReadyToRun images
+    - Technically, this is a breaking change, so I've provided a means for disabling the type validation skip
+    - The model is that the C# compile won't get these details wrong, so disable the checks when run through crossgen2. The idea is that we'll get these things checked during normal, non-R2R usage of the app, and publish won't check these details.
+    
+    * Replace expensive lookups of generic parameter and nested class data with R2R optimized forms
+    
+    * Store index of MethodDesc as well as ChunkIndex. Makes MethodDesc::GetTemporaryEntryPoint *much* faster
+    
+    * Optimize the path for computing if a method is eligible for tiered compilation
+    
+    * Remove CanShareVtableChunksFrom concept
+    - it was only needed to support NGen
+    
+    * Fix up some more issues
+    
+    * Bring back late virtual propagation in the presence of covariant overrides only
+    
+    * Check correct flag on EEClass
+    
+    * Drive by fix for GetRestoredSlot. We don't need the handling of unrestored slots anymore
+    
+    * Fix composite build with new tables
+    
+    * Uniquify the mangled names
+    
+    * Add more __
+    
+    * Initial pass at type skip verifation checker
+    
+    * Fix logging and some correctness issues
+    
+    * Enable the more of type checking
+    - Notably, the recursive stuff now works
+    - Also fix a bug in constraint checking involving open types in the type system
+    
+    * Fix build breaks involving new feature of GenericParameterDesc
+    
+    * Add documentation for R2R format changes
+    Fix command line parameter to be more reasonable, and allow logging on command
+    Fix the rest of issues noted in crossgen2 testing
+    
+    * Fix implementation of CompareMethodContraints. instead of using IsGeneric map, check to see if the method is generic in the first place. It turns out we have an efficient way to check in every place that matters
+    
+    * Fix nits noticed by Aaron
+    
+    * Add some const correctness to the world
+    
+    * Fix issues noted by Michal, as well as remaining constrain checking issues
+    
+    * Code review details
+    
+    * Code review from trylek
