@@ -1,0 +1,63 @@
+commit e1afb22f6749da255d343c427ac3488ba0dcc842
+Author: Jan Dupej <109523496+jandupej@users.noreply.github.com>
+Date:   Wed Jun 14 12:51:44 2023 +0200
+
+    [mono][wasm] marshal-ilgen is dropped when not required (#86035)
+    
+    * Replicating naricc's PInvokeScanner.
+    
+    * MarshalingPInvokeScanner now detects and outputs incompatible assemblies.
+    
+    * Allowing void return type.
+    
+    * PInvoke
+    
+    * Two-pass searching in progress.
+    
+    * Second pass resolves inconclusive types.
+    
+    * Cleanup.
+    
+    * Modifying the wasm toolchain to omit marshal-ilgen when possible.
+    
+    * Hopefully fix incorrect app dir.
+    
+    * Added definitions to MarshalingPInvokeScannerPath hopefully where needed.
+    
+    * Adding definitions of MarshalingPInvokeScannerPath to more locations.
+    
+    * Adding missing references to PInvoke scanner.
+    
+    * Changed task ordering, assemblies list.
+    
+    * Removed metadata load context.
+    
+    * Fixed code analyzer issues.
+    
+    * Fixed file name.
+    
+    * Moved MarshalingPInvokeScanner to MonoTargetsTask.
+    
+    * Removed BlazorApp.
+    
+    * Implemented more marshaling validation rules, removed warning message that got "promoted" to an error.
+    
+    * Catching bad image exceptions, giving reason for requiring marshal-ilgen.
+    
+    * Cleaned up references to standalone MarshalingPInvokeScanner project, now that the analyzer is in MonoTargtesTask.
+    
+    * More cleanup.
+    
+    * Fixed P/Invoke return value in marshal-lightweight.
+    
+    * Removed incompatible assemblies listing.
+    
+    * Restoring minimal functionality to marshal-ilgen-stub.
+    
+    * Addressed feedback.
+    
+    * Tweaked identification of blittable types. Added explanation to Compatibility enum.
+    
+    * Moved PInvokeCollector.cs and SignatureMapper.cs back to WasmAppBuilder.
+    
+    * Addressed feedback.
