@@ -1,0 +1,9 @@
+commit c6da14e2c095fba00b1efd0584fb147ac3d6f0bf
+Author: Milos Kotlar <kotlarmilos@gmail.com>
+Date:   Thu Jun 15 16:54:39 2023 +0200
+
+    [mono][simd] Add MONO_TYPE_I and MONO_TYPE_U types for OP_NEGATION on amd64 (#87607)
+    
+    * Add MONO_TYPE_I and MONO_TYPE_U types for OP_NEGATION on amd64
+    
+    * Use TYPE_I64 for MONO_TYPE_I and MONO_TYPE_U types
