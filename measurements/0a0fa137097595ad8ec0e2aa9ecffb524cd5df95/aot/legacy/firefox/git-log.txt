@@ -1,0 +1,19 @@
+commit 0a0fa137097595ad8ec0e2aa9ecffb524cd5df95
+Author: Eduardo Velarde <32459232+eduardo-vp@users.noreply.github.com>
+Date:   Wed Jun 14 18:50:10 2023 -0700
+
+    Enable option to use the Windows ThreadPool (#85373)
+    
+    When running on Windows, enable an option to switch between the Portable thread pool and the Windows thread pool.
+    
+    This change targets NativeAOT, CoreCLR, and Mono.
+    
+    Windows threadpool remains as the default for NativeAOT on Windows. For any other case the Portable thread pool remains the default.
+    
+    Tests with the Windows thread pool enabled were added to the System.Threading.Threadpool solution.
+    
+    Trimming is enabled to remove the unused thread pool.
+    ---------
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
+    Co-authored-by: Koundinya Veluri <kouvel@users.noreply.github.com>
