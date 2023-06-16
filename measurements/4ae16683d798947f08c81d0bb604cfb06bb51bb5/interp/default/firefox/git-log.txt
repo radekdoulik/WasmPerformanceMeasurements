@@ -1,0 +1,7 @@
+commit 4ae16683d798947f08c81d0bb604cfb06bb51bb5
+Author: Andy Gocke <angocke@microsoft.com>
+Date:   Fri Jun 16 07:41:30 2023 -0700
+
+    Unblock CI by removing AlmaLinux from libraries tests (#87668)
+    
+    Tracking issue: https://github.com/dotnet/runtime/issues/87667
