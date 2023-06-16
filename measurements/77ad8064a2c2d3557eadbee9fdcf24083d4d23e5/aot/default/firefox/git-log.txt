@@ -1,0 +1,12 @@
+commit 77ad8064a2c2d3557eadbee9fdcf24083d4d23e5
+Author: Filip Navara <filip.navara@gmail.com>
+Date:   Fri Jun 16 12:47:47 2023 +0200
+
+    Reimplement NegotiateStream using (mostly) public NegotiateAuthenticaton API (#86948)
+    
+    * Reimplement NegotiateStream using (mostly) public NegotiateAuthentication API
+    
+    * Minor adjustment to NegotiateStreamPal on Android/tvOS to allow NegotiateStream to work
+    
+    * Remove unrelated ApiCompat
+    suppression changes
