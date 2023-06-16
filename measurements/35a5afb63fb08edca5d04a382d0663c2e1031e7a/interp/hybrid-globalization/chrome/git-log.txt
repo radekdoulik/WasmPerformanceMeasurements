@@ -1,0 +1,9 @@
+commit 35a5afb63fb08edca5d04a382d0663c2e1031e7a
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Fri Jun 16 09:55:40 2023 +0900
+
+    Make virtual delegate targets less costly (#87308)
+    
+    Saves 1.5% on the Stage2 app.
+    
+    We make sure delegate targets are reflection visible to support Delegate.GetMethodInfo. When I originally did this work in #70198 I made a shortcut to avoid yet another node kind in the system (with a giant comment explaining what the problem is). But there's a lot of benefit in having this new node for apps with many reflection visible virtual methods.
