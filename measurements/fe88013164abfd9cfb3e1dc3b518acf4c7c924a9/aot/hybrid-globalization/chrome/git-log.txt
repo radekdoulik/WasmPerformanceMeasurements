@@ -1,0 +1,13 @@
+commit fe88013164abfd9cfb3e1dc3b518acf4c7c924a9
+Author: Sven Boemer <sbomer@gmail.com>
+Date:   Fri Jun 16 19:27:15 2023 -0700
+
+    Check Locations length before accessing (#87659)
+    
+    Fixes an `IndexOutOfRangeException` thrown by the analyzer when
+    analyzing method parameters for the implicitly generated Main
+    method when using top-level statements. These method parameters
+    don't have location info because they are not in user code.
+    
+    This also adds checks in the other places this analyzer accesses
+    `Locations[0]`, to be safe.
