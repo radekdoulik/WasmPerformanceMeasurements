@@ -1,0 +1,25 @@
+commit 27b7aea81e30194853f2a114e240dfe7f8e01cac
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Sat Jun 17 09:45:27 2023 +0200
+
+    JIT: Add a check for forward sub store interference (#87615)
+    
+    Forward sub was not taking into account that the source of the candidate
+    def can contain locals that may be changed by next statement that is
+    being forward substituted into. For example, it is not legal to forward
+    substitute V06 in the following case:
+    
+    ```
+    [000104] DA--G------ ▌  STORE_LCL_VAR short  V06 tmp5
+    [000109] ----------- └──▌  LCL_VAR   short  V07 tmp6          (last use)
+    
+    [000139] -A--------- ▌  COMMA     void
+    [000121] DA--------- ├──▌  STORE_LCL_VAR int    V07 tmp6
+    [000145] ----------- │  └──▌  CAST      int <- short <- int
+    [000074] ----------- │     └──▌  CNS_INT   int    1
+    [000129] UA--------- └──▌  STORE_LCL_FLD short  V00 arg0         [+16]
+    [000143] -----------    └──▌  CAST      int <- short <- int
+    [000090] -----------       └──▌  LCL_VAR   int    V06 tmp5          (last use)
+    ```
+    
+    Fix #87614
