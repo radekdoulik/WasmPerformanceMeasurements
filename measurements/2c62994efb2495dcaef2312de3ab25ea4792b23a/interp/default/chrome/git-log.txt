@@ -1,0 +1,24 @@
+commit 2c62994efb2495dcaef2312de3ab25ea4792b23a
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Sat Jun 17 20:37:57 2023 +0200
+
+    JIT: Regularize readbacks for parameters/OSR-locals in physical promotion (#87165)
+    
+    Handle readbacks for parameters/OSR-locals like any other readback is
+    handled. Previously they were handled by creating the scratch BB and
+    then inserting IR after the main replacement had already been done; now,
+    we instead create the scratch BB eagerly and mark these as requiring a
+    read back at the beginning of the scratch BB, and leave normal
+    replacement logic up to handle it.
+    
+    The main benefit is that this unification makes it easier to ensure that
+    future smarter handling of readbacks/writebacks (e.g. "resolution")
+    automatically kicks in for the common case of parameters.
+    
+    Introduce another invariant, which is that we only ever mark a field as
+    requiring readback if it is live. Previously we would always mark them
+    as requiring read backs, but would then check liveness before inserting
+    the actual IR to do the read back. But we don't always have the liveness
+    information at the point where we insert IR for readbacks after #86706.
+    
+    Also expand some debug logging, and address some feedback from #86706.
