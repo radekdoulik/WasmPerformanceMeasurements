@@ -1,0 +1,9 @@
+commit 5fe7b06e1c4881d4e89a4baf00f2cbd6f4ff5838
+Author: Thays Grazia <thaystg@gmail.com>
+Date:   Mon Jun 19 07:28:05 2023 -0300
+
+    [wasm][debugger] Showing "Frame not in module" after vscode-js-debug bump on VS (#87154)
+    
+    * We were sending the scriptId of a context that was already destroyed and vscode-js-debug extension started to consider this information that was ignored before.
+    
+    * addressing @radical comments
