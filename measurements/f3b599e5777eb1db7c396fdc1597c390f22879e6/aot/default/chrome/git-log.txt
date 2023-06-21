@@ -1,0 +1,9 @@
+commit f3b599e5777eb1db7c396fdc1597c390f22879e6
+Author: SingleAccretion <62474226+SingleAccretion@users.noreply.github.com>
+Date:   Wed Jun 21 01:18:38 2023 +0300
+
+    Delete IsCppCodegenTemporaryWorkaround (#87820)
+    
+    C++ codegen has been no more for a long time.
+    
+    We still set this to 'true' downstream in NAOT-LLVM, but don't actually need to.
