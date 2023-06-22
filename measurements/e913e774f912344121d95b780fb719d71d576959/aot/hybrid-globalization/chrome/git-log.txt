@@ -1,0 +1,10 @@
+commit e913e774f912344121d95b780fb719d71d576959
+Author: Koundinya Veluri <kouvel@users.noreply.github.com>
+Date:   Thu Jun 22 11:52:14 2023 -0700
+
+    Fix a minor race condition in Monitor's AwareLock regarding tracking of waiter starvation (#87703)
+    
+    * Fix a minor race condition in Monitor's AwareLock regarding tracking of waiter starvation
+    
+    - When the first waiter is starting to wait, the waiter starvation start time is reset before registering the waiter. In the CAS loop it may be determined initially that this thread wasn't the first later, and after a successful CAS, it may end up being the first waiter. It's remotely possible that the waiter starvation start time is reset before the CAS loop and that after a successful CAS, this thread was not the first waiter, in which case the waiter starvation start time would not be updated, which can lead to waiter starvation.
+    - Fixed to always update the waiter starvation start time after the CAS if it was reset before the CAS
