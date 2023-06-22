@@ -1,0 +1,5 @@
+commit 7b7d56fa3967a272c0f720ff0d9e38c4b2af369d
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Thu Jun 22 06:47:04 2023 -0400
+
+    Remove object[] allocation from CustomAttribute.AddCustomAttributes (#87902)
