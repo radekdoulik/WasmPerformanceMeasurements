@@ -1,0 +1,7 @@
+commit 82ed3dc2834fefa9c9be78686258fc6b9e878236
+Author: Aaron Robinson <arobins@microsoft.com>
+Date:   Thu Jun 22 18:38:33 2023 -0400
+
+    Block non-static application of UnsafeAccessor (#87936)
+    
+    * Add negative test for generic scenarios
