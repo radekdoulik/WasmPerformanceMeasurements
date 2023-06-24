@@ -1,0 +1,15 @@
+commit 8b2dc46f50f1e0da47979b5a45da2ddfd4d68f13
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Sat Jun 24 00:41:44 2023 +0200
+
+    JIT: Insert writebacks more eagerly (#87869)
+    
+    Before starting replacements within a statement we now look for
+    physically promoted struct locals passed as call args and write those
+    back if necessary. This has two benefits:
+    1. It avoids creating a lot of comma nodes that we would otherwise
+       create
+    2. More importantly, it allows morph's last-use copy omission to kick in
+       because we no longer have complex trees as the argument.
+    
+    Fix #87471
