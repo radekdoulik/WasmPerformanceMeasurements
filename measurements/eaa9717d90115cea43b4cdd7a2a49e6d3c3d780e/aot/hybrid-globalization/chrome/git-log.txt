@@ -1,0 +1,11 @@
+commit eaa9717d90115cea43b4cdd7a2a49e6d3c3d780e
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Sun Jun 25 14:54:18 2023 -0400
+
+    Add Uri : ISpanFormattable (#88012)
+    
+    * Add Uri : ISpanFormattable
+    
+    Implemented TryFormat by copying in the ToString implementation, manually expanding out each call, deleting all the cruft, and switching return strings to be span copies / writes.
+    
+    * Update src/libraries/System.Private.DataContractSerialization/src/System/Runtime/Serialization/DataContract.cs
