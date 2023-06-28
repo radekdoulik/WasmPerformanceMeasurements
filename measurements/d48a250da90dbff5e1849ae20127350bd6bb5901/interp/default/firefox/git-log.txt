@@ -1,0 +1,5 @@
+commit d48a250da90dbff5e1849ae20127350bd6bb5901
+Author: Tanner Gooding <tagoo@outlook.com>
+Date:   Tue Jun 27 16:39:34 2023 -0700
+
+    Ensure that we can still inline Math.Max and Math.Min on downlevel hardware (#88106)
