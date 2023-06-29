@@ -1,0 +1,13 @@
+commit 205ac7665ce00fa5b61e1d9b0a5254e67df68cf6
+Author: Vlad Brezae <brezaevlad@gmail.com>
+Date:   Thu Jun 29 17:26:23 2023 +0300
+
+    [mono][interp] Improve verbose output of dumped instructions (#88185)
+    
+    * [mono][interp] Improve verbose logging of instruction data
+    
+    Dump the method/class name instead of an index.
+    
+    * [mono][interp] Fix ins data type for various instructions
+    
+    Also add new data type for MonoVTable
