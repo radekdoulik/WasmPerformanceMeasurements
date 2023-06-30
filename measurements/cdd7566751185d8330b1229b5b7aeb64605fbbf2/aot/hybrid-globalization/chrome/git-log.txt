@@ -1,0 +1,5 @@
+commit cdd7566751185d8330b1229b5b7aeb64605fbbf2
+Author: Jeremy Koritzinsky <jekoritz@microsoft.com>
+Date:   Thu Jun 29 19:58:29 2023 -0700
+
+    Specially consider CLong, CULong and Guid strictly blittable (#88213)
