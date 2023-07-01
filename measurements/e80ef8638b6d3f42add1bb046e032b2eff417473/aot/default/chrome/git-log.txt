@@ -1,0 +1,15 @@
+commit e80ef8638b6d3f42add1bb046e032b2eff417473
+Author: Andy Ayers <andya@microsoft.com>
+Date:   Fri Jun 30 18:53:48 2023 -0700
+
+    JIT: Don't set patchpoints in methods with CORINFO_DEBUG_CODE (#88227)
+    
+    In #88199 the debugger is overriding some jit flags, but has left other flags set
+    that confuse the jit: both `TIER0` and `DEBUG_CODE` end uip set so one part of the jit
+    used logic appropriate for `TIER0` and another part did not.
+    
+    The JIT ended up creating a patchpoint for OSR in a method with localloc and this
+    combination is not supported by OSR and lead to a crash.
+    
+    Harden the jit so if the runtime asks for debuggable code, the jit will never
+    generate patchpoints.
