@@ -1,0 +1,13 @@
+commit 1db4357891752cc028620710fe924425235b8f89
+Author: Eirik Tsarpalis <eirik.tsarpalis@gmail.com>
+Date:   Sat Jul 1 09:07:46 2023 +0100
+
+    Apply a number of improvements and bugfixes to JsonNode (#88194)
+    
+    * Avoid JsonElement torn read in a few JsonArray/JsonDocument and unify code patterns.
+    
+    * Simplify and clean up JsonValue implementation -- fix DeepEquality bugs.
+    
+    * Update src/libraries/System.Text.Json/src/System/Text/Json/Nodes/JsonValueOfTPrimitive.cs
+    
+    * Avoid delegate allocation in the JsonObject setter.
