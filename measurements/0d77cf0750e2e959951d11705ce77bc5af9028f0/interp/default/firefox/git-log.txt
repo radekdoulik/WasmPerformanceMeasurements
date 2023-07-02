@@ -1,0 +1,9 @@
+commit 0d77cf0750e2e959951d11705ce77bc5af9028f0
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Sat Jul 1 18:14:52 2023 -0400
+
+    Implement IList<T> on some LINQ iterators (#88249)
+    
+    `ICollection<T>` provides both a Count and a CopyTo, and `IList<T>` an indexer, all of which can make various consumption mechanisms more efficient. We only implement the interfaces when the underlying collection has a fixed size and all of the interface implementations are side-effect free (in particular, while appealing to do so, we don't implement them on various Select iterators).
+    
+    Some of the serialization tests need to be fixed as a result. The state of Queue's array is a bit different based on how its initialized, and such private details show up in BinaryFormatter output.  Rather than special-casing the output per framework and core, I've just changed the test itself to ensure Queue can't see the size of the input collection.
