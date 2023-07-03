@@ -1,0 +1,7 @@
+commit 779d53611efd10526ca2bc3e94ce13ee18ad493a
+Author: Nikita Balabaev <xakep139@users.noreply.github.com>
+Date:   Sun Jul 2 20:37:07 2023 +0200
+
+    Fix OptionsValidator source-gen to skip static and const members (#88254)
+    
+    Co-authored-by: Nikita Balabaev <nbalabaev@microsoft.com>
