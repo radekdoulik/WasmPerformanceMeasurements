@@ -1,0 +1,33 @@
+commit cd26e63274102c8130109c9ce1301851a550433c
+Author: Ivan Diaz Sanchez <ivdiazsa@microsoft.com>
+Date:   Mon Jul 3 19:03:12 2023 -0700
+
+    Up Minimum CMake Version to 3.20 (#86530)
+    
+    * Let's see what happens :)
+    
+    * CMake 3.20 works on my machine???
+    
+    * Upped the llibraries CMake version to 3.20
+    
+    * Upped native libs CMake version to 3.20, and updated the requirements docs.
+    
+    * Add CMake Policy to 3.17.0 for native libs because of wasm.
+    
+    * Downgraded native libs CMake to 3.17.0 temporarily, while we figure out the funny troublemaker wasm.
+    
+    * Added a couple notes regarding CMake on Linux and Windows, and upped the corehost and libunwind CMake versions to 3.20
+    
+    * Reverted external native components CMake versions, and upped tests to 3.20. Only Mono remains now.
+    
+    * Added mono to the 3.20 gang. Also, changed the condition for wasm.
+    
+    * Had to condition mono's CMake version as well because of wasm.
+    
+    * DEBUG-ONLY COMMIT: Added some CMake logging to help me figure out what is set for wasm to think of the appropriate conditional.
+    
+    * DEBUG-ONLY COMMIT: I think I have the answer for wasm now/
+    
+    * Restored the DEBUG-ONLY changes and set 3.20 as the universal CMake, as the missing machines have now been updated.
+    
+    * Updated requirements doc with notes for Debian 11 and lower.
