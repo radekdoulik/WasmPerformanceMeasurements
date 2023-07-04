@@ -1,0 +1,7 @@
+commit e5be81a39b1337c0b066e97b702b5ac5518c4831
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Tue Jul 4 15:18:39 2023 +0200
+
+    JIT: Quirk a quirk in fgExpandVirtualVtableCallTarget (#88374)
+    
+    Fix #88349
