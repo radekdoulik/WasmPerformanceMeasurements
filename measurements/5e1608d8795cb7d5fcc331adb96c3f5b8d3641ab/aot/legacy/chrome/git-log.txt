@@ -1,0 +1,33 @@
+commit 5e1608d8795cb7d5fcc331adb96c3f5b8d3641ab
+Author: Tom Deseyn <tom.deseyn@gmail.com>
+Date:   Wed Jul 5 16:44:44 2023 +0200
+
+    Tar: set directory modification times while extracting. (#88231)
+    
+    * Tar: set directory modification times while extracting.
+    
+    * Extend test and change entry write order.
+    
+    * Get rid of some enumeration allocations.
+    
+    * test: check DateTime using InRange.
+    
+    * Extend comment explaining the order of entries.
+    
+    * Apply suggestions from code review
+    
+    Co-authored-by: Dan Moseley <danmose@microsoft.com>
+    
+    * Try including AltDirectorySeparatorChar.
+    
+    * Revert "Try including AltDirectorySeparatorChar."
+    
+    This reverts commit 086aac43a897826394156692bd82f79feb3eca9d.
+    
+    * Try using Directory.SetLastWriteTime instead of File's.
+    
+    * Tie up some ends.
+    
+    ---------
+    
+    Co-authored-by: Dan Moseley <danmose@microsoft.com>
