@@ -1,0 +1,163 @@
+commit a3981dde2de089061fe7c857d8bd5da573546a3f
+Author: Kunal Pathak <Kunal.Pathak@microsoft.com>
+Date:   Thu Jul 6 07:35:26 2023 -0700
+
+    Inline TLS field access for linux/osx x64/arm64 (#87082)
+    
+    * wip
+    
+    * add __tls_get_addr() code in jitinterface
+    
+    * working model
+    
+    * linux rely on __tls_get_addr() value
+    
+    * Add fields for both max/threadSTaticBlocks, have separate for GC/non-gc
+    
+    * code cleanup
+    
+    * code cleanup
+    
+    * add comments
+    
+    * jit format
+    
+    * update guid
+    
+    * review feedback
+    
+    * fix the offset
+    
+    * arm64: wip
+    
+    * linux arm64 model
+    
+    * arm64: offsetOfThreadStaticBlock adjustment
+    
+    * Add mrs and tpid0 register
+    
+    * arm64: use the new mrs/tpidr0
+    
+    * fix arm64 build and offset calculation:
+    
+    * arm64: working
+    
+    * arm64: move to struct model
+    
+    * arm64: fixed the struct model
+    
+    * x64: move to struct model
+    
+    * code refactoring
+    
+    * #define for field access
+    
+    * change mrs -> mrs_tpid0
+    
+    * fix a bug
+    
+    * remove unwanted method
+    
+    * another fix
+    
+    * Add entries in CorInfoType.cs
+    
+    * Update the #ifdef
+    
+    * fix the windows scenario:
+    
+    * review feedback
+    
+    * fix the data-type
+    
+    * add osx-arm64 support
+    
+    * fix osx-arm64 issues
+    
+    * fix build error
+    
+    * fix build error after merge
+    
+    * add osx/x64 support
+    
+    * fix errors
+    
+    * fix the macos/x64
+    
+    * disable for alpine linux
+    
+    * Disable for R2R
+    
+    * review feedback
+    
+    * fix r2r check
+    
+    * move windows to struct model
+    
+    * review feedback
+    
+    * fix the register clobbering in release bits
+    
+    * Move the linux/x64 logic to .S file
+    
+    * Use TargetOS::IsMacOS
+    
+    * disable optimization for single file
+    
+    * working for linux/x64
+    
+    * fix some errors for osx/x64
+    
+    * fix for osx x64/arm64
+    
+    * fix for arm64 linux/osx
+    
+    * try disable for musl/arm64
+    
+    * rename variable
+    
+    * Rename variable to tlsIndexObject
+    
+    * Make offset variables as uint32_t
+    
+    * change the type of indexObj/ftnAddr to void*
+    
+    * replace ifdef(msc_ver) with ifdef(windows)
+    
+    * Revert to JIT_TO_EE_TRANSITION_LEAF
+    
+    * Move code to asmHelpers.S and rename method
+    
+    * rename the methods per the platform
+    
+    * fix osx builds
+    
+    * fix build break
+    
+    * fix some errors around osx
+    
+    * rename some more methods
+    
+    * review feedback
+    
+    * review feedback
+    
+    * delete the comment
+    
+    * make methods static
+    
+    * remove macos/x64 check
+    
+    * fix the check for linux/x64
+    
+    * detect early for single-file linux/x64
+    
+    * move the assert
+    
+    * review feedback
+    
+    * misc fixup
+    
+    * use fgMorphArgs()
+    
+    * remove commented code
