@@ -1,0 +1,7 @@
+commit 9ea317f17d1ef5988921f611f80834d15a3e8070
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Wed Jul 5 22:30:01 2023 -0400
+
+    Delete formatter test blob for `EqualityComparer<byte>.Default` (#88454)
+    
+    A change was recently made that deleted the specialized type returned, so delete the dedicated formatting test as well.
