@@ -1,0 +1,9 @@
+commit 2e26fbd266e7292db468b6aba6e61b489b4d47cc
+Author: Vlad Brezae <brezaevlad@gmail.com>
+Date:   Fri Jul 7 12:46:15 2023 +0300
+
+    [mono][interp] Tweaks to x86 call convention handling (#88466)
+    
+    First, we no longer assert that the call convetion is cdecl on the slowpath. The pinvoke trampoline on x86 restores the saved stack pointer so it doesn't matter if the pinvoke callee pops or not the stack. Therefore both stdcall and cdecl calls should be supported with the same path. Untested.
+    
+    Second, we use the fastpath (which uses the C call convention) only if the pinvoke signature is also cdecl, otherwise we have cconv mismatch.
