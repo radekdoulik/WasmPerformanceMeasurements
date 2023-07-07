@@ -1,0 +1,25 @@
+commit 5d54b08d5fc40d0b1c156f430a487a94c1e34f79
+Author: Ankit Jain <radical@gmail.com>
+Date:   Thu Jul 6 20:50:30 2023 -0400
+
+    [wasm] Disable runtime test dependent on creating a process (#88498)
+    
+    `tracing/eventpipe/simpleruntimeeventvalidation`:
+    
+    ```
+              Generated app bundle at /root/helix/work/workitem/e/tracing/eventpipe/simpleruntimeeventvalidation/simpleruntimeeventvalidation/WasmApp/
+            Incoming arguments: --run simpleruntimeeventvalidation.dll
+            Application arguments: --run simpleruntimeeventvalidation.dll
+            console.info: Initializing dotnet version 8.0.0-ci commit hash f47b553f129cfa7f006cb1a2f2088112c5ca0112
+              0.0s: ==TEST STARTING==
+              0.1s: System.PlatformNotSupportedException: System.Diagnostics.Process is not supported on this platform.
+               at System.Diagnostics.Process.GetCurrentProcess()
+               at Tracing.Tests.Common.IpcTraceTest.Validate(Boolean enableRundownProvider)
+               at Tracing.Tests.Common.IpcTraceTest.RunAndValidateEventCounts(Dictionary`2 expectedEventCounts, Action eventGeneratingAction, List`1 providers, Int32 circularBufferMB, Func`2 optionalTraceValidator, Boolean enableRundownProvider)
+              0.1s: ==TEST FINISHED: FAILED!==
+            test-main.js exiting simpleruntimeeventvalidation.dll with result -1
+            console.info: WASM EXIT -1
+    ```
+    
+    This was added in https://github.com/dotnet/runtime/pull/87785, but got
+    merged on red.
