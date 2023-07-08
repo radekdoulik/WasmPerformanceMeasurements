@@ -1,0 +1,48 @@
+commit 045b526b7185d78ae20e9868e8857ce85a88d493
+Author: VincentWu <43398706+Xinlong-Wu@users.noreply.github.com>
+Date:   Sun Jul 9 01:47:00 2023 +0800
+
+    [Mono][RISC-V] emit mul inst instead of emulated mul (#85445)
+    
+    * update makefile
+    
+    * add format file
+    
+    * use mul inst instead of emulate mul
+    process stack size larger than imm32
+    
+    * emit get_throw_trampoline
+    
+    * mono_riscv_throw_exception
+    
+    * fix error of stack trace
+    
+    * test case
+    
+    * output inst idiv
+    fix mono_riscv_emit_branch_exc
+    
+    * implement mono_arch_get_throw_corlib_exception
+    
+    * fix rdiv
+    
+    * move ArgOnStack arg at prologue
+    lowering OP_XOR_IMM&OP_IXOR_IMM
+    
+    * fix emit_imm
+    
+    * test imm
+    
+    * update test case
+    
+    * use swich to process return value
+    
+    * fix offset of params in a call
+    
+    * lowering OP_IDIV_IMM
+    
+    * fmt
+    
+    * remove test file
+    
+    * address comment
