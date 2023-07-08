@@ -1,0 +1,7 @@
+commit e05b3e752e89259454fbd919e4be34cc7c3ed937
+Author: Katelyn Gadd <kg@luminance.org>
+Date:   Fri Jul 7 21:59:12 2023 -0700
+
+    [interp] Add MINT_STELEM_VT_NOREF (#87161)
+    
+    Based on instrumentation 0.2% of all mono_gc_wbarrier_value_copy_internal calls in a run of System.Runtime.Tests are from MINT_STELEM_VT. I suspect adding this NOREF version of the opcode will improve performance for data structures that store structs in arrays but don't contain any references - for example List<ValueTuple<...>> or Dictionary<int, int> - but it's hard to measure locally.
