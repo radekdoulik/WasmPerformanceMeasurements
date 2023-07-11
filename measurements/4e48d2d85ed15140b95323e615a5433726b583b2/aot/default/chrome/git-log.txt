@@ -1,0 +1,13 @@
+commit 4e48d2d85ed15140b95323e615a5433726b583b2
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Tue Jul 11 17:33:01 2023 +0900
+
+    Move Win32 resource emission to the compiler (#88464)
+    
+    Fixes #79634.
+    
+    To generate Win32 resources, we'd first use an MSBuild task to dump Win32 resources from the input IL module into a `.res` file. We'd then pass the `.res` file to link.exe. Link.exe would then invoke cvtres.exe to convert the `.res` file to `.obj`. Link.exe then links the `.obj` into the final executable.
+    
+    Skip all of this and instead generate the correct object data in the compiler directly. I'm reusing Win32 resource emission logic from crossgen2. It already mostly does the right thing - we just needed to split the `.rsrc` section into `.rsrc$01` and `.rsrc$02` that link.exe expects. The first part has the data directory. The second part has the actual resource data.
+    
+    Contributes to #73931. The cvtres step was actually non-deterministic because it creates an object file in TEMP and embeds this temporary name into the object.
