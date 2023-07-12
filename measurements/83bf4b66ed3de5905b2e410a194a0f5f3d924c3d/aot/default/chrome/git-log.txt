@@ -1,0 +1,11 @@
+commit 83bf4b66ed3de5905b2e410a194a0f5f3d924c3d
+Author: Tanner Gooding <tagoo@outlook.com>
+Date:   Tue Jul 11 15:26:36 2023 -0700
+
+    Ensure that the CpuId tests set preferredVectorByteLength to a non-zero value (#88623)
+    
+    * Ensure that the CpuId tests set preferredVectorByteLength to a non-zero value
+    
+    * Ensure getPreferredVectorByteLength takes NAOT into account
+    
+    * Don't condition the preferred vector byte length based on stress mode
