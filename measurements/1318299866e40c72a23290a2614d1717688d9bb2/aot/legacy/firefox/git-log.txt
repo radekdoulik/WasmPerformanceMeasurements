@@ -1,0 +1,8 @@
+commit 1318299866e40c72a23290a2614d1717688d9bb2
+Author: Jan Kotas <jkotas@microsoft.com>
+Date:   Fri Jul 14 11:57:11 2023 +0200
+
+    Simplify condition to detect recursive inlining (#88849)
+    
+    This change simplifies the conditon and also makes it more robust. There
+    are situation where the IL code pointer can differ for the same method.
