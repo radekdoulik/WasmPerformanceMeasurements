@@ -1,0 +1,30 @@
+commit a5136765a90168dbaa3b7e87b507c479d27540e5
+Author: anthonycanino <anthony.canino@intel.com>
+Date:   Mon Jul 17 15:23:26 2023 -0700
+
+    Light up core ASCII.Utility methods with Vector256/Vector512 code paths. (#88532)
+    
+    * Lib upgrade for ToUtf16
+    
+    * Upgrade NarrowUtf16ToAscii with Vector512
+    
+    * Complete the upgrade in NarrowUtf16ToAscii method
+    with Vector512 and Vector256 APIs.
+    
+    * Adding VectorXX paths to `GetIndexOfFirstNonAscii` functions.
+    
+    * Adding optimization to Vecto256 VectorContainsNonAsciiChar method.
+    
+    * Code path refactoring and cleanup.
+    
+    * Code changes based on the review:
+    1. turn some variables into explicitly specified const.
+    2. removed some helper functions and inlined them.
+    
+    * Resolve comments
+    
+    * revert the changes at GetIndexOfFirstNonAsciiByte
+    
+    ---------
+    
+    Co-authored-by: Ruihan-Yin <ruihan.yin@intel.com>
