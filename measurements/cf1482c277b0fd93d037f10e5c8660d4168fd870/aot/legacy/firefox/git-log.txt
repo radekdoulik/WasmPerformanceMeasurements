@@ -1,0 +1,8 @@
+commit cf1482c277b0fd93d037f10e5c8660d4168fd870
+Author: Parker Bibus <parkerbibus@microsoft.com>
+Date:   Wed Jul 19 10:02:22 2023 -0700
+
+    [PERF] Use script instead of powershell to set DOTNET_ROOT (#89123)
+    
+    Use script for non-windows and powershell for windows.
+    Use the proper path separators for non-windows and windows.
