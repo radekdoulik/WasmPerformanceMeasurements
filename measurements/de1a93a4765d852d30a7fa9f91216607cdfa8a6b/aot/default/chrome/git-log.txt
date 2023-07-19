@@ -1,0 +1,28 @@
+commit de1a93a4765d852d30a7fa9f91216607cdfa8a6b
+Author: Radek Doulik <radek.doulik@gmail.com>
+Date:   Wed Jul 19 15:26:54 2023 +0200
+
+    [wasm] Use source generator for results data json serialization (#89177)
+    
+    This fixes problem with posting results, where we crashed with:
+    
+        MONO_WASM:    at System.Text.Json.ThrowHelper.ThrowInvalidOperationException_JsonSerializerOptionsNoTypeInfoResolverSpecified()
+           at System.Text.Json.JsonSerializerOptions.MakeReadOnly()
+           at System.Text.Json.JsonSerializerOptions.ConfigureForJsonSerializer()
+           at System.Text.Json.JsonSerializer.GetTypeInfo(JsonSerializerOptions , Type )
+           at System.Text.Json.JsonSerializer.GetTypeInfo[JsonResultsData](JsonSerializerOptions )
+           at System.Text.Json.JsonSerializer.Serialize[JsonResultsData](JsonResultsData , JsonSerializerOptions )
+           at Sample.Test.GetJsonResults()
+           at Sample.Test.GetFullJsonResults()
+           at Sample.Test.__Wrapper_GetFullJsonResults_234275758(JSMarshalerArgument* __arguments_buffer)
+        ManagedError@http://localhost:8781/_framework/dotnet.runtime.js:3:29628
+        vr@http://localhost:8781/_framework/dotnet.runtime.js:3:34757
+        Ao@http://localhost:8781/_framework/dotnet.runtime.js:3:52015
+        To/U</<@http://localhost:8781/_framework/dotnet.runtime.js:3:50790
+        init@http://localhost:8781/main.js:118:19
+        setTimeout handler*yieldBench/<@http://localhost:8781/main.js:129:49
+        yieldBench@http://localhost:8781/main.js:129:16
+        init@http://localhost:8781/main.js:108:45
+        setTimeout handler*yieldBench/<@http://localhost:8781/main.js:129:49
+        yieldBench@http://localhost:8781/main.js:129:16
+        init@http://localhost:8781/main.js:108:45
