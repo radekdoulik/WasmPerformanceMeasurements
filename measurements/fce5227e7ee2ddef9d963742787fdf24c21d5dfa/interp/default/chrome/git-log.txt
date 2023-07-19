@@ -1,0 +1,13 @@
+commit fce5227e7ee2ddef9d963742787fdf24c21d5dfa
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Wed Jul 19 01:41:38 2023 -0400
+
+    [mono][interp] Fix memory leaks for interpreted dynamic methods. (#88892)
+    
+    * [mono] Set the 'dynamic' flag on method builders on creation so a MonoDynamicMethod is allocated instead of a MonoMethodWrapper.
+    
+    * [mono][interp] Fix memory leaks for interpreted dynamic methods.
+    
+    * Add a mempool to MonoDynamicMethod.
+    * Modify the intepreter code to allocate from this mempool when
+      interpreting dynamic methods.
