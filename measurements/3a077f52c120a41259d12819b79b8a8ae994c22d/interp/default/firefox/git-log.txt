@@ -1,0 +1,7 @@
+commit 3a077f52c120a41259d12819b79b8a8ae994c22d
+Author: Vlad Brezae <brezaevlad@gmail.com>
+Date:   Thu Jul 20 21:02:40 2023 +0300
+
+    [mono][interp] Add lock when allocating from method mempool (#89231)
+    
+    MonoMemPool does not support multithreaded allocation. We lock on default jit_mm lock for convenience, since it is widely used in interpreter. We might want to consider using a separate lock.
