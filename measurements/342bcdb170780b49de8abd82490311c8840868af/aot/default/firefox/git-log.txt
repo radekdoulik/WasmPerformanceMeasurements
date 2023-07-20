@@ -1,0 +1,7 @@
+commit 342bcdb170780b49de8abd82490311c8840868af
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Thu Jul 20 17:15:02 2023 +0900
+
+    Add support for `--instruction-set:native` (#87865)
+    
+    This allows compiling for the ISA extensions that the currently running CPU supports.
