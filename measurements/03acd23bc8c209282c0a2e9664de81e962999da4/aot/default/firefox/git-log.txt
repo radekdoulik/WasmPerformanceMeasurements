@@ -1,0 +1,13 @@
+commit 03acd23bc8c209282c0a2e9664de81e962999da4
+Author: Huo Yaoyuan <huoyaoyuan@hotmail.com>
+Date:   Fri Jul 21 17:12:59 2023 +0800
+
+    Use RegDeleteTree in RegistryKey.DeleteSubKeyTree (#82598)
+    
+    * Use RegDeleteTree in RegistryKey.DeleteSubKeyTree
+    
+    * Restore self delete behavior
+    
+    * Call RegDeleteTree on subkey to simulate permission behavior.
+    
+    * Adjust comment and add tests.
