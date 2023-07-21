@@ -1,0 +1,5 @@
+commit 79823768e461a865019d7bdf70cfe0fcbeb99288
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Fri Jul 21 09:32:48 2023 -0400
+
+    Optimize MemoryMarshal.ToEnumerable for arrays and strings (#89274)
