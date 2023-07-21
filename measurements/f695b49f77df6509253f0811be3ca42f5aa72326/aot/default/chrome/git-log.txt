@@ -1,0 +1,14 @@
+commit f695b49f77df6509253f0811be3ca42f5aa72326
+Author: Aaron Robinson <arobins@microsoft.com>
+Date:   Thu Jul 20 19:13:24 2023 -0700
+
+    Virt call unsafe accessor tests (#89220)
+    
+    * UnsafeAccessors are limited to lookup on
+    the defined typed.
+    
+    * Update documentation for attribute.
+    
+    ---------
+    
+    Co-authored-by: vitek-karas <10670590+vitek-karas@users.noreply.github.com>
