@@ -1,0 +1,12 @@
+commit 2d1e28432105391f5e0d5a4573f7858fa9d798a7
+Author: Andy Gocke <angocke@microsoft.com>
+Date:   Fri Jul 21 23:44:11 2023 -0700
+
+    Fix exe size for Mach-O files (#89325)
+    
+    The extra size appears to be the export list, which is zeroed
+    but not removed when the file is stripped. Exes shouldn't have
+    any exported symbols by default, but ld will include everything
+    by default. We'll fix it up using an ld flag.
+    
+    Fixes #86707
