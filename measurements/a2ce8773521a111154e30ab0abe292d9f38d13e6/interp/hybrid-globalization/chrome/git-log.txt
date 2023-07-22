@@ -1,0 +1,7 @@
+commit a2ce8773521a111154e30ab0abe292d9f38d13e6
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Sat Jul 22 21:54:19 2023 +0900
+
+    Set BaseSize of interfaces to 0 (#89343)
+    
+    We were computing these as the minimum object size. This number is meaningless because they don't get allocated on the GC heap. A zero compresses better. Surprisingly saves like 0.1% on Hello World despite being such an insignificant thing.
