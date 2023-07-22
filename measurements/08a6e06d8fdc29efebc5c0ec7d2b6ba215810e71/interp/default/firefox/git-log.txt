@@ -1,0 +1,9 @@
+commit 08a6e06d8fdc29efebc5c0ec7d2b6ba215810e71
+Author: mikelle-rogers <45022607+mikelle-rogers@users.noreply.github.com>
+Date:   Fri Jul 21 14:39:12 2023 -0700
+
+    Fix TestGenericAddStaticField (#89145)
+    
+    * Fix TestGenericAddStaticField
+    
+    * use the correct Method Table to gather fields
