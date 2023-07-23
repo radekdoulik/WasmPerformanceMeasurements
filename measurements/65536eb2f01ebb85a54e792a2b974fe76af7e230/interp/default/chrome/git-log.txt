@@ -1,0 +1,7 @@
+commit 65536eb2f01ebb85a54e792a2b974fe76af7e230
+Author: Michał Petryka <35800402+MichalPetryka@users.noreply.github.com>
+Date:   Sun Jul 23 20:20:38 2023 +0200
+
+    Fix potential BitCast bug for platforms without unaligned reads (#89364)
+    
+    BitCast could potentially make an invalid read when reinterpreting a type to another that requires higher alignment, which could possibly cause a fault on Mono ARMv6.
