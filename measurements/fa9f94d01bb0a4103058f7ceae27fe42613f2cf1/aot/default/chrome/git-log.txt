@@ -1,0 +1,13 @@
+commit fa9f94d01bb0a4103058f7ceae27fe42613f2cf1
+Author: Andy Ayers <andya@microsoft.com>
+Date:   Sat Jul 22 15:20:55 2023 -0700
+
+    Update PAL and GC `BitScanForward` to use `__builtin_clz` (#89350)
+    
+    The existing PAL code was using `__builtin_clzl` which is intended for platforms
+    where `long` is 64 bits. Instead use `__builtin_clz`.
+    
+    The GC version had a similar issue so I've changed that too. The JIT version
+    was already using `__builtin_clz`.
+    
+    Fixes #89340.
