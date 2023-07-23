@@ -1,0 +1,7 @@
+commit 66556c467d0b2419b5c2a261fdfa2703e6b3f6bc
+Author: Jan Kotas <jkotas@microsoft.com>
+Date:   Sat Jul 22 21:13:29 2023 -0700
+
+    Unify hardware feature detection between CoreCLR JIT and AOT (#89342)
+    
+    Follow up on #87865
