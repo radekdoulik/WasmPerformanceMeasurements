@@ -1,0 +1,7 @@
+commit fe03904c5c374aca8a82356d095f58b710fdacde
+Author: Egor Bogatov <egorbo@gmail.com>
+Date:   Sun Jul 23 23:45:14 2023 +0200
+
+    JIT: Intrinsify UTF16->UTF8 conversion for string literals (Encoding.UTF8.TryGetBytes) (#85328)
+    
+    Co-authored-by: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
