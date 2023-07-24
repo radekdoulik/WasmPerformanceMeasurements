@@ -1,0 +1,12 @@
+commit f21f2ffdd53487d67539c59617858c4b819bcff3
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Mon Jul 24 20:32:52 2023 +0200
+
+    Tweak and fix physical promotion test environments (#89380)
+    
+    - Physical promotion is enabled by default now, so switch the scenario to one
+      that tests physical promotion without old promotion
+    
+    - JitStressModeNames was missing from DOTNETVariables, which meant that after
+      the switch from JitEnablePhysicalPromotion to JitStressModeNames we stopped
+      testing the right thing
