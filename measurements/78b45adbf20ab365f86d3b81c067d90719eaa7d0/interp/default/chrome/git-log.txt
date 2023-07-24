@@ -1,0 +1,7 @@
+commit 78b45adbf20ab365f86d3b81c067d90719eaa7d0
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Mon Jul 24 10:54:30 2023 +0900
+
+    Don't always do optimistic HW intrinsic expansion (#89282)
+    
+    "Optimistic" expansion means we generate a method body for `IsSupported` that returns true/false depending on the currently running CPU. Don't do this when `--instruction-set:native` was specified because native should mean "exactly this". Also don't do this when optimizing for size (saves 0.6% on hello world). I was going back and forth whether to do this when user specifies instruction sets manually, but decided it would be a "breaking" change.
