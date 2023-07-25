@@ -1,0 +1,13 @@
+commit 2c4b4c0831d1d9f505ff5d3055c38bb41646021b
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Tue Jul 25 13:49:44 2023 +0900
+
+    Make textual stack trace metadata smaller (#89377)
+    
+    When we need to generate a textual stack trace in NativeAOT, we rely on two things - reflection metadata for methods, or a supplementary stack trace metadata format.
+    
+    The reflection metadata case is simple - reflection keeps track of method addresses and the associated metadata like names and signatures. We ask for metadata handles (tokens, basically) and we get the handles back. We then walk the metadata and format textual strings.
+    
+    When reflection metadata is not available, we have to emit some other metadata in the compiler. We use the same metadata format and conceptually the closest thing were unresolvable `MemberReference`s, so we basically generated a pair of method pointer + MemberReference handle for each method body that doesn't have reflection metadata. It's a lot less metadata than for a resolvable definition, but is still quite a bit wasteful.
+    
+    This change avoids generating full `MemberReference` and instead inlines owning type/name/signature handle/token into the mapping table. We also do it in a way that avoids emitting owning type/name/signature if it's the same as the record before that.
