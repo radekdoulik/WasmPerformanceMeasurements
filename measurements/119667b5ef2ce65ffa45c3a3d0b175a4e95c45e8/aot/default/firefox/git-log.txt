@@ -1,0 +1,7 @@
+commit 119667b5ef2ce65ffa45c3a3d0b175a4e95c45e8
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Tue Jul 25 09:56:24 2023 +0900
+
+    Delete NativeAOT_StaticInitialization (#89291)
+    
+    Undoes workaround from dotnet/runtimelab#270. Since bootstrapper no longer ships as a static library (it's an object file instead), we should no longer need this hack to force linker into looking at the archive.
