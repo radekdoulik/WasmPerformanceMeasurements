@@ -1,0 +1,17 @@
+commit f9377970b336b5d84ebdd58ff0e3ecc442f39a45
+Author: Marie Píchová <11718369+ManickaP@users.noreply.github.com>
+Date:   Wed Jul 26 16:29:36 2023 +0200
+
+    [HTTP] Catch and ignore exception from an external server (#89452)
+    
+    * Catch and ignore exception from an external server
+    
+    * Update src/libraries/Common/tests/System/Net/Http/HttpClientHandlerTest.RemoteServer.cs
+    
+    Co-authored-by: Miha Zupan <mihazupan.zupan1@gmail.com>
+    
+    * Fixed framework build
+    
+    ---------
+    
+    Co-authored-by: Miha Zupan <mihazupan.zupan1@gmail.com>
