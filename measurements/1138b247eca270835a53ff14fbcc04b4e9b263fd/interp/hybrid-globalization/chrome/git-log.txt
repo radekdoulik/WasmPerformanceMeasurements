@@ -1,0 +1,17 @@
+commit 1138b247eca270835a53ff14fbcc04b4e9b263fd
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Thu Jul 27 23:55:19 2023 +0900
+
+    Remove `AssemblyMetadata(".NETFrameworkAssembly", "")` attributes (#89490)
+    
+    * Remove `AssemblyMetadata(".NETFrameworkAssembly", "")` attributes
+    
+    This is likely a .NET Native leftover that is currently (ironically) breaking .NET Native. This attribute indicates to the .NET Native compiler that the assembly can be trimmed.
+    
+    We're currently setting this on assemblies that no longer carry RD.XML to make this safe. Without this attribute, the assembly will be treated like any other and not trimmed.
+    
+    Fixes #44697.
+    
+    * Delete mention of the attribute in docs
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
