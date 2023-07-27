@@ -1,0 +1,9 @@
+commit 08acbb7ad7154e9d18227e4b00e4c9f41af1fffa
+Author: Elinor Fung <elfung@microsoft.com>
+Date:   Wed Jul 26 15:32:59 2023 -0700
+
+    Check for dotnet.dll when enumerating SDK paths (#89333)
+    
+    The host treats the existence of a versioned folder under sdk as a valid SDK path. We've seen this cause confusion as users can end up in this state without their knowledge (for example, uninstall leaves an empty folder - which would normally be harmless, except when we try to use it as a valid SDK).
+    
+    This adds a check for dotnet.dll instead of just the existence of the directory.
