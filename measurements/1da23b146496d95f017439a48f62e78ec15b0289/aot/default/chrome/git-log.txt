@@ -1,0 +1,9 @@
+commit 1da23b146496d95f017439a48f62e78ec15b0289
+Author: Jan Dupej <109523496+jandupej@users.noreply.github.com>
+Date:   Fri Jul 28 11:24:36 2023 +0200
+
+    [mono] Fix second pass of MarshallingPInvokeScanner with metadata-free DLLs (#89555)
+    
+    * Fix second pass of marshalling scanner to also tolerate metadata-free PEs.
+    
+    * Assembly name is now checked only when metadata are present.
