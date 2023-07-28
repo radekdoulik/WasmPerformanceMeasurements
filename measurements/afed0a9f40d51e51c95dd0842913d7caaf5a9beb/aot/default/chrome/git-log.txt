@@ -1,0 +1,10 @@
+commit afed0a9f40d51e51c95dd0842913d7caaf5a9beb
+Author: Ankit Jain <radical@gmail.com>
+Date:   Thu Jul 27 17:58:25 2023 -0400
+
+    [wasm] WBT - add some debug bits to collect information on a rare failure (#89584)
+    
+    .. failure, where `Program.cs` fails to compile. In such a case make the
+    project contents available in the logs.
+    
+    Issue: https://github.com/dotnet/runtime/issues/86533
