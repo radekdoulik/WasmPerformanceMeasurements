@@ -1,0 +1,19 @@
+commit cc14d20c407892def189808c5d426e27f05f3221
+Author: Lakshan Fernando <lakshanf@hotmail.com>
+Date:   Fri Jul 28 15:41:11 2023 -0700
+
+    Tag events with thread specific information (#89516)
+    
+    * Tagging events with thread specific information
+    
+    * FB
+    
+    * Update src/coreclr/nativeaot/Runtime/eventpipe/ep-rt-aot.cpp
+    
+    Co-authored-by: Elinor Fung <elfung@microsoft.com>
+    
+    * Remove stale comments
+    
+    ---------
+    
+    Co-authored-by: Elinor Fung <elfung@microsoft.com>
