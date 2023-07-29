@@ -1,0 +1,9 @@
+commit 60c49c6156e20183e19b87dc7ba8e147674a9f85
+Author: David Cantú <dacantu@microsoft.com>
+Date:   Fri Jul 28 21:21:36 2023 -0500
+
+    Remove _isBlocked constraint from StreamReader.Peek() (#89609)
+    
+    * Remove _isBlocked constraint from StreamReader.Peek()
+    
+    * Use DelegateStream instead of introducing a new Stream impl
