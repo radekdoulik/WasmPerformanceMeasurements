@@ -1,0 +1,5 @@
+commit 95f3bccd30ad15ca20f818d429ca233590dce242
+Author: Egor Bogatov <egorbo@gmail.com>
+Date:   Sat Jul 29 21:04:01 2023 +0200
+
+    JIT: Don't use addressing modes for volatile loads for gc types (#70794)
