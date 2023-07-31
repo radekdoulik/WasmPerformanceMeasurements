@@ -1,0 +1,5 @@
+commit ca23fd9f5b90494942281277def6a8e11777b4a4
+Author: Carlos Sánchez López <1175054+carlossanlop@users.noreply.github.com>
+Date:   Mon Jul 31 03:35:37 2023 -0700
+
+    Add more meaningful assert message to PerformanceCounter test that fails intermittently in Win11 arm64. (#89581)
