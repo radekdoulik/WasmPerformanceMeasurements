@@ -1,0 +1,5 @@
+commit 6aa40ab081a8d5fc5afc33594cc11ac7c8f61367
+Author: Parker Bibus <parkerbibus@microsoft.com>
+Date:   Mon Jul 31 15:18:32 2023 -0700
+
+    Remove now unnecessary fix for building perf tools. Cleaning up per: https://github.com/dotnet/performance/issues/3153. (#89738)
