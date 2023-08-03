@@ -1,0 +1,29 @@
+commit b2e18f840333d77206f0e88ebefba84501b6b808
+Author: Jan Vorlicek <janvorli@microsoft.com>
+Date:   Thu Aug 3 09:53:20 2023 +0200
+
+    Fix handling ThreadAbortException at the end of catch (#89781)
+    
+    * Fix handling ThreadAbortException at the end of catch
+    
+    After the catch handler for ThreadAbortException exits, the
+    exception needs to be rethrown immediatelly. This change
+    makes that work.
+    
+    * arm64 stuff
+    
+    * Enable arm
+    
+    * Fix macOS x64 and enable one ControlledExecutionTest path for Unix
+    
+    * Update src/coreclr/vm/amd64/redirectedhandledjitcase.S
+    
+    Co-authored-by: Adeel Mujahid <3840695+am11@users.noreply.github.com>
+    
+    * Fix macOS x64
+    
+    The non-local label was preventing unwinding through \stub\()_RspAligned
+    
+    ---------
+    
+    Co-authored-by: Adeel Mujahid <3840695+am11@users.noreply.github.com>
