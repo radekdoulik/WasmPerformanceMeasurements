@@ -1,0 +1,13 @@
+commit 5eb82ac8e6eb2209df70029493f334f3f93abacd
+Author: Viktor Hofer <viktor.hofer@microsoft.com>
+Date:   Fri Aug 4 12:42:53 2023 +0200
+
+    Move Microsoft.NET.WebAssembly.WebCil into tasks (#89999)
+    
+    Fixes https://github.com/dotnet/runtime/issues/89987
+    
+    Repo task projects need to reside under src/tasks as the
+    TasksConfiguration property applies to these projects. By having a
+    referenced task project outside of src/tasks, it's easy to get
+    binclashes because of a project being built for different configurations
+    (Debug vs Release).
