@@ -1,0 +1,8 @@
+commit b5ee6a11541fdac14b5b1892e396dc9bf78b667e
+Author: Aman Khalid <amankhalid@microsoft.com>
+Date:   Fri Aug 4 23:15:42 2023 -0700
+
+    Re-enable some JIT tests (#89739)
+    
+    * JIT/opt/ObjectStackAllocation/ObjectStackAllocationTests/ for Crossgen
+    * JIT/Regression/JitBlue/Runtime_34170/Runtime_34170/ for Crossgen ARM32
