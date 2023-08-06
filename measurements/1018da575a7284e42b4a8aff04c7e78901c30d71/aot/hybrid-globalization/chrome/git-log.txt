@@ -1,0 +1,31 @@
+commit 1018da575a7284e42b4a8aff04c7e78901c30d71
+Author: Jan Vorlicek <janvorli@microsoft.com>
+Date:   Sun Aug 6 12:07:55 2023 +0200
+
+    Recover some lost EH performance on Unix amd64 (#90033)
+    
+    * Improve EH performance on Unix amd64
+    
+    Few months ago, a change to enable AVX512 on Unix was merged in.
+    That change has enlarged the CONTEXT structure significantly and
+    it was found that it has caused 6..17% regressions in exception handling
+    microbenchmarks.
+    
+    This change gets some of the lost performance back by adding custom
+    copy constructor and assignment operator to the CONTEXT structure
+    and preventing copying of the AVX / AVX512 stuff if the source
+    context doesn't have it. I have observed 3..9% gain on my machine.
+    
+    Close #84308
+    
+    * Fix gcc build and size for non-xstate case
+    
+    * Fix yet another gcc break
+    
+    * Fix build break
+    
+    * Revert the gcc fixes and disable the warning
+    
+    The zeroing of CONTEXT structure is used at too many places and
+    it is valid, so rather than trying to modify all the places by
+    using placement new, just disable the warning for gcc.
