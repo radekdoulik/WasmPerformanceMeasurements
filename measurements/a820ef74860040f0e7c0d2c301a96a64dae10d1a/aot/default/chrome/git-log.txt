@@ -1,0 +1,8 @@
+commit a820ef74860040f0e7c0d2c301a96a64dae10d1a
+Author: Katelyn Gadd <kg@luminance.org>
+Date:   Sat Aug 5 14:09:13 2023 -0700
+
+    [wasm] Fix startup without emcc -g option (#89872)
+    
+    When compiling without the emcc -g switch, the "env" module becomes "a", which caused startup to break.
+    Co-authored-by: Pavel Savara <pavelsavara@microsoft.com>
