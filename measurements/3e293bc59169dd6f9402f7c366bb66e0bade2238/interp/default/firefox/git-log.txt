@@ -1,0 +1,37 @@
+commit 3e293bc59169dd6f9402f7c366bb66e0bade2238
+Author: Will Smith <lol.tihan@gmail.com>
+Date:   Mon Aug 7 19:43:48 2023 -0700
+
+    [JIT] Do not force creation of a new IG if the current IG has no instructions (#89876)
+    
+    * Added 78891 test
+    
+    * Fix name
+    
+    * Fix test
+    
+    * Feedback
+    
+    * 78891 test is process isolated to use the environment variables. When enabling GC in the emitter, if the current IG has no instructions, do not force a new IG.
+    
+    * Remove extend flag
+    
+    * Quick cleanup
+    
+    * Quick cleanup
+    
+    * Update Runtime_78891.csproj
+    
+    * Feedback
+    
+    * Fix test
+    
+    * Fix test
+    
+    * Reset flags
+    
+    * Fix test
+    
+    * Fixing test again...
+    
+    * Only set the NOGCINTERRUPT flag accordingly
