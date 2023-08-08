@@ -1,0 +1,12 @@
+commit 33400d84bfad2124627ad4b8b57d560b3482e3a6
+Author: Aaron Robinson <arobins@microsoft.com>
+Date:   Tue Aug 8 07:38:54 2023 -0700
+
+    Support `DllImportSearchPath.AssemblyDirectory` for NativeAOT applications (#90120)
+    
+    * NativeAOT - Suppress OS dialog for LoadLibrary failures
+    on Windows.
+    
+    * Update NativeAOT to load from application
+    directory when DllImportSearchPath.AssemblyDirectory
+    is defined.
