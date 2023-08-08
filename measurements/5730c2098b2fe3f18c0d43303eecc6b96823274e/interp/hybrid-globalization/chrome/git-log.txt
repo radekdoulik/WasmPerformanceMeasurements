@@ -1,0 +1,5 @@
+commit 5730c2098b2fe3f18c0d43303eecc6b96823274e
+Author: Eirik Tsarpalis <eirik.tsarpalis@gmail.com>
+Date:   Tue Aug 8 12:37:01 2023 +0300
+
+    Ensure OuterLoop test doesn't use reflection in SG test suite. (#90137)
