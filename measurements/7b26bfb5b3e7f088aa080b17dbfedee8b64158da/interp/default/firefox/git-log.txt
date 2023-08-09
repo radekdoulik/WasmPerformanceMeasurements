@@ -1,0 +1,5 @@
+commit 7b26bfb5b3e7f088aa080b17dbfedee8b64158da
+Author: Elinor Fung <elfung@microsoft.com>
+Date:   Tue Aug 8 18:42:37 2023 -0700
+
+    Remove some unnecessary indirection to DiagnosticServerAdapter/EventPipeAdapter in nativeaot (#90132)
