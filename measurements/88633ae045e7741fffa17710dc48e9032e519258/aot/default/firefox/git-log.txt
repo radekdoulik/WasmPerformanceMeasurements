@@ -1,0 +1,11 @@
+commit 88633ae045e7741fffa17710dc48e9032e519258
+Author: Aleksey Kliger (λgeek) <alklig@microsoft.com>
+Date:   Wed Aug 9 01:47:42 2023 -0400
+
+    [hot_reload] ignore modified MONO_TABLE_TYPEDEF rows in update (#90166)
+    
+    * Add test that deletes a custom attribute from a class
+    
+    * just ignore modified MONO_TABLE_TYPEDEF rows in updates
+    
+       We may want to validate that Parent, Interfaces and Attributes columns haven't changed, but it's tricky and might be overly restrictive
