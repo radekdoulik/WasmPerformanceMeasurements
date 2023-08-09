@@ -1,0 +1,7 @@
+commit 38ae4d3729f4fe1069b362309cc1b9bd5241e997
+Author: Jackson Schuster <36744439+jtschuster@users.noreply.github.com>
+Date:   Tue Aug 8 17:37:37 2023 -0500
+
+    PinnedMarshal after marshalling in unmanaged to managed (#90117)
+    
+    PinnedMarshal has the "FromManaged" call in stateful marshallers, so that needs to happen before marshal in unmanaged to managed stubs.
