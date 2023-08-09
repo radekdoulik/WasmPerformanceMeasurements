@@ -1,0 +1,13 @@
+commit b35572540e0904c6a23dc5466f73c361ed877dc1
+Author: Natalia Kondratyeva <knatalia@microsoft.com>
+Date:   Wed Aug 9 10:46:11 2023 +0100
+
+    [HttpClientFactory] Remove dependency on ILoggerFactory (#89531)
+    
+    * Remove dependency on ILoggerFactory
+    
+    * Add test
+    
+    * PR feedback & add more tests
+    
+    * PR feedback
