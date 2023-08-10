@@ -1,0 +1,9 @@
+commit 23886f158cf925e13c72e661b9891df704806746
+Author: Miha Zupan <mihazupan.zupan1@gmail.com>
+Date:   Thu Aug 10 08:53:34 2023 +0200
+
+    Report exception type name in Http metrics (#90221)
+    
+    * Report exception type name in Http metrics
+    
+    * Mention 'Unknown' in a comment instead
