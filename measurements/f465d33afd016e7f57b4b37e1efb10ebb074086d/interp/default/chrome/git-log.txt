@@ -1,0 +1,9 @@
+commit f465d33afd016e7f57b4b37e1efb10ebb074086d
+Author: Matous Kozak <55735845+matouskozak@users.noreply.github.com>
+Date:   Thu Aug 10 10:47:51 2023 +0200
+
+    [mono] Adding support for Vector128::ExtractMostSignificantBits intrinsics on amd64 (#89997)
+    
+    * Extract MSB amd64
+    
+    * add SSSE3 check
