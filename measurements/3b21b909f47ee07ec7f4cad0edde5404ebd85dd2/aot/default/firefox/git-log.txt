@@ -1,0 +1,11 @@
+commit 3b21b909f47ee07ec7f4cad0edde5404ebd85dd2
+Author: Tom McDonald <tommcdon@microsoft.com>
+Date:   Wed Aug 9 21:39:00 2023 -0400
+
+    Debugger IPC creation failure should not abort coreclr startup (#90161)
+    
+    * Debugger IPC creation failure should not abort coreclr startup
+    
+    * Add log message for debugger pipe init failure
+    
+    * Use Stress log instead of COMPLUS logging
