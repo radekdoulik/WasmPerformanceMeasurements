@@ -1,0 +1,20 @@
+commit 6f40dbb85a88ab5dafa1abfce14f1206a0ad0cc8
+Author: Ruihan-Yin <107431934+Ruihan-Yin@users.noreply.github.com>
+Date:   Wed Aug 9 15:55:58 2023 -0700
+
+    Add `emitDispEmbBroadcastCount` to display the embedded broadcasted element count. (#90123)
+    
+    * Add `emitDispEmbBroadcastCount` to display
+    the embedded broadcasted element count.
+    
+    * Resolve comments:
+    rename the previous `emitGetMemOpSize` to `emitGetBaseMemOpSize`,
+    the new `emitGetMemOpSize` will check if EVEX.b is set and return the
+    memory size accordingly.
+    
+    * bug fixes:
+    added 2 missing break
+    
+    * resolve comments:
+    1. remove un-needed helper function.
+    2. move the Evexb check into the display function.
