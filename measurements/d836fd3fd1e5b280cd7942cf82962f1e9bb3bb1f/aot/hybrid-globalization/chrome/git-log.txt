@@ -1,0 +1,24 @@
+commit d836fd3fd1e5b280cd7942cf82962f1e9bb3bb1f
+Author: Steve Molloy <smolloy@microsoft.com>
+Date:   Fri Aug 11 11:55:17 2023 -0700
+
+    Don't fallback to PNSE, and give a more descriptive error message. (#88804)
+    
+    * Don't fallback to PNSE, and give a more descriptive error message.
+    
+    * CodeGeneratorConversionException is internal. Wrap it before re-throwing.
+    
+    * Update src/libraries/System.Private.Xml/src/System/Xml/Serialization/Compilation.cs
+    
+    Fixing comment about lack of compiler at runtime
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
+    
+    * Update Compilation.cs
+    
+    Remove conditional code that was not needed.
+    
+    ---------
+    
+    Co-authored-by: Matt Connew <mconnew@users.noreply.github.com>
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
