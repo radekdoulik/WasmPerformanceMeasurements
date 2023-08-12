@@ -1,0 +1,23 @@
+commit 7a0b4f99a3e90d24e152e5e077839971e7678cfd
+Author: Filip Navara <filip.navara@gmail.com>
+Date:   Sat Aug 12 20:54:12 2023 +0200
+
+    [NativeAOT] Do not use private APIs on iOS/macOS (#90430)
+    
+    * Use custom implementation of _dyld_find_unwind_sections on Apple
+    platforms since it's a private API and it blocks uploads to TestFlight,
+    iOS App Store, and Mac App Store.
+    
+    * Link against local ICU libraries on iOS-like platforms
+    
+    * Update src/coreclr/nativeaot/BuildIntegration/Microsoft.NETCore.Native.Unix.targets
+    
+    * Add comment
+    
+    * Update src/coreclr/nativeaot/Runtime/unix/UnwindHelpers.cpp
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
+    
+    ---------
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
