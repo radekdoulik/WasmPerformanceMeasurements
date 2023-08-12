@@ -1,0 +1,11 @@
+commit b02e5e158489465352ca2a4ff98a77a57bd51e02
+Author: Steve Pfister <steveisok@users.noreply.github.com>
+Date:   Fri Aug 11 18:49:21 2023 -0700
+
+    [workloads] Add telemetry for mobile and wasm workloads (#90208)
+    
+    This change adds CLI telemetry for common mobile and wasm scenarios.
+    
+    Total app size is another element we plan on tracking and that will be added in a follow up.
+    
+    Fixes https://github.com/dotnet/runtime/issues/88844
