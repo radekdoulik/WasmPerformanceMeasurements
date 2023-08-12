@@ -1,0 +1,27 @@
+commit 616f758160b388363cdcb93e944bda443e206c84
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Fri Aug 11 23:41:47 2023 -0400
+
+    Remove all use of <Nullable>annotations</Nullable> (#90401)
+    
+    * Remove all use of <Nullable>annotations</Nullable>
+    
+    We've inadvertently shipped multiple libraries with incorrect nullable reference type annotations because:
+    a) Their ref assemblies aren't actually being shipped, and/or
+    b) Their src projects using `<Nullable>annotations</Nullable>`
+    
+    `<Nullable>annotations</Nullable>` means "I'm nullable annotated but don't validate them", which means consumers of these libraries see annotations that we haven't thoughtfully added or reviewed.
+    
+    This removes all use of it and gets us back to a place where we're only shipping nullable annotations for libraries where we've done the work to ensure they're correct.  We can subsequently finish annotating these stragglers.
+    
+    * Don't disable LibraryImportGenerator when nullable is disabled
+    
+    * Add #nullable enable to LibraryImportAttribute file for polyfill scenarios.
+    
+    * Disable LibraryImportGenerator on ILCompiler.TypeSystem.Tests assemblies.
+    Convert a DllImport in HostWriter that now gets the polyfill experience.
+    
+    ---------
+    
+    Co-authored-by: Eric StJohn <ericstj@microsoft.com>
+    Co-authored-by: Jeremy Koritzinsky <jekoritz@microsoft.com>
