@@ -1,0 +1,7 @@
+commit af651f48d07c87c94e1225859e63e919719b687b
+Author: Alexander Köplinger <alex.koeplinger@outlook.com>
+Date:   Sun Aug 13 14:27:44 2023 +0200
+
+    Disable OneLocBuild in runtime-official.yml (#90480)
+    
+    It is blocking the official build: https://github.com/dotnet/runtime/issues/90466
