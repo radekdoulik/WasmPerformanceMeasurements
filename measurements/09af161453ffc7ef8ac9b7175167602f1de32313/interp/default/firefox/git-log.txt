@@ -1,0 +1,9 @@
+commit 09af161453ffc7ef8ac9b7175167602f1de32313
+Author: Eric Erhardt <eric.erhardt@microsoft.com>
+Date:   Sun Aug 13 15:01:25 2023 -0600
+
+    Enable nullable on Hosting.Systemd (#90495)
+    
+    - Passing null into the hosting lifetimes' loggerFactory parameters would result in a NRE
+    
+    Contributes to #90400
