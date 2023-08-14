@@ -1,0 +1,22 @@
+commit f69470a91ac823962f3dcb919f8a92f4bb85bde1
+Author: Ankit Jain <radical@gmail.com>
+Date:   Mon Aug 14 14:24:18 2023 -0400
+
+    [wasm] Respect `AppendRuntimeIdentifierToOutputPath`, and `UseArtifactsOutput` (#90365)
+    
+    * [wasm] Remove all instances of `ConditionalTheory IsUsingWorkloads`
+    
+    .. because we run tests in two modes:
+    
+    1. with workloads - all the tests *without* `no-workload` category are
+       run (thus the default)
+    2. no workloads - all the tests *with* `no-workload` category are run
+       (thus need explicitly attributes)
+    
+    * Allow custom bin framework dirs for asserting bundles
+    
+    * [wasm] Respect `AppendRuntimeIdentifierToOutputPath`, and
+    
+    .. `UseArtifactsOutput`.
+    
+    Fixes https://github.com/dotnet/runtime/issues/89744 .
