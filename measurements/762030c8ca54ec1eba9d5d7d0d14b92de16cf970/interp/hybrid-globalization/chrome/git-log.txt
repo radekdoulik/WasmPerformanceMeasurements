@@ -1,0 +1,14 @@
+commit 762030c8ca54ec1eba9d5d7d0d14b92de16cf970
+Author: Jan Kotas <jkotas@microsoft.com>
+Date:   Tue Aug 15 11:40:47 2023 -0700
+
+    Return false from ComWrappers.Try... methods (#90553)
+    
+    * Return false from ComWrappers.Try... methods
+    
+    Return false from ComWrappers.TryGetComInstance/TryGetObject instead of
+    throwing PNSE. It saves callers from needing to protect against PNSE.
+    
+    Fix #90311
+    
+    * More efficient IsWindows check
