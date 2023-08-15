@@ -1,0 +1,24 @@
+commit 1eb702ce1efe3581488a37704cee47603a291069
+Author: Sven Boemer <sbomer@gmail.com>
+Date:   Tue Aug 15 02:03:03 2023 -0700
+
+    Fix NullableAttribute illink test failures (#90449)
+    
+    When we started building with preview 7 in
+    5549f72da3b3cea9e74bb81cfbb0f2d27731fc42, NullableAttribute in
+    these testcases started to use the attribute definition from the
+    framework, instead of generating it into the code. This broke the
+    `--used-attrs-only` optimization because `skip` assemblies (the
+    default for the framework in these testcases) are treated as if
+    all types in them are kept, for the purposes of the
+    `--used-attrs-only` optimization. (The optimization removes
+    attribute instances unless the attribute type is preserved for
+    some other reason).
+    
+    It's not clear what the intended behavior of `--used-attrs-only`
+    is for `skip` assemblies, and the discussion in
+    https://github.com/dotnet/linker/issues/952 indicates that it's
+    considered experimental, so this fixes the failures by using the
+    `link` action. This represents a more realistic scenario since
+    `skip` is mainly used in testing to avoid linking the framework
+    in every testcase.
