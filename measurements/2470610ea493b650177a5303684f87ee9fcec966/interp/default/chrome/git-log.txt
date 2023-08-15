@@ -1,0 +1,15 @@
+commit 2470610ea493b650177a5303684f87ee9fcec966
+Author: Natalia Kondratyeva <knatalia@microsoft.com>
+Date:   Mon Aug 14 23:44:26 2023 +0100
+
+    HttpClientFactory Prevent throwing if ILogger couldn't be created (#90503)
+    
+    * HttpClientFactory stop cleanup timer on dispose
+    
+    * Remove finalizer
+    
+    * Tweak ThrowIfDisposed
+    
+    * Revert some changes
+    
+    * Fix
