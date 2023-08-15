@@ -1,0 +1,9 @@
+commit 55c896f28b418893e202b4d20e95f5ed62402b91
+Author: Maoni Stephens <Maoni0@users.noreply.github.com>
+Date:   Mon Aug 14 22:46:20 2023 -0700
+
+    gen0_bricks_cleared flag needs to be propagated when we change heap count (#90457)
+    
+    when we change the heap count, in heap X we get a region from heap Y and the gen0_bricks_cleared flag from Y says false but heap X says true. So when we check the bricks on heap X, we assume it’s true but it’s not.
+    
+    the fix is to detect if any heap has this flag as false and if so make all heaps’ flag false (tracking which region is moved from which other heap is something we need additional recording for and it’s not really worth doing just for this)
