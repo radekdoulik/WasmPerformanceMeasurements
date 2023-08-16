@@ -1,0 +1,7 @@
+commit a39262bd2d8543e5e6636978d54a084669e1a8e5
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Wed Aug 16 02:13:11 2023 -0400
+
+    [mono] Fix min alignment of structures with explicit layout. (#90632)
+    
+    Fixes https://github.com/dotnet/runtime/issues/90531.
