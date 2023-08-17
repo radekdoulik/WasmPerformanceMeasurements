@@ -1,0 +1,7 @@
+commit ac3246b51671963b5463b6c202f640806a0c84db
+Author: Jan Kotas <jkotas@microsoft.com>
+Date:   Wed Aug 16 15:16:07 2023 -0700
+
+    Revert "[JIT] ARM64 - Temporary fix for `ldp`/`stp` optimizations (#90534)" (#90699)
+    
+    This reverts commit 99a60c6a5c6671f92c18a032c6dff033a3a2adb7.
