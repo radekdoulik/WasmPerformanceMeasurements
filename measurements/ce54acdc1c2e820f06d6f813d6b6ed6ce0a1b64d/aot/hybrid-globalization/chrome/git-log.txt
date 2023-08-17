@@ -1,0 +1,22 @@
+commit ce54acdc1c2e820f06d6f813d6b6ed6ce0a1b64d
+Author: Tomasz Sowiński <tomeksowi@gmail.com>
+Date:   Thu Aug 17 07:54:09 2023 +0200
+
+    Fix Shuffling Thunks part 2 (#90707)
+    
+    * Remove running setup-stress-dependencies.sh
+    
+    That script was removed in commit 7d6b73e9.
+    
+    * [RISC-V] Fix shuffling floating registers
+    
+    * Don't offset ShuffleEntry's by 10, because that is likely to go out of bounds.
+    * Base for floating argument regs (fa) is 10 on RISC-V, not 1.
+    * Src and dst registers in emit fld were reversed
+    * Restore arguments stashed in temporary registers
+    
+    * [RISC-V] Simplify Emit* methods
+    
+    * Remove unused Emit* methods
+    * Centralize instruction creation in *TypeInstr functions to limit the potential for mistakes in hard-coded shifts, masks, etc
+    * Replace Emit32 calls with hard-coded opcodes with proper Emit* names.
