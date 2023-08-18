@@ -1,0 +1,18 @@
+commit e9ce3aac5440b8d5b76bddfea6285e546083589d
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Fri Aug 18 11:39:07 2023 +0200
+
+    JIT: Add a head merging transformation alongside the tail merging transformation (#90468)
+    
+    Add a pass that does head merging to compliment the existing tail
+    merging pass. Unlike tail merging this requires reordering the first
+    statement with the terminator node of the predecessor, which requires
+    some interference checking.
+    
+    The head merging is enabled only for BBJ_COND since the CQ benefit
+    for enabling it more generally does not seem to pay off. Additionally
+    we mainly try to target the IR produced by the importer due to spill
+    cliques, which usually happen with the IL that results from using
+    ternaries.
+    
+    Fix #90017
