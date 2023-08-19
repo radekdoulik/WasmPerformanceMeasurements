@@ -1,0 +1,8 @@
+commit 5b448cf7dd2689bcf8ca54dd3aa9852fd94d3e1a
+Author: Elinor Fung <elfung@microsoft.com>
+Date:   Fri Aug 18 15:03:44 2023 -0700
+
+    Stop skipping tests in installer pipeline on linux_x64 (#89953)
+    
+    - Run tests in in installer pipeline on Linux_x64 even though it is cross-build.
+    - Fix uploading of binaries/symbols on failure
