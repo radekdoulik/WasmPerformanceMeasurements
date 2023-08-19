@@ -1,0 +1,24 @@
+commit 940b332ad04e58862febe019788a5b21e266ea10
+Author: Aleksey Kliger (λgeek) <alklig@microsoft.com>
+Date:   Fri Aug 18 22:10:48 2023 -0400
+
+    [mini] Fix typo in mono_decompose_vtype_opts (#90825)
+    
+    * Fix typo in mono_decompose_vtype_opts
+    
+    Without this, if some previous instruction already created a vreg for
+    ins->dest (for example if we are doing multiple passes over the basic
+    block because `restart == TRUE`) we will use an incorrect vreg when
+    decomposing the current VMOVE
+    
+    Fixes https://github.com/dotnet/runtime/issues/90800
+    
+    * Only emit an OP_LDTOKEN_FIELD if we loaded a field token
+    
+    This is used by a CreateSpan optimization that needs access to the
+    MonoClassField*
+    
+    For other cases of a bare LDTOKEN (such as hand-written IL that calls
+    LDTOKEN on a type but doesn't follow it up with a call to
+    `GetTypeFromHandle` leave the opcode as a VMOVE (from the
+    `EMIT_NEW_TEMPLOAD` above))
