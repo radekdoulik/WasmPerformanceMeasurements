@@ -1,0 +1,20 @@
+commit e811599bb6ec3a5b65f751815ee2a996064b806d
+Author: Lakshan Fernando <lakshanf@hotmail.com>
+Date:   Sat Aug 19 14:33:45 2023 -0700
+
+    Error out when NativeLib has EventPipe enabled (#90811)
+    
+    * Error out when NativeLib has EventPipe enabled
+    
+    * Update src/coreclr/nativeaot/BuildIntegration/Microsoft.NETCore.Native.Publish.targets
+    
+    Co-authored-by: Andy Gocke <andy@commentout.net>
+    
+    * Update src/coreclr/nativeaot/BuildIntegration/Microsoft.NETCore.Native.Publish.targets
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
+    
+    ---------
+    
+    Co-authored-by: Andy Gocke <andy@commentout.net>
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
