@@ -1,0 +1,9 @@
+commit ac02b66e41041e1cefd355eacaddb45bcb4f1741
+Author: Youssef Victor <youssefvictor00@gmail.com>
+Date:   Sat Aug 19 23:06:43 2023 +0000
+
+    Use symbol comparison in `CustomMarshallerAttributeAnalyzer` (#90850)
+    
+    * Use symbol comparison in `CustomMarshallerAttributeAnalyzer`
+    
+    * Pass SymbolEqualityComparer
