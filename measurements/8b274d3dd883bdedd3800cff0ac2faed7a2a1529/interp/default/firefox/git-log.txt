@@ -1,0 +1,7 @@
+commit 8b274d3dd883bdedd3800cff0ac2faed7a2a1529
+Author: Matous Kozak <55735845+matouskozak@users.noreply.github.com>
+Date:   Mon Aug 21 07:24:42 2023 +0200
+
+    [mono] Enable Yield_r* tests with FullAOT (llvm) (#90614)
+    
+    - enabled for Apple mobile as well
