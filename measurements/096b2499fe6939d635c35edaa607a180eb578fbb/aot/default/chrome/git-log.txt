@@ -1,0 +1,10 @@
+commit 096b2499fe6939d635c35edaa607a180eb578fbb
+Author: Jan Vorlicek <janvorli@microsoft.com>
+Date:   Tue Aug 22 20:29:15 2023 +0200
+
+    Make DacValidateMD and DacValidateMethodTable more resilient (#90794)
+    
+    Make both methods more resilient to the case of invalid MethodDesc
+    and MethodTable with value -1.
+    
+    Close #90691
