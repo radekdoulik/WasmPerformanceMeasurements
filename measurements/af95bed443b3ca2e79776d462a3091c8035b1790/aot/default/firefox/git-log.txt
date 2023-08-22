@@ -1,0 +1,13 @@
+commit af95bed443b3ca2e79776d462a3091c8035b1790
+Author: Jan Kotas <jkotas@microsoft.com>
+Date:   Mon Aug 21 15:38:45 2023 -0700
+
+    Fix Type.ContainsGenericParameters for function pointers (#90864)
+    
+    * Fix Type.ContainsGenericParameters for function pointers
+    
+    Fixes #84916
+    
+    * Fix System.Reflection.MetadataLoadContext
+    
+    * Fix Mono
