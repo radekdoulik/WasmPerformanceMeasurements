@@ -1,0 +1,11 @@
+commit 3bda6e0013ddb5b48a7b2a89fd84bf4fbbed0e37
+Author: Vladimir Sadov <vsadov@microsoft.com>
+Date:   Mon Aug 21 20:00:25 2023 -0700
+
+    [NativeAOT] Missing memory fence before bulk move of objects (#90890)
+    
+    * Memory fence before bulk move of objects
+    
+    * deleted GCMemoryHelpers.h
+    
+    * Introduced a GCHeapMemoryBarrier helper.
