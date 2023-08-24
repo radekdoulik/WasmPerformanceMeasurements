@@ -1,0 +1,13 @@
+commit c4f8c3b27a8fb2e452a57a6516050c8c2ee677f4
+Author: Layomi Akinrinade <laakinri@microsoft.com>
+Date:   Wed Aug 23 21:35:49 2023 -0700
+
+    Upgrade MicrosoftCodeAnalysisVersion_LatestVS version to 4.7.0 (#91006)
+    
+    * Upgrade MicrosoftCodeAnalysisVersion_LatestVS version to 4.7.0
+    
+    * Fix IDE issue with ILLink.RoslynAnalyzer
+    
+    * Remove source build allowed prebuilt entry for version 4.5.0
+    
+    * Add tracking issue links
