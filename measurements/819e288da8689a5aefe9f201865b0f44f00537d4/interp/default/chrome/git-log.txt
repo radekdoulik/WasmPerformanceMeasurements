@@ -1,0 +1,45 @@
+commit 819e288da8689a5aefe9f201865b0f44f00537d4
+Author: Marek Fišera <mara@neptuo.com>
+Date:   Wed Aug 23 21:46:10 2023 +0200
+
+    [browser] Update browser template to use Wasm SDK (#90871)
+    
+    * Use WasmSdk in browser template
+    
+    * Remove default html-path
+    
+    * Use wwwroot when looking for main.js in template for replacement
+    
+    * Temporarily remove WasmRuntimeAssetsLocation from WBT because WasmSDK doesn't support it yet
+    
+    * Integrate console log forward into DevServer
+    
+    * Replace UseRouter
+    
+    * Use next middleware only if it's not console
+    
+    * CancellationTokenSource on CancelKeyPress
+    
+    * Address feedback from initial DevServer integration
+    
+    * Update src/mono/wasm/host/BrowserHost.cs
+    
+    Co-authored-by: Ankit Jain <radical@gmail.com>
+    
+    * Remove debugging code
+    
+    * Fix WBT
+    
+    * Fix starting outside of project directory
+    
+    * Support WasmRuntimeAssetsLocation in Wasm SDK
+    
+    * Revert "Support WasmRuntimeAssetsLocation in Wasm SDK"
+    
+    * Active issue for WasmRuntimeAssetsLocation
+    
+    * Feedback
+    
+    ---------
+    
+    Co-authored-by: Ankit Jain <radical@gmail.com>
