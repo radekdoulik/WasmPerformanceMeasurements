@@ -1,0 +1,7 @@
+commit f9382df963cd78eb427460dd55e1c89fadefad0f
+Author: Egor Bogatov <egorbo@gmail.com>
+Date:   Fri Aug 25 20:19:43 2023 +0200
+
+    Fix a deadlock in NonGC + Profiler API (#90847)
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
