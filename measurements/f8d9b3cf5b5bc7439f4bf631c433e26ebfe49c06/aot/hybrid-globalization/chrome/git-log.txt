@@ -1,0 +1,89 @@
+commit f8d9b3cf5b5bc7439f4bf631c433e26ebfe49c06
+Author: Jan Vorlicek <janvorli@microsoft.com>
+Date:   Thu Aug 24 22:50:20 2023 +0200
+
+    Port NativeAOT exception handling to CoreCLR (#88034)
+    
+    * Port NativeAOT exception handling to CoreCLR
+    
+    This change ports NativeAOT exception handling to CoreCLR, resulting in
+    3.5..4 times speedup in exception handling. Due to time constraints and
+    various complexities, thread abort and debugger support is not
+    completed yet, so this change is enabled only when
+    `DOTNET_EnableNewExceptionHandling` env variable is set. By default,
+    the old way is used.
+    This change supports all OSes and targets we support except of x86
+    Windows. That may be doable too in the future, but the difference in
+    exception handling on x86 Windows adds quite a lot of complexity into
+    the picture.
+    
+    Notes for the PR:
+    * I have left the `ExceptionHandling.cs` and `StackFrameIterator.cs` in
+      the nativeaot folder to simplify the review. I can move it to some
+      common location after the change is reviewed. Also it was not clear to
+      me where that should be, so advise would be welcome here.
+    * Naming of the native helpers like `RhpCallCatchFunclet` was left the
+      same as in the NativeAOT for now.
+    * There are still some little things I'd like to eventually clean up,
+      like `ExInfo` encapsulation and possibly moving `REGDISPLAY` and
+      `CONTEXT` it uses into the `ExInfo` itself or moving debug members of
+      `StackFrameIterator` and `REGDISPLAY` to the end of those structures
+      so that the `AsmOffsets.cs` can be simplified. It also may be possible
+      to unify the exception handling callback that's used for ObjectiveC to
+      use the managed version. I've tried and there were some ugly
+      complications, so I've left it separated.
+    * There are two bug fixes for bugs unrelated to this PR and a removal of
+      unused parameter in existing code that could be made as separate PRs
+      before this PR.
+      * `ProfilerEnter` and `ProfilerLeave` for the case of
+        `UnmanagedCallersOnly` method were being called in preemptive mode.
+      * NativeAOT code for rethrowing exception was incorrectly calling
+        `DispatchEx` with last argument set to `activeExInfo._idxCurClause`
+        to start at the last clause processed when the rethrown exception
+        was originally thrown instead of starting from the first one again.
+        I have a accidentally came with a simple test that discovered this
+        bug and causes failures in  the original NativeAOT too.
+    * Changes in  the stackwalk.cpp add support for
+      * Usage of `ExInfo` instead of `ExceptionTracker`
+      * Handling of case when GC runs while finally funclet is on the stack
+        and then again when the code is back in the new exception handling
+        code in managed code before other finally or catch funclet is
+        called. The NativeAOT solves that by disabling GC for the 2nd pass
+        of EH, for this change it would not be reasonable.
+      * Handling the GC reporting when funclet is found while walking the
+        stack. It needs to scan frames of the managed code that handles the
+        exception too,  since it contains live references. The old EH way
+        doesn't have this case.
+    * I needed to add `GCFrame::Remove` method that can remove the `GCFrame`
+      from any location in the chain. There is a managed runtime method that
+      calls `GCReporting::Unregister` that was popping it with my changes
+      out of order due to the exception handling code being managed.
+    
+    Fix context initialization after rebase
+    
+    * Remove Rhp prefix from the native helpers
+    
+    * Fix handling of exceptions from JIT
+    
+    The `UNINSTALL_UNWIND_AND_CONTINUE_HANDLER_NO_PROBE` in the
+    `EE_TO_JIT_TRANSITION` needs to rethrow an exception (if any) using native
+    exception handling mechanism instead of calling the new managed
+    exception handling, as the native exception needs to propagate through
+    some native code layers from there.
+    This change adds parameter to the
+    `UNINSTALL_UNWIND_AND_CONTINUE_HANDLER_NO_PROBE` macro to select whether
+    to rethrow the exception as native or to invoke the new managed
+    exception handling.
+    
+    This problem didn't show up until I ran the coreclr tests with tiered
+    compilation disabled.
+    
+    * Update UNINSTALL_UNWIND_AND_CONTINUE_HANDLER usage
+    
+    There were three places where the UNINSTALL_UNWIND_AND_CONTINUE_HANDLER
+    needed to be replaced by
+    UNINSTALL_UNWIND_AND_CONTINUE_HANDLER_NO_PROBE(true).
+    
+    * Rename INSTALL_UNWIND_AND_CONTINUE_HANDLER_NO_PROBE
+    
+    To INSTALL_UNWIND_AND_CONTINUE_HANDLER_EX, as the old name is obsolete
