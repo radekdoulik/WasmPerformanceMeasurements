@@ -1,0 +1,18 @@
+commit f5881e59f1e625b2f27d1553dc572c5e9b66dbe4
+Author: Andy Ayers <andya@microsoft.com>
+Date:   Sun Aug 27 07:42:29 2023 -0700
+
+    JIT: add ability to pad profile counters and adjust scalable count th… (#91081)
+    
+    * `DOTNET_JitCounterPadding`: adds the ability to pad profile counters by some
+    number of counter-sized slots, to mitigate the effects of false sharing. For
+    example with 64 bit counters, setting `DOTNET_JitCounterPadding=8` means each
+    counter is now on its own cache line (for xarch).
+    
+    * `DOTNET_TieredPGO_ScalableCountThreshold`: adds the ability to alter the scalable
+    profile counter's threshold for switching to approximate counting. Defaults to 13
+    which means profile counts are exact up to 2^13 = 8192 and approximate above that.
+    Lower values will reduce the volume of counter updates (also mitigating false sharing
+    impact) but make the counts more approximate.
+    
+    Co-authored-by: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
