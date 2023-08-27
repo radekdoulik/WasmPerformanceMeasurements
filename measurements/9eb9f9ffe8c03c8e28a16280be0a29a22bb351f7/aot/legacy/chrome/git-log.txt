@@ -1,0 +1,15 @@
+commit 9eb9f9ffe8c03c8e28a16280be0a29a22bb351f7
+Author: Vladimir Sadov <vsadov@microsoft.com>
+Date:   Sat Aug 26 23:19:41 2023 -0700
+
+    [NativeAOT] Remove ThunkPool crst. (#88778)
+    
+    * add trivial monitor lock to Test.CorLib
+    
+    * Use regular lock in ThunksHeap
+    
+    * remove CrstThunkPool
+    
+    * Moved ThanksPool to corlib
+    
+    * Remove unused CrstObjectiveCMarshalCallouts
