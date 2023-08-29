@@ -1,0 +1,8 @@
+commit f175acf52f1e793892ef9d9fea632f3624d50479
+Author: Dong-Heon Jung <clamp03@gmail.com>
+Date:   Tue Aug 29 23:43:42 2023 +0900
+
+    [RISC-V] Fix MarshalStructAsLayoutSeq (#90719)
+    
+    - Fix MarshalStructAsParam_AsSeqByValFixedBufferClassificationTest
+    - Fix MarshalStructAsParam_AsSeqByValUnicodeCharArrayClassification
