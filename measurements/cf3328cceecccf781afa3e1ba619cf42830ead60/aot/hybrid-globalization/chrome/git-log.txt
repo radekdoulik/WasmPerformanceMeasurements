@@ -1,0 +1,19 @@
+commit cf3328cceecccf781afa3e1ba619cf42830ead60
+Author: Filip Navara <navara@emclient.com>
+Date:   Tue Aug 29 18:36:45 2023 +0200
+
+    Fix UseManagedNtlm linker substitutions (#90957)
+    
+    * Fix UseManagedNtlm linker Substitutions
+    
+    - Specify the default value (false) for the feature on Linux so the linker runs the substitution when no value was specified by the user.
+    - Make the `UseManagedNtlm` property public because the linker and IL compiler doesn't support substitution of private properties.
+    - Add `--ignore-substitutions` switch to ILLink during library build to prevent the substitution with default value taking place.
+    
+    * Revert unnecessary changes, document _UseManagedNtlm switch
+    
+    * Set _UseManagedNtlm in NativeAOT integration
+    
+    * Revert unnecessary change, move default values for trimming properties from NativeAOT targets to ILLink ones
+    
+    * Fix build
