@@ -12,12 +12,16 @@ public partial class Program
     readonly static string zipFileName = "index2.zip";
     readonly static string gitLogFile = "/git-log.txt";
     readonly static string fileName = "index.json";
-    readonly static JsonSerializerOptions options = new()
+    readonly static JsonSerializerOptions serializerOptions = new()
     {
         IncludeFields = true,
         NumberHandling = JsonNumberHandling.AllowNamedFloatingPointLiterals,
         Converters = { new WasmBenchmarkResults.Index.IdMap.Converter() }
     };
+    readonly static CommonSerializerContext serializerContext = new (serializerOptions);
+
+    [JsonSerializable(typeof(List<string>))]
+    public partial class CommonSerializerContext : JsonSerializerContext {}
 
     static List<GraphPointData> list = new();
 
@@ -34,7 +38,7 @@ public partial class Program
         var entry = archive.GetEntry(fileName);
         using Stream readStream = entry.Open();
         using StreamReader streamReader = new StreamReader(readStream);
-        var index = JsonSerializer.Deserialize<WasmBenchmarkResults.Index>(streamReader.ReadToEnd(), options);
+        var index = WasmBenchmarkResults.Index.Load(streamReader);
 
         return index;
     }
@@ -60,7 +64,7 @@ public partial class Program
             }
         }
         RequiredData neededData = new(list, data.FlavorMap.Keys.ToList<string>(), data.MeasurementMap.Keys.ToList<string>());
-        var jsonData = JsonSerializer.Serialize(neededData, options);
+        var jsonData = neededData.Save();
         await Console.Out.WriteLineAsync($"jsonData length: {jsonData.Length}");
         return jsonData;
     }
@@ -68,11 +72,11 @@ public partial class Program
     [JSExport]
     internal static string GetSubFlavors(string jsonFlavors)
     {
-        var flavors = JsonSerializer.Deserialize<List<string>>(jsonFlavors, options);
+        var flavors = JsonSerializer.Deserialize<List<string>>(jsonFlavors, serializerContext.ListString);
         HashSet<string> subFlavors = new();
         flavors.ForEach(flavor => subFlavors.UnionWith(flavor.Split('.')));
         List<string> result = subFlavors.ToList();
-        return JsonSerializer.Serialize(result, options);
+        return JsonSerializer.Serialize(result, serializerContext.ListString);
     }
 
     static GraphPointData GetDataForHash(List<GraphPointData> list, string hash)
@@ -83,10 +87,10 @@ public partial class Program
     [JSExport]
     internal static string CreateMarkdownText(string date1, string date2, string jsonTests, string jsonFlavors)
     {
-        var startDate = DateTimeOffset.Parse(JsonSerializer.Deserialize<string>(date1, options));
-        var endDate = DateTimeOffset.Parse(JsonSerializer.Deserialize<string>(date2, options));
-        var availableTests = JsonSerializer.Deserialize<List<string>>(jsonTests, options);
-        var availableFlavors = JsonSerializer.Deserialize<List<string>>(jsonFlavors, options);
+        var startDate = DateTimeOffset.Parse(JsonSerializer.Deserialize<string>(date1, serializerContext.String));
+        var endDate = DateTimeOffset.Parse(JsonSerializer.Deserialize<string>(date2, serializerContext.String));
+        var availableTests = JsonSerializer.Deserialize<List<string>>(jsonTests, serializerContext.ListString);
+        var availableFlavors = JsonSerializer.Deserialize<List<string>>(jsonFlavors, serializerContext.ListString);
         var availableData = list.FindAll(point => DateTimeOffset.Parse(point.commitTime) >= startDate
                         && DateTimeOffset.Parse(point.commitTime) <= endDate);
         HashSet<string> commitSet = new();

@@ -1,18 +1,23 @@
 ﻿using System.Text.Json;
+using System.Text.Json.Serialization;
 using System.Text.RegularExpressions;
 
 namespace WasmBenchmarkResults
 {
-    class JsonResultsData
+    partial class JsonResultsData
     {
         public List<BenchTask.Result> results;
         public Dictionary<string, double> minTimes;
         public DateTime timeStamp;
 
+        [JsonSourceGenerationOptions(IncludeFields = true)]
+        [JsonSerializable(typeof(JsonResultsData))]
+        partial class ResultsSerializerContext : JsonSerializerContext { }
+
         public static JsonResultsData? Load(string path)
         {
             var options = new JsonSerializerOptions { IncludeFields = true };
-            return JsonSerializer.Deserialize<JsonResultsData>(File.ReadAllText(path), options);
+            return JsonSerializer.Deserialize<JsonResultsData>(File.ReadAllText(path), ResultsSerializerContext.Default.JsonResultsData);
         }
     }
 

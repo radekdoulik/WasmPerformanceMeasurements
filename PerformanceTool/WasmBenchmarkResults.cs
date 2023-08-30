@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using System.Text;
 
 namespace WasmBenchmarkResults
@@ -34,7 +36,7 @@ namespace WasmBenchmarkResults
 
     }
 
-    public class RequiredData
+    public partial class RequiredData
     {
         public List<GraphPointData> graphPoints;
         public List<string> flavors;
@@ -47,5 +49,13 @@ namespace WasmBenchmarkResults
             this.taskNames = taskNames;
         }
 
+        [JsonSourceGenerationOptions(IncludeFields = true)]
+        [JsonSerializable(typeof(RequiredData))]
+        partial class RequiredDataSerializerContext : JsonSerializerContext { }
+
+        public string Save()
+        {
+            return JsonSerializer.Serialize(this, RequiredDataSerializerContext.Default.RequiredData);
+        }
     }
 }

@@ -3,11 +3,29 @@ using System.Text.Json.Serialization;
 
 namespace WasmBenchmarkResults
 {
-    internal class Index
+    internal partial class Index
     {
         public IdMap FlavorMap = new();
         public IdMap MeasurementMap = new();
         public List<Item> Data = new();
+
+        [JsonSerializable(typeof(Index))]
+        partial class IndexSerializerContext : JsonSerializerContext { }
+
+        public static Index Load(StreamReader streamReader)
+        {
+            var context = new IndexSerializerContext(new JsonSerializerOptions() {
+                IncludeFields = true,
+                NumberHandling = JsonNumberHandling.AllowNamedFloatingPointLiterals,
+                Converters = { new IdMap.Converter() }
+            });
+            return JsonSerializer.Deserialize<Index>(streamReader.ReadToEnd(), context.Index);
+        }
+
+        public override string ToString()
+        {
+            return $"flavors: {FlavorMap}\nmeasurements: {MeasurementMap}\ndata count: {Data.Count()}";
+        }
 
         internal class Item
         {
@@ -18,7 +36,7 @@ namespace WasmBenchmarkResults
             public Dictionary<int, long> sizes;
         }
 
-        internal class IdMap : Dictionary<string, int>
+        internal partial class IdMap : Dictionary<string, int>
         {
             readonly List<string> names = new();
             public string this[int id] => names[id];
