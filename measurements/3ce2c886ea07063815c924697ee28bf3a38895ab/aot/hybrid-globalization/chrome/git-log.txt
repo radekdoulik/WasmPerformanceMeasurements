@@ -1,0 +1,28 @@
+commit 3ce2c886ea07063815c924697ee28bf3a38895ab
+Author: Bruce Forstall <brucefo@microsoft.com>
+Date:   Wed Aug 30 10:40:03 2023 -0700
+
+    Enable SuperPMI collection of a libraries tests run (#91101)
+    
+    Currently, we have a PMI collection of the libraries tests. A PMI collection doesn't represent actual code run, so doesn't have PGO data and compilations, OSR compilations, and tends to overemphasize generics since it attempts many instantiations that might not occur in practice.
+    
+    Similar to #74961, which enabled a collection of a run coreclr tests, this change enables a collection of a run of libraries tests.
+    
+    We collect two different scenarios: "normal", meaning no configuration switch variables set, and "no_tiered_compilation", meaning we set DOTNET_TieredCompilation=0. Because the amount of data collected is so large, we create each of these scenarios as a separate job, and a separate resulting .mch file. (If done all at once, we end up running out of disk space on the Azure DevOps machines that collect all the per-Helix collections and merge them into the single, large resulting .mch file.)
+    
+    The changes here are similar to (and sometimes a copy of) the changes in #74961, altered because the process of running the libraries tests is somewhat different in a few ways.
+    
+    The "control flow" is as follows:
+    
+    - eng/pipelines/coreclr/superpmi-collect.yml: specifies two additional collection runs, as described above.
+    - eng/pipelines/libraries/run-test-job.yml: specifies the scenarios to run, the additional job dependencies, and adds the logic to post-process all the per-Helix-machine .mch files
+    - eng/pipelines/libraries/superpmi-collect-variables.yml: extract out SuperPMI-specific variables from run-test-job.yml
+    - eng/pipelines/libraries/superpmi-postprocess-step.yml: extract out SuperPMI post-processing steps from run-test-job.yml
+    - src/libraries/sendtohelix.proj: additional logic to add files needed for collection to the Helix correlation payload. In particular, we need superpmi.py (and dependencies), and superpmi/mcs/superpmi-shim-collector, as well as the JIT dll itself (which is already in the payload, but not in an easily found location). We could probably significantly trim down what we copy, as currently I just copy the entire Core_Root, which is over 1GB, and we only need 4 files.
+    - src/libraries/sendtohelixhelp.proj: call sendtohelix-superpmi-collect.targets, and define Helix artifacts to download to the AzDO machine.
+    - src/libraries/sendtohelix-superpmi-collect.targets: extract out SuperPMI specific HelixPreCommand and HelixPostCommand logic from sendtohelixhelp.proj. Define some Helix "pre" and "post" commands. The "pre" commands set up the collection before the tests are run. The "post" commands merge/dedup/thin the collection, preparing it to be uploaded to artifact storage.
+    - eng/testing/RunnerTemplate.cmd/sh: This is built into every libraries test RunTests.cmd/sh file, and is activated (enabled superpmi collection) by the Helix "pre" commands mentioned above.
+    
+    The change to CultureInfoCurrentCulture.cs is to fix a problem where the test creates a new clean environment but copies over a few environment variables. It needs to also copy over SuperPMIShim* variables.
+    
+    The collected data is quite large: about 700,000 methods in the "normal" scenario, and 300,000 in the "no_tiered_compilation" scenario, for a total of about 17GB for both.
