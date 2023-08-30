@@ -1,0 +1,9 @@
+commit 9c3f8b3727d9be4de483a1d725c2bda22f956688
+Author: Austin Wise <AustinWise@gmail.com>
+Date:   Tue Aug 29 14:18:48 2023 -0700
+
+    Windows executables: only load imported DLLs from System32 (#89311)
+    
+    By using the /DEPENDENTLOADFLAG link.exe flag, we can tell the Windows loader to only look for referenced DLLs in the System32 directory.
+    
+    The application of PGO is commented out until updated PGO files are available.
