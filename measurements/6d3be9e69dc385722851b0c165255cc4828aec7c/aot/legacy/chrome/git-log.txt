@@ -1,0 +1,9 @@
+commit 6d3be9e69dc385722851b0c165255cc4828aec7c
+Author: David Cantú <dacantu@microsoft.com>
+Date:   Wed Aug 30 22:02:32 2023 -0500
+
+    Remove DirectoryInfo.ToString() from ref assembly (#91354)
+    
+    * Remove DirectoryInfo.ToString() from ref assembly
+    
+    * Remove partial keyword
