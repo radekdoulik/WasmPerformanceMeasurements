@@ -1,0 +1,28 @@
+commit e4e95deafcc4e90049a44ca56d9a1b883057a1d0
+Author: Maoni Stephens <Maoni0@users.noreply.github.com>
+Date:   Thu Aug 31 10:41:10 2023 -0700
+
+    new synchronization mechanism for DATAS (#90726)
+    
+    The current mechanism has a fundamental flaw which is the idling threads can start running at unpredictable times when they are woken up. This causes all sorts of problems. For example, when a thread gets here in gc_thread_function -
+    
+    `if (n_heaps <= heap_number)`
+    
+    if it's true it's supposed to wait. But its execution could be delayed so after it reads n_heaps it can stop for a while since no thread is waiting on this thread anyway... till some time later when a heap count changes happens again and it requires this thread to participating. And now this thread does the comparison and discovers that it needs to wait so it goes idle and all other threads will just be waiting for this thread to join.
+    
+    Another example is it's not safe to change the heap count for a join from a larger one to a smaller one. It's fine to change from a smaller one to a larger one because all the threads participating will have to run in order for a join to finish. But if no one is waiting on a thread, it could just wake up from the event being set by the last thread joining and not run for a while. Then go back to the respin loop at a point where the color was changed and changed again! So now it thinks it can proceed with a join it does not belong to. And of course that wouldn't work.
+    
+    The way threads are going idle/waking up is hard to keep track of - not only does it involve the gc_start_event and gc_idle_thread_event, it also uses WaitForGCEvent which is used by SuspendEE/RestartEE which in turn means whenever we want to call these we'd need to care about how that would affect this.
+    
+    The new mechanism only uses gc_start_event and gc_idle_thread_event, but I changed gc_idle_thread_event to a per heap event. We can easily track which threads are going idling easily - whenever a thread is about to wait on the idle event, we increase the current idle_thread_count. And when we increase the heap count we only set the gc_idle_thread_event for the new heaps that are about to participate so we can deduct that many from idle_thread_count. There's a much simpler code path between "we know we don't need these threads anymore" to "these threads are at a known point" because the next time gc_start_event is set (ie, a GC is requested) we make sure to get these threads to a good known point, ie, we wait till all of them have completed increasing idle_thread_count.
+    
+    Also fixed a couple of other problems that I hit while testing the new mechanism -
+    
+    We are setting freeable_uoh_segment and freeable_soh_segment in decommission_heap to DECOMMISSIONED_REGION_P. And this causes us to simply lose the value for them. We should make sure we do push these to the free regions before we start changing the heap count.
+    
+    We should also call background_delay_delete_uoh_segments before we start changing the heap count so we can get rid of the regions marked with heap_segment_flags_uoh_delete. If we allow these to be rearranged in equalize_promoted_bytes it means the order can change the invariant of the first region never being deleted no longer holds true and we can AV in this method.
+    
+    I added an new method delay_free_segments to perform both tasks.
+    
+    The accounting of generation_free_list_space is slightly off for LOH which causes us to hit assert (gen_size >= dd_fragmentation (dd)); in change_heap_count because we were not counting the loh_pad size.
+    I also disabled assert (free_list_space_decrease <= dd_fragmentation (dd)); for gen2 since I'm seeing this fired while I'm doing stress runs. I have yet to investigate this since I didn't want to add yet more changes to this PR.
