@@ -1,0 +1,5 @@
+commit f0463a98d105f26037f9d3e63213421a3a7d4dff
+Author: Egor Bogatov <egorbo@gmail.com>
+Date:   Thu Aug 31 15:23:15 2023 +0200
+
+    Emit armv8.4 ldapur* for volatile loads with contained offsets (#89681)
