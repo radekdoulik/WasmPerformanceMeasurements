@@ -1,0 +1,9 @@
+commit b715349c6bed12a4645a9971e1f75a0845469c6f
+Author: Filip Navara <navara@emclient.com>
+Date:   Thu Aug 31 01:54:38 2023 +0200
+
+    Report UnknownCredentials status on Unix/Managed NegotiateAuthenticationPal implementation for NTLM w/ default credentials. (#91160)
+    
+    This was handled inconsistently between the managed NTLM implementation and the GSSAPI one.
+    Add test for the behavior.
+    Add test to ensure SocketsHttpHandler using CredentialCache.DefaultCredentials with NTLM doesn't throw PNSE exception and returns the Unauthorized HTTP response instead.
