@@ -1,0 +1,5 @@
+commit f64dac2b57890aa53f39c26f6f88c5d85621f9e8
+Author: Will Smith <lol.tihan@gmail.com>
+Date:   Thu Aug 31 20:42:18 2023 -0700
+
+    Guarantee that we do not hold onto a strong reference of the watcher when processing events (#91301)
