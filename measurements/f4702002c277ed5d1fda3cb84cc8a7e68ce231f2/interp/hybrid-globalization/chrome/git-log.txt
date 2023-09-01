@@ -1,0 +1,10 @@
+commit f4702002c277ed5d1fda3cb84cc8a7e68ce231f2
+Author: Viktor Hofer <viktor.hofer@microsoft.com>
+Date:   Fri Sep 1 11:23:50 2023 +0200
+
+    Fix official builds for NativeAOT (#91454)
+    
+    The ILLink ProjectReference output shouldn't be copied to consuming projects.
+    
+    From the docs:
+    > Private       Optional boolean. Specifies whether the reference should be copied to the output folder. This attribute matches the Copy Local property of the reference that's in the Visual Studio IDE.
