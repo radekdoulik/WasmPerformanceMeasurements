@@ -1,7 +1,0 @@
-commit 9d972eda4da654dfafae101e9850b1191a4dcbf9
-Author: SingleAccretion <62474226+SingleAccretion@users.noreply.github.com>
-Date:   Thu May 12 00:09:01 2022 +0300
-
-    Fold range checks with constant operands (#69056)
-    
-    Addresses an old TODO-CQ from a refactoring change.

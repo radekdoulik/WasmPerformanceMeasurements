@@ -1,7 +1,0 @@
-commit a60cc8fb89eade50a57befa96d2e92f49cba9d3f
-Author: Andy Gocke <angocke@microsoft.com>
-Date:   Sat Jul 16 14:10:28 2022 -0700
-
-    Add clr.aot subset for convenience and document it (#72251)
-    
-    You can now use `build.[cmd|sh] clr.aot` to build the components for the AOT workloads.

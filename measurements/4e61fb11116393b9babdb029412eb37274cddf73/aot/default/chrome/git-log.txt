@@ -1,7 +1,0 @@
-commit 4e61fb11116393b9babdb029412eb37274cddf73
-Author: Jan Kotas <jkotas@microsoft.com>
-Date:   Sun Apr 10 12:04:55 2022 -0700
-
-    Delete dummy ==++== file headers (#67823)
-    
-    These file headers are leftovers from before open sourcing. We have missed cleaning them up in some files.

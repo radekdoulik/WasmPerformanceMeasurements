@@ -1,9 +1,0 @@
-commit 768500cfc05a742a5b9c73ad54645a3d8534564a
-Author: Stephen Toub <stoub@microsoft.com>
-Date:   Fri Jul 22 17:48:03 2022 -0400
-
-    Tighten nullable annotations on RegistryKey.GetValue (#72679)
-    
-    * Tighten nullable annotations on RegistryKey.GetValue
-    
-    * Use nameof in attributes

@@ -1,5 +1,0 @@
-commit ed50b63b404cec5ab03cff0b0fde1d2f7327751e
-Author: Zoltan Varga <vargaz@gmail.com>
-Date:   Mon Apr 11 23:20:21 2022 +0200
-
-    [mono] Avoid trying to fork to a debugger on tvos. (#67856)

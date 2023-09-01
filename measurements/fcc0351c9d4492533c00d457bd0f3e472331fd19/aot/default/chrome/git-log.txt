@@ -1,7 +1,0 @@
-commit fcc0351c9d4492533c00d457bd0f3e472331fd19
-Author: Stephen Toub <stoub@microsoft.com>
-Date:   Tue Mar 29 17:39:36 2022 -0400
-
-    Fix a couple of issues with StackTraceSymbols.TryGetReader (#67300)
-    
-    The implementation has a comment about how ConditionalWeakTable prevents multiple threads from racing to create readers, but CWT doesn't invole the delegate under its lock.  So multiple threads can actually race to create a reader, and if one loses, it won't Dispose the reader it created.  On top of this, every call to TryGetReader is allocating a closure, even if one of the fast paths is hit, because the cache callback captures all the parameters.

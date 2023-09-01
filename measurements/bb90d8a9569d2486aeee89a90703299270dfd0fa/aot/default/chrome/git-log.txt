@@ -1,7 +1,0 @@
-commit bb90d8a9569d2486aeee89a90703299270dfd0fa
-Author: Stephen Toub <stoub@microsoft.com>
-Date:   Tue Apr 26 17:50:05 2022 -0400
-
-    Update RegexGenerator message for LimitedSourceGenerationMessage (#68569)
-    
-    It won't necessarily fall back to interpretation, and there are reasons now beyond complexity and options (e.g. case-insensitive backreferences).  Just simplify the message.

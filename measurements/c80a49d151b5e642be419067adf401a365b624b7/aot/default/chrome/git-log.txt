@@ -1,7 +1,0 @@
-commit c80a49d151b5e642be419067adf401a365b624b7
-Author: Tom Deseyn <tom.deseyn@gmail.com>
-Date:   Fri Jun 3 22:35:40 2022 +0200
-
-    Make Cryptography.Pkcs.Tests pass when rsa+sha1 signing is not supported.
-    
-    Co-authored-by: Kevin Jones <vcsjones@github.com>

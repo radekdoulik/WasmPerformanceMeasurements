@@ -1,7 +1,0 @@
-commit 475c8a84360f894c1e1d6b299702bb3ebc8e1f7c
-Author: Stephen Toub <stoub@microsoft.com>
-Date:   Thu May 5 17:52:52 2022 -0400
-
-    Use more char.Is helpers from RegexCompiler / source generator (#68924)
-    
-    This PR causes regex to now specially-recognize additional categories that map to sets `char` already has `IsXx` methods for and call them, e.g. `char.IsControl`, `char.IsLetter`, etc.

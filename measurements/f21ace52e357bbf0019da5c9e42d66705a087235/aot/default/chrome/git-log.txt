@@ -1,7 +1,0 @@
-commit f21ace52e357bbf0019da5c9e42d66705a087235
-Author: Vlad Brezae <brezaevlad@gmail.com>
-Date:   Mon Jun 6 00:07:46 2022 +0300
-
-    [mono][interp] Fix performance regression (#70255)
-    
-    Taking address of `ip` is not only questionable design wise, but also very bad for performance, since it is a hot variable in the interpreter loop that is normally allocated in a register. Taking its address forces spills.

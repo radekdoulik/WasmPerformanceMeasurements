@@ -1,7 +1,0 @@
-commit 136dfcd02bb559d02b7bfe352ecdf0a9d11f8e55
-Author: Stefan Schulze Frielinghaus <stefansf@linux.ibm.com>
-Date:   Mon Jul 4 20:56:50 2022 +0200
-
-    [mono][eventpipe] Write primitive types and UTF-16 strings in little endian order (#68648)
-    
-    * [mono][eventpipe] Add big-endian support.

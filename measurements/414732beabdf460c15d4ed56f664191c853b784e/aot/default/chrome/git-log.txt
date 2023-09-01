@@ -1,5 +1,0 @@
-commit 414732beabdf460c15d4ed56f664191c853b784e
-Author: Adam Sitnik <adam.sitnik@microsoft.com>
-Date:   Tue Aug 2 23:59:24 2022 +0200
-
-    avoid string concatenation in case when there are no Extended Strings (typical scenario) (#73239)

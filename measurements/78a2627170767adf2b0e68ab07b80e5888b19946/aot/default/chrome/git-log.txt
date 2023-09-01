@@ -1,5 +1,0 @@
-commit 78a2627170767adf2b0e68ab07b80e5888b19946
-Author: Buyaa Namnan <bunamnan@microsoft.com>
-Date:   Wed Jun 22 14:25:58 2022 -0700
-
-    Work around for UriFormatException caused by \\?\ prefix in the path (#71082)
