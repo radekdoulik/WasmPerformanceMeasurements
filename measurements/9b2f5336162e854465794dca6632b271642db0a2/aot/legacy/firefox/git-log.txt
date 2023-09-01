@@ -1,0 +1,21 @@
+commit 9b2f5336162e854465794dca6632b271642db0a2
+Author: Ankit Jain <radical@gmail.com>
+Date:   Fri Sep 1 14:49:08 2023 -0400
+
+    [wasm] Fix perf pipeline (#91446)
+    
+    * workloads: Skip updating the targeting pack
+    
+    This is required because the runtime pack is still 8.0, but updating the
+    targeting pack from the local build would make it 9.0, thus causing this
+    error for non-wasm apps:
+    
+    ```
+    Unhandled exception. System.IO.FileNotFoundException: Could not load file or assembly 'System.Runtime, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'. The system cannot find the file specified.
+    
+    File name: 'System.Runtime, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'
+    ```
+    
+    * [wasm] makefile cleanup
+    
+    * [wasm] Enable non-wasm build tests
