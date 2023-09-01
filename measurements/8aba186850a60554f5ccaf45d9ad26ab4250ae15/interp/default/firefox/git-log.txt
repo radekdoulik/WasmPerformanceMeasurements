@@ -1,0 +1,11 @@
+commit 8aba186850a60554f5ccaf45d9ad26ab4250ae15
+Author: Emmanuel André <2341261+manandre@users.noreply.github.com>
+Date:   Fri Sep 1 00:31:23 2023 +0200
+
+    Implement IDirectoryContents on PhysicalDirectoryInfo (#91024)
+    
+    * Implement IDirectoryContents on PhysicalDirectoryInfo
+    
+    * Update test
+    
+    * Avoid code duplication
