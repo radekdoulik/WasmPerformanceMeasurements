@@ -1,0 +1,45 @@
+{
+  "mainAssemblyName": "PerformanceTool.dll",
+  "resources": {
+    "hash": "sha256-7mHzauSf80QBWt5zVvmVFMZOpINS2SS8+NZHrDA/5+o=",
+    "jsModuleNative": {
+      "dotnet.native.js": "sha256-XkVv2uYTG6amQsQCZFjfZKih2c18V2JQBFG6ecw3lOA="
+    },
+    "jsModuleRuntime": {
+      "dotnet.runtime.js": "sha256-pzKZAppkMBs4Gc+y4E5lQRFH+CdjfuVkgvtiQ+zWUzM="
+    },
+    "wasmNative": {
+      "dotnet.native.wasm": "sha256-ZVeh+dTSW0tluX41T3HtG+F4e69kRW3kbcYqAJ4IRew="
+    },
+    "icu": {
+      "icudt_CJK.dat": "sha256-SZLtQnRc0JkwqHab0VUVP7T3uBPSeYzxzDnpxPpUnHk=",
+      "icudt_EFIGS.dat": "sha256-8fItetYY8kQ0ww6oxwTLiT3oXlBwHKumbeP2pRF4yTc=",
+      "icudt_no_CJK.dat": "sha256-L7sV7NEYP37/Qr2FPCePo5cJqRgTXRwGHuwF5Q+0Nfs="
+    },
+    "assembly": {
+      "PerformanceTool.wasm": "sha256-wYqSjIH/FKzjVcmlJflgbW0uxD6ZgRmicINwOXVPxAQ=",
+      "System.Collections.Concurrent.wasm": "sha256-6od5HuhD7qrVk5j8Xof9znRPNzI5ggIIVFTvCd9wKD0=",
+      "System.Collections.wasm": "sha256-nm4/wGdj3QYU/+N91YmFnQPASBCHQH48M+OuaDRDWjM=",
+      "System.Console.wasm": "sha256-x365uKhsNrTsvd4bz8F8V2yfkdKgVYwIVcEdwTP0bUM=",
+      "System.Diagnostics.DiagnosticSource.wasm": "sha256-mf+eQUsaieeLcfHnSXmYS3LTy8W5yVRQ2tDuQwRwTH4=",
+      "System.IO.Compression.wasm": "sha256-NBRvEADFerImQRZspq/2v+OAyEFb2gaK5zKNvP3JpRg=",
+      "System.Linq.wasm": "sha256-Pb1v1RKHJ/R2u3Lk/fw2AUTG9nozw9+LqxSXqlgUVS8=",
+      "System.Memory.wasm": "sha256-74pZUxVoYZl+D5/NbE8rIckVBG2tW5rQ1r03FeGBxDU=",
+      "System.Net.Http.wasm": "sha256-DJW+IllEr7h0Qe9ZwCktEombcBuJXU6uaUZ9kdp8JX0=",
+      "System.Net.Primitives.wasm": "sha256-hBo/HrqbWv4G79Q8AICX//icNy//LHab9N61i3omH2Y=",
+      "System.Private.CoreLib.wasm": "sha256-+/PTUTuXL25piESdwv0pgBsavgevXUoSYVzPCZcFKFM=",
+      "System.Private.Uri.wasm": "sha256-1rKELupFjXS/nS0B3eAWVB2rMac8RCn5yW90FcpjnTk=",
+      "System.Runtime.InteropServices.JavaScript.wasm": "sha256-F5XtSs/IxQ3/KHVKBx+G11PSlJLvJpved/U/CSp6EwY=",
+      "System.Text.Encodings.Web.wasm": "sha256-fYD0WuMFTlvYtC8VT4HQLqWbEaNkiQsqlwAYS+pln9Q=",
+      "System.Text.Json.wasm": "sha256-G6bHIrkZ+anosaAU0+r5Wy5SycVK/cmIHxC26zpNJC8="
+    },
+    "vfs": {
+      "runtimeconfig.bin": {
+        "supportFiles/0_runtimeconfig.bin": "sha256-bZVADVE9/vuk4VK9UcMd3AREONFSoWULYacsy5DHL3I="
+      }
+    }
+  },
+  "cacheBootResources": true,
+  "debugLevel": 0,
+  "globalizationMode": "sharded"
+}

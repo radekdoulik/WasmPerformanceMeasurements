@@ -1,10 +1,10 @@
 {
   "runtimeOptions": {
-    "tfm": "net7.0",
+    "tfm": "net8.0",
     "includedFrameworks": [
       {
         "name": "Microsoft.NETCore.App",
-        "version": "7.0.0-rc.2.22472.3"
+        "version": "8.0.0-dev"
       }
     ],
     "wasmHostProperties": {
@@ -26,10 +26,12 @@
       "System.Runtime.InteropServices.BuiltInComInterop.IsSupported": false,
       "System.Runtime.InteropServices.EnableConsumingManagedCodeFromNativeHosting": false,
       "System.Runtime.InteropServices.EnableCppCLIHostActivation": false,
+      "System.Runtime.InteropServices.Marshalling.EnableGeneratedComInterfaceComImportInterop": false,
       "System.Runtime.Serialization.EnableUnsafeBinaryFormatterSerialization": false,
       "System.StartupHookProvider.IsSupported": false,
-      "System.Threading.Thread.EnableAutoreleasePool": false,
-      "System.Text.Encoding.EnableUnsafeUTF7Encoding": false
+      "System.Text.Encoding.EnableUnsafeUTF7Encoding": false,
+      "System.Text.Json.JsonSerializer.IsReflectionEnabledByDefault": false,
+      "System.Threading.Thread.EnableAutoreleasePool": false
     }
   }
 }
