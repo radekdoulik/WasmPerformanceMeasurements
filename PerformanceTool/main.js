@@ -728,7 +728,6 @@ async function mainJS() {
         }
     }
 
-    const exports = await App.MONO.mono_wasm_get_assembly_exports("PerformanceTool.dll");
     const promise = exports.Program.LoadData(measurementsUrl);
     let value = await promise;
     let unfilteredData = JSON.parse(value);
