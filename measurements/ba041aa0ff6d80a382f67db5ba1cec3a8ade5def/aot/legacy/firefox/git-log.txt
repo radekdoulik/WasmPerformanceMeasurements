@@ -1,0 +1,7 @@
+commit ba041aa0ff6d80a382f67db5ba1cec3a8ade5def
+Author: Aaron Robinson <arobins@microsoft.com>
+Date:   Fri Sep 1 20:43:46 2023 -0700
+
+    Fix usage of load library (#91483)
+    
+    * Use LoadLibraryExW on Windows.
