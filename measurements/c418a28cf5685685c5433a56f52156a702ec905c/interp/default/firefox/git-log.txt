@@ -1,0 +1,69 @@
+commit c418a28cf5685685c5433a56f52156a702ec905c
+Author: dotnet-maestro[bot] <42748379+dotnet-maestro[bot]@users.noreply.github.com>
+Date:   Fri Sep 1 20:56:13 2023 -0500
+
+    [main] Update dependencies from dotnet/arcade dotnet/xharness dotnet/emsdk dotnet/sdk (#91323)
+    
+    * Update dependencies from https://github.com/dotnet/arcade build 20230829.1
+    
+    Microsoft.DotNet.Arcade.Sdk , Microsoft.DotNet.Build.Tasks.Archives , Microsoft.DotNet.Build.Tasks.Feed , Microsoft.DotNet.Build.Tasks.Installers , Microsoft.DotNet.Build.Tasks.Packaging , Microsoft.DotNet.Build.Tasks.TargetFramework , Microsoft.DotNet.Build.Tasks.Templating , Microsoft.DotNet.Build.Tasks.Workloads , Microsoft.DotNet.CodeAnalysis , Microsoft.DotNet.GenAPI , Microsoft.DotNet.GenFacades , Microsoft.DotNet.Helix.Sdk , Microsoft.DotNet.PackageTesting , Microsoft.DotNet.RemoteExecutor , Microsoft.DotNet.SharedFramework.Sdk , Microsoft.DotNet.VersionTools.Tasks , Microsoft.DotNet.XUnitAssert , Microsoft.DotNet.XUnitConsoleRunner , Microsoft.DotNet.XUnitExtensions
+     From Version 8.0.0-beta.23428.2 -> To Version 8.0.0-beta.23429.1
+    
+    Dependency coherency updates
+    
+    Microsoft.DotNet.XliffTasks
+     From Version 1.0.0-beta.23423.1 -> To Version 1.0.0-beta.23426.1 (parent: Microsoft.DotNet.Helix.Sdk
+    
+    * Update dependencies from https://github.com/dotnet/xharness build 20230829.1
+    
+    Microsoft.DotNet.XHarness.CLI , Microsoft.DotNet.XHarness.TestRunners.Common , Microsoft.DotNet.XHarness.TestRunners.Xunit
+     From Version 8.0.0-prerelease.23421.1 -> To Version 8.0.0-prerelease.23429.1
+    
+    * Update dependencies from https://github.com/dotnet/emsdk build 20230829.3
+    
+    Microsoft.NET.Workload.Emscripten.Current.Manifest-9.0.100.Transport
+     From Version 9.0.0-alpha.1.23427.1 -> To Version 9.0.0-alpha.1.23429.3
+    
+    * Update dependencies from https://github.com/dotnet/sdk build 20230830.6
+    
+    Microsoft.DotNet.ApiCompat.Task
+     From Version 9.0.100-alpha.1.23429.3 -> To Version 9.0.100-alpha.1.23430.6
+    
+    * Dependency coherency updates
+    
+    runtime.linux-arm64.Microsoft.NETCore.Runtime.ObjWriter,runtime.linux-x64.Microsoft.NETCore.Runtime.ObjWriter,runtime.linux-musl-arm64.Microsoft.NETCore.Runtime.ObjWriter,runtime.linux-musl-x64.Microsoft.NETCore.Runtime.ObjWriter,runtime.win-arm64.Microsoft.NETCore.Runtime.ObjWriter,runtime.win-x64.Microsoft.NETCore.Runtime.ObjWriter,runtime.osx-arm64.Microsoft.NETCore.Runtime.ObjWriter,runtime.osx-x64.Microsoft.NETCore.Runtime.ObjWriter,runtime.linux-arm64.Microsoft.NETCore.Runtime.JIT.Tools,runtime.linux-x64.Microsoft.NETCore.Runtime.JIT.Tools,runtime.linux-musl-arm64.Microsoft.NETCore.Runtime.JIT.Tools,runtime.linux-musl-x64.Microsoft.NETCore.Runtime.JIT.Tools,runtime.win-arm64.Microsoft.NETCore.Runtime.JIT.Tools,runtime.win-x64.Microsoft.NETCore.Runtime.JIT.Tools,runtime.osx-arm64.Microsoft.NETCore.Runtime.JIT.Tools,runtime.osx-x64.Microsoft.NETCore.Runtime.JIT.Tools,runtime.linux-arm64.Microsoft.NETCore.Runtime.Mono.LLVM.Sdk,runtime.linux-arm64.Microsoft.NETCore.Runtime.Mono.LLVM.Tools,runtime.linux-musl-arm64.Microsoft.NETCore.Runtime.Mono.LLVM.Sdk,runtime.linux-musl-arm64.Microsoft.NETCore.Runtime.Mono.LLVM.Tools,runtime.linux-x64.Microsoft.NETCore.Runtime.Mono.LLVM.Sdk,runtime.linux-x64.Microsoft.NETCore.Runtime.Mono.LLVM.Tools,runtime.linux-musl-x64.Microsoft.NETCore.Runtime.Mono.LLVM.Sdk,runtime.linux-musl-x64.Microsoft.NETCore.Runtime.Mono.LLVM.Tools,runtime.win-x64.Microsoft.NETCore.Runtime.Mono.LLVM.Sdk,runtime.win-x64.Microsoft.NETCore.Runtime.Mono.LLVM.Tools,runtime.osx-arm64.Microsoft.NETCore.Runtime.Mono.LLVM.Sdk,runtime.osx-arm64.Microsoft.NETCore.Runtime.Mono.LLVM.Tools,runtime.osx-x64.Microsoft.NETCore.Runtime.Mono.LLVM.Sdk,runtime.osx-x64.Microsoft.NETCore.Runtime.Mono.LLVM.Tools
+     From Version 16.0.5-alpha.1.23414.1 -> To Version 16.0.5-alpha.1.23423.2 (parent: Microsoft.NET.Workload.Emscripten.Current.Manifest-9.0.100.Transport
+    
+    * Update dependencies from https://github.com/dotnet/sdk build 20230831.2
+    
+    Microsoft.DotNet.ApiCompat.Task
+     From Version 9.0.100-alpha.1.23429.3 -> To Version 9.0.100-alpha.1.23431.2
+    
+    * Update dependencies from https://github.com/dotnet/arcade build 20230831.2
+    
+    Microsoft.DotNet.Arcade.Sdk , Microsoft.DotNet.Build.Tasks.Archives , Microsoft.DotNet.Build.Tasks.Feed , Microsoft.DotNet.Build.Tasks.Installers , Microsoft.DotNet.Build.Tasks.Packaging , Microsoft.DotNet.Build.Tasks.TargetFramework , Microsoft.DotNet.Build.Tasks.Templating , Microsoft.DotNet.Build.Tasks.Workloads , Microsoft.DotNet.CodeAnalysis , Microsoft.DotNet.GenAPI , Microsoft.DotNet.GenFacades , Microsoft.DotNet.Helix.Sdk , Microsoft.DotNet.PackageTesting , Microsoft.DotNet.RemoteExecutor , Microsoft.DotNet.SharedFramework.Sdk , Microsoft.DotNet.VersionTools.Tasks , Microsoft.DotNet.XUnitAssert , Microsoft.DotNet.XUnitConsoleRunner , Microsoft.DotNet.XUnitExtensions
+     From Version 8.0.0-beta.23428.2 -> To Version 8.0.0-beta.23431.2
+    
+    Dependency coherency updates
+    
+    Microsoft.DotNet.XliffTasks
+     From Version 1.0.0-beta.23423.1 -> To Version 1.0.0-beta.23426.1 (parent: Microsoft.DotNet.Helix.Sdk
+    
+    * Update dependencies from https://github.com/dotnet/xharness build 20230831.1
+    
+    Microsoft.DotNet.XHarness.CLI , Microsoft.DotNet.XHarness.TestRunners.Common , Microsoft.DotNet.XHarness.TestRunners.Xunit
+     From Version 8.0.0-prerelease.23421.1 -> To Version 8.0.0-prerelease.23431.1
+    
+    * Update dependencies from https://github.com/dotnet/sdk build 20230831.39
+    
+    Microsoft.DotNet.ApiCompat.Task
+     From Version 9.0.100-alpha.1.23429.3 -> To Version 9.0.100-alpha.1.23431.39
+    
+    * Dependency coherency updates
+    
+    runtime.linux-arm64.Microsoft.NETCore.Runtime.ObjWriter,runtime.linux-x64.Microsoft.NETCore.Runtime.ObjWriter,runtime.linux-musl-arm64.Microsoft.NETCore.Runtime.ObjWriter,runtime.linux-musl-x64.Microsoft.NETCore.Runtime.ObjWriter,runtime.win-arm64.Microsoft.NETCore.Runtime.ObjWriter,runtime.win-x64.Microsoft.NETCore.Runtime.ObjWriter,runtime.osx-arm64.Microsoft.NETCore.Runtime.ObjWriter,runtime.osx-x64.Microsoft.NETCore.Runtime.ObjWriter,runtime.linux-arm64.Microsoft.NETCore.Runtime.JIT.Tools,runtime.linux-x64.Microsoft.NETCore.Runtime.JIT.Tools,runtime.linux-musl-arm64.Microsoft.NETCore.Runtime.JIT.Tools,runtime.linux-musl-x64.Microsoft.NETCore.Runtime.JIT.Tools,runtime.win-arm64.Microsoft.NETCore.Runtime.JIT.Tools,runtime.win-x64.Microsoft.NETCore.Runtime.JIT.Tools,runtime.osx-arm64.Microsoft.NETCore.Runtime.JIT.Tools,runtime.osx-x64.Microsoft.NETCore.Runtime.JIT.Tools,runtime.linux-arm64.Microsoft.NETCore.Runtime.Mono.LLVM.Sdk,runtime.linux-arm64.Microsoft.NETCore.Runtime.Mono.LLVM.Tools,runtime.linux-musl-arm64.Microsoft.NETCore.Runtime.Mono.LLVM.Sdk,runtime.linux-musl-arm64.Microsoft.NETCore.Runtime.Mono.LLVM.Tools,runtime.linux-x64.Microsoft.NETCore.Runtime.Mono.LLVM.Sdk,runtime.linux-x64.Microsoft.NETCore.Runtime.Mono.LLVM.Tools,runtime.linux-musl-x64.Microsoft.NETCore.Runtime.Mono.LLVM.Sdk,runtime.linux-musl-x64.Microsoft.NETCore.Runtime.Mono.LLVM.Tools,runtime.win-x64.Microsoft.NETCore.Runtime.Mono.LLVM.Sdk,runtime.win-x64.Microsoft.NETCore.Runtime.Mono.LLVM.Tools,runtime.osx-arm64.Microsoft.NETCore.Runtime.Mono.LLVM.Sdk,runtime.osx-arm64.Microsoft.NETCore.Runtime.Mono.LLVM.Tools,runtime.osx-x64.Microsoft.NETCore.Runtime.Mono.LLVM.Sdk,runtime.osx-x64.Microsoft.NETCore.Runtime.Mono.LLVM.Tools
+     From Version 16.0.5-alpha.1.23414.1 -> To Version 16.0.5-alpha.1.23423.2 (parent: Microsoft.NET.Workload.Emscripten.Current.Manifest-9.0.100.Transport
+    
+    ---------
+    
+    Co-authored-by: dotnet-maestro[bot] <dotnet-maestro[bot]@users.noreply.github.com>
