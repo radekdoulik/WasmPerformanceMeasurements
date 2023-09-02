@@ -1,0 +1,21 @@
+commit 8d13e3e9a9253298476f0cd19f3ef920abe972d2
+Author: Youssef Victor <youssefvictor00@gmail.com>
+Date:   Fri Sep 1 22:42:57 2023 +0000
+
+    Make `--skip-unresolved` the default when not running from SDK (#90512)
+    
+    * Make `--skip-unresolved` the default when not running from SDK
+    
+    * Fix command-line doc
+    
+    * Update NullableOnConstraints test
+    
+    * chore: Update CanPreserveNullableCustomOperators test
+    
+    * Remove `--skip-unresolved` from targets as it's the default now in command-line linker
+    
+    * Fix tests that check --skip-unresolved false behavior
+    
+    ---------
+    
+    Co-authored-by: Sven Boemer <sbomer@gmail.com>
