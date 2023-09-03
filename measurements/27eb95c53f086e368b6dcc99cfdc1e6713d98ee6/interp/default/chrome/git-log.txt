@@ -1,0 +1,22 @@
+commit 27eb95c53f086e368b6dcc99cfdc1e6713d98ee6
+Author: Maoni Stephens <Maoni0@users.noreply.github.com>
+Date:   Sat Sep 2 13:06:36 2023 -0700
+
+    Cleanup only changes (#91445)
+    
+    Cleanup only changes
+    
+    + fixed compiler errors for when BACKGROUND_GC is not defined
+    
+    + made a few things only defind when USE_REGIONS is not defined as they are only used for segments case
+    
+    + fixed an AV in a dprintf in descr_generations that @cshung noticed
+    
+    + reverted the dprintf change I accidently left in a previous PR that @mrsharm noticed
+    
+    + got rid of some unused methods
+    
+    + got rid of some useless, obsolete or wrong comments and move the finalize lock comment to an appropriate place
+    
+    + fixed some inappropriate line width, inconsistent formatting, unused args/fields and typos
+      there are other inconsistent formating like spacing but there are many so they should be in their own PR to not completely dwarf changes in this one.
