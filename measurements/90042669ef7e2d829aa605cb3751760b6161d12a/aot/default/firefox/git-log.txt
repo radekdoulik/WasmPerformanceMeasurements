@@ -1,0 +1,5 @@
+commit 90042669ef7e2d829aa605cb3751760b6161d12a
+Author: Xu Liangyu <xuliangyu@loongson.cn>
+Date:   Tue Sep 5 13:34:21 2023 +0800
+
+    [LoongArch64, RISC-V] Fix the assertion error for MethodTable::GetLoongArch64PassStructInRegisterFlags() and MethodTable::GetRiscv64PassStructInRegisterFlags(). (#91570)
