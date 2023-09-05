@@ -1,0 +1,23 @@
+commit 7329c4b3e2480ea1d9e885ccdb70b9d1585413fc
+Author: Ahmet Ibrahim Aksoy <aaksoy@microsoft.com>
+Date:   Mon Sep 4 22:14:50 2023 +0200
+
+    Activate Quic Alpn Narrowing Test (#91116)
+    
+    * Delete ActiveIssue
+    
+    * Disable Not Existing Inline Data
+    
+    * Delete connection accept
+    
+    * Merge assert and variable
+    
+    * Add listener throws case
+    
+    * Update src/libraries/System.Net.Quic/tests/FunctionalTests/QuicListenerTests.cs
+    
+    Co-authored-by: Marie Píchová <11718369+ManickaP@users.noreply.github.com>
+    
+    ---------
+    
+    Co-authored-by: Marie Píchová <11718369+ManickaP@users.noreply.github.com>
