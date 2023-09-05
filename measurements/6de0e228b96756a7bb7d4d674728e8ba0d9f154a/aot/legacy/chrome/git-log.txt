@@ -1,0 +1,22 @@
+commit 6de0e228b96756a7bb7d4d674728e8ba0d9f154a
+Author: Jan Vorlicek <janvorli@microsoft.com>
+Date:   Tue Sep 5 04:08:05 2023 +0200
+
+    Fix NativeAOT unhandled exception stack trace (#91415)
+    
+    * Fix NativeAOT unhandled exception stack trace
+    
+    The recent change to add a new exception handling mechanism to coreclr
+    has broken stack traces on unhandled exceptions in nativeaot.
+    
+    This change fixes it by reverting the part of the change that caused the
+    problem and that turned out to not to be needed for the new exception
+    handling either.
+    
+    Close #91298
+    
+    * Add unhandled exception test
+    
+    * Reflect PR feedback
+    
+    * Fix Mono console log parsing
