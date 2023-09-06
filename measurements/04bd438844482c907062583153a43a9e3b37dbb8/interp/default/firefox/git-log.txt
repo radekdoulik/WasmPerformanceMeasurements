@@ -1,0 +1,7 @@
+commit 04bd438844482c907062583153a43a9e3b37dbb8
+Author: Jan Vorlicek <janvorli@microsoft.com>
+Date:   Wed Sep 6 07:20:06 2023 +0200
+
+    Fix x64 crossbuild on macOS arm64 (#91413)
+    
+     cpufeatures.h/.c uses TARGET_ ifdefs, but it should use HOST_ ifdefs
