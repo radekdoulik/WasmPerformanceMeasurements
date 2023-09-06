@@ -1,0 +1,5 @@
+commit 23987d2120a4c1e38a18d32e1bc9d3ccf0781e64
+Author: Egor Bogatov <egorbo@gmail.com>
+Date:   Wed Sep 6 15:17:45 2023 +0200
+
+    Fix Interlocked.Or/And for arm64 (#91557)
