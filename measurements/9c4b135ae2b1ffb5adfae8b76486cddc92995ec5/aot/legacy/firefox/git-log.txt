@@ -1,0 +1,11 @@
+commit 9c4b135ae2b1ffb5adfae8b76486cddc92995ec5
+Author: Bruce Forstall <brucefo@microsoft.com>
+Date:   Wed Sep 6 11:00:12 2023 -0700
+
+    Log disk space available and consumed by SPMI download (#91683)
+    
+    Example output in the DEBUG log:
+    ```
+    [10:39:04] Disk usage (c:\spmi): total 2,047 GB; free 1,411 GB
+    [10:42:45] Disk usage (c:\spmi): total 2,047 GB; free 1,378 GB; consumed by download 33 GB
+    ```
