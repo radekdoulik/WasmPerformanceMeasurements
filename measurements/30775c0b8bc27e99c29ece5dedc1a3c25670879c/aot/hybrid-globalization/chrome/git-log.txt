@@ -1,0 +1,7 @@
+commit 30775c0b8bc27e99c29ece5dedc1a3c25670879c
+Author: Vlad Brezae <brezaevlad@gmail.com>
+Date:   Thu Sep 7 09:34:00 2023 +0300
+
+    [mono][mini] Fix gshared crash when calling svm and constrained class is interface (#91667)
+    
+    If constrained class is interface, then we don't need to do any vtable lookup, call interface method directly.
