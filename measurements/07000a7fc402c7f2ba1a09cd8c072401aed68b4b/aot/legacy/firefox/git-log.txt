@@ -1,0 +1,9 @@
+commit 07000a7fc402c7f2ba1a09cd8c072401aed68b4b
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Thu Sep 7 06:36:51 2023 -0400
+
+    Start vectorizing TensorPrimitives (#91596)
+    
+    * Start vectorizing TensorPrimitives
+    
+    Just does two functions to establish the files into which the rest of the implementations can be moved.
