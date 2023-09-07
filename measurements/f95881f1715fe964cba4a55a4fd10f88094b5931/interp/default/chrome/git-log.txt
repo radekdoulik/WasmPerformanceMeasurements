@@ -1,0 +1,7 @@
+commit f95881f1715fe964cba4a55a4fd10f88094b5931
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Wed Sep 6 18:37:52 2023 -0400
+
+    Remove a little work from CreateManifestAndDescriptors (#90435)
+    
+    Not much, but we can move down the calls to GetParameters and GetCustomAttributes to where they're needed and avoid doing the work in the case of e.g. a static method on the event source.
