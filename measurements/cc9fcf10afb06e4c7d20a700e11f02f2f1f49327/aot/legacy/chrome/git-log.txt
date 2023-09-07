@@ -1,0 +1,7 @@
+commit cc9fcf10afb06e4c7d20a700e11f02f2f1f49327
+Author: Bruce Forstall <brucefo@microsoft.com>
+Date:   Wed Sep 6 18:16:07 2023 -0700
+
+    Improve SPMI space checking calculation (#91697)
+    
+    Be more robust to non-existent directories
