@@ -1,0 +1,5 @@
+commit 773c1807b73abfa1204b8e260ffd20518d34c328
+Author: Jeremy Koritzinsky <jekoritz@microsoft.com>
+Date:   Thu Sep 7 17:12:11 2023 -0700
+
+    Split the informational version on both SemVer2 separators when calculating TFM (#91758)
