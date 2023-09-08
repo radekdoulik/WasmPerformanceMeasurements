@@ -728,7 +728,16 @@ async function mainJS() {
         }
     }
 
-    const promise = exports.Program.LoadData(measurementsUrl);
+
+    let url = new URL(decodeURI(window.location));
+    let indexArg = url.searchParams.getAll('index');
+    let indexUrl = measurementsUrl + '/' + "index2.zip";
+    if (indexArg != '') {
+        indexUrl = window.location.origin + '/' + indexArg;
+        console.log("will try to load the data from: " + indexUrl);
+    }
+
+    const promise = exports.Program.LoadData(String(indexUrl));
     let value = await promise;
     let unfilteredData = JSON.parse(value);
     let data = unfilteredData.graphPoints;

@@ -30,10 +30,10 @@ public partial class Program
         return $"|{new string('-', alignmentLength)}:";
     }
 
-    private static async Task<WasmBenchmarkResults.Index> LoadIndex(string measurementsUrl)
+    private static async Task<WasmBenchmarkResults.Index> LoadIndex(string indexUrl)
     {
         DataDownloader dataDownloader = new();
-        using var memoryStream = new MemoryStream(await dataDownloader.downloadAsBytes(measurementsUrl + zipFileName));
+        using var memoryStream = new MemoryStream(await dataDownloader.downloadAsBytes(indexUrl));
         using var archive = new ZipArchive(memoryStream);
         var entry = archive.GetEntry(fileName);
         using Stream readStream = entry.Open();
@@ -43,14 +43,20 @@ public partial class Program
         return index;
     }
 
-    internal static async Task<string> LoadTests(string measurementsUrl)
+    internal static async Task<string> LoadTests(string indexUrl)
     {
-        var data = await LoadIndex(measurementsUrl);
+        var data = await LoadIndex(indexUrl);
         var dataLen = data.Data.Count;
         for (var i = 0; i < dataLen; i++)
         {
             var flavor = data.FlavorMap[data.Data[i].flavorId];
-            var logUrl = measurementsUrl + data.Data[i].hash + "/" + flavor.Replace('.', '/') + gitLogFile;
+            var idx = indexUrl.LastIndexOf('/');
+            var urlBase = indexUrl;
+            if (idx >= 0)
+                urlBase = indexUrl.Substring(0, idx);
+            System.Console.WriteLine($"urlBase: {urlBase}");
+            var logUrl = urlBase + data.Data[i].hash + "/" + flavor.Replace('.', '/') + gitLogFile;
+            System.Console.WriteLine($"logUrl: {logUrl}");
             foreach (var pair in data.Data[i].minTimes)
             {
                 list.Add(new GraphPointData(data.Data[i].commitTime.ToString(CultureInfo.InvariantCulture), flavor, new KeyValuePair<string, double>(data.MeasurementMap[pair.Key], pair.Value), logUrl, data.Data[i].hash));
@@ -154,8 +160,8 @@ public partial class Program
     }
 
     [JSExport]
-    internal static Task<string> LoadData(string measurementsUrl)
+    internal static Task<string> LoadData(string indexUrl)
     {
-        return LoadTests(measurementsUrl);
+        return LoadTests(indexUrl);
     }
 }
