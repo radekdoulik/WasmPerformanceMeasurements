@@ -1,0 +1,7 @@
+commit f3c7893c5283af55fea171bb694596a2f53b650e
+Author: Egor Bogatov <egorbo@gmail.com>
+Date:   Fri Sep 8 11:38:04 2023 +0200
+
+    ARM64: Use stlur for volatile stores (#91553)
+    
+    Co-authored-by: Bruce Forstall <brucefo@microsoft.com>
