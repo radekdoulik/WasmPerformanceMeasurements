@@ -1,0 +1,26 @@
+commit bf47885ce363c2ec25a56b0de26acaef8d43fc4e
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Fri Sep 8 15:21:08 2023 +0900
+
+    Fix partial trimming of assemblies only referenced in metadata (#91713)
+    
+    runtime-extra-platforms are on the floor again after the rebrand to .NET 9 TFM PR.
+    
+    They're failing with an obscure:
+    
+    ```
+    Unhandled exception. System.InvalidOperationException: Unable to get member, please check input for IsNativeAot.
+       at Microsoft.DotNet.XUnitExtensions.DiscovererHelpers.Evaluate(Type calleeType, String[] conditionMemberNames) + 0xb6
+       at Microsoft.DotNet.XUnitExtensions.DiscovererHelpers.<EvaluateArguments>d__13.MoveNext() + 0x209
+    ```
+    
+    This is because `PlatformDetection.IsNativeAot` is not visible from reflection.
+    
+    Root caused this to:
+    
+    * `PlatformDetection` type is only referenced from `ConditionalFact` attribute. This attribute is not annotated with dataflow annotations, so the only thing we keep is the _metadata_ for the `PlatformDetection` type, since there's nothing else to keep (no methods, no MethodTable).
+    * This is the _only_ reference to something from TestUtilities assembly.
+    * Before the 9.0 rebrand PR, some nullable junk attributes were also generated into TestUtilities assembly. This basically helped us get _some runtime artifacts_ for _something_ in TestUtilities to be generated - when we were scanning attributes on PlatformDetection we'd say: oh this attribute needs a methodtable and a body for the constructor. This in turn triggered partial trimming logic to make _everything_ in TestUtilities reflection rooted.
+    * After the 9.0 rebrand PR those attributes live in CoreLib, so nothing in TestUtilities gets a runtime artifact. Partial trimming logic is not looked at from TypeMetadata node.
+    
+    I'm fixing it by just explicitly rooting TestUtilities.
