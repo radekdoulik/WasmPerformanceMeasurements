@@ -1,0 +1,7 @@
+commit 7d399f6deed60ce90292d2551c288d137e2278e6
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Fri Sep 8 10:08:48 2023 -0400
+
+    Enable analyzer analyzers (#91733)
+    
+    Use Microsoft.CodeAnalysis.Analyzer in our builds, to help validate our analyzers and source generators. A few projects were doing this explicitly; this does it for all.
