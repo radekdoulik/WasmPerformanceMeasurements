@@ -1,0 +1,9 @@
+commit 14d14db07f5993031fccffdf105b96a132411d3d
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Sat Sep 9 08:39:37 2023 +0900
+
+    Make it possible to remove DotNetRuntimeDebugHeader (#91775)
+    
+    There's popular demand to be able to remove this export, see these in the past: #79197, dotnet/runtimelab#739
+    
+    Fixes #90838 by lumping it together with `DebuggerSupport`. It feels like the most natural switch. I didn't go as far as completely removing the data structures because the savings would likely be miniscule (4 kB contribution from the object file per SizeBench).
