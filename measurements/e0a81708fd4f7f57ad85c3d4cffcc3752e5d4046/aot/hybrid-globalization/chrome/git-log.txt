@@ -1,0 +1,5 @@
+commit e0a81708fd4f7f57ad85c3d4cffcc3752e5d4046
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Fri Sep 8 16:16:17 2023 -0400
+
+    [mono][aot] Avoid compiling the same method multiple times during dedup. (#91802)
