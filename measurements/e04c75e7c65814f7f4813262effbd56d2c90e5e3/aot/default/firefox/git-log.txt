@@ -1,0 +1,5 @@
+commit e04c75e7c65814f7f4813262effbd56d2c90e5e3
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Sat Sep 9 06:04:41 2023 -0400
+
+    [mono] Use g_malloc instead of malloc in giconv.c. (#91807)
