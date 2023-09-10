@@ -1,0 +1,13 @@
+commit 671d42c39cc85f3a4c33f4feff2c556415b19395
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Sat Sep 9 17:11:42 2023 +0200
+
+    JIT: Fix invalid zero-init suppression for untracked variables (#91580)
+    
+    optRemoveRedundantZeroInits has logic to remove unnecessary zero inits
+    if we can determine that the local will be zeroed in the prolog. In
+    addition, it also has logic to suppress the prolog zero init if there is
+    a dominating initialization already. The latter logic was trying to
+    reason about liveness for untracked locals, which does not make sense.
+    
+    Fix #91576
