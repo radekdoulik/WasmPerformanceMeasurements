@@ -54,9 +54,7 @@ public partial class Program
             var urlBase = indexUrl;
             if (idx >= 0)
                 urlBase = indexUrl.Substring(0, idx);
-            System.Console.WriteLine($"urlBase: {urlBase}");
             var logUrl = urlBase + data.Data[i].hash + "/" + flavor.Replace('.', '/') + gitLogFile;
-            System.Console.WriteLine($"logUrl: {logUrl}");
             foreach (var pair in data.Data[i].minTimes)
             {
                 list.Add(new GraphPointData(data.Data[i].commitTime.ToString(CultureInfo.InvariantCulture), flavor, new KeyValuePair<string, double>(data.MeasurementMap[pair.Key], pair.Value), logUrl, data.Data[i].hash));
