@@ -31,7 +31,7 @@ async function mainJS() {
 
 
     class TaskData {
-        constructor(taskId, legendName, dataGroup, allData, flavors, x, y, xAxis, xGrid, yGrid, yAxisLeft, yAxisRight) {
+        constructor(taskId, legendName, div, dataGroup, allData, flavors, x, y, xAxis, xGrid, yGrid, yAxisLeft, yAxisRight) {
             this.taskId = taskId;
             this.legendName = legendName;
             this.allData = allData;
@@ -43,6 +43,7 @@ async function mainJS() {
             this.yAxisLeft = yAxisLeft;
             this.yAxisRight = yAxisRight;
             this.dataGroup = dataGroup;
+            this.div = div;
             this.brush = null;
             this.data = [];
             this.hiddenData = [];
@@ -250,6 +251,13 @@ async function mainJS() {
 
         let escapedFlavor = "";
         let filteredData = mapByField(testData.data, "flavor");
+        let containsData = filteredData.size > 0;
+        testData.div.style("display", containsData ? "block" : "none");
+
+        if (!containsData) {
+            return;
+        }
+
         let flvs = [...filteredData.keys()];
         for (let i = 0; i < flvs.length; i++) {
             escapedFlavor = flvs[i].replaceAll(regex, '');
@@ -327,14 +335,14 @@ async function mainJS() {
         let [task, test] = taskName.split(",");
         let data = allData.filter(d => d.taskMeasurementName === taskName);
         let collapsible = d3.select("#" + task + "collapsible");
-        let dataGroup = collapsible
-            .append("div")
+        let div = collapsible.append("div");
+        let dataGroup = div
             .append("svg")
-            .attr("id", task + taskId)
-            .attr("width", width + margin.left + margin.right)
-            .attr("height", height + margin.top + margin.bottom)
+              .attr("id", task + taskId)
+              .attr("width", width + margin.left + margin.right)
+              .attr("height", height + margin.top + margin.bottom)
             .append("g")
-            .attr("transform", `translate(${margin.left},${margin.top})`);
+              .attr("transform", `translate(${margin.left},${margin.top})`);
 
         let x = d3.scaleTime()
             .range([0, width])
@@ -342,15 +350,15 @@ async function mainJS() {
 
         let xAxis = dataGroup
             .append("g")
-            .attr("class", "xAxis")
-            .attr("transform", "translate(0, " + height + ")");
+              .attr("class", "xAxis")
+              .attr("transform", "translate(0, " + height + ")");
 
         let xGrid = dataGroup
             .append("g")
-            .attr("class", "xGrid")
-            .style("stroke-dasharray", "5")
-            .style("opacity", "0.3")
-            .attr("transform", "translate(0, " + height + ")");
+              .attr("class", "xGrid")
+              .style("stroke-dasharray", "5")
+              .style("opacity", "0.3")
+              .attr("transform", "translate(0, " + height + ")");
 
         let y = d3.scaleLinear()
             .range([height, 0])
@@ -358,22 +366,22 @@ async function mainJS() {
 
         let yGrid = dataGroup
             .append("g")
-            .attr("class", "yGrid")
-            .style("stroke-dasharray", "5")
-            .style("opacity", "0.3");
+              .attr("class", "yGrid")
+              .style("stroke-dasharray", "5")
+              .style("opacity", "0.3");
 
         let yAxisLeft = dataGroup
             .append("g")
-            .attr("class", "yAxisLeft");
+              .attr("class", "yAxisLeft");
 
         let yAxisRight = dataGroup
             .append("g")
-            .attr("class", "yAxisRight")
-            .attr("transform", "translate(" + width + ",0)");
+              .attr("class", "yAxisRight")
+              .attr("transform", "translate(" + width + ",0)");
 
         let title = addSimpleText(dataGroup, width / 2, 10 - (margin.top / 2), "15pt", test, "black");
         let yLegendName = addSimpleText(dataGroup, - margin.left, - margin.top * 1.1, "15pt", `Results (${data[0].unit})`, "black", -90);
-        let testData = new TaskData(taskId, yLegendName, dataGroup, data, Array.from(flavors), x, y, xAxis, xGrid, yGrid, yAxisLeft, yAxisRight);
+        let testData = new TaskData(taskId, yLegendName, div, dataGroup, data, Array.from(flavors), x, y, xAxis, xGrid, yGrid, yAxisLeft, yAxisRight);
         let brush = d3.brushX().on("end", () => brushed(testData)).extent([[0, 0], [width, height]]);
         dataGroup.append("g").attr("class", "brush").call(brush);
         testData.brush = brush;
