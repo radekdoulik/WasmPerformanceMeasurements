@@ -752,7 +752,7 @@ async function mainJS() {
     let flavors = Array.from(unfilteredData.flavors);
     let testNames = unfilteredData.taskNames.sort();
     numTests = testNames.length;
-    let graphFilters = JSON.parse(exports.Program.GetSubFlavors(JSON.stringify(flavors)));
+    let graphFilters = JSON.parse(exports.Program.GetSubFlavors());
     var testToTask = mapTestsToTasks(testNames);
     testNames.map(function (d, i) {
         tasksIds.set(i, d);

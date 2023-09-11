@@ -12,6 +12,8 @@ public partial class Program
     readonly static string zipFileName = "index2.zip";
     readonly static string gitLogFile = "/git-log.txt";
     readonly static string fileName = "index.json";
+    static WasmBenchmarkResults.Index data;
+    static List<string> flavors;
     readonly static JsonSerializerOptions serializerOptions = new()
     {
         IncludeFields = true,
@@ -45,7 +47,8 @@ public partial class Program
 
     internal static async Task<string> LoadTests(string indexUrl)
     {
-        var data = await LoadIndex(indexUrl);
+        data = await LoadIndex(indexUrl);
+        flavors = data.FlavorMap.Keys.ToList<string>();
         var dataLen = data.Data.Count;
         for (var i = 0; i < dataLen; i++)
         {
@@ -67,20 +70,19 @@ public partial class Program
                 }
             }
         }
-        RequiredData neededData = new(list, data.FlavorMap.Keys.ToList<string>(), data.MeasurementMap.Keys.ToList<string>());
+        RequiredData neededData = new(list, flavors, data.MeasurementMap.Keys.ToList<string>());
         var jsonData = neededData.Save();
-        await Console.Out.WriteLineAsync($"jsonData length: {jsonData.Length}");
+
         return jsonData;
     }
 
     [JSExport]
     internal static string GetSubFlavors(string jsonFlavors)
     {
-        var flavors = JsonSerializer.Deserialize<List<string>>(jsonFlavors, serializerContext.ListString);
         HashSet<string> subFlavors = new();
         flavors.ForEach(flavor => subFlavors.UnionWith(flavor.Split('.')));
-        List<string> result = subFlavors.ToList();
-        return JsonSerializer.Serialize(result, serializerContext.ListString);
+
+        return JsonSerializer.Serialize(subFlavors.ToList(), serializerContext.ListString);
     }
 
     static GraphPointData GetDataForHash(List<GraphPointData> list, string hash)
