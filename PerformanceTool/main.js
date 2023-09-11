@@ -97,7 +97,7 @@ async function mainJS() {
             .attr("cy", function (d) { return testData.y(+d.minTime) })
             .attr("pointer-events", "all")
             .on("click", function (_, i) {
-                window.open(i.gitLogUrl, '_blank');
+                window.open(exports.Program.GetLogUrl(i.commitHash, i.flavor), '_blank');
             })
             .append("title")
             .text(function (d) { return "Exact date: " + d.commitTime + "\n" + "Flavor: " + flavor + "\n" + "Result: " + +d.minTime + ` ${data[0].unit}` + "\n" + "Hash: " + d.commitHash; })

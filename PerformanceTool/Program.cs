@@ -14,6 +14,7 @@ public partial class Program
     readonly static string fileName = "index.json";
     static WasmBenchmarkResults.Index data;
     static List<string> flavors;
+    static string urlBase;
     readonly static JsonSerializerOptions serializerOptions = new()
     {
         IncludeFields = true,
@@ -45,6 +46,12 @@ public partial class Program
         return index;
     }
 
+    [JSExport]
+    internal static string GetLogUrl(string hash, string flavor)
+    {
+        return urlBase + hash + "/" + flavor.Replace('.', '/') + gitLogFile;
+    }
+
     internal static async Task<string> LoadTests(string indexUrl)
     {
         data = await LoadIndex(indexUrl);
@@ -54,19 +61,19 @@ public partial class Program
         {
             var flavor = data.FlavorMap[data.Data[i].flavorId];
             var idx = indexUrl.LastIndexOf('/');
-            var urlBase = indexUrl;
+            urlBase = indexUrl;
             if (idx >= 0)
                 urlBase = indexUrl.Substring(0, idx);
-            var logUrl = urlBase + data.Data[i].hash + "/" + flavor.Replace('.', '/') + gitLogFile;
+
             foreach (var pair in data.Data[i].minTimes)
             {
-                list.Add(new GraphPointData(data.Data[i].commitTime.ToString(CultureInfo.InvariantCulture), flavor, new KeyValuePair<string, double>(data.MeasurementMap[pair.Key], pair.Value), logUrl, data.Data[i].hash));
+                list.Add(new GraphPointData(data.Data[i].commitTime.ToString(CultureInfo.InvariantCulture), flavor, new KeyValuePair<string, double>(data.MeasurementMap[pair.Key], pair.Value), data.Data[i].hash));
             }
             if (data.Data[i].sizes != null)
             {
                 foreach (var pair in data.Data[i].sizes)
                 {
-                    list.Add(new GraphPointData(data.Data[i].commitTime.ToString(CultureInfo.InvariantCulture), flavor, new KeyValuePair<string, double>(data.MeasurementMap[pair.Key], (double)pair.Value), logUrl, data.Data[i].hash, "bytes"));
+                    list.Add(new GraphPointData(data.Data[i].commitTime.ToString(CultureInfo.InvariantCulture), flavor, new KeyValuePair<string, double>(data.MeasurementMap[pair.Key], (double)pair.Value), data.Data[i].hash, "bytes"));
                 }
             }
         }
@@ -110,7 +117,6 @@ public partial class Program
 
         for (int i = 0; i < availableTests.Count; i++)
         {
-
             var tableCorner = string.Format("|{0, -30}{1, 10}|", availableTests[i], commits[0].Substring(0, 7));
             markdown.Append(tableCorner);
 

@@ -17,13 +17,12 @@ namespace WasmBenchmarkResults
         public double percentage;
         public string unit;
 
-        public GraphPointData(string commitTime, string flavor, KeyValuePair<string, double> pair, string gitLogUrl, string hash, string unit = "ms", double percentage = 0)
+        public GraphPointData(string commitTime, string flavor, KeyValuePair<string, double> pair, string hash, string unit = "ms", double percentage = 0)
         {
             this.commitTime = commitTime;
             taskMeasurementName = pair.Key;
             minTime = pair.Value;
             this.flavor = flavor;
-            this.gitLogUrl = gitLogUrl;
             commitHash = hash;
             this.unit = unit;
             this.percentage = percentage;
