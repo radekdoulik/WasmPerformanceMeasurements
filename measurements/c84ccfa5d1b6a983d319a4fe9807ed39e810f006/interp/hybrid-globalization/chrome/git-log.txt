@@ -1,0 +1,9 @@
+commit c84ccfa5d1b6a983d319a4fe9807ed39e810f006
+Author: Andy Ayers <andya@microsoft.com>
+Date:   Mon Sep 11 07:24:57 2023 -0700
+
+    JIT: ensure AVX512 ternary operands aren't used twice (#91851)
+    
+    Don't spill unused zeros early; we might decide to use them later.
+    
+    Fixes #91796.
