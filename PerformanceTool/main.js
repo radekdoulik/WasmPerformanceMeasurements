@@ -51,6 +51,10 @@ async function mainJS() {
         }
     }
 
+    function getFlavor(id) {
+        return unfilteredData.flavorsMap[id];
+    }
+
     function mapTestsToTasks(testNames) {
         let testsMap = new Map();
         for (let i = 0; i < numTests; i++) {
@@ -97,7 +101,7 @@ async function mainJS() {
             .attr("cy", function (d) { return testData.y(+d.minTime) })
             .attr("pointer-events", "all")
             .on("click", function (_, i) {
-                window.open(exports.Program.GetLogUrl(i.commitHash, i.flavor), '_blank');
+                window.open(exports.Program.GetLogUrl(i.commitHash, getFlavor(i.flavorId)), '_blank');
             })
             .append("title")
             .text(function (d) { return "Exact date: " + d.commitTime + "\n" + "Flavor: " + flavor + "\n" + "Result: " + +d.minTime + ` ${data[0].unit}` + "\n" + "Hash: " + d.commitHash; })
@@ -162,7 +166,7 @@ async function mainJS() {
                         for (let i = 0; i < numTests; i++) {
                             let curTest = testsData[i];
                             let flavorResults = curTest.data.filter(function (d) {
-                                return d.flavor === lineClass;
+                                return getFlavor(d.flavorId) === lineClass;
                             });
                             curTest.hiddenData = curTest.hiddenData.concat(flavorResults);
                             curTest.data = curTest.data.filter(function (d) {
@@ -175,7 +179,7 @@ async function mainJS() {
                         for (let i = 0; i < numTests; i++) {
                             let curTest = testsData[i];
                             let flavorResults = curTest.hiddenData.filter(function (d) {
-                                return d.flavor === lineClass;
+                                return getFlavor(d.flavorId) === lineClass;
                             });
                             curTest.data = curTest.data.concat(flavorResults);
                             curTest.availableFlavors.push(lineClass);
@@ -250,7 +254,7 @@ async function mainJS() {
             .attr("transform", "rotate(-15)");
 
         let escapedFlavor = "";
-        let filteredData = mapByField(testData.data, "flavor");
+        let filteredData = mapByField(testData.data, "flavorId");
         let containsData = filteredData.size > 0;
         testData.div.style("display", containsData ? "block" : "none");
 
@@ -260,9 +264,10 @@ async function mainJS() {
 
         let flvs = [...filteredData.keys()];
         for (let i = 0; i < flvs.length; i++) {
-            escapedFlavor = flvs[i].replaceAll(regex, '');
-            plotVariable(testData, filteredData.get(flvs[i]), ordinal(flvs[i]), flvs[i], escapedFlavor);
-            circlePoints(testData, filteredData.get(flvs[i]), ordinal(flvs[i]), flvs[i], escapedFlavor);
+            let flavor = getFlavor(flvs[i]);
+            escapedFlavor = flavor.replaceAll(regex, '');
+            plotVariable(testData, filteredData.get(flvs[i]), ordinal(flavor), flavor, escapedFlavor);
+            circlePoints(testData, filteredData.get(flvs[i]), ordinal(flavor), flavor, escapedFlavor);
         }
     }
 
@@ -333,7 +338,7 @@ async function mainJS() {
 
         let taskName = tasksIds.get(taskId);
         let [task, test] = taskName.split(",");
-        let data = allData.filter(d => d.taskMeasurementName === taskName);
+        let data = allData.filter(d => unfilteredData.taskNamesMap[d.taskMeasurementNameId] === taskName);
         let collapsible = d3.select("#" + task + "collapsible");
         let div = collapsible.append("div");
         let dataGroup = div
@@ -426,11 +431,11 @@ async function mainJS() {
             curTest.data = curTest.data.concat(curTest.hiddenData);
             curTest.hiddenData.length = 0;
             let flavorResults = curTest.data.filter(function (d) {
-                return !wantedFlavors.includes(d.flavor);
+                return !wantedFlavors.includes(getFlavor(d.flavorId));
             });
             curTest.hiddenData = flavorResults;
             curTest.data = curTest.data.filter(function (d) {
-                return wantedFlavors.includes(d.flavor);
+                return wantedFlavors.includes(getFlavor(d.flavorId));
             });
             curTest.availableFlavors = Array.from(wantedFlavors);
             updateGraph(curTest);
@@ -609,10 +614,10 @@ async function mainJS() {
     function updateDataOnDates(testData, startDate, endDate) {
         testData.data = getResultsBetweenDates(testData.allData, startDate, endDate);
         testData.hiddenData = testData.data.filter(function (d) {
-            return !testData.availableFlavors.includes(d.flavor);
+            return !testData.availableFlavors.includes(getFlavor(d.flavorId));
         });
         testData.data = testData.data.filter(function (d) {
-            return testData.availableFlavors.includes(d.flavor);
+            return testData.availableFlavors.includes(getFlavor(d.flavorId));
         });
     }
 
@@ -635,7 +640,7 @@ async function mainJS() {
             let testsLen = wantedData.length;
             for (let i = 0; i < testsLen; i++) {
                 let commits = [...mapByField(wantedData[i].data, "commitHash").keys()];
-                let results = mapByField(wantedData[i].data, "flavor");
+                let results = mapByField(wantedData[i].data, "flavorId");
                 let commitsLen = commits.length;
                 let tableHead = table.append("thead")
                     .attr("class", "thead-dark text-center")
@@ -749,8 +754,8 @@ async function mainJS() {
     let value = await promise;
     let unfilteredData = JSON.parse(value);
     let data = unfilteredData.graphPoints;
-    let flavors = Array.from(unfilteredData.flavors);
-    let testNames = unfilteredData.taskNames.sort();
+    let flavors = Object.values(unfilteredData.flavorsMap); //Array.from(unfilteredData.flavors);
+    let testNames = Object.values(unfilteredData.taskNamesMap).sort();
     numTests = testNames.length;
     let graphFilters = JSON.parse(exports.Program.GetSubFlavors());
     var testToTask = mapTestsToTasks(testNames);

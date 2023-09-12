@@ -4,7 +4,7 @@ using System.Text.RegularExpressions;
 
 namespace WasmBenchmarkResults
 {
-    partial class JsonResultsData
+    public partial class JsonResultsData
     {
         public List<BenchTask.Result> results;
         public Dictionary<string, double> minTimes;
@@ -21,7 +21,7 @@ namespace WasmBenchmarkResults
         }
     }
 
-    internal class FlavorData
+    public class FlavorData
     {
         public DateTimeOffset commitTime;
         public string runPath;
@@ -61,7 +61,7 @@ namespace WasmBenchmarkResults
         }
     }
 
-    internal class ResultsData
+    public class ResultsData
     {
         public Dictionary<string, FlavorData> results = new Dictionary<string, FlavorData>();
         public string baseDirectory;

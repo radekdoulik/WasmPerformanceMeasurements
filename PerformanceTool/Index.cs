@@ -1,9 +1,10 @@
-﻿using System.Text.Json;
+﻿using System.Text;
+using System.Text.Json;
 using System.Text.Json.Serialization;
 
 namespace WasmBenchmarkResults
 {
-    internal partial class Index
+    public partial class Index
     {
         public IdMap FlavorMap = new();
         public IdMap MeasurementMap = new();
@@ -27,7 +28,7 @@ namespace WasmBenchmarkResults
             return $"flavors: {FlavorMap}\nmeasurements: {MeasurementMap}\ndata count: {Data.Count()}";
         }
 
-        internal class Item
+        public class Item
         {
             public string hash;
             public int flavorId;
@@ -36,7 +37,7 @@ namespace WasmBenchmarkResults
             public Dictionary<int, long> sizes;
         }
 
-        internal partial class IdMap : Dictionary<string, int>
+        public partial class IdMap : Dictionary<string, int>
         {
             readonly List<string> names = new();
             public string this[int id] => names[id];
@@ -55,7 +56,7 @@ namespace WasmBenchmarkResults
                 }
             }
 
-            internal class Converter : JsonConverter<IdMap>
+            public class Converter : JsonConverter<IdMap>
             {
                 public override IdMap Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
                 {
@@ -94,7 +95,15 @@ namespace WasmBenchmarkResults
 
                 public override void Write(Utf8JsonWriter writer, IdMap value, JsonSerializerOptions options)
                 {
-                    throw new NotImplementedException();
+                    writer.WriteStartObject();
+
+                    foreach (var k in value.Keys)
+                    {
+                        writer.WritePropertyName(value[k].ToString());
+                        writer.WriteStringValue(k);
+                    }
+
+                    writer.WriteEndObject();
                 }
             }
         }

@@ -59,7 +59,7 @@ public partial class Program
         var dataLen = data.Data.Count;
         for (var i = 0; i < dataLen; i++)
         {
-            var flavor = data.FlavorMap[data.Data[i].flavorId];
+            var flavorId = data.Data[i].flavorId;
             var idx = indexUrl.LastIndexOf('/');
             urlBase = indexUrl;
             if (idx >= 0)
@@ -67,17 +67,17 @@ public partial class Program
 
             foreach (var pair in data.Data[i].minTimes)
             {
-                list.Add(new GraphPointData(data.Data[i].commitTime.ToString(CultureInfo.InvariantCulture), flavor, new KeyValuePair<string, double>(data.MeasurementMap[pair.Key], pair.Value), data.Data[i].hash));
+                list.Add(new GraphPointData(data.Data[i].commitTime.ToString(CultureInfo.InvariantCulture), flavorId, new KeyValuePair<int, double>(pair.Key, pair.Value), data.Data[i].hash));
             }
             if (data.Data[i].sizes != null)
             {
                 foreach (var pair in data.Data[i].sizes)
                 {
-                    list.Add(new GraphPointData(data.Data[i].commitTime.ToString(CultureInfo.InvariantCulture), flavor, new KeyValuePair<string, double>(data.MeasurementMap[pair.Key], (double)pair.Value), data.Data[i].hash, "bytes"));
+                    list.Add(new GraphPointData(data.Data[i].commitTime.ToString(CultureInfo.InvariantCulture), flavorId, new KeyValuePair<int, double>(pair.Key, (double)pair.Value), data.Data[i].hash, "bytes"));
                 }
             }
         }
-        RequiredData neededData = new(list, flavors, data.MeasurementMap.Keys.ToList<string>());
+        RequiredData neededData = new(list, data.FlavorMap, data.MeasurementMap);
         var jsonData = neededData.Save();
 
         return jsonData;
@@ -137,8 +137,8 @@ public partial class Program
             for (int j = 0; j < availableFlavors.Count; j++)
             {
                 var rowName = string.Format("|{0, -40}|", availableFlavors[j]);
-                var filteredData = availableData.FindAll(data => data.taskMeasurementName == availableTests[i]
-                               && data.flavor == availableFlavors[j]
+                var filteredData = availableData.FindAll(d => data.MeasurementMap[d.taskMeasurementNameId] == availableTests[i]
+                               && data.FlavorMap[d.flavorId] == availableFlavors[j]
                 );
                 markdown.Append(rowName);
                 var prevData = GetDataForHash(filteredData, commits[0]);

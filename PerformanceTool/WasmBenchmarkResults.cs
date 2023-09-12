@@ -3,26 +3,27 @@ using System.Collections.Generic;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Text;
+using WasmBenchmarkResults;
+using static WasmBenchmarkResults.Index;
 
 namespace WasmBenchmarkResults
 {
     public class GraphPointData
     {
         public string commitTime;
-        public string taskMeasurementName;
+        public int taskMeasurementNameId;
         public double minTime;
-        public string flavor;
-        public string gitLogUrl;
+        public int flavorId;
         public string commitHash;
         public double percentage;
         public string unit;
 
-        public GraphPointData(string commitTime, string flavor, KeyValuePair<string, double> pair, string hash, string unit = "ms", double percentage = 0)
+        public GraphPointData(string commitTime, int flavorId, KeyValuePair<int, double> pair, string hash, string unit = "ms", double percentage = 0)
         {
             this.commitTime = commitTime;
-            taskMeasurementName = pair.Key;
+            taskMeasurementNameId = pair.Key;
             minTime = pair.Value;
-            this.flavor = flavor;
+            this.flavorId = flavorId;
             commitHash = hash;
             this.unit = unit;
             this.percentage = percentage;
@@ -30,7 +31,7 @@ namespace WasmBenchmarkResults
 
         public override string ToString()
         {
-            return this.commitTime + " " + this.flavor + " " + this.taskMeasurementName;
+            return commitTime + " " + flavorId + " " + taskMeasurementNameId;
         }
 
     }
@@ -38,14 +39,14 @@ namespace WasmBenchmarkResults
     public partial class RequiredData
     {
         public List<GraphPointData> graphPoints;
-        public List<string> flavors;
-        public List<string> taskNames;
+        public Index.IdMap flavorsMap;
+        public Index.IdMap taskNamesMap;
 
-        public RequiredData(List<GraphPointData> graphPoints, List<string> flavors, List<string> taskNames)
+        public RequiredData(List<GraphPointData> graphPoints, Index.IdMap flavorsMap, Index.IdMap taskNamesMap)
         {
             this.graphPoints = graphPoints;
-            this.flavors = flavors;
-            this.taskNames = taskNames;
+            this.flavorsMap = flavorsMap;
+            this.taskNamesMap = taskNamesMap;
         }
 
         [JsonSourceGenerationOptions(IncludeFields = true)]
@@ -54,7 +55,13 @@ namespace WasmBenchmarkResults
 
         public string Save()
         {
-            return JsonSerializer.Serialize(this, RequiredDataSerializerContext.Default.RequiredData);
+            var context = new RequiredDataSerializerContext(new JsonSerializerOptions()
+            {
+                IncludeFields = true,
+                NumberHandling = JsonNumberHandling.AllowNamedFloatingPointLiterals,
+                Converters = { new Index.IdMap.Converter() }
+            });
+            return JsonSerializer.Serialize<RequiredData>(this, context.RequiredData);
         }
     }
 }
