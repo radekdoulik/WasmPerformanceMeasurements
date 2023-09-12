@@ -1,0 +1,9 @@
+commit f6c592995a4f8526508da33761230a3850d942ff
+Author: Ahmet Ibrahim Aksoy <aaksoy@microsoft.com>
+Date:   Tue Sep 12 16:43:35 2023 +0200
+
+    Disable Http3 LargeSingleHeader_ThrowsException Test (#91930)
+    
+    Disabling HTTP/3 test `LargeSingleHeader_ThrowsException` against #74896 because it's happening quite often until we're back to investigate it.
+    
+    Related to #91757
