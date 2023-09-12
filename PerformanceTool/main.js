@@ -23,7 +23,7 @@ async function mainJS() {
     const redShade = d3.scaleLinear().domain([0, 100])
         .range(["white", "darkred"]);
     const datePresets = ["last week", "last 14 days", "last month", "last 3 months", "whole history"];
-    const colors = d3.schemeCategory10;
+    const colors = d3.schemeCategory10.concat(d3.schemeSet3);
     var tasksIds = new Map();
     var numTests = 0;
     var firstDate = null;
