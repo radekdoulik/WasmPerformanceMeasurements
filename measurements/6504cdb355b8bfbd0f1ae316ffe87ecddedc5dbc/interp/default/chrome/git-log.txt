@@ -1,0 +1,11 @@
+commit 6504cdb355b8bfbd0f1ae316ffe87ecddedc5dbc
+Author: David Cantú <16040868+Jozkee@users.noreply.github.com>
+Date:   Mon Sep 11 12:53:49 2023 -0500
+
+    Enable rule CA1869 - Cache and reuse 'JsonSerializerOptions' (#90895)
+    
+    * Enable rule CA1869
+    
+    * Fix ocurrences in src/tasks projects
+    
+    * Fix more occurrences on installer and mono\wasm
