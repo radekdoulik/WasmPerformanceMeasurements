@@ -1,0 +1,9 @@
+commit e3e9758a10870a8f99a93a25e54ab2837d3abefc
+Author: Tom Deseyn <tom.deseyn@gmail.com>
+Date:   Tue Sep 12 19:35:53 2023 +0200
+
+    Limit special diagnostics size region to 4KiB. (#91865)
+    
+    This fixes out-of-bounds access when trying to write the
+    diagnostics info on platforms where the PAGE_SIZE is larger
+    than the DumpWriter's 16KiB m_tempBuffer.
