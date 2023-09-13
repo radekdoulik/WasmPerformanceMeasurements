@@ -6,7 +6,6 @@ using System.Text;
 using WasmBenchmarkResults;
 using System.Text.Json.Serialization;
 
-Console.WriteLine("Hello, Browser!");
 public partial class Program
 {
     readonly static string zipFileName = "index2.zip";
@@ -172,4 +171,6 @@ public partial class Program
     {
         return LoadTests(indexUrl);
     }
+
+    static int Main() => 0;
 }
