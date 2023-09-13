@@ -54,16 +54,18 @@ public partial class Program
 
     internal static async Task<string> LoadTests(string indexUrl)
     {
+        var idx = indexUrl.LastIndexOf('/');
+        urlBase = indexUrl;
+        if (idx >= 0)
+            urlBase = indexUrl.Substring(0, idx);
+
         data = await LoadIndex(indexUrl);
         flavors = data.FlavorMap.Keys.ToList<string>();
+
         var dataLen = data.Data.Count;
         for (var i = 0; i < dataLen; i++)
         {
             var flavorId = data.Data[i].flavorId;
-            var idx = indexUrl.LastIndexOf('/');
-            urlBase = indexUrl;
-            if (idx >= 0)
-                urlBase = indexUrl.Substring(0, idx);
 
             foreach (var pair in data.Data[i].minTimes)
             {
