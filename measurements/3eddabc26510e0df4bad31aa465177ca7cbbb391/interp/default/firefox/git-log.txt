@@ -1,0 +1,12 @@
+commit 3eddabc26510e0df4bad31aa465177ca7cbbb391
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Wed Sep 13 15:50:40 2023 +0200
+
+    SPMI: Hacky workaround for coredistools unsupported instructions (#91668)
+    
+    We currently are unable to get SPMI diffs for methods that use ldapur
+    instructions as our current coredistools does not support this
+    instruction. While we wait for coredistools to be updated (this was
+    blocked on some C++ lib issues) here is a hacky temporary workaround for
+    the problem. It rewrites ldapur* instructions into the corresponding
+    ldur* instruction before passing it to the near differ.
