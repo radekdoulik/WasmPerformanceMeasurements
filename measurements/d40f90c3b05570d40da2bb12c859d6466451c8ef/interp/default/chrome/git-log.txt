@@ -1,0 +1,13 @@
+commit d40f90c3b05570d40da2bb12c859d6466451c8ef
+Author: Vitek Karas <10670590+vitek-karas@users.noreply.github.com>
+Date:   Fri Sep 15 01:45:09 2023 -0700
+
+    Implement support for `InlineArray` in the trimmer (#92060)
+    
+    Types annotated with `InlineArray` need to preserve all of their fields, even if otherwise this would not be the case. It's possible to have a struct with `LayoutKind.Auto` and with `InlineArray` - trimmer would normally trim fields on such struct. This leads to corruption since the field is never accessed directly.
+    
+    This changes the marking to preserve all fields on a type with `InlineArray` attribute just like we would for explicit layout struct and similar other types.
+    
+    Adds tests to cover both the explicit usage of `InlineArray` attribute as well as the compiler generate usage via collection literals.
+    
+    Co-authored-by: Sven Boemer <sbomer@gmail.com>
