@@ -1,0 +1,21 @@
+commit 4b75f938a6a76a7dea177ca70de7b81878f14d33
+Author: Emmanuel André <2341261+manandre@users.noreply.github.com>
+Date:   Thu Sep 14 20:57:05 2023 +0200
+
+    Implement Linq CountBy method for IEnumerable and IQueryable (#91507)
+    
+    * Implement Linq CountBy method for IEnumerable
+    
+    * Implement Linq CountBy method for IQueryable
+    
+    * Remove useless using statement
+    
+    * Lazy source enumeration
+    
+    * Avoid useless allocation when source is empty
+    
+    * Rename with CountByIterator and avoid local methods
+    
+    * Add tests around lazy enumeration
+    
+    * Make test results more explicit
