@@ -1,0 +1,17 @@
+commit 61675a45faf1e52ed4852ada1620401ae081b676
+Author: Emmanuel André <2341261+manandre@users.noreply.github.com>
+Date:   Mon Sep 18 16:28:59 2023 +0200
+
+    Implement Linq AggregateBy method for IEnumerable and IQueryable (#92089)
+    
+    * Implement Linq AggregateBy method for IEnumerable
+    
+    * Implement Linq AggregateBy method for IQueryable
+    
+    * Make test results more explicit
+    
+    * Fix test
+    
+    * Avoid seed delegate invocation cost and use local function
+    
+    * Add tests
