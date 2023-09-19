@@ -28,6 +28,8 @@ async function mainJS() {
     var numTests = 0;
     var firstDate = null;
     var testsData = [];
+    var hashPointsMap = new Map();
+    var data;
 
 
     class TaskData {
@@ -385,7 +387,8 @@ async function mainJS() {
               .attr("transform", "translate(" + width + ",0)");
 
         let title = addSimpleText(dataGroup, width / 2, 10 - (margin.top / 2), "15pt", test, "black");
-        let yLegendName = addSimpleText(dataGroup, - margin.left, - margin.top * 1.1, "15pt", `Results (${data[0].unit})`, "black", -90);
+        let unit = data.length > 0 ? data[0].unit : "???";
+        let yLegendName = addSimpleText(dataGroup, - margin.left, - margin.top * 1.1, "15pt", `Results (${unit})`, "black", -90);
         let testData = new TaskData(taskId, yLegendName, div, dataGroup, data, Array.from(flavors), x, y, xAxis, xGrid, yGrid, yAxisLeft, yAxisRight);
         let brush = d3.brushX().on("end", () => brushed(testData)).extent([[0, 0], [width, height]]);
         dataGroup.append("g").attr("class", "brush").call(brush);
@@ -462,7 +465,7 @@ async function mainJS() {
         }
     }
 
-    function selectDatePreset(filter = '') {
+    async function selectDatePreset(filter = '') {
         let startDate = new Date();
         let endDate = new Date();
 
@@ -486,10 +489,7 @@ async function mainJS() {
                 startDate.setDate(endDate.getDate() - 14);
                 break;
         }
-        for (let i = 0; i < numTests; i++) {
-            updateDataOnDates(testsData[i], startDate, endDate);
-            updateGraph(testsData[i]);
-        }
+        updateOnDates(startDate, endDate);
 
         document.getElementById("startDate").valueAsDate = startDate;
         document.getElementById("endDate").valueAsDate = endDate;
@@ -528,7 +528,7 @@ async function mainJS() {
         }
     }
 
-    function decodeURL() {
+    async function decodeURL() {
         let url = new URL(decodeURI(window.location));
         let params = new URLSearchParams(url.search);
         let tasks = params.get("tasks");
@@ -552,12 +552,8 @@ async function mainJS() {
             availableFlavors = Array.from(flavors);
         }
         updateCheckboxes(availableFlavors);
-        for (let i = 0; i < numTests; i++) {
-            let curTest = testsData[i];
-            curTest.availableFlavors = Array.from(availableFlavors);
-            updateDataOnDates(curTest, startDate, endDate);
-            updateGraph(curTest);
-        }
+        await updateOnDates(startDate, endDate);
+
         if (tasks !== null && tasks !== "") {
             let openTasks = tasks.split(',');
             if (openTasks[0] === "")
@@ -565,7 +561,6 @@ async function mainJS() {
             console.log(typeof openTasks);
             console.log(openTasks);
             openTasks.forEach(task => document.getElementById(task + "collapsible").open = true);
-
         }
     }
 
@@ -578,7 +573,7 @@ async function mainJS() {
             });
     }
 
-    function addDatePickers(firstDatePicker, secondDatePicker, submitButton) {
+    async function addDatePickers(firstDatePicker, secondDatePicker, submitButton) {
         let startDate = null,
             endDate = null;
 
@@ -590,7 +585,7 @@ async function mainJS() {
             endDate = new Date(this.value);
         });
 
-        d3.select("#" + submitButton).on("click", function () {
+        d3.select("#" + submitButton).on("click", async function () {
             if (startDate === null) {
                 startDate = document.getElementById("startDate").valueAsDate;
             }
@@ -601,14 +596,30 @@ async function mainJS() {
                 if (startDate.getTime() >= endDate.getTime()) {
                     alert("Choose valid dates!");
                 } else {
-                    for (let i = 0; i < numTests; i++) {
-                        updateDataOnDates(testsData[i], startDate, endDate);
-                        updateGraph(testsData[i]);
-                    }
+                    await updateOnDates(startDate, endDate);
                     permalinkDates(startDate, endDate);
                 }
             }
         });
+    }
+
+    async function updateOnDates(startDate, endDate) {
+        let newData = await getDataForDates(startDate, endDate);
+        if (newData.length > 0) {
+            for (let i = 0; i < numTests; i++) {
+                let taskName = tasksIds.get(testsData[i].taskId);
+                let newTaskData = newData.filter(d => unfilteredData.taskNamesMap[d.taskMeasurementNameId] === taskName);
+                if (newTaskData.length <= 0)
+                    continue;
+
+                testsData[i].allData = testsData[i].allData.concat(newTaskData);
+                testsData[i].allData.sort((a, b) => a.time - b.time);
+            }
+        }
+        for (let i = 0; i < numTests; i++) {
+            updateDataOnDates(testsData[i], startDate, endDate);
+            updateGraph(testsData[i]);
+        }
     }
 
     function updateDataOnDates(testData, startDate, endDate) {
@@ -669,7 +680,7 @@ async function mainJS() {
                     for (let k = 1; k < commitsLen; k++) {
                         let currentData = getDataForHash(rowData, commits[k]);
                         if (currentData !== undefined && prevData != undefined) {
-                            let percentage = (currentData.minTime / prevData.minTime - 1)*100;
+                            let percentage = (currentData.minTime / prevData.minTime - 1) * 100;
                             row.append("td")
                                 .attr("class", "text-center")
                                 .style("background-color", percentage < 0 ? greenShade((-1) * percentage) : redShade(percentage))
@@ -735,12 +746,39 @@ async function mainJS() {
     }
 
     function processTime(data) {
+
         let dataLen = data.length;
         for (let i = 0; i < dataLen; i++) {
             data[i].time = new Date(data[i].commitTime);
+            if (firstDate === null || firstDate > data[i].time)
+                firstDate = data[i].time;
         }
     }
 
+    async function GetGraphPoints(hashes) {
+        let points = new Array();
+        for (const h of hashes) {
+            if (!hashPointsMap.has(h)) {
+                const ps = JSON.parse(await exports.Program.GetGraphPoints(h));
+                hashPointsMap.set(h, ps);
+                points = points.concat(ps);
+            }
+        }
+
+        return points;
+    }
+
+    async function getDataForDates(start, end) {
+        let curHashes = JSON.parse(await exports.Program.GetHashesForRange(JSON.stringify(start), JSON.stringify(end)));
+        let data = await GetGraphPoints(curHashes);
+
+        if (data.length <= 0)
+            return data;
+
+        processTime(data);
+
+        return data;
+    }
 
     let url = new URL(decodeURI(window.location));
     let indexArg = url.searchParams.getAll('index');
@@ -750,10 +788,18 @@ async function mainJS() {
         console.log("will try to load the data from: " + indexUrl);
     }
 
-    const promise = exports.Program.LoadData(String(indexUrl));
-    let value = await promise;
+    //console.log("before load: " + (new Date().getTime() - startTime));
+    let value = await exports.Program.LoadData(String(indexUrl));
+    //console.log("after load: " + (new Date().getTime() - startTime));
+    let loadedTime = new Date().getTime();
+
     let unfilteredData = JSON.parse(value);
-    let data = unfilteredData.graphPoints;
+
+    let end = new Date();
+    let start = new Date();
+    start.setDate(end.getDate() - 14);
+
+    data = await getDataForDates(start, end);
     let flavors = Object.values(unfilteredData.flavorsMap); //Array.from(unfilteredData.flavors);
     let testNames = Object.values(unfilteredData.taskNamesMap).sort();
     numTests = testNames.length;
@@ -762,8 +808,6 @@ async function mainJS() {
     testNames.map(function (d, i) {
         tasksIds.set(i, d);
     });
-    processTime(data);
-    firstDate = data[0].time;
     //console.log(data);
     var ordinal = d3.scaleOrdinal()
         .domain(flavors)
@@ -778,7 +822,7 @@ async function mainJS() {
     addPresets([...testToTask.keys()].sort(), "chartsPresets", selectChartsPreset);
     addLegendContent("chartLegend");
     addSelectAllButton("chartLegend")
-    addDatePickers("startDate", "endDate", "submit");
+    await addDatePickers("startDate", "endDate", "submit");
     addCommitDiffButton("commitsSubmit");
     createTable("modalBody", "tableButton", [...testToTask.keys()].sort());
     document.getElementById("markDownButton").addEventListener("click", function () {
@@ -787,10 +831,11 @@ async function mainJS() {
     });
     addURLButton("copyURL");
     createInitialState();
-    decodeURL();
+    await decodeURL();
     document.querySelector("#loadingCircle").style.display = 'none';
     document.querySelector("#main").style.display = '';
 
+    //console.log("processing after load: " + (new Date().getTime() - loadedTime));
     console.log("end of mainJS: " + (new Date().getTime() - startTime));
 
     await runMainAndExit(config.mainAssemblyName, []);

@@ -38,13 +38,11 @@ namespace WasmBenchmarkResults
 
     public partial class RequiredData
     {
-        public List<GraphPointData> graphPoints;
         public Index.IdMap flavorsMap;
         public Index.IdMap taskNamesMap;
 
-        public RequiredData(List<GraphPointData> graphPoints, Index.IdMap flavorsMap, Index.IdMap taskNamesMap)
+        public RequiredData(Index.IdMap flavorsMap, Index.IdMap taskNamesMap)
         {
-            this.graphPoints = graphPoints;
             this.flavorsMap = flavorsMap;
             this.taskNamesMap = taskNamesMap;
         }

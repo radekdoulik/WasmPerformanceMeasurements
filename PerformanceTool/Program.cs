@@ -13,6 +13,7 @@ public partial class Program
     readonly static string fileName = "index.json";
     static WasmBenchmarkResults.Index data;
     static List<string> flavors;
+    static Dictionary<string, List<GraphPointData>> graphDataByHash = new();
     static string urlBase;
     readonly static JsonSerializerOptions serializerOptions = new()
     {
@@ -20,10 +21,11 @@ public partial class Program
         NumberHandling = JsonNumberHandling.AllowNamedFloatingPointLiterals,
         Converters = { new WasmBenchmarkResults.Index.IdMap.Converter() }
     };
-    readonly static CommonSerializerContext serializerContext = new (serializerOptions);
+    readonly static CommonSerializerContext serializerContext = new(serializerOptions);
 
     [JsonSerializable(typeof(List<string>))]
-    public partial class CommonSerializerContext : JsonSerializerContext {}
+    [JsonSerializable(typeof(List<GraphPointData>))]
+    public partial class CommonSerializerContext : JsonSerializerContext { }
 
     static List<GraphPointData> list = new();
 
@@ -61,27 +63,26 @@ public partial class Program
         data = await LoadIndex(indexUrl);
         flavors = data.FlavorMap.Keys.ToList<string>();
 
-        var dataLen = data.Data.Count;
-        for (var i = 0; i < dataLen; i++)
-        {
-            var flavorId = data.Data[i].flavorId;
-
-            foreach (var pair in data.Data[i].minTimes)
-            {
-                list.Add(new GraphPointData(data.Data[i].commitTime.ToString(CultureInfo.InvariantCulture), flavorId, new KeyValuePair<int, double>(pair.Key, pair.Value), data.Data[i].hash));
-            }
-            if (data.Data[i].sizes != null)
-            {
-                foreach (var pair in data.Data[i].sizes)
-                {
-                    list.Add(new GraphPointData(data.Data[i].commitTime.ToString(CultureInfo.InvariantCulture), flavorId, new KeyValuePair<int, double>(pair.Key, (double)pair.Value), data.Data[i].hash, "bytes"));
-                }
-            }
-        }
-        RequiredData neededData = new(list, data.FlavorMap, data.MeasurementMap);
+        RequiredData neededData = new(data.FlavorMap, data.MeasurementMap);
         var jsonData = neededData.Save();
 
         return jsonData;
+    }
+
+    [JSExport]
+    internal static async Task<string> GetHashesForRange(string date1, string date2)
+    {
+        var startDate = DateTimeOffset.Parse(JsonSerializer.Deserialize<string>(date1, serializerContext.String));
+        var endDate = DateTimeOffset.Parse(JsonSerializer.Deserialize<string>(date2, serializerContext.String));
+        var hashSet = new HashSet<string>();
+
+        foreach (var d in data.Data)
+        {
+            if (d.commitTime >= startDate && d.commitTime <= endDate)
+                hashSet.Add(d.hash);
+        }
+
+        return JsonSerializer.Serialize(hashSet.ToList(), serializerContext.ListString);
     }
 
     [JSExport]
@@ -91,6 +92,50 @@ public partial class Program
         flavors.ForEach(flavor => subFlavors.UnionWith(flavor.Split('.')));
 
         return JsonSerializer.Serialize(subFlavors.ToList(), serializerContext.ListString);
+    }
+
+    [JSExport]
+    internal static string GetGraphPoints(string hash)
+    {
+        List<GraphPointData> points;
+
+        if (!graphDataByHash.TryGetValue(hash, out list))
+        {
+
+            list = CreateGraphPoints(hash);
+            graphDataByHash[hash] = list;
+        }
+
+        return JsonSerializer.Serialize(list, serializerContext.ListGraphPointData);
+    }
+
+    internal static void AddGraphPoints(List<GraphPointData> list, WasmBenchmarkResults.Index.Item item)
+    {
+        var flavorId = item.flavorId;
+
+        foreach (var pair in item.minTimes)
+        {
+            list.Add(new GraphPointData(item.commitTime.ToString(CultureInfo.InvariantCulture), flavorId, new KeyValuePair<int, double>(pair.Key, pair.Value), item.hash));
+        }
+
+        if (item.sizes != null)
+        {
+            foreach (var pair in item.sizes)
+            {
+                list.Add(new GraphPointData(item.commitTime.ToString(CultureInfo.InvariantCulture), flavorId, new KeyValuePair<int, double>(pair.Key, (double)pair.Value), item.hash, "bytes"));
+            }
+        }
+    }
+
+    internal static List<GraphPointData> CreateGraphPoints(string hash)
+    {
+        var list = new List<GraphPointData>();
+        int idx = -1;
+        while ((idx = data.Data.FindIndex(idx + 1, d => d.hash == hash)) >= 0) {
+            AddGraphPoints(list, data.Data[idx]);
+        }
+
+        return list;
     }
 
     static GraphPointData GetDataForHash(List<GraphPointData> list, string hash)
