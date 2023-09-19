@@ -4139,109 +4139,114 @@ var tempI64;
   return {runtime_idx:13};//mono_jiterp_do_jit_call_indirect
   }
 
+  function _mono_jiterp_free_method_data_js(
+  ) {
+  return {runtime_idx:14};//mono_jiterp_free_method_data_js
+  }
+
   function _mono_wasm_bind_cs_function(
   ) {
-  return {runtime_idx:23};//mono_wasm_bind_cs_function
+  return {runtime_idx:24};//mono_wasm_bind_cs_function
   }
 
   function _mono_wasm_bind_js_function(
   ) {
-  return {runtime_idx:20};//mono_wasm_bind_js_function
+  return {runtime_idx:21};//mono_wasm_bind_js_function
   }
 
   function _mono_wasm_change_case(
   ) {
-  return {runtime_idx:26};//mono_wasm_change_case
+  return {runtime_idx:27};//mono_wasm_change_case
   }
 
   function _mono_wasm_change_case_invariant(
   ) {
-  return {runtime_idx:25};//mono_wasm_change_case_invariant
+  return {runtime_idx:26};//mono_wasm_change_case_invariant
   }
 
   function _mono_wasm_compare_string(
   ) {
-  return {runtime_idx:27};//mono_wasm_compare_string
+  return {runtime_idx:28};//mono_wasm_compare_string
   }
 
   function _mono_wasm_create_cs_owned_object_ref(
   ) {
-  return {runtime_idx:41};//mono_wasm_create_cs_owned_object_ref
+  return {runtime_idx:42};//mono_wasm_create_cs_owned_object_ref
   }
 
   function _mono_wasm_ends_with(
   ) {
-  return {runtime_idx:29};//mono_wasm_ends_with
+  return {runtime_idx:30};//mono_wasm_ends_with
   }
 
   function _mono_wasm_get_by_index_ref(
   ) {
-  return {runtime_idx:38};//mono_wasm_get_by_index_ref
+  return {runtime_idx:39};//mono_wasm_get_by_index_ref
   }
 
   function _mono_wasm_get_calendar_info(
   ) {
-  return {runtime_idx:31};//mono_wasm_get_calendar_info
+  return {runtime_idx:32};//mono_wasm_get_calendar_info
   }
 
   function _mono_wasm_get_culture_info(
   ) {
-  return {runtime_idx:32};//mono_wasm_get_culture_info
+  return {runtime_idx:33};//mono_wasm_get_culture_info
   }
 
   function _mono_wasm_get_first_day_of_week(
   ) {
-  return {runtime_idx:33};//mono_wasm_get_first_day_of_week
+  return {runtime_idx:34};//mono_wasm_get_first_day_of_week
   }
 
   function _mono_wasm_get_first_week_of_year(
   ) {
-  return {runtime_idx:34};//mono_wasm_get_first_week_of_year
+  return {runtime_idx:35};//mono_wasm_get_first_week_of_year
   }
 
   function _mono_wasm_get_global_object_ref(
   ) {
-  return {runtime_idx:40};//mono_wasm_get_global_object_ref
+  return {runtime_idx:41};//mono_wasm_get_global_object_ref
   }
 
   function _mono_wasm_get_object_property_ref(
   ) {
-  return {runtime_idx:36};//mono_wasm_get_object_property_ref
+  return {runtime_idx:37};//mono_wasm_get_object_property_ref
   }
 
   function _mono_wasm_index_of(
   ) {
-  return {runtime_idx:30};//mono_wasm_index_of
+  return {runtime_idx:31};//mono_wasm_index_of
   }
 
   function _mono_wasm_invoke_bound_function(
   ) {
-  return {runtime_idx:21};//mono_wasm_invoke_bound_function
+  return {runtime_idx:22};//mono_wasm_invoke_bound_function
   }
 
   function _mono_wasm_invoke_import(
   ) {
-  return {runtime_idx:22};//mono_wasm_invoke_import
+  return {runtime_idx:23};//mono_wasm_invoke_import
   }
 
   function _mono_wasm_invoke_js_blazor(
   ) {
-  return {runtime_idx:44};//mono_wasm_invoke_js_blazor
+  return {runtime_idx:45};//mono_wasm_invoke_js_blazor
   }
 
   function _mono_wasm_invoke_js_with_args_ref(
   ) {
-  return {runtime_idx:35};//mono_wasm_invoke_js_with_args_ref
+  return {runtime_idx:36};//mono_wasm_invoke_js_with_args_ref
   }
 
   function _mono_wasm_marshal_promise(
   ) {
-  return {runtime_idx:24};//mono_wasm_marshal_promise
+  return {runtime_idx:25};//mono_wasm_marshal_promise
   }
 
   function _mono_wasm_release_cs_owned_object(
   ) {
-  return {runtime_idx:19};//mono_wasm_release_cs_owned_object
+  return {runtime_idx:20};//mono_wasm_release_cs_owned_object
   }
 
   function _mono_wasm_schedule_timer(
@@ -4251,37 +4256,37 @@ var tempI64;
 
   function _mono_wasm_set_by_index_ref(
   ) {
-  return {runtime_idx:39};//mono_wasm_set_by_index_ref
+  return {runtime_idx:40};//mono_wasm_set_by_index_ref
   }
 
   function _mono_wasm_set_entrypoint_breakpoint(
   ) {
-  return {runtime_idx:17};//mono_wasm_set_entrypoint_breakpoint
+  return {runtime_idx:18};//mono_wasm_set_entrypoint_breakpoint
   }
 
   function _mono_wasm_set_object_property_ref(
   ) {
-  return {runtime_idx:37};//mono_wasm_set_object_property_ref
+  return {runtime_idx:38};//mono_wasm_set_object_property_ref
   }
 
   function _mono_wasm_starts_with(
   ) {
-  return {runtime_idx:28};//mono_wasm_starts_with
+  return {runtime_idx:29};//mono_wasm_starts_with
   }
 
   function _mono_wasm_trace_logger(
   ) {
-  return {runtime_idx:16};//mono_wasm_trace_logger
+  return {runtime_idx:17};//mono_wasm_trace_logger
   }
 
   function _mono_wasm_typed_array_from_ref(
   ) {
-  return {runtime_idx:43};//mono_wasm_typed_array_from_ref
+  return {runtime_idx:44};//mono_wasm_typed_array_from_ref
   }
 
   function _mono_wasm_typed_array_to_array_ref(
   ) {
-  return {runtime_idx:42};//mono_wasm_typed_array_to_array_ref
+  return {runtime_idx:43};//mono_wasm_typed_array_to_array_ref
   }
 
   function _schedule_background_exec(
@@ -4998,7 +5003,7 @@ var tempI64;
   });
   FS.FSNode = FSNode;
   FS.staticInit();Module["FS_createPath"] = FS.createPath;Module["FS_createDataFile"] = FS.createDataFile;Module["FS_createPath"] = FS.createPath;Module["FS_createDataFile"] = FS.createDataFile;Module["FS_createPreloadedFile"] = FS.createPreloadedFile;Module["FS_unlink"] = FS.unlink;Module["FS_createLazyFile"] = FS.createLazyFile;Module["FS_createDevice"] = FS.createDevice;;
-DOTNET.setup({ linkerDisableLegacyJsInterop: false,linkerWasmEnableSIMD: true,linkerWasmEnableEH: true,linkerEnableAotProfiler: false, linkerEnableBrowserProfiler: false, gitHash: "121a34b64925f4ee41f12d1f86dd432223b96eb8", });;
+DOTNET.setup({ linkerDisableLegacyJsInterop: false,linkerWasmEnableSIMD: true,linkerWasmEnableEH: true,linkerEnableAotProfiler: false, linkerEnableBrowserProfiler: false, linkerRunAOTCompilation: true, gitHash: "07000a7fc402c7f2ba1a09cd8c072401aed68b4b", });;
 // include: base64Utils.js
 // Copied from https://github.com/strophe/strophejs/blob/e06d027/src/polyfills.js#L149
 
@@ -5118,6 +5123,7 @@ var wasmImports = {
   "mono_interp_record_interp_entry": _mono_interp_record_interp_entry,
   "mono_interp_tier_prepare_jiterpreter": _mono_interp_tier_prepare_jiterpreter,
   "mono_jiterp_do_jit_call_indirect": _mono_jiterp_do_jit_call_indirect,
+  "mono_jiterp_free_method_data_js": _mono_jiterp_free_method_data_js,
   "mono_wasm_bind_cs_function": _mono_wasm_bind_cs_function,
   "mono_wasm_bind_js_function": _mono_wasm_bind_js_function,
   "mono_wasm_change_case": _mono_wasm_change_case,
@@ -5169,11 +5175,6 @@ var _mono_aot_System_Collections_Concurrent_get_method = Module["_mono_aot_Syste
 /** @type {function(...*):?} */
 var _mono_aot_System_Collections_get_method = Module["_mono_aot_System_Collections_get_method"] = function() {
   return (_mono_aot_System_Collections_get_method = Module["_mono_aot_System_Collections_get_method"] = Module["asm"]["mono_aot_System_Collections_get_method"]).apply(null, arguments);
-};
-
-/** @type {function(...*):?} */
-var _mono_aot_System_Console_get_method = Module["_mono_aot_System_Console_get_method"] = function() {
-  return (_mono_aot_System_Console_get_method = Module["_mono_aot_System_Console_get_method"] = Module["asm"]["mono_aot_System_Console_get_method"]).apply(null, arguments);
 };
 
 /** @type {function(...*):?} */
@@ -6124,6 +6125,21 @@ var _mono_jiterp_initialize_table = Module["_mono_jiterp_initialize_table"] = fu
 /** @type {function(...*):?} */
 var _mono_jiterp_allocate_table_entry = Module["_mono_jiterp_allocate_table_entry"] = function() {
   return (_mono_jiterp_allocate_table_entry = Module["_mono_jiterp_allocate_table_entry"] = Module["asm"]["mono_jiterp_allocate_table_entry"]).apply(null, arguments);
+};
+
+/** @type {function(...*):?} */
+var _mono_jiterp_tlqueue_next = Module["_mono_jiterp_tlqueue_next"] = function() {
+  return (_mono_jiterp_tlqueue_next = Module["_mono_jiterp_tlqueue_next"] = Module["asm"]["mono_jiterp_tlqueue_next"]).apply(null, arguments);
+};
+
+/** @type {function(...*):?} */
+var _mono_jiterp_tlqueue_add = Module["_mono_jiterp_tlqueue_add"] = function() {
+  return (_mono_jiterp_tlqueue_add = Module["_mono_jiterp_tlqueue_add"] = Module["asm"]["mono_jiterp_tlqueue_add"]).apply(null, arguments);
+};
+
+/** @type {function(...*):?} */
+var _mono_jiterp_tlqueue_clear = Module["_mono_jiterp_tlqueue_clear"] = function() {
+  return (_mono_jiterp_tlqueue_clear = Module["_mono_jiterp_tlqueue_clear"] = Module["asm"]["mono_jiterp_tlqueue_clear"]).apply(null, arguments);
 };
 
 /** @type {function(...*):?} */

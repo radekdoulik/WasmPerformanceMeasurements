@@ -23,15 +23,17 @@ async function mainJS() {
     const redShade = d3.scaleLinear().domain([0, 100])
         .range(["white", "darkred"]);
     const datePresets = ["last week", "last 14 days", "last month", "last 3 months", "whole history"];
-    const colors = d3.schemeCategory10;
+    const colors = d3.schemeCategory10.concat(d3.schemeSet3);
     var tasksIds = new Map();
     var numTests = 0;
     var firstDate = null;
     var testsData = [];
+    var hashPointsMap = new Map();
+    var data;
 
 
     class TaskData {
-        constructor(taskId, legendName, dataGroup, allData, flavors, x, y, xAxis, xGrid, yGrid, yAxisLeft, yAxisRight) {
+        constructor(taskId, legendName, div, dataGroup, allData, flavors, x, y, xAxis, xGrid, yGrid, yAxisLeft, yAxisRight, units) {
             this.taskId = taskId;
             this.legendName = legendName;
             this.allData = allData;
@@ -43,11 +45,17 @@ async function mainJS() {
             this.yAxisLeft = yAxisLeft;
             this.yAxisRight = yAxisRight;
             this.dataGroup = dataGroup;
+            this.div = div;
             this.brush = null;
             this.data = [];
             this.hiddenData = [];
             this.availableFlavors = flavors;
+            this.units = units;
         }
+    }
+
+    function getFlavor(id) {
+        return unfilteredData.flavorsMap[id];
     }
 
     function mapTestsToTasks(testNames) {
@@ -96,10 +104,10 @@ async function mainJS() {
             .attr("cy", function (d) { return testData.y(+d.minTime) })
             .attr("pointer-events", "all")
             .on("click", function (_, i) {
-                window.open(i.gitLogUrl, '_blank');
+                window.open(exports.Program.GetLogUrl(i.commitHash, getFlavor(i.flavorId)), '_blank');
             })
             .append("title")
-            .text(function (d) { return "Exact date: " + d.commitTime + "\n" + "Flavor: " + flavor + "\n" + "Result: " + +d.minTime + ` ${data[0].unit}` + "\n" + "Hash: " + d.commitHash; })
+            .text(function (d) { return "Exact date: " + d.commitTime + "\n" + "Flavor: " + flavor + "\n" + "Result: " + +d.minTime + ` ${testData.units}` + "\n" + "Hash: " + d.commitHash; })
             .merge(circleGroup);
 
     }
@@ -161,7 +169,7 @@ async function mainJS() {
                         for (let i = 0; i < numTests; i++) {
                             let curTest = testsData[i];
                             let flavorResults = curTest.data.filter(function (d) {
-                                return d.flavor === lineClass;
+                                return getFlavor(d.flavorId) === lineClass;
                             });
                             curTest.hiddenData = curTest.hiddenData.concat(flavorResults);
                             curTest.data = curTest.data.filter(function (d) {
@@ -174,7 +182,7 @@ async function mainJS() {
                         for (let i = 0; i < numTests; i++) {
                             let curTest = testsData[i];
                             let flavorResults = curTest.hiddenData.filter(function (d) {
-                                return d.flavor === lineClass;
+                                return getFlavor(d.flavorId) === lineClass;
                             });
                             curTest.data = curTest.data.concat(flavorResults);
                             curTest.availableFlavors.push(lineClass);
@@ -249,12 +257,20 @@ async function mainJS() {
             .attr("transform", "rotate(-15)");
 
         let escapedFlavor = "";
-        let filteredData = mapByField(testData.data, "flavor");
+        let filteredData = mapByField(testData.data, "flavorId");
+        let containsData = filteredData.size > 0;
+        testData.div.style("display", containsData ? "block" : "none");
+
+        if (!containsData) {
+            return;
+        }
+
         let flvs = [...filteredData.keys()];
         for (let i = 0; i < flvs.length; i++) {
-            escapedFlavor = flvs[i].replaceAll(regex, '');
-            plotVariable(testData, filteredData.get(flvs[i]), ordinal(flvs[i]), flvs[i], escapedFlavor);
-            circlePoints(testData, filteredData.get(flvs[i]), ordinal(flvs[i]), flvs[i], escapedFlavor);
+            let flavor = getFlavor(flvs[i]);
+            escapedFlavor = flavor.replaceAll(regex, '');
+            plotVariable(testData, filteredData.get(flvs[i]), ordinal(flavor), flavor, escapedFlavor);
+            circlePoints(testData, filteredData.get(flvs[i]), ordinal(flavor), flavor, escapedFlavor);
         }
     }
 
@@ -325,16 +341,16 @@ async function mainJS() {
 
         let taskName = tasksIds.get(taskId);
         let [task, test] = taskName.split(",");
-        let data = allData.filter(d => d.taskMeasurementName === taskName);
+        let data = allData.filter(d => unfilteredData.taskNamesMap[d.taskMeasurementNameId] === taskName);
         let collapsible = d3.select("#" + task + "collapsible");
-        let dataGroup = collapsible
-            .append("div")
+        let div = collapsible.append("div");
+        let dataGroup = div
             .append("svg")
-            .attr("id", task + taskId)
-            .attr("width", width + margin.left + margin.right)
-            .attr("height", height + margin.top + margin.bottom)
+              .attr("id", task + taskId)
+              .attr("width", width + margin.left + margin.right)
+              .attr("height", height + margin.top + margin.bottom)
             .append("g")
-            .attr("transform", `translate(${margin.left},${margin.top})`);
+              .attr("transform", `translate(${margin.left},${margin.top})`);
 
         let x = d3.scaleTime()
             .range([0, width])
@@ -342,15 +358,15 @@ async function mainJS() {
 
         let xAxis = dataGroup
             .append("g")
-            .attr("class", "xAxis")
-            .attr("transform", "translate(0, " + height + ")");
+              .attr("class", "xAxis")
+              .attr("transform", "translate(0, " + height + ")");
 
         let xGrid = dataGroup
             .append("g")
-            .attr("class", "xGrid")
-            .style("stroke-dasharray", "5")
-            .style("opacity", "0.3")
-            .attr("transform", "translate(0, " + height + ")");
+              .attr("class", "xGrid")
+              .style("stroke-dasharray", "5")
+              .style("opacity", "0.3")
+              .attr("transform", "translate(0, " + height + ")");
 
         let y = d3.scaleLinear()
             .range([height, 0])
@@ -358,22 +374,23 @@ async function mainJS() {
 
         let yGrid = dataGroup
             .append("g")
-            .attr("class", "yGrid")
-            .style("stroke-dasharray", "5")
-            .style("opacity", "0.3");
+              .attr("class", "yGrid")
+              .style("stroke-dasharray", "5")
+              .style("opacity", "0.3");
 
         let yAxisLeft = dataGroup
             .append("g")
-            .attr("class", "yAxisLeft");
+              .attr("class", "yAxisLeft");
 
         let yAxisRight = dataGroup
             .append("g")
-            .attr("class", "yAxisRight")
-            .attr("transform", "translate(" + width + ",0)");
+              .attr("class", "yAxisRight")
+              .attr("transform", "translate(" + width + ",0)");
 
         let title = addSimpleText(dataGroup, width / 2, 10 - (margin.top / 2), "15pt", test, "black");
-        let yLegendName = addSimpleText(dataGroup, - margin.left, - margin.top * 1.1, "15pt", `Results (${data[0].unit})`, "black", -90);
-        let testData = new TaskData(taskId, yLegendName, dataGroup, data, Array.from(flavors), x, y, xAxis, xGrid, yGrid, yAxisLeft, yAxisRight);
+        let units = task === "Size" ? "bytes" : "ms";
+        let yLegendName = addSimpleText(dataGroup, - margin.left, - margin.top * 1.1, "15pt", `Results (${units})`, "black", -90);
+        let testData = new TaskData(taskId, yLegendName, div, dataGroup, data, Array.from(flavors), x, y, xAxis, xGrid, yGrid, yAxisLeft, yAxisRight, units);
         let brush = d3.brushX().on("end", () => brushed(testData)).extent([[0, 0], [width, height]]);
         dataGroup.append("g").attr("class", "brush").call(brush);
         testData.brush = brush;
@@ -418,11 +435,11 @@ async function mainJS() {
             curTest.data = curTest.data.concat(curTest.hiddenData);
             curTest.hiddenData.length = 0;
             let flavorResults = curTest.data.filter(function (d) {
-                return !wantedFlavors.includes(d.flavor);
+                return !wantedFlavors.includes(getFlavor(d.flavorId));
             });
             curTest.hiddenData = flavorResults;
             curTest.data = curTest.data.filter(function (d) {
-                return wantedFlavors.includes(d.flavor);
+                return wantedFlavors.includes(getFlavor(d.flavorId));
             });
             curTest.availableFlavors = Array.from(wantedFlavors);
             updateGraph(curTest);
@@ -449,7 +466,7 @@ async function mainJS() {
         }
     }
 
-    function selectDatePreset(filter = '') {
+    async function selectDatePreset(filter = '') {
         let startDate = new Date();
         let endDate = new Date();
 
@@ -473,10 +490,7 @@ async function mainJS() {
                 startDate.setDate(endDate.getDate() - 14);
                 break;
         }
-        for (let i = 0; i < numTests; i++) {
-            updateDataOnDates(testsData[i], startDate, endDate);
-            updateGraph(testsData[i]);
-        }
+        updateOnDates(startDate, endDate);
 
         document.getElementById("startDate").valueAsDate = startDate;
         document.getElementById("endDate").valueAsDate = endDate;
@@ -515,7 +529,7 @@ async function mainJS() {
         }
     }
 
-    function decodeURL() {
+    async function decodeURL() {
         let url = new URL(decodeURI(window.location));
         let params = new URLSearchParams(url.search);
         let tasks = params.get("tasks");
@@ -539,12 +553,8 @@ async function mainJS() {
             availableFlavors = Array.from(flavors);
         }
         updateCheckboxes(availableFlavors);
-        for (let i = 0; i < numTests; i++) {
-            let curTest = testsData[i];
-            curTest.availableFlavors = Array.from(availableFlavors);
-            updateDataOnDates(curTest, startDate, endDate);
-            updateGraph(curTest);
-        }
+        await updateOnDates(startDate, endDate);
+
         if (tasks !== null && tasks !== "") {
             let openTasks = tasks.split(',');
             if (openTasks[0] === "")
@@ -552,7 +562,6 @@ async function mainJS() {
             console.log(typeof openTasks);
             console.log(openTasks);
             openTasks.forEach(task => document.getElementById(task + "collapsible").open = true);
-
         }
     }
 
@@ -565,7 +574,7 @@ async function mainJS() {
             });
     }
 
-    function addDatePickers(firstDatePicker, secondDatePicker, submitButton) {
+    async function addDatePickers(firstDatePicker, secondDatePicker, submitButton) {
         let startDate = null,
             endDate = null;
 
@@ -577,7 +586,7 @@ async function mainJS() {
             endDate = new Date(this.value);
         });
 
-        d3.select("#" + submitButton).on("click", function () {
+        d3.select("#" + submitButton).on("click", async function () {
             if (startDate === null) {
                 startDate = document.getElementById("startDate").valueAsDate;
             }
@@ -588,23 +597,39 @@ async function mainJS() {
                 if (startDate.getTime() >= endDate.getTime()) {
                     alert("Choose valid dates!");
                 } else {
-                    for (let i = 0; i < numTests; i++) {
-                        updateDataOnDates(testsData[i], startDate, endDate);
-                        updateGraph(testsData[i]);
-                    }
+                    await updateOnDates(startDate, endDate);
                     permalinkDates(startDate, endDate);
                 }
             }
         });
     }
 
+    async function updateOnDates(startDate, endDate) {
+        let newData = await getDataForDates(startDate, endDate);
+        if (newData.length > 0) {
+            for (let i = 0; i < numTests; i++) {
+                let taskName = tasksIds.get(testsData[i].taskId);
+                let newTaskData = newData.filter(d => unfilteredData.taskNamesMap[d.taskMeasurementNameId] === taskName);
+                if (newTaskData.length <= 0)
+                    continue;
+
+                testsData[i].allData = testsData[i].allData.concat(newTaskData);
+                testsData[i].allData.sort((a, b) => a.time - b.time);
+            }
+        }
+        for (let i = 0; i < numTests; i++) {
+            updateDataOnDates(testsData[i], startDate, endDate);
+            updateGraph(testsData[i]);
+        }
+    }
+
     function updateDataOnDates(testData, startDate, endDate) {
         testData.data = getResultsBetweenDates(testData.allData, startDate, endDate);
         testData.hiddenData = testData.data.filter(function (d) {
-            return !testData.availableFlavors.includes(d.flavor);
+            return !testData.availableFlavors.includes(getFlavor(d.flavorId));
         });
         testData.data = testData.data.filter(function (d) {
-            return testData.availableFlavors.includes(d.flavor);
+            return testData.availableFlavors.includes(getFlavor(d.flavorId));
         });
     }
 
@@ -627,7 +652,7 @@ async function mainJS() {
             let testsLen = wantedData.length;
             for (let i = 0; i < testsLen; i++) {
                 let commits = [...mapByField(wantedData[i].data, "commitHash").keys()];
-                let results = mapByField(wantedData[i].data, "flavor");
+                let results = mapByField(wantedData[i].data, "flavorId");
                 let commitsLen = commits.length;
                 let tableHead = table.append("thead")
                     .attr("class", "thead-dark text-center")
@@ -656,7 +681,7 @@ async function mainJS() {
                     for (let k = 1; k < commitsLen; k++) {
                         let currentData = getDataForHash(rowData, commits[k]);
                         if (currentData !== undefined && prevData != undefined) {
-                            let percentage = (currentData.minTime / prevData.minTime - 1)*100;
+                            let percentage = (currentData.minTime / prevData.minTime - 1) * 100;
                             row.append("td")
                                 .attr("class", "text-center")
                                 .style("background-color", percentage < 0 ? greenShade((-1) * percentage) : redShade(percentage))
@@ -722,26 +747,68 @@ async function mainJS() {
     }
 
     function processTime(data) {
+
         let dataLen = data.length;
         for (let i = 0; i < dataLen; i++) {
             data[i].time = new Date(data[i].commitTime);
+            if (firstDate === null || firstDate > data[i].time)
+                firstDate = data[i].time;
         }
     }
 
-    const promise = exports.Program.LoadData(measurementsUrl);
-    let value = await promise;
+    async function GetGraphPoints(hashes) {
+        let points = new Array();
+        for (const h of hashes) {
+            if (!hashPointsMap.has(h)) {
+                const ps = JSON.parse(await exports.Program.GetGraphPoints(h));
+                hashPointsMap.set(h, ps);
+                points = points.concat(ps);
+            }
+        }
+
+        return points;
+    }
+
+    async function getDataForDates(start, end) {
+        let curHashes = JSON.parse(await exports.Program.GetHashesForRange(JSON.stringify(start), JSON.stringify(end)));
+        let data = await GetGraphPoints(curHashes);
+
+        if (data.length <= 0)
+            return data;
+
+        processTime(data);
+
+        return data;
+    }
+
+    let url = new URL(decodeURI(window.location));
+    let indexArg = url.searchParams.getAll('index');
+    let indexUrl = measurementsUrl + '/' + "index2.zip";
+    if (indexArg != '') {
+        indexUrl = window.location.origin + '/' + indexArg;
+        console.log("will try to load the data from: " + indexUrl);
+    }
+
+    //console.log("before load: " + (new Date().getTime() - startTime));
+    let value = await exports.Program.LoadData(String(indexUrl));
+    //console.log("after load: " + (new Date().getTime() - startTime));
+    let loadedTime = new Date().getTime();
+
     let unfilteredData = JSON.parse(value);
-    let data = unfilteredData.graphPoints;
-    let flavors = Array.from(unfilteredData.flavors);
-    let testNames = unfilteredData.taskNames.sort();
+
+    let end = new Date();
+    let start = new Date();
+    start.setDate(end.getDate() - 14);
+
+    data = await getDataForDates(start, end);
+    let flavors = Object.values(unfilteredData.flavorsMap); //Array.from(unfilteredData.flavors);
+    let testNames = Object.values(unfilteredData.taskNamesMap).sort();
     numTests = testNames.length;
-    let graphFilters = JSON.parse(exports.Program.GetSubFlavors(JSON.stringify(flavors)));
+    let graphFilters = JSON.parse(exports.Program.GetSubFlavors());
     var testToTask = mapTestsToTasks(testNames);
     testNames.map(function (d, i) {
         tasksIds.set(i, d);
     });
-    processTime(data);
-    firstDate = data[0].time;
     //console.log(data);
     var ordinal = d3.scaleOrdinal()
         .domain(flavors)
@@ -756,7 +823,7 @@ async function mainJS() {
     addPresets([...testToTask.keys()].sort(), "chartsPresets", selectChartsPreset);
     addLegendContent("chartLegend");
     addSelectAllButton("chartLegend")
-    addDatePickers("startDate", "endDate", "submit");
+    await addDatePickers("startDate", "endDate", "submit");
     addCommitDiffButton("commitsSubmit");
     createTable("modalBody", "tableButton", [...testToTask.keys()].sort());
     document.getElementById("markDownButton").addEventListener("click", function () {
@@ -765,10 +832,11 @@ async function mainJS() {
     });
     addURLButton("copyURL");
     createInitialState();
-    decodeURL();
+    await decodeURL();
     document.querySelector("#loadingCircle").style.display = 'none';
     document.querySelector("#main").style.display = '';
 
+    //console.log("processing after load: " + (new Date().getTime() - loadedTime));
     console.log("end of mainJS: " + (new Date().getTime() - startTime));
 
     await runMainAndExit(config.mainAssemblyName, []);
