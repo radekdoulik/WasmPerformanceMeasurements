@@ -1,0 +1,19 @@
+commit 58fb822162298855f8bde5f16e6ddc9f55863c56
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Tue Sep 19 10:50:28 2023 -0400
+
+    [wasi] Bump wasi sdk to 20. (#92243)
+    
+    * [wasi] Bump wasi sdk to 20.
+    
+    * Fix some clang 16 warnings.
+    
+    * Disable the same warnings as on emscripten.
+    
+    * Fix offsets tool.
+    
+    * Disable more warnings.
+    
+    * Fix mingw package path.
+    
+    * Fix mingw package path.
