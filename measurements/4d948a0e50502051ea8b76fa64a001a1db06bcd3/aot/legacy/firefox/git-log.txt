@@ -1,0 +1,21 @@
+commit 4d948a0e50502051ea8b76fa64a001a1db06bcd3
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Mon Sep 18 20:42:36 2023 -0400
+
+    Optimize Random{NumberGenerator}.GetItems for power-of-two choices (#92229)
+    
+    * Optimize Random{NumberGenerator}.GetItems for power-of-two choices
+    
+    When possible, make a single call to get the required randomness rather than one per element.
+    
+    * Address PR feedback
+    
+    * Address PR feedback
+    
+    Use separate scratch buffer instead of destination buffer. Upside, we don't need to be concerned about temporarily corrupt Ts, and it can work for managed Ts. Downside, it requires separate scratch space, which means an ArrayPool rental for larger sizes.
+    
+    * Address PR feedback, again
+    
+    Loop over a stackalloc'd buffer rather than using ArrayPool
+    
+    * Tweak test to validate variable number of choices
