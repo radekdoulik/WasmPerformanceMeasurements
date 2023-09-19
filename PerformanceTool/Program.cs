@@ -8,7 +8,6 @@ using System.Text.Json.Serialization;
 
 public partial class Program
 {
-    readonly static string zipFileName = "index2.zip";
     readonly static string gitLogFile = "/git-log.txt";
     readonly static string fileName = "index.json";
     static WasmBenchmarkResults.Index data;
@@ -97,8 +96,6 @@ public partial class Program
     [JSExport]
     internal static string GetGraphPoints(string hash)
     {
-        List<GraphPointData> points;
-
         if (!graphDataByHash.TryGetValue(hash, out list))
         {
 
