@@ -122,7 +122,7 @@ public partial class Program
         {
             foreach (var pair in item.sizes)
             {
-                list.Add(new GraphPointData(item.commitTime.ToString(CultureInfo.InvariantCulture), flavorId, new KeyValuePair<int, double>(pair.Key, (double)pair.Value), item.hash, "bytes"));
+                list.Add(new GraphPointData(item.commitTime.ToString(CultureInfo.InvariantCulture), flavorId, new KeyValuePair<int, double>(pair.Key, (double)pair.Value), item.hash));
             }
         }
     }

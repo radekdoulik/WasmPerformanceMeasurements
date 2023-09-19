@@ -33,7 +33,7 @@ async function mainJS() {
 
 
     class TaskData {
-        constructor(taskId, legendName, div, dataGroup, allData, flavors, x, y, xAxis, xGrid, yGrid, yAxisLeft, yAxisRight) {
+        constructor(taskId, legendName, div, dataGroup, allData, flavors, x, y, xAxis, xGrid, yGrid, yAxisLeft, yAxisRight, units) {
             this.taskId = taskId;
             this.legendName = legendName;
             this.allData = allData;
@@ -50,6 +50,7 @@ async function mainJS() {
             this.data = [];
             this.hiddenData = [];
             this.availableFlavors = flavors;
+            this.units = units;
         }
     }
 
@@ -106,7 +107,7 @@ async function mainJS() {
                 window.open(exports.Program.GetLogUrl(i.commitHash, getFlavor(i.flavorId)), '_blank');
             })
             .append("title")
-            .text(function (d) { return "Exact date: " + d.commitTime + "\n" + "Flavor: " + flavor + "\n" + "Result: " + +d.minTime + ` ${data[0].unit}` + "\n" + "Hash: " + d.commitHash; })
+            .text(function (d) { return "Exact date: " + d.commitTime + "\n" + "Flavor: " + flavor + "\n" + "Result: " + +d.minTime + ` ${testData.units}` + "\n" + "Hash: " + d.commitHash; })
             .merge(circleGroup);
 
     }
@@ -387,9 +388,9 @@ async function mainJS() {
               .attr("transform", "translate(" + width + ",0)");
 
         let title = addSimpleText(dataGroup, width / 2, 10 - (margin.top / 2), "15pt", test, "black");
-        let unit = data.length > 0 ? data[0].unit : "???";
-        let yLegendName = addSimpleText(dataGroup, - margin.left, - margin.top * 1.1, "15pt", `Results (${unit})`, "black", -90);
-        let testData = new TaskData(taskId, yLegendName, div, dataGroup, data, Array.from(flavors), x, y, xAxis, xGrid, yGrid, yAxisLeft, yAxisRight);
+        let units = task === "Size" ? "bytes" : "ms";
+        let yLegendName = addSimpleText(dataGroup, - margin.left, - margin.top * 1.1, "15pt", `Results (${units})`, "black", -90);
+        let testData = new TaskData(taskId, yLegendName, div, dataGroup, data, Array.from(flavors), x, y, xAxis, xGrid, yGrid, yAxisLeft, yAxisRight, units);
         let brush = d3.brushX().on("end", () => brushed(testData)).extent([[0, 0], [width, height]]);
         dataGroup.append("g").attr("class", "brush").call(brush);
         testData.brush = brush;

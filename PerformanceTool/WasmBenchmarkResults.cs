@@ -15,18 +15,14 @@ namespace WasmBenchmarkResults
         public double minTime;
         public int flavorId;
         public string commitHash;
-        public double percentage;
-        public string unit;
 
-        public GraphPointData(string commitTime, int flavorId, KeyValuePair<int, double> pair, string hash, string unit = "ms", double percentage = 0)
+        public GraphPointData(string commitTime, int flavorId, KeyValuePair<int, double> pair, string hash)
         {
             this.commitTime = commitTime;
             taskMeasurementNameId = pair.Key;
             minTime = pair.Value;
             this.flavorId = flavorId;
             commitHash = hash;
-            this.unit = unit;
-            this.percentage = percentage;
         }
 
         public override string ToString()
