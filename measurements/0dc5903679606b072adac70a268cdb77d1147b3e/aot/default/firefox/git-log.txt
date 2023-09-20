@@ -1,0 +1,11 @@
+commit 0dc5903679606b072adac70a268cdb77d1147b3e
+Author: Artur Zgodziński <bivaro@gmail.com>
+Date:   Wed Sep 20 11:45:46 2023 +0100
+
+    Fix trimming of DebuggerDisplay with Name (#92191)
+    
+    The `Name` and `Type` property of the `DebuggerDisplay` attribute accepts the
+    same format string as its `Value` property, but does not prevent
+    trimming members it references. Thanks to this fix, members referenced by
+    any of these two properties are not trimmed and can be displayed by a
+    debugger.
