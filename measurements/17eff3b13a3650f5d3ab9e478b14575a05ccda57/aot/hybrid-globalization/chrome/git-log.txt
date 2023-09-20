@@ -1,0 +1,7 @@
+commit 17eff3b13a3650f5d3ab9e478b14575a05ccda57
+Author: Andy Ayers <andya@microsoft.com>
+Date:   Tue Sep 19 11:37:48 2023 -0700
+
+    JIT: generalize assert to handle SIMD64 (#92235)
+    
+    Fixes #91799.
