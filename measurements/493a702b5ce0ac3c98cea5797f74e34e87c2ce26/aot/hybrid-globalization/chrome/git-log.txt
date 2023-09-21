@@ -1,0 +1,19 @@
+commit 493a702b5ce0ac3c98cea5797f74e34e87c2ce26
+Author: Jeremy Koritzinsky <jekoritz@microsoft.com>
+Date:   Wed Sep 20 19:31:36 2023 -0700
+
+    Build the PGO build legs through the global build job template (#92296)
+    
+    * Build the PGO build legs through the global build job template.
+    
+    * Remove pgoType parameters and plumbing from all jobs and use the -pgoinstrument flag instead of setting the property manually.
+    
+    * Limit subsets to build to limit packages and don't build crossgen2 sfxproj for internal optimization pipelines (we don't use it).
+    
+    * Fix job dependencies now that the non-global jobs don't have PGO type in the name
+    
+    * Change back to the triple-underscore name
+    
+    * Fix Mono artifacts to not have an extra underscore for PGO scenarios.
+    
+    * There's an extra underscore for the CoreCLR artifacts because there's no runtime variant.
