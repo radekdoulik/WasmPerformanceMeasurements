@@ -1,0 +1,51 @@
+commit 45fe624073887819ec8553dd70bc72b31a5e8dc8
+Author: Keyu Gan <karakasa@users.noreply.github.com>
+Date:   Fri Sep 22 16:46:10 2023 +0800
+
+    Avoid string allocation and improve performance of `JsonProperty.WriteTo` (#90074)
+    
+    * Avoid string allocation in WriteTo when possible.
+    
+    System.Text.Json.JsonProperty.WriteTo uses get_Name, calling
+    JsonElement.GetPropertyName() which would allocate a string.
+    
+    Use ReadOnlySpan<byte> from the underlying UTF8 json, when possible,
+    by adding helper methods into JsonDocument & JsonElement.
+    
+    Fix #88767
+    
+    * Avoid alloc in unescaping & escaping.
+    
+    Current code unescapes & escapes property names and uses ToArray.
+    Avoid alloc by adding internal GetRaw/WriteRaw methods.
+    
+    * Fix bugs on escaped property names
+    
+    Original code doesn't handle GetRaw/WriteRaw on escaped
+    property names correctly.
+    
+    * Change IndexOf to Contains if possible.
+    
+    * Further avoid alloc by inlining GetUnescapedSpan
+    
+    Allocations are further avoided when the property name is shorter than
+    JsonConstants.StackallocByteThreshold, by inlining
+    JsonReaderHelper.GetUnescapedSpan.
+    
+    * Move writing logic to JsonElement;
+    Shorten names of new methods;
+    Add a test of writing out special names.
+    
+    * Move logic into JsonDocument
+    
+    * fix format
+    
+    * fix format 2
+    
+    * improve comment
+    
+    * removed unused stub
+    
+    * added assertion
+    
+    * removed unnecessary test
