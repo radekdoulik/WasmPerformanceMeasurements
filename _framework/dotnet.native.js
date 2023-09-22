@@ -5163,6 +5163,11 @@ var ___wasm_call_ctors = function() {
 };
 
 /** @type {function(...*):?} */
+var _memset = Module["_memset"] = function() {
+  return (_memset = Module["_memset"] = Module["asm"]["memset"]).apply(null, arguments);
+};
+
+/** @type {function(...*):?} */
 var _mono_aot_PerformanceTool_get_method = Module["_mono_aot_PerformanceTool_get_method"] = function() {
   return (_mono_aot_PerformanceTool_get_method = Module["_mono_aot_PerformanceTool_get_method"] = Module["asm"]["mono_aot_PerformanceTool_get_method"]).apply(null, arguments);
 };
@@ -5175,11 +5180,6 @@ var _mono_aot_System_Collections_Concurrent_get_method = Module["_mono_aot_Syste
 /** @type {function(...*):?} */
 var _mono_aot_System_Collections_get_method = Module["_mono_aot_System_Collections_get_method"] = function() {
   return (_mono_aot_System_Collections_get_method = Module["_mono_aot_System_Collections_get_method"] = Module["asm"]["mono_aot_System_Collections_get_method"]).apply(null, arguments);
-};
-
-/** @type {function(...*):?} */
-var _memset = Module["_memset"] = function() {
-  return (_memset = Module["_memset"] = Module["asm"]["memset"]).apply(null, arguments);
 };
 
 /** @type {function(...*):?} */

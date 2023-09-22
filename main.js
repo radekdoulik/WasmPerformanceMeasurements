@@ -26,7 +26,6 @@ async function mainJS() {
     const colors = d3.schemeCategory10.concat(d3.schemeSet3);
     var tasksIds = new Map();
     var numTests = 0;
-    var firstDate = null;
     var testsData = [];
     var hashPointsMap = new Map();
     var data;
@@ -484,7 +483,7 @@ async function mainJS() {
                 startDate.setMonth(endDate.getMonth() - 3);
                 break;
             case "whole history":
-                startDate = firstDate;
+                startDate = unfilteredData.firstDate;
                 break;
             default:
                 startDate.setDate(endDate.getDate() - 14);
@@ -522,10 +521,7 @@ async function mainJS() {
         let url = new URL(decodeURI(window.location));
         let params = new URLSearchParams(url.search);
         if (params.get("startDate") === null && params.get("endDate") === null) {
-            let endDate = new Date();
-            let startDate = new Date();
-            startDate.setDate(endDate.getDate() - 14);
-            permalinkDates(startDate, endDate);
+            permalinkDates(unfilteredData.latestStartDate, unfilteredData.latestEndDate);
         }
     }
 
@@ -751,8 +747,6 @@ async function mainJS() {
         let dataLen = data.length;
         for (let i = 0; i < dataLen; i++) {
             data[i].time = new Date(data[i].commitTime);
-            if (firstDate === null || firstDate > data[i].time)
-                firstDate = data[i].time;
         }
     }
 
@@ -789,19 +783,18 @@ async function mainJS() {
         console.log("will try to load the data from: " + indexUrl);
     }
 
-    //console.log("before load: " + (new Date().getTime() - startTime));
+    // console.log("before load: " + (new Date().getTime() - startTime));
     let value = await exports.Program.LoadData(String(indexUrl));
-    //console.log("after load: " + (new Date().getTime() - startTime));
+    // console.log("after load: " + (new Date().getTime() - startTime));
     let loadedTime = new Date().getTime();
 
     let unfilteredData = JSON.parse(value);
+    unfilteredData.firstDate = new Date(unfilteredData.firstDate);
+    unfilteredData.latestStartDate = new Date(unfilteredData.latestStartDate);
+    unfilteredData.latestEndDate = new Date(unfilteredData.latestEndDate);
 
-    let end = new Date();
-    let start = new Date();
-    start.setDate(end.getDate() - 14);
-
-    data = await getDataForDates(start, end);
-    let flavors = Object.values(unfilteredData.flavorsMap); //Array.from(unfilteredData.flavors);
+    data = await getDataForDates(unfilteredData.latestStartDate, unfilteredData.latestEndDate);
+    let flavors = Object.values(unfilteredData.flavorsMap);
     let testNames = Object.values(unfilteredData.taskNamesMap).sort();
     numTests = testNames.length;
     let graphFilters = JSON.parse(exports.Program.GetSubFlavors());
