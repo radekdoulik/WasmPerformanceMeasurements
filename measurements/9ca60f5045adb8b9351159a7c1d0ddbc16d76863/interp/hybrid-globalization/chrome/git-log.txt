@@ -1,0 +1,9 @@
+commit 9ca60f5045adb8b9351159a7c1d0ddbc16d76863
+Author: Jeremy Koritzinsky <jekoritz@microsoft.com>
+Date:   Thu Sep 21 23:23:44 2023 -0700
+
+    Unify on one version of the ESRP tasks (#92451)
+    
+    * Change the macos signing steps to use the same sigining tool version as the Windows signing steps.
+    
+    * Upgrade code signing task version
