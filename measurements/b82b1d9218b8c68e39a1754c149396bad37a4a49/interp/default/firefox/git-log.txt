@@ -1,0 +1,18 @@
+commit b82b1d9218b8c68e39a1754c149396bad37a4a49
+Author: Sanjam Panda <36253777+saitama951@users.noreply.github.com>
+Date:   Fri Sep 22 18:41:10 2023 +0530
+
+    [wasm] Endian fix for Webcil (#92274)
+    
+    * [wasm] Endian fix for Webcil
+    
+    'dotnet new blazorwasm' command failed on s390x and was throwing a not implemented exception
+    
+    The issue was with with the WebCil writer and reader, specific endianness conversions relating to the webcil payload were not implemented for big endian machines.
+    
+    We considered fixing the generic implementation, but there were only two structures in use: WebcilHeader and WebcilSectionHeader, so it was easier to handle them explicitly.
+    
+    
+    ---------
+    
+    Co-authored-by: Aleksey Kliger <alklig@microsoft.com>
