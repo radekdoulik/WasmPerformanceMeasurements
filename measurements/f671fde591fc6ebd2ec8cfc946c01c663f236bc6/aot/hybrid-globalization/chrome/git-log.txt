@@ -1,0 +1,15 @@
+commit f671fde591fc6ebd2ec8cfc946c01c663f236bc6
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Thu Sep 21 20:22:36 2023 -0400
+
+    Address feedback and fix some TensorPrimitives issues (#92395)
+    
+    * Address feedback and fix some TensorPrimitives issues
+    
+    - Added a few APIs based on initial feedback: Abs (vectorized), Log2, and element-wise Max/Min{Magnitude}
+    - Renamed L2Normalize to Norm
+    - Fixed semantics of Min/MaxMagnitude to return original value rather than the absolute value
+    - Renamed a few helper types for consistency
+    - Added tests
+    
+    * Add a few more uses of Tolerance
