@@ -1,0 +1,12 @@
+commit c7ca1f38f1e58902ced9c6b060bee1d840d1a87f
+Author: Jan Kotas <jkotas@microsoft.com>
+Date:   Sat Sep 23 06:57:56 2023 -0700
+
+    Rename get_* to Get* in NativeAOT runtime (#92498)
+    
+    * Rename get_* to Get* in NativeAOT runtime
+    
+    A few methods in native AOT runtime data structures used get_ prefix for
+    historic reasons.
+    
+    * Rename MethodTable.Is*Type to MethodTable.Is* for several properties to make them match names used by the managed type system
