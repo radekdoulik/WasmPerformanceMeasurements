@@ -1,0 +1,23 @@
+commit 8c090757a69370e46da63dfae9f4ed44cc90ec01
+Author: Will Smith <lol.tihan@gmail.com>
+Date:   Fri Sep 22 17:50:00 2023 -0700
+
+    JIT: Fixed containment of STOREIND of HW intrinsics ConvertTo* (#92396)
+    
+    * Added OperIsHWIntrinsicSIMDScalar. Do not remove CAST on SIMD scalar operations for stores.
+    
+    * Minor cleanup
+    
+    * Minor cleanup
+    
+    * Feedback
+    
+    * Added test case
+    
+    * Update Runtime_92349.cs
+    
+    * Update Runtime_92349.cs
+    
+    * Update Runtime_92349.cs
+    
+    * Update Runtime_92349.cs
