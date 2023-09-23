@@ -1,0 +1,7 @@
+commit 0976df5dc5da790462d2f7cbe018ef82e4ec2af5
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Sat Sep 23 16:05:34 2023 +0900
+
+    Remove blocking on a test for native AOT (#91781)
+    
+    Fixes #89101.
