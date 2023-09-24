@@ -1,0 +1,11 @@
+commit 4101144c8dde177addfb93ac46425fd1a8604f7a
+Author: Kevin Jones <kevin@vcsjones.com>
+Date:   Sun Sep 24 07:07:16 2023 -0400
+
+    HashAlgorithmName one-shots (#92430)
+    
+    * Implement HMAC and hash one-shot for HashAlgorithmName.
+    
+    * Use throw helper for destination length.
+    
+    Also change the variable name for the hash length to be consistent accross all methods.
