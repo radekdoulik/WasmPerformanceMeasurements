@@ -1,0 +1,7 @@
+commit bbe5c66c50201816c14149fd3f259db86bc1f493
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Sat Sep 23 20:29:05 2023 -0400
+
+    [mono] Generate gsharedvt versions of the callvirt delegate invoke wrappers. (#92472)
+    
+    Also change the IL of the wrapper so it works with gsharedvt.
