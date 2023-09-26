@@ -1,0 +1,27 @@
+commit e4b40846218e81319d03b1d484c449a53a14140e
+Author: Ilona Tomkowicz <32700855+ilonatommy@users.noreply.github.com>
+Date:   Tue Sep 26 16:54:50 2023 +0200
+
+    [wasm][debugger] Support multidimensional indexing of object scheme (#92630)
+    
+    * Multidim working, indexing by constant got broken.
+    
+    * Fix failing test (indexing with literals).
+    
+    * Cleenup + new tests.
+    
+    * Comma removal
+    
+    * More tests.
+    
+    * Fix simple case of nested indexing.
+    
+    * Fixed one test, found another one failing.
+    
+    * Fix complex multiple nestings.
+    
+    * Remove ToDo - fixed by this PR.
+    
+    * Jagged nested indexing works fine.
+    
+    * Fix test.
