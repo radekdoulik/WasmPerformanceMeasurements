@@ -1,0 +1,24 @@
+commit d60f44a940ebfedf6faac5499512e3bdd9167c95
+Author: Michał Petryka <35800402+MichalPetryka@users.noreply.github.com>
+Date:   Mon Sep 25 20:42:55 2023 +0200
+
+    Improve CborWriter buffer growth (#92435)
+    
+    * Improve CborWriter buffer growth
+    
+    * Avoid OOM with max size allocations
+    
+    * Update src/libraries/System.Formats.Cbor/src/System/Formats/Cbor/Writer/CborWriter.cs
+    
+    Co-authored-by: Jeremy Barton <jbarton@microsoft.com>
+    
+    * Hardcode max array length
+    
+    * Update src/libraries/System.Formats.Cbor/src/System/Formats/Cbor/Writer/CborWriter.cs
+    
+    Co-authored-by: Eirik Tsarpalis <eirik.tsarpalis@gmail.com>
+    
+    ---------
+    
+    Co-authored-by: Jeremy Barton <jbarton@microsoft.com>
+    Co-authored-by: Eirik Tsarpalis <eirik.tsarpalis@gmail.com>
