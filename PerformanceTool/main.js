@@ -549,6 +549,10 @@ async function mainJS() {
             availableFlavors = Array.from(flavors);
         }
         updateCheckboxes(availableFlavors);
+        for (let i = 0; i < numTests; i++) {
+            let curTest = testsData[i];
+            curTest.availableFlavors = Array.from(availableFlavors);
+        }
         await updateOnDates(startDate, endDate);
 
         if (tasks !== null && tasks !== "") {
