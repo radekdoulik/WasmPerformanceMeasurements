@@ -1,0 +1,7 @@
+commit 07e86f1ed0070ce2afc0ae4d6a2c1e763f86e20b
+Author: Parker Bibus <parkerbibus@microsoft.com>
+Date:   Tue Sep 26 10:24:05 2023 -0700
+
+    [PERF] Add hybrid globalization testing runs (#89825)
+    
+    Add blazor hybrid globalization runs. This includes updating the Blazor and iOS test names to take into account hybridGlobalization and setting up a standard for scenario run configs going forward, at least for now. By having the hybridglobaliztion in both the runconfig and the name when different from the default, the names will only update for non-default settings auto-updating PowerBI while the runconfigs will be available whenever necessary.
