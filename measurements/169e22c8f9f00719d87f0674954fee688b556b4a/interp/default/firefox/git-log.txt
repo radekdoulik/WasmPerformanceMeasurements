@@ -1,0 +1,7 @@
+commit 169e22c8f9f00719d87f0674954fee688b556b4a
+Author: Matous Kozak <55735845+matouskozak@users.noreply.github.com>
+Date:   Tue Sep 26 08:21:18 2023 +0200
+
+    [mono] Unaligned read/write only when NO_UNALIGNED_ACCESS is set (#91813)
+    
+    * unaligned read/store only on platforms not supporting it
