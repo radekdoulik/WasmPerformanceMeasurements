@@ -32,29 +32,48 @@ namespace WasmBenchmarkResults
 
     }
 
-    public partial class RequiredData
+    public partial class LatestData
     {
-        public Index.IdMap flavorsMap;
-        public Index.IdMap taskNamesMap;
+        public DateTimeOffset FirstDate;
+        public DateTimeOffset SliceStartDate;
+        public DateTimeOffset SliceEndDate;
+        public Index Index;
 
-        public RequiredData(Index.IdMap flavorsMap, Index.IdMap taskNamesMap)
+        public static LatestData Load(string json)
         {
-            this.flavorsMap = flavorsMap;
-            this.taskNamesMap = taskNamesMap;
-        }
-
-        [JsonSourceGenerationOptions(IncludeFields = true)]
-        [JsonSerializable(typeof(RequiredData))]
-        partial class RequiredDataSerializerContext : JsonSerializerContext { }
-
-        public string Save()
-        {
-            var context = new RequiredDataSerializerContext(new JsonSerializerOptions()
+            var context = new DataSerializerContext(new JsonSerializerOptions()
             {
                 IncludeFields = true,
                 NumberHandling = JsonNumberHandling.AllowNamedFloatingPointLiterals,
                 Converters = { new Index.IdMap.Converter() }
             });
+
+            return JsonSerializer.Deserialize<LatestData>(json, context.LatestData);
+        }
+    }
+
+    [JsonSourceGenerationOptions(IncludeFields = true)]
+    [JsonSerializable(typeof(LatestData))]
+    [JsonSerializable(typeof(RequiredData))]
+    partial class DataSerializerContext : JsonSerializerContext { }
+
+    public partial class RequiredData
+    {
+        public Index.IdMap flavorsMap;
+        public Index.IdMap taskNamesMap;
+        public DateTimeOffset firstDate;
+        public DateTimeOffset latestStartDate;
+        public DateTimeOffset latestEndDate;
+
+        public string Save()
+        {
+            var context = new DataSerializerContext(new JsonSerializerOptions()
+            {
+                IncludeFields = true,
+                NumberHandling = JsonNumberHandling.AllowNamedFloatingPointLiterals,
+                Converters = { new Index.IdMap.Converter() }
+            });
+
             return JsonSerializer.Serialize<RequiredData>(this, context.RequiredData);
         }
     }

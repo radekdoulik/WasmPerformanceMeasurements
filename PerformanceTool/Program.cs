@@ -11,9 +11,12 @@ public partial class Program
     readonly static string gitLogFile = "/git-log.txt";
     readonly static string fileName = "index.json";
     static WasmBenchmarkResults.Index data;
+    static bool latestLoaded = false;
     static List<string> flavors;
     static Dictionary<string, List<GraphPointData>> graphDataByHash = new();
+    static string origIndexUrl;
     static string urlBase;
+
     readonly static JsonSerializerOptions serializerOptions = new()
     {
         IncludeFields = true,
@@ -33,17 +36,28 @@ public partial class Program
         return $"|{new string('-', alignmentLength)}:";
     }
 
-    private static async Task<WasmBenchmarkResults.Index> LoadIndex(string indexUrl)
+    private static async Task<WasmBenchmarkResults.Index> LoadIndex()
+    {
+        return WasmBenchmarkResults.Index.Load(await GetIndexContent(origIndexUrl));
+    }
+
+    static async Task<string> GetIndexContent(string indexUrl)
     {
         DataDownloader dataDownloader = new();
         using var memoryStream = new MemoryStream(await dataDownloader.downloadAsBytes(indexUrl));
         using var archive = new ZipArchive(memoryStream);
         var entry = archive.GetEntry(fileName);
-        using Stream readStream = entry.Open();
-        using StreamReader streamReader = new StreamReader(readStream);
-        var index = WasmBenchmarkResults.Index.Load(streamReader);
+        using Stream readStream = entry.Open(); 
+        using var reader = new StreamReader(readStream);
 
-        return index;
+        return await reader.ReadToEndAsync();
+    }
+
+    private static async Task<WasmBenchmarkResults.LatestData> LoadLatestIndex()
+    {
+        var url = urlBase + "/slices/last.zip";
+
+        return WasmBenchmarkResults.LatestData.Load(await GetIndexContent(url));
     }
 
     [JSExport]
@@ -52,17 +66,33 @@ public partial class Program
         return urlBase + hash + "/" + flavor.Replace('.', '/') + gitLogFile;
     }
 
-    internal static async Task<string> LoadTests(string indexUrl)
+    internal static async Task<string> LoadTests()
     {
-        var idx = indexUrl.LastIndexOf('/');
-        urlBase = indexUrl;
+        var idx = origIndexUrl.LastIndexOf('/');
+        DateTimeOffset firstDate;
+        DateTimeOffset startDate;
+        DateTimeOffset endDate;
+        urlBase = origIndexUrl;
         if (idx >= 0)
-            urlBase = indexUrl.Substring(0, idx);
+            urlBase = origIndexUrl.Substring(0, idx);
 
-        data = await LoadIndex(indexUrl);
+        try {
+            var latest = await LoadLatestIndex();
+            firstDate = latest.FirstDate;
+            startDate = latest.SliceStartDate;
+            endDate = latest.SliceEndDate;
+            data = latest.Index;
+            latestLoaded = true;
+        } catch {
+            data = await LoadIndex();
+            firstDate = data.Data[0].commitTime;
+            endDate = data.Data[data.Data.Count - 1].commitTime;
+            startDate = endDate.AddDays(-14);
+        }
+
         flavors = data.FlavorMap.Keys.ToList<string>();
 
-        RequiredData neededData = new(data.FlavorMap, data.MeasurementMap);
+        var neededData = new RequiredData { flavorsMap = data.FlavorMap, taskNamesMap = data.MeasurementMap, firstDate = firstDate, latestStartDate = startDate, latestEndDate = endDate };
         var jsonData = neededData.Save();
 
         return jsonData;
@@ -74,6 +104,9 @@ public partial class Program
         var startDate = DateTimeOffset.Parse(JsonSerializer.Deserialize<string>(date1, serializerContext.String));
         var endDate = DateTimeOffset.Parse(JsonSerializer.Deserialize<string>(date2, serializerContext.String));
         var hashSet = new HashSet<string>();
+
+        if (latestLoaded && startDate < data.Data[0].commitTime)
+            data = await LoadIndex();
 
         foreach (var d in data.Data)
         {
@@ -211,7 +244,8 @@ public partial class Program
     [JSExport]
     internal static Task<string> LoadData(string indexUrl)
     {
-        return LoadTests(indexUrl);
+        origIndexUrl = indexUrl;
+        return LoadTests();
     }
 
     static int Main() => 0;

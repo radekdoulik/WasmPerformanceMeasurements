@@ -13,14 +13,14 @@ namespace WasmBenchmarkResults
         [JsonSerializable(typeof(Index))]
         partial class IndexSerializerContext : JsonSerializerContext { }
 
-        public static Index Load(StreamReader streamReader)
+        public static Index Load(string json)
         {
             var context = new IndexSerializerContext(new JsonSerializerOptions() {
                 IncludeFields = true,
                 NumberHandling = JsonNumberHandling.AllowNamedFloatingPointLiterals,
                 Converters = { new IdMap.Converter() }
             });
-            return JsonSerializer.Deserialize<Index>(streamReader.ReadToEnd(), context.Index);
+            return JsonSerializer.Deserialize<Index>(json, context.Index);
         }
 
         public override string ToString()
