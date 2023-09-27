@@ -1,0 +1,27 @@
+commit e500dad300c739a35eb88edb3605f71eca18a4ac
+Author: Lakshan Fernando <lakshanf@hotmail.com>
+Date:   Wed Sep 27 07:51:05 2023 -0700
+
+    Switch to etw python script (#92508)
+    
+    * initial work with hacks to switch to EtwProvider python script
+    
+    * move to generated scripts
+    
+    * Fixes for some link issues
+    
+    * fix link issue
+    
+    * adding private etw callback to enable GC events
+    
+    * Fix x86 build break
+    
+    * fixing Linux build break
+    
+    * fixing gcpriv.h
+    
+    * making minimal typedefs
+    
+    * FB
+    
+    * Fix for posix break
