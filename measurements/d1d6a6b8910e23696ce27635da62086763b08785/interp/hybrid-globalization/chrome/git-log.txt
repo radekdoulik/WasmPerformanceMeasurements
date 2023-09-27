@@ -1,0 +1,8 @@
+commit d1d6a6b8910e23696ce27635da62086763b08785
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Wed Sep 27 15:34:38 2023 +0900
+
+    Make it possible to preinitialize HW intrinsic IsSupported (#92666)
+    
+    * Move the IL rewriting for HW intrinsics `IsSuported` calls to `ILProvider` from `RyuJitCompilation`
+    * Also rewrite constant true/false
