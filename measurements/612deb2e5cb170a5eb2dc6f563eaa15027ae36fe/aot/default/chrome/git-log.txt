@@ -1,0 +1,13 @@
+commit 612deb2e5cb170a5eb2dc6f563eaa15027ae36fe
+Author: Ilona Tomkowicz <32700855+ilonatommy@users.noreply.github.com>
+Date:   Thu Sep 28 16:34:07 2023 +0200
+
+    [wasm][debugger] Support passing identifiers to methods (#92758)
+    
+    * Basic fix.
+    
+    * More tests.
+    
+    * Move tests to more suitable place.
+    
+    * Pause earlier.
