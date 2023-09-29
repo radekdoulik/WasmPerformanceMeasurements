@@ -1,0 +1,12 @@
+commit 38fd485315c557f2a627deb1abc03616eb29153c
+Author: Alexander Köplinger <alex.koeplinger@outlook.com>
+Date:   Fri Sep 29 12:19:41 2023 +0200
+
+    [mono] Cleanup unused runtime functions (#91681)
+    
+    - Removes unused functions
+    - Removes cmake configure checks for functions/headers that are no longer needed
+    - Renames HAVE_UWP_WINAPI_SUPPORT to HAVE_APP_WINAPI_SUPPORT
+    - Move MSVC warning disables into cmake so it is more visible
+    
+    Co-authored-by: Johan Lorensson <lateralusx.github@gmail.com>
