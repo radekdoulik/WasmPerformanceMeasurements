@@ -1,0 +1,11 @@
+commit 876f763a8ff8345b61897ff6297876445b2b484f
+Author: Buyaa Namnan <bunamnan@microsoft.com>
+Date:   Thu Sep 28 11:44:29 2023 -0700
+
+    Account port number already included within server string (#92748)
+    
+    * Account port number already included within server string
+    
+    * Refactor the test
+    
+    * Apply feedback
