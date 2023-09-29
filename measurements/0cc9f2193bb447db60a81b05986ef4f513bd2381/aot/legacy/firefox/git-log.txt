@@ -1,0 +1,36 @@
+commit 0cc9f2193bb447db60a81b05986ef4f513bd2381
+Author: SwapnilGaikwad <swapnil.gaikwad@arm.com>
+Date:   Fri Sep 29 14:50:32 2023 +0100
+
+    Implement StoreVector64x2 and StoreVector128x2 for Arm64 (#92109)
+    
+    * Implement StoreVector128x2 for Arm64
+    
+    * Remove redundant implmentations
+    
+    * Implement StoreVector64x2 for Arm64
+    
+    * Remove StoreVector64x2 implementation for Arm64
+    
+    This reverts commit 49ef72e3a3eaa58d3b3338dc5d6d80a7ca0b50b5.
+    
+    * Fix instruction type for the StoreVector128x2 intrinsic
+    
+    * Review comments:
+    
+    * Arrange APIs alphabetically
+    
+    * Add StoreVector64x2
+    
+    * fix the invalid instructions
+    
+    * Add test cases
+    
+    * Update src/coreclr/jit/hwintrinsicarm64.cpp
+    
+    Co-authored-by: Bruce Forstall <brucefo@microsoft.com>
+    
+    ---------
+    
+    Co-authored-by: Kunal Pathak <Kunal.Pathak@microsoft.com>
+    Co-authored-by: Bruce Forstall <brucefo@microsoft.com>
