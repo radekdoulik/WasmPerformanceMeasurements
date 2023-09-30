@@ -1,0 +1,13 @@
+commit 420717ee369d44906f5ba6bbf94ee28058c56037
+Author: Filip Navara <filip.navara@gmail.com>
+Date:   Sat Sep 30 15:38:28 2023 +0200
+
+    Split off patched code into separate .S file and disable subsections-via-symbols for it (#92555)
+    
+    * [amd64/arm64] Split off patched code into separate .S file and disable subsections-via-symbols for it
+    
+    * [amd64/arm64] Split off patched code into separate .asm file
+    
+    [arm64] Move JIT_UpdateWriteBarrierState out of the patched region to match implementation in .S file
+    
+    * Remove NO_SUBSECTIONS_VIA_SYMBOLS
