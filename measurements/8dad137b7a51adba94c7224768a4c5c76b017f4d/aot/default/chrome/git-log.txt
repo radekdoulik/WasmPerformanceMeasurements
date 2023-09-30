@@ -1,0 +1,15 @@
+commit 8dad137b7a51adba94c7224768a4c5c76b017f4d
+Author: Andy Ayers <andya@microsoft.com>
+Date:   Sat Sep 30 08:20:18 2023 -0700
+
+    JIT: fix self-conflicting HFA arg prolog handling for arm64 (#92355)
+    
+    Fix prolog handling in the case where the in-body destination register
+    for an HFA overlaps with one of the HFA argument registers. For instance
+    the HFA is passed in `s0-s3` and needs to end up in `v3`.
+    
+    This requires special handling because the dependence analysis done in
+    `genFnPrologCalleeRegArgs` only tracks entire registers, not parts of
+    registers.
+    
+    Fixes #83167
