@@ -1,0 +1,9 @@
+commit eaa8ea19f4b2f5e222f92707e8f7b1fc3bdd0da9
+Author: Eirik Tsarpalis <eirik.tsarpalis@gmail.com>
+Date:   Sat Sep 30 00:47:21 2023 +0300
+
+    Apply sequence equality comparison to the final Regex incremental value. (#92835)
+    
+    * Apply sequence equality comparison to the final Regex incremental value.
+    
+    * Avoid using SequenceEqual
