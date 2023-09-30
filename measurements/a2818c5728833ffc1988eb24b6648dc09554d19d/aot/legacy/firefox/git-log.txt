@@ -1,0 +1,13 @@
+commit a2818c5728833ffc1988eb24b6648dc09554d19d
+Author: Koundinya Veluri <kouvel@users.noreply.github.com>
+Date:   Sat Sep 30 00:14:34 2023 -0700
+
+    Include info about system call errors in some exceptions from operating on named mutexes (#92603)
+    
+    * Include info about system call errors in some exceptions from operating on named mutexes
+    
+    - Added new PAL APIs for creating and opening mutexes that take a string buffer for system call error info. These are called with a stack-allocated buffer and upon error the system call errors are appended to the exception message.
+    - When there is a system call failure that leads to the PAL API failing, some info is appended to the error string, including the system call, relevant arguments, return value, and `errno`
+    - `chmod` on OSX seemingly can be interrupted by signals, fixed to retry. Also fixed a couple other small things.
+    
+    Fixes https://github.com/dotnet/runtime/issues/89090
