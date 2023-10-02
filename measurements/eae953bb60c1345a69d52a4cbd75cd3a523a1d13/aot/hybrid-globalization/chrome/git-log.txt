@@ -1,0 +1,8 @@
+commit eae953bb60c1345a69d52a4cbd75cd3a523a1d13
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Sun Oct 1 22:58:00 2023 -0400
+
+    [llvm] Fix spilling of valuetypes to the stack if they are passed by addr. (#92658)
+    
+    The previous code would spill the valuetype when it was passed by addr,
+    and another bblock could try to read from the unitialized stack location.
