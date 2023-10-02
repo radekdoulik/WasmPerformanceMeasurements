@@ -1,0 +1,8 @@
+commit c92caa419873bbb5c51997c0f613ea5b5b1d22ec
+Author: Marek Fišera <mara@neptuo.com>
+Date:   Mon Oct 2 11:28:16 2023 +0200
+
+    [browser] Remove duplicated marshaling of return value for JSExport (#92403)
+    
+    * Remove duplicated marshaling of return value for JSExport
+    * Move unmarshal and return value marshal into try block
