@@ -1,0 +1,9 @@
+commit 7abea9ea6ac3cde23fe1a890338e22a5a58a51b6
+Author: Jan Dupej <109523496+jandupej@users.noreply.github.com>
+Date:   Tue Oct 3 12:08:56 2023 +0200
+
+    [mono][jit] Arm64 SIMD regs are now zeroed with movi instead of eor (#92882)
+    
+    * SIMD regs are now zeroed with movi instead of eor.
+    
+    * Simplified vector length selection.
