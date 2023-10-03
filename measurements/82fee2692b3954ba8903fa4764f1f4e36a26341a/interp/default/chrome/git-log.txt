@@ -1,0 +1,10 @@
+commit 82fee2692b3954ba8903fa4764f1f4e36a26341a
+Author: Andy Gocke <angocke@microsoft.com>
+Date:   Mon Oct 2 15:24:51 2023 -0700
+
+    Remove 'tracing' from Native AOT PR runs (#92825)
+    
+    Tracing heavily increases the time it takes to run Native AOT tests.
+    We already run these tests in the outerloop and the probability that
+    any given PR will break these tests is low. Outerloop coverage should
+    be good enough right now.
