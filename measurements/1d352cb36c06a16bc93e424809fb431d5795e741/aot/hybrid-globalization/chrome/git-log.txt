@@ -1,0 +1,7 @@
+commit 1d352cb36c06a16bc93e424809fb431d5795e741
+Author: Aman Khalid <amankhalid@microsoft.com>
+Date:   Tue Oct 3 21:30:06 2023 -0400
+
+    JIT: Make BasicBlock::bbJumpKind private (#92908)
+    
+    This is the beginning of a larger effort to disallow the use of BBJ_NONE (reserved for basic blocks that fall through) before the current method's block layout is finalized.
