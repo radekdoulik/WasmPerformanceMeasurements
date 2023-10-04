@@ -1,0 +1,17 @@
+commit 64862501b238512db10eff9ed4b05ba94412974d
+Author: Jan Dupej <109523496+jandupej@users.noreply.github.com>
+Date:   Wed Oct 4 14:49:41 2023 +0200
+
+    [mono][jit] Fuse SIMD extract and insert on arm64 (#92714)
+    
+    * Fuse extract and insert into arm64 ins.
+    
+    * Extending to vector4.
+    
+    * Ins index is now a function. Removed newline.
+    
+    * Refactoring.
+    
+    * SIMD extract ops have no side offects (to facilitate their elimination). Fixed bug.
+    
+    * Fixed arm32 build.
