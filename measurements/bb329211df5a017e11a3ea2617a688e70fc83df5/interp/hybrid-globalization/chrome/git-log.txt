@@ -1,0 +1,7 @@
+commit bb329211df5a017e11a3ea2617a688e70fc83df5
+Author: Egor Bogatov <egorbo@gmail.com>
+Date:   Wed Oct 4 11:58:26 2023 +0200
+
+    Fix hwintrinsicChild->isContained() assert (#90556)
+    
+    Co-authored-by: Bruce Forstall <brucefo@microsoft.com>
