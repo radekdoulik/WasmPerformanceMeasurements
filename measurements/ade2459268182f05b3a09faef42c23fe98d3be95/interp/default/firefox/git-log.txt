@@ -1,0 +1,24 @@
+commit ade2459268182f05b3a09faef42c23fe98d3be95
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Thu Oct 5 16:38:31 2023 +0200
+
+    JIT: Add ordering side effects in fgMorphExpandInstanceField (#92998)
+    
+    In #92710 I removed an ordering side effect set on a LCL_VAR node in
+    fgMorphExpandInstanceField, since the side effect is meaningless on a
+    local. However, I did not realize that setting the ordering effect was
+    important because propagating it to parent nodes was actually necessary.
+    
+    This PR explicitly sets the ordering effect on the ADD<byref> nodes
+    created, since forming these and reporting them to GC is illegal if the
+    base is invalid.
+    
+    Additionally, it sets the ordering effect on the consuming indirection;
+    if that indirection made use of the fact that the FIELD_ADDR is non-null
+    to become non-faulting, then it has an ordering dependency once we
+    expand the FIELD_ADDR to a control-flow based null-check. This is not
+    actually necessary since we always set end up with an ADD<byref> that
+    propagates it, but that seems more like a coincidence than anything
+    else.
+    
+    Fix #92990
