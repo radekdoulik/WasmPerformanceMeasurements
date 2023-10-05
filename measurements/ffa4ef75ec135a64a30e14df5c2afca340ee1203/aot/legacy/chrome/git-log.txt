@@ -1,0 +1,7 @@
+commit ffa4ef75ec135a64a30e14df5c2afca340ee1203
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Thu Oct 5 17:44:34 2023 +0900
+
+    Don't widen to Int128 in CastCache (#92984)
+    
+    Leftover change from hackathon. Existing code is widening to Int128 and then counting zeros. It still worked because we only use it for bit shifting and bit shifts do wrap around if they're > 64. But this was bringing Int128 into `Runtime.Base` in my hackathon project.
