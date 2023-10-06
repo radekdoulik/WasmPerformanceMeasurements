@@ -1,0 +1,18 @@
+commit f55549222e4dc1469190caa56e03361ee46208ca
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Fri Oct 6 00:32:15 2023 +0200
+
+    JIT: Fix invalid smnegl transformation (#93003)
+    
+    * JIT: Fix invalid smnegl transformation
+    
+    The newly introduced TryLowerNegToMulLongOp would always lower to a
+    signed multiplication, even for unsigned multiplications.
+    
+    Also apply a couple of other fixes to the transformation:
+    * Replace uses of GenTree::ReplaceWith with LIR::Use::ReplaceWith
+    * Add some necessary interference checks
+    
+    Fix #92537
+    
+    * Add test
