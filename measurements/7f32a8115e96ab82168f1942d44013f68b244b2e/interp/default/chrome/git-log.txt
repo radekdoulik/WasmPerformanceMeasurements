@@ -1,0 +1,21 @@
+commit 7f32a8115e96ab82168f1942d44013f68b244b2e
+Author: Will Smith <lol.tihan@gmail.com>
+Date:   Thu Oct 5 19:56:19 2023 -0700
+
+    Create IL-RT folder to store roundtripped IL assemblies and sources, removed suffix '.asm' to roundtripped files, re-enabled rejit ilasm roundtripping (#90110)
+    
+    * Create IL-RT folder to store round-tripped IL assemblies and sources
+    
+    * Re-enable 'rejit' for roundtrip testing. Remove .asm.dll.
+    
+    * Copy dlls to folder
+    
+    * Update ilasm.yml
+    
+    * Update CLRTest.Jit.targets
+    
+    * Update CLRTest.Jit.targets
+    
+    * Update CLRTest.Jit.targets
+    
+    * Update CLRTest.Jit.targets
