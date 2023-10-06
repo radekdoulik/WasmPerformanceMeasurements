@@ -1,0 +1,9 @@
+commit f37e653ee77490f2ce0ad488db213827fb50b7ff
+Author: Mitchell Hwang <16830051+mdh1418@users.noreply.github.com>
+Date:   Fri Oct 6 10:12:42 2023 -0400
+
+    [Android][build] Fix android package name containing `-` (#93077)
+    
+    * [Android][build] Fix Android package naming
+    
+    * Remove unnecessary code
