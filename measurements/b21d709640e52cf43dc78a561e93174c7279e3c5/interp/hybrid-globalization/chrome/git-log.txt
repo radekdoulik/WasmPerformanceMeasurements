@@ -1,0 +1,13 @@
+commit b21d709640e52cf43dc78a561e93174c7279e3c5
+Author: Ahmet Ibrahim Aksoy <aaksoy@microsoft.com>
+Date:   Sat Oct 7 09:16:36 2023 +0200
+
+    Change SendAsync_SlowServerRespondsAfterDefaultReceiveTimeout_ThrowsHttpRequestException server to Loopback (#93025)
+    
+    * Change test server from external server to never responding loopback server
+    
+    * Review feedback
+    
+    * Delete date from response
+    
+    * Delete get content explicitly
