@@ -1,0 +1,5 @@
+commit b0a476ce2cdeb8b31e0222b07211becbdcbf2aac
+Author: Tomasz Sowiński <tomeksowi@gmail.com>
+Date:   Sat Oct 7 01:50:29 2023 +0200
+
+    [RISC-V] Use standard NaNs in FP ops for cross-compiling RISC-V on x86 (#93098)
