@@ -1,0 +1,7 @@
+commit f21a2666c577306e437f80fe934d76cdb15072a5
+Author: Aleksey Kliger (λgeek) <alklig@microsoft.com>
+Date:   Sat Oct 7 10:03:18 2023 -0400
+
+    [mono] Use C11 _Noreturn (or [[noreturn]]) instead of GCC attribute (#93131)
+    
+    * [mono] Use C11 _Noreturn (or [[noreturn]]) instead of GCC attribute
