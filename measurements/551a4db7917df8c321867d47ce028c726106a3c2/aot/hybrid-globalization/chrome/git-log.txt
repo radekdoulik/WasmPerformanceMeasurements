@@ -1,0 +1,16 @@
+commit 551a4db7917df8c321867d47ce028c726106a3c2
+Author: Bruce Forstall <brucefo@microsoft.com>
+Date:   Sat Oct 7 18:17:11 2023 -0700
+
+    Update JIT debug helpers (#93086)
+    
+    * Update JIT debug helpers
+    
+    1. Make them available in builds linked using /OPT:REF (currently,
+    Checked builds (on Windows); they are not available at all in Release builds).
+    2. Add a bunch of missing documentation.
+    3. Add `cTreeRange`
+    4. Make the newer dumpers more consistent with the rest by dumping a sequence number.
+    5. Add `dbLoop` for `dFindLoop`
+    
+    * Support x86, arm64
