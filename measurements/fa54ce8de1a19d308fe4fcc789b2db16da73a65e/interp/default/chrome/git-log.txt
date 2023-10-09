@@ -1,0 +1,29 @@
+commit fa54ce8de1a19d308fe4fcc789b2db16da73a65e
+Author: Albert Szilvasy <66087606+szilvaa-adsk@users.noreply.github.com>
+Date:   Sun Oct 8 14:33:54 2023 -0700
+
+    Permissive handling for runtimeconfig.json for ijwhost (#92037)
+    
+    * Permissive handling for runtimeconfig.json
+    
+    * take 2: avoid changing hostfxr.dll
+    
+    * Fix tests
+    
+    * Make permissive handling optional.
+    Opt ComHost out and IjwHost in.
+    
+    * Update code to use the newly introduced param
+    
+    * Updated tests
+    
+    * Fix test
+    
+    * Roll back change that is not required
+    
+    * Delete runtimeconfig.json
+    This ensures consistent start point for each test
+    
+    * Refactor test according to review comments
+    
+    * Change tests according to review comments
