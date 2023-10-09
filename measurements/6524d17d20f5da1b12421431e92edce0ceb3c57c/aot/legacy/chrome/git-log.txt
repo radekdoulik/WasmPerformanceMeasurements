@@ -1,0 +1,7 @@
+commit 6524d17d20f5da1b12421431e92edce0ceb3c57c
+Author: Alexander Köplinger <alex.koeplinger@outlook.com>
+Date:   Mon Oct 9 12:45:07 2023 +0200
+
+    [mono] Reenable MSVC warnings (#92895)
+    
+    This reenables most MSVC warnings, only the signed/unsigned mismatch ones are left (and warnings which we deem OK like unreachable code or unused params).
