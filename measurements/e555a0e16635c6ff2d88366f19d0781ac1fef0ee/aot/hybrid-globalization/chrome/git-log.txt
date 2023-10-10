@@ -1,0 +1,9 @@
+commit e555a0e16635c6ff2d88366f19d0781ac1fef0ee
+Author: Tarek Mahmoud Sayed <tarekms@microsoft.com>
+Date:   Mon Oct 9 18:59:38 2023 -0700
+
+    Make Emitted Attribute Order Deterministic in Options Source Generator (#93260)
+    
+    * Make Emitted Attribute Order Deterministic in Options Source Generator
+    
+    * Use ordinal comparison when ordering the list
