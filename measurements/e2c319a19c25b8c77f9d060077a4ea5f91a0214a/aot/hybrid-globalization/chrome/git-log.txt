@@ -1,0 +1,9 @@
+commit e2c319a19c25b8c77f9d060077a4ea5f91a0214a
+Author: Steve Pfister <steveisok@users.noreply.github.com>
+Date:   Tue Oct 10 07:47:03 2023 -0700
+
+    [android][ios] Fix dispose problem with NativeHttpHandlers (#93262)
+    
+    https://github.com/dotnet/runtime/pull/90298 made sure the MetricsHandler was the top level handler for all NativeHttpHandler requests similar to what is done with SocketsHttpHandler. After creating the MetricsHandler, the code mistakenly disposed of `_nativeHandler`, which resulted in `Dispose` being called multiple times and eventually throwing a `Cannot access a disposed object` exception.
+    
+    Fixes https://github.com/dotnet/runtime/issues/93252
