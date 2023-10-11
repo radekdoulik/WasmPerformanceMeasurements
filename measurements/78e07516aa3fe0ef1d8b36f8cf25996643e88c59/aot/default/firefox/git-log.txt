@@ -1,0 +1,11 @@
+commit 78e07516aa3fe0ef1d8b36f8cf25996643e88c59
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Wed Oct 11 06:32:36 2023 -0400
+
+    Fix TensorPrimitives.IndexOfXx corner-case when first element is seed value (#93169)
+    
+    * Fix TensorPrimitives.IndexOfXx corner-case when first element is seed value
+    
+    Found as part of adding more tests for Min/Max{Magnitude} to validate they match their IndexOfXx variants.
+    
+    * Address PR feedback
