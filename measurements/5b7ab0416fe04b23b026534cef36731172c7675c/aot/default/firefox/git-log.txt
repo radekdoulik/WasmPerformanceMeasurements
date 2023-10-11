@@ -1,0 +1,17 @@
+commit 5b7ab0416fe04b23b026534cef36731172c7675c
+Author: Robin Lindner <robin@deeprobin.de>
+Date:   Wed Oct 11 00:07:15 2023 +0200
+
+    Obsolete `AuthenticationManager` of `System.Net.Requests` (#93171)
+    
+    * Mark AuthenticationManager as Obsolete
+    
+    * Update SYSLIB0009 diagnostic
+    * Add ObsoleteAttribute at class-level for AuthenticationManager
+    * Use generated ref source
+    
+    * Fix tests
+    
+    * Update diagnostic doc
+    
+    * More obsoletion
