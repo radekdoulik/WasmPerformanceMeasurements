@@ -1,0 +1,7 @@
+commit 5f4ee519c7ce0bfe1e914ee7a617e17b5c509cf5
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Tue Oct 10 22:25:16 2023 -0400
+
+    Use collection expression in foreach in CreateManifestAndDescriptors (#93289)
+    
+    Avoids an unnecessary string[] allocation. It'll instead result in an inline array of the elements.
