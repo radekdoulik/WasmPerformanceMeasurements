@@ -1,0 +1,31 @@
+commit 121530f9aec1d56724d21eea7aa5d6c486ac06cd
+Author: Ilona Tomkowicz <32700855+ilonatommy@users.noreply.github.com>
+Date:   Thu Oct 12 15:20:29 2023 +0200
+
+    [wasm][debugger] Support indexing of valuetype scheme (#92637)
+    
+    * Prepare test cases for signle dim.
+    
+    * Fixed for constant indices.
+    
+    * More tests + fix.
+    
+    * Unblock, working after rebuild.
+    
+    * Initial inlined arrays cleanup.
+    
+    * Lines are shifted again.
+    
+    * @thaystg's fix for inline arrays
+    
+    * Added test for method on inline array.
+    
+    * Multi-dim works as well.
+    
+    * fix
+    
+    * Tentative fix from feedback.
+    
+    * 0th element is decoded before the loop.
+    
+    * Feedback part 1.
