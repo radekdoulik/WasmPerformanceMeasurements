@@ -1,0 +1,12 @@
+commit 0f2719e1d7442047b7f7673c1b740a4aec90129d
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Thu Oct 12 16:58:21 2023 +0200
+
+    JIT: Fix exponential blowup of memory dependency arrays in VNForMapSelectWork (#93344)
+    
+    Switch to sets when accumulating the memory dependencies found in
+    VNForMapSelectWork. Otherwise we might duplicate each memory dependency
+    for every path back to the store that induced it, and there can be an
+    exponential number of those.
+    
+    Fix #93342
