@@ -1,0 +1,10 @@
+commit 9b7c52fa7c4ea7056ffeb7461554f233c9886dfd
+Author: Max Klaversma <maxklaversma@gmail.com>
+Date:   Fri Oct 13 08:50:12 2023 +0200
+
+    Attribute HttpListenerRequest.UserAgent as nullable (#93405)
+    
+    Changed the datatype for HttpListenerRequest.UserAgent to be a nullable
+    string to match internally and externally expected behaviour.
+    
+    Fix #93033
