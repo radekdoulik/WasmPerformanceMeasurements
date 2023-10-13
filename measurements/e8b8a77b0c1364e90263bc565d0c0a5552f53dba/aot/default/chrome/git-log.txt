@@ -1,0 +1,7 @@
+commit e8b8a77b0c1364e90263bc565d0c0a5552f53dba
+Author: Ivan Povazan <55002338+ivanpovazan@users.noreply.github.com>
+Date:   Fri Oct 13 15:18:03 2023 +0200
+
+    [mono][tests] Make sure to log the exit code for library mode tests (#93463)
+    
+    Fixes https://github.com/dotnet/dnceng/issues/639
