@@ -1,0 +1,39 @@
+commit 92907e2cb8c5c2f4d4e3df1004ab268c54642fde
+Author: Theodore Tsirpanis <teo@tsirpanis.gr>
+Date:   Sat Oct 14 01:50:45 2023 +0300
+
+    Reduce allocations in `BinaryReader`. (#80331)
+    
+    * Use stack-allocated memory in `BinaryReader`'s `Read***` methods.
+    
+    * Avoid allocating `_buffer`.
+    
+    It now gets allocated only when calling the obscure `FillBuffer` method.
+    
+    * Use array slicing syntax.
+    
+    * Lazily allocate the `Decoder`.
+    
+    * Entirely remove the `_buffer` field in favor of array pool allocations.
+    
+    * Use array slicing syntax once more.
+    
+    * Remove the `_charBytes` field in favor of stack allocations.
+    
+    * Use `Unsafe.As` to cast to memory streams.
+    
+    We checked it on the constructor and already had asserts right before the casts.
+    
+    * Optimize `GetString` to directly decode the bytes into a string if it is small.
+    
+    * Use `sizeof`.
+    
+    * Address review feedback on `FillBuffer`.
+    
+    * Assign `_decoder` and `_charBuffer` only if the string is big.
+    
+    * Use Math.Min.
+    
+    * Declare variables where they are initialized.
+    
+    * Address review feedback.
