@@ -1,0 +1,15 @@
+commit 765798c49d5d908e512af0931b18fed782b4cf00
+Author: Jan Kotas <jkotas@microsoft.com>
+Date:   Fri Oct 13 22:18:12 2023 -0700
+
+    [NativeAOT] Miscellaneous cleanup (#93446)
+    
+    * [NativeAOT] Miscellaneous cleanup
+    
+    - Delete unnecessary abstractions
+    - Simplify ifdefs
+    - Use more derived types
+    
+    * Apply suggestions from code review
+    
+    Co-authored-by: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
