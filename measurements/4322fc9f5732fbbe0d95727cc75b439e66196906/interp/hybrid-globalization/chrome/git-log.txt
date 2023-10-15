@@ -1,0 +1,5 @@
+commit 4322fc9f5732fbbe0d95727cc75b439e66196906
+Author: Egor Bogatov <egorbo@gmail.com>
+Date:   Sun Oct 15 13:56:34 2023 +0200
+
+    Optimize Ordinal.EqualsIgnoreCase_Vector with AVX2 and AVX512 (#93116)
