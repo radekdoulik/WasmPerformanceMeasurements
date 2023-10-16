@@ -1,0 +1,15 @@
+commit 139f45e56b85b7e643d7e4f81cb5cdf640cd9021
+Author: Jan Kotas <jkotas@microsoft.com>
+Date:   Sun Oct 15 08:35:00 2023 -0700
+
+    Workaround for #93442 (#93523)
+    
+    * Revert "Disable value_numbering_checked_arithmetic_with_constants_ro (#93507)"
+    
+    This reverts commit 28cf63fb01101f9d6a21ba8f0b725435c35bf827.
+    
+    * Revert "Disable failing win-arm64 JIT tests (#93451)"
+    
+    This reverts commit 1e8379d98e309724248c0151d09df2530a848e84.
+    
+    * Workaround for https://github.com/dotnet/runtime/issues/93442
