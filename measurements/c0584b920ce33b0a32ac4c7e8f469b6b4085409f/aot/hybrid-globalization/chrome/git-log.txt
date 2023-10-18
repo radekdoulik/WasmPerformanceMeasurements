@@ -1,0 +1,20 @@
+commit c0584b920ce33b0a32ac4c7e8f469b6b4085409f
+Author: Ivan Diaz Sanchez <ivdiazsa@microsoft.com>
+Date:   Tue Oct 17 15:17:02 2023 -0700
+
+    Enable Adding Disabled Tests Skip Reason to their XML Results Log From issues.targets and General Code Cleanup (#93492)
+    
+    * Cleaned up ITestInfo.cs for a better start.
+    
+    * FIRST PHASE COMPILES AND BUILDS! THE TABLE WORKS!
+    
+    * IT WORKS IT WORKS! SKIP REASONS NOW SHOW UP ON THE LOG!
+    
+    * Added comments explaining the changes for this new feature, and
+    removed a development-only disabled test in issues.targets.
+    
+    * Forgot to refer to the Github Issue that is tracking this work.
+    
+    * Added check to ensure we don't try to store a null skip reason.
+    
+    * Missed a closing parenthesis...
