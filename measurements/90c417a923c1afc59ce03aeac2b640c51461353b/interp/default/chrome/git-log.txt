@@ -1,0 +1,16 @@
+commit 90c417a923c1afc59ce03aeac2b640c51461353b
+Author: Andy Ayers <andya@microsoft.com>
+Date:   Wed Oct 18 15:31:03 2023 -0700
+
+    JIT: remove incorrect type deduction for an Unsafe.As case (#93694)
+    
+    Thanks to @SingleAccretion for the fix.
+    
+    The JIT was assuming that an indirectly accessed value type field had
+    the type of the field, but that might not be the case if the field
+    was accessed via `Unsafe.As`.
+    
+    Fix this by limiting type deduction from these indirectly accessed fields
+    to only ref type fields.
+    
+    Closes #93650.
