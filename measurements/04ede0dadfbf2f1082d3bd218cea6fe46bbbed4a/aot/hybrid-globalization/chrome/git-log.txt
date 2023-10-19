@@ -1,0 +1,11 @@
+commit 04ede0dadfbf2f1082d3bd218cea6fe46bbbed4a
+Author: Radek Doulik <radek.doulik@gmail.com>
+Date:   Thu Oct 19 09:26:18 2023 +0200
+
+    [wasm] Fix blazor startup measurements (#93696)
+    
+    https://github.com/dotnet/runtime/pull/93548 introduced a typo, which caused the blazor
+    startup measurements to not load the page completely.
+    
+    The snapshot version is still not loading right, that's probably because we don't use
+    https yet.
