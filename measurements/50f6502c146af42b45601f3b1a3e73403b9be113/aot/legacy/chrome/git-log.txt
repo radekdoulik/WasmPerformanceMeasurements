@@ -1,0 +1,13 @@
+commit 50f6502c146af42b45601f3b1a3e73403b9be113
+Author: Ankit Jain <radical@gmail.com>
+Date:   Thu Oct 19 22:39:28 2023 -0400
+
+    [wasm] Fix perf pipeline runs (#93688)
+    
+    * [wasm] perf: Copy targeting pack nuget also for perf pipeline
+    
+    * [wasm] perf: remove workaround added for 8.0 to 9.0 transition
+    
+    * Use built-nugets as an additional nuget source, for microbenchmarks
+    
+    * perf CI: run only a few benchmarks when running for sanity check
