@@ -1,0 +1,11 @@
+commit bb3597aeaaeb87920b848e71a7b152a202e672bd
+Author: Meri Khamoyan <96171496+mkhamoyan@users.noreply.github.com>
+Date:   Thu Oct 19 20:52:58 2023 +0200
+
+    [iOS][non-icu] HybridGlobalization Get available locales (#93594)
+    
+    Implements `GlobalizationNative_GetLocalesNative` for iOS hybrid globalization in order to return all of the available locales on the device.
+    
+    Fixes https://github.com/dotnet/runtime/issues/93514
+    
+    Contributes to https://github.com/dotnet/runtime/issues/80689
