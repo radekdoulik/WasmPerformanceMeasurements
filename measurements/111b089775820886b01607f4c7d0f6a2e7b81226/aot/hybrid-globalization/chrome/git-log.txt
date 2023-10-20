@@ -1,0 +1,15 @@
+commit 111b089775820886b01607f4c7d0f6a2e7b81226
+Author: Alexander Köplinger <alex.koeplinger@outlook.com>
+Date:   Fri Oct 20 11:28:14 2023 +0200
+
+    Don't use File.OpenWrite when trying to overwrite a file (#93744)
+    
+    File.OpenWrite will open an existing file which means if you write data that is shorter than the existing data the file will be corrupt. This is documented on https://learn.microsoft.com/en-us/dotnet/api/system.io.file.openwrite
+    
+    > The OpenWrite method opens a file if one already exists for the file path, or creates a new file if one does not exist. For an existing file, it does not append the new text to the existing text. Instead, it overwrites the existing characters with the new characters. If you overwrite a longer string (such as "This is a test of the OpenWrite method") with a shorter string (such as "Second run"), the file will contain a mix of the strings ("Second runtest of the OpenWrite method").
+    
+    The fix is to use the `FileMode.Create` option in cases where the intention is to create a new file or overwrite an existing one.
+    
+    I noticed this recently when using the illink feature to dump a dependency analysis xml, the next time I ran the build after making a change that'd reduce dependencies the xml would get corrupted since it wrote less data than the existing file had.
+    
+    There were a couple instances across the codebase, this fixes them.
