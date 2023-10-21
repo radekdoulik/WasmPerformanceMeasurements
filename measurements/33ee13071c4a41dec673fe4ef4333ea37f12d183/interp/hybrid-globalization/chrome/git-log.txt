@@ -1,0 +1,23 @@
+commit 33ee13071c4a41dec673fe4ef4333ea37f12d183
+Author: Jan Kotas <jkotas@microsoft.com>
+Date:   Fri Oct 20 16:33:26 2023 -0700
+
+    Improve performance of UnmanagedMemoryStream (#93766)
+    
+    * Improve performance of UnmanagedMemoryStream
+    
+    UnmanagedMemoryStream used Interlocked operations to update its state to prevent tearing of 64-bit values on 32-bit platforms. This pattern is expensive in general and it was found to be prohibitively expensive on recent hardware..
+    
+    This change removes the expensive Interlocked operations and addresses
+    the tearing issues in alternative way:
+    - The _length field is converted to nuint that is guaranteed to be
+      updated atomically.
+    - Writes to _length field are volatile to guaranteed the
+      unininitialized memory cannot be read.
+    - The _position field remains long and it has a risk of tearing. It is
+      not a problem since tearing of this field cannot lead to buffer
+      overruns.
+    
+    Fixes #93624
+    
+    * Add comment
