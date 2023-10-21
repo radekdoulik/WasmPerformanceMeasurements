@@ -1,0 +1,15 @@
+commit 9a6d53050f15071287e6d2b111be80af54e43689
+Author: Tomasz Sowiński <tomeksowi@gmail.com>
+Date:   Sat Oct 21 11:16:00 2023 +0200
+
+    [RISC-V] NaN-box float arguments (#93665)
+    
+    * [RISC-V] NaN-box the arguments passed to CallDescrWorkerInternal because that stub is unaware of floating-point argument sizes
+    
+    * [RISC-V] Use variant of fmv.?.x appropriate for the size of the floating-point argument
+    
+    Floats passed in integer registers need to be NaN-boxed.
+    
+    * [RISC-V] NaN-box floats in CopyStructToRegisters
+    
+    * [RISC-V] Fix InvokeUtil::CopyArg to properly (sign|zero)-extend small integers
