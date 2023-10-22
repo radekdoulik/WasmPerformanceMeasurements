@@ -1,0 +1,8 @@
+commit 88d21cb792c000bdd1213bed8b0ab32b55f53090
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Sun Oct 22 00:07:52 2023 +0200
+
+    JIT: Fix GenTreeCall::Equals virtual kind comparison (#93813)
+    
+    These flags are actually part of GenTree::gtFlags, not
+    GenTree::gtCallMoreFlags.
