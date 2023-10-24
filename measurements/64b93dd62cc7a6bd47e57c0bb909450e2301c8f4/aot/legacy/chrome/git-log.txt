@@ -1,0 +1,11 @@
+commit 64b93dd62cc7a6bd47e57c0bb909450e2301c8f4
+Author: Milos Kotlar <kotlarmilos@gmail.com>
+Date:   Tue Oct 24 10:40:04 2023 +0200
+
+    [mono][tests] Disable System.Reflection and System.Threading.Tasks.Parallel tests  (#93853)
+    
+    * Disable failing tests
+    
+    * Add missing MONO_TYPE_FNPTR cases in mini-arm64.c
+    
+    * Increase timeout to run System.Security.Cryptography tests
