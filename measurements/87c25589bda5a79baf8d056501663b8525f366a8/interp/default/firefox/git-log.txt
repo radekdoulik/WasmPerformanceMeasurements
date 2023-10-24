@@ -1,0 +1,13 @@
+commit 87c25589bda5a79baf8d056501663b8525f366a8
+Author: Andy Ayers <andya@microsoft.com>
+Date:   Mon Oct 23 15:02:15 2023 -0700
+
+    JIT: add missing recursive tail call detection logic (#93892)
+    
+    We now require that recursive tail calls be noted before morph by setting
+    method and block flags. Add missing flag setting when devirtualization creates
+    a recursive tail call candidate.
+    
+    Also add a diagnosic post-phase check to catch cases like this earlier.
+    
+    Fixes #93844.
