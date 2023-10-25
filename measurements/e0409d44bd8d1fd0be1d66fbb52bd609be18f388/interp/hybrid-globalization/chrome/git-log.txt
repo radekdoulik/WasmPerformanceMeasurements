@@ -1,0 +1,13 @@
+commit e0409d44bd8d1fd0be1d66fbb52bd609be18f388
+Author: SingleAccretion <62474226+SingleAccretion@users.noreply.github.com>
+Date:   Wed Oct 25 16:04:28 2023 +0300
+
+    Consider atomics throwing (#93610)
+    
+    * Consider atomics throwing
+    
+    * Remove the quirk
+    
+    * Add a test
+    
+    * Generate non-null assertions for atomics
