@@ -1,0 +1,7 @@
+commit fe043b489f69a888ad2efd97fbc177c1f25e541d
+Author: Aman Khalid <amankhalid@microsoft.com>
+Date:   Tue Oct 24 18:13:32 2023 -0400
+
+    JIT: Allow initializing blocks without jump targets (#93928)
+    
+    ...and remove BasicBlock::bbTempJumpDest, per discussion in #93415. We still assert the jump target is set appropriately whenever it is read/written, and in the majority of cases, we still initialize blocks with their jump kind and target set simultaneously. This change improves usability for the few edge cases (like in Compiler::impImportLeave) where a block's jump target isn't known at initialization.
