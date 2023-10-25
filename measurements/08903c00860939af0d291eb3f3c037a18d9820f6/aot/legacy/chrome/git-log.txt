@@ -1,0 +1,19 @@
+commit 08903c00860939af0d291eb3f3c037a18d9820f6
+Author: dotnet-maestro[bot] <42748379+dotnet-maestro[bot]@users.noreply.github.com>
+Date:   Tue Oct 24 19:22:47 2023 -0400
+
+    [main] Update dependencies from dotnet/installer (#93921)
+    
+    * Update dependencies from https://github.com/dotnet/installer build 20231024.2
+    
+    Microsoft.Dotnet.Sdk.Internal
+     From Version 9.0.100-alpha.1.23522.3 -> To Version 9.0.100-alpha.1.23524.2
+    
+    * Suppress trim warnings
+    
+    `[] /root/helix/work/workitem/e/wbt/AppSettingsTests_haqswfqc_rzt/LazyLoadingTest.cs(15,9): Trim analysis error IL2026: LazyLoadingTest.Run(): Using member 'System.Text.Json.JsonSerializer.Serialize<TValue>(TValue, JsonSerializerOptions)' which has 'RequiresUnreferencedCodeAttribute' can break functionality when trimming application code. JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved. [/root/helix/work/workitem/e/wbt/AppSettingsTests_haqswfqc_rzt/WasmBasicTestApp.csproj]`
+    
+    ---------
+    
+    Co-authored-by: dotnet-maestro[bot] <dotnet-maestro[bot]@users.noreply.github.com>
+    Co-authored-by: Ankit Jain <radical@gmail.com>
