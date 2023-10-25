@@ -1,0 +1,9 @@
+commit 47873d852ec64eb2cff7a934935686d04430e380
+Author: Alexander Köplinger <alex.koeplinger@outlook.com>
+Date:   Wed Oct 25 11:38:10 2023 +0200
+
+    Add RuntimeInformation.FrameworkDescription test to validate version (#93913)
+    
+    We need to make sure the string contains only the stabilized version in servicing, or a non-stabilized one otherwise. This prevents issues like https://github.com/dotnet/runtime/issues/45812 and what we hit in https://github.com/dotnet/runtime/pull/93807.
+    
+    Closes https://github.com/dotnet/runtime/issues/45812
