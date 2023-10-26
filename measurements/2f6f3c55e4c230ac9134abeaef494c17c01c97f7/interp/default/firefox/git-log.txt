@@ -1,0 +1,9 @@
+commit 2f6f3c55e4c230ac9134abeaef494c17c01c97f7
+Author: Jan Dupej <109523496+jandupej@users.noreply.github.com>
+Date:   Thu Oct 26 16:14:23 2023 +0200
+
+    [mono][jit] Improved imm64 for negative numbers (#93602)
+    
+    * emit_imm64 on arm64 should now emit optimal code even for negative int constants.
+    
+    * Handle edge case.
