@@ -1,0 +1,5 @@
+commit db558253fbd598ed682272c736ae6102673bd921
+Author: Jeremy Koritzinsky <jekoritz@microsoft.com>
+Date:   Wed Oct 25 15:16:22 2023 -0700
+
+    Move JIT's clang-tidy flags into configuration files and add a root clang-tidy config that disables all checks. (#93951)
