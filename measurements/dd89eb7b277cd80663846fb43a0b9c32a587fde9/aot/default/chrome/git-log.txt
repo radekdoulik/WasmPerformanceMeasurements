@@ -1,0 +1,19 @@
+commit dd89eb7b277cd80663846fb43a0b9c32a587fde9
+Author: Thays Grazia <thaystg@gmail.com>
+Date:   Thu Oct 26 17:29:49 2023 -0300
+
+    [mono] Simplify of OffsetToStringData as it's done on coreclr (#93987)
+    
+    * Change implementation of OffsetToStringData as it's done on coreclr
+    
+    * Fix comment
+    
+    * Remove more comments
+    
+    * completely remove the comments
+    
+    * Update RuntimeHelpers.Mono.cs
+    
+    * Addressing comments
+    
+    * Addressing @lambdageek comment.
