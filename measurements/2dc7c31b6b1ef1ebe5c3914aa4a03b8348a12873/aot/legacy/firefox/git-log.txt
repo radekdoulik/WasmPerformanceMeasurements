@@ -1,0 +1,7 @@
+commit 2dc7c31b6b1ef1ebe5c3914aa4a03b8348a12873
+Author: Kunal Pathak <Kunal.Pathak@microsoft.com>
+Date:   Fri Oct 27 06:29:13 2023 -0700
+
+    Revert "[arm64] Addressing modes for SIMD (#67490)" (#93981)
+    
+    This reverts commit fa294c0494adbcb55f22411c9e8b0ba11a88af4b.
