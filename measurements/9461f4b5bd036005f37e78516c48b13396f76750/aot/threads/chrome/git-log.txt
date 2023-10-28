@@ -1,0 +1,44 @@
+commit 9461f4b5bd036005f37e78516c48b13396f76750
+Author: Ankit Jain <radical@gmail.com>
+Date:   Fri Oct 27 18:11:41 2023 -0400
+
+    [wasm] Update Wasm.Build.Tests to build with tfm=net9.0 (#93693)
+    
+    * workload-testing.targets: Make dotnet script paths available outside
+    
+    .. targets. This is useful when `dotnet-none` is already installed and
+    thus the installation target does not run.
+    
+    * WorkloadManifest.targets: Disable workaround to use net9.0 artifacts
+    
+    .. with `tfm=net8.0` . But don't disable this for Blazor projects which
+    are still using `tfm=net8.0`.
+    
+    * [wasm] Improve parsing runtime pack versions from environment variables
+    
+    * [wasm] Allow WBTOverridePack targets use to be set per test
+    
+    This allows having it enabled only for the blazor projects right now,
+    which are still on tfm=net8.0 .
+    
+    * [wasm] WBT: Update tests to run with net9.0
+    
+    * [wasm] WBT: Remove --experiment-wasm-simd for v8
+    
+    * [wasm] WBT: differentiate version used for tasks from the tfm
+    
+    * [wasm] Fix wasmbrowser template so it correctly updates the tfm in csproj
+    
+    * [wasm] WBT: Add runtime pack version for 9 in wasi
+    
+    * [wasm] WBT: Share nuget config files between wasm and wasi
+    
+    * [wasm] WBT: Fix blazor tests
+    
+    * [wasm] WBT: Don't test 8.0 templates yet. this will need more changes
+    
+    * [wasm] Don't default ForceNet8Current=false yet
+    
+    Instead set this only for WBT.
+    
+    * perf: add dummy change to trigger runtime-wasm-perf
