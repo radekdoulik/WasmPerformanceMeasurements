@@ -1,0 +1,15 @@
+commit c2608bdfc9450330a908778d0d2588ca51e1d545
+Author: Marek Fišera <mara@neptuo.com>
+Date:   Sat Oct 28 02:49:49 2023 +0200
+
+    [browser][Wasm.Build.Tests] Use trimmer friendly JSON serialization (#94034)
+    
+    * Use trimmer friendly JSON serialization
+    
+    * CI: trigger only WBT on testasset changes
+    
+    * CI: don't trigger non-wbt wasm jobs on testassets changes
+    
+    ---------
+    
+    Co-authored-by: Ankit Jain <radical@gmail.com>
