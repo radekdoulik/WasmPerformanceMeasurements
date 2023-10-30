@@ -1,0 +1,7 @@
+commit 7420ee78b7fc63bcefbbd82b0a382599302c99b4
+Author: Gleb Balykov <g.balykov@samsung.com>
+Date:   Mon Oct 30 18:53:41 2023 +0900
+
+    Fix test returning 100 unconditionally (#94146)
+    
+    Xunit error XUW1002: Tests should not unconditionally return 100. Convert to a void return.
