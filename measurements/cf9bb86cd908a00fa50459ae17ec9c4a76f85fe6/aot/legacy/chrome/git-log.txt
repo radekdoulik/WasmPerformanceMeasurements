@@ -1,0 +1,93 @@
+commit cf9bb86cd908a00fa50459ae17ec9c4a76f85fe6
+Author: Will Smith <lol.tihan@gmail.com>
+Date:   Sun Oct 29 20:01:23 2023 -0700
+
+    Enable IlasmRoundTrip tests for merged tests (#93368)
+    
+    * Initial work
+    
+    * Tweak
+    
+    * Tweak
+    
+    * Do not generate _ilasmroundtrip.py for tests that have a generated run script
+    
+    * Reduce imports
+    
+    * Force fail to see where CI fails
+    
+    * Revert forcing failure. Run roundtrip on build.
+    
+    * Trying to fix script
+    
+    * Backslash tweak
+    
+    * Do not roundtrip the same assembly
+    
+    * Fixing
+    
+    * Remove import glob
+    
+    * Added is_managed_assembly
+    
+    * remove print
+    
+    * Fixed paths
+    
+    * Support bash. Ignore certain tests for arm. Fix poison test.
+    
+    * Update CLRTest.Jit.targets
+    
+    * Feedback. Added AssemblyChecker.
+    
+    * Fix paths
+    
+    * Update src/tests/Common/Directory.Build.targets
+    
+    Co-authored-by: Bruce Forstall <brucefo@microsoft.com>
+    
+    * Feedback
+    
+    * Feedback
+    
+    * Update AssemblyChecker.csproj
+    
+    * Update Program.cs
+    
+    * Trying to fix calling python on helix.
+    
+    * Remove old roundtrip script calls. Added --is-exe option for AssemblyChecker.
+    
+    * Tweak option:
+    
+    * Remove check
+    
+    * Remove imports
+    
+    * Fix build
+    
+    * Fix syntax errors. Fixed Popen arguments
+    
+    * Fixed Popen arguments
+    
+    * Fixing debug check
+    
+    * Fixing tests
+    
+    * Update ILVerificationTests.csproj
+    
+    * Fixing tests
+    
+    * Feedback
+    
+    * Feedback
+    
+    * Update CLRTest.Jit.targets
+    
+    * Added help usage flag for AssemblyChecker
+    
+    * Feedback on assembly-checker
+    
+    ---------
+    
+    Co-authored-by: Bruce Forstall <brucefo@microsoft.com>
