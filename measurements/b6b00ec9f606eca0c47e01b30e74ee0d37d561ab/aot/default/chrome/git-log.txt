@@ -1,0 +1,11 @@
+commit b6b00ec9f606eca0c47e01b30e74ee0d37d561ab
+Author: Ahmet Ibrahim Aksoy <aaksoy@microsoft.com>
+Date:   Sun Oct 29 17:46:15 2023 +0100
+
+    Disabling two socket tests (#93916)
+    
+    * Disable two socket tests
+    
+    * Revert close to dispose
+    
+    * Disable tests against one issue
