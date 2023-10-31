@@ -1,0 +1,9 @@
+commit 848c729ca44f3ae651ecd4672d40111508770450
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Tue Oct 31 07:07:51 2023 +0900
+
+    Avoid handing out duplicate `CORINFO_MODULE_STRUCT_*` handles (#94082)
+    
+    RyuJIT depends on never seeing two different `CORINFO_MODULE_STRUCT` for the same thing.
+    
+    Fixes #93843.
