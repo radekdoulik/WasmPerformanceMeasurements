@@ -1,0 +1,11 @@
+commit f2e4ddf20936b37445bbbb2d139e8080ca00f16c
+Author: Ahmet Ibrahim Aksoy <aaksoy@microsoft.com>
+Date:   Tue Oct 31 14:27:02 2023 +0100
+
+    Change Not IsWindows condition to IsLinux on Socket test disable (#94163)
+    
+    * Fix Not IsWindows to IsLinux on test disable
+    
+    * Match TelemetryTest behavior with Connect Test
+    
+    * Change to use connectMethod
