@@ -1,0 +1,25 @@
+commit 7e316e20d65554aecdd6b7d45aebd1587b8945c3
+Author: Ilona Tomkowicz <32700855+ilonatommy@users.noreply.github.com>
+Date:   Wed Nov 1 14:36:55 2023 +0100
+
+    [wasm] Fix AOT publish in paths with space on Windows (#94166)
+    
+    * Fix
+    
+    * Fix template wbt
+    
+    * Fix config wbt.
+    
+    * Should fix native wbt but does not.
+    
+    * Missing change.
+    
+    * Update src/tasks/AotCompilerTask/MonoAOTCompiler.cs
+    
+    Co-authored-by: Ankit Jain <radical@gmail.com>
+    
+    * Double quotes needed, not single.
+    
+    ---------
+    
+    Co-authored-by: Ankit Jain <radical@gmail.com>
