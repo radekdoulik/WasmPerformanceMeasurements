@@ -1,0 +1,11 @@
+commit f4ee321b662068ebf819aec725c2a4fd0eee2bb6
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Wed Nov 1 05:52:10 2023 +0900
+
+    Fix compilation of Synchronized method combined with generics (#94203)
+    
+    Fixes #77093.
+    
+    As I was looking at the bug, I realized it got miscategorized as native AOT, but the customer filed it for ReadyToRun. The bug is in both native AOT and ReadyToRun. I'm fixing it for both.
+    
+    We clearly didn't have any pre-existing test coverage, but as I was looking around the test tree, getclassfrommethodparam.cs was obviously testing this. For unexplained reasons, the Synchronized part got commented out. When I compared the file with the original in TFS at `$/DevDiv/FX/Feature/NetFXDev1/QA/CLR/testsrc/jit/Generics/Fields/getclassfrommethodparam.cs`, the commented out line is not commented out. So I'm fixing it. I've also added dedicated native aot test because this has dependency analysis implications that we need to be careful about.
