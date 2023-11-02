@@ -1,0 +1,38 @@
+commit 34bf55cd6448b3a19288623dca087151efe00367
+Author: Artur Zgodziński <bivaro@gmail.com>
+Date:   Thu Nov 2 10:42:26 2023 +0000
+
+    Improve and unify debug views of dictionaries. (#92534)
+    
+    * Improves and unifies debug views of dictionaries.
+    
+    The change alows generic and non-generic dictionaries to be displayed in the same way: with separate columns for keys and values with an ability to expand each column.
+    
+    Fixes #88736
+    
+    * Fix the DebuggerView tests of dictionaries
+    
+    Included non-generic dictionaries in tests
+    
+    * Fix more DebuggerView tests
+    
+    * Included more types that implement IDictionary in the DebuggerView tests.
+    * Improved the testing code to support classes with attributes declared by their base classes.
+    * Fixed .Net Framework 4.8 build error by removing a dependency on the record c# feature.
+    * Fixed tests remaining tests (outside of the System.Collections subset)
+    
+    * Fix DebugView.Tests build errors on .Net Framework
+    
+    * Update DebugView tests to expect different outcomes on .Net Framework
+    
+    .Net Framwork does not support recent improvements in the way the debugger displays a dictionary. Depending on the framwork used, the debugger view of generic dictionaries and ListDictionaryInternal are different.
+    
+    * Applied suggested changes and fixes
+    
+    * mostly code style changes
+    * restored a rest for an empty HashSet.
+    * fixed testing of the generic SortedList.
+    
+    * Minor improvents
+    
+    Renamed an internal method to match its new behavior and removed unnecessary init accessors.
