@@ -1,0 +1,8 @@
+commit 98b754659af74cc34ffd17c5b777f1ba7b307789
+Author: Bruce Forstall <brucefo@microsoft.com>
+Date:   Thu Nov 2 08:30:01 2023 -0700
+
+    Fix parallel SuperPMI pass-through logging (#94284)
+    
+    Need to output in a way that the message string isn't interpreted as a
+    C formatting string, with `%` replacements.
