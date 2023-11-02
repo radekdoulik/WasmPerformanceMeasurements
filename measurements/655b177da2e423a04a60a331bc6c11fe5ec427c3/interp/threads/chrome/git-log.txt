@@ -1,0 +1,12 @@
+commit 655b177da2e423a04a60a331bc6c11fe5ec427c3
+Author: Andy Ayers <andya@microsoft.com>
+Date:   Wed Nov 1 17:57:39 2023 -0700
+
+    JIT: morph blocks in RPO (#94247)
+    
+    When optimizing, process blocks in RPO. Disallow creation of new blocks
+    and new flow edges (the latter with certain preapproved exceptions).
+    
+    Morph does not yet take advantage of the RPO to enable more optimization.
+    
+    Contributes to #93246.
