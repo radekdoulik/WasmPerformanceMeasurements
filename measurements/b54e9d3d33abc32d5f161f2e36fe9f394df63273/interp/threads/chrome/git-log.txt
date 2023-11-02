@@ -1,0 +1,11 @@
+commit b54e9d3d33abc32d5f161f2e36fe9f394df63273
+Author: Eirik Tsarpalis <eirik.tsarpalis@gmail.com>
+Date:   Thu Nov 2 13:52:30 2023 +0000
+
+    Use fully qualified names when referencing user types. (#94267)
+    
+    * Use fully qualified names when referencing user types.
+    
+    * Use ToUpperInvariant
+    
+    * Address feedback
