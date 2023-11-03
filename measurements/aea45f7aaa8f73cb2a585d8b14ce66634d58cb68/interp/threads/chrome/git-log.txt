@@ -1,0 +1,19 @@
+commit aea45f7aaa8f73cb2a585d8b14ce66634d58cb68
+Author: dotnet-maestro[bot] <42748379+dotnet-maestro[bot]@users.noreply.github.com>
+Date:   Thu Nov 2 19:12:55 2023 -0400
+
+    [main] Update dependencies from dotnet/installer (#94294)
+    
+    * Update dependencies from https://github.com/dotnet/installer build 20231102.2
+    
+    Microsoft.Dotnet.Sdk.Internal
+     From Version 9.0.100-alpha.1.23531.20 -> To Version 9.0.100-alpha.1.23552.2
+    
+    * [wasm] WBT: Update to track blazor moving to net9.0
+    
+    * [wasm] WBT: Update blazor based test projects to net9.0
+    
+    ---------
+    
+    Co-authored-by: dotnet-maestro[bot] <dotnet-maestro[bot]@users.noreply.github.com>
+    Co-authored-by: Ankit Jain <radical@gmail.com>
