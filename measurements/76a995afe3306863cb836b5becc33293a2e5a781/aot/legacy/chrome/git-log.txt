@@ -1,0 +1,7 @@
+commit 76a995afe3306863cb836b5becc33293a2e5a781
+Author: Maoni Stephens <Maoni0@users.noreply.github.com>
+Date:   Fri Nov 3 13:39:09 2023 -0700
+
+    fix (#94249)
+    
+    in process_remaining_regions, if we haven't gone through the while loop to handle the regions with pinned plugs, we can end up with current_region being an SIP region. then we mistakenly call decide_on_demotion_pin_surv which can change its planned generation. I'm filtering this out before we call decide_on_demotion_pin_surv because the pinned survival in an SIP region is always 0 so we wouldn't want decide_on_demotion_pin_surv to treat it as "to be empty".
