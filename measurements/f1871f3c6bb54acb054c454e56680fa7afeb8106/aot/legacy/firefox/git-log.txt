@@ -1,0 +1,39 @@
+commit f1871f3c6bb54acb054c454e56680fa7afeb8106
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Mon Nov 6 20:53:30 2023 +0900
+
+    Allow RyuJIT to refer to frozen RuntimeType instances (#94342)
+    
+    With #93440 it became possible to place `RuntimeType` instances in the frozen region. This adds support for generating frozen `RuntimeType` instances within the compiler. We give these to RyuJIT whenever it asks for them.
+    
+    * New `FrozenObjectNode` descendant that represents a `RuntimeType` instance. We have two flavors - one wraps constructed and the other wraps necessary `MethodTable`s (we have a need for freezing both kinds to keep our ability to optimize `RuntimeTypes` used in comparisons only).
+    * We hand out references to these whenever RyuJIT needs them.
+    * At `MethodTable` emission time, we check whether a frozen `RuntimeType` for this `MethodTable` was generated. If so, we pre-populate `MethodTable`’s `WritableData` section with a reloc to the `RuntimeType`. Otherwise we use null as usual.
+    * At runtime for `GetTypeFromEEType`, if `WritableData` is non-null, we just return that. Otherwise we create a pinned `RuntimeType` instance and write it into `WritableData`. In the future, we should allocate this on a frozen heap.
+    
+    Old codegen for `Console.WriteLine(typeof(Program))`:
+    
+    ```asm
+    sub         rsp,28h
+    lea         rcx,[repro_Program::`vftable' (07FF7D03154E0h)]
+    call        S_P_CoreLib_Internal_Runtime_CompilerHelpers_LdTokenHelpers__GetRuntimeType (07FF7D0253290h)
+    mov         rcx,rax
+    call        System_Console_System_Console__WriteLine_11 (07FF7D0262AC0h)
+    nop
+    add         rsp,28h
+    ret
+    ```
+    
+    New codegen:
+    
+    ```asm
+    sub         rsp,28h
+    lea         rcx,[__RuntimeType_repro_Program (07FF7A218EC50h)]
+    call        System_Console_System_Console__WriteLine_11 (07FF7A20F2680h)
+    nop
+    add         rsp,28h
+    ret
+    ```
+    
+    I’ll do cctor preinitialization in a subsequent PR to keep things short.
+    Contributes to #91704.
