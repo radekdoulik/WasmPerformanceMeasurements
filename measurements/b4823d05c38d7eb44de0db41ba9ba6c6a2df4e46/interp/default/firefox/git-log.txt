@@ -1,0 +1,7 @@
+commit b4823d05c38d7eb44de0db41ba9ba6c6a2df4e46
+Author: Omair Majid <omajid@redhat.com>
+Date:   Sat Nov 4 07:44:31 2023 -0400
+
+    Fix reundant conditional in OleDbDataReader.ProcessResults (#94360)
+    
+    Fixes: #94262
