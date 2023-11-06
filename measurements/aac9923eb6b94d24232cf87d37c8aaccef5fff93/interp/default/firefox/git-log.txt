@@ -1,0 +1,5 @@
+commit aac9923eb6b94d24232cf87d37c8aaccef5fff93
+Author: Ivan Povazan <55002338+ivanpovazan@users.noreply.github.com>
+Date:   Fri Nov 3 11:50:37 2023 +0100
+
+    Explicitly set intermediate directory path to avoid including it in the app bundle when building on Helix (#94304)
