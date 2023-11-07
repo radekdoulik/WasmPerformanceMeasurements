@@ -1,0 +1,88 @@
+commit e61f45ac1d8cfccbf40c77bfcbb1c26a73ccd7b8
+Author: Sven Boemer <sbomer@gmail.com>
+Date:   Mon Nov 6 16:58:48 2023 -0800
+
+    [ILLink analyzer] Add branch analysis (#94123)
+    
+    This adds an understanding of `RuntimeFeature.IsDynamicCodeSupported`
+    to the ILLink Roslyn analyzer. This is done by maintaining an
+    additional state, `FeatureContext`, alongside the tracking done for
+    local variables.
+    
+    The `FeatureContext` maintains a set of features known to be enabled
+    at a given point. The lattice meet operator is set intersection, so
+    that we get features enabled along all paths, and the top value is the
+    set of all features. At the beginning of the analysis, each basic
+    block starts out in the "top" state, but the entry point gets
+    initialized to the empty set of features. Feature checks (calls to
+    `RuntimeFeature.IsDynamicCodeSupported`) modify the state in the
+    outgoing branch to track the fact that a given feature is enabled.
+    
+    When a branch operation is seen at the end of a basic block, the
+    analysis examines it to see if it is a supported feature check. If so,
+    it returns an abstract representation of the checked condition (which
+    can be a boolean expression involving various features):
+    `FeatureCheckValue`. Because this may be assumed to be true or false
+    (depending on the outgoing branch), it has to track included and
+    excluded features, unlike `FeatureContext`.
+    
+    The analysis then separates the output state for the basic block into
+    two, one for the conditional successor, and one for the fall-through
+    successor. It applies the `FeatureCheckValue` to each state
+    separately, once assuming that the check is true, and once assuming
+    that it's false, depending on the branch semantics, possibly modifying
+    the `FeatureContext` in each branch.
+    
+    To support this, the dataflow state tracking is now done per branch,
+    instead of per basic block. Previously we tracked the state at the end
+    of each block; now we track the state at the input to each edge in the
+    control-flow graph.
+    
+    The supported feature checks are hard-coded in the analyzer (this
+    change isn't introducing any kind of attribute-based model to replace
+    the feature xml files). For now the only supported check is
+    `RuntimeFeature.IsDynamicCodeSupported`, but it should be easy to add
+    new feature checks. This change includes testing of feature checks for
+    `RequiresUnreferencedCodeAttribute` and
+    `RequiresAssemblyFilesAttribute`, by including code in the analyzer
+    that looks for specific feature guards in the test namespace. Happy to
+    change to another approach if we don't like this.
+    
+    There are still some pieces of the Requires analyzer logic (generic
+    instantiations and dynamic objects, for example) that need to be moved
+    over to the dataflow analysis, so that the feature checks can act as
+    guards for all of the related patterns. Until that is done, feature
+    checks won't silence those particular warnings. I'll continue working
+    on moving the remaining logic over, but I don't think it needs to
+    block this change.
+    
+    Fixes https://github.com/dotnet/linker/issues/2715
+    
+    This tests the ILLink/ILCompiler behavior by adding XML substitutions
+    that cause TestFeatures.IsUnreferencedCodeSupported and
+    TestFeatures.IsAssemblyFilesSupported to be treated as constants.
+    
+    Most of the tests check IsUnreferencedCodeSupported and
+    RequiresUnreferencedCode, since that logic is shared by all three
+    tools.
+    
+    There are some differences in the current ILLink/ILC test infra:
+    
+    - ILC only allows embedded substitutions (not separate global
+      substitutions)
+    
+    - ILLink doesn't allow modifying CoreLib from test embedded
+      substitutions
+    
+    Because of this, we don't substitute IsDynamicCodeSupported for ILLink
+    (it is already substituted by default for NativeAot). This matches the
+    product behavior for ILLink, and leads to a small difference (extra
+    warning) in the tests.
+    
+    We also substitute IsAssemblyFilesSupported so that NativeAot treats
+    it as a constant, to keep it close to the product behavior and the
+    analyzer behavior. For simplicity, this is done for both NativeAot and
+    ILLink, even though it should really be treated the same as
+    IsDynamicCodeCompiled for ILLink. This makes no difference in the test
+    behavior because we don't test how ILLink specifically behaves with
+    IsAssemblyFilesSupported.
