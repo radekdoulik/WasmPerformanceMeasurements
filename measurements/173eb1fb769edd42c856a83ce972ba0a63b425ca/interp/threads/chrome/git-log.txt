@@ -1,0 +1,13 @@
+commit 173eb1fb769edd42c856a83ce972ba0a63b425ca
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Tue Nov 7 17:52:21 2023 -0500
+
+    Improve scalability of monitored Counter / UpDownCounter (#91566)
+    
+    * Improve scalability of monitored Counter / UpDownCounter
+    
+    Avoid locking around every Update. Instead, use interlocked operations, and for CounterAggregator, partition the value being updated into one per core rather than one all-up.
+    
+    * Address PR feedback
+    
+    * Limit additional memory consumption
