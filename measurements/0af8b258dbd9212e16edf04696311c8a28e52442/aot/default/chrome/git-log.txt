@@ -1,0 +1,29 @@
+commit 0af8b258dbd9212e16edf04696311c8a28e52442
+Author: Ahmet Ibrahim Aksoy <aaksoy@microsoft.com>
+Date:   Thu Nov 9 11:56:51 2023 +0100
+
+    Merge ServicePoint assembly into Requests (#94510)
+    
+    * Initial commit for merge
+    
+    * Change csproj and sln files
+    
+    * Fix solution files
+    
+    * Add newlines into ServicePoint files
+    
+    * Delete ServicePoint folder and merge tests
+    
+    * Add TypeForwardedFrom
+    
+    * Update src/libraries/shims/System.Net.ServicePoint/src/System.Net.ServicePoint.csproj
+    
+    Co-authored-by: Viktor Hofer <viktor.hofer@microsoft.com>
+    
+    * Review feedback
+    
+    * ignore browser CI for ServicePoint
+    
+    ---------
+    
+    Co-authored-by: Viktor Hofer <viktor.hofer@microsoft.com>
