@@ -1,0 +1,15 @@
+commit c422fca30d826b29aadf6a923369e1848a4aac97
+Author: Kunal Pathak <Kunal.Pathak@microsoft.com>
+Date:   Wed Nov 8 17:06:12 2023 -0800
+
+    LSRA: Honor the register aversion decision during allocation (#92709)
+    
+    * Add Interval->registerAversion
+    
+    * Include killMask in register aversion
+    
+    * Do not mergePreferences if they are present in registerAversion
+    
+    * Add assert for `updatedPreferences != RBM_NONE`
+    
+    * Reset the preference based on allRegs if the registeraversion coincides with registerPreference
