@@ -1,0 +1,18 @@
+commit 5127e07443e24bea5f0e4532158450c675323fef
+Author: Andy Ayers <andya@microsoft.com>
+Date:   Thu Nov 9 18:05:37 2023 -0800
+
+    JIT: cross-block local assertion prop in morph (#94363)
+    
+    During global morph, allow assertions to propagate to a block from the block's
+    predecessors. Handle special cases where we can't allow this to happen:
+    * block has preds that have not yet been morphed
+    * block has no preds
+    * block is specially flagged as one that might gain new preds during morph
+    * block is an EH handler entry
+    
+    Contributes to #93246.
+    
+    When enabled, size the assertion table based on the number of locals, up to the tracked limit.
+    
+    Disabled by default; use 'DOTNET_JitEnableCrossBlockLocalAssertionProp=1` to enable.
