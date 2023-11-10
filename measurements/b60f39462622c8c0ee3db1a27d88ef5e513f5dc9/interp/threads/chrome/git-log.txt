@@ -1,0 +1,18 @@
+commit b60f39462622c8c0ee3db1a27d88ef5e513f5dc9
+Author: Max Klaversma <maxklaversma@gmail.com>
+Date:   Fri Nov 10 00:48:48 2023 +0100
+
+    ElapsedEventArgs: public constructor + sealed (#94489)
+    
+    * ElapsedEventArgs: public constructor + sealed
+    
+    Changed the internal ElapsedEventArgs constructor to be public, sealed
+    the class, and renamed constructor argument to match property name.
+    
+    Fix #31204
+    
+    * ElapsedEventArgs: added missing XML comment
+    
+    ---------
+    
+    Co-authored-by: Max Klaversma <max.klaversma@vandoren.nl>
