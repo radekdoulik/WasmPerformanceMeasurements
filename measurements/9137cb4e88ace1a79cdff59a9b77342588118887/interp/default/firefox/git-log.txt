@@ -1,0 +1,7 @@
+commit 9137cb4e88ace1a79cdff59a9b77342588118887
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Fri Nov 10 18:34:51 2023 +0900
+
+    Disallow inlining Main (#94449)
+    
+    When we compile managed code, `Main` is not the actual spot where execution of managed code starts. Instead it's the `StartupCodeMain` method that the compiler generates. This method is responsible for initializing the managed environment, calling `Main` and tearing down the environment. If `Main` is short enough, sometimes it gets inlined into `StartupCodeMain` this has bad impact on diagnostics (don't see `Main` in stack traces, can't set breakpoints). Pretend it was marked `NoInlining`.
