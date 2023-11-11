@@ -1,0 +1,8 @@
+commit d170785a1d6e64039c39efa2f0966455ec1402b5
+Author: Elinor Fung <elfung@microsoft.com>
+Date:   Fri Nov 10 15:24:15 2023 -0800
+
+    Switch StandaloneApp6x to pre-built test asset (#94590)
+    
+    - Add pre-built test asset for a self-contained net6.0 version of existing `HelloWorld` test asset
+    - Update `HostVersionCompatibility` tests to use the new test asset
