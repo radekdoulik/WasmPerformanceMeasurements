@@ -1,0 +1,23 @@
+commit 71a7d8844cf509717f7e76baafb1bfbf1217ceec
+Author: Viktor Hofer <viktor.hofer@microsoft.com>
+Date:   Mon Nov 13 14:54:34 2023 +0100
+
+    Move tests from full facade folder to type forward destination (#94644)
+    
+    Fixes https://github.com/dotnet/runtime/issues/89230
+    
+    A previous changed moved full facade assemblies into src/libraries/shims
+    but the tests were left in their original location.
+    
+    1. Move System.Data.DataSetExtensions/tests into System.Data.Common/tests
+    and all other test projects under System.Runtime/tests.
+    
+    2. Update the tests.proj file that excludes based on the test project file
+    paths.
+    
+    3. Delete System.AppContext/tests which already existed (as a copy)
+       under System.Runtime/tests.
+    
+    4. Update System.Runtime.sln and System.Data.Common.sln
+    
+    5. Delete README.md files that are now unused and not required anymore.
