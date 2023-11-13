@@ -967,6 +967,57 @@ var tempI64;
     }
 
   
+  function getCppExceptionTag() {
+      // In static linking, tags are defined within the wasm module and are
+      // exported, whereas in dynamic linking, tags are defined in library.js in
+      // JS code and wasm modules import them.
+      return Module['asm']['__cpp_exception'];
+    }
+  
+  function getCppExceptionThrownObjectFromWebAssemblyException(ex) {
+      // In Wasm EH, the value extracted from WebAssembly.Exception is a pointer
+      // to the unwind header. Convert it to the actual thrown value.
+      var unwind_header = ex.getArg(getCppExceptionTag(), 0);
+      return ___thrown_object_from_unwind_exception(unwind_header);
+    }
+  function decrementExceptionRefcount(ex) {
+      var ptr = getCppExceptionThrownObjectFromWebAssemblyException(ex);
+      ___cxa_decrement_exception_refcount(ptr);
+    }
+
+  
+  
+  
+  function withStackSave(f) {
+      var stack = stackSave();
+      var ret = f();
+      stackRestore(stack);
+      return ret;
+    }
+  function getExceptionMessageCommon(ptr) {
+      return withStackSave(function() {
+        var type_addr_addr = stackAlloc(4);
+        var message_addr_addr = stackAlloc(4);
+        ___get_exception_message(ptr, type_addr_addr, message_addr_addr);
+        var type_addr = HEAPU32[((type_addr_addr)>>2)];
+        var message_addr = HEAPU32[((message_addr_addr)>>2)];
+        var type = UTF8ToString(type_addr);
+        _free(type_addr);
+        var message;
+        if (message_addr) {
+          message = UTF8ToString(message_addr);
+          _free(message_addr);
+        }
+        return [type, message];
+      });
+    }
+  function getExceptionMessage(ex) {
+      var ptr = getCppExceptionThrownObjectFromWebAssemblyException(ex);
+      return getExceptionMessageCommon(ptr);
+    }
+  Module["getExceptionMessage"] = getExceptionMessage;
+
+  
     /**
      * @param {number} ptr
      * @param {string} type
@@ -985,6 +1036,12 @@ var tempI64;
       default: abort('invalid type for getValue: ' + type);
     }
   }
+
+  
+  function incrementExceptionRefcount(ex) {
+      var ptr = getCppExceptionThrownObjectFromWebAssemblyException(ex);
+      ___cxa_increment_exception_refcount(ptr);
+    }
 
   
     /**
@@ -3740,42 +3797,6 @@ var tempI64;
       abort('');
     }
 
-  var DOTNETENTROPY = {getBatchedRandomValues:function (buffer, bufferLength) {
-              // batchedQuotaMax is the max number of bytes as specified by the api spec.
-              // If the byteLength of array is greater than 65536, throw a QuotaExceededError and terminate the algorithm.
-              // https://www.w3.org/TR/WebCryptoAPI/#Crypto-method-getRandomValues
-              const batchedQuotaMax = 65536;
-  
-              // Chrome doesn't want SharedArrayBuffer to be passed to crypto APIs
-              const needTempBuf = typeof SharedArrayBuffer !== 'undefined' && Module.HEAPU8.buffer instanceof SharedArrayBuffer;
-              // if we need a temporary buffer, make one that is big enough and write into it from the beginning
-              // otherwise, use the wasm instance memory and write at the given 'buffer' pointer offset.
-              const buf = needTempBuf ? new ArrayBuffer(bufferLength) : Module.HEAPU8.buffer;
-              const offset = needTempBuf ? 0 : buffer;
-              // for modern web browsers
-              // map the work array to the memory buffer passed with the length
-              for (let i = 0; i < bufferLength; i += batchedQuotaMax) {
-                  const view = new Uint8Array(buf, offset + i, Math.min(bufferLength - i, batchedQuotaMax));
-                  crypto.getRandomValues(view)
-              }
-              if (needTempBuf) {
-                  // copy data out of the temporary buffer into the wasm instance memory
-                  const heapView = new Uint8Array(Module.HEAPU8.buffer, buffer, bufferLength);
-                  heapView.set(new Uint8Array(buf));
-              }
-          }};
-  function _dotnet_browser_entropy(buffer, bufferLength) {
-          // check that we have crypto available
-          if (typeof crypto === 'object' && typeof crypto['getRandomValues'] === 'function') {
-              DOTNETENTROPY.getBatchedRandomValues(buffer, bufferLength)
-              return 0;
-          } else {
-              // we couldn't find a proper implementation, as Math.random() is not suitable
-              // instead of aborting here we will return and let managed code handle the message
-              return -1;
-          }
-      }
-
   function _emscripten_date_now() {
       return Date.now();
     }
@@ -4080,6 +4101,7 @@ var tempI64;
       const pthreadReplacements = {};
       const dotnet_replacements = {
           fetch: globalThis.fetch,
+          ENVIRONMENT_IS_WORKER,
           require,
           updateMemoryViews,
           pthreadReplacements,
@@ -4089,20 +4111,20 @@ var tempI64;
       // USE_PTHREADS is emscripten's define symbol, which is passed to acorn optimizer, so we could use it here
       const ENVIRONMENT_IS_PTHREAD = false;
   
-      Module.__dotnet_runtime.passEmscriptenInternals({
-          isPThread: ENVIRONMENT_IS_PTHREAD,
-          quit_, ExitStatus,
-          ...linkerSetup
-      });
+      ENVIRONMENT_IS_WORKER = dotnet_replacements.ENVIRONMENT_IS_WORKER;
       Module.__dotnet_runtime.initializeReplacements(dotnet_replacements);
-  
-          Module.__dotnet_runtime.configureEmscriptenStartup(Module);
-  
       updateMemoryViews = dotnet_replacements.updateMemoryViews;
       noExitRuntime = dotnet_replacements.noExitRuntime;
       fetch = dotnet_replacements.fetch;
       require = dotnet_replacements.require;
       _scriptDir = __dirname = scriptDirectory = dotnet_replacements.scriptDirectory;
+      Module.__dotnet_runtime.passEmscriptenInternals({
+          isPThread: ENVIRONMENT_IS_PTHREAD,
+          quit_, ExitStatus,
+          ...linkerSetup
+      });
+  
+          Module.__dotnet_runtime.configureEmscriptenStartup(Module);
   }};
   function _mono_interp_flush_jitcall_queue(
   ) {
@@ -4134,14 +4156,9 @@ var tempI64;
   return {runtime_idx:7};//mono_interp_tier_prepare_jiterpreter
   }
 
-  function _mono_jiterp_do_jit_call_indirect(
-  ) {
-  return {runtime_idx:13};//mono_jiterp_do_jit_call_indirect
-  }
-
   function _mono_jiterp_free_method_data_js(
   ) {
-  return {runtime_idx:14};//mono_jiterp_free_method_data_js
+  return {runtime_idx:13};//mono_jiterp_free_method_data_js
   }
 
   function _mono_wasm_bind_cs_function(
@@ -4152,6 +4169,11 @@ var tempI64;
   function _mono_wasm_bind_js_function(
   ) {
   return {runtime_idx:21};//mono_wasm_bind_js_function
+  }
+
+  function _mono_wasm_browser_entropy(
+  ) {
+  return {runtime_idx:19};//mono_wasm_browser_entropy
   }
 
   function _mono_wasm_change_case(
@@ -4239,14 +4261,14 @@ var tempI64;
   return {runtime_idx:36};//mono_wasm_invoke_js_with_args_ref
   }
 
-  function _mono_wasm_marshal_promise(
-  ) {
-  return {runtime_idx:25};//mono_wasm_marshal_promise
-  }
-
   function _mono_wasm_release_cs_owned_object(
   ) {
   return {runtime_idx:20};//mono_wasm_release_cs_owned_object
+  }
+
+  function _mono_wasm_resolve_or_reject_promise(
+  ) {
+  return {runtime_idx:25};//mono_wasm_resolve_or_reject_promise
   }
 
   function _mono_wasm_schedule_timer(
@@ -4261,7 +4283,7 @@ var tempI64;
 
   function _mono_wasm_set_entrypoint_breakpoint(
   ) {
-  return {runtime_idx:18};//mono_wasm_set_entrypoint_breakpoint
+  return {runtime_idx:17};//mono_wasm_set_entrypoint_breakpoint
   }
 
   function _mono_wasm_set_object_property_ref(
@@ -4276,7 +4298,7 @@ var tempI64;
 
   function _mono_wasm_trace_logger(
   ) {
-  return {runtime_idx:17};//mono_wasm_trace_logger
+  return {runtime_idx:16};//mono_wasm_trace_logger
   }
 
   function _mono_wasm_typed_array_from_ref(
@@ -5003,7 +5025,7 @@ var tempI64;
   });
   FS.FSNode = FSNode;
   FS.staticInit();Module["FS_createPath"] = FS.createPath;Module["FS_createDataFile"] = FS.createDataFile;Module["FS_createPath"] = FS.createPath;Module["FS_createDataFile"] = FS.createDataFile;Module["FS_createPreloadedFile"] = FS.createPreloadedFile;Module["FS_unlink"] = FS.unlink;Module["FS_createLazyFile"] = FS.createLazyFile;Module["FS_createDevice"] = FS.createDevice;;
-DOTNET.setup({ linkerDisableLegacyJsInterop: false,linkerWasmEnableSIMD: true,linkerWasmEnableEH: true,linkerEnableAotProfiler: false, linkerEnableBrowserProfiler: false, linkerRunAOTCompilation: true, gitHash: "07000a7fc402c7f2ba1a09cd8c072401aed68b4b", });;
+DOTNET.setup({ linkerDisableLegacyJsInterop: false,linkerWasmEnableSIMD: true,linkerWasmEnableEH: true,linkerEnableAotProfiler: false, linkerEnableBrowserProfiler: false, linkerRunAOTCompilation: true, gitHash: "c5cb1478f8c5083780aaba33e19e87de2f4bb77b", });;
 // include: base64Utils.js
 // Copied from https://github.com/strophe/strophejs/blob/e06d027/src/polyfills.js#L149
 
@@ -5101,7 +5123,6 @@ var wasmImports = {
   "_munmap_js": __munmap_js,
   "_tzset_js": __tzset_js,
   "abort": _abort,
-  "dotnet_browser_entropy": _dotnet_browser_entropy,
   "emscripten_date_now": _emscripten_date_now,
   "emscripten_get_heap_max": _emscripten_get_heap_max,
   "emscripten_get_now": _emscripten_get_now,
@@ -5122,10 +5143,10 @@ var wasmImports = {
   "mono_interp_jit_wasm_jit_call_trampoline": _mono_interp_jit_wasm_jit_call_trampoline,
   "mono_interp_record_interp_entry": _mono_interp_record_interp_entry,
   "mono_interp_tier_prepare_jiterpreter": _mono_interp_tier_prepare_jiterpreter,
-  "mono_jiterp_do_jit_call_indirect": _mono_jiterp_do_jit_call_indirect,
   "mono_jiterp_free_method_data_js": _mono_jiterp_free_method_data_js,
   "mono_wasm_bind_cs_function": _mono_wasm_bind_cs_function,
   "mono_wasm_bind_js_function": _mono_wasm_bind_js_function,
+  "mono_wasm_browser_entropy": _mono_wasm_browser_entropy,
   "mono_wasm_change_case": _mono_wasm_change_case,
   "mono_wasm_change_case_invariant": _mono_wasm_change_case_invariant,
   "mono_wasm_compare_string": _mono_wasm_compare_string,
@@ -5143,8 +5164,8 @@ var wasmImports = {
   "mono_wasm_invoke_import": _mono_wasm_invoke_import,
   "mono_wasm_invoke_js_blazor": _mono_wasm_invoke_js_blazor,
   "mono_wasm_invoke_js_with_args_ref": _mono_wasm_invoke_js_with_args_ref,
-  "mono_wasm_marshal_promise": _mono_wasm_marshal_promise,
   "mono_wasm_release_cs_owned_object": _mono_wasm_release_cs_owned_object,
+  "mono_wasm_resolve_or_reject_promise": _mono_wasm_resolve_or_reject_promise,
   "mono_wasm_schedule_timer": _mono_wasm_schedule_timer,
   "mono_wasm_set_by_index_ref": _mono_wasm_set_by_index_ref,
   "mono_wasm_set_entrypoint_breakpoint": _mono_wasm_set_entrypoint_breakpoint,
@@ -5838,6 +5859,11 @@ var _jiterp_preserve_module = Module["_jiterp_preserve_module"] = function() {
 };
 
 /** @type {function(...*):?} */
+var _mono_llvm_cpp_catch_exception = Module["_mono_llvm_cpp_catch_exception"] = function() {
+  return (_mono_llvm_cpp_catch_exception = Module["_mono_llvm_cpp_catch_exception"] = Module["asm"]["mono_llvm_cpp_catch_exception"]).apply(null, arguments);
+};
+
+/** @type {function(...*):?} */
 var _mono_jiterp_encode_leb64_ref = Module["_mono_jiterp_encode_leb64_ref"] = function() {
   return (_mono_jiterp_encode_leb64_ref = Module["_mono_jiterp_encode_leb64_ref"] = Module["asm"]["mono_jiterp_encode_leb64_ref"]).apply(null, arguments);
 };
@@ -6003,16 +6029,6 @@ var _mono_jiterp_get_options_as_json = Module["_mono_jiterp_get_options_as_json"
 };
 
 /** @type {function(...*):?} */
-var _mono_jiterp_update_jit_call_dispatcher = Module["_mono_jiterp_update_jit_call_dispatcher"] = function() {
-  return (_mono_jiterp_update_jit_call_dispatcher = Module["_mono_jiterp_update_jit_call_dispatcher"] = Module["asm"]["mono_jiterp_update_jit_call_dispatcher"]).apply(null, arguments);
-};
-
-/** @type {function(...*):?} */
-var _mono_llvm_cpp_catch_exception = Module["_mono_llvm_cpp_catch_exception"] = function() {
-  return (_mono_llvm_cpp_catch_exception = Module["_mono_llvm_cpp_catch_exception"] = Module["asm"]["mono_llvm_cpp_catch_exception"]).apply(null, arguments);
-};
-
-/** @type {function(...*):?} */
 var _mono_jiterp_object_has_component_size = Module["_mono_jiterp_object_has_component_size"] = function() {
   return (_mono_jiterp_object_has_component_size = Module["_mono_jiterp_object_has_component_size"] = Module["asm"]["mono_jiterp_object_has_component_size"]).apply(null, arguments);
 };
@@ -6143,6 +6159,16 @@ var _mono_jiterp_tlqueue_clear = Module["_mono_jiterp_tlqueue_clear"] = function
 };
 
 /** @type {function(...*):?} */
+var _mono_jiterp_begin_catch = Module["_mono_jiterp_begin_catch"] = function() {
+  return (_mono_jiterp_begin_catch = Module["_mono_jiterp_begin_catch"] = Module["asm"]["mono_jiterp_begin_catch"]).apply(null, arguments);
+};
+
+/** @type {function(...*):?} */
+var _mono_jiterp_end_catch = Module["_mono_jiterp_end_catch"] = function() {
+  return (_mono_jiterp_end_catch = Module["_mono_jiterp_end_catch"] = Module["asm"]["mono_jiterp_end_catch"]).apply(null, arguments);
+};
+
+/** @type {function(...*):?} */
 var ___errno_location = function() {
   return (___errno_location = Module["asm"]["__errno_location"]).apply(null, arguments);
 };
@@ -6225,6 +6251,26 @@ var stackRestore = Module["stackRestore"] = function() {
 /** @type {function(...*):?} */
 var stackAlloc = Module["stackAlloc"] = function() {
   return (stackAlloc = Module["stackAlloc"] = Module["asm"]["stackAlloc"]).apply(null, arguments);
+};
+
+/** @type {function(...*):?} */
+var ___cxa_decrement_exception_refcount = Module["___cxa_decrement_exception_refcount"] = function() {
+  return (___cxa_decrement_exception_refcount = Module["___cxa_decrement_exception_refcount"] = Module["asm"]["__cxa_decrement_exception_refcount"]).apply(null, arguments);
+};
+
+/** @type {function(...*):?} */
+var ___cxa_increment_exception_refcount = Module["___cxa_increment_exception_refcount"] = function() {
+  return (___cxa_increment_exception_refcount = Module["___cxa_increment_exception_refcount"] = Module["asm"]["__cxa_increment_exception_refcount"]).apply(null, arguments);
+};
+
+/** @type {function(...*):?} */
+var ___thrown_object_from_unwind_exception = Module["___thrown_object_from_unwind_exception"] = function() {
+  return (___thrown_object_from_unwind_exception = Module["___thrown_object_from_unwind_exception"] = Module["asm"]["__thrown_object_from_unwind_exception"]).apply(null, arguments);
+};
+
+/** @type {function(...*):?} */
+var ___get_exception_message = Module["___get_exception_message"] = function() {
+  return (___get_exception_message = Module["___get_exception_message"] = Module["asm"]["__get_exception_message"]).apply(null, arguments);
 };
 
 

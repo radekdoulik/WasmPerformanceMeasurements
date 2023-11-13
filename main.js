@@ -29,6 +29,8 @@ async function mainJS() {
     var testsData = [];
     var hashPointsMap = new Map();
     var data;
+    var graphUpdates = new Array();
+    var loadedTime;
 
 
     class TaskData {
@@ -50,6 +52,7 @@ async function mainJS() {
             this.hiddenData = [];
             this.availableFlavors = flavors;
             this.units = units;
+            this.graphUpdated = false;
         }
     }
 
@@ -233,7 +236,28 @@ async function mainJS() {
         }
     }
 
-    function updateGraph(testData) {
+    function updateGraph(testData, append = true, dirty=true) {
+        if (dirty)
+            testData.graphUpdated = false;
+
+        if (append)
+            graphUpdates.push(testData);
+        else {
+            graphUpdates.unshift(testData);
+        }
+        requestIdleCallback(updateGraphRun);
+    }
+
+    function updateGraphRun()
+    {
+        data = graphUpdates.shift();
+        if (data.graphUpdated)
+            return;
+
+        updateGraphIdle(data);
+    }
+
+    function updateGraphIdle(testData) {
         testData.x.domain(d3.extent(testData.data, function (d) { return d.time }));
         testData.xAxis.transition().duration(1500).call(d3.axisBottom(testData.x)
             .tickFormat(d3.timeFormat("%m/%d/%Y")));
@@ -271,6 +295,8 @@ async function mainJS() {
             plotVariable(testData, filteredData.get(flvs[i]), ordinal(flavor), flavor, escapedFlavor);
             circlePoints(testData, filteredData.get(flvs[i]), ordinal(flavor), flavor, escapedFlavor);
         }
+
+        testData.graphUpdated = true;
     }
 
     function addRegexText(domName) {
@@ -288,6 +314,20 @@ async function mainJS() {
             let collapsible = d3.select("#" + domName)
                 .append("details")
                 .attr("id", tasks[i] + "collapsible")
+                .on("toggle", function(e) {
+                    if (!e.currentTarget.open)
+                        return;
+
+                    for (let idx = numTests - 1; idx >= 0; idx--) {
+                        let curTest = testsData[idx];
+                        let taskName = tasksIds.get(curTest.taskId);
+                        let [task, test] = taskName.split(",");
+                        if (task !== tasks[i])
+                            continue;
+
+                        updateGraph(curTest, false, false);
+                    }
+                })
                 .on("click", function () {
                     let url = new URL(decodeURI(window.location));
                     let params = new URLSearchParams(url.search);
@@ -790,7 +830,7 @@ async function mainJS() {
     // console.log("before load: " + (new Date().getTime() - startTime));
     let value = await exports.Program.LoadData(String(indexUrl));
     // console.log("after load: " + (new Date().getTime() - startTime));
-    let loadedTime = new Date().getTime();
+    loadedTime = new Date().getTime();
 
     let unfilteredData = JSON.parse(value);
     unfilteredData.firstDate = new Date(unfilteredData.firstDate);
