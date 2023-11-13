@@ -1,0 +1,15 @@
+commit 38463e2269889321ecea15317a20955f38d560a7
+Author: Aleksey Kliger (λgeek) <alklig@microsoft.com>
+Date:   Sun Nov 12 15:47:21 2023 -0500
+
+    [mono] catch the case of updated methods in mono_debug_lookup_source_location (#94540)
+    
+    * Add new crashing test
+    
+    * [mono] catch the case of updated methods in mono_debug_lookup_source_location
+    
+       If a newly added method is in a stack trace, look it up in the EnC debug information, if available.
+    
+    * add debugger test
+    
+    Co-authored-by: Thays Grazia <thaystg@gmail.com>
