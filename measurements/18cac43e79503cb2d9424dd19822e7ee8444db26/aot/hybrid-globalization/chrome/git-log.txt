@@ -1,0 +1,7 @@
+commit 18cac43e79503cb2d9424dd19822e7ee8444db26
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Wed Nov 15 17:04:12 2023 +0900
+
+    Do not generate broken debug info for non-methods (#94693)
+    
+    The related methods (`EmitDebugInfo`, `EmitEHClauseInfo`) already do this - if the node is not a method node, don't emit anything. It is not clear what purpose the "if this is not a method, emit broken debug information" serves. I traced it all the way back to https://github.com/dotnet/corert/blob/d78cf62480331f63b26eb08b86b838ffa355ff0d/src/ILCompiler.Compiler/src/Compiler/DependencyAnalysis/ObjectWriter.cs#L427-L447 - it was surrounded by TODOs so maybe it didn't fully stand out but it doesn't look right there already.
