@@ -1,0 +1,13 @@
+commit 6f30b7500ea2c0d0fb2923ea1fc5ed3c4ce2f29c
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Tue Nov 14 17:12:21 2023 -0500
+
+    Make Deflate/GZip/ZlibStream empty writes have the same impact as no writes (#94433)
+    
+    * Make Deflate/GZip/ZlibStream empty writes have the same impact as no writes
+    
+    If you create such a compression stream, don't write to it, and close it, it won't write out any bytes.  But today if you perform an empty write, it'll result in the stream thinking data was written, and it'll end up writing out an empty chunk, which will result in several bytes of output.  Logically it's strange that there's such a difference between an empty write and no write; this seeks to make them the same.
+    
+    * Put back ConcatenatedEmptyGzipStreams test
+    
+    ...but with hard-coded bytes rather than using GZipStream to generate them
