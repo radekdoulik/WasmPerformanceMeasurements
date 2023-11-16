@@ -1,0 +1,7 @@
+commit 5b333b028d4853337805464e7bb95ea8ee0a9674
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Thu Nov 16 10:56:30 2023 +0900
+
+    Fix declaration of DiagAddNewRegion (#94759)
+    
+    `uint8_t` is the type that is used thorough the codebase here. `BYTE` happens to not be defined for some build configurations and produces a build break. I'm also removing the space because the prevailing code style in this file is no space between type and asterisk.
