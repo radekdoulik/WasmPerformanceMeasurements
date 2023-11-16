@@ -1,0 +1,9 @@
+commit 3c082c445cb44ef85e69a7d028aec13500bfe405
+Author: Larry Ewing <lewing@microsoft.com>
+Date:   Wed Nov 15 17:52:06 2023 -0600
+
+    [wasi] Run the mono runtime component selection logic for wasi (#94738)
+    
+    * Run the runtime component selection logic for wasi
+    
+    * condition the component logic on the worload
