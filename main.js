@@ -307,47 +307,54 @@ async function mainJS() {
         });
     }
 
+    function addCollapsible(domName, name, summary)
+    {
+        let collapsible = d3.select("#" + domName)
+        .append("details")
+        .attr("id", name + "collapsible")
+        .on("toggle", function(e) {
+            if (!e.currentTarget.open)
+                return;
+
+            for (let idx = numTests - 1; idx >= 0; idx--) {
+                let curTest = testsData[idx];
+                let taskName = tasksIds.get(curTest.taskId);
+                let [task, test] = taskName.split(",");
+                if (task !== name)
+                    continue;
+
+                updateGraph(curTest, false, false);
+            }
+        })
+        .on("click", function () {
+            let url = new URL(decodeURI(window.location));
+            let params = new URLSearchParams(url.search);
+            let openTasks = params.get("tasks");
+            if (openTasks !== null) {
+                let taskNames = openTasks.split(',');
+                if (taskNames.includes(name)) {
+                    taskNames.splice(taskNames.indexOf(name), 1);
+                } else {
+                    taskNames.push(name);
+                }
+                params.set("tasks", taskNames.join());
+            } else {
+                params.set("tasks", name);
+            }
+            url.search = params;
+            window.history.replaceState("", "", url.toString());
+        });
+
+        collapsible.append("summary").html(summary);
+
+        return collapsible;
+    }
+
     function appendCollapsibles(domName, testsToTasks) {
         let tasks = [...testsToTasks.keys()].sort();
         let tasksLen = testsToTasks.size;
         for (let i = 0; i < tasksLen; i++) {
-            let collapsible = d3.select("#" + domName)
-                .append("details")
-                .attr("id", tasks[i] + "collapsible")
-                .on("toggle", function(e) {
-                    if (!e.currentTarget.open)
-                        return;
-
-                    for (let idx = numTests - 1; idx >= 0; idx--) {
-                        let curTest = testsData[idx];
-                        let taskName = tasksIds.get(curTest.taskId);
-                        let [task, test] = taskName.split(",");
-                        if (task !== tasks[i])
-                            continue;
-
-                        updateGraph(curTest, false, false);
-                    }
-                })
-                .on("click", function () {
-                    let url = new URL(decodeURI(window.location));
-                    let params = new URLSearchParams(url.search);
-                    let openTasks = params.get("tasks");
-                    if (openTasks !== null) {
-                        let taskNames = openTasks.split(',');
-                        if (taskNames.includes(tasks[i])) {
-                            taskNames.splice(taskNames.indexOf(tasks[i]), 1);
-                        } else {
-                            taskNames.push(tasks[i]);
-                        }
-                        params.set("tasks", taskNames.join());
-                    } else {
-                        params.set("tasks", tasks[i]);
-                    }
-                    url.search = params;
-                    window.history.replaceState("", "", url.toString());
-                });
-            collapsible.append("summary")
-                .html(tasks[i]);
+            addCollapsible(domName, tasks[i], tasks[i]);
         }
     }
 
@@ -376,12 +383,45 @@ async function mainJS() {
         }
     }
 
-    function buildGraph(allData, flavors, taskId) {
+    function getCollapsible(task, test, path, folder = false)
+    {
+        let parts = path.split("/");
+        if (task !== "Size" || (!folder && parts.length <= 1))
+            return d3.select("#" + task + "collapsible");
 
+        if (parts.length === 1) {
+            let collapsibleId = "#" + path + "collapsible";
+            let collapsible = d3.select(collapsibleId);
+            if (!collapsible.empty())
+                return collapsible;
+
+            return addCollapsible(task + "collapsible", path, path);
+        }
+
+        if (folder) {
+            let collapsible = d3.select("#" + path.replaceAll("/", "--") + "collapsible");
+            if (!collapsible.empty())
+                return collapsible;
+        }
+
+        let parentPath = path.substring(0, path.lastIndexOf("/"));
+        let parentId = parentPath.replaceAll("/", "--") + "collapsible";
+        let parentCollapsible = d3.select("#" + parentId);
+        if (parentCollapsible.empty())
+            parentCollapsible = getCollapsible(task, test, parentPath, true);
+
+        if (folder)
+            return addCollapsible(parentId, path.replaceAll("/", "--"), parts[parts.length - 1]);
+
+        return parentCollapsible;
+    }
+
+    function buildGraph(allData, flavors, taskId) {
         let taskName = tasksIds.get(taskId);
         let [task, test] = taskName.split(",");
         let data = allData.filter(d => unfilteredData.taskNamesMap[d.taskMeasurementNameId] === taskName);
-        let collapsible = d3.select("#" + task + "collapsible");
+        let testName = test.substring(1);
+        let collapsible = getCollapsible(task, testName, testName);
         let div = collapsible.append("div");
         let dataGroup = div
             .append("svg")
@@ -819,6 +859,12 @@ async function mainJS() {
         return data;
     }
 
+    function buildGraphs(data, flavors) {
+        for (let i = 0; i < numTests; i++) {
+            testsData.push(buildGraph(data, flavors, i));
+        }
+    }
+
     let url = new URL(decodeURI(window.location));
     let indexArg = url.searchParams.getAll('index');
     let indexUrl = measurementsUrl + '/' + "index2.zip";
@@ -851,9 +897,7 @@ async function mainJS() {
         .domain(flavors)
         .range(colors);
     appendCollapsibles("graphs", testToTask);
-    for (let i = 0; i < numTests; i++) {
-        testsData.push(buildGraph(data, flavors, i));
-    }
+    buildGraphs(data, flavors);
     addRegexText("regexSubmit");
     addPresets(datePresets, "datesPresets", selectDatePreset);
     addPresets(graphFilters, "flavorsPresets", selectFlavorsPreset);
