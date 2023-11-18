@@ -1,0 +1,11 @@
+commit 8a1b985a4f31850ecb5e6537f21666de52e02cee
+Author: David Wrighton <davidwr@microsoft.com>
+Date:   Fri Nov 17 17:36:43 2023 -0800
+
+    Improve the hash function used in the `InstMethodHashTable` (#94938)
+    
+    Instead of using the TypeDef token of the MethodTable, use the TypeHandle pointer instead. This is both faster to compute, and is more unique, as the TypeDef token could be shared across multiple types in different assemblies, and if the type is generic itself, it could be shared across multiple different instantiations of the type.
+    
+    Improves the benchmark mentioned in isseu #94936 such that the cost is about 24 seconds, and the time in spent is spent almost entirely in the JIT, as should be expected.
+    
+    Fixes #94936
