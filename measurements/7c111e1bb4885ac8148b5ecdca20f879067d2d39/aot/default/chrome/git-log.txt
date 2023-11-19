@@ -1,0 +1,9 @@
+commit 7c111e1bb4885ac8148b5ecdca20f879067d2d39
+Author: Larry Ewing <lewing@microsoft.com>
+Date:   Fri Nov 17 22:42:39 2023 -0600
+
+    [wasi] Disable full assertion messages for Release builds (#94946)
+    
+    * Disable full assertion messages for Release builds
+    
+    * add more instructions
