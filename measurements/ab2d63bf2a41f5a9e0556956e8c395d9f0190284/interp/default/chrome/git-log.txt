@@ -1,0 +1,13 @@
+commit ab2d63bf2a41f5a9e0556956e8c395d9f0190284
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Tue Nov 14 06:41:38 2023 -0500
+
+    Expose ChannelReader.ReadAllAsync from non-core builds as well (#94417)
+    
+    * Expose ChannelReader.ReadAllAsync from non-core builds as well
+    
+    I'm not sure why we didn't fix this before when we shipped Microsoft.Bcl.AsyncInterfaces, but with IAsyncEnumerable available downlevel, there's no need to hide this method away; it can be in all builds.  Doing so makes it easier for others to create their own channel implementations, as they don't _need_ to multitarget in order to override everything they might want to.
+    
+    I've not changed any C# code, just moved it between files.
+    
+    * Address PR feedback
