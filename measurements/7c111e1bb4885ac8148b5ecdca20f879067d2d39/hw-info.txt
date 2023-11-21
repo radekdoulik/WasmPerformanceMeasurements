@@ -1,52 +1,52 @@
 === outpuf of: free
                total        used        free      shared  buff/cache   available
-Mem:         3754460      325060     2459196       34600      970204     3304688
-Swap:        4194300      507948     3686352
+Mem:         3754460      305816     2174108       24696     1274536     3329740
+Swap:        4194300      515480     3678820
 === outpuf of: cat /proc/meminfo
 MemTotal:        3754460 kB
-MemFree:         2459196 kB
-MemAvailable:    3304836 kB
+MemFree:         2174108 kB
+MemAvailable:    3329808 kB
 Buffers:               0 kB
-Cached:           742976 kB
-SwapCached:        37360 kB
-Active:           442004 kB
-Inactive:         374848 kB
-Active(anon):      37836 kB
-Inactive(anon):    70492 kB
-Active(file):     404168 kB
-Inactive(file):   304356 kB
-Unevictable:       33132 kB
+Cached:          1051212 kB
+SwapCached:        29992 kB
+Active:           742680 kB
+Inactive:         397784 kB
+Active(anon):      41588 kB
+Inactive(anon):    72360 kB
+Active(file):     701092 kB
+Inactive(file):   325424 kB
+Unevictable:       23440 kB
 Mlocked:               0 kB
 SwapTotal:       4194300 kB
-SwapFree:        3686352 kB
+SwapFree:        3678820 kB
 Dirty:                 0 kB
-Writeback:             0 kB
-AnonPages:         93548 kB
-Mapped:            55072 kB
-Shmem:             34600 kB
-KReclaimable:     227228 kB
-Slab:             323288 kB
-SReclaimable:     227228 kB
-SUnreclaim:        96060 kB
-KernelStack:        7048 kB
-PageTables:        12484 kB
+Writeback:             8 kB
+AnonPages:        106976 kB
+Mapped:            59804 kB
+Shmem:             24696 kB
+KReclaimable:     223392 kB
+Slab:             319348 kB
+SReclaimable:     223392 kB
+SUnreclaim:        95956 kB
+KernelStack:        7032 kB
+PageTables:        12384 kB
 NFS_Unstable:          0 kB
 Bounce:                0 kB
 WritebackTmp:          0 kB
 CommitLimit:     6071528 kB
-Committed_AS:    3273788 kB
+Committed_AS:    3250364 kB
 VmallocTotal:   133143592960 kB
-VmallocUsed:       24008 kB
+VmallocUsed:       24024 kB
 VmallocChunk:          0 kB
-Percpu:             3456 kB
+Percpu:             3528 kB
 HardwareCorrupted:     0 kB
-AnonHugePages:     20480 kB
+AnonHugePages:     32768 kB
 ShmemHugePages:        0 kB
 ShmemPmdMapped:        0 kB
 FileHugePages:         0 kB
 FilePmdMapped:         0 kB
 CmaTotal:         819200 kB
-CmaFree:          720376 kB
+CmaFree:          447956 kB
 HugePages_Total:       0
 HugePages_Free:        0
 HugePages_Rsvd:        0
