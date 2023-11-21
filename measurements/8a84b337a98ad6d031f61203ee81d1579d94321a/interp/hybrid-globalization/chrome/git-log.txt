@@ -1,0 +1,13 @@
+commit 8a84b337a98ad6d031f61203ee81d1579d94321a
+Author: Andy Ayers <andya@microsoft.com>
+Date:   Mon Nov 13 07:45:32 2023 -0800
+
+    JIT: Improve local assertion prop throughput (#94597)
+    
+    Leverage the "dep vectors" to avoid the search the assertion table during local assertion prop. Helps the current (small table) behavior some, helps the future cross-block (larger table) behavior more.
+    
+    Similar tricks may be possible for global AP, though the set of assertions there is more varied.
+    
+    Avoid merging assertions from statically unreachable preds. For OSR methods ensure the original method entry is considered reachable (as it may be).
+    
+    Contributes to #93246.
