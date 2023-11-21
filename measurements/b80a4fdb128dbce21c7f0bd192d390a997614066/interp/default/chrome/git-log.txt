@@ -1,0 +1,24 @@
+commit b80a4fdb128dbce21c7f0bd192d390a997614066
+Author: Azuk 443 <determ1ne@yeah.net>
+Date:   Mon Nov 20 10:54:45 2023 +0800
+
+    `Convert.ToHexStringLower`: lower variant for `Convert.ToHexString` (#92483)
+    
+    * Add System.Convert.ToHexStringLower with tests
+    
+    * Use new public API `Convert.ToHexStringLower`
+    
+    * Add `Convert.TryToHexStringLower`
+    
+    * format code
+    
+    * sort methods
+    
+    * use old `HexConverter` API on
+    `System.Diagnostics.DiagnosticSource`
+    
+    * Add unit test for `Convert.TryToHexStringLower`
+    
+    * add if-defs for libs
+    
+    * removed whitespace
