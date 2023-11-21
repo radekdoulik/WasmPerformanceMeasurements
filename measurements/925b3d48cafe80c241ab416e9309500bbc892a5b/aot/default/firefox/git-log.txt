@@ -1,0 +1,11 @@
+commit 925b3d48cafe80c241ab416e9309500bbc892a5b
+Author: Kevin Jones <kevin@vcsjones.com>
+Date:   Fri Nov 17 22:10:50 2023 -0500
+
+    Permit MD5 regardless of FIPS configuration for Linux (#94934)
+    
+    * Re-enable MD5 for FIPS with OpenSSL 3
+    
+    * Permit MD5 on OpenSSL 1.1.1 regardless of FIPS
+    
+    * Fix build
