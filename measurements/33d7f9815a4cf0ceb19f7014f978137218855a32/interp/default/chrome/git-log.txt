@@ -1,0 +1,17 @@
+commit 33d7f9815a4cf0ceb19f7014f978137218855a32
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Wed Nov 15 22:43:49 2023 -0500
+
+    [wasi] Fix WasmLinkIcalls and WasmNativeStrip support. (#91843)
+    
+    * [wasi] Fix WasmLinkIcalls and WasmNativeStrip support.
+    
+    * Add a wasi AOT cross compiler nuget.
+    
+    * Fix wasi.mk.
+    
+    * More changes to build AOT cross compilers for wasi.
+    
+    * Tidy up the xml a bit.
+    
+    * Share _GetNugetsForAOT target with wasi.
