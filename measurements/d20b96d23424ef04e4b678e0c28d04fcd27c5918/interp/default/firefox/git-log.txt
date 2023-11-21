@@ -1,0 +1,32 @@
+commit d20b96d23424ef04e4b678e0c28d04fcd27c5918
+Author: Jan Kotas <jkotas@microsoft.com>
+Date:   Tue Nov 21 07:55:08 2023 -0800
+
+    Convert S.R.InteropServices.Marshal COM-related FCalls to QCalls (#95038)
+    
+    * Marshal.ChangeWrapperHandleStrength(object
+    
+    * GetStartComSlot, GetEndComSlot
+    
+    * GetNativeVariantForObject, GetObjectForNativeVariant,
+    GetObjectsForNativeVariants
+    
+    * IsTypeVisibleFromCom
+    
+    * InternalCreateWrapperOfType
+    
+    * ReleaseComObject, FinalReleaseComObject
+    
+    * CreateAggregatedObject
+    
+    * CleanupUnusedObjectsInCurrentContext
+    
+    * GetTypedObjectForIUnknown
+    
+    * GetObjectForIUnknown, GetUniqueObjectForIUnknown
+    
+    * GetComInterfaceForObject
+    
+    * GetIUnknownForObject, GetIDispatchForObject
+    
+    * Update tests
