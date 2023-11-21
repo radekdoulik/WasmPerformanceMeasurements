@@ -1,0 +1,97 @@
+commit 186cf81c43e51c6696c39659dfec09a860ce4476
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Tue Nov 21 14:32:57 2023 +0100
+
+    JIT: Dump BB in/out memory SSAs inline when SSA is valid (#95017)
+    
+    When SSA is considered to be valid, write in and out SSA numbers for
+    memory states when dumping the blocks.
+    
+    For example:
+    
+    ```csharp
+    public static void Foo(C c)
+    {
+        if (c.V % 2 == 0)
+        {
+            c.V = 123;
+        }
+        else
+        {
+            c.V = 456;
+        }
+    
+        Console.WriteLine(c.V);
+    }
+    
+    public class C
+    {
+        public int V;
+    }
+    ```
+    dumps
+    
+    ```
+    ------------ BB01 [000..00A) -> BB03 (cond), preds={} succs={BB02,BB03}
+    ByrefExposed, GcHeap = m:1
+    
+    ***** BB01
+    STMT00000 ( 0x000[E-] ... 0x008 )
+    N009 ( 10, 10) [000007] ---XG------                         ▌  JTRUE     void
+    N008 (  8,  8) [000006] J--XG--N---                         └──▌  NE        int
+    N006 (  6,  6) [000004] ---XG------                            ├──▌  AND       int
+    N004 (  4,  4) [000002] ---XG------                            │  ├──▌  IND       int
+    N003 (  2,  2) [000024] -------N---                            │  │  └──▌  ADD       byref
+    N001 (  1,  1) [000000] -----------                            │  │     ├──▌  LCL_VAR   ref    V00 arg0         u:1
+    N002 (  1,  1) [000023] -----------                            │  │     └──▌  CNS_INT   long   8 Fseq[V]
+    N005 (  1,  1) [000003] -----------                            │  └──▌  CNS_INT   int    1
+    N007 (  1,  1) [000005] -----------                            └──▌  CNS_INT   int    0
+    
+    ByrefExposed, GcHeap = m:1
+    
+    ------------ BB02 [00A..014) -> BB04 (always), preds={BB01} succs={BB04}
+    ByrefExposed, GcHeap = m:1
+    
+    ***** BB02
+    STMT00004 ( 0x00A[E-] ... 0x00D )
+    N005 (  6,  6) [000020] -A-XG------                         ▌  STOREIND  int
+    N003 (  2,  2) [000028] -------N---                         ├──▌  ADD       byref
+    N001 (  1,  1) [000017] -----------                         │  ├──▌  LCL_VAR   ref    V00 arg0         u:1
+    N002 (  1,  1) [000027] -----------                         │  └──▌  CNS_INT   long   8 Fseq[V]
+    N004 (  1,  1) [000018] -----------                         └──▌  CNS_INT   int    123
+    
+    ByrefExposed, GcHeap = m:5
+    
+    ------------ BB03 [014..01F), preds={BB01} succs={BB04}
+    ByrefExposed, GcHeap = m:1
+    
+    ***** BB03
+    STMT00001 ( 0x014[E-] ... 0x01A )
+    N005 (  6,  9) [000011] -A-XG------                         ▌  STOREIND  int
+    N003 (  2,  2) [000026] -------N---                         ├──▌  ADD       byref
+    N001 (  1,  1) [000008] -----------                         │  ├──▌  LCL_VAR   ref    V00 arg0         u:1
+    N002 (  1,  1) [000025] -----------                         │  └──▌  CNS_INT   long   8 Fseq[V]
+    N004 (  1,  4) [000009] -----------                         └──▌  CNS_INT   int    456
+    
+    ByrefExposed, GcHeap = m:4
+    
+    ------------ BB04 [01F..02B) (return), preds={BB02,BB03} succs={}
+    ByrefExposed, GcHeap = phi(m:5, m:4)
+    
+    ***** BB04
+    STMT00002 ( 0x01F[E-] ... 0x02A )
+    N005 ( 18, 10) [000015] --CXG------                         ▌  CALL      void   System.Console:WriteLine(int)
+    N004 (  4,  4) [000014] ---XG------ arg0 in rcx             └──▌  IND       int
+    N003 (  2,  2) [000030] -------N---                            └──▌  ADD       byref
+    N001 (  1,  1) [000012] -----------                               ├──▌  LCL_VAR   ref    V00 arg0         u:1 (last use)
+    N002 (  1,  1) [000029] -----------                               └──▌  CNS_INT   long   8 Fseq[V]
+    
+    ***** BB04
+    STMT00003 ( 0x02A[E-] ... ??? )
+    N001 (  0,  0) [000016] -----------                         ▌  RETURN    void
+    
+    ByrefExposed, GcHeap = m:3
+    
+    ```
+    
+    after SSA.
