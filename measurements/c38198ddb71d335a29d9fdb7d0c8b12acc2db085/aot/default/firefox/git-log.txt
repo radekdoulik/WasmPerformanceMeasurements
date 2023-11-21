@@ -1,0 +1,17 @@
+commit c38198ddb71d335a29d9fdb7d0c8b12acc2db085
+Author: Jackson Schuster <36744439+jtschuster@users.noreply.github.com>
+Date:   Mon Nov 20 07:56:14 2023 -0800
+
+    Don't put any modifiers after ref in COM generator(#94875)
+    
+    * Don't put any modifiers after ref
+    
+    * Update src/libraries/System.Runtime.InteropServices/gen/Microsoft.Interop.SourceGeneration/SyntaxExtensions.cs
+    
+    Co-authored-by: Aaron Robinson <arobins@microsoft.com>
+    
+    * Revert tests and use full words for library name
+    
+    ---------
+    
+    Co-authored-by: Aaron Robinson <arobins@microsoft.com>
