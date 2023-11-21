@@ -1,0 +1,11 @@
+commit 1347af75d27633fd47dd6f89ba0e48f2cf246554
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Mon Nov 13 16:01:12 2023 +0900
+
+    Allow preinitializing RuntimeType instances (#94405)
+    
+    Unblock serializing `RuntimeType` instances from the static constructor interpreter.
+    
+    With this we can now preinitialize `static readonly Type s_foo = typeof(Foo)` and RyuJIT will optimize reads of `s_foo` into loading a constant value.
+    
+    Contributes to #91704.
