@@ -1,0 +1,10 @@
+commit 7d87095501281e9f77b4fc3bb2a0a7b71fc3a044
+Author: Elinor Fung <elfung@microsoft.com>
+Date:   Mon Nov 20 16:30:58 2023 -0800
+
+    Store entry assembly path for easy access for diagnostics (#95027)
+    
+    - Add `g_EntryAssemblyPath` global variable holding the full path to the entry assembly
+      - Set right before loading the entry assembly (so also before startup hooks are run) - NULL if there is no entry assembly
+    - Ensure value is included dumps
+      - For triage dumps, the dumped value is updated to only be the assembly file name instead of the full path
