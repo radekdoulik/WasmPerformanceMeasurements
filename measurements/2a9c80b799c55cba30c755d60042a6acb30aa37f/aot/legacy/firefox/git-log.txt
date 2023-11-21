@@ -1,0 +1,15 @@
+commit 2a9c80b799c55cba30c755d60042a6acb30aa37f
+Author: Mikhail Kurinnoi <m.kurinnoi@samsung.com>
+Date:   Wed Nov 15 04:52:53 2023 +0300
+
+    [RISC-V] Implement emulate single step feature. (#94711)
+    
+    * [RISC-V] Implement emulate single step feature.
+    
+    * [RISC-V] Fix clang16 build error.
+    
+    Error message  /home/clamp/runtime/src/coreclr/debug/inc/riscv64/primitives.h:52:5: error: integer value -1 is outside the valid range of values [0, 255] for this enumeration type [-Wenum-constexpr-conversion]
+                  (CorDebugRegister)(-1), // X0 is zero register that is not a real register. We need padding here for proper mapping with ICorDebugInfo::RegNum.
+                  ^
+    
+    * [RISC-V] Fix sign bit.
