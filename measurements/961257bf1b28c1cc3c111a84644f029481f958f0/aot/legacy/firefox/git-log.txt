@@ -1,0 +1,7 @@
+commit 961257bf1b28c1cc3c111a84644f029481f958f0
+Author: Alexander Köplinger <alex.koeplinger@outlook.com>
+Date:   Wed Nov 15 08:58:11 2023 +0100
+
+    Format usings to match code style (#94085)
+    
+    This was done by running `dotnet format style --diagnostics IDE0055` against all the source projects in the repo to bring the usings into compliance with the code style rules: sorted alphabetically, `System.*` usings first
