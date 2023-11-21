@@ -1,37 +1,37 @@
 {
   "results": [
     {
-      "span": "00:00:04.8780000",
+      "span": "00:00:04.8760000",
       "steps": 979,
       "taskName": "String",
       "measurementName": "Normalize"
     },
     {
-      "span": "00:00:04.5350000",
+      "span": "00:00:04.5330000",
       "steps": 917,
       "taskName": "String",
       "measurementName": "Normalize"
     },
     {
-      "span": "00:00:05.1780000",
-      "steps": 1043,
-      "taskName": "String",
-      "measurementName": "Normalize"
-    },
-    {
-      "span": "00:00:05.1810000",
+      "span": "00:00:05.1970000",
       "steps": 1050,
       "taskName": "String",
       "measurementName": "Normalize"
     },
     {
-      "span": "00:00:05.1480000",
+      "span": "00:00:05.1730000",
       "steps": 1050,
       "taskName": "String",
       "measurementName": "Normalize"
     },
     {
-      "span": "00:00:05.0530000",
+      "span": "00:00:05.1360000",
+      "steps": 1050,
+      "taskName": "String",
+      "measurementName": "Normalize"
+    },
+    {
+      "span": "00:00:05.0510000",
       "steps": 2971,
       "taskName": "String",
       "measurementName": "IsNormalized"
@@ -43,13 +43,13 @@
       "measurementName": "IsNormalized"
     },
     {
-      "span": "00:00:05.0430000",
+      "span": "00:00:05.0460000",
       "steps": 2971,
       "taskName": "String",
       "measurementName": "IsNormalized"
     },
     {
-      "span": "00:00:05.0520000",
+      "span": "00:00:05.0460000",
       "steps": 2971,
       "taskName": "String",
       "measurementName": "IsNormalized"
@@ -61,64 +61,76 @@
       "measurementName": "IsNormalized"
     },
     {
-      "span": "00:00:04.7260000",
+      "span": "00:00:04.7150000",
       "steps": 30030,
       "taskName": "String",
       "measurementName": "Normalize ASCII"
     },
     {
-      "span": "00:00:05.9030000",
+      "span": "00:00:05.8880000",
       "steps": 37530,
       "taskName": "String",
       "measurementName": "Normalize ASCII"
     },
     {
-      "span": "00:00:05.8810000",
-      "steps": 37530,
-      "taskName": "String",
-      "measurementName": "Normalize ASCII"
-    },
-    {
-      "span": "00:00:04.7270000",
+      "span": "00:00:04.6990000",
       "steps": 30030,
       "taskName": "String",
       "measurementName": "Normalize ASCII"
     },
     {
-      "span": "00:00:04.7140000",
+      "span": "00:00:04.7180000",
       "steps": 30030,
       "taskName": "String",
       "measurementName": "Normalize ASCII"
     },
     {
-      "span": "00:00:05.1920000",
+      "span": "00:00:04.6990000",
+      "steps": 30030,
+      "taskName": "String",
+      "measurementName": "Normalize ASCII"
+    },
+    {
+      "span": "00:00:05.2340000",
       "steps": 8,
       "taskName": "String",
       "measurementName": "TextInfo ToLower"
     },
     {
-      "span": "00:00:05.2360000",
+      "span": "00:00:05.1430000",
       "steps": 8,
       "taskName": "String",
       "measurementName": "TextInfo ToLower"
     },
     {
-      "span": "00:00:05.2090000",
+      "span": "00:00:05.1750000",
       "steps": 8,
       "taskName": "String",
       "measurementName": "TextInfo ToLower"
     },
     {
-      "span": "00:00:05.1970000",
+      "span": "00:00:05.1720000",
       "steps": 8,
       "taskName": "String",
       "measurementName": "TextInfo ToLower"
     },
     {
-      "span": "00:00:05.2260000",
+      "span": "00:00:05.1670000",
       "steps": 8,
       "taskName": "String",
       "measurementName": "TextInfo ToLower"
+    },
+    {
+      "span": "00:00:05.0120000",
+      "steps": 8,
+      "taskName": "String",
+      "measurementName": "TextInfo ToUpper"
+    },
+    {
+      "span": "00:00:05.6040000",
+      "steps": 9,
+      "taskName": "String",
+      "measurementName": "TextInfo ToUpper"
     },
     {
       "span": "00:00:05.6100000",
@@ -127,298 +139,298 @@
       "measurementName": "TextInfo ToUpper"
     },
     {
-      "span": "00:00:05.6020000",
+      "span": "00:00:05.6120000",
       "steps": 9,
       "taskName": "String",
       "measurementName": "TextInfo ToUpper"
     },
     {
-      "span": "00:00:05.6130000",
+      "span": "00:00:05.6210000",
       "steps": 9,
       "taskName": "String",
       "measurementName": "TextInfo ToUpper"
     },
     {
-      "span": "00:00:05.6280000",
-      "steps": 9,
-      "taskName": "String",
-      "measurementName": "TextInfo ToUpper"
-    },
-    {
-      "span": "00:00:04.9970000",
-      "steps": 8,
-      "taskName": "String",
-      "measurementName": "TextInfo ToUpper"
-    },
-    {
-      "span": "00:00:04.8210000",
+      "span": "00:00:04.8610000",
       "steps": 6,
       "taskName": "String",
       "measurementName": "TextInfo ToTileCase"
     },
     {
-      "span": "00:00:05.5790000",
+      "span": "00:00:05.6170000",
       "steps": 7,
       "taskName": "String",
       "measurementName": "TextInfo ToTileCase"
     },
     {
-      "span": "00:00:05.5770000",
+      "span": "00:00:05.6360000",
       "steps": 7,
       "taskName": "String",
       "measurementName": "TextInfo ToTileCase"
     },
     {
-      "span": "00:00:05.5810000",
+      "span": "00:00:05.6170000",
       "steps": 7,
       "taskName": "String",
       "measurementName": "TextInfo ToTileCase"
     },
     {
-      "span": "00:00:05.5730000",
+      "span": "00:00:05.6070000",
       "steps": 7,
       "taskName": "String",
       "measurementName": "TextInfo ToTileCase"
     },
     {
-      "span": "00:00:05.0130000",
-      "steps": 4266,
+      "span": "00:00:04.9410000",
+      "steps": 4165,
       "taskName": "String",
       "measurementName": "String Compare"
     },
     {
-      "span": "00:00:05.1530000",
+      "span": "00:00:05.1550000",
       "steps": 4410,
       "taskName": "String",
       "measurementName": "String Compare"
     },
     {
-      "span": "00:00:05.0720000",
+      "span": "00:00:05.0790000",
       "steps": 4373,
       "taskName": "String",
       "measurementName": "String Compare"
     },
     {
-      "span": "00:00:05.0660000",
+      "span": "00:00:05.1050000",
       "steps": 4373,
       "taskName": "String",
       "measurementName": "String Compare"
     },
     {
-      "span": "00:00:05.0930000",
+      "span": "00:00:05.1230000",
       "steps": 4410,
       "taskName": "String",
       "measurementName": "String Compare"
     },
     {
-      "span": "00:00:05.0290000",
-      "steps": 4447,
+      "span": "00:00:04.8710000",
+      "steps": 4301,
       "taskName": "String",
       "measurementName": "String Equals"
     },
     {
-      "span": "00:00:05.1090000",
+      "span": "00:00:05.1670000",
+      "steps": 4485,
+      "taskName": "String",
+      "measurementName": "String Equals"
+    },
+    {
+      "span": "00:00:05.0750000",
+      "steps": 4485,
+      "taskName": "String",
+      "measurementName": "String Equals"
+    },
+    {
+      "span": "00:00:05.0680000",
+      "steps": 4485,
+      "taskName": "String",
+      "measurementName": "String Equals"
+    },
+    {
+      "span": "00:00:05.1040000",
       "steps": 4524,
       "taskName": "String",
       "measurementName": "String Equals"
     },
     {
-      "span": "00:00:05.0880000",
-      "steps": 4524,
+      "span": "00:00:05.1320000",
+      "steps": 4410,
       "taskName": "String",
-      "measurementName": "String Equals"
+      "measurementName": "CompareInfo Compare"
     },
     {
-      "span": "00:00:05.0910000",
-      "steps": 4524,
-      "taskName": "String",
-      "measurementName": "String Equals"
-    },
-    {
-      "span": "00:00:05.0960000",
-      "steps": 4524,
-      "taskName": "String",
-      "measurementName": "String Equals"
-    },
-    {
-      "span": "00:00:05.1110000",
+      "span": "00:00:05.0940000",
       "steps": 4373,
       "taskName": "String",
       "measurementName": "CompareInfo Compare"
     },
     {
-      "span": "00:00:05.1260000",
+      "span": "00:00:05.1430000",
       "steps": 4410,
       "taskName": "String",
       "measurementName": "CompareInfo Compare"
     },
     {
-      "span": "00:00:05.1360000",
+      "span": "00:00:05.1250000",
       "steps": 4410,
       "taskName": "String",
       "measurementName": "CompareInfo Compare"
     },
     {
-      "span": "00:00:05.0670000",
-      "steps": 4373,
-      "taskName": "String",
-      "measurementName": "CompareInfo Compare"
-    },
-    {
-      "span": "00:00:05.1340000",
+      "span": "00:00:05.1080000",
       "steps": 4410,
       "taskName": "String",
       "measurementName": "CompareInfo Compare"
     },
     {
-      "span": "00:00:05.1030000",
-      "steps": 1610,
+      "span": "00:00:04.9820000",
+      "steps": 1570,
       "taskName": "String",
       "measurementName": "CompareInfo IsPrefix"
     },
     {
-      "span": "00:00:05.3740000",
-      "steps": 1712,
+      "span": "00:00:05.3400000",
+      "steps": 1697,
       "taskName": "String",
       "measurementName": "CompareInfo IsPrefix"
     },
     {
-      "span": "00:00:05.3600000",
-      "steps": 1707,
+      "span": "00:00:05.3610000",
+      "steps": 1702,
       "taskName": "String",
       "measurementName": "CompareInfo IsPrefix"
     },
     {
-      "span": "00:00:05.3580000",
-      "steps": 1707,
+      "span": "00:00:05.3090000",
+      "steps": 1697,
       "taskName": "String",
       "measurementName": "CompareInfo IsPrefix"
     },
     {
-      "span": "00:00:05.3640000",
-      "steps": 1712,
+      "span": "00:00:05.3470000",
+      "steps": 1697,
       "taskName": "String",
       "measurementName": "CompareInfo IsPrefix"
     },
     {
-      "span": "00:00:05.2360000",
-      "steps": 1733,
-      "taskName": "String",
-      "measurementName": "CompareInfo IsSuffix"
-    },
-    {
-      "span": "00:00:05.2510000",
+      "span": "00:00:05.2660000",
       "steps": 1744,
       "taskName": "String",
       "measurementName": "CompareInfo IsSuffix"
     },
     {
-      "span": "00:00:05.1780000",
-      "steps": 1744,
-      "taskName": "String",
-      "measurementName": "CompareInfo IsSuffix"
-    },
-    {
-      "span": "00:00:05.3200000",
-      "steps": 1783,
-      "taskName": "String",
-      "measurementName": "CompareInfo IsSuffix"
-    },
-    {
-      "span": "00:00:05.2860000",
+      "span": "00:00:05.2830000",
       "steps": 1755,
       "taskName": "String",
       "measurementName": "CompareInfo IsSuffix"
     },
     {
-      "span": "00:00:05.3200000",
+      "span": "00:00:05.3350000",
+      "steps": 1772,
+      "taskName": "String",
+      "measurementName": "CompareInfo IsSuffix"
+    },
+    {
+      "span": "00:00:05.4080000",
+      "steps": 1783,
+      "taskName": "String",
+      "measurementName": "CompareInfo IsSuffix"
+    },
+    {
+      "span": "00:00:05.3120000",
+      "steps": 1766,
+      "taskName": "String",
+      "measurementName": "CompareInfo IsSuffix"
+    },
+    {
+      "span": "00:00:05.2710000",
+      "steps": 1652,
+      "taskName": "String",
+      "measurementName": "String StartsWith"
+    },
+    {
+      "span": "00:00:05.2940000",
+      "steps": 1652,
+      "taskName": "String",
+      "measurementName": "String StartsWith"
+    },
+    {
+      "span": "00:00:05.3260000",
+      "steps": 1667,
+      "taskName": "String",
+      "measurementName": "String StartsWith"
+    },
+    {
+      "span": "00:00:05.2840000",
+      "steps": 1667,
+      "taskName": "String",
+      "measurementName": "String StartsWith"
+    },
+    {
+      "span": "00:00:05.3390000",
       "steps": 1672,
       "taskName": "String",
       "measurementName": "String StartsWith"
     },
     {
-      "span": "00:00:05.3980000",
-      "steps": 1697,
-      "taskName": "String",
-      "measurementName": "String StartsWith"
-    },
-    {
-      "span": "00:00:05.3380000",
-      "steps": 1677,
-      "taskName": "String",
-      "measurementName": "String StartsWith"
-    },
-    {
-      "span": "00:00:05.3650000",
-      "steps": 1702,
-      "taskName": "String",
-      "measurementName": "String StartsWith"
-    },
-    {
-      "span": "00:00:05.2970000",
-      "steps": 1677,
-      "taskName": "String",
-      "measurementName": "String StartsWith"
-    },
-    {
-      "span": "00:00:05.3290000",
-      "steps": 1800,
+      "span": "00:00:05.2790000",
+      "steps": 1744,
       "taskName": "String",
       "measurementName": "String EndsWith"
     },
     {
-      "span": "00:00:05.3840000",
-      "steps": 1789,
+      "span": "00:00:05.3630000",
+      "steps": 1777,
       "taskName": "String",
       "measurementName": "String EndsWith"
     },
     {
-      "span": "00:00:05.2680000",
-      "steps": 1766,
+      "span": "00:00:05.2370000",
+      "steps": 1739,
       "taskName": "String",
       "measurementName": "String EndsWith"
     },
     {
-      "span": "00:00:05.2830000",
-      "steps": 1761,
+      "span": "00:00:05.3690000",
+      "steps": 1772,
       "taskName": "String",
       "measurementName": "String EndsWith"
     },
     {
-      "span": "00:00:05.3530000",
-      "steps": 1794,
+      "span": "00:00:05.2960000",
+      "steps": 1750,
       "taskName": "String",
       "measurementName": "String EndsWith"
     },
     {
-      "span": "00:00:11.1250000",
+      "span": "00:00:11.1610000",
       "steps": 1,
       "taskName": "String",
       "measurementName": "String IndexOf"
     },
     {
-      "span": "00:00:11.1820000",
+      "span": "00:00:11.2280000",
       "steps": 1,
       "taskName": "String",
       "measurementName": "String IndexOf"
     },
     {
-      "span": "00:00:11.1800000",
+      "span": "00:00:11.1660000",
       "steps": 1,
       "taskName": "String",
       "measurementName": "String IndexOf"
     },
     {
-      "span": "00:00:11.1480000",
+      "span": "00:00:11.1860000",
       "steps": 1,
       "taskName": "String",
       "measurementName": "String IndexOf"
     },
     {
-      "span": "00:00:11.1620000",
+      "span": "00:00:11.2100000",
       "steps": 1,
       "taskName": "String",
       "measurementName": "String IndexOf"
+    },
+    {
+      "span": "00:00:11.1390000",
+      "steps": 1,
+      "taskName": "String",
+      "measurementName": "String LastIndexOf"
+    },
+    {
+      "span": "00:00:11.1920000",
+      "steps": 1,
+      "taskName": "String",
+      "measurementName": "String LastIndexOf"
     },
     {
       "span": "00:00:11.2240000",
@@ -427,46 +439,34 @@
       "measurementName": "String LastIndexOf"
     },
     {
-      "span": "00:00:11.2410000",
+      "span": "00:00:11.2800000",
       "steps": 1,
       "taskName": "String",
       "measurementName": "String LastIndexOf"
     },
     {
-      "span": "00:00:11.2870000",
-      "steps": 1,
-      "taskName": "String",
-      "measurementName": "String LastIndexOf"
-    },
-    {
-      "span": "00:00:11.2650000",
-      "steps": 1,
-      "taskName": "String",
-      "measurementName": "String LastIndexOf"
-    },
-    {
-      "span": "00:00:11.2530000",
+      "span": "00:00:11.2540000",
       "steps": 1,
       "taskName": "String",
       "measurementName": "String LastIndexOf"
     }
   ],
   "minTimes": {
-    "String, Normalize": 4.902857142857143,
+    "String, Normalize": 4.8914285714285715,
     "String, IsNormalized": 1.6967351060249074,
-    "String, Normalize ASCII": 0.15670130562216894,
-    "String, TextInfo ToLower": 649,
-    "String, TextInfo ToUpper": 622.4444444444445,
-    "String, TextInfo ToTileCase": 796.1428571428571,
-    "String, String Compare": 1.154875283446712,
-    "String, String Equals": 1.1246684350132625,
-    "String, CompareInfo Compare": 1.1587011205122342,
-    "String, CompareInfo IsPrefix": 3.133177570093458,
-    "String, CompareInfo IsSuffix": 2.9690366972477062,
-    "String, String StartsWith": 3.152173913043478,
-    "String, String EndsWith": 2.9605555555555556,
-    "String, String IndexOf": 11125,
-    "String, String LastIndexOf": 11224
+    "String, Normalize ASCII": 0.15647685647685647,
+    "String, TextInfo ToLower": 642.875,
+    "String, TextInfo ToUpper": 622.6666666666666,
+    "String, TextInfo ToTileCase": 801,
+    "String, String Compare": 1.1614452321061057,
+    "String, String Equals": 1.1282051282051282,
+    "String, CompareInfo Compare": 1.1582766439909298,
+    "String, CompareInfo IsPrefix": 3.1284619917501475,
+    "String, CompareInfo IsSuffix": 3.0079275198187996,
+    "String, String StartsWith": 3.1697660467906417,
+    "String, String EndsWith": 3.0115008625646924,
+    "String, String IndexOf": 11161,
+    "String, String LastIndexOf": 11139
   },
-  "timeStamp": "2023-11-19T17:28:11.948Z"
+  "timeStamp": "2023-11-19T08:53:24.06Z"
 }
