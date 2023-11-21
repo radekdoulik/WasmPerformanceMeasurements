@@ -1,0 +1,13 @@
+commit 487d7f010b90a82178d55eea21e72dc6dedf9d5d
+Author: Raphtaliyah <me@raphtaliyah.moe>
+Date:   Thu Nov 16 15:39:13 2023 +0100
+
+    Fix build issues with clang18 (#94782)
+    
+    * Fixed build issues with clang18
+    
+    * Convert use of VLAs to alloca
+    
+    * Enable warnings for VLAs
+    
+    * Convert VLA to alloca in Apple specific code
