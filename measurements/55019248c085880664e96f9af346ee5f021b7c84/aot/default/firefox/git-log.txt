@@ -1,0 +1,7 @@
+commit 55019248c085880664e96f9af346ee5f021b7c84
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Fri Nov 10 16:43:57 2023 +0900
+
+    Add a test for determinism (#93600)
+    
+    Resolves #73931. This checks that the result of parallel build is the same as the result of single-threaded build.
