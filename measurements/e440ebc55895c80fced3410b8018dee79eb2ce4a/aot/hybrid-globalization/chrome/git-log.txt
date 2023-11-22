@@ -1,0 +1,9 @@
+commit e440ebc55895c80fced3410b8018dee79eb2ce4a
+Author: Alexander Köplinger <alex.koeplinger@outlook.com>
+Date:   Wed Nov 22 10:32:35 2023 +0100
+
+    Fix printing Helix workitems count for Android (#95061)
+    
+    I noticed that we printed "Done building Helix work items. Work item count: 0" in the Send to Helix step for Android jobs. This is because we only looked at Apple-specific XHarnessAppBundleToTest items in sendtohelix-mobile.proj.
+    
+    Simplified this logic a bit so we can print in sendtohelixhelp.proj instead together with the non-mobile message.
