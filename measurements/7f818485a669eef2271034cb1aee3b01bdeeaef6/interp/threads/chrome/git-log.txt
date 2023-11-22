@@ -1,0 +1,9 @@
+commit 7f818485a669eef2271034cb1aee3b01bdeeaef6
+Author: Jo Shields <directhex@apebox.org>
+Date:   Wed Nov 22 08:45:04 2023 -0500
+
+    We already have cross-compilers etc for musl and win-arm64. Actually use them (#94876)
+    
+    * We already have cross-compilers etc for musl and win-arm64. Actually use them.
+    
+    * Fix missing RIDs related to AOT package creation
