@@ -1,0 +1,7 @@
+commit 91e3b3ec7da4c7c64308338680b6d9496e812b2d
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Wed Nov 22 16:15:14 2023 +0900
+
+    Ensure ExceptionStringIds are handled (#95053)
+    
+    I went over all the ExceptionStringID in the compiler and fixed them up to ensure we have code that translates them to messages.
