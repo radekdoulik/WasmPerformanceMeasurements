@@ -1,0 +1,21 @@
+commit cc4db9bd71f2dfcc29dc71385cd96916253c8850
+Author: Aleksey Kliger (λgeek) <alklig@microsoft.com>
+Date:   Thu Nov 23 16:26:41 2023 -0500
+
+    [hot_reload] Remove pass1 (#95130)
+    
+    * [hot_reload] Remove pass1
+    
+    The job of pass1 was to validate that the EnC delta had the expected
+    structure.
+    This was particularly useful before Roslyn added the capabilities API
+    and it could potentially send us changes that we weren't able to
+    handle yet.
+    In some cases we were actually too strict and disallowed benign
+    edits (that sometimes happen because it is easier for roslyn to send
+    an update that has no effect than to compute how to leave it out).
+    But now Mono is in lock-step with all supported edits, so pass1 is not
+    necessary.  Pass2 still has some structural checks to validate some of our
+    assumptions, but we don't expect them to be violated in any supported edits.
+    
+    Fixes #90153
