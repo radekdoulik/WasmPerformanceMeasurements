@@ -1,0 +1,120 @@
+commit 76acd04d95b31531ffbf7f8862d99fd407f569ab
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Sun Nov 26 21:05:34 2023 +0100
+
+    JIT: Switch arm32 call-finally to be similar to other targets (#95117)
+    
+    This switches arm32 to generate call-finally in the same way as other
+    targets, with a call to the finally funclet, instead of loading a
+    different return address. Loading a different return address confuses
+    the hardware's return address predictor, which has large negative perf
+    impact.
+    
+    Two micro benchmarks from my rpi, both run with
+    `DOTNET_JitEnableFinallyCloning=0`, that show the cost of messing up
+    return address prediction. The first runs a loop that calls a finally
+    funclet on every iteration. The second sets up a deeper stack and calls
+    a funclet, which means that the old scheme then mispredicts the return
+    for all subsequent returns. The second benchmark is over 4 times faster
+    with this change.
+    
+    ```csharp
+    public static void Main()
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            for (int j = 0; j < 100; j++)
+            {
+                Run(100);
+                Call1();
+            }
+    
+            Thread.Sleep(100);
+        }
+    
+        Stopwatch timer = Stopwatch.StartNew();
+        Run(100_000_000);
+        timer.Stop();
+        Console.WriteLine("Elapsed: {0}ms", timer.ElapsedMilliseconds);
+        timer.Restart();
+        for (int i = 0; i < 100_000_000; i++)
+            Call1();
+        timer.Stop();
+        Console.WriteLine("Elapsed: {0}ms", timer.ElapsedMilliseconds);
+    }
+    
+    public static long Run(int iters)
+    {
+        long sum = 0;
+        for (int i = 0; i < iters; i++)
+        {
+            try
+            {
+                sum += i;
+            }
+            finally
+            {
+                sum += 2 * i;
+            }
+        }
+    
+        return sum;
+    }
+    
+    [MethodImpl(MethodImplOptions.NoInlining)]
+    public static int Call1() => Call2() + 1;
+    [MethodImpl(MethodImplOptions.NoInlining)]
+    public static int Call2() => Call3() + 2;
+    [MethodImpl(MethodImplOptions.NoInlining)]
+    public static int Call3() => Call4() + 3;
+    [MethodImpl(MethodImplOptions.NoInlining)]
+    public static int Call4() => Call5() + 4;
+    [MethodImpl(MethodImplOptions.NoInlining)]
+    public static int Call5() => Call6() + 5;
+    [MethodImpl(MethodImplOptions.NoInlining)]
+    public static int Call6() => Call7() + 6;
+    [MethodImpl(MethodImplOptions.NoInlining)]
+    public static int Call7() => Call8() + 7;
+    [MethodImpl(MethodImplOptions.NoInlining)]
+    public static int Call8() => Call9() + 8;
+    [MethodImpl(MethodImplOptions.NoInlining)]
+    public static int Call9() => Call10() + 9;
+    [MethodImpl(MethodImplOptions.NoInlining)]
+    public static int Call10() => Call11() + 10;
+    [MethodImpl(MethodImplOptions.NoInlining)]
+    public static int Call11() => Call12() + 11;
+    [MethodImpl(MethodImplOptions.NoInlining)]
+    public static int Call12() => Call13() + 12;
+    [MethodImpl(MethodImplOptions.NoInlining)]
+    public static int Call13() => Finally();
+    
+    public static int Finally()
+    {
+        int result = 10;
+        try
+        {
+            result += 5;
+        }
+        finally
+        {
+            result += 10;
+        }
+    
+        return result;
+    }
+    ```
+    
+    Output before:
+    ```scala
+    Elapsed: 916ms
+    Elapsed: 18322ms
+    ```
+    
+    Output after:
+    ```scala
+    Elapsed: 856ms
+    Elapsed: 4010ms
+    ```
+    
+    Fix #59453
+    Fix #66578
