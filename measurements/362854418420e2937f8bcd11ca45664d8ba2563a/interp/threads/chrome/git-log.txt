@@ -1,0 +1,10 @@
+commit 362854418420e2937f8bcd11ca45664d8ba2563a
+Author: Max Klaversma <maxklaversma@gmail.com>
+Date:   Mon Nov 27 14:22:16 2023 +0100
+
+    StringBuilder.Replace with ReadOnlySpan<char> (#93938)
+    
+    Fixes #77837
+    
+    Co-authored-by: Max Klaversma <max.klaversma@vandoren.nl>
+    Co-authored-by: Adam Sitnik <adam.sitnik@gmail.com>
