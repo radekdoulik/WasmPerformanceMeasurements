@@ -1,0 +1,9 @@
+commit 52e65a5fab8fc2a60a5eb4d23e00a4a4544232f7
+Author: Aman Khalid <amankhalid@microsoft.com>
+Date:   Tue Nov 28 08:58:26 2023 -0500
+
+    JIT: Remove BBJ_NONE (#94239)
+    
+    Next step for #93020, per conversation on #93772. Replacing BBJ_NONE with BBJ_ALWAYS to the next block helps limit our use of implicit fall-through (though we still expect BBJ_COND to fall through when its false branch is taken; #93772 should eventually address this).
+    
+    I've added a small peephole optimization to skip emitting unconditional branches to the next block during codegen.
