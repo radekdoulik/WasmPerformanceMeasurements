@@ -1,0 +1,13 @@
+commit 65d38607acb332f2ccd1fbf7aed2e37f659a4d56
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Wed Nov 29 16:10:28 2023 +0900
+
+    Fixes for Bionic on x64 (#95313)
+    
+    Fixes #93942. Works around #95223 (a better but more risky fix is in #95312, so I'm not going to resolve that with this PR).
+    
+    The first issue is that we don't consider x64 Windows (or x64 Linux) to x64 Bionic build a crossbuild. The crossbuild detection only looks at architecture, not at the OS. The fix is very conservative so that we can backport to 8.0. Bionic is always a crossbuild.
+    
+    The second part is a port of https://github.com/dotnet/corert/pull/8323 to x64. It is a lot less work than on arm64 because x64 Linux already has to assume `INLINE_GETTHREAD` could be a call so everything is setup for it.
+    
+    I tested this all on a x64 Bionic hello world. I also ran all of smoke tests on x64 Linux with `FEATURE_EMULATED_TLS` enabled. All of this looks very non-risky so I'm going to ask for a backport.
