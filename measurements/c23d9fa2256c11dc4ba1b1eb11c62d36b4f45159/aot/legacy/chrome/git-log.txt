@@ -1,0 +1,11 @@
+commit c23d9fa2256c11dc4ba1b1eb11c62d36b4f45159
+Author: Kevin Jones <kevin@vcsjones.com>
+Date:   Fri Nov 24 13:43:03 2023 -0500
+
+    Disable implicit rejection for RSA PKCS#1
+    
+    Starting in OpenSSL 3.2, RSA PKCS#1 v1.5 decryption no longer fails for invalid RSA padding. Instead, it produces random output data.
+    
+    Some Linux distributions back ported this to OpenSSL 3.1.x which resulted in some outerloop test failures.
+    
+    This disables the "implicit rejection" of PKCS#1 v1.5 RSA decryption so that RSA.Encrypt and RSA.Decrypt continue to follow their documented behavior and cross-platform behavior.  It also adds a non-outerloop test so we have better optics on this problem.
