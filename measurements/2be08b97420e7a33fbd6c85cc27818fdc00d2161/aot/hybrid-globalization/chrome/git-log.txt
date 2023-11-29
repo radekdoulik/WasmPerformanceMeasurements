@@ -1,0 +1,12 @@
+commit 2be08b97420e7a33fbd6c85cc27818fdc00d2161
+Author: Elinor Fung <elfung@microsoft.com>
+Date:   Mon Nov 27 15:21:29 2023 -0800
+
+    Switch SingleFileApiTests to pre-built test asset (#95280)
+    
+    - Move `SingleFileApiTests` project to be pre-built
+    - Consolidate `NetCoreApp3CompatModeTests` into existing `SingleFileApiTests.SelfContained_BundleAllContent`
+    - Remove `GetCommandLineArgs_0_Non_Bundled_App` - covered by libraries tests
+    - Make native search directories tests actually set extraction root environment variable
+    
+    Goes from 22s to <2s running on Release everything.
