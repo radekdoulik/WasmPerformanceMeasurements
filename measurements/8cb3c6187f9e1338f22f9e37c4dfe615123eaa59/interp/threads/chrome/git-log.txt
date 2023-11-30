@@ -1,0 +1,17 @@
+commit 8cb3c6187f9e1338f22f9e37c4dfe615123eaa59
+Author: Alan Hayward <a74nh@users.noreply.github.com>
+Date:   Wed Nov 29 23:26:28 2023 +0000
+
+    Add Arm64 encodings for IF_SVE_AF_3A to IF_SVE_AQ_3A (#95337)
+    
+    * Add Arm64 encodings for IF_SVE_AF_3A to IF_SVE_AQ_3A
+    
+    * INS_OPTS_SCALABLE_n_TO_SIMD_SCALAR
+    
+    Change-Id: I068d2761af40d22f8850e64d136a81275ce4ca5f
+    
+    * placeholder
+    
+    * Block out unsupported instructions
+    
+    * nits
