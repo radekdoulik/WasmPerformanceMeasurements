@@ -1,0 +1,7 @@
+commit 1814c0aa5332d85e5b7975080f92ac90a598cd82
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Thu Nov 30 20:54:35 2023 -0500
+
+    [mono][jit] Fix the bblock check in the box+callvirt optimization. (#95443)
+    
+    Fixes https://github.com/dotnet/runtime/issues/95347.
