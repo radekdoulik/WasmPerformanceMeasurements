@@ -1,0 +1,8 @@
+commit 092cbed116fe0c661d40bf8657fbe759020b0cab
+Author: SingleAccretion <62474226+SingleAccretion@users.noreply.github.com>
+Date:   Sun Dec 3 04:30:56 2023 +0300
+
+    Simplify condition for building cross-Jits (#95546)
+    
+    It used to be the case that an OSX-ARM64-targeting Jit
+    had to be built separately, but this is no longer true.
