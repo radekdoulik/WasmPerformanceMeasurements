@@ -1,0 +1,13 @@
+commit 88b5e3d4b77dd8238331ade1b31ac8ddc62f22f7
+Author: Larry Ewing <lewing@microsoft.com>
+Date:   Sun Dec 3 12:18:43 2023 -0600
+
+    Wasm runtime features (#95486)
+    
+    * Move default runtime features for Wasm* to a separate props file
+    
+    * Fix import
+    
+    * Update Microsoft.NET.Workload.Mono.Toolchain.Current.Manifest.pkgproj
+    
+    * Update WasmFeatures.props
