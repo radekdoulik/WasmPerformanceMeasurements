@@ -1,0 +1,27 @@
+commit 0c513d95c181159f3ea02531c7901ce15503f3ee
+Author: Will Smith <lol.tihan@gmail.com>
+Date:   Mon Dec 4 14:25:23 2023 -0800
+
+    JIT: Added ARM64 SVE_GA_2A encoding (#95435)
+    
+    * Initial work on SVE_GA_2A encoding
+    
+    * Fixing the encoding, immediates are working
+    
+    * Added times two encoding for register
+    
+    * added missing break
+    
+    * No need to check ureg for zero
+    
+    * Tweak assert. Added throughput/latency placeholders
+    
+    * Forgot a break
+    
+    * Forgot a break
+    
+    * Feedback
+    
+    * Update emitarm64.cpp
+    
+    * Formatting
