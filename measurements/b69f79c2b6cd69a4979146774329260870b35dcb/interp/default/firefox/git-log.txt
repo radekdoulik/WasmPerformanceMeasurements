@@ -1,0 +1,29 @@
+commit b69f79c2b6cd69a4979146774329260870b35dcb
+Author: Tomasz Sowiński <tomeksowi@gmail.com>
+Date:   Mon Dec 4 11:31:47 2023 +0100
+
+    [RISC-V] Replace rsGetRsvdReg with ordinary temp registers (#95317)
+    
+    * [RISC-V] Replace rsGetRsvdReg calls in emitInsTernary with ordinary temps
+    
+    * [RISC-V] Give emitInsTernary a haircut
+    
+    * [RISC-V] Add missing newline when printf is exceeds MAX_LEN
+    
+    * [RISC-V] Replace rsGetRsvdReg with a normal constant in genLcLHeap. Plus a small optimization, fuse addi+and into andi to avoid using a temp reg.
+    
+    * [RISC-V] Replace rsGetRsvdReg with ordinary temp regs in GT_(MOD|DIV|MULHI)
+    
+    * [RISC-V] Replace rsGetRsvdReg with ordinary temp reg in switch tables
+    
+    * [RISC-V] Replace rsGetRsvdReg with ordinary temps in genCodeForCompare
+    
+    * [RISC-V] Replace rsGetRsvdReg with ordinary temps in genCodeForShift
+    
+    * [RISC-V] Replace rsGetRsvdReg with ordinary temp reg in genCodeForIndexAddr and genLeaInstruction
+    
+    * [RISC-V] Replace rsGetRsvdReg with ordinary temp reg in genIntCastOverflowCheck
+    
+    * [RISC-V] Code review: remove an always true if and don't enter divisor checking when we know we need a temp
+    
+    * [RISC-V] Small refactorings after review
