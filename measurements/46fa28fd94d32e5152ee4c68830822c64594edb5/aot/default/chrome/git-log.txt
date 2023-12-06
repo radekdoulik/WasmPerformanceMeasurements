@@ -1,0 +1,16 @@
+commit 46fa28fd94d32e5152ee4c68830822c64594edb5
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Tue Dec 5 18:01:36 2023 -0500
+
+    [mono][interp] Optimize ves_pinvoke_method () on wasm. (#95545)
+    
+    * [mono][interp] Optimize ves_pinvoke_method () on wasm.
+    
+    * Precompute the data used by build_args_from_sig ().
+    * Avoid allocations.
+    
+    Fixes https://github.com/dotnet/perf-autofiling-issues/issues/25113.
+    
+    * Remove arm specific code, arm has MONO_ARCH_HAVE_INTERP_PINVOKE_TRAMP set.
+    
+    * Remove some dead code.
