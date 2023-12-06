@@ -1,0 +1,51 @@
+commit a69586e1f101df42a3bcf52d6edddb38c4f2676f
+Author: Ilona Tomkowicz <32700855+ilonatommy@users.noreply.github.com>
+Date:   Wed Dec 6 08:56:04 2023 +0100
+
+    [wasi] Add AOT option to existing Wasi.Build.Tests (#95281)
+    
+    * Added AOT to existing scenarios.
+    
+    * Cleanup according to feedback.
+    
+    * Revert to the initial one-file state with aot tests added.
+    
+    * Missing change to the last commit.
+    
+    * Revert rename
+    
+    * Fix
+    
+    * Start triggering WBT on wasi changes
+    
+    * Only build for wasi.
+    
+    * Feedback
+    
+    * Share test data, move running to a function, remove `ConsoleBuildThenPublish
+    
+    * Nit: fix arg order
+    
+    * Re-enable tests
+    
+    * add comment
+    
+    * Split tests to avoid timeouts.
+    
+    * Temporary arg for investigation.
+    
+    * get build output for the tests
+    
+    * Make wasi helix target split tests by files like browser.
+    
+    * Move shared target to separate file. Revert showing build output.
+    
+    * Rename: wasm -> browser, shared -> wasm.
+    
+    * Update eng/testing/scenarios/BuildWasiAppsJobsList.txt
+    
+    * Apply suggestions from code review
+    
+    ---------
+    
+    Co-authored-by: Ankit Jain <radical@gmail.com>
