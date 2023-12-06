@@ -1,0 +1,19 @@
+commit 71f3bf163b2ab8ea297350dfcc2362a27ec439ee
+Author: Tomas Weinfurt <tweinfurt@yahoo.com>
+Date:   Tue Dec 5 18:59:22 2023 -0800
+
+    avoid allocations for TLS handshake (#87874)
+    
+    * avoid allocations for TLS handshake
+    
+    * cleanup
+    
+    * feedback
+    
+    * update
+    
+    * fixes
+    
+    * cleanup
+    
+    * feedback
