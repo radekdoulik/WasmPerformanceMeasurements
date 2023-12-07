@@ -1,0 +1,31 @@
+commit 90dc96ed98fd18092fdbf899f91f0abd514d7b80
+Author: Denis Paranichev <48580269+DenisParal@users.noreply.github.com>
+Date:   Thu Dec 7 14:15:59 2023 +0300
+
+    [RISC-V] Flush-to-zero behavior for float-to-int conversion (#94762)
+    
+    * Implemented several RISC-V csr instructions and enabled flush-to-zero behavior for float-to-int conversion instruction
+    
+    * Apply comments
+    
+    * Replace branch solution with feq
+    
+    * Fixed typo
+    
+    * Fixed typo
+    
+    * Fixed csr instructions emitter
+    
+    * Apply comments
+    
+    * Apply jit-format
+    
+    * Apply comments
+    
+    * Temp register fix
+    
+    * Fixed dstSize
+    
+    * Wrong temporary register selection fix
+    
+    * Fixed typo
