@@ -1,0 +1,11 @@
+commit 5b0f743ab425a08bf6e5d61f421e96abc73ac735
+Author: Milos Kotlar <kotlarmilos@gmail.com>
+Date:   Thu Dec 7 08:03:41 2023 +0100
+
+    [mono] Extend mono_gsharedvt_constrained_call for static calls and handle nullable value types (#94787)
+    
+    * [mono] Don't use this_arg in static constrained calls. Don't deref gsharedvt ref arguments if it is a nullable vtype.
+    
+    * [mono] Fix lint formatting
+    
+    * [mono] Remove additional deref register
