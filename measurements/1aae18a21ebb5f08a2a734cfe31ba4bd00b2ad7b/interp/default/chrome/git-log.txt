@@ -1,0 +1,11 @@
+commit 1aae18a21ebb5f08a2a734cfe31ba4bd00b2ad7b
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Thu Dec 7 06:43:24 2023 +0900
+
+    Error out if SelfContained is not specified for Native AOT publish (#95496)
+    
+    The SDK has logic to specify SelfContained for PublishAot automatically. Except this doesn't apply when we're using msbuild to run the `Publish` target (`_IsPublishing` is not set): https://github.com/dotnet/sdk/blob/75184c7e763197fa2971954aa5baf70ffd188799/src/Tasks/Microsoft.NET.Build.Tasks/targets/Microsoft.NET.RuntimeIdentifierInference.targets#L64-L83
+    
+    This can lead to a bad failure mode because SelfContained is the thing that ensure ILC gets all the references to assemblies it needs. It will appear to work most of the time even without SelfContained (because ILCompiler packages carries a framework with it), but it will fail for things like ASP.NET.
+    
+    Enable back the logic that just errors out for this. If someone does `msbuild /t:publish` they'll get an error saying they need to also specify SelfContained instead of some weird failure mode. There was some discussion about this aspect in https://github.com/dotnet/sdk/pull/28714.
