@@ -1,0 +1,9 @@
+commit 7bbfcc40061d4a542db168395ca3f6e2687cc09a
+Author: Grégoire <g.verdier@criteo.com>
+Date:   Thu Dec 7 18:39:33 2023 -0500
+
+    Add EventSource event for WaitHandle waits (#94737)
+    
+    Add start/stop events for WaitHandle waits
+    
+    Context: #94264
