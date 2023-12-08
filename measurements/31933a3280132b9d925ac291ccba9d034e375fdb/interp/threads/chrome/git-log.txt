@@ -1,0 +1,13 @@
+commit 31933a3280132b9d925ac291ccba9d034e375fdb
+Author: Will Smith <lol.tihan@gmail.com>
+Date:   Thu Dec 7 16:07:17 2023 -0800
+
+    JIT: Added SVE_GK_2A and SVE_GL_1A arm64 encodings (#95707)
+    
+    * Added SVE_GK_2A and SVE_GL_1A arm64 encodings
+    
+    * Use SCALABLE_S for sm4e
+    
+    * Formatting
+    
+    * Removing `insOpts opt` from emitIns_R
