@@ -1,0 +1,11 @@
+commit 292d035ed27649fb0dee7f61c04b1b99287f91b2
+Author: Hyungju Lee <leee.lee@samsung.com>
+Date:   Fri Dec 8 13:59:49 2023 +0900
+
+    Move a lock to protect m_pDynamicStaticsInfo (#95769)
+    
+    * Move a lock to protect m_pDynamicStaticsInfo
+    
+    * apply feedback
+    
+    * cast to LONG
