@@ -1,0 +1,11 @@
+commit 1473deaa50785b956edd7d078e68c0581c1b4d95
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Sat Dec 9 21:03:19 2023 +0100
+
+    JIT: Reuse (new) loop-finding DFS tree in SSA (#95809)
+    
+    * Add a new phase to canonicalize the entry BB, way back before we
+      compute reachability
+    * Switch SSA to reuse the DFS computed for (new) loop finding
+    * Switch SSA to use post-order traits instead of bbNum-based traits
+    * Quirk old loop finding to avoid finding new loops now
