@@ -1,0 +1,16 @@
+commit 6a94e2a137048f7ef9280537a1d2dbcf4fab19b8
+Author: SingleAccretion <62474226+SingleAccretion@users.noreply.github.com>
+Date:   Mon Dec 11 16:15:56 2023 +0300
+
+    Make the intermediate output path OS-specific for CoreCLR/Mono (#95797)
+    
+    * Make the intermediate output path OS-specific
+    
+    CoreLib is an OS-specific library. Using the same intermediate output path for
+    different OSes will lead to using stale artifacts such as ILLink descriptors.
+    
+    * Set IntermediateOutputPath for Mono
+    
+    ---------
+    
+    Co-authored-by: Alexander Köplinger <alex.koeplinger@outlook.com>
