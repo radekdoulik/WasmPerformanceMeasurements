@@ -1,0 +1,5 @@
+commit 791109eaf3c5540e34bd8bdedd9b7474f61619d7
+Author: Will Smith <lol.tihan@gmail.com>
+Date:   Mon Dec 11 17:44:05 2023 -0800
+
+    Use 'compOpportunisticallyDependsOn' to determine if we can use ArmBase_Arm64_MultiplyLongAdd/MultiplyLongSub/MultiplyLongNeg intrinsics in lowering (#95877)
