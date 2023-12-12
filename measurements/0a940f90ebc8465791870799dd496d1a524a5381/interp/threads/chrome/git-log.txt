@@ -1,0 +1,7 @@
+commit 0a940f90ebc8465791870799dd496d1a524a5381
+Author: Meri Khamoyan <96171496+mkhamoyan@users.noreply.github.com>
+Date:   Tue Dec 12 14:54:49 2023 +0100
+
+    [iOS][non-icu] HybridGlobalization fix localized DisplayName and LanguageName (#95786)
+    
+    Fix default locale and localized DisplayName,LanguageName on hybrid mode
