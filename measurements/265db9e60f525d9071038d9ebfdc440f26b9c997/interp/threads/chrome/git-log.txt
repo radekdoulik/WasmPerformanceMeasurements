@@ -1,0 +1,9 @@
+commit 265db9e60f525d9071038d9ebfdc440f26b9c997
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Wed Dec 13 22:05:58 2023 +0900
+
+    Remove use of `string.Split` from reflection (#95952)
+    
+    Saves 1.2% on a Hello World. `dotnet new console --aot && dotnet publish /p:OptimizationPreference=Size` is now under 1 MB.
+    
+    This is actually also a throughput optimization, not just size optimization.
