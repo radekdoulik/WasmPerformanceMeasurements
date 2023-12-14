@@ -1,0 +1,47 @@
+commit 486142a4b87ed6e3134bd1a8726156fb3f55157a
+Author: Grzegorz Tomasz Czarnecki <grzegorz.czarnecki.2021@gmail.com>
+Date:   Wed Dec 13 16:23:58 2023 +0100
+
+    [RISC-V] Fix JitDisasm in release build (#95502)
+    
+    * Implemented emitDispIns for riscv
+    
+    * Modified emitDispIns name
+    
+    * Fixed missed case
+    
+    * Added assert
+    
+    * Fixed todo
+    
+    * Added int to jitprintf
+    
+    * Added prototype of the emit disp ins
+    
+    * Fixes in emit dis ins name
+    
+    * Reinforced types
+    
+    * Removed useless ifdef statement from emit
+    
+    * Fixed bug in emit disp ins
+    
+    * Added release mode emit disp
+    
+    * Formatted riscv64
+    
+    * [RISC-V] Added todo comment
+    
+    * [RISC-V] Applied format patch
+    
+    * [RISC-V] Undo the emit.cpp dispIns changes
+    
+    * [RISC-V] Fixed formatting
+    
+    * Removed dead code
+    
+    * [RISC-V] Changes after review
+    
+    ---------
+    
+    Co-authored-by: Grzegorz Czarnecki <g.czarnecki@samsung.com>
