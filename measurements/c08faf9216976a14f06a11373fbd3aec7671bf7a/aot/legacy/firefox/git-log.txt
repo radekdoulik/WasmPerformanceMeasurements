@@ -1,0 +1,12 @@
+commit c08faf9216976a14f06a11373fbd3aec7671bf7a
+Author: Jan Vorlicek <janvorli@microsoft.com>
+Date:   Tue Dec 5 13:16:43 2023 +0100
+
+    Complete thread abort support for the new EH (#95616)
+    
+    * Complete thread abort support for the new EH
+    
+    This change adds all the necessary changes to make thread abort
+    work with the new exception handling.
+    
+    * Fix build warning
