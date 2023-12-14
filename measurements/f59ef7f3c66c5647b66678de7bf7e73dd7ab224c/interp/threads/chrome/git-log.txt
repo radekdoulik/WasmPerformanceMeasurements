@@ -1,0 +1,33 @@
+commit f59ef7f3c66c5647b66678de7bf7e73dd7ab224c
+Author: Ankit Jain <radical@gmail.com>
+Date:   Thu Dec 14 04:14:48 2023 -0500
+
+    [wasm/wasi] Fix size regression (#95992)
+    
+    * [wasm/wasi] Fix size regression
+    
+    Blazor size regression was fixed by:
+    
+    ```
+    commit ec31705ba2dcde3a7b464ae66741f524282076a9
+    Author: Ankit Jain <radical@gmail.com>
+    Date:   Wed Dec 6 05:36:59 2023 -0500
+    
+        [wasm] Fix regressed file sizes for blazor (#92664)
+    ```
+    
+    .. but a subsequent PR created close to that undid some of the changes:
+    
+    ```
+    commit a128c1503a5ed423501cf35bcb051b814936027c
+    Author: Ankit Jain <radical@gmail.com>
+    Date:   Mon Dec 11 15:45:58 2023 -0500
+    
+        [wasm/wasi] Consolidate build targets (#95775)
+    ```
+    
+    Essentially, `-g` was being passed to the link, and compile-bc steps.
+    
+    Found in https://github.com/dotnet/perf-autofiling-issues/issues/25891 .
+    
+    * [wasm] Add flag missed in the consolidate PR
