@@ -1,0 +1,7 @@
+commit 22844957b51e7020215196d2896dbda6fefd449e
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Fri Dec 15 20:37:38 2023 -0500
+
+    [mono] Fix the decoding of some runtime invoke wrappers. (#96072)
+    
+    Fixes https://github.com/dotnet/runtime/issues/96041.
