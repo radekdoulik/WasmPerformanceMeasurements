@@ -1,0 +1,79 @@
+commit dfe568251de7d08b55acf1242a4e5ca5803cd8c8
+Author: Grzegorz Tomasz Czarnecki <grzegorz.czarnecki.2021@gmail.com>
+Date:   Sun Dec 17 00:12:00 2023 +0100
+
+    [RISC-V] Add branch label names to disasm (#96057)
+    
+    * Implemented emitDispIns for riscv
+    
+    * Modified emitDispIns name
+    
+    * Fixed missed case
+    
+    * Added assert
+    
+    * Fixed todo
+    
+    * Added int to jitprintf
+    
+    * Added prototype of the emit disp ins
+    
+    * Fixes in emit dis ins name
+    
+    * Reinforced types
+    
+    * Removed useless ifdef statement from emit
+    
+    * Fixed bug in emit disp ins
+    
+    * Added release mode emit disp
+    
+    * Formatted riscv64
+    
+    * [RISC-V] Added todo comment
+    
+    * [RISC-V] Applied format patch
+    
+    * [RISC-V] Undo the emit.cpp dispIns changes
+    
+    * [RISC-V] Fixed formatting
+    
+    * Removed dead code
+    
+    * Added emitDispInsDebugOnlyInfo
+    
+    * Added preliminary emitOutputInstrJump
+    
+    * Preliminary emitOutputInstrJump impl
+    
+    * TmpSave
+    
+    * [RISC-V] Changes after review
+    
+    * Fixes after merge
+    
+    * Fixed comment in emmit.h
+    
+    * Added label printing
+    
+    * Removed dead code
+    
+    * Improved emitOutputInstrJumpSize
+    
+    * Fixed bugs
+    
+    * Fixed bug in emitOutputInstrJumpSize
+    
+    * Added prelimary barch offset printing and reinforced some emitter methods
+    
+    * Further reinforced disp functions
+    
+    * Splitted emitOutputInstrJumpSize
+    
+    * Formatted code
+    
+    * Last fixes before pr
+    
+    ---------
+    
+    Co-authored-by: Grzegorz Czarnecki <g.czarnecki@samsung.com>
