@@ -1,0 +1,7 @@
+commit 17594ec13bdfb962d2e1d663abf1127e7a453dbf
+Author: Alexander Köplinger <alex.koeplinger@outlook.com>
+Date:   Sun Dec 17 09:41:56 2023 +0100
+
+    Rename IsOSXLike to IsApplePlatform in libraries (#96098)
+    
+    Consolidates the name we use across runtime and libraries.
