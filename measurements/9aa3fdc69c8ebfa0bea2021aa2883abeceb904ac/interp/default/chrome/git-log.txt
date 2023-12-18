@@ -1,0 +1,11 @@
+commit 9aa3fdc69c8ebfa0bea2021aa2883abeceb904ac
+Author: Alexander Köplinger <alex.koeplinger@outlook.com>
+Date:   Fri Dec 15 00:40:39 2023 +0100
+
+    Fix DefaultPrimaryRuntimeFlavor on mobile (#96026)
+    
+    In https://github.com/dotnet/runtime/issues/86619#issuecomment-1848368477 we noticed that the DefaultPrimaryRuntimeFlavor is CoreCLR on Android, even though it should be Mono.
+    
+    This caused the runtime.android-arm64.runtime.native.System.IO.Ports package not to be produced since we only produce those when RuntimeFlavor == PrimaryRuntimeFlavor.
+    
+    Fix the DefaultPrimaryRuntimeFlavor to be Mono on mobile and fixup the places that relied on the old/broken values with additional checks
