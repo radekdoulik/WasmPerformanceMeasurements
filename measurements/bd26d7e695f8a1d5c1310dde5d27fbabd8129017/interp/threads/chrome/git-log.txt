@@ -1,0 +1,82 @@
+commit bd26d7e695f8a1d5c1310dde5d27fbabd8129017
+Author: Bruce Forstall <brucefo@microsoft.com>
+Date:   Mon Dec 18 17:30:45 2023 -0800
+
+    Add dumpers for new loop data structures (#96080)
+    
+    Specifically, add: `FlowGraphNaturalLoops::Dump()` and `FlowGraphNaturalLoop::Dump()`.
+    
+    Add corresponding debugger helpers `dNewLoops()` (dumps `Compiler::m_loops`), `dNewLoopsA()` (takes a `FlowGraphNaturalLoops*` argument), `dNewLoop()` (takes a `FlowGraphNaturalLoop*` argument), and their corresponding `c` versions.
+    
+    A simple dump looks like:
+    ```
+    ***************  (New) Natural loop graph
+    L00 header: BB05
+      Members (3): [BB05..BB07]
+      Entry: BB04 -> BB05
+      Exit: BB07 -> BB08
+      Back: BB07 -> BB05
+    ```
+    
+    The loop block members are displayed as a block range if the loop blocks happen to all be lexically contiguous without any non-loop blocks in the range.
+    
+    If there are one or more non-loop blocks in the `bbNext` order range, then a list of ranges is displayed, e.g.:
+    ```
+    L00 header: BB02
+      Members (39): [BB02..BB12];[BB14..BB17];[BB19..BB21];[BB23..BB24];[BB26..BB28];[BB30..BB32];BB34;[BB62..BB72];BB74
+      Entry: BB01 -> BB02
+      Exit: BB23 -> BB57; BB24 -> BB25; BB20 -> BB36; BB21 -> BB22; BB15 -> BB58; BB16 -> BB59; BB17 -> BB18; BB11 -> BB47; BB12 -> BB13; BB09 -> BB35; BB10 -> BB35; BB10 -> BB61; BB10 -> BB60; BB10 -> BB48; BB10 -> BB56; BB32 -> BB33; BB28 -> BB29; BB74 -> BB75; BB72 -> BB73
+      Back: BB28 -> BB02; BB32 -> BB02; BB34 -> BB02; BB69 -> BB02; BB70 -> BB02
+    ```
+    
+    Otherwise, the full set of loop blocks is displayed individually.
+    
+    A more complicated example:
+    ```
+    ***************  (New) Natural loop graph
+    L00 header: BB02
+      Members (118): [BB02..BB20];[BB22..BB24];[BB26..BB29];[BB31..BB35];[BB37..BB123]
+      Entry: BB01 -> BB02
+      Exit: BB123 -> BB124; BB29 -> BB30; BB31 -> BB128; BB45 -> BB130; BB42 -> BB130; BB38 -> BB130; BB35 -> BB36; BB24 -> BB25; BB20 -> BB21
+      Back: BB123 -> BB02
+    L01 header: BB03 parent: L00
+      Members (116): [BB03..BB20];[BB22..BB24];[BB26..BB29];[BB31..BB35];[BB37..BB122]
+      Entry: BB02 -> BB03
+      Exit: BB14 -> BB123; BB15 -> BB123; BB29 -> BB30; BB31 -> BB128; BB45 -> BB130; BB42 -> BB130; BB38 -> BB130; BB35 -> BB36; BB24 -> BB25; BB20 -> BB21
+      Back: BB121 -> BB03
+    L02 header: BB04 parent: L01
+      Members (103): [BB04..BB12];[BB14..BB20];[BB22..BB24];[BB26..BB29];[BB31..BB35];[BB37..BB111]
+      Entry: BB03 -> BB04
+      Exit: BB14 -> BB123; BB15 -> BB123; BB29 -> BB30; BB31 -> BB128; BB45 -> BB130; BB42 -> BB130; BB38 -> BB130; BB35 -> BB36; BB24 -> BB25; BB20 -> BB21; BB11 -> BB122; BB12 -> BB13
+      Back: BB111 -> BB04
+    L03 header: BB05 parent: L02
+      Members (17): [BB05..BB12];[BB14..BB16];[BB18..BB20];[BB22..BB24]
+      Entry: BB04 -> BB05
+      Exit: BB14 -> BB123; BB15 -> BB123; BB16 -> BB17; BB24 -> BB25; BB20 -> BB21; BB11 -> BB122; BB12 -> BB13
+      Back: BB24 -> BB05
+    L04 header: BB06 parent: L03
+      Members (13): [BB06..BB12];[BB14..BB16];[BB18..BB20]
+      Entry: BB05 -> BB06
+      Exit: BB14 -> BB123; BB15 -> BB123; BB16 -> BB17; BB19 -> BB22; BB20 -> BB21; BB11 -> BB122; BB12 -> BB13
+      Back: BB20 -> BB06
+    L05 header: BB07 parent: L04
+      Members (10): [BB07..BB12];[BB14..BB16];BB18
+      Entry: BB06 -> BB07
+      Exit: BB14 -> BB123; BB15 -> BB123; BB16 -> BB17; BB18 -> BB19; BB11 -> BB122; BB12 -> BB13
+      Back: BB18 -> BB07
+    L06 header: BB08 parent: L05
+      Members (8): [BB08..BB12];[BB14..BB16]
+      Entry: BB07 -> BB08
+      Exit: BB14 -> BB123; BB15 -> BB123; BB16 -> BB17; BB10 -> BB18; BB11 -> BB122; BB12 -> BB13
+      Back: BB16 -> BB08
+    L07 header: BB09 parent: L06
+      Members (4): [BB09..BB12]
+      Entry: BB08 -> BB09
+      Exit: BB09 -> BB14; BB10 -> BB18; BB11 -> BB122; BB12 -> BB13
+      Back: BB12 -> BB09
+    L08 header: BB58 parent: L02
+      Members (34): [BB58..BB91]
+      Entry: BB57 -> BB58
+      Exit: BB91 -> BB92
+      Back: BB91 -> BB58
+    ```
