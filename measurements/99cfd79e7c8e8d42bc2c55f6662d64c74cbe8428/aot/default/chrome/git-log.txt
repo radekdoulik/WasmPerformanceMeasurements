@@ -1,0 +1,13 @@
+commit 99cfd79e7c8e8d42bc2c55f6662d64c74cbe8428
+Author: Ilona Tomkowicz <32700855+ilonatommy@users.noreply.github.com>
+Date:   Fri Dec 15 03:13:23 2023 +0100
+
+    [browser] Disable crashing tests on HybridGlobalization (#96031)
+    
+    * Block V8 tests with HG
+    * Block failing tests.
+    * update active issue
+    
+    ---------
+    
+    Co-authored-by: Ankit Jain <radical@gmail.com>
