@@ -1,0 +1,11 @@
+commit 462e71b36627c0ca11b530264b59221f194221b9
+Author: Bruce Forstall <brucefo@microsoft.com>
+Date:   Sat Dec 30 10:05:12 2023 -0800
+
+    Fix typing on optimization to use vbroadcasti64x4 (#96366)
+    
+    * Fix typing on optimization to use vbroadcasti64x4
+    
+    Fixes #95866
+    
+    * Formatting
