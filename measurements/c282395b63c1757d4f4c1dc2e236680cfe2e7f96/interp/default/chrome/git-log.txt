@@ -1,0 +1,7 @@
+commit c282395b63c1757d4f4c1dc2e236680cfe2e7f96
+Author: Aman Khalid <amankhalid@microsoft.com>
+Date:   Mon Dec 18 22:32:11 2023 -0500
+
+    JIT: Handle BBJ_CALLFINALLYRET block kind when checking for loop exit (#96147)
+    
+    Fixes #96146.
