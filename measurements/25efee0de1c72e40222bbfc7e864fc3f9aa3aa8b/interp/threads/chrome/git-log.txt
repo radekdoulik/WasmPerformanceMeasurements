@@ -1,0 +1,7 @@
+commit 25efee0de1c72e40222bbfc7e864fc3f9aa3aa8b
+Author: Aman Khalid <amankhalid@microsoft.com>
+Date:   Sun Dec 31 19:46:58 2023 -0500
+
+    JIT: Set `bbFalseTarget` upon `BBJ_COND` initialization/modification (#96265)
+    
+    Part of #93020. Previously, bbFalseTarget was hard-coded to match bbNext in BasicBlock::SetNext. We still require bbFalseTarget to point to the next block for BBJ_COND blocks, but I've removed the logic for updating bbFalseTarget from SetNext, and placed calls to SetFalseTarget wherever bbFalseTarget needs to be updated because the BBJ_COND block has been created or moved relative to its false successor. This helps set us up to start removing logic that enforces the block's false successor is the next block.
