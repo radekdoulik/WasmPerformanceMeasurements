@@ -1,0 +1,11 @@
+commit 41b32f83c3957733315173228e843aac665d5b5d
+Author: Mike McLaughlin <mikem@microsoft.com>
+Date:   Fri Dec 15 22:25:08 2023 -0800
+
+    Change Native AOT ThreadBuffer.m_threadId to OS thread id (#96075)
+    
+    * Change Native AOT ThreadBuffer.m_threadId to OS thread id.
+    
+    * Remove the unused IsCurrentThread()
+    
+    * Code review feedback
