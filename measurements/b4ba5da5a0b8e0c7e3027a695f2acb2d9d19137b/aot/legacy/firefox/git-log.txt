@@ -1,0 +1,31 @@
+commit b4ba5da5a0b8e0c7e3027a695f2acb2d9d19137b
+Author: Vladimir Sadov <vsadov@microsoft.com>
+Date:   Thu Dec 28 13:44:49 2023 -0800
+
+    A few optimizations for the gcinfodecoder construction (#96150)
+    
+    * faster ReadOneFast
+    
+    * lzcnt
+    
+    * linear search for safepoints
+    
+    * do not "decode" individual bool flags
+    
+    * factored out predecoding of fat header
+    
+    * tweaks and comments
+    
+    * fix arm64 build
+    
+    * use intrinsics correctly
+    
+    * no need to search for safepoints when asked only for interruptibility
+    
+    * fix for arm
+    
+    * small tweak for DecodeVarLengthUnsigned
+    
+    * removed SAFE_SHIFT_LEFT, SAFE_SHIFT_RIGHT
+    
+    * undo unnecessary change.
