@@ -1,0 +1,9 @@
+commit 4e0ffcaf9f1476b7b75f6ceca52642925a21b13c
+Author: Jan Vorlicek <janvorli@microsoft.com>
+Date:   Wed Jan 3 01:30:06 2024 +0100
+
+    Fix unhandled exception from foreign thread in new EH (#96411)
+    
+    I have recently fixed a problem with processing unhandled exception
+    coming from a foreign thread without any managed frames on it. It turns
+    out that the new EH has the same problem, so this change fixes it.
