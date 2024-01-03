@@ -1,0 +1,7 @@
+commit cc261967089074cf23ead7d1bbb4ba07f9e669e9
+Author: Andrew J Said <andrewjsaid@gmail.com>
+Date:   Wed Jan 3 14:01:15 2024 +0000
+
+    Revert "Manually optimize a rem 64 instruction to avoid regression on runtimes which do not currently optimize it (#96203)" (#96415)
+    
+    This reverts commit bc831002150d36a6481b5345d2a7642cd7f3aa24.
