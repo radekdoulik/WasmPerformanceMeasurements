@@ -1,0 +1,33 @@
+commit 23e5d5410ed3e8bc9ab61b3685e1d3a06bdba701
+Author: Sven Boemer <sbomer@gmail.com>
+Date:   Tue Jan 2 23:49:01 2024 -0800
+
+    Clean up illink suppressions (#96361)
+    
+    * Clean up illink suppressions
+    
+    * Suppress IL2008
+    
+    * Support multiple suppression xmls
+    
+    CoreLib has a shared ILLink.Substitutions.LibraryBuild.xml, and
+    one that is specific to coreclr. Use an ItemGroup to support the use
+    of both.
+    
+    * Suppress IL2035
+    
+    * Replace unnecessary &quot;
+    
+    * PR feedback
+    
+    - Keep properties in existing order
+    - Separate PropertyGroup/ItemGroup with blank lines
+    - Place all NoWarns on one line
+    
+    * Update eng/illink.targets
+    
+    Co-authored-by: Viktor Hofer <viktor.hofer@microsoft.com>
+    
+    ---------
+    
+    Co-authored-by: Viktor Hofer <viktor.hofer@microsoft.com>
