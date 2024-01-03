@@ -1,0 +1,9 @@
+commit 2de9facc8668bac0d8b9d53f9e2bd654a1f49e9b
+Author: Qiao Pengcheng <qiaopengcheng@loongson.cn>
+Date:   Sat Dec 30 10:37:53 2023 +0800
+
+    [LoongArch64] add LoongArch64's SIMD128/256 instructions within emitter. (#95456)
+    
+    * [LoongArch64] add LoongArch64's SIMD128/256 instructions within emitter.
+    
+    * redesign the emitDisInsName().
