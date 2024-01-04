@@ -1,0 +1,34 @@
+commit 045e55abac82e89e0daaee47bcb8433e0fc9ccbc
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Thu Jan 4 10:10:58 2024 +0100
+
+    JIT: Port loop unrolling to new loop representation (#96454)
+    
+    Port loop unrolling to the new loop representation. Switch strategy slightly
+    with how loop unrolling works:
+    
+    - If the bottom block of the loop is a `BBJ_COND`, create a "redirection" block
+      to jump to its fallthrough. This is similar to how loop cloning works and
+      saves a lot of annoying special casing around updating pred lists.
+    
+    - Leave the old loop unreachable in the flow graph after loop unrolling. Remove
+      these blocks by running `fgDfsBlocksAndRemove`. Previously we would create a
+      chain of `BBJ_ALWAYS` going through all the previous blocks, keeping them all
+      reachable, likely because the old fgComputeDoms does not handle statically
+      unreachable blocks correctly.
+    
+    - We run unrolling in a sort of "closure" algorithm, allowing only one unrolling
+      in each loop nest per iteration. This avoids us having to maintain changed
+      blocks of descendant loops on the side as we unroll.
+    
+    Some minor diffs are expected:
+    
+    - We no longer recompute the old loop table in some cases (unrolling nested
+      loops). This means for instance that hoisting may not kick in for some those
+      loops because of the "has matching old loop" quirk in hoisting. This should go
+      away later when we remove that quirk.
+    
+    - Different weights because the old unrolling leaves the loop around as a chain
+      of BBJ_ALWAYS, keeping their weight; when we later compact them, we propagate
+      the original "loop" weight to the blocks we compact with. This causes
+      differences in if-conversion, register allocation and block layout.
