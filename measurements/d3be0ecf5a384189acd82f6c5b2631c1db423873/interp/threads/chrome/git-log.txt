@@ -1,0 +1,5 @@
+commit d3be0ecf5a384189acd82f6c5b2631c1db423873
+Author: Tanner Gooding <tagoo@outlook.com>
+Date:   Wed Jan 3 17:53:06 2024 -0800
+
+    Ensure small counts are properly handled for sizeof(T) == 8 (#96463)
