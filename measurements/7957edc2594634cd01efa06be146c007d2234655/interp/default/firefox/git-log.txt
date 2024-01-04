@@ -1,0 +1,11 @@
+commit 7957edc2594634cd01efa06be146c007d2234655
+Author: Miha Zupan <mihazupan.zupan1@gmail.com>
+Date:   Wed Jan 3 21:38:28 2024 +0100
+
+    Specialize by length in single-value SearchValues<string> (#96429)
+    
+    * Specialize by length in single-value SearchValues<string>
+    
+    * Extra assert
+    
+    * More comments
