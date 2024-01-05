@@ -1,0 +1,23 @@
+commit db90a849eab60d9843b8151ab14ba998faee3825
+Author: Bruce Forstall <brucefo@microsoft.com>
+Date:   Wed Jan 3 23:37:14 2024 -0800
+
+    Refine usage of late disassembler and emitter unit tests (#96467)
+    
+    * Refine usage of late disassembler and emitter unit tests
+    
+    Introduce `DOTNET_JitEmitUnitTests`. Set this to the function or
+    functions into which you want the unit tests to be written. E.g.,
+    `DOTNET_JitEmitUnitTests=Main` or `DOTNET_JitEmitUnitTests=*`.
+    
+    Rename `DOTNET_JitDumpEmitUnitTests` to `DOTNET_JitEmitUnitTestsSections`.
+    
+    Make late disassembler work for altjit: use the "RW" address for the generated code.
+    
+    * Update src/coreclr/jit/codegenlinear.cpp
+    
+    Co-authored-by: Kunal Pathak <Kunal.Pathak@microsoft.com>
+    
+    ---------
+    
+    Co-authored-by: Kunal Pathak <Kunal.Pathak@microsoft.com>
