@@ -1,0 +1,29 @@
+commit 22068a8f96d6d1c01b26db70fd24a433e1fdd5ef
+Author: Jan Vorlicek <janvorli@microsoft.com>
+Date:   Fri Jan 5 15:44:51 2024 +0100
+
+    Refactor exception trackers (#96505)
+    
+    * Refactor exception trackers to use common base class
+    
+    While fixing few loose ends related to debug code and the new exception
+    handling, I have found that they were mostly caused by missing
+    conditional code for the new EH ExInfo where only the ExceptionTracker
+    was handled.
+    So, I have decided to refactor the code a bit by extracting a base
+    struct containing the members that are common to ExInfo and
+    ExceptionTracker and that are used by the debugging related code.
+    There was also a bit of unused code that I have found while making this
+    change, so I have removed it.
+    I obviously had to update the offsets that the managed code references
+    in the ExInfo. Due to some debug only members of some of the structures
+    used as ExInfo members, the offsets were initially different for
+    Windows/Unix and Release/Debug builds. To prevent having to have
+    separate offset values, I have added a little conditional padding to
+    the ExInfo and modified the ExceptionFlags structure by removing the
+    `m_debugFlags` that were holding only a single flag that can easily fit
+    into the m_flags member and there is no reason for having it separate.
+    
+    * Unify m_pExInfo and m_pCurrentTracker
+    
+    * Fix a missing exclusion for new EH
