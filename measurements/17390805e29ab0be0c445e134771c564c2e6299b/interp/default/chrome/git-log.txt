@@ -1,0 +1,10 @@
+commit 17390805e29ab0be0c445e134771c564c2e6299b
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Fri Jan 5 19:36:52 2024 +0100
+
+    JIT: Remove some small loop cloning quirks (#96552)
+    
+    Also switch the "is old loop" quirk to use the BB flag.
+    
+    Removing the remaining quirks in loop cloning causes new loop cloning to
+    kick in, with resulting large size diffs, so I will do those separately.
