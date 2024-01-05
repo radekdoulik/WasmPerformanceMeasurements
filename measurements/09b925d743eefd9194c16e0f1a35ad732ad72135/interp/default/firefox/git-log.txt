@@ -1,0 +1,13 @@
+commit 09b925d743eefd9194c16e0f1a35ad732ad72135
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Fri Jan 5 17:06:30 2024 +0900
+
+    Precise reflection-visible delegate target analysis (#96166)
+    
+    Before this change, the compiler considered all methods that are target of a delegate reflection-visible. This is because one can just call `Delegate.Method` on a delegate instance to obtain a `MethodBase` of the target. This is rather annoying because most delegates are not actually used with reflection.
+    
+    In this PR I'm adding analysis of places that use `Delegate.Method` to reflect on certain delegate type. This builds on top of the existing dataflow analysis within the compiler - we can often see the exact delegate type that was reflected on. When we see that, we make all targets of that specific type reflection-visible.
+    
+    The advantage is that if nobody ever calls `Delegate.Method`, no delegates are made reflection visible. If this is used with a certain known delegate type, only the methods pointed to by that specific delegate type are made reflection visible. And if this is used with something typed at `Delegate` or `MulticastDelegate`, we fall back to the old behavior that just makes everything reflection visible.
+    
+    I was hoping this would help ASP.NET but ASP.NET actually uses something typed as `Delegate` to obtain the `MethodInfo` and there's more code somewhere in the `Task` infrastructure (under `EventSourceSupport`) that also does it. So it unfortunately can't help there.
