@@ -1,0 +1,16 @@
+commit 9ad08ccf9d10cbce0bdd0ee8927bdefa57e1dd05
+Author: Bruce Forstall <brucefo@microsoft.com>
+Date:   Fri Jan 5 11:26:06 2024 -0800
+
+    Document JitDisasm and JitLateDisasm (#96468)
+    
+    * Document JitDisasm and JitLateDisasm
+    
+    As well as the emitter unit tests usage of them.
+    
+    Add all this content to viewing-jit-dumps.md, and rewrite
+    that slightly to accommodate.
+    
+    Add more examples of things like method lists.
+    
+    * Feedback
