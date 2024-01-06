@@ -1,0 +1,5 @@
+commit a5ff7e6bf0eeb438b62b37c6513483de2d6a7c77
+Author: Egor Bogatov <egorbo@gmail.com>
+Date:   Fri Jan 5 22:33:02 2024 +0100
+
+    Intrinsify Interlocked.And and Interlocked.Or on XARCH (#96258)
