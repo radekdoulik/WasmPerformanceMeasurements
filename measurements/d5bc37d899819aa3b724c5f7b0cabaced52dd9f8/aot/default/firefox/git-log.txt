@@ -1,0 +1,12 @@
+commit d5bc37d899819aa3b724c5f7b0cabaced52dd9f8
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Sat Jan 6 11:38:25 2024 +0100
+
+    JIT: Remove IV analysis quirk in loop cloning (#96563)
+    
+    Fix a bug in `FlowGraphNaturalLoop::MatchLimit`; it did not properly check limit
+    locals for address exposure when evaluating their invariance (the old logic does
+    that). Also support promoted struct fields (like the old logic).
+    
+    No diffs expected -- the diffs of the quirk here were coming from this bug in
+    `FlowGraphNaturalLoop::MatchLimit`.
