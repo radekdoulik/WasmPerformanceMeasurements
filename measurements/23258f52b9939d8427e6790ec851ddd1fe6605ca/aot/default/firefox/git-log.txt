@@ -1,0 +1,40 @@
+commit 23258f52b9939d8427e6790ec851ddd1fe6605ca
+Author: Jan Kotas <jkotas@microsoft.com>
+Date:   Sat Jan 6 10:16:24 2024 -0800
+
+    Convert HELPER_METHOD_FRAME to QCalls (5/N) (#96526)
+    
+    * Assembly.GetManifestResourceNames, GetReferencedAssemblies
+    
+    * AssemblyLoadContext.GetLoadedAssemblies
+    
+    * RuntimeModule.GetTypes
+    
+    * Delegate.BindToMethodName
+    
+    * Delegate.BindToMethodInfo
+    
+    * Delegate.GetCallStub, Delegate.AdjustTarget
+    
+    * Delegate.InternalAlloc, InternalAllocAlike
+    
+    * Delegate,FindMethodHandle, InternalEqualMethodHandles
+    
+    * GC.GetTotalAllocatedBytes
+    
+    * GC.WaitForFullGCApproach, WaitForFullGCComplete
+    
+    * Update src/coreclr/vm/commodule.cpp
+    
+    Co-authored-by: Aaron Robinson <arobins@microsoft.com>
+    
+    * Apply suggestions from code review
+    
+    * CR feedback, cleanup
+    
+    - Delete dead code
+    - Move data first in RuntimeModule.cs
+    
+    ---------
+    
+    Co-authored-by: Aaron Robinson <arobins@microsoft.com>
