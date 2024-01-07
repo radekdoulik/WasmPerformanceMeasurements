@@ -1,0 +1,13 @@
+commit c33557d2bb1c1d3a8a4ef6be1ace9624a1e2dab9
+Author: Filip Navara <filip.navara@gmail.com>
+Date:   Sun Jan 7 03:47:54 2024 +0100
+
+    [NativeAOT] Clean up some of the ARM32 bit rotten code (#96583)
+    
+    * Fix FrozenObjectHeapManager compilation for 32-bit targets
+    
+    * Fix DehydratedDataNode throwing exceptions on 32-bit platforms
+    
+    * Fix llvm-libunwind compilation for EHABI targets
+    
+    * Fix up compilation of bit-rotten NativeAOT ARM code
