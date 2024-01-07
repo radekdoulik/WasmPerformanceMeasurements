@@ -1,0 +1,12 @@
+commit 24bc1b707c4c4a5980abd851e78fb3dcec40ed2e
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Sat Jan 6 11:49:01 2024 +0100
+
+    JIT: Remove `BBJ_RETURN` loop cloning quirk (#96555)
+    
+    With the new loop representation there will never be any `BBJ_RETURN`
+    blocks in loops we are cloning -- add an assert for this. Then remove
+    the quirk that avoids cloning loops when the old loop cloning would
+    create too many `BBJ_RETURN` blocks.
+    
+    Large size wise regressions are expected due to new cloning.
