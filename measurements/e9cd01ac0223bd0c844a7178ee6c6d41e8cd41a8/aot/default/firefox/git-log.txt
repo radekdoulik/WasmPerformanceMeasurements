@@ -1,0 +1,7 @@
+commit e9cd01ac0223bd0c844a7178ee6c6d41e8cd41a8
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Mon Jan 8 10:54:46 2024 -0500
+
+    [mono][aot] Allow valuetype sharing in wrappers for valuetypes with an explicit layout if the explicit size matches the computed size. (#96230)
+    
+    This happens for Vector64<T>/Vector128<T>.
