@@ -1,0 +1,7 @@
+commit 0a9a3e989210177cec657bb34ae15629f08e1504
+Author: Alan Hayward <a74nh@users.noreply.github.com>
+Date:   Tue Jan 9 18:19:13 2024 +0000
+
+    Fix emitUnitTests.sh to work with JitEmitUnitTestsSections (#96691)
+    
+    Also, use JitDisasm instead of JitDump to simplify parsing.
