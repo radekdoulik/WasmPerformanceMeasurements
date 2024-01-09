@@ -1,0 +1,15 @@
+commit b4ec422386bd358602c7693ff4ab28c96a806ec0
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Mon Jan 8 21:49:36 2024 -0500
+
+    Add debug-only use of new AssemblyBuilder.Save in Regex.CompileToAssembly (#96462)
+    
+    * Add debug-only use of new AssemblyBuilder.Save in Regex.CompileToAssembly
+    
+    To aid in debugging RegexCompiler issues and to help vet the new AssemblyBuilder.Save support.
+    
+    * Fix IL2121 warnings
+    
+    ---------
+    
+    Co-authored-by: Sven Boemer <sbomer@gmail.com>
