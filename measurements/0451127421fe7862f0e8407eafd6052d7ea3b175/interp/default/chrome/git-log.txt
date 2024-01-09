@@ -1,0 +1,7 @@
+commit 0451127421fe7862f0e8407eafd6052d7ea3b175
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Mon Jan 8 17:42:47 2024 -0500
+
+    Remove extraneous use of unchecked from System.Linq (#96622)
+    
+    The code doesn't use a checked configuration, and if it did there are other expected overflows that would erroneously fail.
