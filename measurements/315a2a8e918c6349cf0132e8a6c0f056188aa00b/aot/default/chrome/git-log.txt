@@ -1,0 +1,15 @@
+commit 315a2a8e918c6349cf0132e8a6c0f056188aa00b
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Mon Jan 8 20:17:22 2024 -0500
+
+    Add .NET 8 test project for System.Numerics.Tensors (#96641)
+    
+    * Add .NET 8 test project for System.Numerics.Tensors
+    
+    * Update src/libraries/System.Numerics.Tensors/tests/Net8Tests/System.Numerics.Tensors.Net8.Tests.csproj
+    
+    Co-authored-by: Viktor Hofer <viktor.hofer@microsoft.com>
+    
+    ---------
+    
+    Co-authored-by: Viktor Hofer <viktor.hofer@microsoft.com>
