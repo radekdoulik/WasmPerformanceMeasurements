@@ -1,0 +1,7 @@
+commit 0823c5c2814ffad5718f06715899ef91aa84aae2
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Mon Jan 8 11:34:13 2024 -0500
+
+    Update Enumerable.Min/Max for all IBinaryIntegers (#96605)
+    
+    The implementations are special-casing most of the built-in ones, in order to delegate to the IBinaryInteger-constrained helper, but it was missing Int128, UInt128, and char. ?hese won't be vectorized, but they'll at least use the more streamlined non-vectorized implementations.
