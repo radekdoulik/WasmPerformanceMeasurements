@@ -1,0 +1,10 @@
+commit 6bfb882cdc341568b980538b40d51e8102a9a2e3
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Tue Jan 9 11:11:48 2024 +0100
+
+    JIT: Invalidate old loop table immediately (#96613)
+    
+    Invalidate the old loop table immediately after old loop finding. Remove
+    `m_oldToNewLoop` and `m_newToOldLoop`. Move `BBF_OLD_LOOP_HEADER_QUIRK` to be
+    set directly by old loop finding, and remove the flag manually in loop
+    cloning/unrolling, since it is being set when we clone the blocks.
