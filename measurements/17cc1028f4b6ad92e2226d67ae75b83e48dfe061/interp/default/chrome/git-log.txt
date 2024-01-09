@@ -1,0 +1,7 @@
+commit 17cc1028f4b6ad92e2226d67ae75b83e48dfe061
+Author: Aman Khalid <amankhalid@microsoft.com>
+Date:   Tue Jan 9 01:52:08 2024 -0500
+
+    JIT: Fix last block removal during layout optimization (#96649)
+    
+    Fixes #96642, though the issue doesn't seem limited to hot/cold splitting scenarios. In Compiler::fgOptimizeEmptyBlock, if removing the last block, we previously updated fgLastBB to point to its previous block before calling Compiler::fgRemoveBlock to avoid triggering an overzealous assert. By updating fgLastBB prematurely, we'd execute the wrong path for updating the removed block's next/previous pointers in Compiler::fgUnlinkBlock, hence the next != nullptr assert in BasicBlock::SetNext. This change updates fgOptimizeEmptyBlock to not prematurely update fgLastBB, instead allowing fgUnlinkBlock to update fgLastBB if unlinking the last block; to make this work, it also removes the overzealous assert in fgRemoveBlock.
