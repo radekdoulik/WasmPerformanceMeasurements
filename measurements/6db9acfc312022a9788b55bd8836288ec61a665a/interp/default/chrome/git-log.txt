@@ -1,0 +1,5 @@
+commit 6db9acfc312022a9788b55bd8836288ec61a665a
+Author: Filip Navara <filip.navara@gmail.com>
+Date:   Wed Jan 10 09:06:48 2024 +0100
+
+    [NativeAOT] ObjWriter: Produce COMDAT sections for .xdata unwinding data (#96686)
