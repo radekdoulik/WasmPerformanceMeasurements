@@ -1,0 +1,9 @@
+commit 65fbeb45ab70ca62e5d161bdddf0bf9022f12543
+Author: Giridhar Trivedi <giritrivedi@gmail.com>
+Date:   Tue Jan 9 22:26:52 2024 +0530
+
+    Fix endian issue in AssemblySaveILGeneratorTests (#96606)
+    
+    * Fix endian issue in AssemblySaveILGeneratorTests
+    
+    Fix endian issue in AssemblySaveILGeneratorTests for s390x
