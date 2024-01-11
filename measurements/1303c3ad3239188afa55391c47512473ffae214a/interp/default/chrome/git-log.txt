@@ -1,0 +1,33 @@
+commit 1303c3ad3239188afa55391c47512473ffae214a
+Author: Nick Taylor <89022673+olo-ntaylor@users.noreply.github.com>
+Date:   Wed Jan 10 06:23:32 2024 -0500
+
+    STJ: set initial capacity of JsonObject if known (#96417) (#96486)
+    
+    * STJ: set initial capacity of JsonObject if known (#96417)
+    
+    * fix nullable type typo
+    
+    * just tweaking to run the gh actions again to confirm
+    
+    * wip/squash. use `TryGetNonEnumeratedCount`/polyfill
+    
+    * wip. go back to using just a check against ICollection
+    
+    * wip/squash. remove System.Linq dependency
+    
+    * wip. avoid adding a new field
+    
+    * wip/squash. move more of the logic into the ctor
+    
+    * wip/squash. use static private helper method
+    
+    * wip/squash. use null-coalescing operator
+    
+    also, caught one more spot to use the IsCaseInsensitive helper
+    
+    * wip/squash. use more syntax sugar!
+    
+    ---------
+    
+    Co-authored-by: Eirik Tsarpalis <eirik.tsarpalis@gmail.com>
