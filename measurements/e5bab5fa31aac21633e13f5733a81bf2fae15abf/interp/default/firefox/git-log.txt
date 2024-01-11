@@ -1,0 +1,9 @@
+commit e5bab5fa31aac21633e13f5733a81bf2fae15abf
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Thu Jan 11 00:19:36 2024 +0100
+
+    JIT: Skip tailcall IR validation for struct calls (#96719)
+    
+    When structs are involved the correct return patterns can be very
+    complex if they involve decomposed field stores produced by physical
+    promotion. Skip the validation for these cases.
