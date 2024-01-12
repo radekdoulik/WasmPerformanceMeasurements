@@ -1,0 +1,41 @@
+commit 1ad2ac015a9ef14dc49fb3075f48b1824a753486
+Author: Alan Hayward <a74nh@users.noreply.github.com>
+Date:   Thu Jan 11 21:57:26 2024 +0000
+
+    Move arm64 insOpts entries into insScalableOpts (#96692)
+    
+    * Move arm64 insOpts entries into insGroupOpts
+    
+    insOpts has a max size of 6 bits, and it is getting full.
+    
+    For some of the options, they are only required to specify the
+    encoding group, after this only the lane size (_S etc) is needed.
+    Move these to a new enum insGroupOpts.
+    
+    * Nits
+    
+    * Rename to insScalableOpts
+    
+    * Remove _WITH_SIMD_VECTOR
+    
+    * Remove _WITH_PREDICATE_MERGE. Reuse _idReg3Scaled.
+    
+    * Remove insOptsScalableSimple
+    
+    * Better insScalableOpts entry names
+    
+    * Add INS_SCALABLE_OPTS_NONE asserts
+    
+    * Remove INS_SCALABLE_OPTS_WITH_SCALAR
+    
+    * insScalableOpts descriptions
+    
+    * Remove uses of INS_SCALABLE_OPTS_WITH_SIMD_SCALAR for single variants
+    
+    * Remove unused sopt from emitIns_R_R
+    
+    * Add insScalableOptsNone
+    
+    * Restore unreached() for capstone unsupported
+    
+    * Add insOptsScalableStandard
