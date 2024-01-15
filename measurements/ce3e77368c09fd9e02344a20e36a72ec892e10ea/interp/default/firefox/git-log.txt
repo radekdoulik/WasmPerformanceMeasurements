@@ -1,0 +1,13 @@
+commit ce3e77368c09fd9e02344a20e36a72ec892e10ea
+Author: Huo Yaoyuan <huoyaoyuan@hotmail.com>
+Date:   Mon Jan 15 23:36:59 2024 +0800
+
+    Cleanup some outdated helpers in libraries/Common (#95515)
+    
+    * Remove StringExtensions and replace with span
+    
+    * Replace MutableDecimal with public decimal methods
+    
+    * Replace CaseInsensitiveAscii with StringComparer.OrdinalIgnoreCase
+    
+    * Use AsSpan(index, length)
