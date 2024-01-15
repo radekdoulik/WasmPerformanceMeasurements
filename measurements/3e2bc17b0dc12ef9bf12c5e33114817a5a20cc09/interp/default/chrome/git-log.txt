@@ -1,0 +1,7 @@
+commit 3e2bc17b0dc12ef9bf12c5e33114817a5a20cc09
+Author: Jan Kotas <jkotas@microsoft.com>
+Date:   Fri Jan 12 17:12:32 2024 -0800
+
+    Remove uses of FCThrow in interlocked helpers (#96916)
+    
+    FCThrow is implemented usign HELPER_METHOD_FRAME. All uses of FCThrow need to be removed to fix #95695.
