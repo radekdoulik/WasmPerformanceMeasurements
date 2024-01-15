@@ -1,0 +1,306 @@
+commit 283a2debf5270711e791f845b688efa2a98c8e77
+Author: Christopher Moore <chrisdcmoore@users.noreply.github.com>
+Date:   Fri Jan 12 19:38:22 2024 +0000
+
+    Improve System.DirectoryServices interop guidelines conformance (#93722)
+    
+    * remove unused usings in SafeNativeMethods
+    
+    * move OleAut32 VariantInit to Common Interop
+    
+    * move Activeds FreeADsMem to Common Interop
+    
+    * move Activeds ADsEncodeBinaryData to Common Interop
+    
+    * move Activeds ADsGetLastError to Common Interop
+    
+    * move Activeds ADsSetLastError to Common Interop
+    
+    * move Netapi32 DsGetSiteName to Common Interop
+    
+    * move Netapi32 DsEnumerateDomainTrustsW to Common Interop
+    
+    * move Netapi32 NetApiBufferFree to Common Interop
+    
+    * move Netapi32 I_NetLogonControl2 to Common Interop
+    
+    * move Netapi32 DsRoleGetPrimaryDomainInformation to Common Interop
+    
+    * move Netapi32 DsRoleFreeMemory to Common Interop
+    
+    * move Netapi32 DsGetDcName to Common Interop
+    
+    * move Netapi32 DsGetDcOpen to Common Interop
+    
+    * move Netapi32 DsGetDcNext to Common Interop
+    
+    * move Netapi32 DsGetDcClose to Common Interop
+    
+    * move Advapi32 LsaSetForestTrustInformation to Common Interop
+    
+    * move Advapi32 LsaQueryForestTrustInformation to Common Interop
+    
+    * move TRUSTED_INFORMATION_CLASS enum to Common Interop (Advapi32)
+    
+    * move Advapi32 LsaQueryTrustedDomainInfoByName to Common Interop
+    
+    * move Advapi32 LsaSetTrustedDomainInfoByName to Common Interop
+    
+    * move Advapi32 LsaDeleteTrustedDomain to Common Interop
+    
+    * move Advapi32 LsaCreateTrustedDomainEx to Common Interop
+    
+    * move TRUSTED_POSIX_OFFSET_INFO to Common Interop (Advapi32)
+    
+    * move TRUSTED_DOMAIN_FULL_INFORMATION to Common Interop (Advapi32)
+    
+    * move Advapi32 ImpersonateAnonymousToken to Common Interop
+    
+    * move NtDll RtlInitUnicodeString to Common Interop
+    
+    * move Kernel32 GetSystemTimeAsFileTime to Common Interop
+    
+    * move Kernel32 OpenThread to Common Interop
+    
+    * move Kernel32 CompareString to Common Interop
+    
+    * move Dnsapi DnsQuery to Common Interop
+    
+    * move Dnsapi DnsRecordListFree to Common Interop
+    
+    * move Secur32 LsaDeregisterLogonProcess to Common Interop
+    
+    * move Secur32 LsaLogonProcessSafeHandle to Common Interop
+    
+    * move Secur32 LsaConnectUntrusted to Common Interop
+    
+    * move Secur32 LsaCallAuthenticationPackage to Common Interop
+    
+    * move Secur32 LsaFreeReturnBuffer to Common Interop
+    
+    * use string instead of IntPtr in this interop method and obviate the need for mashalling and exception handling at the caller
+    
+    suggested by review comment https://github.com/dotnet/runtime/pull/93722#discussion_r1366495534
+    
+    * remove MarshalAs attribute from method parameter
+    
+    the native signature called for LPCWSTR, not LPCTSTR, and this is handled by the StringMarshalling attribute on the method anyway
+    
+    suggested by review comment https://github.com/dotnet/runtime/pull/93722#discussion_r1366490541
+    
+    * do not set StringMarshalling when strings are not being marhsalled
+    
+    * do not set EntryPoint when method name matches
+    
+    * rename file now that it essentially only contains EnumVariant
+    
+    * remove unused consts
+    
+    * move Activeds error codes to Common Interop
+    
+    * these errors are already defined in Common Interop, avoid duplicating them for Activeds
+    
+    suggested by review comment https://github.com/dotnet/runtime/pull/93722#discussion_r1368236606
+    
+    * consolidate these two overloads
+    
+    suggested by review comment https://github.com/dotnet/runtime/pull/93722#discussion_r1368236606
+    
+    * accept the enum rather than and int and do away with the casts
+    
+    suggested by review comment https://github.com/dotnet/runtime/pull/93722#discussion_r1368249019
+    
+    * move DS_DOMAINTRUST_FLAG to Common Interop
+    
+    * move DS_DOMAIN_TRUSTS to Common Interop
+    
+    * stop casting DS_DOMAIN_TRUSTS and use DS_DOMAINTRUST_FLAG directly
+    
+    * make DS_DOMAINTRUST_FLAG a uint since the native sigs are ULONG (i.e. unsigned)
+    
+    * remove blank line
+    
+    * remove unused using after move of DS_DOMAINTRUST_FLAG
+    
+    * change TRUSTED_DOMAIN_FULL_INFORMATION to a struct
+    
+    suggested by review comment https://github.com/dotnet/runtime/pull/93722#discussion_r1373995974
+    
+    * change TRUSTED_POSIX_OFFSET_INFO to a struct
+    
+    suggested by review comment https://github.com/dotnet/runtime/pull/93722#discussion_r1373996218
+    
+    * change DS_DOMAIN_TRUSTS to a struct
+    
+    suggested by review comment https://github.com/dotnet/runtime/pull/93722#discussion_r1373996544
+    
+    * use sizeof since DS_DOMAIN_TRUSTS is now a struct and is also blittable
+    
+    suggested by review comment https://github.com/dotnet/runtime/pull/93722#discussion_r1373998790
+    
+    * use sizeof since NegotiateCallerNameRequest is blittable
+    
+    suggested by review comment https://github.com/dotnet/runtime/pull/93722#discussion_r1373997921
+    
+    * make these not nullable
+    
+    they appear not to be nullable on the unmanaged side
+    see https://learn.microsoft.com/en-us/windows/win32/api/ntsecapi/ns-ntsecapi-trusted_domain_full_information
+    
+    suggested by review comment https://github.com/dotnet/runtime/pull/93722#discussion_r1374909293
+    
+    * these are now blittable so use sizeof instead of Marshall.SizeOf
+    
+    * take advantage of SpanMarshalling for ADsGetLastError
+    
+    suggested by review comment https://github.com/dotnet/runtime/pull/93722#discussion_r1374906896
+    
+    * reuse already defined win32 error ERROR_ALREADY_EXISTS from Interop.Errors
+    
+    * move win32 error ERROR_INVALID_LEVEL to Interop.Errors
+    
+    * remove unused error code ERROR_NOT_FOUND
+    
+    * move win32 error ERROR_INVALID_DOMAINNAME to Interop.Errors
+    
+    * move win32 error ERROR_NO_SUCH_DOMAIN to Interop.Errors
+    
+    * remove unused error code ERROR_NOT_ENOUGH_MEMORY
+    
+    * move win32 error ERROR_INVALID_FLAGS to Interop.Errors
+    
+    * reuse already defined win32 error ERROR_NO_MORE_ITEMS from Interop.Errors
+    
+    * move win32 error ERROR_FILEMARK_DETECTED to Interop.Errors
+    
+    * move win32 error ERROR_NO_SUCH_LOGON_SESSION to Interop.Errors
+    
+    * move win32 error DNS_ERROR_RCODE_NAME_ERROR to Interop.Errors
+    
+    * consolidate these identical consts
+    
+    * reuse already defined win32 error ERROR_NOT_ENOUGH_MEMORY from Interop.Errors
+    
+    * move win32 error ERROR_OUTOFMEMORY to Interop.Errors
+    
+    * move win32 error RPC_S_OUT_OF_RESOURCES to Interop.Errors
+    
+    * move win32 error ERROR_DS_DRA_OUT_OF_MEM to Interop.Errors
+    
+    * move win32 error ERROR_DS_DRA_ACCESS_DENIED to Interop.Errors
+    
+    * move win32 error ERROR_NO_LOGON_SERVERS to Interop.Errors
+    
+    * move win32 error RPC_S_SERVER_UNAVAILABLE to Interop.Errors
+    
+    * move win32 error RPC_S_CALL_FAILED to Interop.Errors
+    
+    * reuse already defined win32 error ERROR_ACCESS_DENIED from Interop.Errors
+    
+    * move win32 error ERROR_NO_SITENAME to Interop.Errors
+    
+    * move win32 error ERROR_DS_NAME_UNPARSEABLE to Interop.Errors
+    
+    * move win32 error ERROR_DS_UNKNOWN_ERROR to Interop.Errors
+    
+    * move win32 error ERROR_DS_DRA_BAD_DN to Interop.Errors
+    
+    * reuse already defined win32 error ERROR_CANCELLED from Interop.Errors
+    
+    * fix signature and use of ADsGetLastError
+    
+    in https://github.com/dotnet/runtime/commit/497bbb6ed478fb2bcdc47da75d885cb4a29b1ca8 I got the semantics wrong
+    
+    the native code is expecting the buffers to be not null, but using the SpanMarshaller results in a pit of failure for anyone who wants to call this code, since a span constructed over null (e.g. Span<char>.Empty) will get marshalled as a null pointer
+    
+    instead, accept char[] to avoid this
+    
+    i am renting an array for the error buffer to amortize the allocation cost, note that this may lead to error messages longer than 256 characters being returned where they would not have been before due to .Rent returning at least the requested size
+    
+    avoided returning the rented array in a finally block since intervening code cannot throw
+    
+    * simplify conversion to these blittable structs
+    
+    partly related to discussion https://github.com/dotnet/runtime/pull/93722#discussion_r1375304953
+    
+    * fix pre-existing bug which resulted in ArgumentException
+    
+    at some point in the past, TRUSTED_DOMAIN_INFORMATION_EX was changed to a struct without updating this marshalling code, causing ArgumentExceptions to be thrown
+    
+    suggested by review comment https://github.com/dotnet/runtime/pull/93722#discussion_r1375304953
+    
+    * remove blank lines
+    
+    * just allocate the array here rather than renting is it probably isn't worth it
+    
+    suggested by review comment https://github.com/dotnet/runtime/pull/93722#discussion_r1376277982
+    
+    * Fix error code ordering
+    
+    Co-authored-by: Aaron Robinson <arobins@microsoft.com>
+    
+    * Remove redundant EntryPoint property
+    
+    Co-authored-by: Aaron Robinson <arobins@microsoft.com>
+    
+    * Fix DsRoleFreeMemory signature
+    
+    https://learn.microsoft.com/windows/win32/api/dsrole/nf-dsrole-dsrolefreememory
+    
+    Co-authored-by: Aaron Robinson <arobins@microsoft.com>
+    
+    * Fix RtlInitUnicodeString signature
+    
+    https://learn.microsoft.com/windows/win32/api/winternl/nf-winternl-rtlinitunicodestring
+    
+    Co-authored-by: Aaron Robinson <arobins@microsoft.com>
+    
+    * Fix ImpersonateAnonymousToken signature and call sites
+    
+    https://github.com/dotnet/runtime/pull/93722#discussion_r1376572178
+    
+    https://learn.microsoft.com/en-us/windows/win32/api/securitybaseapi/nf-securitybaseapi-impersonateanonymoustoken
+    
+    * Fix LsaCreateTrustedDomainEx parameter naming
+    
+    https://learn.microsoft.com/en-gb/windows/win32/api/ntsecapi/nf-ntsecapi-lsacreatetrusteddomainex
+    
+    Co-authored-by: Aaron Robinson <arobins@microsoft.com>
+    
+    * Fix LsaSetForestTrustInformation signature and call sites
+    
+    https://github.com/dotnet/runtime/pull/93722#discussion_r1376580503
+    
+    https://learn.microsoft.com/windows/win32/api/ntsecapi/nf-ntsecapi-lsasetforesttrustinformation
+    
+    * Use consistent visibility modifiers for TRUSTED_DOMAIN_FULL_INFORMATION struct fields
+    
+    Co-authored-by: Aaron Robinson <arobins@microsoft.com>
+    
+    * Remove redundant EntryPoint property
+    
+    Co-authored-by: Aaron Robinson <arobins@microsoft.com>
+    
+    * Fix DsGetDcNext signature and call sites
+    
+    https://github.com/dotnet/runtime/pull/93722#discussion_r1376605991
+    
+    https://learn.microsoft.com/en-us/windows/win32/api/dsgetdc/nf-dsgetdc-dsgetdcnextw
+    
+    * remove unused method and purge now-unused Dnsapi interop code
+    
+    * fix memory leak by freeing socket address list after each DsGetDcNext call
+    
+    discussed at https://github.com/dotnet/runtime/pull/93722#discussion_r1377292283
+    
+    https://learn.microsoft.com/en-us/windows/win32/api/dsgetdc/nf-dsgetdc-dsgetdcnextw
+    
+    * remove more unused Dndsapi-related code
+    
+    * remove unused const
+    
+    was replaced by Interop.StatusOptions.STATUS_QUOTA_EXCEEDED at some point in the past
+    
+    ---------
+    
+    Co-authored-by: Aaron Robinson <arobins@microsoft.com>
