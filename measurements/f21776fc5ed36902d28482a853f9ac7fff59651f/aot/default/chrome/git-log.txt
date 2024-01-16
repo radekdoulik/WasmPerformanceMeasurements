@@ -1,0 +1,7 @@
+commit f21776fc5ed36902d28482a853f9ac7fff59651f
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Tue Jan 16 12:57:24 2024 +0900
+
+    Fix native AOT outerloop (#97008)
+    
+    Moq is AOT hostile.
