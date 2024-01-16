@@ -1,0 +1,19 @@
+commit 6dab58f0213ec67157bdbd09630957e7cc3b1027
+Author: Kunal Pathak <Kunal.Pathak@microsoft.com>
+Date:   Tue Jan 16 07:55:29 2024 -0800
+
+    Disable load/store vector APIs until Mono adds support for it (#96944)
+    
+    * Revert "[libs] Skip AdvSimdEncode on Mono (#96829)"
+    
+    This reverts commit 1a76e377aeb34b030cbf0248bc8a8c0cf9245ab8.
+    
+    * Revert "Use multi-reg load/store for EncodeToUtf8 (#95513)"
+    
+    This reverts commit fdb03ca8776f5197fb046067b994b605bb6e715c.
+    
+    * Wrap load/store vector APIs in '#if false'
+    
+    * Disable load/store vector tests
+    
+    * remove the trailing space
