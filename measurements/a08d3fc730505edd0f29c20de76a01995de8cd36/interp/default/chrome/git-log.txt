@@ -1,0 +1,9 @@
+commit a08d3fc730505edd0f29c20de76a01995de8cd36
+Author: Matous Kozak <55735845+matouskozak@users.noreply.github.com>
+Date:   Tue Jan 16 12:47:46 2024 +0100
+
+    [browser][HybridGlobalization] Improve speed performance of IndexOf and LastIndexOf text APIs with HybridGlobalization mode (#95583)
+    
+    * Re-implement the grapheme segmenter from Intl.
+    
+    * Load segmentation rules as static json asset
