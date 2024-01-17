@@ -1,0 +1,11 @@
+commit 143a9bf41ca8cfb2761e764fbfaba96f9dbd46e6
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Wed Jan 17 01:04:39 2024 +0100
+
+    JIT: Delete old DFS and dominator implementations (#96927)
+    
+    - Switch the block weighting logic to be based on the new dominator tree
+    - Remove the old DFS
+    - Remove the old dominator computation
+    - Remove the old `DomTreeVisitor` and rename `NewDomTreeVisitor` -> `DomTreeVisitor`
+    - Rename `BasicBlock::bbNewPostorderNum` -> `BasicBlock::bbPostorderNum`
