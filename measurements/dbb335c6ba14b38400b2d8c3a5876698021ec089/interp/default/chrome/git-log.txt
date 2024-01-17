@@ -1,0 +1,5 @@
+commit dbb335c6ba14b38400b2d8c3a5876698021ec089
+Author: David Mason <davmason@microsoft.com>
+Date:   Tue Jan 16 23:49:42 2024 -0800
+
+    Don't clean up thread list on shutdown (#96936)
