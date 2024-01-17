@@ -1,0 +1,13 @@
+commit cc59b89c559036ca5a095818c7763df10283c6be
+Author: Tanner Gooding <tagoo@outlook.com>
+Date:   Tue Jan 16 18:50:19 2024 -0800
+
+    Ensure that the Create(Dot(...)) optimization doesn't kick in for Vector2 pre SSE4.1 (#96951)
+    
+    * Ensure that the Create(Dot(...)) optimization doesn't kick in for Vector2 pre SSE4.1
+    
+    * Make sure to use #if defined(...)
+    
+    * Add missing using
+    
+    * Fix a type in the test
