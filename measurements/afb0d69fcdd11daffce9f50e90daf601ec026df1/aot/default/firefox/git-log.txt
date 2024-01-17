@@ -1,0 +1,7 @@
+commit afb0d69fcdd11daffce9f50e90daf601ec026df1
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Tue Jan 16 21:43:00 2024 +0900
+
+    Produce Native AOT runtime packs on Windows (#97023)
+    
+    This just silently didn't do anything.
