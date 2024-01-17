@@ -1,0 +1,11 @@
+commit 45b56e530e6e6675611d205063d50b74359d9484
+Author: Kunal Pathak <Kunal.Pathak@microsoft.com>
+Date:   Tue Jan 16 12:10:53 2024 -0800
+
+    Consume regs for BlkOpKindLoop (#97014)
+    
+    * Consume regs for BlkOpKindLoop
+    
+    * Mark the node as contained
+    
+    * undo Program.cs commit
