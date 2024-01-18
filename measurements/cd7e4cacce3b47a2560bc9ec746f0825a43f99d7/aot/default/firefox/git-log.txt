@@ -1,0 +1,17 @@
+commit cd7e4cacce3b47a2560bc9ec746f0825a43f99d7
+Author: Aaron Robinson <arobins@microsoft.com>
+Date:   Mon Jan 15 21:56:16 2024 -0800
+
+    Remove more helper frames by converting methods to QCalls (#96926)
+    
+    * Remove FCall in interop code
+    
+    * Convert DisableComObjectEagerCleanup to QCall.
+    
+    * Convert the following to QCalls.
+    Thread.SleepWorker
+    Thread.GetIsBackground
+    Thread.SetIsBackground
+    Thread.Interrupt
+    
+    * Feedback
