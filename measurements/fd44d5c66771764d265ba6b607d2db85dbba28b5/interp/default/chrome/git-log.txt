@@ -1,0 +1,9 @@
+commit fd44d5c66771764d265ba6b607d2db85dbba28b5
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Fri Jan 19 00:19:00 2024 +0900
+
+    Fold GeneratingMetadataManager into MetadataManager (#97140)
+    
+    Long time ago, `MetadataManager` had two descendants: the `GeneratingMetadataManager` and another one that I forgot the name of. It was used for .NET Native and didn't generate metadata, because ILTransforms did.
+    
+    Fold the classes together.
