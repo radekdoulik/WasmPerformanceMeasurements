@@ -1,0 +1,9 @@
+commit e42a873a821e5fe8833254dd2bbdc60200d22e92
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Tue Jan 16 19:16:04 2024 +0900
+
+    Make startup hooks kind of work with native AOT (#96894)
+    
+    Fixes #96052.
+    
+    Since we compile startup hooks anyway, just add a call to it. It will be deadcoded by default. Can be enabled and then it will at least work for hooks that were part of the app. It will throw PNSE for random file paths.
