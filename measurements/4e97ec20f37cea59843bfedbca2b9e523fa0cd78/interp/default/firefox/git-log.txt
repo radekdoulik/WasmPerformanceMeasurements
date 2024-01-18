@@ -1,0 +1,15 @@
+commit 4e97ec20f37cea59843bfedbca2b9e523fa0cd78
+Author: Carlos Sánchez López <1175054+carlossanlop@users.noreply.github.com>
+Date:   Tue Jan 9 11:32:52 2024 -0800
+
+    Fix XUnitLogChecker detection for local test runs (#96638)
+    
+    * Fix XUnitLogChecker detection for local test runs
+    
+    * DO NOT MERGE: Temporary crash to confirm XUnitLogChecker still works as expected in the CI.
+    
+    * Revert "DO NOT MERGE: Temporary crash to confirm XUnitLogChecker still works as expected in the CI."
+    
+    This reverts commit 9e01406dc34fa4b8abd91752dc27da02f42b4e0a.
+    
+    * Skip in Unix too
