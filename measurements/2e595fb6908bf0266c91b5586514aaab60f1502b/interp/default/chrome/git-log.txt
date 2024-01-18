@@ -1,0 +1,7 @@
+commit 2e595fb6908bf0266c91b5586514aaab60f1502b
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Thu Jan 18 23:44:25 2024 +0900
+
+    Small cleanup in the cctor interpreter (#97141)
+    
+    I was looking at the IsValueType handling here and decided to clean it up.
