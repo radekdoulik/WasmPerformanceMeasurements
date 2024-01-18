@@ -1,0 +1,19 @@
+commit 13ab6eb58e1c16856cfd3bff2fe69da13d6642af
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Thu Jan 18 13:12:13 2024 +0100
+
+    JIT: Port loop compaction to new loop representation (#96995)
+    
+    Some diffs expected from (at least) three sources:
+    - Less/different compaction in cases where new loop recognition
+      recognizes fewer loops than old recognition
+    - Less compaction in cases where compacting the first loop led to
+      old loop recognition recognizing another loop after the first one.
+      This leads to no `BBF_OLD_LOOP_HEADER_QUIRK` set on the second loop's
+      header found by new loop finding, meaning we do not compact it. It
+      will be compacted as part of a future PR that enables compaction for
+      all loops.
+    - Slight differences in compaction behavior for blocks that aren't part
+      of the loop and that couldn't be moved, which would previously abort
+      compaction and recognition of the loop. Now we just leave those blocks
+      in place.
