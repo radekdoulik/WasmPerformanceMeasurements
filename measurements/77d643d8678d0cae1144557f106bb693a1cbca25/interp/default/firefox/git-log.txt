@@ -1,0 +1,34 @@
+commit 77d643d8678d0cae1144557f106bb693a1cbca25
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Thu Jan 18 16:39:25 2024 +0900
+
+    Dead code elimination for `if (typeof(T).IsValueType)` (#97080)
+    
+    @stephentoub found out that for following code:
+    
+    ```csharp
+    using System.Buffers;
+    
+    Foo<Bar>();
+    
+    static T[] Foo<T>()
+    {
+        if (typeof(T).IsValueType)
+        {
+            return ArrayPool<T>.Shared.Rent(42);
+        }
+        return null!;
+    }
+    
+    class Bar {}
+    ```
+    
+    We end up generating `ArrayPool`s of `Bar` even though it's obviously never reachable. The problem is architectural:
+    
+    * We run a whole program analysis phase that tries to figure out things like generic dictionary layouts so that later, in code generation phase, we can inline offsets into generic dictionaries into codegen.
+    * For the above code, whole program analysis decides that the dictionary layout of `Foo<__Canon>` needs a slot for `ArrayPool<!0>`.
+    * Codegen then optimizes out the `IsValueType` branch because `__Canon` is never a valuetype. But we already allocated the dictionary slot and will fill it out, even though it ends up unused due to the optimization.
+    
+    We're going to run into issues like this until #83021 is addressed. Whole program analysis cannot currently assume a certain optimization happens because we don't know whether RyuJIT will do it. The only way we can "optimize" during whole program analysis is if we rewrite IL and give RyuJIT no saying in whether to do an optimization or not. Rewriting the IL is not great because it e.g. causes PGO data to not match. I don't like doing it, but there's nothing else we can do.
+    
+    This change extends dead block elimination to understand `typeof(X).IsValueType`. If we recognize a branch is reachable under this condition, we evaluate whether this is true or false and replace the basic block with nops.
