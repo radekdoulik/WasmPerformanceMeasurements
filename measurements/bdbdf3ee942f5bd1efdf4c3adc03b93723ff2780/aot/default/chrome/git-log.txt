@@ -1,0 +1,5 @@
+commit bdbdf3ee942f5bd1efdf4c3adc03b93723ff2780
+Author: Parker Bibus <parkerbibus@microsoft.com>
+Date:   Wed Jan 17 09:13:09 2024 -0800
+
+    Remove HybridGlobalization test name extension from iOS tests as HG is now the default and only way to run. (#97043)
