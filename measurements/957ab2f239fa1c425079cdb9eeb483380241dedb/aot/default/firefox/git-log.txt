@@ -1,0 +1,5 @@
+commit 957ab2f239fa1c425079cdb9eeb483380241dedb
+Author: neon-sunset <neon-sunset@outlook.com>
+Date:   Thu Jan 18 05:40:02 2024 +0200
+
+    Use .TryGetSpan on sequences instead of type checks to forward sequence comparison for arrays and lists (#97004)
