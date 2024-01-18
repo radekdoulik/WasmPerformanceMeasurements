@@ -1,0 +1,21 @@
+commit 56769fa054079376d94c4a6b4f5c884f8d95634e
+Author: OwnageIsMagic <OwnageIsMagic@users.noreply.github.com>
+Date:   Thu Jan 18 04:11:41 2024 +0300
+
+    Use corresponding exception message, if null passed (#90505)
+    
+    * use corresponding exception message if null passed
+    
+    * fix
+    
+    * review fixes
+    
+    * fix tests
+    
+    * do not use default message if null passed for SystemException, ApplicationException, IOException
+    
+    * change COMException default message
+    
+    ---------
+    
+    Co-authored-by: David Cantú <dacantu@microsoft.com>
