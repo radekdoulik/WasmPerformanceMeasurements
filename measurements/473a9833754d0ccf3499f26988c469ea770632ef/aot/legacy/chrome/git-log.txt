@@ -1,0 +1,17 @@
+commit 473a9833754d0ccf3499f26988c469ea770632ef
+Author: DeepakRajendrakumaran <deepak.rajendrakumaran@intel.com>
+Date:   Wed Jan 17 14:06:46 2024 -0800
+
+    Updating Sum() implementation for Vector128 and Vector256 + adding lowering for Vector512 (#95568)
+    
+    * Updating Sum() implementation.
+    
+    * Fixing codegen
+    
+    * Addressing review comments.
+    
+    * Fix Formatting
+    
+    * Enabling for long on x86.
+    
+    * Cleaning up ToScalar implementation
