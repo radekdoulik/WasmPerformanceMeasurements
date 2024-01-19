@@ -1,0 +1,7 @@
+commit 7a34dfc22e0e2ca601d6d27ed6d7b4d1a2de87f0
+Author: Jeremy Koritzinsky <jekoritz@microsoft.com>
+Date:   Thu Jan 18 17:54:56 2024 -0800
+
+    Use ParallelTheory attribute to run cases in parallel (#97111)
+    
+    This will speed up test runs by allowing the many cases in these tests to run in parallel instead of sequentially.
