@@ -1,0 +1,34 @@
+commit 2f63046c28f2f57f2c8666845f1c1de8696b1626
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Thu Jan 18 21:54:27 2024 +0100
+
+    JIT: Validate loop invariant base case as part of IV analysis (#97122)
+    
+    Move the validation of the base case of the IV analysis into
+    `FlowGraphNaturalLoop::AnalyzeIteration`. Previously the validation for
+    the base case was left up to the users:
+    
+    - Loop cloning tried to accomplish this by checking whether loop
+      inversion had run, but this is not sufficient (#96623) as nothing
+      guarantees the loop is dominated by the inverted test. Loop cloning
+      also skipped the check entirely for GDV, leading to #95315.
+    
+    - Unrolling completely neglected to check the condition leading to
+      #96591. Furthermore, unrolling made implicit assumptions that any
+      `BBJ_COND` init block was an inverted test and downright removed the
+      condition without any checks. This also led to another issue #97040
+      where unrolling could uncover new natural loops that had not been
+      canonicalized.
+    
+    This change makes `FlowGraphNaturalLoop::AnalyzeIteration` try to prove
+    that the loop invariant it returns is true in the base case as well as
+    being maintained by the loop. If it cannot prove this then it fails.
+    This fixes all the issues, but sadly uncovers that we were doing a lot
+    of cloning in OSR methods without actually proving legality. We no
+    longer clone in these cases, but we can look into what to do about them
+    separately.
+    
+    Fix #95315
+    Fix #96591
+    Fix #96623
+    Fix #97040
