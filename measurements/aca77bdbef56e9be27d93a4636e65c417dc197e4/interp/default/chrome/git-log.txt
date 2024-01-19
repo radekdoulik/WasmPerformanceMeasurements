@@ -1,0 +1,11 @@
+commit aca77bdbef56e9be27d93a4636e65c417dc197e4
+Author: Alan Hayward <a74nh@users.noreply.github.com>
+Date:   Fri Jan 19 14:30:18 2024 +0000
+
+    Use insGetPredicateType for SVE encodings (#97142)
+    
+    * Use insGetPredicateType for SVE encodings
+    
+    * Add predicate as counter printing
+    
+    * Pass type to emitPredicateRegName
