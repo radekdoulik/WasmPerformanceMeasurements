@@ -1,0 +1,7 @@
+commit 59a38f18b777155f01c66afde35f2c0a48850cb0
+Author: Jan Kotas <jkotas@microsoft.com>
+Date:   Thu Jan 18 19:09:19 2024 -0800
+
+    Ensure syncblock is cleared with GC_ALLOC_ZEROING_OPTIONAL (#97174)
+    
+    Fixes #96790
