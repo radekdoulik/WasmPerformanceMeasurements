@@ -1,0 +1,43 @@
+commit 5a6135e7e6e9fd19a1e319958cc3220dcad9a1e3
+Author: Filip Navara <filip.navara@gmail.com>
+Date:   Fri Jan 19 18:21:31 2024 +0100
+
+    [NativeAOT] Linux/ARM bring-up (3/n) (#97104)
+    
+    * Mask thumb bit when setting IP in a context (eg. palContext->SetIp((uintptr_t)&RhpThrowHwEx))
+    
+    * Set ExInfo.m_pExContext in RhpThrowHwEx
+    
+    * Remove REGDISPLAY.GetAddrOfIP and it's only usage
+    
+    * Resolve ARM relocations (also workarounds LLD bug with thumb bit present both in addend and in symbol value)
+    
+    * Remove REGDISPLAY.pIP/SetAddrOfIP
+    
+    * Make most of the assembly code PIE compatible
+    
+    * NativeAOT: Enable DFEATURE_64BIT_ALIGNMENT on linux-arm
+    
+    * Enable NativeAOT linux-arm build
+    
+    * Enable DWARF exception handling for linux-arm
+    
+    * Fix UnwindFuncletInvokeThunk to skip over r2 register saved on stack by RhpCallFilterFunclet
+    
+    * Fix signature of P/Invoke native code in SafeHandleTest to match the managed one
+    
+    * Implement missing StackFrameIterator::InternalInit code for ARM
+    
+    * Fix thumb bit masking in InInterfaceDispatchHelper
+    
+    * Workaround: Ensure the Thumb bit is set when looking up method info in DWARF. We would fail to lookup methods at their first instruction otherwise.
+    
+    * Correctly convert the addend for IMAGE_REL_BASED_THUMB_MOV32[_PCREL] into the ELF relocations
+    
+    * Simplify CMake condition
+    
+    * Simplify NativeAotSupported conditions
+    
+    * Fix typo
+    
+    * Fix IMAGE_REL_BASED_THUMB_MOV32 conversion to ELF
