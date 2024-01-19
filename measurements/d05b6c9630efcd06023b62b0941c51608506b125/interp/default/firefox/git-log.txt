@@ -1,0 +1,13 @@
+commit d05b6c9630efcd06023b62b0941c51608506b125
+Author: Kunal Pathak <Kunal.Pathak@microsoft.com>
+Date:   Thu Jan 18 21:44:17 2024 -0800
+
+    NativeAOT: Ignore preferSize and always expand TLS (#97187)
+    
+    * Always expand TLS for NativeAOT
+    
+    * Update src/coreclr/jit/helperexpansion.cpp
+    
+    ---------
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
