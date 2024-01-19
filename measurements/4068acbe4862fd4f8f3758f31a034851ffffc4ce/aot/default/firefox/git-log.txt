@@ -1,0 +1,15 @@
+commit 4068acbe4862fd4f8f3758f31a034851ffffc4ce
+Author: Viktor Hofer <viktor.hofer@microsoft.com>
+Date:   Fri Jan 19 09:10:25 2024 +0100
+
+    Update eng/common files manually to latest without Arcade itself (#97167)
+    
+    * Update eng/common files manually to latest without Arcade itself
+    
+    * Use package version from the arcade update
+    
+    Use version number that actually exists. The one we have in `main` doesn't.
+    
+    ---------
+    
+    Co-authored-by: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
