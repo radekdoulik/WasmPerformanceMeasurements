@@ -1,0 +1,34 @@
+commit 62d33ee48d57feba67b261b55db666bdc202b1c1
+Author: Buyaa Namnan <bunamnan@microsoft.com>
+Date:   Fri Jan 19 13:33:10 2024 -0800
+
+    Implement remaining unimplemented APIs for Builder types (#96805)
+    
+    * Implement 'DefinPInvokeMethod', save required/optional CustomModifiers, fix bugs found
+    
+    * Add global method, get method impl and tests
+    
+    * Implement DefineInitializedData(...) and UninitializedData(...), refactor field/method/type token logic because of global members
+    
+    * Update src/libraries/System.Reflection.Emit/src/System/Reflection/Emit/TypeBuilderImpl.cs
+    
+    Co-authored-by: Aaron Robinson <arobins@microsoft.com>
+    
+    * Load assemblies in unloadable context
+    
+    Co-authored-by: Steve Harter <steveharter@users.noreply.github.com>
+    
+    * Add test for DefineUninitializedData(...)
+    
+    * Set parameter count to 0 for RtFieldInfo
+    
+    * Throw when member token is not populated when Module.Get***MetadataToken methods called
+    
+    * Retrieving standalone signature not supported on mono
+    
+    * Create byte array with the size directly instead of null check
+    
+    ---------
+    
+    Co-authored-by: Aaron Robinson <arobins@microsoft.com>
+    Co-authored-by: Steve Harter <steveharter@users.noreply.github.com>
