@@ -1,0 +1,29 @@
+commit fcbcfcc9759a414a3fd5387ee3b642c4871dd056
+Author: Vlad Brezae <brezaevlad@gmail.com>
+Date:   Sat Jan 20 14:40:38 2024 +0200
+
+    [mono][interp] Small code refactoring for SSA (#97249)
+    
+    * [mono][interp] Move optimization related code out of transform.c
+    
+    Use interp_ prefix for non-static methods within interpreter (mono_interp seems rather long)
+    Use interp_ prefix, instead of .._interp_..., for consistency.
+    Use ins everywhere in method names for consistency, instead of inst.
+    
+    * [mono][interp] Pass ref to var storage in interp inst
+    
+    In order to facilitate overwritting of sregs/dreg during instruction iterations.
+    
+    Also enable iterating only on sregs.
+    
+    * [mono][interp] Print invalid il offset in aligned fashion
+    
+    * [mono][interp] Remove irrelevant stats
+    
+    * [mono][interp] Renaming of local to var
+    
+    Local can have multiple meanings. Use it to refer to IL locals from now. All IL locals are vars. Vars can be local (single bblock use) or global.
+    
+    * [mono][interp] Remove flags and use bit fields instead
+    
+    Makes the code clearer and it is easier to maintain.
