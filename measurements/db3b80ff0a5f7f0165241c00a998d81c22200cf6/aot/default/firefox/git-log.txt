@@ -1,0 +1,5 @@
+commit db3b80ff0a5f7f0165241c00a998d81c22200cf6
+Author: Andrew Au <andrewau@microsoft.com>
+Date:   Sat Jan 20 15:25:14 2024 -0800
+
+    Frozen objects should be identified as Gen2 in the handle table (#97109)
