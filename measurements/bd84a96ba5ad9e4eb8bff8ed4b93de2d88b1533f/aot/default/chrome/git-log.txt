@@ -1,0 +1,23 @@
+commit bd84a96ba5ad9e4eb8bff8ed4b93de2d88b1533f
+Author: Buyaa Namnan <bunamnan@microsoft.com>
+Date:   Sat Jan 20 18:23:12 2024 -0800
+
+    Add public APIs for persisted AssemblyBulder (#97177)
+    
+    * Add public APIs for persisted AssemblyBuilder
+    
+    * Update tests to use public API, refactor tests so that the temp files deleted
+    
+    * Make AB.SaveCore(Stream) virtual and add meaningful message for excepiton thrown
+    
+    Co-authored-by: Stephen Toub <stoub@microsoft.com>
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
+    
+    * Remove unneeded message
+    
+    * Update newer tests to use new public APIs
+    
+    ---------
+    
+    Co-authored-by: Stephen Toub <stoub@microsoft.com>
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
