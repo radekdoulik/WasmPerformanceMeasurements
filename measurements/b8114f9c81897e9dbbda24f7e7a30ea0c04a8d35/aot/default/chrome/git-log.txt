@@ -1,0 +1,13 @@
+commit b8114f9c81897e9dbbda24f7e7a30ea0c04a8d35
+Author: Tom McDonald <tommcdon@microsoft.com>
+Date:   Sun Jan 21 08:05:01 2024 -0500
+
+    Revert pr#96099 (#97264)
+    
+    * Revert "Forward minipal_get_length_utf16_to_utf8 and minipal_convert_utf16_to_utf8 from DAC (#97055)"
+    
+    This reverts commit 1263107c3b3dd2f50250b88a9827b4d77fe04110.
+    
+    * Revert "Cleanup some string operating functions (#96099)"
+    
+    This reverts commit bc81c550ae7c23a4f8f04004ca11545a1650a2ca.
