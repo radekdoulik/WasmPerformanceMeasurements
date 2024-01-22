@@ -1,0 +1,13 @@
+commit 904c439de0fc5dd1a8d8e8913bd75c30f8288e55
+Author: David Wrighton <davidwr@microsoft.com>
+Date:   Wed Jan 10 10:27:53 2024 -0800
+
+    PlaceInterfaceMethod is now more optimized (#96703)
+    
+    * PlaceInterfaceMethod is now more optimized
+    - It naturally has an O(N*M) algorithm, we reduce it to O(N*(Msmaller)), and make the constant factor faster
+    - We take a local copy of the declared methods and name hashes, and the scan is now a straight linear scan of 32 bit memory DWORDS, and naturally skips nonpublic and non virtual methods.
+    
+    ---------
+    
+    Co-authored-by: Aaron Robinson <arobins@microsoft.com>
