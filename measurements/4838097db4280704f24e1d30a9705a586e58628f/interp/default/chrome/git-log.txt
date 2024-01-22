@@ -1,0 +1,7 @@
+commit 4838097db4280704f24e1d30a9705a586e58628f
+Author: Aaron Robinson <arobins@microsoft.com>
+Date:   Thu Jan 4 16:57:55 2024 -0800
+
+    Disable test when running under GCStress (#96508)
+    
+    * Rewrite HandleRef test
