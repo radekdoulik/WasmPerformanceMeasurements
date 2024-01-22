@@ -1,0 +1,20 @@
+commit b610c99e342e490c96bfc073101bf2df2afc203c
+Author: Aleksey Kliger (λgeek) <alklig@microsoft.com>
+Date:   Fri Jan 12 17:37:06 2024 -0500
+
+    [mono] Fix class initialization spurious wakeups (#96903)
+    
+    * mono_runtime_class_init_full: handle spurious wakeups
+    
+    the condition variable may be signaled even if the initialization by
+    the other thread is not done yet.  Handle spurious wakeups the same
+    way as timeouts: go around once more from the beginning.
+    
+    Fixes https://github.com/dotnet/runtime/issues/96872 and https://github.com/dotnet/runtime/issues/96804
+    
+    * fix unbalanced handle frames
+    
+    if we goto retry_top, don't set up a new handle frame that lacks a
+    matching HANDLE_FUNCTION_RETURN_VAL.
+    
+    Instead setup the handle frame once upfront
