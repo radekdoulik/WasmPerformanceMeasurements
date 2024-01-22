@@ -1,0 +1,26 @@
+commit e458d68a3879d968faa1da9de38876e23935c166
+Author: Ivan Diaz Sanchez <ivdiazsa@microsoft.com>
+Date:   Thu Jan 11 14:37:40 2024 -0800
+
+    Add ActiveIssue Annotations to Failing TestReadyToRun Tests and Reenable the Executables (#96721)
+    
+    * Add "ActiveIssue" annotation placeholders to the failing tests, and
+    reenable their respective executables, so that the other tests in said
+    run can be executed.
+    
+    * Added "ActiveIssue" annotation to failing Threading test.
+    
+    * Added the ActiveIssue annotation to AppDomain.cs
+    
+    * Added the ActiveIssue template in FileSystemWatcher.File.Move.cs
+    
+    * Commented out an ActiveIssue annotation because I need to check on
+    something in CI.
+    
+    * Reenabled another failing test because I need to see it in CI.
+    
+    * Yet another test being weird...
+    
+    * Disabled some Serialization tests after confirming in CI that they indeed not work.
+    
+    * Removed unneeded? commented out ActiveIssue annotation.
