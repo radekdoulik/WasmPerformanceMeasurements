@@ -1,0 +1,7 @@
+commit 6495c22ec784821269ae27f933da4f5074127192
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Mon Jan 8 08:18:38 2024 -0500
+
+    Fix AggregateBy with seed to use correct helper (#96603)
+    
+    Either the dedicate helper should be deleted or used. Since it exists, I changed the code to use it and avoid the closure allocation. If we instead want to reuse the same helper, the method can instead be changed to just call the other overload, and the unused helper can be deleted.
