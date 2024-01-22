@@ -1,0 +1,17 @@
+commit 5bb58408e4a8d21eec492fc9c47cc952bac55c8a
+Author: Adeel Mujahid <3840695+am11@users.noreply.github.com>
+Date:   Fri Jan 19 17:29:43 2024 +0200
+
+    Update HP libunwind to v1.8.0 (#96969)
+    
+    * Update libunwind to v1.8.0
+    
+    * Add HAVE_PIPE2 definition
+    
+    * Revert "Rework register load in aarch64_local_resume()"
+    
+    https://github.com/libunwind/libunwind/commit/08bc8c0da934fefec90bc8b96dcd582054d28934
+    
+    * Update Gos-linux.c
+    
+    * Update libunwind-version.txt
