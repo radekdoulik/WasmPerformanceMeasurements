@@ -1,0 +1,8 @@
+commit 3ca0c5a26292b8eaed92935840a199663c375636
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Thu Jan 18 21:21:00 2024 +0100
+
+    Collect SPMI collections as part of Fuzzlyn pipeline (#97154)
+    
+    This will include SPMI collections recorded over the reduction process
+    in the zip artifact produced by the Fuzzlyn runs.
