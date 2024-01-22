@@ -1,0 +1,19 @@
+commit c53d22162ba46c2024340e23f4ab42ed04025bee
+Author: Tanner Gooding <tagoo@outlook.com>
+Date:   Thu Jan 18 20:37:47 2024 -0800
+
+    Adding vectorized implementations of Exp to Vector64/128/256/512 (#97114)
+    
+    * Adding vectorized implementations of Exp to Vector64/128/256/512
+    
+    * Accelerate TensorPrimitives.Exp for double
+    
+    * Ensure the right allowedVariance is used for the vectorized exp tests
+    
+    * Ensure V128/256/512 defers to the next smaller vector size by operating on the lower/upper halves
+    
+    * Ensure the right allowedVariance amounts are used for the vectorized Exp(float) tests
+    
+    * Ensure we call Exp and that the methods are properly inlined
+    
+    * Skip the Exp test for Vector128/256/512 on Mono due to https://github.com/dotnet/runtime/issues/97176
