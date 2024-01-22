@@ -1,0 +1,11 @@
+commit 8c73f0f7129aae439e7da095c7b3f25e7209bb76
+Author: Jan Vorlicek <janvorli@microsoft.com>
+Date:   Fri Jan 19 14:28:33 2024 +0100
+
+    Disable dump creation for ParallelCrashTester child (#97095)
+    
+    The child process is intentionally crashing, so creating a dump for it
+    is a waste of time and disk space and it also seems to be causing random
+    failures of the test in the CI.
+    
+    This change disables the dump creation for it.
