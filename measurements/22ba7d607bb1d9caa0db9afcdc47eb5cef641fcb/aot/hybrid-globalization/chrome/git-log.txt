@@ -1,0 +1,23 @@
+commit 22ba7d607bb1d9caa0db9afcdc47eb5cef641fcb
+Author: Aaron Robinson <arobins@microsoft.com>
+Date:   Thu Jan 11 20:41:50 2024 -0800
+
+    Remove helperframe marshal (#96860)
+    
+    * Remove HelperMethodFrames from Marshal APIs
+    
+    Convert Marshal.GetHRForException and Marshal.GetExceptionForHRInternal to QCalls.
+    
+    * Convert OffsetOfHelper to QCall
+    
+    * Feedback
+    
+    * Remove GC transition.
+    
+    * Update src/coreclr/System.Private.CoreLib/src/System/Runtime/InteropServices/Marshal.CoreCLR.cs
+    
+    * Update src/coreclr/vm/marshalnative.cpp
+    
+    ---------
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
