@@ -1,0 +1,28 @@
+commit 0f07c3955378c2b8fd7e3ab05ecd6283aac403e3
+Author: Bruce Forstall <brucefo@microsoft.com>
+Date:   Fri Jan 19 11:03:41 2024 -0800
+
+    Fix phase order problem with throw helper blocks (#97201)
+    
+    Throw helper blocks are created in morph, then possibly removed if
+    unnecessary in StackLevelSetter (under optimization). However, there
+    was a case where StackLevelSetter removed an OVERFLOW throw helper
+    block after optimization proved it unnecessary because of a constant
+    zero dividend, but between StackLevelSetter and codegen, LSRA introduced
+    a RELOAD node above the constant zero that `GenTree::CanDivOrModPossiblyOverflow()`
+    didn't understand, thus causing it to think that overflow was possible.
+    Codegen looked for the OVERFLOW throw helper block and couldn't find it.
+    
+    There are multiple fixes here, somewhat "defense in depth":
+    - If `StackLevelSetter::SetThrowHelperBlocks()` determines a node can't throw
+    divide-by-zero or ArithmeticException (overflow), it marks the node
+    GTF_DIV_MOD_NO_BY_ZERO / GTF_DIV_MOD_NO_OVERFLOW, respectively. This is what
+    morph does earlier in compilation.
+    - `genMarkLabelsForCodegen()` does not mark throw helper blocks where `acdUsed`
+    is false, to avoid marking deleted blocks.
+    - More asserts are added that `acdUsed` is true when codegen goes to generate
+    a branch to a throw helper.
+    - `GenTree::OperExceptions` / `CanDivOrModPossiblyOverflow` are changed to skip
+    COPY/RELOAD nodes.
+    
+    Fixes #96224
