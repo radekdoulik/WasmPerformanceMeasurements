@@ -1,0 +1,15 @@
+commit 02a3fcb60a1e59e0193ef3f6c70f90d59c436abc
+Author: Bruce Forstall <brucefo@microsoft.com>
+Date:   Thu Jan 18 09:22:27 2024 -0800
+
+    Fix maintenance of `genReturnBB` pointer (#96935)
+    
+    If the `genReturnBB` block is split, the pointer needs
+    to be updated.
+    
+    Without this, we ended up with a situation where the
+    `genReturnBB` did not point to the return block, leading to
+    omitting the code to remove the PInvoke frame from the thread's
+    Frame list.
+    
+    Fixes #96409
