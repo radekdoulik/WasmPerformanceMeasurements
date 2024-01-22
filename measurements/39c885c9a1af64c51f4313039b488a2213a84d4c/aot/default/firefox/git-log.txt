@@ -1,0 +1,9 @@
+commit 39c885c9a1af64c51f4313039b488a2213a84d4c
+Author: Nick Taylor <89022673+olo-ntaylor@users.noreply.github.com>
+Date:   Thu Jan 11 08:04:43 2024 -0500
+
+    STJ/JsonPropertyDictionary: eagerly initialize _propertyDictionary if known capacity (#96769)
+    
+    * STJ/JsonPropertyDictionary: eagerly initialize _propertyDictionary if capacity known
+    
+    * wip/squash. fix formatting
