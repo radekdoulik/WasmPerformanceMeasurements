@@ -1,0 +1,10 @@
+commit 6f9d6569684cc17015aa6fc5f9d9a5f7580ade97
+Author: Bruce Forstall <brucefo@microsoft.com>
+Date:   Sun Jan 14 15:18:17 2024 -0800
+
+    JitDump and other minor improvements (#96933)
+    
+    1. Make `DOTNET_JitDisasmAssemblies` apply to `JitDump` as well.
+    2. Fix JitDump of `gsParamsToShadows`: it calls `fgMorphTree` which requires
+    `compCurBB` to be set, but apparently only for JitDump.
+    3. Various typos and formatting nits
