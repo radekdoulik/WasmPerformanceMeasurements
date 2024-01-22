@@ -1,0 +1,5 @@
+commit 3e8f5889a605816c6d30510c6f798ff866a3b718
+Author: Radek Zikmund <32671551+rzikm@users.noreply.github.com>
+Date:   Sat Jan 6 12:51:20 2024 +0100
+
+    Fix memory leak on OCSP_Response (#96561)
