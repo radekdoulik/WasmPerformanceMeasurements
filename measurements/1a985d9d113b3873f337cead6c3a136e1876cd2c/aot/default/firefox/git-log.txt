@@ -1,0 +1,54 @@
+commit 1a985d9d113b3873f337cead6c3a136e1876cd2c
+Author: Filip Navara <filip.navara@gmail.com>
+Date:   Wed Jan 17 15:34:24 2024 +0100
+
+    [NativeAOT] 32-bit platform ObjWriter and bit rot fixes (#96890)
+    
+    * Use PC-relative relocations for ARMEmitter.EmitMOV(dest, symbol)
+    
+    * Fix handling of signed offsets in IMAGE_REL_BASED_THUMB_BRANCH24 calculations
+    
+    * Generate position independent code in NativeAOT on linux-arm
+    
+    * Handle ARM32 in DwarfCie
+    
+    * Fix relocations emitted in 32-bit ELF for x86/arm32; apply correct addends to account for R2R ABI differences; use inline addend for 32-bit platforms; mark function symbols as Thumb code on ARM
+    
+    * ELF/ARM32: Emit thumb mapping symbols for executable sections
+    
+    * Try to revert ARMEmitter.EmitMOV
+    
+    * Convert IMAGE_REL_BASED_THUMB_MOV32_PCREL to ELF with the same offset as R2R
+    
+    * Unoptimal, but working, version of INLINE_GET_TLS_VAR for ARM32
+    
+    * Use PC-relative relocations for ARMEmitter.EmitMOV(dest, symbol)
+    
+    * Fat function pointers are not function symbols as far as ELF is concerned; the should not get the symbol size or the Thumb bit
+    
+    * Fix some bits and pieces of the ARM unwinding code
+    
+    * Don't try to use ObjWriter package on unsupported platforms
+    
+    * Generate valid ARM32 DWARF unwind info in JIT
+    
+    * Handle negative offsets in CFI_REL_OFFSET conversion (unused at the moment)
+    
+    * Add linux-arm support to cross-compile targets
+    
+    * Update src/coreclr/nativeaot/Runtime/unix/unixasmmacrosarm.inc
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
+    
+    * Update ObjectWriter.cs
+    
+    Co-authored-by: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+    
+    * Fix the order of register push in CFI unwind codes on ARM.
+    
+    * Make jit-format happy without making the code look ugly
+    
+    ---------
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
+    Co-authored-by: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
