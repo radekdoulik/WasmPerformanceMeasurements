@@ -1,0 +1,7 @@
+commit f57a40e2268173c05b4629f80bf6ff0edaf1a074
+Author: Radek Doulik <radek.doulik@gmail.com>
+Date:   Tue Jan 23 17:49:37 2024 +0100
+
+    [wasm] Improve blazor-frame for browser-bench (#97386)
+    
+    Create it from scratch with dotnet new and patch it.
