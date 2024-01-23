@@ -1,0 +1,11 @@
+commit 2dc8c956f98389418400dda5bda663d67cbea938
+Author: Elinor Fung <elfung@microsoft.com>
+Date:   Mon Jan 22 13:09:43 2024 -0800
+
+    Clean up and consolidate HostModel tests. (#97244)
+    
+    - Merge HostModel AppHost/Bundle/ComHost tests into one `Microsoft.NET.HostModel.Tests` project
+      - Move symbolic link tests into `HostActivation.Tests` - they are not testing HostModel
+      - Rename `AppHostUpdateTests` to `CreateAppHost` - that is the API they are testing
+    - Switch `AppWithUnknownLanguageResource` to pre-built asset
+      - Move to `CreateAppHost` test class
