@@ -1,0 +1,9 @@
+commit 2f5c685b0d6a31edd312653046b6b5c7e33665b0
+Author: Jan Kotas <jkotas@microsoft.com>
+Date:   Tue Jan 23 10:52:59 2024 -0800
+
+    Delete workarounds for old Windows SDKs (#97358)
+    
+    * Delete workarounds for old Windows SDKs
+    
+    * Add Linux x86 workaround to CoreCLR PAL
