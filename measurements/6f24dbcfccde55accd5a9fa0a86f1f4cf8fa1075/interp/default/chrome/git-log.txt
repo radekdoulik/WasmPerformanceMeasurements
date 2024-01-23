@@ -1,0 +1,7 @@
+commit 6f24dbcfccde55accd5a9fa0a86f1f4cf8fa1075
+Author: Aman Khalid <amankhalid@microsoft.com>
+Date:   Tue Jan 23 16:02:44 2024 -0500
+
+    Revert "JIT: Allow BBJ_COND false target to diverge from bbNext in layout optimization phase (#96609)" (#97407)
+    
+    This reverts commit 5598dac557c35d264c527e22239f1b33e0489376.
