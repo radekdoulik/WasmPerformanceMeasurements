@@ -1,0 +1,9 @@
+commit 979a94b861cd7b2f74b45f08089115931421f4fc
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Tue Jan 23 12:57:32 2024 +0100
+
+    JIT: Skip `BBJ_CALLFINALLYRET` in `BasicBlock::VisitEHSuccs` (#97184)
+    
+    We currently skip yielding EH successors of BBJ_CALLFINALLYRET nodes in
+    `BasicBlock::VisitAllSuccs`. `BasicBlock::VisitEHSuccs` should be
+    consistent with this.
