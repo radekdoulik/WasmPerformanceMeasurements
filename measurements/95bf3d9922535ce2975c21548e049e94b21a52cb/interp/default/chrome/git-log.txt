@@ -1,0 +1,17 @@
+commit 95bf3d9922535ce2975c21548e049e94b21a52cb
+Author: Jan Kotas <jkotas@microsoft.com>
+Date:   Wed Jan 24 09:19:15 2024 -0800
+
+    Convert isExactType check to JIT/EE interface call (#97424)
+    
+    * Convert isExactType check to JIT/EE interface call
+    
+    The approximation of isExactType from class flags had false positives (correctness) and false negatives issues. Converting it to JIT/EE interface method fixes them both.
+    
+    Fixes #97134
+    
+    * Add test
+    
+    * Delete canInlineTypeCheck JIT/EE interface method
+    
+    All implementations return the same constant. Unlikely to be needed again.
