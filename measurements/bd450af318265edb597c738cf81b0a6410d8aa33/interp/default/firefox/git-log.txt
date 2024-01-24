@@ -1,0 +1,9 @@
+commit bd450af318265edb597c738cf81b0a6410d8aa33
+Author: Pavel Savara <pavel.savara@gmail.com>
+Date:   Wed Jan 24 13:30:38 2024 +0100
+
+    Microsoft.Extensions.Logging.Console.Tests dispose threads (#97390)
+    
+    ---------
+    Co-authored-by: Stephen Toub <stoub@microsoft.com>
+    Co-authored-by: Ilona Tomkowicz <itomkowicz@microsoft.com>
