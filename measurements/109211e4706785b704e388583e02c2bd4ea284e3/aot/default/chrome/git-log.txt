@@ -1,0 +1,10 @@
+commit 109211e4706785b704e388583e02c2bd4ea284e3
+Author: Ankit Jain <radical@gmail.com>
+Date:   Wed Jan 24 15:56:17 2024 -0500
+
+    [wasi/wasm] EmccCompile.cs: quote the compiler path (#97427)
+    
+    This broke in PR#95051 which changed the task to use a custom path to
+    the compiler instead of using `emcc` from `PATH`.
+    
+    Fixes https://github.com/dotnet/AspNetCore-ManualTests/issues/2594 .
