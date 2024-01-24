@@ -1,0 +1,23 @@
+commit 5342824129105a6822bb308c6f36fd237fba6a06
+Author: SingleAccretion <62474226+SingleAccretion@users.noreply.github.com>
+Date:   Wed Jan 24 19:04:44 2024 +0300
+
+    Fix the definition of TARGET_BROWSER in CMake (#97254)
+    
+    Without this change, put this in configurecompiler.cmake:
+    ```
+    message("CLR_CMAKE_TARGET_UNIX: ${CLR_CMAKE_TARGET_UNIX}, CLR_CMAKE_TARGET_LINUX: ${CLR_CMAKE_TARGET_LINUX}, CLR_CMAKE_TARGET_BROWSER: ${CLR_CMAKE_TARGET_BROWSER}")
+    ```
+    
+    Run:
+    ```
+    $env:EMSDK_PATH=...
+    ./build libs.native -a wasm -os browser
+    ```
+    
+    Observe:
+    ```
+    CLR_CMAKE_TARGET_UNIX: 1, CLR_CMAKE_TARGET_LINUX: , CLR_CMAKE_TARGET_BROWSER: 1
+    ```
+    
+    Also adds the corresponding HOST defines for consistency.
