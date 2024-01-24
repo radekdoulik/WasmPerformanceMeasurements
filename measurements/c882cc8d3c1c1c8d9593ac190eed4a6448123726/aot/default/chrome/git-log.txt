@@ -1,0 +1,12 @@
+commit c882cc8d3c1c1c8d9593ac190eed4a6448123726
+Author: Bruce Forstall <brucefo@microsoft.com>
+Date:   Tue Jan 23 14:33:00 2024 -0800
+
+    Improve BasicBlock dumping (#97362)
+    
+    * Improve BasicBlock dumping in the block table
+    
+    1. Display both true and false target destinations of blocks
+    2. If you set `DOTNET_JitDumpTerseNextBlock=1`, if a branch goes to the next block that will be displayed
+    in the table, display "*" instead of the block number, as a shorthand to reduce visual clutter.
+    3. Allow block dump to work with null (uninitialized) block targets.
