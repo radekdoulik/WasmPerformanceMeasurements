@@ -1,0 +1,7 @@
+commit cf16ed8fa95f136e007f55591f174689c020f386
+Author: Jan Kotas <jkotas@microsoft.com>
+Date:   Wed Jan 24 02:20:46 2024 -0800
+
+    Disable CreateBroadcasting_AllMethodsOverridden test for native AOT (#97436)
+    
+    The test is not compatible with aggressive trimming.
