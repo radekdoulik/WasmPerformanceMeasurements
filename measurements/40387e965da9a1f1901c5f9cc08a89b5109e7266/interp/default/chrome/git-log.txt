@@ -1,0 +1,7 @@
+commit 40387e965da9a1f1901c5f9cc08a89b5109e7266
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Thu Jan 25 14:46:05 2024 -0500
+
+    Fix handling of capture groups inside of negative lookarounds (#97463)
+    
+    The Regex compiler and source generator weren't uncapturing captures inside of a negative lookaround. That then leads both to subsequent backreferences matching when they shouldn't.
