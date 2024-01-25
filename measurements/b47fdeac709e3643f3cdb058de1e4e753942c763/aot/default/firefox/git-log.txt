@@ -1,0 +1,5 @@
+commit b47fdeac709e3643f3cdb058de1e4e753942c763
+Author: Vladimir Sadov <vsadov@microsoft.com>
+Date:   Wed Jan 24 15:36:49 2024 -0800
+
+    enforce FIELD_OFFSET_LAST_REAL_OFFSET size limit on InlineArrays (#97403)
