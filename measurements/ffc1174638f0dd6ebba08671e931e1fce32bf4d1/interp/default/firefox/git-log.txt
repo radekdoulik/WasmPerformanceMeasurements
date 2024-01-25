@@ -1,0 +1,18 @@
+commit ffc1174638f0dd6ebba08671e931e1fce32bf4d1
+Author: Jan Vorlicek <janvorli@microsoft.com>
+Date:   Thu Jan 25 02:30:33 2024 +0100
+
+    Fix computing available memory on OSX for GC (#97102)
+    
+    * Fix computing available memory on OSX for GC
+    
+    We were using the `vm_statistics_data_t::free_count` as the available memory
+    reported to the GC. It turned out this value is only a small portion of the
+    available memory and that the appropriate value should be based on the
+    kern.memorystatus_level value obtained using sysctl. That value represents percentual
+    amount of available memory, so multiplying it by the total memory bytes gets
+    the available memory bytes.
+    
+    Close #94846
+    
+    * Reflect PR feeback and move total memory computation to init
