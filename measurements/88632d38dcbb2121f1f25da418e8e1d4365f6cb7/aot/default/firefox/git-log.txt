@@ -1,0 +1,23 @@
+commit 88632d38dcbb2121f1f25da418e8e1d4365f6cb7
+Author: Thays Grazia <thaystg@gmail.com>
+Date:   Wed Jan 24 17:14:32 2024 -0300
+
+    [mono][debugger] Fix decode_value_compute_size (#97418)
+    
+    * Fix 8653 xamarin
+    
+    * Fixing the order of the code, it doesn't matter in this case, but just to keep it correct.
+    
+    * Fix compilation
+    
+    * Fix debug fixed array on wasm debugger.
+    
+    * Remove unnecessary method.
+    
+    * Fix assertion when calculating size of valuetype
+    
+    * Fix indentation. Adding test case.
+    
+    * remove unrelated change
+    
+    * remove unrelated change
