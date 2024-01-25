@@ -1,0 +1,37 @@
+commit 15a46d2ede3d4d19352b5d134202c5eb8406dda9
+Author: Filip Navara <filip.navara@gmail.com>
+Date:   Thu Jan 25 20:07:26 2024 +0100
+
+    [NativeAOT] Clean up some win-x86 bit rot (#97495)
+    
+    * Fix condition for enabling INTERFACE_DISPATCH_CACHE_HAS_CELL_BACKPOINTER
+    
+    * Add CONTEXT.ForEachPossibleObjectRef for x86
+    
+    * Fix compilation of ep-rt-aot on x86.
+    
+    * Update ASM offsets for x86
+    
+    * Fix inconsistent use of FASTCALL.
+    
+    * Fix compilation of StackFrameIterator on x86
+    
+    * Windows SDK now defines dummy KNONVOLATILE_CONTEXT_POINTERS that conflict with the custom definition, workaround that.
+    
+    * Add implementation of ReturnKindToTransitionFrameFlags and TransitionFrameFlagsToReturnKind for x86
+    
+    * Revert unintended change.
+    
+    * Add x86 write barrier helpers
+    
+    * Sprinkle around PORTABILITY_ASSERT on unimplemented x86 code paths
+    
+    * One more PORTABILITY_ASSERT in FastDbl2Lng
+    
+    * Delete FastDbl2Lng.
+    
+    * Apply suggestions from code review
+    
+    ---------
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
