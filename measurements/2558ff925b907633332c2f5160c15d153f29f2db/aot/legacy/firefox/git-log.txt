@@ -1,0 +1,18 @@
+commit 2558ff925b907633332c2f5160c15d153f29f2db
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Thu Jan 25 09:44:18 2024 +0100
+
+    JIT: Improve call args interference checking when stores are involved (#97409)
+    
+    - Fix the propagation of `GTF_ASG` during call args morphing
+    - Introduce `Compiler::gtMayHaveStoreInterference` that can check whether two
+      trees interfere with each other due to a store in one tree that stores to a
+      local read by the other tree
+    - Use the new helper when checking for whether we should reverse `GT_STOREIND`
+      nodes
+    - Use the new helper when deciding whether previous args need to be evaluated to
+      temps because we see an argument with an embedded store (typically a call now
+      that we propagate flags correctly).
+    - Use the new helpers when checking interference in `optRedundantRelop`
+    
+    Fix #13758
