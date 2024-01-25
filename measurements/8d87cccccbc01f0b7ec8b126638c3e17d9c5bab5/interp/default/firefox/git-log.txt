@@ -1,0 +1,9 @@
+commit 8d87cccccbc01f0b7ec8b126638c3e17d9c5bab5
+Author: Dmitry Kurtaev <dmitry.kurtaev@gmail.com>
+Date:   Thu Jan 25 12:38:44 2024 +0300
+
+    [RISC-V] GCC crosscompile fixes (#97445)
+    
+    * No inline in genJumpToThrowHlpBlk_la method body
+    
+    * Far jump
