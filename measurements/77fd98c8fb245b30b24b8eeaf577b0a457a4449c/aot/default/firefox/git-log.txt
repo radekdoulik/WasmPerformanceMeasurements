@@ -1,0 +1,223 @@
+commit 77fd98c8fb245b30b24b8eeaf577b0a457a4449c
+Author: Grzegorz Tomasz Czarnecki <grzegorz.czarnecki.2021@gmail.com>
+Date:   Thu Jan 25 15:37:50 2024 +0100
+
+    [RISC-V] Added designated output instruction emitters (#96741)
+    
+    * Added declarations and r-type definition with assert helper
+    
+    * Added insEncodeITypeInstr
+    
+    * Added definition of S type instr
+    
+    * Added definition of U type instr
+    
+    * Added definition of B type instr
+    
+    * Added definition of J type instr
+    
+    * Restructurized bit operations
+    
+    * Improved checks in insEncode functions
+    
+    * Fixed some of the encoding methods
+    
+    * Bugfix
+    
+    * Fixed comparation sign
+    
+    * Revert "Fixed comparation sign"
+    
+    This reverts commit c238b82cf939c19ed55ce9e027fcaf4def6ba064.
+    
+    * Fixed comparation sign
+    
+    * Reverted changes in emitOutputInstrJumpDistanceHelper
+    
+    * Fixed misspell
+    
+    * Fixes after review
+    
+    * Fixes in insEncodeJTypeInstr
+    
+    * Added emitOutput_RTypeInstr
+    
+    * Added emitOutput_ITypeInstr
+    
+    * Added emitOutput_STypeInstr
+    
+    * Added emitOutput_UTypeInstr
+    
+    * Added emitOutput_BTypeInstr
+    
+    * Added emitOutput_JTypeInstr
+    
+    * Fixes in emitOutput_ methods
+    
+    * Replaced reloc with new code
+    
+    * Removed invalid code
+    
+    * Added emit output rellocation
+    
+    * Minor changes
+    
+    * Added emitOutputInstr_Addi8
+    
+    * Implemented further addi32
+    
+    * Reverted changes from la
+    
+    * Fixed format bug
+    
+    * Fixed comment
+    
+    * Renamed some of the emitters
+    
+    * Added some comments
+    
+    * Improved implementation and finished addi32
+    
+    * Microimprovements
+    
+    * Quickfix to upperNBitsOfWord
+    
+    * Finished substituting instr_optsi
+    
+    * Fixed bug in mask
+    
+    * Added emitOutputInstr_OptsRcReloc and prelimiary parent function
+    
+    * Added emitOutput_OptsRcNoReloc
+    
+    * Improvements in OptsRc
+    
+    * Fixes and introduced an emitOutputInstr_OptsRc
+    
+    * Added emitOutputInstr_OptsRl and removed unused args from other functions
+    
+    * Added emitOutputInstr_OptsRlReloc
+    
+    * Finished emitOutputInstr_OptsRcNoReloc
+    
+    * Fixed bugs and finished opts rl
+    
+    * Added emitOutputInstr_OptsJalr
+    
+    * Added emitOutputInstr_OptsJalr8
+    
+    * Added special comparation inverter
+    
+    * Add emitOutputInstr_OptsJalr24
+    
+    * Added emitOutputInstr_OptsJalr28
+    
+    * Improved emitOutputInstr_OptsJalr28
+    
+    * Enabled new opts jalr impl
+    
+    * Added emitOutputInstr_OptsJCond
+    
+    * Added emitOutputInstr_OptsJ
+    
+    * Replaced old code with the new one
+    
+    * Added emitOutputInstr_OptsC
+    
+    * Fixed last piece of switch
+    
+    * Removed old code
+    
+    * Simplified code
+    
+    * Other fixes
+    
+    * Fixes in emitOutput_* instr
+    
+    * Fixed bitmask bug
+    
+    * Added temporary reinforced assers
+    
+    * Added shift ins
+    
+    * Improved shift func
+    
+    * Inserted shift func
+    
+    * Fixed minor bug
+    
+    * Other fixes
+    
+    * Added checks to r type emitter
+    
+    * Improved sanity checks in the emitOutput_RTypeInstr
+    
+    * Added ITypeInstr sanity checks
+    
+    * Moved ITypeInstr_Shift sanity Check
+    
+    * Added comment to the emitriscv64
+    
+    * Added S-type sanity checks
+    
+    * Removed Shift ITypeInstr Variant
+    
+    * Fixes
+    
+    * Added BType sanity check
+    
+    * Added csr operations to sanity checks
+    
+    * Added ITypeInstr sanity check
+    
+    * Fixes
+    
+    * Removed duplicated code
+    
+    * Fixed bug in noreloc
+    
+    * Removed dead asserts
+    
+    * Removed now unused asserts
+    
+    * Fixed format
+    
+    * Fixed missing const
+    
+    * Removed useless ifdef
+    
+    * Fixed missing asserts
+    
+    * Added a new assert
+    
+    * Added zero assert
+    
+    * Removed useless FALLTHROUGH statements
+    
+    * Added trimmers
+    
+    * Added explicit signed integers trimming
+    
+    * Fixes to prev commit
+    
+    * Added castFloatOrIntegralReg and fixed invalid asserts
+    
+    * Renamed upper word helpers
+    
+    * Spell fix
+    
+    * Moved castFloat... to the emitter
+    
+    * Changes after code review
+    
+    * Removed bitcast
+    
+    * Added additional check
+    
+    * Removed unnecessary reinterpret casts
+    
+    * Removed redundant asserts
+    
+    ---------
+    
+    Co-authored-by: Grzegorz Czarnecki <g.czarnecki@samsung.com>
