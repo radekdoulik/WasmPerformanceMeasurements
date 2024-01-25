@@ -1,0 +1,7 @@
+commit 0814cfa3a8ecabb03ccf3fd96f9c979465d5340d
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Wed Jan 24 16:56:40 2024 -0500
+
+    Update Enumerable.Range to support Vector<int>.Count <= 16 (#97464)
+    
+    `Vector<T>` is being updated to support 512-bit vectors. Update Enumerable.Range to support it as well. In the future hopefully this can be replaced by a method that'll just do the "right thing" regardless of vector size.
