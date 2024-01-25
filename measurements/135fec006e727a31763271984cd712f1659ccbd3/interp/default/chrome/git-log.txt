@@ -1,0 +1,13 @@
+commit 135fec006e727a31763271984cd712f1659ccbd3
+Author: Tanner Gooding <tagoo@outlook.com>
+Date:   Wed Jan 24 22:25:54 2024 -0800
+
+    Allow TernaryLogic to optimize down to BlendVariableMask where appropriate (#97468)
+    
+    * Allow TernaryLogic to optimize down to BlendVariableMask where appropriate
+    
+    * Ensure the BlendVariableMask node has the parameters in the right order
+    
+    * Don't unnecessarily modify morph.cpp
+    
+    * Ensure we remove `condition` not `op1`
