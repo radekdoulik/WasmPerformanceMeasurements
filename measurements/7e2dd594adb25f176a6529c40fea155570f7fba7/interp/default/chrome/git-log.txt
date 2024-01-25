@@ -1,0 +1,41 @@
+commit 7e2dd594adb25f176a6529c40fea155570f7fba7
+Author: Filip Navara <filip.navara@gmail.com>
+Date:   Thu Jan 25 17:32:30 2024 +0100
+
+    [NativeAOT] Linux/ARM bring-up (4/n) (#97269)
+    
+    * Fix recursive generics for ARM
+    
+    * Fix compilation on Debian Bookworm
+    
+    * Implement thread return address hijacking for ARM
+    
+    * Implement TrailingEpilogueInstructionsCount for ARM
+    
+    * Fix comment
+    
+    * Fix bugs in RhpGcProbeHijack logic
+    
+    * Fix register trashing by INLINE_GETTHREAD in FixupHijackedCallstack on ARM
+    
+    * Mask the Thumb bit when loading IP from probe frame
+    
+    * Disable DwarfDump on linux-arm
+    
+    * Cleanup
+    
+    * Emit DWARF info with instruction addresses without Thumb bit (matches clang)
+    
+    * Report R2/R3 registers in ForEachPossibleObjectRef
+    
+    * Ensure that PInvokeTransitionFrame(s) on the stack are 8-byte aligned. Save FP return values on hijack.
+    
+    * Tame the Thumb bit
+    
+    * Fix GC hole when thread hijack happens with r0 register holding a reference (eg. boxed int)
+    
+    * Update src/coreclr/nativeaot/Runtime/arm/GcProbe.S
+    
+    ---------
+    
+    Co-authored-by: Vladimir Sadov <vsadov@microsoft.com>
