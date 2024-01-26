@@ -1,0 +1,17 @@
+commit 328ef208049cb7ea515723e33467ffb5ecfde5dd
+Author: Radek Doulik <radek.doulik@gmail.com>
+Date:   Fri Jan 26 13:48:52 2024 +0100
+
+    [wasm][mt] Fix few libraries projects (#97539)
+    
+    * [wasm][mt] Fix few libraries projects
+    
+    * Conditional TFMs in src/System.Linq.Parallel.csproj
+    
+    Co-authored-by: Viktor Hofer <viktor.hofer@microsoft.com>
+    
+    * Feedback
+    
+    ---------
+    
+    Co-authored-by: Viktor Hofer <viktor.hofer@microsoft.com>
