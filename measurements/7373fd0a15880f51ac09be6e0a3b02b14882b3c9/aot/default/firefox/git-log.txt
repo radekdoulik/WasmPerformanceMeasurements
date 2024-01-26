@@ -1,0 +1,16 @@
+commit 7373fd0a15880f51ac09be6e0a3b02b14882b3c9
+Author: Andy Ayers <andya@microsoft.com>
+Date:   Fri Jan 26 07:29:34 2024 -0800
+
+    JIT: capture all write barrier helper addresses for SPMI (#97535)
+    
+    When varying CSEs we can sometimes alter the write barrier that is
+    needed. In particular if we CSE a heap address computation we may
+    lose track of the fact that an indir is writing to the heap, and so
+    change which write barrier needs to be used.
+    
+    See #97534.
+    
+    Even if that's fixed it seems like we still might change our minds
+    for various reasons, so when running under SPMI, just collect all
+    the possible write barrier helper addresses.
