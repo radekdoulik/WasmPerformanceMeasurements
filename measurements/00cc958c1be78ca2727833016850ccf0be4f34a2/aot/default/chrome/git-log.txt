@@ -1,0 +1,35 @@
+commit 00cc958c1be78ca2727833016850ccf0be4f34a2
+Author: Kunal Pathak <Kunal.Pathak@microsoft.com>
+Date:   Fri Jan 26 12:15:42 2024 -0800
+
+    NativeAOT: Inline tls access on linux/x64 (#97413)
+    
+    * linux-x64 support
+    
+    * Relocate TLSGD
+    
+    * fix the tlsRootObject
+    
+    * working codegen
+    
+    * fix the tls_get_add
+    
+    * fix build errors
+    
+    * proper handling of 0x48
+    
+    * fix reloc for IMAGE_REL_TLSGD
+    
+    * Remove the hand written assembly for linux/x64
+    
+    * Remove commented code
+    
+    * jit format
+    
+    * some more cleanup
+    
+    * Add the missing delta for IMAGE_REL_TLSGD
+    
+    * update JIT/EE guid
+    
+    * Update superpmi to inclue tlsGetAddrFtnPtr
