@@ -1,0 +1,15 @@
+commit c105e7da368ad23097e20e51b0ad054b771dab7c
+Author: Radek Doulik <radek.doulik@gmail.com>
+Date:   Fri Jan 26 08:29:02 2024 +0100
+
+    [wasm][mt] Fix System.Threading.Tasks.Parallel build (#97505)
+    
+    * [wasm][mt] Fix System.Threading.Tasks.Parallel build
+    
+    Fixes #91583 and #91579
+    
+    * Enable 5 more tests
+    
+    * Feedback
+    
+    * Fix typo
