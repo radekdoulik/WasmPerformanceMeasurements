@@ -1,0 +1,17 @@
+commit dd158ba513a5a09f8889e5cf8873655a4f3c6fdd
+Author: Andy Gocke <angocke@microsoft.com>
+Date:   Thu Jan 25 14:21:58 2024 -0800
+
+    Only skip Native AOT for crossgen in non-portable build (#97523)
+    
+    * Only skip Native AOT for crossgen in non-portable build
+    
+    Fixes https://github.com/dotnet/runtime/issues/66859
+    
+    * Update src/coreclr/tools/aot/crossgen2/crossgen2_publish.csproj
+    
+    Co-authored-by: Viktor Hofer <viktor.hofer@microsoft.com>
+    
+    ---------
+    
+    Co-authored-by: Viktor Hofer <viktor.hofer@microsoft.com>
