@@ -1,0 +1,14 @@
+commit de048989e77a839a4db0ea6aee4e5d156eb48968
+Author: David Wrighton <davidwr@microsoft.com>
+Date:   Thu Jan 25 15:07:38 2024 -0800
+
+    Change allocation of `MethodData` structures to do less unnecessary work (#96857)
+    
+    While debugging performance issues with process startup from a customer, I noticed that we spent a measurable amount of time in the OS memory allocator allocating the memory for MethodData structures.
+    
+    I found a couple of things
+    
+    We were creating MethodDataObject structures that contained information about all methods (including non-virtuals) when most uses within the type loader were both non-cacheable creations, and ignored all non-virtual functions.
+    Add a concept of allocating and filling either a full MethodDataObject or one that only had virtuals in it.
+    When allocating the memory for MethodDataInterfaceImpl structures we were allocating it based on the number of methods on the type, but we were only utilizing the memory associated with the number of virtuals on the type. Change to allocate the correct size.
+    We had a case where we only needed to get the MethodData if it existed in the cache, and update the cached copy. Adjust the path so that it can avoid allocating the MethodData at all in that case.
