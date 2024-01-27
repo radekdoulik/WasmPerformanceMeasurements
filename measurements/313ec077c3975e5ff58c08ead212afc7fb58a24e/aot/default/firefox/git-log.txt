@@ -1,0 +1,24 @@
+commit 313ec077c3975e5ff58c08ead212afc7fb58a24e
+Author: Bruce Forstall <brucefo@microsoft.com>
+Date:   Tue Jan 23 22:20:32 2024 -0800
+
+    Fix handling of loop alignment targets (#97367)
+    
+    * Fix handling of loop alignment targets
+    
+    Now that `BBJ_COND` block false target is not necessarily
+    fall-through, the loop alignment code needs to consider the
+    false target as what induces a loop via a false target
+    back edge.
+    
+    Also, stop marking blocks after possible loop back edges for
+    aligned loops as needing labels; they do not need to be so marked.
+    
+    * Restore setting label on BasicBlock after setting `igLoopBackEdge`
+    
+    This minimizes the size of an aligned loop by `getLoopSize`.
+    
+    Also, add `superpmi.py asmdiffs --alignloops` argument to allow
+    specifying that you want to run asmdiffs with loop alignment enabled.
+    By default, asmdiffs is done with loop alignment disabled, to avoid
+    too many extraneous diffs.
