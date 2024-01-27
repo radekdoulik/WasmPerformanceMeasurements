@@ -1,0 +1,8 @@
+commit 1e8b750c0437944c0bdc299b818e94c970df9c19
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Fri Jan 26 10:03:49 2024 +0100
+
+    JIT: Factor loop duplication code (#97506)
+    
+    Factor the loop duplication code out of loop cloning and loop unrolling
+    in anticipation of also using it in loop peeling.
