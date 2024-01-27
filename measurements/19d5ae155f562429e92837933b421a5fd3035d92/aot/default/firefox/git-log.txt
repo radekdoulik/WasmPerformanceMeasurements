@@ -1,0 +1,5 @@
+commit 19d5ae155f562429e92837933b421a5fd3035d92
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Sat Jan 27 08:08:15 2024 -0500
+
+    Tweak Enumerable.ToArray to reduce some overheads (#97458)
