@@ -1,0 +1,10 @@
+commit 9a3cacd9c9c1acbf3c1b84d5241be4091dab3e46
+Author: David Wrighton <davidwr@microsoft.com>
+Date:   Fri Jan 26 13:37:12 2024 -0800
+
+    Move PendingTypeLoadTable from the ClassLoader object to a global structure (#96653)
+    
+    - Shard the hashtable so that it will rarely have lock contention
+    - Pre-allocate the PendingTypeLoad Entries. This reduces allocator pressure on startup substantially, especially in the presence of multithreaded loading where the struct is allocated on 1 thread and often freed on another.
+    
+    The effectiveness of the pre-allocation and sharding heuristics was measured on a complex ASP.NET scenario tweaked to perform extremely high numbers of multithreaded loads and produced startup wins of about 10%.
