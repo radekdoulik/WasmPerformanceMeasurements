@@ -1,0 +1,13 @@
+commit 4fc943c3cb3feb72d1e33d8356a51e8d0bbf3ac7
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Sat Jan 27 18:34:28 2024 -0500
+
+    Add TensorPrimitives.ConvertTruncating/Saturating/Checked (#97572)
+    
+    * Add TensorPrimitives.ConvertTruncating/Saturating/Checked
+    
+    * Fix auto-indentation
+    
+    * Add comment
+    
+    * Fix failures
