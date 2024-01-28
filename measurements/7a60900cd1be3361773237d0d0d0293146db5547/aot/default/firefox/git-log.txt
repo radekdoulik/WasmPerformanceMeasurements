@@ -1,0 +1,13 @@
+commit 7a60900cd1be3361773237d0d0d0293146db5547
+Author: Tanner Gooding <tagoo@outlook.com>
+Date:   Sat Jan 27 18:57:32 2024 -0800
+
+    Refactor how the embedded rounding is handled so the logic is more reusable (#97569)
+    
+    * Refactor how the embedded rounding is handled so the logic is more reusable
+    
+    * Remove some unnecessary changes
+    
+    * Apply formatting patch
+    
+    * Ensure we always consume the rounding mode operand and produce the register
