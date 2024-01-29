@@ -1,0 +1,5 @@
+commit 472a38c9b45c0324c35247a5ae5f27a230811a7b
+Author: Filip Navara <filip.navara@gmail.com>
+Date:   Sun Jan 28 22:57:43 2024 +0100
+
+    [NativeAOT] Disable FEATURE_USE_SOFTWARE_WRITE_WATCH_FOR_GC_HEAP on 32-bit platforms (#97618)
