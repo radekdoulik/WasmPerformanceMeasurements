@@ -1,0 +1,12 @@
+commit 742039fd508eb451c0048527bf307125e9572b43
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Mon Jan 29 14:59:45 2024 +0100
+
+    JIT: Remove some loop flags (#97314)
+    
+    - Remove `BBF_OLD_LOOP_HEADER_QUIRK`. It should have been removed with
+      the removal of the old loop code.
+    - Remove `BBF_LOOP_PREHEADER`. It is not longer necessary to maintain
+      this since we do not make any flowgraph changes while we try to keep
+      loops incrementally up to date. So the only effect is some
+      conservative logic around compaction.
