@@ -1,0 +1,29 @@
+commit 8b082e10aa8e7ca3764f8aea29f4aa961b79c0f2
+Author: hrrrrustic <hrrrrustic@gmail.com>
+Date:   Mon Jan 29 22:07:44 2024 +0300
+
+    StreamOnSqlBytes Read/Write on Spans (#86674)
+    
+    * Implement span overloads
+    
+    * Add StreamOnBytes tests
+    
+    * small tests update
+    
+    * Reroute single byte read/write to span version
+    
+    * Remove _rgbWorkBuf
+    
+    * Add WriteInternal
+    
+    * Internal -> NoValidation
+    
+    * Swap arguments
+    
+    * Swap methods
+    
+    * One more method swap
+    
+    ---------
+    
+    Co-authored-by: Stephen Toub <stoub@microsoft.com>
