@@ -1,0 +1,5 @@
+commit 0f70e9aa5f08847680162a6dc712e069f0334b52
+Author: Egor Bogatov <egorbo@gmail.com>
+Date:   Mon Jan 29 11:38:50 2024 +0100
+
+    Fix GT_XCHG for byte on x86 (#97593)
