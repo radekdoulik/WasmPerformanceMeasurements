@@ -1,0 +1,14 @@
+commit ac411ed8f534e4b3440172419f29eeb3d6dcf202
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Tue Jan 30 07:09:56 2024 +0900
+
+    Split FeatureSwitchManager (#97626)
+    
+    I had this refactor in a branch I ended up not using. The refactor itself is a good change.
+    
+    `FeatureSwitchManager` does two things:
+    
+    * Read and parse ILLink substitutions on a per-assembly basis as needed
+    * Actually substitute the IL
+    
+    The responsibilities are pretty cleanly separated, so put these in different classes and files. It's possible we'll eventually get rid of the one that substitutes IL if/when RyuJIT becomes the scanner.
