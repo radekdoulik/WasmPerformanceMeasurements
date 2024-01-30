@@ -1,0 +1,21 @@
+commit 5e80e3e5a243c5516362d8f12552b84a6a4afa7c
+Author: Filip Navara <filip.navara@gmail.com>
+Date:   Tue Jan 30 05:46:29 2024 +0100
+
+    [NativeAOT] ARM: Implement the EABI (#97604)
+    
+    * ObjWriter/ARM: Emit EABI attributes section
+    
+    * Initial implementation of ARM EHABI
+    
+    * Add VPOP unwinding and optimized POP codes
+    
+    * Handle edge cases, add comments
+    
+    * Claim conformance with the Version5 EABI
+    
+    * Use array pool instead of direct allocation
+    
+    * Remove unused code
+    
+    * ARM: Produce unwind sections for each code section
