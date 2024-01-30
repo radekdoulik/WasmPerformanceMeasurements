@@ -1,0 +1,21 @@
+commit 247e826998c8319e2bc41b1f9a7cae7ab8ced71a
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Mon Jan 29 20:44:29 2024 -0500
+
+    Vectorize TensorPrimitives shift and rotate operators (#97361)
+    
+    * Vectorize TensorPrimitives shift and rotate operators
+    
+    This adds a new IStatefulUnaryOperator interface, which differs from IUnaryOperator simply in that its Invoke members are instance rather than static. It then copies the existing InvokeSpanIntoSpan into a new helper that's then tweaked to accept an instance of an IStatefulUnaryOperator, calling its instance members instead of its static.
+    
+    That helper is then used to implement new ShiftLeftOperator, ShiftRightLogicalOperator, ShiftRightArithmeticOperator, RotateLeftOperator, and RotateRightOperator, which utilize methods on VectorXx to accelerate their implementation.
+    
+    It also adds ScaleBOperator, RootNOperator, and RoundOperator implementations used with the same helper, but these currently only have scalar implementations.
+    
+    * Address PR feedback
+    
+    * Address PR feedback
+    
+    * Add more special value tests
+    
+    * Address PR feedback
