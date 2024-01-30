@@ -1,0 +1,19 @@
+commit 10ea547d62e30a73e50050d95d44b412ad9a6a7d
+Author: Milos Kotlar <kotlarmilos@gmail.com>
+Date:   Tue Jan 30 12:05:06 2024 +0100
+
+    [mono][tests] Enable ILStrip after AOT compilation for library tests (#88167)
+    
+    * Enable ILStrip during AOT compilation of library tests
+    
+    * Update System.Reflection tests to support noinlining attribute
+    
+    * [infra] Disable ILStrip for System.Diagnostics.Debug.Tests
+    
+    * [infra] Don't run ILStrip for library mode
+    
+    * Add ShouldILStrip to _ApplePropertyNames
+    
+    ---------
+    
+    Co-authored-by: Alexander Köplinger <alex.koeplinger@outlook.com>
