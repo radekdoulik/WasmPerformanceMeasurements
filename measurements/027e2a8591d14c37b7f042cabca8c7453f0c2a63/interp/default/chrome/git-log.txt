@@ -1,0 +1,5 @@
+commit 027e2a8591d14c37b7f042cabca8c7453f0c2a63
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Mon Jan 29 20:45:15 2024 -0500
+
+    Fix stability of OrderByDescending.Last (#97672)
