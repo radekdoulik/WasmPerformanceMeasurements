@@ -1,0 +1,8 @@
+commit df05ddcfc3b62f9186537b533e34d90ac54d85f7
+Author: Tom Deseyn <tom.deseyn@gmail.com>
+Date:   Tue Jan 30 16:52:28 2024 +0100
+
+    libraries/tests: skip System.Numerics.Tensors.Net8.Tests when DotNetBuildFromSource. (#97697)
+    
+    This project expects to use the net8.0 target of System.Numerics.Tensors which
+    doesn't get built when DotNetBuildFromSource is true.
