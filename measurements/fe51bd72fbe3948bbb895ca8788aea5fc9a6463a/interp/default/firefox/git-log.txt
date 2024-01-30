@@ -1,0 +1,54 @@
+commit fe51bd72fbe3948bbb895ca8788aea5fc9a6463a
+Author: Dong-Heon Jung <clamp03@gmail.com>
+Date:   Tue Jan 30 15:22:39 2024 +0900
+
+    [RISC-V] Fix errors in crosgen2 for risc-v (#97368)
+    
+    * [RISC-V] Fix crossgen2
+    
+    * [RISC-V] Fix typo in codegen
+    
+    * [RISC-V] Update assert to support all rel insts
+    
+    * [RISC-V] Fix helper function call
+    
+    * [RISC-V] Update GetRISCV64PassStructInRegisterFlags
+    
+    * [RISC-V] Fix int arg reg passing for float type
+    
+    A failure during crossgen2 SPC.dll
+    `System.Diagnostics.Tracing.NativeRuntimeEventSource:LogThreadPoolWorkerThreadAdjustmentStats(double,double,double,double,double,double,double,double,double,ushort,ushort)`
+    
+    * [RISC-V] Update EPILOG_WITH_TRANSITION_BLOCK_RETURN
+    
+    * [RISC-V] Update indentation in dump
+    
+    * [RISC-V] Fix stubs
+    
+    * [RISC-V] Fix virtualcallstubcpu
+    
+    * [RISC-V] Update a comment
+    
+    * [RISC-V] Update RO data block
+    
+    * [RISC-V] Fix data overwrites
+    
+    * [RISC-V] Fix typo
+    
+    * [RISC-V] Fix register number of A3
+    
+    * [RISC-V] Code Formatting
+    
+    * [RISC-V] Fix format and typos
+    
+    * Revert "[RISC-V] Fix int arg reg passing for float type"
+    
+    This reverts commit 381858cb2335782d66e8a6439db9c6f053adff21.
+    
+    * [RISC-V] Fix a typo in a comment
+    
+    * [RISC-V] Fix error when arg type and arg reg mismatch
+    
+    * [RISC-V] Rename according to review
+    
+    * [LoongArch64] Remove LA64 specific handling for unspilling
