@@ -1,0 +1,5 @@
+commit b76ef7fa73c758daaa663a4d36d78d536df152fe
+Author: Clément Habinshuti <haby_habbes@live.com>
+Date:   Tue Jan 30 15:40:48 2024 +0300
+
+    Remove buffer copy when writing base64 JSON value (#97687)
