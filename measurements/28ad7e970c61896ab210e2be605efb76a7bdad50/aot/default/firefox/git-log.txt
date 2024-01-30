@@ -1,0 +1,15 @@
+commit 28ad7e970c61896ab210e2be605efb76a7bdad50
+Author: Emmanuel André <2341261+manandre@users.noreply.github.com>
+Date:   Tue Jan 30 12:51:46 2024 +0100
+
+    Add tests for Task.WhenAll (#93619)
+    
+    * Add tests for Task.WhenAll
+    
+    * Fix ambiguity errors
+    
+    * Remove useless assertions
+    
+    ---------
+    
+    Co-authored-by: Stephen Toub <stoub@microsoft.com>
