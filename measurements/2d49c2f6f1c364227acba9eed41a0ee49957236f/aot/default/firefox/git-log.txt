@@ -1,0 +1,8 @@
+commit 2d49c2f6f1c364227acba9eed41a0ee49957236f
+Author: Elinor Fung <elfung@microsoft.com>
+Date:   Mon Jan 29 14:27:53 2024 -0800
+
+    Switch WindowsSpecificBehavior host tests to pre-built assets (#97586)
+    
+    - Combine TestWindowsOsShimsApp and PortableAppWithLongPaths into one WindowsSpecific app
+    - Make WindowsSpecificBehavior test use pre-built asset
