@@ -1,0 +1,8 @@
+commit f5453680166e64b94baeeecc6200903cb8362e5a
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Wed Jan 31 12:26:48 2024 +0100
+
+    JIT: Establish loop invariant base case based on IR (#97182)
+    
+    Avoid having a cross-phase dependency on loop inversion here. Instead,
+    validate that the condition is an actual zero-trip test.
