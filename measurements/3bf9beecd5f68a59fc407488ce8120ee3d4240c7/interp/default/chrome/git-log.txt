@@ -1,0 +1,11 @@
+commit 3bf9beecd5f68a59fc407488ce8120ee3d4240c7
+Author: Vlad Brezae <brezaevlad@gmail.com>
+Date:   Wed Jan 31 19:15:02 2024 +0200
+
+    [mono][aot] Fix support for files with non-ascii characters on windows (#92279)
+    
+    * [mono][aot] Fix support for files with non-ascii characters
+    
+    Add g_fopen, g_unlink and g_rename which on windows do a utf8 to utf16 conversion and then call the corresponding wide char api.
+    
+    * [mono][eglib] Avoid utf16 conversion if all characters are ASCII
