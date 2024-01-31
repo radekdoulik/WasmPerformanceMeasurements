@@ -1,0 +1,21 @@
+commit 05d0922439a924f3b7c126d3f66a48b421666fa4
+Author: Vlad Brezae <brezaevlad@gmail.com>
+Date:   Wed Jan 31 10:26:05 2024 +0200
+
+    [mono][interp] Disable inlining into bblocks that are detected as dead early during codegen (#97514)
+    
+    * [mono][interp] Resolve immediately type equality comparison
+    
+    If both types are immediately known and loaded as constants
+    
+    * [mono][interp] Remove brtrue/brfalse if possible during initial IR emit
+    
+    * [mono][interp] Avoid inlining methods in bblocks that are obviously dead
+    
+    During initial bblock formation pass, we detect all bblocks that are targets of branches and we increment their ref count. As we import IL code, we might eagerly optimize out some conditional branches to unconditional branches (in which case we mark that the following bblock in IL order is no longer reachable from current bblock) or we completely optimize out the branch (in which case we reduce the ref count of the target bb). As we continue emitting code, we can detect if the current bblock is dead (if it is not a jump target and either is not linked to prev bblock or it is linked to a dead bblock). This liveness is not exact, but it should handle typical code with if/else conditionals.
+    
+    * [mono][interp] Remove binop condbr if possible during initial IR emit
+    
+    ---------
+    
+    Co-authored-by: Larry Ewing <lewing@microsoft.com>
