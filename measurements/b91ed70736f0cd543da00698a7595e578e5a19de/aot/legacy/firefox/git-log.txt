@@ -1,0 +1,14 @@
+commit b91ed70736f0cd543da00698a7595e578e5a19de
+Author: Johan Lorensson <lateralusx.github@gmail.com>
+Date:   Wed Jan 31 03:39:27 2024 +0100
+
+    Speed up cmake configure on Mono Windows build. (#97303)
+    
+    cmake checks on Windows (espacially with MSBuild) are very slow,
+    minutes of additional time per configuration is spend running checks.
+    
+    Windows headers already overrides checks and since
+    majority of header/function checks are not applicable on Windows this
+    commit stops running all these checks and instead add needed
+    header defines explicit for Windows. Dramatically improve build times
+    off Windows Mono runtime and cross compiler.
