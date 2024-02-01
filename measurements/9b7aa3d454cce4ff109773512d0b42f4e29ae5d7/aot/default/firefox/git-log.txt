@@ -1,0 +1,44 @@
+commit 9b7aa3d454cce4ff109773512d0b42f4e29ae5d7
+Author: Radek Doulik <radek.doulik@gmail.com>
+Date:   Thu Feb 1 10:23:46 2024 +0100
+
+    [wasm][mt] throw from blocking wait on JS interop threads (#97052)
+    
+    * [wasm][mt] throw from blocking wait on JS interop threads
+    
+    Also add test
+    
+    * Fix typo
+    
+    * Add JSProxyContextBase conditionally
+    
+    * Fix non-mt browser build
+    
+    * Fix tests build
+    
+    * Do not add JS interop project reference
+    
+    To not mix intree references and source project
+    
+    * Add new flag to Monitor
+    
+    This replaces the previous context base and makes it possible to disable
+    throw for blocking calls in JS interop
+    
+    * Remove old file
+    
+    * Changes from unsaved file
+    
+    * Wrap another blocking wait in JS interop
+    
+    * Do not reference src/System.Runtime.InteropServices.JavaScript.csproj
+    
+    * Disable failing test with blocking Wait
+    
+    * Update the test condition
+    
+    * Add missing line after conflict resolution
+    
+    * Fix build
+    
+    * Update the active issue and don't use define
