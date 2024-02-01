@@ -1,0 +1,7 @@
+commit a97ddd2da983540b7b767405fdf273bc19601b19
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Wed Jan 31 18:32:25 2024 -0500
+
+    [mono][jit] Fix passing of byref arguments in mono_gsharedvt_constrained_call (). (#97721)
+    
+    Fixes https://github.com/dotnet/runtime/issues/97625.
