@@ -1,0 +1,9 @@
+commit b787fdba240970e0ae9fd99f269dd5c5a1e7df6d
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Thu Feb 1 13:53:57 2024 -0500
+
+    [mono][llvm] Fix memory leaks in the llvm backend. (#97788)
+    
+    Extracted from https://github.com/dotnet/runtime/pull/97096.
+    
+    Author: Johan Lorensson lateralusx.github@gmail.com
