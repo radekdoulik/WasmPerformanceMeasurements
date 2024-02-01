@@ -1,0 +1,5 @@
+commit 5cd9eb80023b2d225555f2c78084eedae86683d9
+Author: Andrew Au <andrewau@microsoft.com>
+Date:   Thu Feb 1 11:13:37 2024 -0800
+
+    Patch libunwind manually to fix the access violation to unblock source build (#97813)
