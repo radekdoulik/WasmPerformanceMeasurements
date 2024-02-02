@@ -1,0 +1,13 @@
+commit 2b07375638c0c1100dc6d95909269499309c9c38
+Author: Ilona Tomkowicz <32700855+ilonatommy@users.noreply.github.com>
+Date:   Fri Feb 2 17:06:21 2024 +0100
+
+    [debugger][mt] Unify multithreading switches (#97861)
+    
+    * Use only one env var for debugger.
+    
+    * Improve bool value processing.
+    
+    * Nit: Keep original layout.
+    
+    * fix build
