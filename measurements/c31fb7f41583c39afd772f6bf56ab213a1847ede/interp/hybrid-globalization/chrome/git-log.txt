@@ -1,0 +1,9 @@
+commit c31fb7f41583c39afd772f6bf56ab213a1847ede
+Author: Filip Navara <filip.navara@gmail.com>
+Date:   Fri Feb 2 15:33:32 2024 +0100
+
+    [NativeAOT/ARM] Bail out on IMAGE_REL_BASED_THUMB_BRANCH24 with >24-bit addends (#97756)
+    
+    * Bail out on IMAGE_REL_BASED_THUMB_BRANCH24 with >24-bit addends and let the linker generate thunks
+    
+    * Use FitsInThumb2BlRel24
