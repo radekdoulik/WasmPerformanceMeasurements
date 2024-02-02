@@ -1,0 +1,15 @@
+commit 693a224994f4c925d2967f9f8a8f3dfe773ddeef
+Author: Ilona Tomkowicz <32700855+ilonatommy@users.noreply.github.com>
+Date:   Fri Feb 2 12:40:21 2024 +0100
+
+    [wasm] Unblock WBT that are not hanging anymore (#97764)
+    
+    * Simple fix + remove active issues.
+    
+    * Trying to repro the issue.
+    
+    * Check if with parallelisation it passes as well.
+    
+    * Revert "Check if with parallelisation it passes as well."
+    
+    This reverts commit 9ba46188fc457b80fff32a2172f231b477cdadf9.
