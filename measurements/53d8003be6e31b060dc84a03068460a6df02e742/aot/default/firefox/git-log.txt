@@ -1,0 +1,11 @@
+commit 53d8003be6e31b060dc84a03068460a6df02e742
+Author: Filip Navara <filip.navara@gmail.com>
+Date:   Fri Feb 2 05:09:18 2024 +0100
+
+    [NativeAOT/ARM] Prevent misoptimization by clang (#97811)
+    
+    * Fix *AVLocation to be global labels without the Thumb bit to prevent misoptimization
+    
+    * Remove Thumb bit from assembly location constants and its masking
+    
+    * Introduce CODE_LOCATION type and use it instead of "void*".
