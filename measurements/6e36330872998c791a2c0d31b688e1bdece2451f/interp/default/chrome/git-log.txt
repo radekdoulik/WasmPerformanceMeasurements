@@ -1,0 +1,11 @@
+commit 6e36330872998c791a2c0d31b688e1bdece2451f
+Author: Jo Shields <directhex@apebox.org>
+Date:   Fri Feb 2 06:56:20 2024 -0500
+
+    Source built short stack support (#97725)
+    
+    * Explicitly pass OS parameter in source-build
+    
+    This allows cases where build OS and target OS differ, e.g. Android
+    
+    * Introduce "short" OSes into SourceBuild.props, which don't pass some props
