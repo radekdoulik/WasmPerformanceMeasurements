@@ -1,0 +1,15 @@
+commit 803afaad000d84bef1625b1659dd9d97f66c83de
+Author: Tanner Gooding <tagoo@outlook.com>
+Date:   Thu Feb 1 13:01:21 2024 -0800
+
+    Update constant prop to only consider certain hwintrinsics (#97616)
+    
+    * Update constant prop to only consider certain hwintrinsics
+    
+    * Don't use gtFindLink unnecessarily
+    
+    * Apply formatting patch
+    
+    * Still allow constant propagation for single use locals
+    
+    * Apply formatting patch
