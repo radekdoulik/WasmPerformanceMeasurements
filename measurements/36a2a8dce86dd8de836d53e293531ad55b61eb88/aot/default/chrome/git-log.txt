@@ -1,0 +1,8 @@
+commit 36a2a8dce86dd8de836d53e293531ad55b61eb88
+Author: Pavel Savara <pavel.savara@gmail.com>
+Date:   Fri Feb 2 00:43:07 2024 +0100
+
+    - fix JSSynchronizationContext_Send_Post_Items_Cancellation (#97832)
+    
+    - simplify JSSynchronizationContext.Dispose
+    - add finally for ThrowOnBlockingWaitOnJSInteropThread
