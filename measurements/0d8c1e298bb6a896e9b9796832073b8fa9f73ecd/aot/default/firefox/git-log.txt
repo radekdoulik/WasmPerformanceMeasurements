@@ -1,0 +1,11 @@
+commit 0d8c1e298bb6a896e9b9796832073b8fa9f73ecd
+Author: Sven Boemer <sbomer@gmail.com>
+Date:   Fri Feb 2 13:04:38 2024 -0800
+
+    Update ILLink.CodeFixProvider.csproj (#97796)
+    
+    * Update ILLink.CodeFixProvider.csproj
+    
+    Use LatestVS code analysis version to prevent breaking design-time experience
+    
+    * Use MicrosoftCodeAnalysisVersion for source build
