@@ -1,0 +1,9 @@
+commit cd5e3b0d48d2dcb9ec053e417c1694b3b02b4260
+Author: Viktor Hofer <viktor.hofer@microsoft.com>
+Date:   Fri Feb 2 22:50:21 2024 +0100
+
+    Set DisableArcadeExcludeFromBuildSupport & support DotNetBuildTests flag (#97762)
+    
+    * Set DisableArcadeExcludeFromBuildSupport
+    
+    * Update Subsets.props
