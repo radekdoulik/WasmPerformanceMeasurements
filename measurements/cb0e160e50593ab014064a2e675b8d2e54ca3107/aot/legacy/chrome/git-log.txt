@@ -1,0 +1,19 @@
+commit cb0e160e50593ab014064a2e675b8d2e54ca3107
+Author: Radek Doulik <radek.doulik@gmail.com>
+Date:   Mon Feb 5 15:40:55 2024 +0100
+
+    Update solution files after projects changes (#97969)
+    
+    * Update solution files after changes in #97052
+    
+    The project files have now diferent dependencies
+    
+    * Update System.Runtime.InteropServices.JavaScript.sln
+    
+    * Update System.Net.Http.sln
+    
+    * Update System.Net.WebSockets.Client.sln
+    
+    ---------
+    
+    Co-authored-by: Viktor Hofer <viktor.hofer@microsoft.com>
