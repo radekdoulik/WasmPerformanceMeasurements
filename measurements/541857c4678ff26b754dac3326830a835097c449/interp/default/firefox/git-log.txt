@@ -1,0 +1,19 @@
+commit 541857c4678ff26b754dac3326830a835097c449
+Author: Denis Paranichev <48580269+denis-paranichev@users.noreply.github.com>
+Date:   Thu Feb 1 20:13:33 2024 +0300
+
+    [RISC-V] Test TotalOrderIeee754ComparerTests: Fix NFloat - NaN testcases for RISC-V (#97340)
+    
+    * Fix ieeeComparerTests NFloat NaN testcases for RISC-V
+    
+    * Fix comment
+    
+    * Specify test data for NaN test cases based on platform bitness
+    
+    * Delete extra comment
+    
+    * Fix CI failure
+    
+    ---------
+    
+    Co-authored-by: d.paranichev <d.paranichev@partner.samsung.com>
