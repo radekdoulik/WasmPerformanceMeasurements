@@ -1,0 +1,7 @@
+commit 67604d304603677e8131dae2d8d52e57e914fbed
+Author: Aman Khalid <amankhalid@microsoft.com>
+Date:   Mon Feb 5 14:34:08 2024 -0500
+
+    JIT: Set edge likelihoods during patchpoint transformation (#97897)
+    
+    Fixes #97892. During patchpoint expansion, make sure to set edge likelihoods for transformed blocks.
