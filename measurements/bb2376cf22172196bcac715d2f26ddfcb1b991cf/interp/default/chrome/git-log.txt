@@ -1,0 +1,24 @@
+commit bb2376cf22172196bcac715d2f26ddfcb1b991cf
+Author: Denis Paranichev <48580269+denis-paranichev@users.noreply.github.com>
+Date:   Mon Feb 5 23:15:51 2024 +0300
+
+    [RISC-V] Test HalfTest: fixed payload preservation testcase for RISC-V (#96888)
+    
+    * Fixed payload preservation testcase in halftest for RISC-V
+    
+    * Apply comments
+    
+    * Add AssertExtentions.Equal function to test bit identity of two floating numbers
+    
+    * Add descriptions for equal functions and fix ToStringRoundtrip test's assert argument
+    
+    * Apply comments
+    
+    * Fix CI failure
+    
+    * Apply comments
+    
+    ---------
+    
+    Co-authored-by: Denis Paranichev <48580269+DenisParal@users.noreply.github.com>
+    Co-authored-by: d.paranichev <d.paranichev@partner.samsung.com>
