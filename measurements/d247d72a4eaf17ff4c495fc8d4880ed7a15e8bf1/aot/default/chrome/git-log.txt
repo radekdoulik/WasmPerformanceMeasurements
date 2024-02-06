@@ -1,0 +1,7 @@
+commit d247d72a4eaf17ff4c495fc8d4880ed7a15e8bf1
+Author: Filip Navara <filip.navara@gmail.com>
+Date:   Tue Feb 6 03:17:09 2024 +0100
+
+    Fix building on ARMhf userland on top of AARCH64 kernel (#97929)
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
