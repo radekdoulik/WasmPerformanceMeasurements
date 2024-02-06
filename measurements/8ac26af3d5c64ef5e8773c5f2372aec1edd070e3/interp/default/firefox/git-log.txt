@@ -1,0 +1,31 @@
+commit 8ac26af3d5c64ef5e8773c5f2372aec1edd070e3
+Author: Emmanuel André <2341261+manandre@users.noreply.github.com>
+Date:   Mon Feb 5 23:41:10 2024 +0100
+
+    STJ: Avoid duplicate initialization of required or init-only properties (#97726)
+    
+    * STJ: Avoid duplicate initialization of required or init-only properties
+    
+    * Add more test combinations
+    
+    * Move shadowed properties check
+    
+    * Update metadata flow accordingly
+    
+    * Add init value for all properties
+    
+    * Add more shadowing test cases
+    
+    * Remove extra empty line
+    
+    * Move deduplication logic to property initializer parser.
+    
+    * Revert DefaultJsonTypeInfoResolver changes
+    
+    * Update src/libraries/System.Text.Json/tests/System.Text.Json.SourceGeneration.Unit.Tests/JsonSourceGeneratorTests.cs
+    
+    * Update src/libraries/System.Text.Json/tests/System.Text.Json.SourceGeneration.Unit.Tests/JsonSourceGeneratorTests.cs
+    
+    ---------
+    
+    Co-authored-by: Eirik Tsarpalis <eirik.tsarpalis@gmail.com>
