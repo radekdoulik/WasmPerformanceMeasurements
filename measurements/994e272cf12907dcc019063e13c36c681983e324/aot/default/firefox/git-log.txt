@@ -1,0 +1,21 @@
+commit 994e272cf12907dcc019063e13c36c681983e324
+Author: Adeel Mujahid <3840695+am11@users.noreply.github.com>
+Date:   Tue Feb 6 13:37:21 2024 +0200
+
+    Add separate properties for keep-in-sync versions (#97643)
+    
+    * Add separate properties for keep-in-sync versions
+    
+    * Update src/installer/managed/Microsoft.NET.HostModel/Microsoft.NET.HostModel.csproj
+    
+    * Update src/tasks/WasmAppBuilder/WasmAppBuilder.csproj
+    
+    * Update eng/Versions.props
+    
+    * Update eng/Versions.props
+    
+    * Update src/tasks/Microsoft.NET.WebAssembly.Webcil/Microsoft.NET.WebAssembly.Webcil.csproj
+    
+    ---------
+    
+    Co-authored-by: Viktor Hofer <viktor.hofer@microsoft.com>
