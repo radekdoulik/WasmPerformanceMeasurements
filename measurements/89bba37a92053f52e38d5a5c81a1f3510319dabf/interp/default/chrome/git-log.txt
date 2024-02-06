@@ -1,0 +1,11 @@
+commit 89bba37a92053f52e38d5a5c81a1f3510319dabf
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Tue Feb 6 15:55:39 2024 +0900
+
+    Place vtable slots deemed final by analysis into sealed vtable (#97951)
+    
+    Virtual method table slots typically go into vtable - a variable-length part of the `MethodTable` data structure. Virtual method table slots are always inherited by `MethodTable` of the derived class. This means that vtable slots that are introduced in a class that has many derived classes can be quite expensive. One example are arrays - array types inherit all virtual methods from `System.Array` and there's many arrays.
+    
+    We therefore have an optimization - if a virtual method is newly introduced, but it's sealed at the same time, we place it into a separate data structure - a "sealed vtable". Sealed vtable slots do not get inherited by derived classes. Because they don't get inherited, we also need to make sure all non-interface calls into this virtual method get devirtualized (virtual dispatch needs to be aware of the special lookup that happens for sealed slots and only interface resolution is aware of how to do that).
+    
+    This PR makes this optimization kick in more often - not just when method is `virtual sealed` in metadata (which effectively only happens for non-virtual method in C# implementing an interface), but also when it's virtual and nothing else overrides it in the program.
