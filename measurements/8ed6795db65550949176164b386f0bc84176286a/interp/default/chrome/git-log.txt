@@ -1,0 +1,15 @@
+commit 8ed6795db65550949176164b386f0bc84176286a
+Author: Jiří Hruška <jirka@fud.cz>
+Date:   Tue Feb 6 13:04:21 2024 +0100
+
+    Fix possible runaway mutex in ManagedWebSocket.ReceiveAsyncPrivate() (#97911)
+    
+    * Fix possible runaway mutex in ManagedWebSocket.ReceiveAsyncPrivate()
+    
+    Commit 21f07e17 (Fixing concurrency issue in ManagedWebSocket ... #87966, 2023-07-18) has fixed some cases when calling Dispose() on a ManagedWebSocket could cause corruption of the (de)compressor state if there were some ongoing receive/send operations happening in parallel. It has also introduced some additional dispose checks to the class.
+    
+    One of those, added to ReceiveAsyncPrivate(), is buggy in the sense that it is done between acquiring _receiveMutex and entering the try/finally block that always releases it again on the way out. The _receiveMutex can thus potentially get stuck in the taken state and cause other tasks to never complete or deadlock.
+    
+    The solution is to perform the dispose check inside the try/finally block, to ensure the mutex is released correctly even in this case.
+    
+    * Add test
