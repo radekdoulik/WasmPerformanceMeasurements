@@ -1,0 +1,9 @@
+commit b8b2f89dbcc2d6b41f693c150bc3c44a515637b5
+Author: Eirik Tsarpalis <eirik.tsarpalis@gmail.com>
+Date:   Tue Feb 6 13:54:20 2024 +0000
+
+    Ensure `HashSet.TrimExcess()` does not change the count (#97989)
+    
+    * Fix #97947.
+    
+    * fix build
