@@ -1,0 +1,7 @@
+commit 7e1e3e4bd5ecd7c77f466e559cb42b8f49742920
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Mon Feb 5 16:53:58 2024 -0500
+
+    Make First/Last faster on various enumerables (#97905)
+    
+    Implement IPartition on more (existing) custom iterator types, in particular on the types for Where.Select, Concat, and Reverse.
