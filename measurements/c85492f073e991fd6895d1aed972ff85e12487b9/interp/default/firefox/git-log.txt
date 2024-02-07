@@ -1,0 +1,7 @@
+commit c85492f073e991fd6895d1aed972ff85e12487b9
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Tue Feb 6 10:17:06 2024 -0500
+
+    [mono] Fix a warning. (#98018)
+    
+    Fixes https://github.com/dotnet/runtime/issues/97981.
