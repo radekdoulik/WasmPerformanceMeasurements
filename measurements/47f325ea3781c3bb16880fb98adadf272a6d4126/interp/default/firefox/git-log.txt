@@ -1,0 +1,9 @@
+commit 47f325ea3781c3bb16880fb98adadf272a6d4126
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Wed Feb 7 15:23:48 2024 +0900
+
+    Delete useless delegate virtual methods (#97959)
+    
+    The split between `Delegate` and `MulticastDelegate` is a wart that likely has some history behind it. Types that inherit from `Delegate` directly would not be considered delegates by the runtime. They need to inherit `MulticastDelegate. I can't find a reason why we'd need some useless base implementation of these methods that immediately gets overriden in `MulticastDelegate`. This deletes the useless base implementation and moves the useful implementation from `MulticastDelegate` to `Delegate`.
+    
+    This along with #97951 saves ~40 bytes per delegate `MethodTable` because the virtual methods can now be devirtualized or placed into the sealed vtable. We might be able to do even more since technically sealed virtuals could be reshuffled after the codegen phase and slots eliminated then.
