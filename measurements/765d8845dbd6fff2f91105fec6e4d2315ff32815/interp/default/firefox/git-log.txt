@@ -1,0 +1,5 @@
+commit 765d8845dbd6fff2f91105fec6e4d2315ff32815
+Author: Egor Bogatov <egorbo@gmail.com>
+Date:   Wed Feb 7 14:44:18 2024 +0100
+
+    BitCast<TYP_REF>(TypeHandleToRuntimeTypeHandle(clsHandle)) => nongc obj (#97955)
