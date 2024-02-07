@@ -1,0 +1,17 @@
+commit 59831acec930dd1213e252501787de09efc23ff5
+Author: Radek Doulik <radek.doulik@gmail.com>
+Date:   Wed Feb 7 13:22:32 2024 +0100
+
+    [wasm][mt] Improve blocking wait detection and tests (#98045)
+    
+    * [wasm][mt] Improve blocking wait detection and tests
+    
+    Add check to the `SemaphoreSlim.Wait`. The wait will eventually continue
+    to the `Monitor.Wait`, it can spin wait first though and return, so catch
+    it earlier to avoid non-deterministic behavior.
+    
+    Improve the blocking wait detection and extract it to the new method. Also
+    introduce helper method to force a blocking wait in places we want it
+    on the JS interop threads.
+    
+    * Feedback
