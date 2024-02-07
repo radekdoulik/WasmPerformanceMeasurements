@@ -1,0 +1,7 @@
+commit 0cbbe7e17e828bba1553f2a7415f2cb07ef0f603
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Wed Feb 7 15:20:42 2024 +0900
+
+    Deduplicate LSDA data in the object writer (#97972)
+    
+    Extracting a piece of #87045 that I had to revert in that PR. Native linkers don't like when LSDA is in a COMDAT so fold these in the object writer instead. Seems to save about 1.2% in the Stage1 app. Obviously Unix only.
