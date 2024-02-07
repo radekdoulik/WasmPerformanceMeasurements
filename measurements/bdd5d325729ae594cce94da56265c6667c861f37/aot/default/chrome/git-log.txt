@@ -1,0 +1,7 @@
+commit bdd5d325729ae594cce94da56265c6667c861f37
+Author: Viktor Hofer <viktor.hofer@microsoft.com>
+Date:   Wed Feb 7 17:21:30 2024 +0100
+
+    Use NetTool* TFM properties for msbuild tasks (#98098)
+    
+    ... and remove the custom defined ones.
