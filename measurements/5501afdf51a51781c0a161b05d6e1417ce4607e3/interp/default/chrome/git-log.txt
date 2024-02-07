@@ -1,0 +1,5 @@
+commit 5501afdf51a51781c0a161b05d6e1417ce4607e3
+Author: Egor Bogatov <egorbo@gmail.com>
+Date:   Wed Feb 7 18:42:50 2024 +0100
+
+    Late cast expansion: remove the null check if possible (#97234)
