@@ -1,0 +1,5 @@
+commit e6b5da2658142ee122625ae2f9d1fb780007eba9
+Author: Alexander Köplinger <alex.koeplinger@outlook.com>
+Date:   Thu Feb 8 09:47:11 2024 +0100
+
+    [mono] Don't pass c/c++ specific flags for .asm files on Windows (#98122)
