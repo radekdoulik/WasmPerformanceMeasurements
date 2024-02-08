@@ -1,0 +1,13 @@
+commit fdca8cba8db068ac8f9a45de53c56838d804b7f0
+Author: Ankit Jain <radical@gmail.com>
+Date:   Wed Feb 7 14:23:19 2024 -0500
+
+    Add internal nuget to package tasks, and targets for workload testing (#98019)
+    
+    Nuget to package the workload testing targets, and tasks for internal
+    use. This is a non-shipping nuget which can be used for by other dotnet
+    repos to test workloads.
+    
+    `eng/testing/workloads-testing.targets` is extracted into a
+    `WorkloadTesting.Core.targets`, and the `dotnet/runtime` repo specific
+    bits are left in `eng/testing/workloads-testing.targets`.
