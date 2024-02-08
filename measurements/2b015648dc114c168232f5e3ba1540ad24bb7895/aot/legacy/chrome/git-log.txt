@@ -1,0 +1,27 @@
+commit 2b015648dc114c168232f5e3ba1540ad24bb7895
+Author: Haofeng Hua <huahaofeng@gmail.com>
+Date:   Thu Feb 8 11:10:30 2024 +0800
+
+    Fix interpreter (#97935)
+    
+    * Implement getMethodName for CoreCLR interpreter to support IL Stub.
+    
+    * Support intrinsic method GetStubContext for CoreCLR interpreter.
+    
+    * Remove callconv check in CallTargetWorker for CoreCLR interpreter.
+    
+    * Skip hardware accelerate in CoreCLR interpreter.
+    
+    * Update constraind check in CoreCLR interpreter.
+    
+    * Support intrinsic method GetArrayDataReference for CoreCLR interpreter.
+    
+    * Mark methods which have not been supported by CoreCLR interpreter.
+    
+    * Move `getNamedIntrinsicID()` and `getMethodName()` into Interpreter Type.
+    
+    * Update src/coreclr/vm/interpreter.cpp
+    
+    ---------
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
