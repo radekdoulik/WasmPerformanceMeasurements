@@ -1,0 +1,27 @@
+commit b4491522e03c64a70fcac66dbe5a836e1a8dfffe
+Author: Alan Hayward <a74nh@users.noreply.github.com>
+Date:   Wed Feb 7 21:09:09 2024 +0000
+
+    Add Sve.IsSupported support (#97814)
+    
+    * Add Sve.IsSupported support
+    
+    * Remove debugging
+    
+    * Add RequiresPreviewFeaturesAttribute in PlatformNotSupported file
+    
+    * fix the base class name
+    
+    * Add mono checks
+    
+    * Review cleanups
+    
+    * Remove dummy sve test
+    
+    * Fix Sve.PlatformNotSupported.cs
+    
+    * Remove intrinsic marking
+    
+    ---------
+    
+    Co-authored-by: Kunal Pathak <Kunal.Pathak@microsoft.com>
