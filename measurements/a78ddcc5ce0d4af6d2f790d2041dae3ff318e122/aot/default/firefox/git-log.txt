@@ -1,0 +1,8 @@
+commit a78ddcc5ce0d4af6d2f790d2041dae3ff318e122
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Thu Feb 8 10:37:33 2024 +0100
+
+    JIT: Generalize jump threading very slightly (#98107)
+    
+    If the dominator is a direct predecessor then it should be ok to jump
+    thread its direct edge, even if the other edge also reaches.
