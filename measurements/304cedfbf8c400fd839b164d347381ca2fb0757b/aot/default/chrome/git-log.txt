@@ -1,0 +1,273 @@
+commit 304cedfbf8c400fd839b164d347381ca2fb0757b
+Author: Vlad Brezae <brezaevlad@gmail.com>
+Date:   Sat Feb 10 16:07:27 2024 +0200
+
+    [mono][interp] Add SSA transformation and SSA based optimization (#96315)
+    
+    * [mono][interp] Preliminary phases for SSA computation
+    
+    DFS traversal of CFG to obtain list of bblocks in reverse postorder. Compute immediate dominators for each bblock in the `td->idoms` table. Compute dominance frontiers for each bblock as a bit set. These algorithms are based on `A Simple, Fast Dominance Algorithm by Keith D. Cooper, Timothy J. Harvey, and Ken Kennedy`
+    
+    Obtain list of global vars of interest for SSA transformation. These are vars that are used in a different bblock than the one they are declared in and for which we might end up creating phi nodes. We also compute the list of bblocks where they are declared, needed for phi node insertion.
+    
+    * [mono][interp] Insert phi nodes
+    
+    For a var, we insert a phi node at each bblock in the dominance frontier of each of the bblocks where the var is defined. The MINT_PHI opcode has a variable number of sregs, one for each incoming bblock edge. Once the optimizations are finished (currently none), we just replace the phi opcodes with nop.
+    
+    * [mono][interp] Implement renaming of vars
+    
+    We add a new table of 'InterpRenambleVar` to `TransformData`. Each `InterpVar` now has an index. If the var is renamable, this index points to renamable vars table, otherwise it is -1. A renamable var points back to the original var. This table allows for fast traversal of the subset of vars that might be renamed, avoid storing unnecessary information in the normal var table and it allows for renamed vars to point back to the original var. All renamed vars of an original var point to the same renamable var index.
+    
+    The renaming algorithm uses a renamed var stack, for each renamable var. This stack is initialized with the original var (this is necessary for args and il locals which start with an implicit value). We then recursively traverse the dominator tree in DFS fashion, creating a new var for every redefinition of a renamable var and updating all uses of a renamable var with the current definition, while keeping the renamed var stack updated with the current visible definition.
+    
+    A renamable var can be ssa fixed. SSA fixed vars will be renamed back to the original var when we exit SSA. All vars that are sregs for phi opcodes need to be fixed, because we simply remove phi nodes without generating any intermediary moves (which would be costly on the interpreter). All IL locals and args are currently fixed, since we expect identical structure between tiered and untiered methods during at patchpoint.
+    
+    When we do the SSA transformation, some vars might be left out of SSA form (currently these are var that have indirects). These vars will not have a unique definition and optimizations will not be able to operate on them.
+    
+    * [mono][interp] Re-enable bblock optimizations
+    
+    Merging, reordering, removal of dead bblocks.
+    
+    * [mono][interp] Add liveness computation so we can generate pruned SSA
+    
+    We have the subset of renamable vars (which might take part in phi nodes). For every bblock we compute a live_in bitset, indicating whether a renamable var is live at entry to bblock. We generate a phi node for a variable only if that variable is live at entry to the bblock.
+    
+    On System.Runtime.Tests suite this reduces number of phi nodes by 20x, so it seems worthwhile.
+    
+    * [mono][interp] Reduce number of fixed ssa vars
+    
+    Previous to this commit we were marking each IL local as fixed, since it might take part of the tiering patchpoint state. Since we now have live_in information already computed, we can mark only IL locals that are live at the start of bblock that inserts a tiering patchpoing. For methods without patchpoints we also no longer mark any fixed vars from IL locals.
+    
+    * [mono][interp] Add more stats tracking compilation time
+    
+    Remove stats registering, it is a NOP for a while now.
+    
+    * [mono][interp] Compute live end limit for fixed ssa vars
+    
+    Renamed vars of the same fixed original vars have the constraint that only one of them can be alive at any point, otherwise, when we revert renaming for this vars the logic is broken. Future optimizations, like copy propagation, can prolong the life of var and we will need to ensure that this doesn't end up overlapping with another renamed var. In order to support this, for each renamed fixed ssa var, we remember bblocks where the var is live at bblock exit and, in bblocks where it is renamed, we remember the location where this happens (meaning we can extend the liveness of the previous definition up to this point). This is done together with renaming, where the necessary information is readily available.
+    
+    This information need to be stored spearately for each renamed var, so we create a new extended table for this, `renamed_fixed_vars`. Each renamed var of a fixed var, will have the `ext_index` point to this table. Since we still need to be able to obtain the original var, `InterpRenamedFixedVar` also has an index into the renamable var table.
+    
+    We hold liveness information into an int32 with 14 bits for bb_index and 18 bits for instruction index. When we first compute liveness information, each instruction that bumps the liveness index will be flagged. All future optimizations, as they reiterate over the code, will then check this flag to correctly recompute the liveness index (newly added instructions won't have this flag set while deleted instructions are only NOP-ed so they preserve the flag)
+    
+    * [mono][interp] Ensure all vars have a definition
+    
+    In SSA transformation and optimizations we would have to special case args and locals since they can have a value without being defined. To avoid these hacks, make sure every arg is defined via a MINT_DEF_ARG instruction (which will be removed when code is actually generated) and every local is initialized via MINT_INITLOCAL (if var is initialized this instruction will end up optimized away). Because MINT_DEF_ARG is optimized away, vars that are renamed from it will have to be reverted to the actual argument.
+    
+    * [mono][interp] Resurrect cprop, cfold and some other small optimizations
+    
+    These optimizations now operate on global var defs
+    
+    * [mono][interp] Bring back deadce
+    
+    SSA vars that are not used can be removed, if their definition has no side effects. This becomes simplified from the old version since we only need to check if the ref_count if 0. When we kill an instruction we immediately decrease ref count of sregs and we redo deadce. We could recursively attempt to kill the defs of sregs but for now just redo deadce for simplicity.
+    
+    * [mono][interp] Resurrect super instruction pass
+    
+    This now operates with previously set, during cprop, global definitions and ref counts, from `InterpVarValue`.
+    
+    * [mono][interp] Redo bblock opt pass after other optimizations
+    
+    This will remove some now dead bblocks and merge others. If this pass leads to removal of phi nodes, then it might be useful to redo a full ssa iteration.
+    
+    * [mono][interp] Re-enable MINT_INTRINS_MARVIN_BLOCK intrinsic
+    
+    This instruction behaves as having 2 dregs and 2 sregs. This is not supported by the compilation backend. To work around this, while preserving the full set of optimizations applicable to the args, we split the instruction into 2 different instruction with separate dregs. Then we copy back each of the dregs into the original args. We then let SSA transformation and optimizations work normally. When generating final code, we expect these two instructions to still be adjacent and then we generate a single instruction, which now has to have 2 dregs and 2 sregs.
+    
+    The optimization passes can't optimize away both generated moves, because they don't understand that they will be merged into a single instructioni with 'simultaneous' write to both dregs. We handle this case when emitting the intrinsic, looking for a move following the intrinsic so we can patch the destination.
+    
+    * [mono][interp] Bring back reverse propagation of dreg
+    
+    If we have code pattern of `var1 <- def`, `var2 <- var1` we can opt to replace it with `var2 <- ?`, `var1 <- var2`. We do this in two stages, during cprop and during super instruction pass.
+    
+    During cprop we don't know exactly if a var will be alive or not, but we can assume that ssa fixed vars will likely end up alive. Also they have optimization constraints, so it is better, if possible, to store directly into them. So if var2 is ssa fixed, we will make the `def` store directly into it and hope var1 will end up dying. We want to do this during cprop stage so we can further propagate uses of the fixed var. We do this optimization only if both instructions are in the same bblock (we do small per-bblock liveness tracking for other ssa fixed vars related to var2, so we ensure we don't have conflicting liveness)
+    
+    During super instruction pass we have some additional information about vars that ended up dying, so we attempt the same optimization, this time using as a condition whether var1 has a ref count of 1, in which case we are sure we can kill it. This time we no longer care if var2 is ssa fixed, since we will always benefit.
+    
+    * [mono][interp] Fix SSA form for vt field stores
+    
+    When storing into a vt we could end up using the instruction MINT_MOV_DST_OFF. This instruction was receiving as destination the vt and as source the value to store. For SSA this is incorrect since the new definition also depends of the old value of the vt. We fix this by adding a new svar to this opcode that holds the same var as the destination. Since following renaming and other optimizations, the sreg and dreg of this instruction can end up diverging, when we emit the final code for the instruction, we add a full valuetype copy if necessary.
+    
+    This commit also gets rid of MINT_NEWOBJ_VT_INLINED opcode which was silently producing a ref to a var that was not properly tracked. We replace it instead with an INITLOCAL followed by a LDLOCA, instructions that are likely to be optimized out.
+    
+    * [mono][interp] Redo optimizations if a var is no longer indirect
+    
+    Vars that have ldloca applied to them can't take part in ssa optimizations. During these optimizations the result of the ldloca might end up dying, making the var no longer indirect. In this case, after we exit ssa, we redo the whole transformation followed by optimizations.
+    
+    We should also redo optimizations if a phi node ends up removed.
+    
+    * [mono][interp] Disable ssa optimizations for methods with bad cfg structure
+    
+    We currently don't handle scenarios like:
+    
+    ```
+    try {
+            throw
+    } catch {
+            leave exit;
+    }
+    exit:
+    ```
+    
+    The try block is not explicitly linked to exit, but it reaches this path by going through the exception handler. Skip SSA for code like this, since it doesn't seem worthwhile to handle.
+    
+    * [mono][interp] Scan also bblocks reachable from EH
+    
+    The CFG is now split into the no EH paths (on this subset we run all the SSA transformations) and the rest of the bblocks reachable from EH handlers. We ensure that bblocks from no EH path are not linked to bblocks from EH handlers.
+    
+    Enable SSA transformation on methods with clauses.
+    
+    * [mono][interp] Mark vars used inside handlers so they are not transformed to ssa
+    
+    The exception handlers will not be linked to the CFG so all SSA algorithms will not work on vars used there.
+    
+    * [mono][interp] Bring back optimizations for variables that are not in SSA form
+    
+    Before the SSA redesign we were doing value/copy propagation for all variables (except vars that had indirects) within a basic block. With SSA we can do such propagation that is not limited to a single basic block boundary. The problem is that SSA transformation might encounter some limitations and variables might not be in SSA form (such an example is locals referenced from exception handlers). Before this commit, these vars would not be in SSA form and therefore they would be ignored by optimizations. We aim to avoid any sort of regression of code quality.
+    
+    The way we generalize handling of both SSA vars and non-SSA vars during optimization passes, is by querying for the var value. For SSA vars, this is guaranteed to be set since we traverse the CFG in DFS order, so we always reach the dominating definition first. For non-SSA vars, we also set the defintion when the var is written to (overwritting it when the var is redefined) and this definition information can be used in the same way by the optimization passes. The only difference is that, while SSA definitions were unique, the non-SSA definitions aren't, so we can only make use of them if the liveness information of the definition matches the current bblock.
+    
+    We only prevent reording stores to such variables and we only do value tracking within a single basic block, as we were doing before the SSA redesign.
+    
+    * [mono][interp] Proper support for ssa disabled
+    
+    Given we will always end up with vars not in ssa form that we will still run optimizations on, we could just extend this to the whole method, not having any var in ssa form. This mode is equivalent with what we had before the SSA support, with all optimizations only operating on a basic block level. Instead of not running optimizations on methods with unsupported control flow, we can just avoid SSA transformations instead and still run code optimization. Add option to fully disable SSA as a configuration.
+    
+    * [mono][interp] Enable cprop dreg optimization for no-ssa vars
+    
+    This works in a limited fashion, only if the definition and the move are adjacent, as it was working before the SSA change. This is intended to improve codegen quality inside finally blocks.
+    
+    * [mono][interp] Fix handling of BBs with patchpoint data during optimization
+    
+    Basic blocks that have a patchpoint data need to remain alive in optimized method if the associated patchpoint can be reachable from unoptimized method, so the tiering mechanism can resolve the new ip offset. We were handling this in a hack fashion, by forcefully keeping these bblocks alive, even if they weren't reachable in the optimized CFG. This was disturbing for the SSA transformation algorithms.
+    
+    We stop hardcoding this during dead bblock detection and instead avoid bblock reordering optimizations if they can end up killing bblocks with patchpoint data. Turns out this scenario was very rare anyway.
+    
+    * [mono][interp] Fix diverging var offsets between tiered and untiered methods
+    
+    Patchpoints introduce some complications since some variables have to be
+    accessed from same offset between unoptimized and optimized methods.
+    
+    Consider the following scenario
+    BB0 -> BB2       BB0: TMP <- def; IL_VAR <- TMP
+    | ^ _            BB1: Use IL_VAR
+    v | /|           BB2: Use IL_VAR
+    BB1
+    
+    BB1 is a basic block containing a patchpoint, BB0 dominates both BB1 and BB2.
+    IL_VAR is used both in BB1 and BB2. In BB1, in optimized code, we could normally
+    replace use of IL_VAR with use of TMP. However, this is incorrect, because TMP
+    can be allocated at a different offset from IL_VAR and, if we enter the method
+    from the patchpoint in BB1, the data at var TMP would not be initialized since
+    we only copy the IL var space.
+    
+    Even if we prevent the copy propagation in BB1, then tiering is still broken.
+    In BB2 we could replace use of IL_VAR with TMP, and we end up hitting the same problem.
+    Optimized code will attempt to access value of IL_VAR from the offset of TMP_VAR,
+    which is not initialized if we enter from the patchpoint in BB1.
+    
+    We solve these issues by inserting a MINT_DEF_TIER_VAR in BB1. This instruction
+    prevents cprop of the IL_VAR in the patchpoint bblock since MINT_DEF_TIER_VAR is seen
+    as a redefinition. In addition to that, in BB2 we now have 2 reaching definitions for
+    IL_VAR, the original one from BB0 and the one from patchpoint bblock from BB1. This
+    will force a phi definition in BB2 and we will once again be forced to access IL_VAR
+    from the original offset that is equal to the one in unoptimized method.
+    
+    * [mono][interp] Retry instruction during cprop when replacing with MOV
+    
+    Consider the example of: x = ldloca a; y = cknull x; z = ldind y. The cknull instruction was replaced with: y <- x but we didn't handle the cprop implication of this. We now redo the cprop checks on the replaced instruction. This will mark y as a copy of x so `z = ldind y` gets replaced with `z = ldind x`, enabling us to detect that ldind is applied to a ldloca def and optimize out all instructions.
+    
+    * [mono][interp] Rename get_local_offset to get_var_offset
+    
+    * [mono][interp] Squash multiple INITLOCAL into single INITLOCALS
+    
+    In old non-ssa implementation, we were initializing the entire IL locals space with INITLOCALS. With SSA redesign, we generate explicit INITLOCAL for each IL local so we can have proper definitions for vars and optimized these unused defs out. Most of the time all these INITLOCAL instructions are optimized out, but sometimes, some of them might linger around, if the associated vars are not converted to ssa. If we have adjacent INITLOCAL we squash them together into a single INITLOCALS instruction that memsets more chunks at once.
+    
+    * [mono][interp] Fix cprop dreg with newobj
+    
+    MINT_NEWOBJ publishes the object before the ctor is actually run. If newobj is guarded, make sure we don't publish the object to a global var, before the ctor ran successfully.
+    
+    * [mono][interp] Fix u1 narrow simd intrinsic
+    
+    The opcode was overly complicated in an attempt to avoid redundant copying. The implementation was however missing the simple case where result and both arguments are allocated at the same offset. Just compute the result in a separate variable and then do the whole copying.
+    
+    * [mono][interp] Attempt to remove bblocks from EH
+    
+    We normally can't remove bblocks coming from EH. Before this change all try, handler and leave target bblocks were treated as roots. A reasoning for keeping them alive is that we will need to map the bblock to the native offset needed by the EH infrastructure. This can be revisited later but this commit uses a less invasive approach.
+    
+    We introduce the condition that EH handlers are live only if the try bblock is live. If a bblock with EH implications is not reachable, we still keep it alive but we clear all instructions from it. The bblock will just serve as a marker and will be ignored by any optimization passes. This will reduce the code size and also potentially improve performance by not having vars referenced from unreachable code.
+    
+    * [mono][interp] Remove bblock count limit for optimization support
+    
+    We were stuffing both bblock index and instruction index inside a guint32. Turns out this is naive, since even some hot code from our BCL can exceed this limit (ex SpanHelpers.IndexOfAny). Remove this limit by using a struct with a dedicated int32 for each index. It is unfortunate that we now need to allocate the index pair to the mempool separately, if we want to store it in a glist, but this is relatively uncommon.
+    
+    * [mono][interp] Improve native offset estimation
+    
+    The condition for native offset estimation is for it to be conservative, meaning it is bigger or equal than the real code size that is generated. When checking if we need to introduce a long opcode, we were comparing the real offset of the bblock with the estimation of the target bblock. The problem is that in huge methods, the estimation error could accumulate and we would end up with long opcodes. We make the estimation more precise by accounting for the accumulated error.
+    
+    This actually uncovered an existing bug. For branch superinstructions we are missing the long version, so adding a long offset relocation leads to broken code.
+    
+    * [mono][interp] Fix live limit bblocks computation for fixed ssa vars
+    
+    Consider the following code pattern:
+    
+    BB1:
+            x0 = v1 ()
+            y = x0
+            condbr BB3
+    BB2:
+            x1 = v2 ()
+    BB3:
+            print y;
+    
+    Assume that there is some other use of x var such that it has to be a ssa fixed var. BB1 dominates both BB2 and BB3. BB3 is part of the dfrontier of BB2, but since x is not live in BB3 and we generate pruned ssa, there will be no PHI node added in BB3. In BB2, we will have a liveness limit for var x0 up until the point where x1 is set. When renaming vars in BB3, we have x0 as the current renamed var for x. Since x is not redefined in BB3, we were naively considering that the value of x0, which was currently on the ssa stack, can be readily used. This would lead to the propagation of value x0 into BB3 which is obviously incorrect, since if we enter from BB2 the value of x0 is overwritten by the x1 value.
+    
+    This problem is resolved by introducing a new type of phi opcode. While in BB3 we weren't inserting any phi node because x is not live, we now do insert a dead_phi. This is a lighter weight phi node, which is only used for the computation of liveness limit. When renaming vars in BB3, we detect a dead_phi for var x, which basically means that if we were to propagate the use of x in this bblock, then we would actually need to insert a real phi node. Therefore no propagation of value x0 is allowed in BB3. Unlike normal phi nodes, dead_phi nodes don't force a var to be ssa fixed. In the above example, if var x is not actually ssa fixed, even though we insert a dead_phi node, we will still end up with two separated x0 and x1 vars and we will be able to propagate var x0 directly into BB3.
+    
+    * [mono][interp] Reduce number of renamable vars
+    
+    Renamable vars are vars that have multiple definitions. SSA global vars are renamable vars that are used in multiple bblocks, that require additional computations (for inserting phi for example). Before this commit we were computing both renamable vars and ssa globals in one code iteration. We were naively marking vars as renamable if the use bblock was different from the define bblock. We now do it only if there are actually multiple definitions of the var. This reduces total number of renamable vars to about half, significantly improving compilation speed for massive methods.
+    
+    In order to mark ssa global vars, we need to do another simple iteration. On SRT suite about 85% of renamable vars are ssa global. It is not obvious how useful it is to have special handling for them, but computing them is also very cheap.
+    
+    * [mono][interp] Remove MINT_NOPS after each round of optimizations
+    
+    Since it was easier and we still needed to have some instructions around (instruction with il_offset marker), instead of unlinking an instruction when it is optimized out we were just replacing it with a MINT_NOP. After a round of optimization, most of the instructions become nops, so make sure to unlink them so we don't pay the cost of iterating in future passes.
+    
+    * [mono][interp] Optimize generation of MINT_DEAD_PHI
+    
+    In complex methods we tend to generate massive amounts of these opcodes, this being very slow and memory consuming. Account for this by generating a single instruction with a compact bit set instead.
+    
+    * [mono][interp] Disable SSA for first optimization iteration of huge methods
+    
+    SSA transformations are very expensive if we have many bblocks / vars. Run optimizations first with ssa disabled, so when we run SSA transformation, the code is already significantly simplified.
+    
+    * [mono][interp] Fix adding of super instructions
+    
+    Super-instructions combine two instructions into one, if the first instruction has a ref-count of 1, generating a single instruction that does more operations. The problem is that the source vars of the first instructions have their liveness extended to the point of the second instruction. This can be incorrect if, for example, one of the vars is redefined between the 2 instrutions. Problems can also arise if the vars are ssa-fixed, in which case we can't freely extend the liveness. We now do the same liveness extension checks as in the cprop scenario.
+    
+    * [mono][interp] Refactor dfs traversal to be iterative
+    
+    This doesn't really generate the same ordering, but we preserve the rule that the root bblock is marked before all successors, unless back edges are involved.
+    
+    * [mono][interp] Make rename vars pass non-recursive
+    
+    The recursive algorithm was doing preliminary operations on a bblock, then recursively processed all successor subtrees, and then doing finishing work on the bblock. We implement this iteratively by using a stack where we push each bblock twice. After we finish with the preliminary operation on the bblock, we push it again on the stack and then push for the first time each of the successors. This second push entry will only be reached once the stack is consumed, aka all successors are completely processed.
+    
+    * [mono][interp] Make use of dfs_index in more places
+    
+    We have the global `td->bb_count` index, which is an ever increasing counter for each allocated bblocks. `bb->dfs_index` and `td->bblocks_count` only take into account reachable basic blocks. A lot of SSA algorithms still used the `td->bb_count` limit, which is excessively high. Further reduce mem use of bitsets by using `dfs_index` into liveness position. This requires setting `dfs_index` for bblocks even in no-ssa case.
+    
+    As an example, in one of the massive methods in our test suite, this reduces the mempool size from 2.4GB down to 100MB.
+    
+    * [mono][interp] Don't run any optimizations if we have cprop disabled
+    
+    Before this commit, with all optimization disabled, some optimizations (that were dependent on cprop) were still being run.
+    
+    * [mono][interp] Reduce max memory usage during interp compilation
+    
+    Create a new mempool for optimization iteration. For complex methods we typically do multiple optimization iterations. For each iteration we were allocating memory from the global method mempool, which was freed at the end of method compilation. We now allocate most of the memory inside a separate mempool which is freed at the end of each iteration.
+    
+    Allocate some of the temporary data with malloc so we can free it earlier. As an exception we allocate also var_values with malloc. We don't allocate it to the global mempool since this table is very big and it is wasteful. We don't allocate it to the optimization mempool since it is used for better code gen outside of optimization passes, in the var offset allocator.
+    
+    * PR review
