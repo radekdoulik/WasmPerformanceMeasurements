@@ -1,0 +1,7 @@
+commit af53dab544c7a80af2310ec33b2a803cc78a68e2
+Author: Michał Petryka <35800402+MichalPetryka@users.noreply.github.com>
+Date:   Sat Feb 10 18:30:13 2024 +0100
+
+    Add missing test case for BitCast (#97983)
+    
+    BitCast lacked a test for the case of 2 structs with target requiring higher alignment than source, which could be problematic on platforms without unaligned loads.
