@@ -1,0 +1,9 @@
+commit fc08df1b1c0dbee21864ad2a910fb117d353e93e
+Author: Filip Navara <filip.navara@gmail.com>
+Date:   Sat Feb 10 21:25:05 2024 +0100
+
+    [NativeAOT] Pass the minimum macOS version to the linker (#98233)
+    
+    * [NativeAOT] Pass the minimum macOS version to the linker
+    
+    * Use target triple for macOS
