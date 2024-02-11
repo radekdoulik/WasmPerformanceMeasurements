@@ -1,0 +1,19 @@
+commit dfcbcb450bd67e091ae697e788a8c7a88eb8cbec
+Author: Tanner Gooding <tagoo@outlook.com>
+Date:   Sat Feb 10 14:44:33 2024 -0800
+
+    Workaround an MSVC bug with __libm_sse2_sincos_ (#98207)
+    
+    * Workaround an MSVC bug with __libm_sse2_sincos_
+    
+    * Add the SinCos regression tests to the existing Math/MathF tests
+    
+    * Ensure the workaround also applies to x86
+    
+    * Allow a larger amount of variance due to x86 Windows
+    
+    * Adjust the allowedVarianceCos for x86
+    
+    * Add a link to the MSVC issue
+    
+    * Add a link to the MSVC issue
