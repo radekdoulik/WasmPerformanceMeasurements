@@ -1,0 +1,8 @@
+commit 4acd10674fdec3ac0a3c9bea0f1a26239ee171d1
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Sat Feb 10 16:34:05 2024 -0500
+
+    [mono][jit] Simplify method_needs_stack_walk (). (#98230)
+    
+    Instead of hardcoding a set of classes, check that the method
+    has a DynamicSecurityMethod attribute, eliminating false positives.
