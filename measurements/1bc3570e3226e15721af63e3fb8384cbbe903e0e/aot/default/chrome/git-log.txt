@@ -1,0 +1,7 @@
+commit 1bc3570e3226e15721af63e3fb8384cbbe903e0e
+Author: Aman Khalid <amankhalid@microsoft.com>
+Date:   Fri Feb 9 15:38:55 2024 -0500
+
+    JIT: Set naive likelihoods when initializing preds (#98192)
+    
+    Part of #93020. Per discussion on #98054, set "naive" edge likelihoods (in other words, assume every successor edge is equally likely to be taken) in fgAddRefPred when initializing preds.
