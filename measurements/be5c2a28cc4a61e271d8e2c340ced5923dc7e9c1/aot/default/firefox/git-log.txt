@@ -1,0 +1,9 @@
+commit be5c2a28cc4a61e271d8e2c340ced5923dc7e9c1
+Author: Filip Navara <filip.navara@gmail.com>
+Date:   Mon Feb 12 12:29:14 2024 +0100
+
+    Fix build with Android 26 NDK (which has some nullability annotations) (#97976)
+    
+    * Fix build with Android 26 NDK (which has some nullability annotations)
+    
+    * One more error in System.Security.Cryptography.Native.Android
