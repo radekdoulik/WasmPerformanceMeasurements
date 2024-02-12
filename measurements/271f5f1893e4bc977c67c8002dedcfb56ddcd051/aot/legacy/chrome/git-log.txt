@@ -1,0 +1,9 @@
+commit 271f5f1893e4bc977c67c8002dedcfb56ddcd051
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Tue Feb 13 04:14:21 2024 +0900
+
+    Report unhandled exceptions/FailFast in event log (#98152)
+    
+    Fixes #73998.
+    
+    `EventReporter` is basically taken from eventreporter.cpp in the VM.
