@@ -1,0 +1,7 @@
+commit 030fd3be2bee94448a7e6ac0ed2b67f5bd4f82ba
+Author: Radek Doulik <radek.doulik@gmail.com>
+Date:   Mon Feb 12 18:32:47 2024 +0100
+
+    [wasm][bench] Fix Blazor First UI measurement (#98308)
+    
+    This was missing from the patch because of blazor template file rename
