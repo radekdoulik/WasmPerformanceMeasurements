@@ -1,0 +1,9 @@
+commit f582c0b66b2b91b626ccce62ea0e37496446e79f
+Author: Michael Render <render.michael@gmail.com>
+Date:   Mon Feb 12 08:39:09 2024 -0500
+
+    Fix URL encoding of HttpUtility.ParseQueryString's ToString method (#98263)
+    
+    * Fix URL encoding of `HttpUtility.ParseQueryString`'s `ToString` method
+    
+    * Add test
