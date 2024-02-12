@@ -1,0 +1,5 @@
+commit 671a4432604dab91dd7576b2f17e5028cd5aee10
+Author: Thays Grazia <thaystg@gmail.com>
+Date:   Mon Feb 12 13:54:07 2024 -0300
+
+    Fix side effect of only not sending assembly_load while invoking methods. (#98253)
