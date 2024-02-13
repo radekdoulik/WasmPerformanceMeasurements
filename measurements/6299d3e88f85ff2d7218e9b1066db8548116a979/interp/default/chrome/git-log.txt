@@ -1,0 +1,7 @@
+commit 6299d3e88f85ff2d7218e9b1066db8548116a979
+Author: Jan Kotas <jkotas@microsoft.com>
+Date:   Mon Feb 12 17:13:35 2024 -0800
+
+    Delete unnecessary test exclusion (#98329)
+    
+    Windows Arm32 is no longer supported
