@@ -1,0 +1,9 @@
+commit ec1a6b9e3b74bd352df5d3856c9088da8f902783
+Author: Tanner Gooding <tagoo@outlook.com>
+Date:   Mon Feb 12 18:38:05 2024 -0800
+
+    Ensure the assert in IsEmbMaskOp is correct (#98306)
+    
+    * Ensure the assert in IsEmbMaskOp is correct
+    
+    * Have IsEmbMaskOp check, rather than assert, the node is a HWIntrinsic
