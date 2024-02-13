@@ -1,0 +1,11 @@
+commit 74afd1bd44ad5cf22dc64177fe40cb9a9c315afc
+Author: Jeremy Barton <jbarton@microsoft.com>
+Date:   Mon Feb 12 21:32:23 2024 -0800
+
+    Harden UnixPkcs12Reader native memory usage
+    
+    * Do not do the allocation and parsing in the constructor, since throwing there prevents Dispose from running
+    * If something goes wrong between AllocHGlobal and moving the pointer into a PointerMemoryManager, call FreeHGlobal.
+        * Past that point it will be correctly freed by Dispose.
+    * Switch from AllocHGlobal/FreeHGlobal to NativeMemory.Alloc/Free
+    * Harden the Dispose method against mid-execution failure.
