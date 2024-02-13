@@ -1,0 +1,31 @@
+commit e3af00bf62f3280b4db46e2a01caf68a4dd5c991
+Author: Grzegorz Tomasz Czarnecki <grzegorz.czarnecki.2021@gmail.com>
+Date:   Tue Feb 13 10:57:44 2024 +0100
+
+    [RISC-V] Fix gc-related bugs in risc-v emitter (#98226)
+    
+    * [RISC-V] Fix mistakes in emitter
+    
+    * Revert "[RISC-V] Added designated output instruction emitters (#96741)"
+    
+    This reverts commit 77fd98c8fb245b30b24b8eeaf577b0a457a4449c.
+    
+    * Revert "Revert "[RISC-V] Added designated output instruction emitters (#96741)""
+    
+    This reverts commit ecc044d4e6082c0f727bd7e36d53878416cf4207.
+    
+    * [RISC-V] Sync emitOutputIns with the latest ref branch
+    
+    * [RISC-V] Formatted code
+    
+    * [RISC-V] Fixes
+    
+    * [RISC-V] Fixed sign cast in assert code len
+    
+    * [RISC-V] Readed assert
+    
+    * [RISC-V] Fixed fence sanity check and removed fence_i
+    
+    ---------
+    
+    Co-authored-by: Dong-Heon Jung <clamp03@gmail.com>
