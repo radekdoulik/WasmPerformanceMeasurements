@@ -1,0 +1,13 @@
+commit f4f9bd5377c5c6ace2c7e45701d25e57e75bef00
+Author: Miha Zupan <mihazupan.zupan1@gmail.com>
+Date:   Tue Feb 13 14:39:33 2024 +0100
+
+    Add span-based Uri {Try}{Un}EscapeDataString overloads (#98074)
+    
+    * Add span-based Uri {Try}{Un}EscapeDataString overloads
+    
+    * Use the new API in a few places
+    
+    * Write directly into the destination span when possible
+    
+    * Update comments
