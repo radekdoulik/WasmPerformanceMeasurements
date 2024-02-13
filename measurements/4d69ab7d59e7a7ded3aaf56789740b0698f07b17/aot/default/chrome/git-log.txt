@@ -1,0 +1,9 @@
+commit 4d69ab7d59e7a7ded3aaf56789740b0698f07b17
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Tue Feb 13 15:54:51 2024 +0900
+
+    Don't allow preinitialization to skip dataflow (#98318)
+    
+    Fixes #97286.
+    
+    This just aborts preinitialization if we see dataflow might be involved. It's a conservative fix. We don't have a good spot to communicate dataflow need (e.g. _everything_ from the cctor could potentially be optimized away if the codegen inlines that knowledge).
