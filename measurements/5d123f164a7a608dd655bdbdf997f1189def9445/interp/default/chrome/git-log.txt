@@ -1,0 +1,7 @@
+commit 5d123f164a7a608dd655bdbdf997f1189def9445
+Author: PaulKlein <paul.klein.2008@gmail.com>
+Date:   Wed Feb 14 06:43:53 2024 +1300
+
+    Clear _cacheInvalid flag after rebuilding limiter cache in DefaultPartitionedRateLimiter (#98075)
+    
+    Fix #95611
