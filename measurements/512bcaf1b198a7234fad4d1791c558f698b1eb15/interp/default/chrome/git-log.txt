@@ -1,0 +1,9 @@
+commit 512bcaf1b198a7234fad4d1791c558f698b1eb15
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Fri Feb 9 00:28:51 2024 -0500
+
+    [mono][jit] Add minimal support for unsupported avx instruction sets. (#98151)
+    
+    Extracted from https://github.com/dotnet/runtime/pull/97096.
+    
+    Author: Johan Lorensson lateralusx.github@gmail.com.
