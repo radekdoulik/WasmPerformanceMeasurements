@@ -1,0 +1,8 @@
+commit 988958fec561240b665b28913dfadd8c14f5fb43
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Thu Feb 15 10:31:44 2024 +0100
+
+    JIT: Simplify formatting strings for various "reason" fields (#98434)
+    
+    Add a `Compiler::printfAlloc` that makes it simpler to create more
+    insightful strings to be stored in `LclVarDsc` and other places.
