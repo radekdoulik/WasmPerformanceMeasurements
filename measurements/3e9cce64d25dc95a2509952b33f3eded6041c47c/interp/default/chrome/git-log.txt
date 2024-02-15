@@ -1,0 +1,5 @@
+commit 3e9cce64d25dc95a2509952b33f3eded6041c47c
+Author: Egor Bogatov <egorbo@gmail.com>
+Date:   Fri Feb 9 15:25:24 2024 +0100
+
+    ARM64: Optimize overflow and divbyzero checks with assertions (#98113)
