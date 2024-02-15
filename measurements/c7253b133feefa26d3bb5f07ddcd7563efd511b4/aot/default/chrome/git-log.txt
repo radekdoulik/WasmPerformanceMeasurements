@@ -1,0 +1,15 @@
+commit c7253b133feefa26d3bb5f07ddcd7563efd511b4
+Author: Aman Khalid <amankhalid@microsoft.com>
+Date:   Wed Feb 14 23:23:54 2024 -0500
+
+    JIT ARM64 SVE: Add FZ_2A, HG_2A, GZ_3A, GV_3A, GY_3*, DV_4A (#98310)
+    
+    Part of #94549. Implements the following encodings:
+    
+    IF_SVE_FZ_2A
+    IF_SVE_HG_2A (SVE2)
+    IF_SVE_GZ_3A
+    IF_SVE_GV_3A
+    IF_SVE_GY_3B_D (SVE2)
+    IF_SVE_GY_3A (SVE2)
+    IF_SVE_DV_4A (SVE2)
