@@ -1,0 +1,9 @@
+commit 963626276e11bf5587aaed69826b62682b05d9c4
+Author: Ilona Tomkowicz <32700855+ilonatommy@users.noreply.github.com>
+Date:   Thu Feb 15 13:32:52 2024 +0100
+
+    [wasm] Fix "bump-chrome-pr.env" update. (#98480)
+    
+    * Fix "bump-chrome-pr.env" update.
+    
+    * Fix: do not overwrite the .env file (emptying it) when there was no update.
