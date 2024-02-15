@@ -1,0 +1,7 @@
+commit 617edb195797189c2c27e64735002da7886ac204
+Author: Jeremy Barton <jbarton@microsoft.com>
+Date:   Thu Feb 15 12:03:19 2024 -0800
+
+    X509Chain.Build should throw when an internal error occurs
+    
+    Chain building can sometimes return nonsensical values when an internal error is encountered. This changes the behavior so that chain building will throw instead of returning nonsensical values.
