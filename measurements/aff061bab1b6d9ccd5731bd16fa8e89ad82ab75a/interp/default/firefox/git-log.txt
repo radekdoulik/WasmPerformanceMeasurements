@@ -1,0 +1,7 @@
+commit aff061bab1b6d9ccd5731bd16fa8e89ad82ab75a
+Author: Jackson Schuster <36744439+jtschuster@users.noreply.github.com>
+Date:   Wed Feb 14 15:00:43 2024 -0800
+
+    Make sure ScopeStack doesn't box to IDisposable (#98396)
+    
+    We allocate every time we encounter a using (ScopeStack.PushScope...) statement, which adds up to be a lot (~10mb in hello world, one of the most allocated objects). Instead, we can return the struct type directly so no boxing occurs.
