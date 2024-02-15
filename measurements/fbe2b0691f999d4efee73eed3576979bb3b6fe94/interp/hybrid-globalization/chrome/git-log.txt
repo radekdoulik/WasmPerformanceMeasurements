@@ -1,0 +1,7 @@
+commit fbe2b0691f999d4efee73eed3576979bb3b6fe94
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Thu Feb 15 07:23:59 2024 +0900
+
+    Turn unreachable basic blocks into an infinite loop (#98319)
+    
+    Instead of padding unreachable basic blocks with nops followed by `br $-2`, we now turn unreachable basic blocks into _just_ `br $-2`, no nops (and matching basic block size) needed. This means offsets within the method body can shuffle around and we fix them up.
