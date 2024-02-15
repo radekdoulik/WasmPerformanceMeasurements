@@ -1,0 +1,7 @@
+commit fa3dccb7e8ba5703007c308bb9916a36cf826ba6
+Author: Vlad Brezae <brezaevlad@gmail.com>
+Date:   Thu Feb 15 15:46:53 2024 +0200
+
+    [mono][interp] Free var_values table later (#98482)
+    
+    It contains, among other things, ref count information for vars. This is also used late in the codgen process, for peephole optimization when generating marvin block intrinsic.
