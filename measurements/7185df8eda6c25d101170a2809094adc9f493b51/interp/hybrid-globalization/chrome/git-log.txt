@@ -1,0 +1,7 @@
+commit 7185df8eda6c25d101170a2809094adc9f493b51
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Fri Feb 16 20:31:44 2024 +0900
+
+    Add some eventlog APIs to WindowsAPIs.txt (#98545)
+    
+    Hello world size regressed by 50 kB because we now need the lazy p/invoke code paths. This API is present in OneCore.lib and has existed since at least Windows 2000. It's missing in mincore.lib, but AFAIK mincore is pretty much deprecated.
