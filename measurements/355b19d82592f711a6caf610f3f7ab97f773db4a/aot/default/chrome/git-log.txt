@@ -1,0 +1,15 @@
+commit 355b19d82592f711a6caf610f3f7ab97f773db4a
+Author: Jeremi Kurdek <59935235+jkurdek@users.noreply.github.com>
+Date:   Fri Feb 16 17:54:05 2024 +0100
+
+    [mono] Intrinsify multiple StoreVector API's (#98514)
+    
+    * enabled storevector 128/64x* intrinsics and tests
+    
+    * implemented storevector 128/64x* intrinsics
+    
+    * applied review suggestions
+    
+    * implemented storevector128/64x*andzip intrinsics
+    
+    * applied review suggestions
