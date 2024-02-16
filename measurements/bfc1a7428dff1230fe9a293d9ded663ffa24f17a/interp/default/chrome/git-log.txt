@@ -1,0 +1,13 @@
+commit bfc1a7428dff1230fe9a293d9ded663ffa24f17a
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Thu Feb 15 19:22:44 2024 -0500
+
+    Vectorize TensorPrimitives.PopCount (#98281)
+    
+    * Vectorize TensorPrimitives.PopCount
+    
+    * Update comment per PR feedback
+    
+    ---------
+    
+    Co-authored-by: Eirik Tsarpalis <eirik.tsarpalis@gmail.com>
