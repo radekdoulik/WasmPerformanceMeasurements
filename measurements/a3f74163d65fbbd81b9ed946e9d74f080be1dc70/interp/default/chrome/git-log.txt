@@ -1,0 +1,11 @@
+commit a3f74163d65fbbd81b9ed946e9d74f080be1dc70
+Author: Matous Kozak <55735845+matouskozak@users.noreply.github.com>
+Date:   Fri Feb 16 09:31:26 2024 +0100
+
+    [mono] Block SIMD types in Swift interop (#98429)
+    
+    Temporarily block SIMD types in Swift Interop to simplify current runtime implementation and not cause unintended behavior.
+    
+    ---------
+    
+    Co-authored-by: Milos Kotlar <kotlarmilos@gmail.com>
