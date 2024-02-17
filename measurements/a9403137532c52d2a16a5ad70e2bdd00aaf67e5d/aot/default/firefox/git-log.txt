@@ -1,0 +1,7 @@
+commit a9403137532c52d2a16a5ad70e2bdd00aaf67e5d
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Sat Feb 17 10:10:51 2024 +0900
+
+    Delete type_traits.h (#98553)
+    
+    Bunch of template metaprogramming that is not actually used.
