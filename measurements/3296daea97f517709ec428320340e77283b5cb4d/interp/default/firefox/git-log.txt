@@ -1,0 +1,41 @@
+commit 3296daea97f517709ec428320340e77283b5cb4d
+Author: Andy Ayers <andya@microsoft.com>
+Date:   Sun Feb 18 10:21:13 2024 -0800
+
+    JIT: Streaming mode for SPMI (#98440)
+    
+    Create a new SPMI (replay) mode that binds an SPMI process to a collection and jit
+    and initial options set, and then repeatedly reads method numbers and overriding
+    jit options from a file until the file is closed, or contains a line beginning
+    with "stop".
+    
+    Clients can poll the stdout from this mode to extract output from the jit
+    for each invocation, end-delimited by `[streaming] Done.` This seems to be
+    quite a bit faster than launching a new process for each invocation.
+    
+    For example, given a reply file like
+    ```
+    49974!JitRLCSE=!JitRLCSEAlpha=0.02!JitRandomCSE=161
+    49974!JitRLCSE=!JitRLCSEAlpha=0.02!JitRandomCSE=171
+    49974!JitRLCSE=!JitRLCSEAlpha=0.02!JitRandomCSE=161!JitReplayCSE=1,0!JitReplayCSEReward=0,0
+    49974!JitRLCSE=!JitRLCSEAlpha=0.02!JitRandomCSE=171!JitReplayCSE=0!JitReplayCSEReward=0
+    stop
+    ```
+    one can now do something like:
+    ```
+    %% superpmi.exe -v q -jitoption JitMetrics=1 clrjit.dll collection.mch -streaming 49974-replay.txt
+    
+    ; Total bytes of code 119, prolog size 6, PerfScore 30.75, instruction count 35, allocated bytes for code 119, num cse 1 num cand 1 RL Policy Gradient Stochastic seq 1,0 likelihoods 0.500,1.000 baseLikelihoods 0.000,0.500,1.000,0.500 spmi index 49974 (MethodHash=870c8ba4) for method System.Threading.Channels.AsyncOperation`1[System.__Canon]:GetResult(short):System.__Canon:this (Tier1)
+    [streaming] Done.
+    ; Total bytes of code 117, prolog size 6, PerfScore 32.50, instruction count 34, allocated bytes for code 117, num cse 0 num cand 1 RL Policy Gradient Stochastic seq 0 likelihoods 0.500 baseLikelihoods 0.000,0.500,1.000,0.500 spmi index 49974 (MethodHash=870c8ba4) for method System.Threading.Channels.AsyncOperation`1[System.__Canon]:GetResult(short):System.__Canon:this (Tier1)
+    [streaming] Done.
+    ; Total bytes of code 119, prolog size 6, PerfScore 30.75, instruction count 35, allocated bytes for code 119, num cse 1 num cand 1 RL Policy Gradient Update seq 1,0 updatedparams 0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000 spmi index 49974 (MethodHash=870c8ba4) for method System.Threading.Channels.AsyncOperation`1[System.__Canon]:GetResult(short):System.__Canon:this (Tier1)
+    [streaming] Done.
+    ; Total bytes of code 117, prolog size 6, PerfScore 32.50, instruction count 34, allocated bytes for code 117, num cse 0 num cand 1 RL Policy Gradient Update seq 0 updatedparams 0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000 spmi index 49974 (MethodHash=870c8ba4) for method System.Threading.Channels.AsyncOperation`1[System.__Canon]:GetResult(short):System.__Canon:this (Tier1)
+    [streaming] Done.
+    ```
+    
+    The input format is like shown above, a method number and then option settings prefixed by `!`.
+    Lines starting with `#` are ignored.
+    
+    `-streaming stdin` is also supported, for your interactive SPMI needs.
