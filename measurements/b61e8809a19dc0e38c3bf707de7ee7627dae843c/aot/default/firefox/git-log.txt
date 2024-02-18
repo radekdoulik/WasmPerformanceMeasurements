@@ -1,0 +1,5 @@
+commit b61e8809a19dc0e38c3bf707de7ee7627dae843c
+Author: Szczepan Ćwikliński <sec@thinkcode.pl>
+Date:   Sun Feb 18 17:59:06 2024 +0100
+
+    Disable optimize ThreadStaticAccess for FreeBSD/arm64 (#98629)
