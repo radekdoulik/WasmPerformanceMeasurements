@@ -1,0 +1,15 @@
+commit 1be948c959a6edcb2b57724b3ac6147a66580b92
+Author: Filip Navara <filip.navara@gmail.com>
+Date:   Mon Feb 19 19:30:48 2024 +0100
+
+    Prevent incorrect constant folding (#98561)
+    
+    * Prevent incorrect constant folding of binary operations involving handle and integer
+    
+    * Fix the conditions for null nodes
+    
+    * Fix the last commit for non-GT/GE/LT/LE
+    
+    * Make JIT format happy
+    
+    * More conservative approach. Limit only arithmetic operations involving handles in a relocatable code.
