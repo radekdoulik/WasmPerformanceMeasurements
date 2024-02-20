@@ -1,0 +1,10 @@
+commit 5c84b9e56eb7593d34c753aa9c9264016d50d6d4
+Author: Jan Vorlicek <janvorli@microsoft.com>
+Date:   Tue Feb 20 17:53:03 2024 +0100
+
+    Fix PAL tests - remove non-existent tests from the list (#98695)
+    
+    Recent refactoring of the PAL has forgotten to remove three tests from
+    the paltestlist.txt file, which has broken the PAL test execution.
+    
+    Close #98574
