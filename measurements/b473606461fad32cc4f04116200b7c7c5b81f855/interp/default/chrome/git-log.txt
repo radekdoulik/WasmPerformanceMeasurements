@@ -1,0 +1,15 @@
+commit b473606461fad32cc4f04116200b7c7c5b81f855
+Author: Michał Petryka <35800402+MichalPetryka@users.noreply.github.com>
+Date:   Mon Feb 19 20:01:56 2024 +0100
+
+    Alternative fix for ARM64 signed small type cmpxchg without LSE (#97902)
+    
+    * Alternative fix for ARM64 signed small type cmpxchg without LSE
+    
+    Better fix for #97839.
+    
+    * Update importercalls.cpp
+    
+    * Update importercalls.cpp
+    
+    * Add comment
