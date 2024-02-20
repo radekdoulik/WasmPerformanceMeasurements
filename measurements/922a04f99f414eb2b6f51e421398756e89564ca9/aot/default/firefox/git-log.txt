@@ -1,0 +1,28 @@
+commit 922a04f99f414eb2b6f51e421398756e89564ca9
+Author: Jan Vorlicek <janvorli@microsoft.com>
+Date:   Tue Feb 20 00:20:58 2024 +0100
+
+    Fix bug in arm64 LazyMachState unwind (#98635)
+    
+    * Fix bug in arm64 LazyMachState unwindFix bug in arm64 LazyMachStateunwind
+    
+    When we were enabling the mac M1 couple of years ago, a bug has creeped
+    in that causes a race in lazy machine state unwinding. The
+    LazyMachState::setLazyStateFromUnwind was incorrectly modifying the
+    captured state, so in case multiple threads were racing for the unwind,
+    a thread that came at a time when part of the captured state was
+    modified and before the `_isValid` was set would start unwinding from a
+    wrong state (the partial unwound one), effectively unwinding twice.
+    
+    I've hit this in CI for enabling the new exception handling, as it
+    results in an assert when comparing the resulting address of the
+    floating point registers unwind with the mach state.
+    
+    * Proper fix for macOS arm64
+    
+    * Add comment on why Apple is different
+    
+    Also unify code for Windows / Linux since the ptrX19_X29 never contain
+    null pointer on those platforms. They are initialized to point to the
+    captureX19_X29. So the conditional code that has the null check doesn't
+    make sense on Linux.
