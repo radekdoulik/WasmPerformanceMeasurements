@@ -1,0 +1,11 @@
+commit 703f6e846027681a052970929989bd36e81636cd
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Wed Feb 21 19:14:12 2024 +0100
+
+    JIT: Fix rich debug info reporting with failed inline contexts (#98755)
+    
+    The child/sibling link ordinals would be reported as 0 in cases where
+    the immediate child/sibling was a failed one. This would break the
+    reported tree structure.
+    
+    Also add some JITDUMP logging of the reported info.
