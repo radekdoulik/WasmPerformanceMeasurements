@@ -1,0 +1,5 @@
+commit cc95b08e0060d388c5a48268f85d454fbe8e64fe
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Wed Feb 21 06:59:23 2024 -0500
+
+    [mono][jit] Use the same code to emit Vector/Vector<T> intrinsics on all platforms. (#98317)
