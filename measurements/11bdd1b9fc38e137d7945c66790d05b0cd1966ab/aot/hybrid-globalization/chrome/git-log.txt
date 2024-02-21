@@ -1,0 +1,9 @@
+commit 11bdd1b9fc38e137d7945c66790d05b0cd1966ab
+Author: Jan Kotas <jkotas@microsoft.com>
+Date:   Tue Feb 20 17:38:06 2024 -0800
+
+    [NativeAOT] Use ld_classic in ILC build and in build integration (#97856) (#98726)
+    
+    Forward port of #97856
+    
+    Workaround for #97745
