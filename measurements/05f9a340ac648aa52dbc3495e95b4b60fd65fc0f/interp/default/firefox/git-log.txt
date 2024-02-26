@@ -1,0 +1,9 @@
+commit 05f9a340ac648aa52dbc3495e95b4b60fd65fc0f
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Mon Feb 26 09:22:42 2024 -0500
+
+    Implement ICollection<T> on ToLookup (#98895)
+    
+    LINQ's ToLookup returns an ILookup. The object we return today on some platforms implements `IIListProvider`. Instead, we can just have the returned object always implement `ICollection<T>`. The provided CopyTo then enables the default ToArray/ToList implementations to still be efficient. Implementing ICollection enables other uses to also take advantage of implementations like CopyTo and Count.
+    
+    As `Lookup<TKey, TElement>` is public, this doesn't implement the interface on that type and instead derives a sealed internal type that provides the interface implementation (which is minimal). If we want to augment the public API, we could do so subsequently and delete the internal derived type.
