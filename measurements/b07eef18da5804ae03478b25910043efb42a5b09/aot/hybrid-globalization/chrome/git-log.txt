@@ -1,0 +1,13 @@
+commit b07eef18da5804ae03478b25910043efb42a5b09
+Author: Larry Ewing <lewing@microsoft.com>
+Date:   Tue Feb 27 11:10:15 2024 -0600
+
+    [wasm] Disable the System.Runtime.InteropServices.JavaScript tests on mt whi… (#98951)
+    
+    * Disable the System.Runtime.InteropServices.JavaScript tests on mt while they are being worked on
+    
+    * Remove from smoke tests too
+    
+    ---------
+    
+    Co-authored-by: Marek Fišera <mara@neptuo.com>
