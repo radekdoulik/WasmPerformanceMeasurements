@@ -1,0 +1,7 @@
+commit 463869be4569c9557cb1545c5e5850fecd5f9cd0
+Author: Carlos Sánchez López <1175054+carlossanlop@users.noreply.github.com>
+Date:   Mon Feb 26 21:48:15 2024 -0600
+
+    XUnitLogChecker: Ensure missing stack frames are resolved on Windows using dotnet-sos (#98397)
+    
+    * XUnitLogChecker: Ensure missing stack frames are resolved on Windows using dotnet-sos and setting the missing required environment variable.
