@@ -1,0 +1,7 @@
+commit ac9407554954d920a15337f8af471b1d4f02a506
+Author: Carlos Sánchez López <1175054+carlossanlop@users.noreply.github.com>
+Date:   Mon Feb 26 19:29:20 2024 -0600
+
+    Ensuring XUnitLogChecker is included in libraries outerloop (#97135)
+    
+    To decide whether to include the XUnitLogChecker.csproj among the projects to build, check for TargetFrameworkIdentifier==.NETCoreApp instead of BuildTargetFramework==NetCoreAppCurrent.
