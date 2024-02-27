@@ -1,0 +1,15 @@
+commit 970c7b20f04e8a04c43d37b9efe6564a9a44fe69
+Author: Xu Liangyu <xuliangyu@loongson.cn>
+Date:   Tue Feb 27 22:21:59 2024 +0800
+
+    [LoongArch64] Fix the assertion error for DynamicHelpers::CreateDictionaryLookupHelper(). (#98741)
+    
+    * [LoongArch64] Fix the assert error for DynamicHelpers::CreateDictionaryLookupHelper().
+    
+    * Update src/coreclr/vm/loongarch64/stubs.cpp
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
+    
+    ---------
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
