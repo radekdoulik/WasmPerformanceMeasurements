@@ -1,0 +1,7 @@
+commit 0cb48f4f2de372118a324be32a3de77340c30f22
+Author: Tomasz Sowiński <tomeksowi@gmail.com>
+Date:   Tue Feb 27 10:19:06 2024 +0100
+
+    Don't set RM field when fcvt doesn't round (#98857)
+    
+    CPUs and QEMU tend to ignore it but according to RISC-V ISA fcvt.d.s or fcvt.d.w[u] never round so it is an error. Besides, external disassemblers choke on it.
