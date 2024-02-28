@@ -1,0 +1,13 @@
+commit af5e9d1a826796df786af3e62d6a20294fbab91e
+Author: Matheus Castello <matheus@castello.eng.br>
+Date:   Wed Feb 28 08:46:45 2024 -0300
+
+    Console.Unix: Fix use of terminfo for get window size cache (#98912)
+    
+    The terminfo database does not store dynamic information from the
+    terminal. Instead we should trust in the values read when the
+    terminal signaled invalidation of the cache.
+    
+    Fixes: PowerShell/PowerShell#21267
+    
+    Signed-off-by: Matheus Castello <matheus@castello.eng.br>
