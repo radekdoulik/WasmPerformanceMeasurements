@@ -1,0 +1,11 @@
+commit 9bc96d0bb78b1f57443619a9453d21ecaf75e185
+Author: Vlad Brezae <brezaevlad@gmail.com>
+Date:   Wed Feb 28 16:04:23 2024 +0200
+
+    [mono][interp] Disable optimization in weird scenario of infinite loop (#99032)
+    
+    It was confused by code like:
+    ```
+    BB1:
+    IL_0000: br             [nil <- nil], BB1
+    ```
