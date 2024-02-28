@@ -1,0 +1,23 @@
+commit e101ae2bd1c198ba7aaa209d1a4c55d6ce6b4073
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Tue Feb 27 23:35:57 2024 -0500
+
+    Consolidate LINQ's internal IIListProvider/IPartition into base Iterator class (#98969)
+    
+    * Make Grouped{Result}Enumerable derive from Iterator
+    
+    * Make OrderedPartition derive from Iterator
+    
+    * Consolidate LINQ's internal IIListProvider/IPartition into base Iterator
+    
+    LINQ has an internal base Iterator class that's used when operators manually implement enumeration rather than having the compiler implement it with an iterator. That base class includes several abstract/virtual methods, including a Select and Where virtual method that have been present since the beginning of LINQ: those are used in a case of A().B(), where B is Select or Where and where A can then improve the processing of B by returning a customized implementation aware of some aspect of both A and B (e.g. the enumerable returned from .Where().Select() includes both the where and select functionality in that single object). Over the years, other specialization has been added to LINQ, in the form of additional internal interfaces: IIListProvider and IPartition. These interfaces similarly enable optimizing sequences A().B(), where B is other LINQ methods, e.g. IIListProvider enables optimizing ToArray/ToList/Count, and IPartition enables optimizing Skip/Take/First/Last/ElementAt. There was a complicated venn diagram of which types implemented which interfaces and base type.
+    
+    This PR merges IIListProvider/IPartition into the base Iterator class. Everything from IPartition is virtual, enabling derivations to specialize just a subset of the functionality, and deduplicating some implementations that were providing the same implementation instead of having it shared in a base. Code that was type testing for the interfaces now type tests for the base class, which means we can delete some type testing where both the interfaces and the base class were previously being tested for.  We no longer have this strange split across multiple optimization-focused internal implementation details, and instead have everything consolidated in the one base class. This also means that all of the calls that were previously interface dispatch are now virtual dispatch.
+    
+    * Rename Partition.SpeedOpt.cs to SkipTake.SpeedOpt.cs
+    
+    * Address PR feedback, and revert ElementAt bounds check on IList
+    
+    * Fill some code coverage test holes
+    
+    * Disable speed-optimized test on wasm
