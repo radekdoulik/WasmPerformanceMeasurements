@@ -1,0 +1,14 @@
+commit 438dabb3e98440ceab44dda4faa4ce018165e1c0
+Author: Alexander Köplinger <alex.koeplinger@outlook.com>
+Date:   Wed Feb 28 17:07:47 2024 +0100
+
+    Disable terminal logger when running from root build script (#99036)
+    
+    * Disable terminal logger when running from root build script
+    
+    Since the 9.0-preview1 bump the msbuild terminal logger was used again since the option from Directory.Build.rsp was ignored.
+    The reason is that we're using Build.proj from an arcade nuget package so the file isn't in the directory tree above, it looks like it was only working due to an msbuild bug before.
+    
+    Add the -tl:false option into the build scripts directly. Individual invocations of `dotnet build` for repo projects still work because there the Directory.Build.rsp is in the directory tree above.
+    
+    * Use /tl instead of -tl on Windows
