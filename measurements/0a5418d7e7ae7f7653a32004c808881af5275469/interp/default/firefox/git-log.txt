@@ -1,0 +1,22 @@
+commit 0a5418d7e7ae7f7653a32004c808881af5275469
+Author: Aman Khalid <amankhalid@microsoft.com>
+Date:   Wed Feb 28 23:15:13 2024 -0500
+
+    JIT ARM64-SVE: Add GJ_3A to AV_3A, BB_2A and BC_1A (#99062)
+    
+    Part of #94549. Adds the following encodings:
+    
+    IF_SVE_GJ_3A
+    IF_SVE_GN_3A
+    IF_SVE_GO_3A
+    IF_SVE_GW_3B
+    IF_SVE_HA_3A
+    IF_SVE_HA_3A_E
+    IF_SVE_HA_3A_F
+    IF_SVE_HB_3A
+    IF_SVE_HD_3A
+    IF_SVE_HD_3A_A
+    IF_SVE_HK_3B
+    IF_SVE_AV_3A
+    IF_SVE_BB_2A
+    IF_SVE_BC_1A
