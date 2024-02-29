@@ -1,0 +1,5 @@
+commit 173da891e4c08f81eefe9765c9b8d0e71613cc84
+Author: Filip Navara <filip.navara@gmail.com>
+Date:   Tue Feb 27 10:50:21 2024 +0100
+
+    Pass hidden argument in EAX register for direct virtual stubs in NAOT ABI (#98927)
