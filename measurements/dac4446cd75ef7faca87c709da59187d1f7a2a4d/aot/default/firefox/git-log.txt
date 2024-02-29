@@ -1,0 +1,5 @@
+commit dac4446cd75ef7faca87c709da59187d1f7a2a4d
+Author: Jan Kotas <jkotas@microsoft.com>
+Date:   Wed Feb 28 15:06:47 2024 -0800
+
+    Enable QueueUserAPC2 suspension even without CET (#99076)
