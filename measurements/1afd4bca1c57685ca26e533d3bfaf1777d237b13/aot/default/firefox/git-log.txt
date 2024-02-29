@@ -1,0 +1,7 @@
+commit 1afd4bca1c57685ca26e533d3bfaf1777d237b13
+Author: Jackson Schuster <36744439+jtschuster@users.noreply.github.com>
+Date:   Thu Feb 29 07:57:05 2024 -0800
+
+    [ILLink] Add interface implementing type to OverrideInformation (#98274)
+    
+    Adds the type that implements the interface to the OverrideInformation class to be able to properly handle cases where the base provides the interface method or the type relies on a default interface method. Adds the InterfaceImplementor class that is basically a tuple of (TypeDefinition typeWithInterface, InterfaceImplementation ImplementedInterface) to do this. Also cleans some unnecessary code in OverrideInformation and ensures that OverrideInformation will have an InterfaceImplementor if the base method is an interface method.
