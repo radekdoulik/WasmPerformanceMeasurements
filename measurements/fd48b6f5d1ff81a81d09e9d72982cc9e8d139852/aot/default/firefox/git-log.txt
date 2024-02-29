@@ -1,0 +1,13 @@
+commit fd48b6f5d1ff81a81d09e9d72982cc9e8d139852
+Author: snickolls-arm <151848422+snickolls-arm@users.noreply.github.com>
+Date:   Thu Feb 29 14:48:20 2024 +0000
+
+    Add ARM64 encodings for group IF_SVE_BH_3A,3B,3B_A (#98764)
+    
+    * Add ARM64 encodings for group IF_SVE_BH_3A,3B,3B_A
+    
+    * Remove unnecessary argument
+    
+    * Fix conversion warning in MSVC
+    
+    * Fix merge issue
