@@ -1,0 +1,15 @@
+commit 7d5a80ad9489e858dcc4bb8b01e6a93d31494243
+Author: Eric StJohn <ericstj@microsoft.com>
+Date:   Wed Feb 28 17:43:08 2024 -0800
+
+    Suppress instances of cs/leap-year/unsafe-date-construction-from-two-elements (#99086)
+    
+    * Adding suppressions for cs/leap-year/unsafe-date-construction-from-two-elements
+    
+    * Apply suggestions from code review
+    
+    Co-authored-by: Tarek Mahmoud Sayed <tarekms@microsoft.com>
+    
+    ---------
+    
+    Co-authored-by: Tarek Mahmoud Sayed <tarekms@microsoft.com>
