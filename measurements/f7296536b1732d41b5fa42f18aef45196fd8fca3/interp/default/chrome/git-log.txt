@@ -1,0 +1,12 @@
+commit f7296536b1732d41b5fa42f18aef45196fd8fca3
+Author: Andy Ayers <andya@microsoft.com>
+Date:   Tue Feb 27 08:00:44 2024 -0800
+
+    JIT: update block weight for uncond to cond flow opt (#98324)
+    
+    This optimization duplicates code and flow in a BBJ_COND successor into one of its
+    preds; as a result the weight of the successor should decrease.
+    
+    Fixes some issues seen with odd perf scores in the ML/CSE experiment.
+    
+    Contributes to #93020
