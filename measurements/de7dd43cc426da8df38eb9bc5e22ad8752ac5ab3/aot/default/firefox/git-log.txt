@@ -1,0 +1,7 @@
+commit de7dd43cc426da8df38eb9bc5e22ad8752ac5ab3
+Author: Alexander Köplinger <alex.koeplinger@outlook.com>
+Date:   Mon Feb 19 23:56:39 2024 +0100
+
+    Remove FluentAssertions reference from ILCompiler.Trimming.Tests.csproj (#98674)
+    
+    It is not used.
