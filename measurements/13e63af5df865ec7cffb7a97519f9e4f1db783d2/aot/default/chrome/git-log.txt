@@ -1,0 +1,7 @@
+commit 13e63af5df865ec7cffb7a97519f9e4f1db783d2
+Author: Anton Firszov <Anton.Firszov@microsoft.com>
+Date:   Wed Feb 14 13:58:58 2024 +0100
+
+    Remove synchronization from Http2Connection.ExtendWindow (#97878)
+    
+    _pendingWindowUpdate is the only state the ExtendWindow method touches under the lock. There is no other code that reads or writes _pendingWindowUpdate after the creation of the connection object. Originating from ProcessIncomingFramesAsync, calls to ExtendWindow are sequential, and never expected to happen concurrently.
