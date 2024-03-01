@@ -1,0 +1,11 @@
+commit d64c653d91537c7726be2a6beb3723745dbb2484
+Author: Tomas Weinfurt <tweinfurt@yahoo.com>
+Date:   Mon Feb 12 10:09:11 2024 -0800
+
+    avoid some allocations during TLS handshake (#97348)
+    
+    * avoid some allocations during TLS handshake
+    
+    * SafeFreeCertContext
+    
+    * feedback
