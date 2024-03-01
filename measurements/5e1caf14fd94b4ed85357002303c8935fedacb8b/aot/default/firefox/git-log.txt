@@ -1,0 +1,7 @@
+commit 5e1caf14fd94b4ed85357002303c8935fedacb8b
+Author: Aman Khalid <amankhalid@microsoft.com>
+Date:   Mon Feb 19 10:27:53 2024 -0500
+
+    JIT: Use successor edges instead of block targets for BBJ_EHFINALLYRET (#98563)
+    
+    Part of #93020. This is a first step in a broader effort to replace BasicBlock's jump targets (bbTarget, bbFalseTarget, etc.) with successor flow edges. This PR also adds overloaded implementations for commonly used edge maintenance methods (fgReplacePred, fgRemoveRefPred, etc.) that can take advantage of the cheap access to successor edges (i.e. without calling fgGetPredForBlock -- hopefully we'll be able to get rid of that at some point).
