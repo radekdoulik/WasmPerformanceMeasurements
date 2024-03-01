@@ -1,0 +1,7 @@
+commit f135699310bccfa83b3b441d2f4f1571fe8df480
+Author: Aman Khalid <amankhalid@microsoft.com>
+Date:   Fri Mar 1 10:47:45 2024 -0500
+
+    JIT: Support loading Swift self register from SwiftSelf struct (#99132)
+    
+    Adds JIT support for loading the Swift self/context register value from the SwiftSelf struct argument passed to a Swift call. Also enables corresponding tests.
