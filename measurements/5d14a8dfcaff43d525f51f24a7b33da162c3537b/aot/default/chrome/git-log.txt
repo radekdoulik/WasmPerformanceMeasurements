@@ -1,0 +1,15 @@
+commit 5d14a8dfcaff43d525f51f24a7b33da162c3537b
+Author: Huo Yaoyuan <huoyaoyuan@hotmail.com>
+Date:   Tue Feb 27 07:14:36 2024 +0800
+
+    Convert HELPER_METHOD_FRAME in objectnative.cpp to QCall (#97641)
+    
+    * Equals
+    
+    * AllocateUninitializedClone
+    
+    * Compare object content in native code
+    
+    * Do not compare padding in Equals
+    
+    * Add test coverage for Equals
