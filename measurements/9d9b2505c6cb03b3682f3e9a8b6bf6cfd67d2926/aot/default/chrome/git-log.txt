@@ -1,0 +1,7 @@
+commit 9d9b2505c6cb03b3682f3e9a8b6bf6cfd67d2926
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Tue Feb 27 07:07:36 2024 -0500
+
+    Special-case arrays in Enumerable.DefaultIfEmpty (#98963)
+    
+    Arrays are fixed-length, and DefaultIfEmpty only applies special behaviors on top of the input enumerable if it's empty. Thus, we can special-case arrays, such that if the input is a non-empty array, we just return the original input rather than wrapping it in a new enumerable.
