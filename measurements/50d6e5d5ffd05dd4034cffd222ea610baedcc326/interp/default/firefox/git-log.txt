@@ -1,0 +1,23 @@
+commit 50d6e5d5ffd05dd4034cffd222ea610baedcc326
+Author: Ilona Tomkowicz <32700855+ilonatommy@users.noreply.github.com>
+Date:   Fri Mar 1 14:36:10 2024 +0100
+
+    [browser][MT] Add new test for multi-threading SignalR in Blazor WBT (#98343)
+    
+    * Add new test asset app - blazor hosted with SignalR.
+    
+    * Interactive version of tests.
+    
+    * Revert removal of `--ignore-certificate-errors` -  it is needed for codespaces.
+    
+    * Cleanup + better logs + Host.cshtml removal.
+    
+    * Apply @maraf's fix for static files.
+    
+    * Update comment + merge testOutputs into one buffer + add ToString on the output.
+    
+    * Initial reduction of setup code.
+    
+    * Minor refactor.
+    
+    * Major refactor.
