@@ -1,0 +1,7 @@
+commit 9dc6ea62a4d195ae4559f4609a56933c61889756
+Author: Jan Kotas <jkotas@microsoft.com>
+Date:   Mon Feb 19 23:36:14 2024 -0800
+
+    Revert "[NativeAOT] Add null checks into memcpy/memset helpers (#98547)" (#98681)
+    
+    This reverts commit 6d4fc1ad4725ca4cc77214b93bc1d37a6fa3553d.
