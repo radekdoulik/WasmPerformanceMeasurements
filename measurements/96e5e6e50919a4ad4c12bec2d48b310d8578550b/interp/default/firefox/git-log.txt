@@ -1,0 +1,5 @@
+commit 96e5e6e50919a4ad4c12bec2d48b310d8578550b
+Author: David Mason <davmason@microsoft.com>
+Date:   Thu Feb 15 00:24:18 2024 -0800
+
+    Fix deadlock when we request a ReJIT due to an inlined method (#98400)
