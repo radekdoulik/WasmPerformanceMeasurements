@@ -1,0 +1,5 @@
+commit 81dfdace71c7833c5effa9f696b28efd25d6ee94
+Author: Emmanuel André <2341261+manandre@users.noreply.github.com>
+Date:   Wed Feb 28 00:32:40 2024 +0100
+
+    Fix exception in BitArray.CopyTo  when destination array is too small (#99018)
