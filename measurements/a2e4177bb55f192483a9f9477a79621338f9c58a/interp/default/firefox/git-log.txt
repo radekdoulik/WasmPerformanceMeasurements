@@ -1,0 +1,7 @@
+commit a2e4177bb55f192483a9f9477a79621338f9c58a
+Author: Aman Khalid <amankhalid@microsoft.com>
+Date:   Fri Mar 1 14:37:58 2024 -0500
+
+    JIT: Remove old fgRemoveRefPred (#99099)
+    
+    Part of #93020. Removes the old fgRemoveRefPred implementation in favor of the new one that avoids calling fgGetPredForBlock unless the successor block's pred list needs to be updated.
