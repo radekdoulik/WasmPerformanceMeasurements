@@ -1,0 +1,24 @@
+commit 8dcca1c2b1959c2be12c0a4aef8529e7cacab0ec
+Author: snickolls-arm <151848422+snickolls-arm@users.noreply.github.com>
+Date:   Thu Feb 29 19:12:30 2024 +0000
+
+    Add ARM64 encodings for groups IF_SVE_CE,CF (#98409)
+    
+    * Add ARM64 encodings for groups IF_SVE_CE,CF
+    
+    * Move left-shifted integers into explicit types
+    
+    * Address review comments
+    
+    * Fix formatting errors
+    
+    * Fix a typo with register ID and add a scalable option for moving to and
+    from predicate registers
+    
+    * Add shortcut for pmov with zero index
+    
+    * Fix formatting
+    
+    ---------
+    
+    Co-authored-by: Kunal Pathak <Kunal.Pathak@microsoft.com>
