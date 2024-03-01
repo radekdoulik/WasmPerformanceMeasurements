@@ -1,0 +1,17 @@
+commit 8b8d1ce72b1e3b3ecc348e25443713e3ed8f0f3f
+Author: Vlad Brezae <brezaevlad@gmail.com>
+Date:   Fri Mar 1 11:25:00 2024 +0200
+
+    [mono][interp] Intrinsify SpanHelpers Clear/Fill (#99115)
+    
+    * [mono][interp] Intrinsify SpanHelpers.ClearWithoutReferences
+    
+    Also rename MINT_INITOBJ to MINT_ZEROBLK_IMM for consistency.
+    
+    * [mono][interp] Intrinsify SpanHelpers.Fill for 1 byte element size
+    
+    * Update jiterpreter
+    
+    ---------
+    
+    Co-authored-by: Katelyn Gadd <kg@luminance.org>
