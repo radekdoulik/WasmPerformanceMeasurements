@@ -1,0 +1,5 @@
+commit 79837bc2669e6bb06d9b5de2fd33f872618d531b
+Author: Jeremy Koritzinsky <jekoritz@microsoft.com>
+Date:   Thu Feb 15 17:14:41 2024 -0800
+
+    Don't strip pointed-to type information in IL stubs (#98392)
