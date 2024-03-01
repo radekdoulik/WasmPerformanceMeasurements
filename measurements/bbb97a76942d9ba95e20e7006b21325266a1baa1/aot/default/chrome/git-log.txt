@@ -1,0 +1,13 @@
+commit bbb97a76942d9ba95e20e7006b21325266a1baa1
+Author: Andrew J Said <andrewjsaid@gmail.com>
+Date:   Thu Feb 15 19:28:22 2024 +0000
+
+    Reintroduce case sensitive comparison optimization for FrozenDictionary in some cases (#95232)
+    
+    * Reintroduce case sensitive comparison optimization for FrozenDictionary in some cases
+    
+    * Renamed a few symbols and added comments for additional clarity
+    
+    ---------
+    
+    Co-authored-by: Stephen Toub <stoub@microsoft.com>
