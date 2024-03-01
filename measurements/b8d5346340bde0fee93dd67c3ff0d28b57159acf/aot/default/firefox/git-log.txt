@@ -1,0 +1,12 @@
+commit b8d5346340bde0fee93dd67c3ff0d28b57159acf
+Author: Katelyn Gadd <kg@luminance.org>
+Date:   Tue Feb 20 16:49:03 2024 -0800
+
+    [wasm] pinvoke improvements part 2 (#98250)
+    
+    * InlineArray is supported in wasm pinvokes, and in general works correctly in mono marshaling now (it was broken on all targets)
+    * fixed arrays are supported in wasm pinvokes
+    *struct arguments and return values are supported in more wasm pinvoke scenarios
+    * wasm struct scalarization is more intelligent about noticing padding and size mismatches in structs (without this, some inlinearrays would be scalarized incorrectly)
+    * Prevent infinite recursion in build task's TypeToChar
+    * expand WBT coverage
