@@ -1,0 +1,7 @@
+commit d4ffdfaf922a0c2a46e62dbf7202c97d4eca7a5c
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Thu Feb 15 01:58:42 2024 +0900
+
+    Don't place MSBuild files to target-specific ILCompiler packages (#98411)
+    
+    Fixes #96556.
