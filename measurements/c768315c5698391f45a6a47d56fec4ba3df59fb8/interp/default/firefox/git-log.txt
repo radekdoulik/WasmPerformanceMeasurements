@@ -1,0 +1,10 @@
+commit c768315c5698391f45a6a47d56fec4ba3df59fb8
+Author: Alexander Köplinger <alex.koeplinger@outlook.com>
+Date:   Sat Feb 17 11:04:07 2024 +0100
+
+    Fix NativeAOT publish failure on fi_FI culture (#98552)
+    
+    This culture uses `U+2212 : MINUS SIGN` instead of `-` for negative numbers which trips up msbuild when comparing the property.
+    Instead of using an intermediate property just inline the usage and use `Contains()` for better readability.
+    
+    Fixes https://github.com/dotnet/runtime/issues/98550
