@@ -1,0 +1,29 @@
+commit cd850233414468a8ffe84fc8fa05a36d0b3b1316
+Author: Will Smith <lol.tihan@gmail.com>
+Date:   Fri Feb 16 10:35:47 2024 -0800
+
+    JIT: ARM64 SVE format encodings, `SVE_HX_3A_B` to `SVE_JL_3A` and `SVE_IC_3A` to `SVE_IC_3A_C` (#98332)
+    
+    * Initial format boilerplate
+    
+    * SVE_HX_3A_B format working
+    
+    * SVE_HX_3A_E working
+    
+    * SVE_IV_3A working
+    
+    * SVE_JI_3A_A and SVE_JL_3A working
+    
+    * SVE_IC_3A working
+    
+    * cleanup
+    
+    * SVE_IC_3A_A working
+    
+    * Finishing up
+    
+    * remove case
+    
+    * Fix build. Added emitInsSve_R_R_R_I
+    
+    * Formatting
