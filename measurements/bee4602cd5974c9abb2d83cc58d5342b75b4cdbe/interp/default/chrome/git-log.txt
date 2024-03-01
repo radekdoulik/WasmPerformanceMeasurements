@@ -1,0 +1,9 @@
+commit bee4602cd5974c9abb2d83cc58d5342b75b4cdbe
+Author: Filip Navara <filip.navara@gmail.com>
+Date:   Tue Feb 20 03:11:38 2024 +0100
+
+    ObjWriter: Do not generate relocations within .debug_info for DW_AT_type (#98597)
+    
+    * Do not generate relocations within .debug_info for DW_AT_type
+    
+    * Fix WriteInfoAbsReference
