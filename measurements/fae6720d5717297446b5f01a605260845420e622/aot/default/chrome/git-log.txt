@@ -1,0 +1,10 @@
+commit fae6720d5717297446b5f01a605260845420e622
+Author: Anton Firszov <Anton.Firszov@microsoft.com>
+Date:   Tue Feb 13 21:56:49 2024 +0100
+
+    Send connection WINDOW_UPDATE before RTT PING (#97881)
+    
+    Some servers in GCP have a non-standard ping accounting mechanism, meaning they reset their unsolicited PING counter when they receive DATA, HEADERS or WINDOW_UPDATE. To comply with this behavior, this PR adjusts the RTT logic ensuring that a connection WINDOW_UPDATE is being sent out before we send an RTT PING by applying two changes:
+    
+    - Swap the order of the normal connection WINDOW_UPDATE we attempt after every DATA frame received and the sending of the RTT PING so WINDOW_UPDATE goes first.
+    - In case we need to send an RTT PING, and we didn't send a normal connection WINDOW_UPDATE (threshold not reached), send a WINDOW_UPDATE anyways with current _pendingWindowUpdate credits. Do not send a PING if this is not possible (_pendingWindowUpdate == 0). Just like RTT PINGs, such WINDOW_UPDATEs are relatively rare and should not hurt performance.
