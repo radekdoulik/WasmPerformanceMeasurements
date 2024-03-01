@@ -1,0 +1,11 @@
+commit b1d7ad693362ccea4993bd75b670871a043c632b
+Author: Bruce Forstall <brucefo@microsoft.com>
+Date:   Mon Feb 12 13:52:07 2024 -0800
+
+    Display names of handles in dumps (#97573)
+    
+    For class/method/field handles, display their name in dumps
+    in addition to their handle value.
+    
+    Also fixes a problem in assertion prop dumping where 64-bit class
+    handle constants were truncated to 32-bit in dump.
