@@ -1,0 +1,26 @@
+commit 756141c12a32ad1c3e66cbdbdaf552495b5b056c
+Author: Sven Boemer <sbomer@gmail.com>
+Date:   Thu Feb 29 11:50:55 2024 -0800
+
+    [ILLink analyzer] Add analyzer support for feature checks (#94944)
+    
+    Adds support for annotating static boolean properties with
+    `[FeatureCheckAttribute(typeof(RequiresDynamicCodeAttribute))]`,
+    causing the property to be treated as a guard for analyzer
+    warnings about the corresponding `Requires` attribute.
+    
+    Adds two new warnings for:
+    
+    - Invalid use of `FeatureCheckAttribute` applied to a non-static
+      or non-bool property
+    
+    - Implementation of the property doesn't obviously satisfy
+      the "guard property" (it should return false whenever the
+      guarded feature is disabled).
+    
+    See https://github.com/dotnet/runtime/pull/94625 for notes on the design.
+    See https://github.com/dotnet/runtime/issues/96859 for the API proposal.
+    
+    ---------
+    
+    Co-authored-by: Jackson Schuster <36744439+jtschuster@users.noreply.github.com>
