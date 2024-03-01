@@ -1,0 +1,11 @@
+commit 1bebdb08b1f3ba49b401795da106ef7e9759a9ce
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Fri Mar 1 11:16:54 2024 +0100
+
+    JIT: Generalize strategy for finding addrecs (#99048)
+    
+    When looking at a PHI, utilize a strategy where a symbolic node
+    representing the recurrence is inserted in the cache, after which the
+    analysis is invoked recursively. The created SCEV can afterwards be
+    turned into a recurrence by considering the symbolic node to be a
+    recursive occurrence.
