@@ -1,0 +1,17 @@
+commit f32c428c86b4cc41e88e2e5a750c37dfb354e33a
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Sat Feb 24 05:27:26 2024 -0500
+
+    Add backtracking stack imbalance detection to regex source generator (#98472)
+    
+    * Add backtracking stack imbalance detection to regex source generator
+    
+    Backtracking regex constructs use a stack to track state. Information about the current state of a construct (e.g. loop iteration number, alternation branch, etc.) is pushed onto the stack when the construct matches, and then if backtracking occurs and execution unwinds back to that construct, it pops state off of the stack in order to restore its knowledge of what it had done and what needs to happen next. We've had a couple of bugs over the years where this process goes awry and something incorrectly leaves extra state on the stack, which in turn makes it so that when the state is unwound, a previous construct ends up popping the wrong state off the stack, which it then misinterprets.  This can lead to subtle bugs (in some cases it doesn't end up impacting matching against a particular input, in others it results in exceptions, etc.).
+    
+    To help reduce the chances that such issues remain, this adds some additional debug-only code to the source generator (I didn't modify the compiler just because it's a bit more challenging there, and the source generator is what's typically used when debugging these issues). Whenever pushing state onto the stack, it also pushes a cookie. When it pops state off, it also pops off that cookie, and validates that it's the expected value.
+    
+    This actually found one more lurking case of this in the code, which this PR also fixes. Conditional expressions (a rarely used feature) are supposed to treat the condition as a positive lookaround, which means it should be atomic, but if the expression contained a backtracking construct, that state was erroneously being left on the stack rather than being removed as part of wiping away the atomic expression.
+    
+    * Update comments based on PR feedback
+    
+    * Fix tests after merge
