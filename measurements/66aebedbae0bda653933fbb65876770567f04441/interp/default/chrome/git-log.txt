@@ -1,0 +1,9 @@
+commit 66aebedbae0bda653933fbb65876770567f04441
+Author: Filip Navara <filip.navara@gmail.com>
+Date:   Mon Feb 26 16:54:31 2024 +0100
+
+    [NativeAOT] Remove unused code (#98931)
+    
+    * Remove unused RhpULMul helper
+    
+    * Remove unused GetNewArrayHelperForType method
