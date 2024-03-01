@@ -1,0 +1,9 @@
+commit 89f7ad3b276fb0b48f20cb4e8408bdce85c2b415
+Author: Steve Pfister <steveisok@users.noreply.github.com>
+Date:   Thu Feb 29 05:42:55 2024 -0800
+
+    Use new MacOS arm64 pool for official builds (#98117)
+    
+    This pool is only available internally for now, so let's use it!
+    
+    * Add workaround from https://github.com/dotnet/runtime/pull/97856 to use classic linker on macos
