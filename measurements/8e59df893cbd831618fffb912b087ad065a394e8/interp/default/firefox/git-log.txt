@@ -1,0 +1,11 @@
+commit 8e59df893cbd831618fffb912b087ad065a394e8
+Author: Christiaan de Ridder <christiaan@channelengine.com>
+Date:   Tue Feb 27 19:54:24 2024 +0100
+
+    #98551 - Regression in DI scope validation (#98661)
+    
+    * Add additional test cases for regression
+    
+    * Make sure to always check for scoped-in-singleton
+    
+    * Remove duplicate line
