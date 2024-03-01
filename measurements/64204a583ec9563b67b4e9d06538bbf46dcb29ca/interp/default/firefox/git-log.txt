@@ -1,0 +1,5 @@
+commit 64204a583ec9563b67b4e9d06538bbf46dcb29ca
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Thu Feb 15 08:14:03 2024 -0500
+
+    Make SocketsHttpHandler's content encoding comparison case-insensitive (#98475)
