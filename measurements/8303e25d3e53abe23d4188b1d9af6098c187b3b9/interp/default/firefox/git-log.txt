@@ -1,0 +1,30 @@
+commit 8303e25d3e53abe23d4188b1d9af6098c187b3b9
+Author: Adeel Mujahid <3840695+am11@users.noreply.github.com>
+Date:   Wed Feb 28 08:36:32 2024 +0200
+
+    Update SDK to preview 1 release (#98476)
+    
+    * Update SDK to preview 1 release
+    
+    * Update runtime-prereqs.proj
+    
+    * Update runtime-prereqs.proj
+    
+    * Update global-build.yml
+    
+    * Update global-build.yml
+    
+    * Update DotNetBuild.props
+    
+    * Fix getting test list from "dotnet test"
+    
+    Due to the new vstest terminal logger we didn't get the test list anymore from stdout. Fix by reverting back to the old logger.
+    
+    * Update PackageInstaller.cs
+    
+    React to breaking change in https://github.com/NuGet/NuGet.Client/commit/c9b81ab1265f18f4471c229ac2d6b13294d91655
+    
+    ---------
+    
+    Co-authored-by: Viktor Hofer <viktor.hofer@microsoft.com>
+    Co-authored-by: Alexander Köplinger <alex.koeplinger@outlook.com>
