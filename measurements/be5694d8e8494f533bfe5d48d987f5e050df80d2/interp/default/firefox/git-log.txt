@@ -1,0 +1,5 @@
+commit be5694d8e8494f533bfe5d48d987f5e050df80d2
+Author: Jeremy Koritzinsky <jekoritz@microsoft.com>
+Date:   Tue Feb 13 15:50:26 2024 -0800
+
+    Gracefully error-out on StringBuilder BSTR marshalling on Mono (#98379)
