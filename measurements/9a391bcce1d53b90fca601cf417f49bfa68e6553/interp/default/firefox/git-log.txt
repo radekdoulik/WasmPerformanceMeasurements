@@ -1,0 +1,11 @@
+commit 9a391bcce1d53b90fca601cf417f49bfa68e6553
+Author: Theodore Tsirpanis <teo@tsirpanis.gr>
+Date:   Sat Feb 17 17:29:52 2024 +0200
+
+    [mono] Do not throw in AssemblyExtensions.TryGetRawMetadata. (#96370)
+    
+    * [mono] Do not throw in AssemblyExtensions.TryGetRawMetadata.
+    
+    * Add a test for `AssemblyExtensions.TryGetRawMetadata`.
+    
+    * Try to read the assembly metadata blob in the test.
