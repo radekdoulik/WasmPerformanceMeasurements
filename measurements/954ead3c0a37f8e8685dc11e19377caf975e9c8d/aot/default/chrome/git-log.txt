@@ -1,0 +1,7 @@
+commit 954ead3c0a37f8e8685dc11e19377caf975e9c8d
+Author: Radek Doulik <radek.doulik@gmail.com>
+Date:   Tue Feb 13 13:20:52 2024 +0100
+
+    [wasm][bench] Fix one more place with old tfm (#98348)
+    
+    And use $(NetCoreAppCurrent)
