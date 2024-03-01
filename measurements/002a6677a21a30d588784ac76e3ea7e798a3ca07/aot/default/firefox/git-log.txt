@@ -1,0 +1,11 @@
+commit 002a6677a21a30d588784ac76e3ea7e798a3ca07
+Author: John Tur <john-tur@outlook.com>
+Date:   Wed Feb 21 08:45:56 2024 -0500
+
+    Implement ReadOnlySpan.CastUp (#98395)
+    
+    * Implement ReadOnlySpan.CastUp
+    
+    * Nullable annotation fix
+    
+    * Update src/libraries/System.Private.CoreLib/src/System/ReadOnlySpan.cs
