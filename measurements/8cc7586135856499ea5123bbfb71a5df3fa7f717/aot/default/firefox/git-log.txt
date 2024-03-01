@@ -1,0 +1,29 @@
+commit 8cc7586135856499ea5123bbfb71a5df3fa7f717
+Author: Huo Yaoyuan <huoyaoyuan@hotmail.com>
+Date:   Wed Feb 21 12:22:35 2024 +0800
+
+    Convert fast path of ValueType.GetHashCode to managed (#97590)
+    
+    * Access CanCompareBits from MethodTableAuxiliaryData
+    
+    * Switch to QCall
+    
+    * Fast path of GetHashCode
+    
+    * Call for RegularGetValueTypeHashCode
+    
+    * Cleanup unused FCall
+    
+    * Use HashCode type
+    
+    * Handle recursive case inside native code
+    
+    * Remove Double and Single from CoreLibBinder
+    
+    * Apply suggestions from code review
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
+    
+    ---------
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
