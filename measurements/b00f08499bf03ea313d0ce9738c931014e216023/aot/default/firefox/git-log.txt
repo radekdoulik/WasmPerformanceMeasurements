@@ -1,0 +1,13 @@
+commit b00f08499bf03ea313d0ce9738c931014e216023
+Author: Jan Kotas <jkotas@microsoft.com>
+Date:   Thu Feb 29 21:42:54 2024 -0800
+
+    Strip unused generic type context for VASigCookie (#99026)
+    
+    * Strip unused generic type context for VASigCookie
+    
+    Fixes #98977
+    
+    ---------
+    
+    Co-authored-by: Aaron Robinson <arobins@microsoft.com>
