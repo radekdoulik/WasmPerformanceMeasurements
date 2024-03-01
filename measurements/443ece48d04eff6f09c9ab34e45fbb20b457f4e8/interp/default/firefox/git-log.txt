@@ -1,0 +1,17 @@
+commit 443ece48d04eff6f09c9ab34e45fbb20b457f4e8
+Author: Jeff Handley <jeffhandley@users.noreply.github.com>
+Date:   Mon Feb 12 21:54:19 2024 -0800
+
+    Prepare the FabricBot config for migration to Policy Service (#98256)
+    
+    * Remove references to project board automation
+    
+    * Update milestone conditions to be compatible with policy-service migration
+    
+    * Remove disabled automation
+    
+    * Remove 'maintain' permission check (behaves the same as 'write')
+    
+    * Use the isPr condition everywhere it was implied before
+    
+    * Use the isIssue condition everywhere it was implied before
