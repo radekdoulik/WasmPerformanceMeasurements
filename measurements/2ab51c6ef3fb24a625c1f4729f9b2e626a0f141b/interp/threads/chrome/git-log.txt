@@ -1,0 +1,12 @@
+commit 2ab51c6ef3fb24a625c1f4729f9b2e626a0f141b
+Author: Aaron Robinson <arobins@microsoft.com>
+Date:   Fri Mar 1 19:53:48 2024 -0800
+
+    CoreCLR NativeAOT - ByRef generics and ByRef implementing interfaces (#98070)
+    
+    * ByRefLike generic/interface follow-up work
+    
+    * Create negative tests
+    
+    * Apply API review feedback.
+    Add FeatureFlag.
