@@ -1,0 +1,35 @@
+commit 6fa046837910fcc7a7dbd64be4b1ad98f9ea5db3
+Author: Tommy Sørbråten <tommysor@gmail.com>
+Date:   Sat Mar 2 02:27:17 2024 +0100
+
+    New TimeSpan.From overloads which take integers (#98633)
+    
+    * Add FromX overloads
+    
+    Implementation copied from ctor TimeSpan(int days, int hours, int minutes, int seconds, int milliseconds, int microseconds)
+    
+    * Handle overflow and underflow
+    
+    * Remove duplicate test data
+    
+    * Improve naming and readability
+    
+    * Add tripple-slash documentation
+    
+    * Remove whitespace
+    
+    * Ensure unrelated test hits same overload as before
+    
+    * Remove extra whitespace
+    
+    * Clearify test data
+    
+    * Use BigMul for multiplication
+    
+    * Add "returns" tripple-slash documentation
+    
+    * Optimize the single argument methods
+    
+    * Optimize FromMilliseconds(long, long)
+    
+    * Optimize remaining multi argument methods
