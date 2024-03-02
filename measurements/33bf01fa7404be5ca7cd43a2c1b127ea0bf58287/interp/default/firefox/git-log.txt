@@ -1,0 +1,19 @@
+commit 33bf01fa7404be5ca7cd43a2c1b127ea0bf58287
+Author: Aleksey Kliger (λgeek) <alklig@microsoft.com>
+Date:   Fri Mar 1 17:49:27 2024 -0500
+
+    [nativeaot]  Disable FEATURE_READOLY_GS_COOKIE on macOS (#99173)
+    
+    * [nativeaot]  Disable FEATURE_READOLY_GS_COOKIE on macOS
+    
+    It's already disabled on ios, tvos and catalyst.
+    
+    Fixes https://github.com/dotnet/runtime/issues/99172
+    
+    * Update src/coreclr/nativeaot/Runtime/CMakeLists.txt
+    
+    Co-authored-by: Jeremy Koritzinsky <jkoritzinsky@gmail.com>
+    
+    ---------
+    
+    Co-authored-by: Jeremy Koritzinsky <jkoritzinsky@gmail.com>
