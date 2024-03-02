@@ -1,0 +1,26 @@
+commit 70bb372b45a15eb1b6a81ad8444e0d60d8521b4b
+Author: Alexander Köplinger <alex.koeplinger@outlook.com>
+Date:   Sat Mar 2 10:54:41 2024 +0100
+
+    Don't run net4x tests with Mono on non-Windows (#98767)
+    
+    * Don't run net4x tests with Mono on non-Windows
+    
+    We'd try to use Mono to run them but most of the tests assume Windows when targetting net4x so they don't work anyway and you'd need to remember to pass the `-f net9.0` TFM filter.
+    Instead just skip them on non-Windows platforms.
+    
+    Fixes https://github.com/dotnet/runtime/issues/81395
+    
+    * Make AdditionalProperties more resilient against changes
+    
+    * Use TargetOS instead of OS so it also works for building e.g. Browser targets on Windows
+    
+    * Move logic to arcade Microsoft.DotNet.Build.Tasks
+    
+    * Update eng/testing/outerBuild.targets
+    
+    Co-authored-by: Viktor Hofer <viktor.hofer@microsoft.com>
+    
+    ---------
+    
+    Co-authored-by: Viktor Hofer <viktor.hofer@microsoft.com>
