@@ -1,0 +1,19 @@
+commit 37445d4964a50eeff87ca7ed8cbdf251b547b779
+Author: Austin Wise <AustinWise@gmail.com>
+Date:   Sat Mar 2 23:12:22 2024 -0800
+
+    Make FailFast a QCall (#98908)
+    
+    * Make FailFast a QCALL
+    
+    * Remove extra GCPROTECT.
+    
+    * Update Environment.CoreCLR.cs
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
+    
+    * Consolidate to a single QCall.
+    
+    ---------
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
