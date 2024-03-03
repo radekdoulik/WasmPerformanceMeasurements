@@ -1,0 +1,9 @@
+commit 8aff565e389f10535d9520182e26d7b45de71b60
+Author: Miha Zupan <mihazupan.zupan1@gmail.com>
+Date:   Sat Mar 2 22:39:30 2024 +0100
+
+    Expand small value sets to all case permutations in SearchValues<string> (#98902)
+    
+    * Expand small value sets to all case permutations in SearchValues<string>
+    
+    * Use the constant in one more place
