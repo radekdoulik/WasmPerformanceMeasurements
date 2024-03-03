@@ -1,0 +1,5 @@
+commit cd5587ddeddecebf6291f8462b4b6c25db433a71
+Author: Miha Zupan <mihazupan.zupan1@gmail.com>
+Date:   Sat Mar 2 22:38:18 2024 +0100
+
+    Skip long values when building Rabin-Karp buckets in SearchValues (#98901)
