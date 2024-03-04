@@ -1,0 +1,5 @@
+commit a604763dc82d382e47f5be9fad0b672dc3b3ad72
+Author: Egor Bogatov <egorbo@gmail.com>
+Date:   Fri Mar 1 23:59:41 2024 +0100
+
+    ARM64: Use SIMD to copy nongc gaps in blocks with gc pointers (#99140)
