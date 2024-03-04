@@ -1,0 +1,58 @@
+commit 77c5dbabc6c4b65580629cd7064a13d74ddf5a63
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Mon Mar 4 10:15:29 2024 +0100
+
+    JIT: Support subtraction in scalar evolution (#99154)
+    
+    Represent `x - y` as `x + y * -1` (this works even for MinValue).
+    
+    For example:
+    ```csharp
+    public static int Foo(int[] arr, int k)
+    {
+        int sum = 0;
+        for (int i = arr.Length - 1; i >= 0; i -= k)
+        {
+            sum += arr[i];
+        }
+    
+        return sum;
+    }
+    ```
+    analyzes to
+    ```
+    STMT00007 ( ??? ... ??? )
+    N004 (  0,  0) [000044] DA---------                         ▌  STORE_LCL_VAR int    V03 loc1         d:3 $VN.Void
+    N003 (  0,  0) [000043] -----------                         └──▌  PHI       int    $241
+    N001 (  0,  0) [000053] ----------- pred BB03                  ├──▌  PHI_ARG   int    V03 loc1         u:4
+    N002 (  0,  0) [000051] ----------- pred BB02                  └──▌  PHI_ARG   int    V03 loc1         u:2 $201
+      => <L00, V03.2, (V01.1 * -1)>
+    ```
+    
+    ```csharp
+    public static int Bar(int n)
+    {
+        int sum = n * n;
+        for (int i = 0; i < n; i++)
+        {
+            sum -= i;
+        }
+    
+        return sum;
+    }
+    ```
+    
+    analyzes to
+    ```
+    N004 (  0,  0) [000029] DA---------                         ▌  STORE_LCL_VAR int    V01 loc0         d:3 $VN.Void
+    N003 (  0,  0) [000028] -----------                         └──▌  PHI       int    $140
+    N001 (  0,  0) [000033] ----------- pred BB03                  ├──▌  PHI_ARG   int    V01 loc0         u:4
+    N002 (  0,  0) [000031] ----------- pred BB02                  └──▌  PHI_ARG   int    V01 loc0         u:2 $100
+      => <L00, V01.2, <L00, (V02.2 (0) * -1), -1>>
+    
+    ```
+    for `sum`. It would be `<L00, V01.2, <L00, 0, -1>>` if we resolved SSA
+    defs during simplification -- I'll make that change in a future PR.
+    
+    Also add some more documentation around the symbolic way we resolve
+    addrecs.
