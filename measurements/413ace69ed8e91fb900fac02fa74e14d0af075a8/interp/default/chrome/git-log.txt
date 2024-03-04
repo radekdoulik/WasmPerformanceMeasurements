@@ -1,0 +1,7 @@
+commit 413ace69ed8e91fb900fac02fa74e14d0af075a8
+Author: Alexander Köplinger <alex.koeplinger@outlook.com>
+Date:   Mon Mar 4 17:45:47 2024 +0100
+
+    Remove RuntimeIdentifiers from Microsoft.NETCore.App.Crossgen2.sfxproj (#98956)
+    
+    It shouldn't be needed according to https://github.com/dotnet/runtime/pull/98948#discussion_r1503223785
