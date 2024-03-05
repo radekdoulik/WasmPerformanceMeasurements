@@ -1,0 +1,7 @@
+commit 24820b6edd02b3cbb5e6f9621e55d7ebac6e79be
+Author: Tomasz Sowiński <tomeksowi@gmail.com>
+Date:   Tue Mar 5 12:33:54 2024 +0100
+
+    Remove redundant check for DivideByZeroException for unsigned division/modulo. (#99228)
+    
+    The check was already generated at the beginning of the branch for integer operations.
