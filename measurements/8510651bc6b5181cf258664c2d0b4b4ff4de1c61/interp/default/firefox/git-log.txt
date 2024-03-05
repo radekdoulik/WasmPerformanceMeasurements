@@ -1,0 +1,7 @@
+commit 8510651bc6b5181cf258664c2d0b4b4ff4de1c61
+Author: Jan Kotas <jkotas@microsoft.com>
+Date:   Mon Mar 4 16:14:12 2024 -0800
+
+    Fix GC stackwalking for generic calli (#99257)
+    
+    Fixes #99253
