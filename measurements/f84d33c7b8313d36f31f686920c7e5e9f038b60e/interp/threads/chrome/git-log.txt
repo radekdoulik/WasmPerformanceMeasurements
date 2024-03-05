@@ -1,0 +1,5 @@
+commit f84d33c7b8313d36f31f686920c7e5e9f038b60e
+Author: David Mason <davmason@microsoft.com>
+Date:   Mon Mar 4 22:33:10 2024 -0800
+
+    Skip EventSource tests if process is not elevated (#99261)
