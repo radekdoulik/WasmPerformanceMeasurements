@@ -1,0 +1,7 @@
+commit f077aa460fae7ae035f0a271d8e2882b8b729454
+Author: Marek Fišera <mara@neptuo.com>
+Date:   Tue Mar 5 17:28:01 2024 +0100
+
+    Revert "Require the workload for wasm threading (#98498)" (#99280)
+    
+    This reverts commit 3848f566d5e326e3b094ccb92f0a91069cd41058.
