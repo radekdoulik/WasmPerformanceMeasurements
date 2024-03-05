@@ -1,0 +1,5 @@
+commit fb700b3f31d9114493c56b2a5d8b98d75a21c87a
+Author: Xu Liangyu <xuliangyu@loongson.cn>
+Date:   Tue Mar 5 20:41:10 2024 +0800
+
+    [LoongArch64] Remove the redundant check of DivideByZeroException for GT_UDIV/GT_UMOD in CodeGen::genCodeForDivMod(). (#99215)
