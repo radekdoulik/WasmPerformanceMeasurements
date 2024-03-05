@@ -1,0 +1,19 @@
+commit ed9f475dde7f3cb0e05a7613e82d69bd1a42ce0e
+Author: Katelyn Gadd <kg@luminance.org>
+Date:   Fri Feb 9 14:18:25 2024 -0800
+
+    [wasm] p/invoke and interop improvements (#94446)
+    
+        Refactor logging in the wasm build tasks to use a LogAdapter helper class that can either write to stdout/stderr or via the msbuild logging APIs
+        Refactor ManagedToNativeGenerator so that it can run in either in-process or out-of-process modes (but it still runs in-process right now). This will enable us to pivot to out-of-process later if necessary.
+        Add support for function pointer types via reflection (so that we can still build and run on net4x for visual studio). If S.R.MLC is sufficiently new, function pointers will now work, but if it's old, they won't.
+        Add basic support for structs as arguments
+        Implement scalar struct behavior from the wasm C ABI (structs containing one scalar are passed by-value instead of by-reference) in various places in the build tasks, interpreter, and AOT compiler
+        Remove a use of varargs pinvoke from SystemNative because it isn't compatible with the WASM C ABI (it's replaced with two non-varargs pinvokes)
+        Generate more accurate C signatures for pinvokes
+        Expand WBT test coverage for pinvokes
+    
+    ---------
+    
+    Co-authored-by: Larry Ewing <lewing@microsoft.com>
+    Co-authored-by: Ankit Jain <radical@gmail.com>
