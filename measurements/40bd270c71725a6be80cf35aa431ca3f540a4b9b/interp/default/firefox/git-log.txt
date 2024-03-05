@@ -1,0 +1,117 @@
+commit 40bd270c71725a6be80cf35aa431ca3f540a4b9b
+Author: Ahmet Ibrahim Aksoy <aaksoy@microsoft.com>
+Date:   Tue Mar 5 14:38:45 2024 +0300
+
+    Implement HttpWebRequest AllowWriteStreamBuffering property (#95001)
+    
+    * Implement HttpWebRequest WriteStreamBuffering
+    
+    * Fix tests
+    
+    * Fix tests
+    
+    * Review feedback
+    
+    * Fix timeouts
+    
+    * fix test build
+    
+    * Hang test
+    
+    * Fix build
+    
+    * fix tests
+    
+    * delete unnecessary line
+    
+    * fix tests
+    
+    * refactor test
+    
+    * Dispose http client
+    
+    * Fix buffer write in RequestStream.Flush() method
+    
+    * Fix same length bug in FlushAsync
+    
+    * Update ContentLength in HttpWebRequestTest.cs
+    
+    * Fix flushing and ending request stream
+    
+    * Fix flushing and ending request stream
+    
+    * Fix FlushAsync method to handle cancellation
+    
+    * Update src/libraries/System.Net.Requests/src/System/Net/HttpClientContentStream.cs
+    
+    Co-authored-by: Anton Firszov <antonfir@gmail.com>
+    
+    * Review feedback
+    
+    * Bound streamBuffer lifecycle to HttpClientContentStream
+    
+    * Review feedback
+    
+    * Review feedback
+    
+    * Change ??= to =
+    
+    * change delay on test
+    
+    * Apply suggestions from code review
+    
+    Co-authored-by: Miha Zupan <mihazupan.zupan1@gmail.com>
+    
+    * Fix build
+    
+    * Review feedback
+    
+    * Apply suggestions from code review
+    
+    Co-authored-by: Miha Zupan <mihazupan.zupan1@gmail.com>
+    
+    * Review feedback
+    
+    * Apply suggestions from code review
+    
+    Co-authored-by: Marie Píchová <11718369+ManickaP@users.noreply.github.com>
+    
+    * Add ProtocolViolationException if we're not buffering and we didn't set either SendChunked or ContentLength
+    
+    * Review feedback
+    
+    * Add test for not buffering and sending the content before we call `GetResponse`
+    
+    * Update src/libraries/System.Net.Requests/src/System/Net/HttpWebRequest.cs
+    
+    Co-authored-by: Marie Píchová <11718369+ManickaP@users.noreply.github.com>
+    
+    * Remove exception
+    
+    * Review feedback
+    
+    * Fix string resources
+    
+    * Add RequestStreamContent class for handling request stream serialization
+    
+    * Seperate Buffering and Non-Buffering Streams and Connect non-buffering stream to HttpClient Internal Stream directly
+    
+    * Remove unnecessary code in HttpWebRequestTest
+    
+    * Use random data for testing
+    
+    * Update src/libraries/System.Net.Requests/src/System/Net/RequestBufferingStream.cs
+    
+    Co-authored-by: Anton Firszov <antonfir@gmail.com>
+    
+    * Remove default flushes and add flush on test
+    
+    * Review feedback
+    
+    * Removing unused code
+    
+    ---------
+    
+    Co-authored-by: Anton Firszov <antonfir@gmail.com>
+    Co-authored-by: Miha Zupan <mihazupan.zupan1@gmail.com>
+    Co-authored-by: Marie Píchová <11718369+ManickaP@users.noreply.github.com>
