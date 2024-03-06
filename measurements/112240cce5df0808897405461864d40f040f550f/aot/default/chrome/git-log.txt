@@ -1,0 +1,10 @@
+commit 112240cce5df0808897405461864d40f040f550f
+Author: Jan Vorlicek <janvorli@microsoft.com>
+Date:   Wed Mar 6 01:17:02 2024 +0100
+
+    Fix extra stack frame on exception stack trace (#99263)
+    
+    A recently added diagnostic test has revealed that throwing an exception
+    from a funclet results in an extra frame on the stack trace that should
+    not be there.
+    This change fixes it in a manner equivalent to how the old EH handles that.
