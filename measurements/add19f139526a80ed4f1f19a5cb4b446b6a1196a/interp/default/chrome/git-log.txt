@@ -1,0 +1,8 @@
+commit add19f139526a80ed4f1f19a5cb4b446b6a1196a
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Wed Mar 6 16:48:40 2024 +0100
+
+    JIT: Expand flow graph debug checking (#99238)
+    
+    Ensure that the derived flow graph annotations, like loops and the
+    dominator tree, do not lose their link with the current DFS tree.
