@@ -1,0 +1,5 @@
+commit 54e9ffe27d540bc7402dab96509ac32cedac3070
+Author: David Mason <davmason@microsoft.com>
+Date:   Wed Mar 6 00:08:01 2024 -0800
+
+    Skip EventPipe cleanup on mono unless runtime is shutting down (#99332)
