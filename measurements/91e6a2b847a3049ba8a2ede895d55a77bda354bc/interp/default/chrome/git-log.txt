@@ -1,0 +1,23 @@
+commit 91e6a2b847a3049ba8a2ede895d55a77bda354bc
+Author: Filip Navara <filip.navara@gmail.com>
+Date:   Wed Mar 6 18:55:43 2024 +0100
+
+    Reuse x86 GC and unwinding code in NativeAOT (#99109)
+    
+    * Verbatim code extraction from eetwain.cpp into gc_unwind_x86.inl
+    
+    * Reuse x86 GC and unwinding code in NativeAOT
+    
+    Extracts x86 unwinding code and EnumGCRefs from eetwain.h/cpp into
+    gc_unwind_x86.h/inl files. The bulk of the code remains unchanged
+    with the methods UnwindStackFrameX86 and EnumGcRefsX86 extracted
+    from the original EECodeManager methods.
+    
+    CoffNativeCodeManager includes all the x86 GC decoders and includes
+    gc_unwind_x86.inl for TARGET_X86. Missing methods are implemented
+    in terms of UnwindStackFrameX86, EnumGcRefsX86, and DecodeGCHdrInfo.
+    
+    Funclet calling assembly helpers are fixed up to follow the same
+    pattern as on other platform.
+    
+    * Remove assert
