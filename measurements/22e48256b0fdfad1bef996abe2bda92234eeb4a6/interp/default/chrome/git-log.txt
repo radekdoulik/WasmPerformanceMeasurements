@@ -1,0 +1,27 @@
+commit 22e48256b0fdfad1bef996abe2bda92234eeb4a6
+Author: Aman Khalid <amankhalid@microsoft.com>
+Date:   Wed Mar 6 08:59:46 2024 -0500
+
+    JIT ARM64-SVE: Add BP_1A to BQ_2B, BU_2A (#99245)
+    
+    * Add BO_1A
+    
+    * Add BP_1A
+    
+    * Add BQ_2A
+    
+    * Add BQ_2B
+    
+    * Add BU_2A
+    
+    * Fix tests
+    
+    * Fix imm8 assert
+    
+    * Missed a line
+    
+    * Add 64-bit version of BO_1A
+    
+    ---------
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
