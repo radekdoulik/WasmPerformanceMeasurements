@@ -1,0 +1,8 @@
+commit 8ac30d41d0be7a6de919d765e0143af865371cd4
+Author: Jan Kotas <jkotas@microsoft.com>
+Date:   Tue Mar 5 20:42:30 2024 -0800
+
+    Simplify Environment.FailFast QCALL (#99316)
+    
+    The manual copying can be replaced by pinnng on the nanaged side now
+    that the managed implementation allows it.
