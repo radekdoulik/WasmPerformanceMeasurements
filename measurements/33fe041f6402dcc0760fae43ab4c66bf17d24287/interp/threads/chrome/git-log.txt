@@ -1,0 +1,7 @@
+commit 33fe041f6402dcc0760fae43ab4c66bf17d24287
+Author: Jan Kotas <jkotas@microsoft.com>
+Date:   Tue Mar 5 19:49:41 2024 -0800
+
+    Delete stackwalk cache (#99137)
+    
+    * It costs about as much as it saves on x64. It may be helping a little bit on x86, but it is not worth it to keep it around for that.
