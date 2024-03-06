@@ -1,0 +1,25 @@
+commit 4c393481079f5cd4354723d324cab27bee8ae5e3
+Author: Ankit Jain <radical@gmail.com>
+Date:   Wed Mar 6 01:53:55 2024 -0500
+
+    [workload-testing] Add properties for nuget.config path, and target t… (#99277)
+    
+    * [workload-testing] Add properties for nuget.config path, and target to run the main target after
+    
+    * [workload-testing] build the dependencies before installing the sdk
+    
+    * CI: fix paths to trigger wbt
+    
+    * Update src/mono/nuget/Microsoft.NET.Runtime.WorkloadTesting.Internal/Sdk/WorkloadTesting.Core.targets
+    
+    Co-authored-by: Marek Fišera <mara@neptuo.com>
+    
+    * Update src/mono/nuget/Microsoft.NET.Runtime.WorkloadTesting.Internal/Sdk/WorkloadTesting.Core.targets
+    
+    * Update src/mono/nuget/Microsoft.NET.Runtime.WorkloadTesting.Internal/Sdk/WorkloadTesting.Core.targets
+    
+    * fix build
+    
+    ---------
+    
+    Co-authored-by: Marek Fišera <mara@neptuo.com>
