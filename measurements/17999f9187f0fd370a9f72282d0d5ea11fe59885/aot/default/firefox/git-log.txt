@@ -1,0 +1,17 @@
+commit 17999f9187f0fd370a9f72282d0d5ea11fe59885
+Author: Ilona Tomkowicz <32700855+ilonatommy@users.noreply.github.com>
+Date:   Wed Mar 6 12:25:38 2024 +0100
+
+    [mt][browser] `SignalRClientTests` avoid timeouts (#99303)
+    
+    * Avoid closing server before client is closed.
+    
+    * Follow up for prev commit
+    
+    * Exit client only.
+    
+    * Remove blocking after merge.
+    
+    ---------
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
