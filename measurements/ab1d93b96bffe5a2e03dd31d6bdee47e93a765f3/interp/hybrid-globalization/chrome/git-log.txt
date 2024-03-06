@@ -1,0 +1,7 @@
+commit ab1d93b96bffe5a2e03dd31d6bdee47e93a765f3
+Author: Jan Kotas <jkotas@microsoft.com>
+Date:   Tue Mar 5 15:03:38 2024 -0800
+
+    Fix race condition in System.Reflection.FieldAccessor (#99329)
+    
+    Fixes #98998
