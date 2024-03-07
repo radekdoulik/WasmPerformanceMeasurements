@@ -1,0 +1,7 @@
+commit bec45e34cbce7ff9378f05ab70b6fb147ebdabbc
+Author: sstronin <31107111+sstronin@users.noreply.github.com>
+Date:   Thu Mar 7 17:03:51 2024 +0300
+
+    Fixed: potential AV in MethodTableBuilder::FindDeclMethodOnClassInHierarchy (#99295)
+    
+    Co-authored-by: S.Stronin <S.Stronin@aladdin-rd.ru>
