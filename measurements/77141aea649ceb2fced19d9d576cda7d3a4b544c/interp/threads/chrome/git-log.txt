@@ -1,0 +1,21 @@
+commit 77141aea649ceb2fced19d9d576cda7d3a4b544c
+Author: Koundinya Veluri <kouvel@users.noreply.github.com>
+Date:   Wed Mar 6 22:05:58 2024 -0800
+
+    Reapply revert of https://github.com/dotnet/runtime/pull/97227, fix Lock's waiter duration computation (#98876)
+    
+    * Reapply "Add an internal mode to `Lock` to have it use non-alertable waits (#97227)" (#98867)
+    
+    This reverts commit f1297015e9c8d8bc3c6132afd0dc4a109a290b0d.
+    
+    * Fix Lock's waiter duration computation
+    
+    PR https://github.com/dotnet/runtime/pull/97227 introduced a tick count masking issue where the stored waiter start time excludes the upper bit from the ushort tick count, but comparisons with it were not doing the appropriate masking. This was leading to a lock convoy on some heavily contended locks once in a while due to waiters incorrectly appearing to have waited for a long time.
+    
+    Fixes https://github.com/dotnet/runtime/issues/98021
+    
+    * Fix wraparound issue
+    
+    * Fix recording waiter start time
+    
+    * Use a bit in the _state field instead
