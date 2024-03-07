@@ -1,0 +1,12 @@
+commit d820684c2661e153e97cbbc7b62434b4db2ea519
+Author: Radek Doulik <radek.doulik@gmail.com>
+Date:   Thu Mar 7 14:11:13 2024 +0100
+
+    [wasm][bench] Use dotnet new wasmbrowser for browser-frame (#99400)
+    
+    * [wasm][bench] Use dotnet new wasmbrowser for browser-frame
+    
+    To have up-to-date template for the measurements. The template is
+    created from scratch and patched.
+    
+    * Remove old files
