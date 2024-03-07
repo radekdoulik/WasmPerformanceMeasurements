@@ -1,0 +1,25 @@
+commit 1c05c0603b51a377dffc9f791affcb3f151d44d3
+Author: Andy Ayers <andya@microsoft.com>
+Date:   Thu Mar 7 07:46:38 2024 -0800
+
+    JIT: profile checking through loop opts (#99367)
+    
+    Keep profile checks enabled until after we have finished running the
+    loop optmizations (recall this is currently just checking for edge
+    likelihood consistency).
+    
+    Fix various maintenance issues to make this possible. Most are straightforward,
+    but a few are not:
+    * Whenever we create a new BBJ_COND we have to figure out the right
+    likelihoods. If we're copying an existing one (say loop inversion) we currently
+    duplicate the likelihoods. This is a choice, and it may not accurately
+    represent what happends, but we have no better information.
+    * If we invent new branching structures we need to put in reasonable
+    likelihoods. For cloning we assume flowing to the cold loop is unlikely
+    but can happen.
+    
+    Block weights and edge likelihoods are not yet consistent. The plan is
+    to get all the edge likelihoods "correct" and self-consistent, and then
+    start rectifying edge likelihoods and block weights.
+    
+    Contributes to #93020.
