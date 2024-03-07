@@ -1,0 +1,14 @@
+commit 5373c0113e55727ed8e1b9af5f44f7779bf5089c
+Author: Katelyn Gadd <kg@luminance.org>
+Date:   Thu Mar 7 01:56:03 2024 -0800
+
+    [wasm] Fix bugs related to jiterpreter heuristic (#99273)
+    
+    * Fix bugs related to jiterpreter heuristic:
+      - VALUE_ABORT_OUTSIDE_BRANCH_BLOCK_NONE was ignored, causing the heuristic to reject good traces
+      - Instruction counting was using basic blocks' in-count instead of their actual instruction count
+      - When two basic blocks were merged, their jiterpreter data (backwards branch target and contains call flags) were not merged
+    * Fix jiterpreter opcode insertion not updating the estimated native offset of opcodes (this would result in weird asserts randomly occurring in sufficiently large methods)
+    * Fix jiterpreter being unable to compile a backward branch that targeted the trace's prepare/enter opcode, since it was not "inside" the trace
+    * Enable more jiterpreter diagnostics when a method is verbose according to the interpreter
+    * Add better diagnostic messages for a few failure scenarios
