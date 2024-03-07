@@ -1,0 +1,17 @@
+commit 5ade1eeede3b7cefd460351fa589a3f668334a8e
+Author: Edward Neal <55035479+edwardneal@users.noreply.github.com>
+Date:   Wed Mar 6 18:59:34 2024 +0000
+
+    Expanded & clarified BerConverter tests (#98676)
+    
+    * Documented decoding tests, added several new ones
+    
+    This should demonstrate how to properly decode using the "v" format string
+    
+    * Added new test to demonstrate differing Encode/Decode behaviour
+    
+    ber_printf will always write a series of octet strings if passed a string[] with the "v" or "V" format strings. ber_scanf expects an ASN.1 SEQUENCE OF octet strings.
+    
+    * Moved additional test to Windows-only, adjusted expected return value
+    
+    The latter doesn't match my computer, but the difference appears to be coming from within the underlying ber_scanf library so I can't investigate further.
