@@ -1,0 +1,9 @@
+commit 4e86b1c63d9c41c6bfb6f42710be907199ce2671
+Author: Jan Kotas <jkotas@microsoft.com>
+Date:   Wed Mar 6 23:05:26 2024 -0800
+
+    Fix String.IsInterned regression (#99389)
+    
+    Introduced by FCall to QCall conversion
+    
+    Fixes #99386
