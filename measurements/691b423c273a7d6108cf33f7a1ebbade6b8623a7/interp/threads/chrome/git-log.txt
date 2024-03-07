@@ -1,0 +1,8 @@
+commit 691b423c273a7d6108cf33f7a1ebbade6b8623a7
+Author: Trung Nguyen <57174311+trungnt2910@users.noreply.github.com>
+Date:   Fri Mar 8 04:39:42 2024 +1100
+
+    JIT: Fix build on GCC (#99399)
+    
+    Flush the file with `fflush` instead of a `fprintf` call with an empty
+    string. This fixes the GCC zero-length format string warning.
