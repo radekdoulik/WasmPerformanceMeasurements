@@ -1,0 +1,11 @@
+commit ed1e0abeb64a19558fe76919e379bc5f3004e174
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Thu Mar 7 00:02:32 2024 -0500
+
+    Add ParamCollectionAttribute (#99385)
+    
+    * Add ParamCollectionAttribute
+    
+    In support of new C# params collection feature
+    
+    * Update System.Runtime.cs
