@@ -1,0 +1,20 @@
+commit ea2532e65cc45fbef026aaf90af512db49703821
+Author: dotnet-policy-service[bot] <123482357+dotnet-policy-service[bot]@users.noreply.github.com>
+Date:   Wed Mar 6 22:39:50 2024 -0800
+
+    FabricBot: Onboarding to GitOps.ResourceManagement because of FabricBot decommissioning (#99169)
+    
+    * Add prIssueManagement.yml to onboard repo to GitOps.ResourceManagement as FabricBot replacement
+    
+     Details on the replacement service and the syntax of the new yaml configuration file is available publicly at: https://microsoft.github.io/GitOps/policies/resource-management.html
+    
+    Please review and merge this PR to complete the process of onboarding to the new service.
+    
+    * Deleting fabricbot.json
+    
+    * Update repo documentation that referenced FabricBot
+    
+    ---------
+    
+    Co-authored-by: dotnet-policy-service[bot] <123482357+dotnet-policy-service[bot]@users.noreply.github.com>
+    Co-authored-by: Jeff Handley <jeffhandley@users.noreply.github.com>
