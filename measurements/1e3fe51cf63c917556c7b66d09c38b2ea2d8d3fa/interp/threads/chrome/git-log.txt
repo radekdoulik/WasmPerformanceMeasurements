@@ -1,0 +1,15 @@
+commit 1e3fe51cf63c917556c7b66d09c38b2ea2d8d3fa
+Author: Michał Petryka <35800402+MichalPetryka@users.noreply.github.com>
+Date:   Thu Mar 7 23:39:40 2024 +0100
+
+    Fix GC hole in Guid (#99138)
+    
+    * Fix GC hole in Guid
+    
+    Found in #99130.
+    
+    * Add missing in
+    
+    ---------
+    
+    Co-authored-by: Stephen Toub <stoub@microsoft.com>
