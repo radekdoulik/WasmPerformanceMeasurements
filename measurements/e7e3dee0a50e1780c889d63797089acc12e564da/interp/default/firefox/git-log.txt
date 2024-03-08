@@ -1,0 +1,13 @@
+commit e7e3dee0a50e1780c889d63797089acc12e564da
+Author: Kirill Osenkov <KirillOsenkov@users.noreply.github.com>
+Date:   Fri Mar 8 02:28:44 2024 -0800
+
+    Mention NetFx40_LegacySecurityPolicy for PublicSign (#99184)
+    
+    * Update public-signing.md
+    
+    * Specify "may" because we've seen it work on some machines but not others.
+    
+    It's not clear to use what the difference is other than a hunch that it fails on Windows Server but works fine on Windows Client OS.
+    
+    * Add missing angle bracket
