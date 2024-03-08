@@ -1,0 +1,7 @@
+commit da9528d1517d82063f2985e60495c055b1b7fd22
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Fri Mar 8 08:40:48 2024 -0500
+
+    Fix tiny regression in Enumerable.ElementAt (#99437)
+    
+    This just moves a few ns around, mainly putting the check for IList before the check for Iterator, matching how it was previously.
