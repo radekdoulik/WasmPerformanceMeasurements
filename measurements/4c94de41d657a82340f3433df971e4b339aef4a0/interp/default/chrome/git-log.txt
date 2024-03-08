@@ -1,0 +1,7 @@
+commit 4c94de41d657a82340f3433df971e4b339aef4a0
+Author: Aman Khalid <amankhalid@microsoft.com>
+Date:   Fri Mar 8 07:24:50 2024 -0500
+
+    JIT: Use sentinel arg to clear error register pre-Swift call (#99428)
+    
+    Fixes #99414. By adding a well-known zero argument to Swift calls with error handling that is always passed via the error register, we can get the JIT to clear the error register before the call, and also prevent the function address from being passed in the error register.
