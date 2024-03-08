@@ -1,0 +1,13 @@
+commit 33cdab9f0b483895d3b938446df63e7774326da8
+Author: Sven Boemer <sbomer@gmail.com>
+Date:   Thu Mar 7 14:14:09 2024 -0800
+
+    Update analyzer to use FeatureGuardAttribute (#99340)
+    
+    This replaces FeatureCheckAttribute with FeatureGuardAttribute in the
+    form that was approved in API review.
+    
+    Removes FeatureDependsOnAttribute and replaces it with
+    FeatureGuardAttribute on the property. Since it is not allowed on
+    types, feature requirements must be "bubbled up" to the guard
+    property, so the tests are updated to do so.
