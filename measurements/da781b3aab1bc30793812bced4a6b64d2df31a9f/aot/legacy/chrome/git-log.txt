@@ -1,0 +1,27 @@
+commit da781b3aab1bc30793812bced4a6b64d2df31a9f
+Author: Filip Navara <filip.navara@gmail.com>
+Date:   Fri Mar 8 03:46:26 2024 +0100
+
+    [NativeAOT] win-x86: Calling conventions (#99430)
+    
+    * Use default calling convention for P/Invoke helpers
+    
+    * More stdcall
+    
+    * Remove Intrinsic from runtime imports.
+    
+    * Rework the COOP_PINVOKE_HELPER/PREEMPT_PINVOKE_HELPER macros to take arguments directly instead of tuple and make it work with old MSVC.
+    
+    * Refactor and rename the runtime import/export macros to FCIMPL/FCIMPLEND, FCDECL, QCIMPL, and QCDECL
+    
+    * Use numbered FCDECLx/FCIMPLx macros.
+    
+    * Add NodeFactory.ExternVariable helper
+    
+    * Drop NATIVEAOT_API from QCalls
+    
+    * Remove NATIVEAOT_API completely
+    
+    * Use default calling convention for FEATURE_PERFTRACING QCalls
+    
+    * Decorate dispatch helpers as STDCALL
