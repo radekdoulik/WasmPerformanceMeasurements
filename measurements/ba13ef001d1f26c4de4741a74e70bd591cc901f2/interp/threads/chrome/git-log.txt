@@ -1,0 +1,15 @@
+commit ba13ef001d1f26c4de4741a74e70bd591cc901f2
+Author: Huo Yaoyuan <huoyaoyuan@hotmail.com>
+Date:   Fri Mar 8 16:25:59 2024 +0800
+
+    Delete unused System.Runtime.Versioning.CompatibilitySwitch (#99270)
+    
+    * Use QCALL
+    
+    * Remove usage of Lazy
+    
+    * Apply suggestions from code review
+    
+    ---------
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
