@@ -1,0 +1,12 @@
+commit cc17166217c9e9066830c2df8374675bc2f185b3
+Author: Jan Kotas <jkotas@microsoft.com>
+Date:   Sat Mar 9 07:52:56 2024 -0800
+
+    [NativeAOT] Delegate bug fixes (#99185)
+    
+    - Fix Delegate.Method and Delegate.Target for marshalled delegates
+    - Add tests and fixes for various delegate corner case behaviors
+    - Delete runtime test for GetInvocationList since there is a better test coverage for this API under libraries
+    - Delete `m` prefix on System.Delegate member fields
+    
+    Fixes https://github.com/dotnet/runtimelab/issues/164
