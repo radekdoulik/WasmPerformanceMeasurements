@@ -1,0 +1,7 @@
+commit 54d318d6da76e409d4e865220d9923283d55a06d
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Sat Mar 9 06:59:41 2024 +0900
+
+    Use the right owning module in type string resolution (#99429)
+    
+    Fixes #92259
