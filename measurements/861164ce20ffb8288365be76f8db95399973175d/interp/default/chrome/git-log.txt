@@ -1,0 +1,19 @@
+commit 861164ce20ffb8288365be76f8db95399973175d
+Author: Emmanuel André <2341261+manandre@users.noreply.github.com>
+Date:   Fri Mar 8 19:39:59 2024 +0100
+
+    Fix NRE with UnicodeEncoding when target is an empty span (#97950)
+    
+    * Fix NRE with UnicodeEncoding when target is an empty span
+    
+    * Faster check
+    
+    * Same fix for UTF32Encoding
+    
+    * Move test to NegativeEncodingTests
+    
+    * Apply same fixes in System.Text.Encoding.Codepages
+    
+    ---------
+    
+    Co-authored-by: Stephen Toub <stoub@microsoft.com>
