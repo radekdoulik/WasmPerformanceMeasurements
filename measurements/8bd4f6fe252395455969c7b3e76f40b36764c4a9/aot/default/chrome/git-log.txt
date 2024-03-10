@@ -1,0 +1,7 @@
+commit 8bd4f6fe252395455969c7b3e76f40b36764c4a9
+Author: Egor Bogatov <egorbo@gmail.com>
+Date:   Sun Mar 10 15:59:52 2024 +0100
+
+    List exact regs killed by ByRefWriteBarrier on AMD64 (#99134)
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
