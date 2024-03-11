@@ -1,0 +1,27 @@
+commit e9e33e18939f0466e0dc72ad239c00f9ade36752
+Author: Sven Boemer <sbomer@gmail.com>
+Date:   Mon Mar 11 11:43:09 2024 -0700
+
+    Add ILLink/ILCompiler support for feature checks (#99267)
+    
+    This will substitute static boolean properties with `false` when
+    decorated with `[FeatureGuard(typeof(SomeFeature))]`, where
+    `SomeFeature` is known to be disabled.
+    
+    The "feature" of unreferenced code, represented by
+    `RequiresUnreferencedCodeAttribute`, is always considered
+    disabled. For ILC, `RequiresDynamicCodeAttribute` and
+    `RequiresAssemblyFilesAttribute` are also disabled. ILLink also
+    respects the feature switch for `IsDynamicCodeSupported` to
+    disable the `RequiresDynamicCodeAttribute` feature.
+    
+    We don't want this kicking in when trimming in library mode, so
+    this adds an ILLink option to disable the optimization.
+    
+    Additionally, a property is substituted if it has
+    `[FeatureSwitchDefinition("SomeFeatureName")]` and
+    `"SomeFeatureName"` is set in the command-line arguments.
+    
+    XML substitutions take precedence over this behavior.
+    
+    Includes a few tweaks and cleanup to the analyzer logic.
