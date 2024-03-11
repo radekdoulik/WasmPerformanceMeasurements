@@ -1,0 +1,11 @@
+commit 9d56a4c11853b3b5bb1eca5f1102a351d90607bf
+Author: Andy Ayers <andya@microsoft.com>
+Date:   Mon Mar 11 08:47:18 2024 -0700
+
+    JIT: don't create degenerate flow in `fgReplaceJumpTarget` (#99509)
+    
+    Detect if the update has created degenerate BBJ_COND flow, and simplify.
+    
+    Fixes #48609.
+    
+    Also fixes some issues seen in enhanced likelihood checking.
