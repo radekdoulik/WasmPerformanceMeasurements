@@ -1,0 +1,24 @@
+commit d94257383e271f2358b83e13bd2c64084dea8c57
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Mon Mar 11 10:16:34 2024 +0100
+
+    JIT: Consolidate block scaling logic (#99234)
+    
+    Currently we synthetically set block weights in two different places
+    1. Before finding loops we set weights for exceptional blocks and blocks
+       that do not dominate all returns
+    2. After finding loops we set weights for lexical ranges containing
+       backedges
+    
+    Both of these make use of dominance and reachability information, which
+    means that we often need to recompute this information after finding
+    loops.
+    
+    This PR consolidates both scaling passes to happen after the main loop
+    finding. This makes it so that we only need to compute reachability and
+    dominance information once. Hence, some TP improvements are expected.
+    
+    Diffs expected because we now mark general loop heads after loop
+    finding, which results in more general loop heads found due to
+    blocks inserted by loop canonicalization. This results in PerfScore
+    regressions.
