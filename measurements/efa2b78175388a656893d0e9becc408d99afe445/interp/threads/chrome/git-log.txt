@@ -1,0 +1,8 @@
+commit efa2b78175388a656893d0e9becc408d99afe445
+Author: Radek Doulik <radek.doulik@gmail.com>
+Date:   Mon Mar 11 16:12:04 2024 +0100
+
+    [wasm][bench] Check for the muteErrors presence (#99536)
+    
+    to avoid rare exceptions we get during the measurements
+    `TypeError: this._frame.contentWindow.muteErrors is not a function`
