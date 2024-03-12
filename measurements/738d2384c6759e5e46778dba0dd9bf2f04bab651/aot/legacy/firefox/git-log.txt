@@ -1,0 +1,17 @@
+commit 738d2384c6759e5e46778dba0dd9bf2f04bab651
+Author: snickolls-arm <151848422+snickolls-arm@users.noreply.github.com>
+Date:   Tue Mar 12 13:55:16 2024 +0000
+
+    Add ARM64 encodings for group IF_SVE_BW_2A (#99411)
+    
+    * Add ARM64 encodings for group IF_SVE_BW_2A
+    
+    * Add explicit cast for MSVC
+    
+    * Address review comments
+    
+    * Fix formatting
+    
+    ---------
+    
+    Co-authored-by: Kunal Pathak <Kunal.Pathak@microsoft.com>
