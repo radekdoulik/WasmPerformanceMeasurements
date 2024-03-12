@@ -1,0 +1,7 @@
+commit cefd7b2c6f7a84b828e471882132d75cdd20bf47
+Author: sstronin <31107111+sstronin@users.noreply.github.com>
+Date:   Tue Mar 12 14:27:18 2024 +0300
+
+    Fixed: null reference instead of assert on failed reflection in CookieExtensions (#99309)
+    
+    Co-authored-by: S.Stronin <S.Stronin@aladdin-rd.ru>
