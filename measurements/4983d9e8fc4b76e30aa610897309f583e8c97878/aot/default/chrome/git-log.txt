@@ -1,0 +1,13 @@
+commit 4983d9e8fc4b76e30aa610897309f583e8c97878
+Author: snickolls-arm <151848422+snickolls-arm@users.noreply.github.com>
+Date:   Mon Mar 11 23:32:42 2024 +0000
+
+    Add ARM64 encodings for groups IF_SVE_HO,HP,HS (#99058)
+    
+    * Add ARM64 encodings for groups IF_SVE_HO,HP,HS
+    
+    * Fix missing code emission after merge
+    
+    * Refactor to use fewer encoding groups
+    
+    * Address review comments
