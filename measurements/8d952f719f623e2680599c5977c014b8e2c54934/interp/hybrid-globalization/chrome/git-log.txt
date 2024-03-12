@@ -1,0 +1,7 @@
+commit 8d952f719f623e2680599c5977c014b8e2c54934
+Author: Katelyn Gadd <kg@luminance.org>
+Date:   Mon Mar 11 23:44:55 2024 -0700
+
+    Don't inline methods with the DoesNotReturn attribute in interp, it's a waste of time to do so (#99550)
+    
+    Right now the mono interp will attempt to inline methods that have the DoesNotReturn attribute; this is a waste of time and resources, since it's not profitable to inline them and they are virtually always going to be unreachable code anyway.
