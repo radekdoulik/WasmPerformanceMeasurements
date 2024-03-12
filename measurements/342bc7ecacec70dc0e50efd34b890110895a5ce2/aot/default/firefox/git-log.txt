@@ -1,0 +1,7 @@
+commit 342bc7ecacec70dc0e50efd34b890110895a5ce2
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Tue Mar 12 10:15:50 2024 -0400
+
+    Use existing Range vectorized fill in Enumerable.OrderBy (#99538)
+    
+    We already have a method that vectorizes the fill in Enumerable.Range. We can use the same helper in OrderBy when filling the integer map used to enable stability.
