@@ -1,0 +1,11 @@
+commit 27214a0787f9a0ee95c799639431d9d16c25d1ac
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Mon Mar 11 21:52:15 2024 -0400
+
+    Fix negative lookaround stack handling (#99424)
+    
+    * Fix negative lookaround stack handling
+    
+    If the body of negative lookaround inside of a loop and containing a capture ends up successfully matching (which means the negative lookaround fails to match), it ends up erroneously leaving a position on the backtracking stack. This fix ensures that state is popped.
+    
+    * Add innerloop test
