@@ -1,0 +1,26 @@
+commit e5179e72f480c6ba05268f9e3c41af8d89b8ab2a
+Author: Carlos Sánchez López <1175054+carlossanlop@users.noreply.github.com>
+Date:   Mon Mar 11 13:15:43 2024 -0700
+
+    Upgrade zlib to 1.3.1 (#99472)
+    
+    * Upgrade zlib to 1.3.1
+    
+    * Update cgmanifest.json and THIRD-PARTY-NOTICES.TXT
+    
+    * [PATCH] Make zlib compile clean against C4244 clang equivalent is
+     "implicit-int-conversion" warning
+    
+    The change to deflate.c is legal because 'len' has an upper bound of
+    MAX_STORED, which means it fits cleanly into a 16-bit integer. So
+    writing out 2x 8-bit values will not result in data loss.
+    
+    The change to trees.c is legal because within this loop, 'count' is
+    intended to have an upper bound of 138, with the target assignment
+    only executing if 'count' is bounded by 4. Neither the 'count' local
+    in isolation nor the addition that's part of the target line is
+    expected to result in integer overflow. But even if it did, that's a
+    matter for a different warning code and doesn't impact the correctness
+    of the narrowing cast being considered here.
+    
+    Co-authored by: Levi Broderick <levib@microsoft.com>
