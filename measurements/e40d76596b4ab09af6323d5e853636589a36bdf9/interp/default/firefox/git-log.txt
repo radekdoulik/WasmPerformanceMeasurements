@@ -1,0 +1,7 @@
+commit e40d76596b4ab09af6323d5e853636589a36bdf9
+Author: Steve Gordon <sgordon@hotmail.co.uk>
+Date:   Wed Mar 13 02:53:59 2024 -0700
+
+    Fix bug where subscribers receive notifications after disposing listener (#99657)
+    
+    Update the Completed test to cover this scenario
