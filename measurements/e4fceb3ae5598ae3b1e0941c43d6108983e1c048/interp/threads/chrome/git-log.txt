@@ -1,0 +1,11 @@
+commit e4fceb3ae5598ae3b1e0941c43d6108983e1c048
+Author: Jan Kotas <jkotas@microsoft.com>
+Date:   Tue Mar 12 18:55:40 2024 -0700
+
+    Disable NORETURN annotation on PROCAbort for Arm (#99587)
+    
+    * Disable NORETURN annotation on PROCAbort for Arm
+    
+    Contributes to #86273
+    
+    * Fix build break
