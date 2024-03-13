@@ -1,0 +1,7 @@
+commit cbca5083d3e69f2bd25e397f8894d94d7763a13a
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Tue Mar 12 15:39:54 2024 -0400
+
+    Fix AsyncVoidMethodBuilder race condition around SynchronizationContext (#99461)
+    
+    This fixes a long-standing issue we've seen sporadically over the years but for which we just got a solid repro; the symptom is a sporadic unhandled null reference exception that crashes an app when using an async void method builder and a non-default SynchronizationContext. The issue is that, because of how state management is handled in the builder, the builder itself can be cleared while its SetResult method is running, and that means two reads of the _synchronizationContext field can end up returning a non-null value followed by a null value. The fix is to just cache the field into a local before completing the builder, and then only use the local state after.
