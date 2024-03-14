@@ -1,0 +1,15 @@
+commit eb864bfd57c8031b4497be6962fbc0c4bc327c29
+Author: Sven Boemer <sbomer@gmail.com>
+Date:   Wed Mar 13 13:33:27 2024 -0700
+
+    Use attributes for IsDynamicCodeSupported feature switch (#99641)
+    
+    * Use attributes for IsDynamicCodeSupported feature switch
+    
+    * Update src/libraries/System.Linq.Expressions/src/System/Dynamic/Utils/TypeUtils.cs
+    
+    Co-authored-by: Austin Wise <AustinWise@gmail.com>
+    
+    ---------
+    
+    Co-authored-by: Austin Wise <AustinWise@gmail.com>
