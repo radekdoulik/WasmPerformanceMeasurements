@@ -1,0 +1,8 @@
+commit b60a541554cc075b903a4d218456ef8588092a8c
+Author: Filip Navara <filip.navara@gmail.com>
+Date:   Thu Mar 14 09:52:16 2024 +0100
+
+    Remove dead code in MCC tests that causes compilation failure on NativeAOT win-x86 (#99719)
+    
+    CoreCLR doesn't try to JIT the code and thus doesn't hit it:
+    https://github.com/dotnet/runtime/blob/d36beb7b0a3936d18062ca89572d49590fdd445a/src/coreclr/jit/lclvars.cpp#L458-L465
