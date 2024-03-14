@@ -1,0 +1,9 @@
+commit 3d7ebcf31e11427c17c5c86f1b5abbeccb49e978
+Author: Buyaa Namnan <bunamnan@microsoft.com>
+Date:   Wed Mar 13 13:26:00 2024 -0700
+
+    Make PersistedAssemblyBuilder public and update all references (#99660)
+    
+    * Add public PersistedAssemblyBuilder and update all references
+    
+    * Remove unused resource strings
