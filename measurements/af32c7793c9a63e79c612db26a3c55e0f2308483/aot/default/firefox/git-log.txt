@@ -1,0 +1,8 @@
+commit af32c7793c9a63e79c612db26a3c55e0f2308483
+Author: Jan Kotas <jkotas@microsoft.com>
+Date:   Fri Mar 15 01:04:12 2024 -0700
+
+    Delete workaround (#99797)
+    
+    This workaround is no longer needed with current Microsoft.DiaSymReader
+    package
