@@ -1,0 +1,15 @@
+commit ac1b4786b5aab90e1482b921d31ac782161f0c26
+Author: Omair Majid <omajid@redhat.com>
+Date:   Fri Mar 15 11:58:21 2024 -0400
+
+    Disable new warnings introduced with clang 18 (#99811)
+    
+    clang 18 introduces `-Wswitch-default`, which requires that every switch
+    must have a `default` branch. We can add missing `default` in switches,
+    but the other option `-Wcovered-switch-default` complains if all the
+    cases in a switch are exhaustive and `default` doesn't do anything. So
+    disable one of these mutually exclusive warnings.
+    
+    We will also need to merge in the changes from
+    https://github.com/dotnet/arcade/pull/14572 to actually try and use
+    clang-18/clang++-18.
