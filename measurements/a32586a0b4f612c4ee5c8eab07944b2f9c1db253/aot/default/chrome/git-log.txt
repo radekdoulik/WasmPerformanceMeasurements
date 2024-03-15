@@ -1,0 +1,9 @@
+commit a32586a0b4f612c4ee5c8eab07944b2f9c1db253
+Author: Natalia Kondratyeva <knatalia@microsoft.com>
+Date:   Thu Mar 14 21:59:57 2024 +0100
+
+    Fix HTTP/2 WebSocket Abort (#99703)
+    
+    * [release/8.0] Fix HTTP/2 WebSocket Abort
+    
+    * Ignore WindowUpdates in frame-order-sensitive tests
