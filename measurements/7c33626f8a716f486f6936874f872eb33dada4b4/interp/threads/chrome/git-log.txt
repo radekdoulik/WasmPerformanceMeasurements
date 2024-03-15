@@ -1,0 +1,10 @@
+commit 7c33626f8a716f486f6936874f872eb33dada4b4
+Author: Dong-Heon Jung <clamp03@gmail.com>
+Date:   Fri Mar 15 13:53:26 2024 +0900
+
+    [RISC-V] Fix alignment for vector types (#99589)
+    
+    For vector256 and vector512, set possible max alignment value.
+    
+    Reference
+    https://github.com/riscv-non-isa/riscv-elf-psabi-doc/blob/master/riscv-cc.adoc
