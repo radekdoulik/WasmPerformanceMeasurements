@@ -1,0 +1,8 @@
+commit 5c40bb5636b939fb548492fdeb9d501b599ac5f5
+Author: Katelyn Gadd <kg@luminance.org>
+Date:   Thu Mar 14 17:38:06 2024 -0700
+
+    Simplify mono's custom assertions (#99780)
+    
+    * Simplify mono's custom assertions, and hopefully make codeql understand them as a bonus
+    Co-authored-by: Aleksey Kliger (λgeek) <akliger@gmail.com>
