@@ -1,0 +1,9 @@
+commit f36aa7ec736735a3e92046c73d6e03029017b9fa
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Fri Mar 15 09:16:07 2024 -0400
+
+    Clean up some [InlineArray] use (#99766)
+    
+    * Clean up some [InlineArray] use
+    
+    * Remove AsSpan method
