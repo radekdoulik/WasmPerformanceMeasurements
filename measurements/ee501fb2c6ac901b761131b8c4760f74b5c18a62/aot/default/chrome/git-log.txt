@@ -1,0 +1,7 @@
+commit ee501fb2c6ac901b761131b8c4760f74b5c18a62
+Author: Maoni Stephens <Maoni0@users.noreply.github.com>
+Date:   Fri Mar 15 12:33:56 2024 -0700
+
+    fixes distribute_other_procs (#99802)
+    
+    the way distribute_other_procs is written now is really just for when you specify to have 1 or 2 fewer than the default number of heaps. of course this is necessarily the case for DATAS at all. and the fact we are distributing the majority of the procs to heaps makes the heap balance non optimal, especially because for DATAS the gen0 budget can be very small. I observed that the alloc ratio (total allocated / total budget) is around 50% for many of the aspnet benchmarks when I limit the max heap count to a small number (2 or 4). and that means we are triggering GC much more often. with the fix we distribute much better
