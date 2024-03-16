@@ -1,0 +1,29 @@
+commit 4a69553ef989988bfd82b89a27a12a4cf6fe66ff
+Author: Jan Vorlicek <janvorli@microsoft.com>
+Date:   Fri Mar 15 23:19:15 2024 +0100
+
+    Fix stack walking for new EH (#99624)
+    
+    * Testing only - enable the new EH for excercising it
+    
+    * Fix stack walking for new EH
+    
+    There is an edge case when the StackFrameIterator was incorrectly
+    setting the fShouldParentFrameUseUnwindTargetPCforGCReporting, which
+    resulted in a 100% reproducible GC hole in the
+    baseservices\exceptions\unittests\ThrowInFinallyNestedInTry with GC
+    stress C and tiered compilation off.
+    The fix is to delete code that is already present in an "if" branch
+    above the change and that should really be executed only when the
+    funclet parent is the caller of the actual handler frame.
+    
+    * Cleanup, reflecting feedback and fixing one last issue
+    
+    * Reflect PR feedback and fix asserts
+    
+    * Filter out InlinedCallFrame from updating the pointers
+    
+    InlinedCallFrame needs to be excluded from updating the context
+    pointers, as it restores PC / SP to a different location than the
+    callsite of the pinvoke and it doesn't update the context pointers
+    anyways.
