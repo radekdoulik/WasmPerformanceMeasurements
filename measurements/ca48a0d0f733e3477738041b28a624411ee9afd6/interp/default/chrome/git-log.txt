@@ -1,0 +1,31 @@
+commit ca48a0d0f733e3477738041b28a624411ee9afd6
+Author: Ilona Tomkowicz <32700855+ilonatommy@users.noreply.github.com>
+Date:   Sat Mar 16 11:59:18 2024 +0100
+
+    [wasm] Codespaces need more disc to succeed building on container creation (#99803)
+    
+    * Debug
+    
+    * Building steps logging.
+    
+    * Chop up restore and clean cache in between
+    
+    * Restore does not take as much space as codespaces setup files in "/workspaces/.codespaces".
+    
+    * Try removing the biggest offender.
+    
+    * Cannot see the impact of cleanup on the size check logs.
+    
+    * Move setup code into post-create
+    
+    * Pass arg to the script, otherwise nothing is triggered
+    
+    * Move all commands up to restore to onCreate. Restore should be done after codespaces setup when occupied disc space drops.
+    
+    * Fix: wasm does not have artifacts dir on writing to this file.
+    
+    * This would work but is not 100% reliable - user can interact with the VM before the command finishes.
+    
+    * Build subset by subset.
+    
+    * Easy fix - requre bigger disc.
