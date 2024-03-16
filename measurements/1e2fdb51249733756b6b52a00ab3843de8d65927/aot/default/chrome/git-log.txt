@@ -1,0 +1,9 @@
+commit 1e2fdb51249733756b6b52a00ab3843de8d65927
+Author: Levi Broderick <GrabYourPitchforks@users.noreply.github.com>
+Date:   Mon Mar 11 22:01:33 2024 -0700
+
+    Enable most SDL-required C/C++ warnings (#99470)
+    
+    * Enable most SDL-required C/C++ warnings
+    
+    * Suppress C4242 checks for tests
