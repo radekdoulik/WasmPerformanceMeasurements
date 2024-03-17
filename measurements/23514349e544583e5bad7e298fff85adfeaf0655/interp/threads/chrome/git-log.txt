@@ -1,0 +1,9 @@
+commit 23514349e544583e5bad7e298fff85adfeaf0655
+Author: Xu Liangyu <xuliangyu@loongson.cn>
+Date:   Mon Mar 18 01:46:04 2024 +0800
+
+    [LoongArch64] Avoid using native layout info to calculate register flags for small structs where possible. (#99854)
+    
+    * Also merge 'MethodTable::IsLoongArch64OnlyOneField()' and 'MethodTable::IsRiscV64OnlyOneField()' into 'MethodTable::IsOnlyOneField()'.
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
