@@ -1,0 +1,11 @@
+commit 69340eb125312dd4102ad9af332d4f445aadc25c
+Author: Alexander Köplinger <alex.koeplinger@outlook.com>
+Date:   Mon Mar 18 17:11:33 2024 +0100
+
+    Fix ComponentGovernance running on public PR/CI jobs (#99898)
+    
+    This seems to be a side-effect of https://github.com/dotnet/runtime/pull/99179
+    
+    Arcade checks whether `disableComponentGovernance` is the empty string to apply the default skipping logic: https://github.com/dotnet/arcade/blob/ace00d8719b8d1fdfd0cc05f71bb9af216338d27/eng/common/templates/job/job.yml#L168-L174
+    
+    Changed our templates to make sure we pass that correctly.
