@@ -1,0 +1,17 @@
+commit 21f23f91a0c29d91f69013d561e82bd0960c95e1
+Author: Filip Navara <filip.navara@gmail.com>
+Date:   Mon Mar 18 03:55:40 2024 +0100
+
+    [NativeAOT/x86] Load RtlRestoreContext dynamically and add fallback for old OSes (#99813)
+    
+    * Load RtlRestoreContext dynamically and add fallback for old OSes
+    
+    * Port the RtlRestoreContext SEH fallback logic from CoreCLR
+    
+    * Remove unnecessary change
+    
+    * Remove ARM32 mention from a comment
+    
+    * Simplify implementations of GetCurrentSEHRecord, SetCurrentSEHRecord, and PopSEHRecords. Use the same implementation logic in CoreCLR and NativeAOT
+    
+    * Update comments
