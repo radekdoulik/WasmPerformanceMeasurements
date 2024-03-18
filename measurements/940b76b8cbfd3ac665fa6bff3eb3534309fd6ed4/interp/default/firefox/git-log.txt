@@ -1,0 +1,7 @@
+commit 940b76b8cbfd3ac665fa6bff3eb3534309fd6ed4
+Author: Thays Grazia <thaystg@gmail.com>
+Date:   Mon Mar 18 11:33:58 2024 -0300
+
+    Fix inspect Span<byte> (#99843)
+    
+    Avoid throwing an assertion when receiving a NULL object and trying to compute the size of the value type.
