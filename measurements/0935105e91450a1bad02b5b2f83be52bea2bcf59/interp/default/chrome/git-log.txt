@@ -1,0 +1,19 @@
+commit 0935105e91450a1bad02b5b2f83be52bea2bcf59
+Author: Austin Wise <AustinWise@gmail.com>
+Date:   Sun Mar 17 15:10:08 2024 -0700
+
+    Convert GetCurrentMethod to QCALL (#99852)
+    
+    * Convert GetCurrentMethod to QCALL
+    
+    This has a similar structure to FailFast as converted in #98908.
+    
+    Contributes to #95695
+    
+    * Simplify code for QCALL
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
+    
+    ---------
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
