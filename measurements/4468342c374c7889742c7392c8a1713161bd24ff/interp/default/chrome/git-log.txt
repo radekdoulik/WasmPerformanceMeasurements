@@ -1,0 +1,23 @@
+commit 4468342c374c7889742c7392c8a1713161bd24ff
+Author: Vlad Brezae <brezaevlad@gmail.com>
+Date:   Mon Mar 18 11:30:10 2024 +0100
+
+    [mono][interp] Various optimizations for box patterns used in byreflike struct generics (#99684)
+    
+    * [mono][interp] Replace box + GetType with ldptr of type
+    
+    * [mono][interp] Include all box opcodes in deadce
+    
+    * [mono][interp] Optimize out isinst when preceeded by box
+    
+    * [mono][interp] Constant folding involving non null values
+    
+    * [mono][interp] Disable tiering if we encounter a method trying to box byreflike
+    
+    We have various optimizations that can attempt to optimize the boxing out. Instead of immediately throwing, make sure we get to run optimizations. Move the throwing of the exception at runtime, when we actually attempt to box byreflike struct.
+    
+    * Enable box tests
+    
+    ---------
+    
+    Co-authored-by: fanyang-mono <yangfan@microsoft.com>
