@@ -1,0 +1,33 @@
+commit 41c60577db9b2eb89d96c1ead04fb60adca5a4ee
+Author: Ivan Diaz Sanchez <ivdiazsa@microsoft.com>
+Date:   Mon Mar 18 16:19:42 2024 -0700
+
+    Convert the Remaining Legacy Tests to the Merged Wrapper Model (#98469)
+    
+    * Did StartupHook conversion but it doesn't generate any output :(
+    
+    * Ported NativeAot ComWrappers Smoke Tests.
+    
+    * Converted the majority of nativeaot tests to the new system. Not tested yet though.
+    
+    * Fixed the individual nativeaot compilation errors, but it still
+    doesn't build. It can't generate the runner file for some reason.
+    
+    * Disabled MultiModule tests to check actual progress, and it builds now!
+    
+    * DRAFT: Fixed the args build problem in DynamicGenerics test.
+    
+    * DRAFT: Saving my progress.
+    
+    * Ported the Managed test tree to the MergedWrapperSystem.
+    
+    * DRAFT: Delete the 'sizeondisk' subtree because it is no longer used.
+    
+    * Fixed the remaining NativeAOT ported tests.
+    
+    * Restored the MultiModule tests to the legacy system because it's not
+    feasible to migrate them, at least for the time being.
+    
+    * Reenabled missing call to `Generics.Run()` in the Determinism tests.
+    
+    * Addressed comments from Jeremy.
