@@ -1,0 +1,12 @@
+commit fd2f2a7ea1b4b1edc4818a149d8f12549ddb2888
+Author: Zoltan Varga <vargaz@gmail.com>
+Date:   Mon Mar 11 16:42:41 2024 -0400
+
+    [mono][jit] Optimize JIT time on platforms without SIMD support. (#99485)
+    
+    * Move the if (cfg->opt & MONO_OPT_SIMD) checks into simd-intrinsics.c
+      so the IsSupported checks can be intrinsified even if SIMD is disabled.
+    * Implement mono_simd_unsupported_aggressive_inline_intrinsic_type () in
+      the non-simd cases as well, add more types.
+    
+    Re: https://github.com/dotnet/runtime/issues/97295.
