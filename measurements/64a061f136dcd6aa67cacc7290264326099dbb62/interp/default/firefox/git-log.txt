@@ -1,0 +1,16 @@
+commit 64a061f136dcd6aa67cacc7290264326099dbb62
+Author: Andy Ayers <andya@microsoft.com>
+Date:   Mon Mar 11 17:58:38 2024 -0700
+
+    JIT: more likelihood checking (#99541)
+    
+    Check has likelihood and likelihood sum consistency all the way until
+    rationalize.
+    
+    Several phases required a bit of revision, notably the multi-guess type
+    test expansion (similar to GDV) and optimize bools.
+    
+    Fix carry-over issue from previous round where block and edge scaling
+    in loop cloning used different factors.
+    
+    Contributes to #93020
