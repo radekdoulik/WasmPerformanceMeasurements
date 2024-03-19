@@ -1,0 +1,9 @@
+commit aea36820fdef48d6ef375508977e2f681fa4e199
+Author: Jackson Schuster <36744439+jtschuster@users.noreply.github.com>
+Date:   Mon Mar 18 14:42:24 2024 -0700
+
+    ILVerify after kept member validation (#99914)
+    
+    - ILVerify will fail due to members not being kept, so to make the
+      errors more informative, run kept member validation first, then
+      ILVerify
