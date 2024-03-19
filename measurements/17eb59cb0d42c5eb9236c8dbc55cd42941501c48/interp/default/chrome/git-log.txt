@@ -1,0 +1,43 @@
+commit 17eb59cb0d42c5eb9236c8dbc55cd42941501c48
+Author: Alan Hayward <a74nh@users.noreply.github.com>
+Date:   Tue Mar 12 12:50:51 2024 +0000
+
+    JIT ARM64-SVE: Add TrueMask and LoadVector (#98218)
+    
+    * JIT ARM64-SVE: Add TrueMask
+    
+    Change-Id: I285f8aba668409ca94e11be2489a6d9b50a4ec6e
+    
+    * LoadVector
+    
+    Change-Id: I3ad4fd9a8d823cb43a9546ba6356006a0907ac57
+    
+    * Add SveLoadUnOpMaskedTest.template
+    
+    * Add CreateTrueMaskByte etc
+    
+    * Fix up tests
+    
+    * Remove commented code
+    
+    * Explain SveMaskPattern
+    
+    * ARM64-SVE: Implement IF_SVE_BV_2A
+    
+    * Create vector to/from mask nodes in intrinsic generation
+    
+    * Add HW_Flag_LowMaskedOperation
+    
+    * Revert "ARM64-SVE: Implement IF_SVE_BV_2A"
+    
+    * Use NI_Sve_CreateTrueMaskAll
+    
+    * Mark API as experimental
+    
+    * Revert "Mark API as experimental"
+    
+    This reverts commit 6beb760b8cb2d3d8a4501c0cb71e5bb8735ab28a.
+    
+    ---------
+    
+    Co-authored-by: Kunal Pathak <Kunal.Pathak@microsoft.com>
