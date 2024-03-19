@@ -1,0 +1,7 @@
+commit 9c828a17c347118968d7a1a170178daf4a9ce126
+Author: Filip Navara <filip.navara@gmail.com>
+Date:   Mon Mar 11 12:26:49 2024 +0100
+
+    Emit MOVW/MOVT relocations for ARM. Create jump thunks in ElfObjectWriter (#99208)
+    
+    for unresolved external symbols.
