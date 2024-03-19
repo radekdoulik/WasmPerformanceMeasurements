@@ -1,0 +1,7 @@
+commit 7878f4e714c449f34722cc707855ad13cef64f3c
+Author: Aman Khalid <amankhalid@microsoft.com>
+Date:   Tue Mar 12 18:34:22 2024 -0400
+
+    JIT: Add fgRedirectTrueEdge, fgRedirectFalseEdge (#99561)
+    
+    Follow-up to #99362. Adds helper methods for redirecting BBJ_COND blocks' true/false targets to new successors while reusing the existing flow edge.
