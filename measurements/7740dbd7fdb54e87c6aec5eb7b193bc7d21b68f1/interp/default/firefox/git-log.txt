@@ -1,0 +1,7 @@
+commit 7740dbd7fdb54e87c6aec5eb7b193bc7d21b68f1
+Author: Bruce Forstall <brucefo@microsoft.com>
+Date:   Sat Mar 16 13:21:00 2024 -0700
+
+    Fix SuperPMI collections (#99867)
+    
+    The `produce_repro` argument needs to be initialized for collections.
