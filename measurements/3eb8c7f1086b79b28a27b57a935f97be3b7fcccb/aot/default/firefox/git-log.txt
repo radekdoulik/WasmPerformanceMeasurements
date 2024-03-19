@@ -1,0 +1,7 @@
+commit 3eb8c7f1086b79b28a27b57a935f97be3b7fcccb
+Author: Aman Khalid <amankhalid@microsoft.com>
+Date:   Sun Mar 10 22:21:36 2024 -0400
+
+    JIT: Add pred block iterator that tolerates pred list modifications (#99466)
+    
+    Follow-up to #99362. fgRedirectTargetEdge modifies the predecessor lists of the old and new successor blocks, so if we want to be able to use it in fgReplaceJumpTarget, we need a pred block iterator that is resilient to these changes, as we frequently call the latter method while iterating predecessors.
