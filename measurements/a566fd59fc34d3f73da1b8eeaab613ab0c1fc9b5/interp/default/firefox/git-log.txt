@@ -1,0 +1,15 @@
+commit a566fd59fc34d3f73da1b8eeaab613ab0c1fc9b5
+Author: Alexander Köplinger <alex.koeplinger@outlook.com>
+Date:   Sun Mar 10 14:53:48 2024 +0100
+
+    [mono] Fix function prototype in jiterpreter (#99492)
+    
+    This causes a warning. Introduced in https://github.com/dotnet/runtime/pull/99273.
+    
+    ```
+      src/mono/mono/mini/interp/jiterpreter.c:1686:24: warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+      mono_jiterp_is_enabled () {
+                             ^
+                              void
+      1 warning generated.
+    ```
