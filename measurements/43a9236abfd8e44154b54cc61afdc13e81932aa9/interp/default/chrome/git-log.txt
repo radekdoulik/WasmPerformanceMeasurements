@@ -1,0 +1,7 @@
+commit 43a9236abfd8e44154b54cc61afdc13e81932aa9
+Author: Aman Khalid <amankhalid@microsoft.com>
+Date:   Tue Mar 19 14:36:03 2024 +0000
+
+    JIT: Remove bbFallsThrough check in optFindLoopCompactionInsertionPoint (#99827)
+    
+    Calling bbFallsThrough isn't all that helpful here, as it doesn't consider BBJ_ALWAYS blocks to the next block, BBJ_COND blocks that don't fall through for the false path, etc. I'm planning on getting rid of bbFallsThrough everywhere except in fgReorderBlocks (that removal will hopefully come when we replace our block layout algorithm altogether), but to still be able to short-circuit optFindLoopCompactionInsertionPoint, I added some manual checks for blocks that can "fall through."
