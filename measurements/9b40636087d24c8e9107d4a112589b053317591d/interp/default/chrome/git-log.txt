@@ -1,0 +1,8 @@
+commit 9b40636087d24c8e9107d4a112589b053317591d
+Author: Katelyn Gadd <kg@luminance.org>
+Date:   Thu Mar 14 14:53:26 2024 -0700
+
+    [wasm] Make back branches faster in the jiterpreter and clean up some code (#99772)
+    
+    * Make back branches faster in the jiterpreter and clean up some code
+    * Fix 'disp' trace local being unconditionally modified by conditional back branches even if they aren't taken
