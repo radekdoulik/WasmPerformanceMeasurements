@@ -1,0 +1,9 @@
+commit 90a0fc1143f77d0913b0ae037a36348817cc9c22
+Author: snickolls-arm <151848422+snickolls-arm@users.noreply.github.com>
+Date:   Wed Mar 20 00:40:47 2024 +0000
+
+    Use templated encoding helpers for signed and unsigned immediates (#99815)
+    
+    * Use templated encoding helpers for signed and unsigned immediates
+    
+    * Address review comments
