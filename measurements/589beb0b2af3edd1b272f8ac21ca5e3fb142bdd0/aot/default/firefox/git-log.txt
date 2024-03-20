@@ -1,0 +1,8 @@
+commit 589beb0b2af3edd1b272f8ac21ca5e3fb142bdd0
+Author: Dong-Heon Jung <clamp03@gmail.com>
+Date:   Wed Mar 20 17:44:00 2024 +0900
+
+    [RISC-V] Add missed instructions (#99948)
+    
+    In genInstrWithConstant, loadType and zero-extends are missed.
+    - lbu, lhu and lwu
