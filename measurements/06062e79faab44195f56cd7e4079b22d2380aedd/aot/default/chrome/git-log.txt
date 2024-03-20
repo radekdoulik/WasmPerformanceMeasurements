@@ -1,0 +1,10 @@
+commit 06062e79faab44195f56cd7e4079b22d2380aedd
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Wed Mar 20 16:21:08 2024 +0100
+
+    JIT: Fix flags updating when sinking stores below commas (#100005)
+    
+    When we sink a store below a comma, we should update the comma's flags
+    after updating the flags of the store, not before.
+    
+    Fix #99929
