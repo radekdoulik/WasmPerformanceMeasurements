@@ -1,0 +1,7 @@
+commit 682d1c7dad1eb201ccf6bfe142a8ff36c65a80cf
+Author: Elinor Fung <elfung@microsoft.com>
+Date:   Wed Mar 20 12:37:28 2024 -0700
+
+    Delete src/installer/tests/scripts/linux-test (#99848)
+    
+    The scripts under src/installer/tests/scripts/linux-test targeted older versions of .NET and OS/distros. They are no longer used.
