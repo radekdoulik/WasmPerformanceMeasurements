@@ -1,0 +1,7 @@
+commit fef9a5f45dd02e7e8a08d18dd923c30ab5dca1f8
+Author: Jeremy Koritzinsky <jekoritz@microsoft.com>
+Date:   Thu Mar 14 07:15:08 2024 -0700
+
+    Use IntermediateAssembly instead of hard-coding the equivalent path (#99732)
+    
+    Fixes https://github.com/dotnet/runtime/issues/99731
