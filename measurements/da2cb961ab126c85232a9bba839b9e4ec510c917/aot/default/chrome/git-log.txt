@@ -1,0 +1,17 @@
+commit da2cb961ab126c85232a9bba839b9e4ec510c917
+Author: Tomasz Sowiński <tomeksowi@gmail.com>
+Date:   Fri Mar 15 18:05:24 2024 +0100
+
+    [RISC-V] Avoid using native layout info to calculate register flags for small structs where possible (#97877)
+    
+    * Remove initializing native layout info for small structs during type load
+    
+    Managed->managed calling convention should not depend on native info which is used for interop marshalling with unmanaged code which is above the type loader.
+    
+    * Don't use native layout in GetRiscV64PassStructInRegisterFlags unless we're calculating flags for a native value type
+    
+    * Remove redundant assertions, AsNativeValueType() has the same
+    
+    * Cover implied repeated fields, a.k.a fixed arrays, in when calculating small struct flags from non-native layout
+    
+    * Cover implied repeated fields, a.k.a fixed arrays, also in non-native branch of IsRiscV64OnlyOneField
