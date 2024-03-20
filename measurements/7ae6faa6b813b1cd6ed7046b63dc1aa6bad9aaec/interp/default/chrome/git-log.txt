@@ -1,0 +1,13 @@
+commit 7ae6faa6b813b1cd6ed7046b63dc1aa6bad9aaec
+Author: Jan Vorlicek <janvorli@microsoft.com>
+Date:   Wed Mar 20 13:57:26 2024 +0100
+
+    Fix detection of exceptionally called funclet in stack walk (#99958)
+    
+    There is a problem with stack walking detecting funclets called during
+    exception handling with the new EH enabled. The code was considering any
+    funclet it found below the topmost ExInfo, but I have not realized it
+    can also hit non-exceptionally called finallys. Those don't have any
+    exception handling going on and thus are incorrectly used for storing
+    information that it used later at the parent to track GC references.
+    We need to consider only funclets that were called exceptionally.
