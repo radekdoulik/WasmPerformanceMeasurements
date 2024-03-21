@@ -1,0 +1,61 @@
+commit 12d96ccfaed98e23c345188ee08f8cfe211c03e7
+Author: Alan Hayward <a74nh@users.noreply.github.com>
+Date:   Thu Mar 21 16:38:45 2024 +0000
+
+    JIT ARM64-SVE: Allow LCL_VARs to store as mask (#99608)
+    
+    * JIT ARM64-SVE: Allow LCL_VARs to store as mask
+    
+    * Remove FEATURE_MASKED_SIMD
+    
+    * More generic ifdefs
+    
+    * Add varTypeIsSIMDOrMask
+    
+    * Add extra type checks
+    
+    * Fix use of isValidSimm9, and add extra uses
+    
+    * Rename mask conversion functions to gtNewSimdConvert*
+    
+    * Add OperIs functions
+    
+    * Mark untested uses of mov
+    
+    * Add INS_SCALABLE_OPTS_PREDICATE_DEST
+    
+    * Valuenum fixes for tier 1
+    
+    * Remove importer changes
+    
+    * XARCH versions of OperIsConvertMaskToVector
+    
+    * Revert "Remove importer changes"
+    
+    This reverts commit b5502a6968c1304986f206ea6ac9de9d2fb63f7d.
+    
+    * Add tests fopr emitIns_S_R and emitIns_R_S
+    
+    * Fix formatting
+    
+    * Reapply "Remove importer changes"
+    
+    This reverts commit d8dea0e83c2318a4638d9beea11d3d188c2d5fa2.
+    
+    * Use dummy mask ldr and str
+    
+    * Refactor emitIns_S_R and emitIns_R_S
+    
+    * Move str_mask/ldr_mask
+    
+    * Fix formatting
+    
+    * Set imm
+    
+    * fix assert
+    
+    * Fix assert (2)
+    
+    * Fix assert (3)
+    
+    * nop
