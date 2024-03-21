@@ -1,0 +1,13 @@
+commit e4abc2d7b708811580d381e7150ee6599e51b78c
+Author: Vlad Brezae <brezaevlad@gmail.com>
+Date:   Thu Mar 21 12:07:25 2024 +0200
+
+    [mono][interp] Attempt to interpret m2n wrapper if it is not found in aot image (#100025)
+    
+    * [mono][interp] Remove old hack
+    
+    interp_create_method_pointer should only ever return a function pointer callable from compiled code.
+    
+    * [mono][interp] Attempt to interpret m2n wrapper if it is not found in aot image
+    
+    On ios with interpreter enabled it can happen to mark an assembly as aot and have the rest interpreted, including SPC.dll. If the aot code attempts to do an icall, for example Math.Ceiling defined in SPC.dll, it will fail to find the m2n wrapper, since SPC.dll is not aot-ed. We fix this by obtaining an interp entry thunk, in order to execute the wrapper in interp, if we can't find the aot version of wrapper.
