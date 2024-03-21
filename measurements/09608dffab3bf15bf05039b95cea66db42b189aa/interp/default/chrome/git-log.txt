@@ -1,0 +1,28 @@
+commit 09608dffab3bf15bf05039b95cea66db42b189aa
+Author: Ruihan-Yin <107431934+Ruihan-Yin@users.noreply.github.com>
+Date:   Wed Mar 20 21:19:17 2024 -0700
+
+    Adding `Avx10v1` to the runtime (#99784)
+    
+    * script-gen changes
+    
+    * hand-written changes
+    
+    * improve the CPUID check logic.
+    
+    * Add missing changes in managed code and fix bad naming.
+    
+    * Resolve comments:
+    Removed seperate env vars to control Avx10v1_V256/512, now Avx10v1 instructions with different vector length will all be controlled by EnableAvx10v1 alone.
+    
+    * Add missing definition and implication in ISA descriptor.
+    
+    * Resolve comments:
+    1. Make sure the version check and length check are correctly nested.
+    2. remove unnecessary debug assert in mananged code.
+    
+    * Resolve comment:
+    1. update the ISA implication
+    
+    * Resolve comments:
+    adjust the order of ISA implication.
