@@ -1,0 +1,7 @@
+commit 2ea8030b0babc9e2d7b370f1a364c63b1960b6ac
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Wed Mar 20 23:00:23 2024 -0400
+
+    Remove duplicative sorting when enumerating OrderBy.Take/Skip (#99973)
+    
+    Fixes a recent perf regression on enumerating an OrderBy.Take/Skip that results in an extra sort.
