@@ -1,0 +1,10 @@
+commit 172ecdfce71c57ddb8ff7228a4f228e9c82a75ee
+Author: Katelyn Gadd <kg@luminance.org>
+Date:   Thu Mar 14 12:04:57 2024 -0700
+
+    [mono] CodeQL fix set #1 (#99637)
+    
+    CodeQL flagged various places where we're dereferencing pointers that could be NULL, this PR systematically cleans some of them up via g_assert.
+    * g_assert result of g_build_path calls
+    * Allocation failure handling
+    * mono_class_inflate_generic_class_checked can return NULL
