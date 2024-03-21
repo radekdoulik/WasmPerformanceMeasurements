@@ -1,0 +1,7 @@
+commit ed0c6876eea4854857753e181fb896363004bdb3
+Author: Aman Khalid <amankhalid@microsoft.com>
+Date:   Wed Mar 20 23:38:45 2024 +0000
+
+    JIT ARM64-SVE: Move SVE helpers to emitarm64sve.cpp (#100034)
+    
+    This change moves most (all?) SVE-specific helper methods and data structures from emitarm64.cpp to emitarm64sve.cpp, and renames a few of these helpers to make it clear they are specific to SVE/SVE2. Also, I opportunistically deleted some unused methods. The hex output of the SVE unit tests is unchanged.
