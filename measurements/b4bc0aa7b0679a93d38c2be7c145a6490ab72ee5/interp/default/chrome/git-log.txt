@@ -1,0 +1,27 @@
+commit b4bc0aa7b0679a93d38c2be7c145a6490ab72ee5
+Author: Bruce Forstall <brucefo@microsoft.com>
+Date:   Thu Mar 14 09:55:47 2024 -0700
+
+    Add edge likelihood dumping; fix one edge likelihood update case (#99740)
+    
+    1. Add dumping of edge likelihood numbers to the block table and other
+    block dumping. Examples: `BB17(0.143)`, `BB18(1)`.
+    
+    Edge likelihood dumping is parameterized in the code, but is currently
+    always enabled.
+    
+    2. Update `setLikelihood` and `updateLikelihood` to print the previous
+    value of the likelihood that is being updated (if there is a previous value).
+    
+    3. Fix a case of likelihood updating in `fgReplaceJumpTarget()`: in a switch
+    block, when the new target block is already a target of the switch, then there
+    already exists an edge from the switch to the new target. In that case, we were
+    updating the edge dup count, but `fgAddRefPred` wasn't updating the edge likelihood
+    to add the removed edge likelihood to the existing edge likelihood.
+    
+    This was found as part of work to fix JitOptRepeat: https://github.com/dotnet/runtime/pull/94250.
+    
+    4. Add natvis debugger support for FlowEdge.
+    
+    5. In 'fgDebugCheckOutgoingProfileData()`, if outgoing likelihoods are invalid,
+    print out all the likelihoods of the outgoing edges.
