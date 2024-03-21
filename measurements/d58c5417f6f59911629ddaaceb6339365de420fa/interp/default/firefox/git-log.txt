@@ -1,0 +1,17 @@
+commit d58c5417f6f59911629ddaaceb6339365de420fa
+Author: Aaron Robinson <arobins@microsoft.com>
+Date:   Wed Mar 20 13:25:43 2024 -0700
+
+    [CoreCLR and native AOT] `UnsafeAccessorAttribute` supports generic parameters (#99468)
+    
+    * Generic type support
+    
+    Instance and static fields on generic types
+    Re-enable and add to field tests
+    Generic types with non-generic methods.
+    Generic static methods
+    
+    * Native AOT support
+    
+    * Add design document
+    Add strict check for precisely matched Generic constraints
