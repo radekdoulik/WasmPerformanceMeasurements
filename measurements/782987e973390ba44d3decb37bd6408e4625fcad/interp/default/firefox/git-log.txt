@@ -1,0 +1,39 @@
+commit 782987e973390ba44d3decb37bd6408e4625fcad
+Author: Ankit Jain <radical@gmail.com>
+Date:   Fri Mar 8 12:40:08 2024 -0500
+
+    [workload-testing] Misc improvements (#99392)
+    
+    * [workload-testing] Use `PackageDownload` instead of `PackageReference`
+    
+    .. to get manifest, and workload pack nugets. The task does not need
+    these to be references as it essentially just copies files from the
+    restored location to the sdk. But using `PackageDownload` allows
+    packages with `PackageType=DotnetPlatform` to work too, which is most
+    manifest nugets.
+    
+    * [workload-testing] Add property for output of workload-install command
+    
+    * Add support for emitting packageSourceMappings in nuget.config, which is useful when using Central Package Management
+    
+    * cleanup
+    
+    * [workload-testing] Add PackageSourceNameForBuiltPackages property that defaults to nuget-local
+    
+    * Extract the nuget.config patch method into a separate task
+    
+    `PatchNuGetConfig`
+    
+    This would be useful in generating similar files for running tests.
+    
+    * fix trimmer tests build
+    
+    * Update src/mono/nuget/Microsoft.NET.Runtime.WorkloadTesting.Internal/README.md
+    
+    Co-authored-by: Ilona Tomkowicz <32700855+ilonatommy@users.noreply.github.com>
+    
+    * address review feedback from @ ilonatommy
+    
+    ---------
+    
+    Co-authored-by: Ilona Tomkowicz <32700855+ilonatommy@users.noreply.github.com>
