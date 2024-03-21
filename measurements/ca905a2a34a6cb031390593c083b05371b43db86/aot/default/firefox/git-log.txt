@@ -1,0 +1,19 @@
+commit ca905a2a34a6cb031390593c083b05371b43db86
+Author: Bruce Forstall <brucefo@microsoft.com>
+Date:   Thu Mar 14 10:14:18 2024 -0700
+
+    Add basic support for `TYP_MASK` constants (#99743)
+    
+    This is to support fixing JitOptRepeat (https://github.com/dotnet/runtime/pull/94250).
+    I was seeing failures in a Tensor test where `TYP_MASK`
+    generating instructions were getting CSE'd. When OptRepeat kicks in
+    and runs VN over the new IR, it wants to create a "zero" value
+    for the new CSE locals.
+    
+    This change creates a `TYP_MASK` constant type, `simdmask_t`, like the
+    pre-existing `simd64_t`, `simd32_t`, etc. `simdmask_t` is basically a
+    `simd8_t` type, but with its own type. I expanded basically every place
+    that generally handles `simd64_t` with `simdmask_t` support. This might be
+    more than we currently need, but it seems to be a reasonable step towards
+    making `TYP_MASK` more first-class. However, I didn't go so far as to
+    support load/store of these constants, for example.
