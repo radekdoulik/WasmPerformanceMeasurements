@@ -1,0 +1,9 @@
+commit a9037144c7db8d97656e9aeb783f02b77b38fe1d
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Fri Mar 22 06:16:09 2024 +0900
+
+    Fix building ILC in Visual Studio (#99799)
+    
+    ILC stopped building in VS recently. There's a disagreement between where build.cmd places the ILLink Roslyn analyzer and where the VS build expects to find the analyzer DLL. (The disagreement is about whether `$(Platform)` is part of the path.)
+    
+    I couldn't quickly find out why, so just do what every sln file under libraries does - include the analyzer in the solution...
