@@ -1,0 +1,33 @@
+commit e12e2fa6cbdd1f4b0c8ad1b1e2d960a480c21703
+Author: Radek Zikmund <32671551+rzikm@users.noreply.github.com>
+Date:   Thu Mar 21 12:33:12 2024 +0100
+
+    Implement MsQuicConfiguration cache (#99371)
+    
+    * Implement MsQuicConfiguration cache
+    
+    * Fix creds with custom cipher suites
+    
+    * Polishing
+    
+    * Dispose discarded handle when racing to add into cache
+    
+    * Shuffle code around, add AppCtx switch for disabling
+    
+    * Code review feedback
+    
+    * Add comments, minor fixes
+    
+    * Fix failing test on Windows
+    
+    * Code review feedback
+    
+    * Apply suggestions from code review
+    
+    Co-authored-by: Miha Zupan <mihazupan.zupan1@gmail.com>
+    
+    * Code review changes
+    
+    ---------
+    
+    Co-authored-by: Miha Zupan <mihazupan.zupan1@gmail.com>
