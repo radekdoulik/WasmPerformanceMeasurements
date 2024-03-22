@@ -1,0 +1,7 @@
+commit bf828d87a7cfdff5c4c7f219ef77b6b4c0be04cf
+Author: Aman Khalid <amankhalid@microsoft.com>
+Date:   Fri Mar 22 15:28:57 2024 +0000
+
+    JIT ARM64-SVE: Add more templated encode immediate methods (#100078)
+    
+    Adds templated insEncodeUimm_MultipleOf and insEncodeSimm_MultipleOf methods to further reduce redundancy. The SVE unit test output remains unchanged.
