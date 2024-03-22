@@ -1,0 +1,5 @@
+commit ac07ea6583cfa7e6896c2fe97b595f2a395ed3ea
+Author: Ahmet Ibrahim Aksoy <aaksoy@microsoft.com>
+Date:   Thu Mar 21 20:30:41 2024 +0100
+
+    [QUIC] Make sure that we get the RECEIVE before connection close (#100093)
