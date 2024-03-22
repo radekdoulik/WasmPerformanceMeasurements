@@ -1,0 +1,7 @@
+commit af6a9f3dd4bd8d5ac9aad06f35f8242a65888b81
+Author: Jeremy Koritzinsky <jekoritz@microsoft.com>
+Date:   Thu Mar 21 17:50:38 2024 -0700
+
+    Change the CryptoKit interop entrypoints to use the Swift calling convention (#99970)
+    
+    Co-authored-by: Aleksey Kliger (λgeek) <akliger@gmail.com>
