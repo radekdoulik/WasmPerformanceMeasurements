@@ -1,0 +1,10 @@
+commit c1fc1eef946c732ada75f548cb36b1845798ae7d
+Author: Bruce Forstall <brucefo@microsoft.com>
+Date:   Thu Mar 21 09:50:05 2024 -0700
+
+    Remove GetFoldedArithOpResultHandleFlags (#100060)
+    
+    For any constant arithmetic on a handle, lose the handle type:
+    it's unreliable.
+    
+    Eliminates problems seen in https://github.com/dotnet/runtime/issues/100059
