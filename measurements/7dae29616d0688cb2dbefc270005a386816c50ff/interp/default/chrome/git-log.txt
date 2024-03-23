@@ -1,0 +1,15 @@
+commit 7dae29616d0688cb2dbefc270005a386816c50ff
+Author: rzsc <160726116+rzsc@users.noreply.github.com>
+Date:   Sat Mar 23 02:08:20 2024 +0100
+
+    LogicalName added for EmbeddedResource (#99999)
+    
+    * LogicalName added for EmbeddedResource
+    
+    * Disable test22888 on Mono
+    
+    Mono does not support collectible assemblies that this test is exercising.
+    
+    ---------
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
