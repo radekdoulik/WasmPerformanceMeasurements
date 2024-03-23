@@ -1,0 +1,21 @@
+commit 2820a1e775e29c5695505b6e391c73a581093643
+Author: Filip Navara <filip.navara@gmail.com>
+Date:   Fri Mar 22 07:23:59 2024 +0100
+
+    [NativeAOT] Move Interlocked null checks to managed, RhpLockCmpXchg64 to C (#100021)
+    
+    * Move RhpLockCmpXchg64 implementation to C; move null checks from RhpLockCmpXchg64/RhpCheckedLockCmpXchg/RhpCheckedXchg to managed code
+    
+    * Removed #ifs per feedback
+    
+    * Update RhpLockCmpXchg[8/16/32] too
+    
+    * Add PalInterlockedOperationBarrier
+    
+    * PR feedback
+    
+    * Move RhpLockCmpXchg32 to C
+    
+    ---------
+    
+    Co-authored-by: Michał Petryka <35800402+MichalPetryka@users.noreply.github.com>
