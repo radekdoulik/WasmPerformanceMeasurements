@@ -1,0 +1,18 @@
+commit de774ff9ee1a2c06663ab35be34b755cd8d29731
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Thu Mar 21 18:12:30 2024 +0100
+
+    JIT: Add basic support for Swift reverse pinvokes (#100018)
+    
+    Adds very rudimentary support for Swift reverse pinvokes. Since Swift function
+    pointers are based on `SwiftSelf` also adds basic support for the `SwiftSelf`
+    parameter. Structs are not supported yet, and neither is `SwiftError`.
+    
+    Adds 10 simple tests just so that we have something. These will be regenerated
+    (with a larger number of probably 100 tests) once we have the struct support.
+    
+    The `SwiftSelf` parameter is not enregisterable because it is passed in a
+    register that `genFnPrologCalleeRegArgs` does not handle. In the future this
+    function should be rewritten to support this register, but there are plans to
+    rewrite it to handle float and integer registers simultaneously, so that work
+    can happen at that time.
