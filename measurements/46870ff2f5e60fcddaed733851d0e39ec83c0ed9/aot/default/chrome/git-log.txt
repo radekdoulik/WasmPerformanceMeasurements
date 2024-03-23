@@ -1,0 +1,9 @@
+commit 46870ff2f5e60fcddaed733851d0e39ec83c0ed9
+Author: Aaron Robinson <arobins@microsoft.com>
+Date:   Sat Mar 23 08:40:05 2024 -0700
+
+    Remove more Helper Method Frames (#100116)
+    
+    * Remove helper method frames
+    
+    * Convert functions in customattribute.h into QCalls
