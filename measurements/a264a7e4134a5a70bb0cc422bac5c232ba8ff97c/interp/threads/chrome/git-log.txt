@@ -1,0 +1,5 @@
+commit a264a7e4134a5a70bb0cc422bac5c232ba8ff97c
+Author: Bruce Forstall <brucefo@microsoft.com>
+Date:   Fri Mar 22 22:49:09 2024 -0700
+
+    Clear m_nodeToLoopMemoryBlockMap when preparing to repeat optmizations (#100164)
