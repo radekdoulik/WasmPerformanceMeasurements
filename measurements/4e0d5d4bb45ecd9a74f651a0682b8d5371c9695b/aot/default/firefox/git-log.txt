@@ -1,0 +1,7 @@
+commit 4e0d5d4bb45ecd9a74f651a0682b8d5371c9695b
+Author: Jan Kotas <jkotas@microsoft.com>
+Date:   Sat Mar 23 20:01:01 2024 -0700
+
+    Use clang --version to get Apple toolset version (#100190)
+    
+    Fixes #100189
