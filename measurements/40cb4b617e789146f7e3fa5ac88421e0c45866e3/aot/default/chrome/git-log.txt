@@ -1,0 +1,23 @@
+commit 40cb4b617e789146f7e3fa5ac88421e0c45866e3
+Author: Bruce Forstall <brucefo@microsoft.com>
+Date:   Sat Mar 23 14:23:23 2024 -0700
+
+    Add JitOptRepeat configuration options (#100154)
+    
+    * Add JitOptRepeat configuration options
+    
+    JitOptRepeat is still off by default.
+    
+    1. Add a `DOTNET_JitEnableOptRepeat` option. By default this is zero,
+    meaning OptRepeat is disabled. Set it to one to enable JitOptRepeat.
+    Enabling it will allow OptRepeat to kick in during JitStress, but will
+    not otherwise enable it. Also setting `DOTNET_JitOptRepeat` to a method set
+    will enable JitOptRepeat for that exact set of methods. The number of
+    repetitions is specified by `DOTNET_JitOptRepeatCount`.
+    2. Enable JitOptRepeat to kick in for stress (if `DOTNET_JitEnableOptRepeat`
+    is set to non-zero). The repetition count is set randomly (based on method
+    hash seed) between 2 and 5.
+    3. Add `DOTNET_JitOptRepeatRange`. This limits JitOptRepeat to a method hash
+    range, for isolating JitOptRepeat related bad codegen.
+    
+    * Set `DOTNET_JitEnableOptRepeat=1` in tests that enable JitOptRepeat
