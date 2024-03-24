@@ -207,7 +207,7 @@ async function mainJS() {
                     permalinkFlavors(testsData[0].availableFlavors);
                 });
             selection.append("label")
-                .attr("class", "form-check-label")
+                .attr("class", "form-check-label ms-1")
                 .attr("for", lineClass)
                 .style("color", ordinal(flavors[i]))
                 .html(flavors[i]);
