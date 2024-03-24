@@ -1,0 +1,7 @@
+commit 6c685e3302ebdc2aeb008a40ff475d3d3b9f2a78
+Author: Anton Firszov <Anton.Firszov@microsoft.com>
+Date:   Sun Mar 24 15:00:07 2024 +0100
+
+    [HttpStress] [SslStress] Workaround image bug in 1es-windows-2022-open (#100145)
+    
+    Workaround for https://github.com/microsoft/azure-pipelines-agent/issues/4554. Microsoft.VCToolsVersion.v143.default.txt contains the wrong MSVC version, deleting the file makes vcvarsall.bat fall back to Microsoft.VCToolsVersion.default.txt, which has the correct version.
