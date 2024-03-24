@@ -1,0 +1,16 @@
+commit 86331a3dad4e85732858fa43ec093982b0fccbe5
+Author: Javier Calvarro Nelson <jacalvar@microsoft.com>
+Date:   Wed Mar 13 12:50:50 2024 +0100
+
+    [Wasm] Update boot.json manifest generation order (#99525)
+    
+    * [Wasm] Update boot.json manifest generation order
+    * Use DefineStaticWebAssets to update publish assets
+    
+    In preparation for the static web assets update to generate fingerprinted
+    files, there is a requirement that static web assets are generated before
+    they are defined.
+    
+    This is because each asset now carries two new properties:
+    * Fingerprint: Which is a path friendly unique version of the SHA256 hash
+    * Integrity: Which is the Base64 SHA256 hash of the asset.
