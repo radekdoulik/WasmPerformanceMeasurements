@@ -1,0 +1,11 @@
+commit 596a1f7b6429fc06cf71465238cb349cab4edc35
+Author: Tom Deseyn <tom.deseyn@gmail.com>
+Date:   Wed Mar 13 06:31:36 2024 +0100
+
+    ILCompiler: support publishing using a non-portable ILCompiler build. (#99148)
+    
+    * ILCompiler: support publishing using a non-portable ILCompiler build.
+    
+    * Use HostOS from top-level Directory.Build.props.
+    
+    * And same for BuildArchitecture.
