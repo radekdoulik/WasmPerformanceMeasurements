@@ -442,6 +442,7 @@ async function mainJS() {
               .attr("width", originalWidth)
               .attr("height", originalHeight)
               .attr("viewBox", `0 0 ${originalWidth} ${originalHeight}`)
+              .attr("preserveAspectRatio", "xMinYMin meet")
             .append("g")
               .attr("transform", `translate(${margin.left},${margin.top})`);
 
