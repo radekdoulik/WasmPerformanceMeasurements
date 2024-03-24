@@ -1,0 +1,11 @@
+commit 78b5f40a60d9e095abb2b0aabd8c062b171fb9ab
+Author: Miha Zupan <mihazupan.zupan1@gmail.com>
+Date:   Fri Mar 22 20:06:47 2024 +0100
+
+    Improve the throughput of SocketsHttpHandler's HTTP/1.1 connection pool (#99364)
+    
+    * Improve the throughput of SocketsHttpHandler's HTTP/1.1 connection pool
+    
+    * More comments
+    
+    * Switch to ConcurrentStack
