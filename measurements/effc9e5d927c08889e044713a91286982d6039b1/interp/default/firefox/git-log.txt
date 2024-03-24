@@ -1,0 +1,7 @@
+commit effc9e5d927c08889e044713a91286982d6039b1
+Author: Katelyn Gadd <kg@luminance.org>
+Date:   Thu Mar 21 09:36:29 2024 -0700
+
+    [mono] Optimize mono_metadata_decode_row_col_raw (#99939)
+    
+    The loop in this function is somewhat expensive, and in some wasm startup profiles I did we spent around 1% of cpu time inside it. From some quick tests this seems to make it a little bit faster, at the price of 9 bytes per MonoTableInfo (~500 bytes per assembly), which I think is worth it.
