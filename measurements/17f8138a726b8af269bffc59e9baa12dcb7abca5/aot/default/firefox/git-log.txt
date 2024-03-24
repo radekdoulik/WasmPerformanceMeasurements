@@ -1,0 +1,15 @@
+commit 17f8138a726b8af269bffc59e9baa12dcb7abca5
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Sun Mar 24 07:28:34 2024 +0900
+
+    Trim unused interfaces (#100000)
+    
+    So far, the compiler could only trim unused interface __methods__; the interface __types__ themselves were left alone. There is not a huge cost associated with having these extra `MethodTable`s, but it sill impacts size/working set/startup. Initial estimate showed this could actually be up to 2% for BasicMinimalApi so I decided to investigate a fix.
+    
+    This is an attempt to start trimming them. I chose a relatively conservative approach:
+    
+    * Stop unconditionally rooting the interface `MethodTable` in the implementing class `MethodTable` InterfaceList. Instead check whether someone else marked it first.
+    * Track whether an interface type definition is used in any way. This avoids problem with variance, etc. If an interface definition is used, all instantiations that we were trying to optimize away get the `MethodTable` and won't be optimized. We should be able to do better than this, maybe, at some point.
+    * Classes that implement generic interfaces with default methods need special treatment because we index into interface list at runtime and we might not know the correct index yet. So just forget the optimization in that case.
+    
+    Fixes #66716.
