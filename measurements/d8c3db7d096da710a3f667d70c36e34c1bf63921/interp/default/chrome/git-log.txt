@@ -1,0 +1,11 @@
+commit d8c3db7d096da710a3f667d70c36e34c1bf63921
+Author: Filip Navara <filip.navara@gmail.com>
+Date:   Mon Mar 25 04:18:16 2024 +0100
+
+    Fix RhGetCurrentThunkContext/RhCommonStub on linux-bionic-arm (#100192)
+    
+    * Fix double definition of RhGetCurrentThunkContext on linux-bionic-arm
+    
+    * Use C implementation of RhGetCurrentThunkContext on Unix unconditionally
+    
+    * Fix RhCommonStub on ARM
