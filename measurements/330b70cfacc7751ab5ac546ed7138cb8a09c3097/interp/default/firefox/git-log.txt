@@ -1,0 +1,17 @@
+commit 330b70cfacc7751ab5ac546ed7138cb8a09c3097
+Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+Date:   Mon Mar 25 09:27:44 2024 +0100
+
+    [wasm] Bump chrome for testing - linux: 123.0.6312.58, windows: 123.0.6312.58 (#100084)
+    
+    * Automated bump of chrome version
+    
+    * Revert https://github.com/dotnet/runtime/pull/99945, https://github.com/dotnet/runtime/pull/99814
+    
+    * Feedback, more logging
+    
+    ---------
+    
+    Co-authored-by: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
+    Co-authored-by: Ilona Tomkowicz <itomkowicz@microsoft.com>
+    Co-authored-by: Ilona Tomkowicz <32700855+ilonatommy@users.noreply.github.com>
