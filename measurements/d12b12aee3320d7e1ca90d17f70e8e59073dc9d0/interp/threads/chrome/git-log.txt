@@ -1,0 +1,9 @@
+commit d12b12aee3320d7e1ca90d17f70e8e59073dc9d0
+Author: Miha Zupan <mihazupan.zupan1@gmail.com>
+Date:   Mon Mar 25 00:07:03 2024 +0100
+
+    Cache more info on HttpMethod (#100177)
+    
+    * Cache more info on HttpMethod
+    
+    * Avoid allocating in more cases
