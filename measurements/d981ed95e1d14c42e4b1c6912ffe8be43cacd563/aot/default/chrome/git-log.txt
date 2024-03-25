@@ -1,0 +1,9 @@
+commit d981ed95e1d14c42e4b1c6912ffe8be43cacd563
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Sat Mar 23 20:15:19 2024 +0100
+
+    JIT: Add support for struct returns from Swift reverse pinvokes (#100091)
+    
+    Update the 10 tests to have some struct returns as well.
+    
+    We also have to change the prestub to save `rax` since it is used as a register for the ret buffer in Swift calls.
