@@ -1,0 +1,5 @@
+commit 853bc580c15d39ebd301a7349002d73f958687bf
+Author: Miha Zupan <mihazupan.zupan1@gmail.com>
+Date:   Mon Mar 25 00:04:13 2024 +0100
+
+    Remove state machine allocation from HttpConnection.ReadAsync (#100205)
