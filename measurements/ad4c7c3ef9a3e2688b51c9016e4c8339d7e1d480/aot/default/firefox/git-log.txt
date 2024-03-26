@@ -1,0 +1,17 @@
+commit ad4c7c3ef9a3e2688b51c9016e4c8339d7e1d480
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Fri Mar 15 19:19:42 2024 +0100
+
+    JIT: Type fat pointer locals precisely, and avoid unnecessary normalization in inlining (#99806)
+    
+    During call importation, for fat pointer calls we will introduce a local
+    and spill the call to it. This loses track of the small typedness of the
+    value, which can cause inlining to introduce unnecessary normalization
+    casts later. For tailcalls this can cause us to add IR after the call
+    that we do not expect, causing issues like #99798.
+    
+    Fix the problem by enhancing logic in a few places:
+    - Make the local created for these fat pointer calls small typed like
+      regular normalize-on-store locals
+    - Enhance `fgCastNeeded` to take into account the small-typedness of
+      these locals (like `IntegralRange::ForNode`)
