@@ -1,0 +1,27 @@
+commit 13a90361bb8a527482d98b2f31eb245c1dcbf183
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Mon Mar 25 18:34:38 2024 +0100
+
+    JIT: Add a uniform representation for parameter ABI information (#100138)
+    
+    This adds a uniform representation that can represent the ABI
+    information for all of our targets without needing to fall back to
+    handling ABI specific details in all places that need to handle calling
+    conventions.
+    
+    Currently nothing is using this information. I want to incrementally
+    migrate our ABI handling to use this representation. Also, there are
+    several potential future improvements:
+    
+    - Split out ABI classification per ABI instead of keeping them all
+      within the same function
+    - Unify `InitVarDscInfo::stackArgSize` and `InitVarDscInfo::argSize`. I
+      am unsure why the latter is needed
+    - Remove `LclVarDsc::GetArgReg()`, `LclVarDscInfo::GetOtherArgReg()`,
+      HFA related members
+    - Reuse the representation in `CallArgABIInformation` and unify the
+      classifiers
+    
+    The end goal here is rewriting `genFnPrologCalleeRegArgs` to handle
+    float and integer registers simultaneously, and to support some of the
+    registers that the Swift calling convention is using.
