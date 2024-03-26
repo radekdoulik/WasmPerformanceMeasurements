@@ -1,0 +1,25 @@
+commit b6585cc7acac5c3be95bf3a1ccd8d60e46a43f1a
+Author: Ilona Tomkowicz <32700855+ilonatommy@users.noreply.github.com>
+Date:   Fri Mar 15 10:57:12 2024 +0100
+
+    [mt][browser] Prevent `SignalRClientTests` fail with "PlaywrightException: Target closed"  (#99537)
+    
+    * Wait on network idle (longer time) instead of just load the DOM.
+    
+    * Revert most of CI seedup
+    
+    * Add fixed delay.
+    
+    * Trigger the test-related actiont after the app is rendered
+    
+    * Fix bool arg
+    
+    * Update src/mono/wasm/testassets/BlazorHostedApp/BlazorHosted.Client/Pages/Chat.razor
+    
+    Co-authored-by: Marek Fišera <mara@neptuo.com>
+    
+    * Revert WBT runs limitation.
+    
+    ---------
+    
+    Co-authored-by: Marek Fišera <mara@neptuo.com>
