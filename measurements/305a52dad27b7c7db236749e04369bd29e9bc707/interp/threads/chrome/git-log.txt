@@ -1,0 +1,9 @@
+commit 305a52dad27b7c7db236749e04369bd29e9bc707
+Author: Will Smith <lol.tihan@gmail.com>
+Date:   Mon Mar 25 13:35:59 2024 -0700
+
+    JIT: Set `bbCodeOffsEnd` to BAD_IL_OFFSET when expanding static init calls (#100152)
+    
+    * Set bbCodeOffsEnd to BAD_IL_OFFSET when expanding static init calls
+    
+    * Re-enable NativeAOT tests that were failing
