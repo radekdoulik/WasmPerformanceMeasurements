@@ -1,0 +1,17 @@
+commit e8118ba89d730243b1ec3b089b04355901885acb
+Author: Bruce Forstall <brucefo@microsoft.com>
+Date:   Thu Mar 14 14:26:54 2024 -0700
+
+    Introduce `HandleKindDataIsInvariant` helper (#99744)
+    
+    * Introduce `HandleKindDataIsInvariant` helper
+    
+    Small helper to identify if a handle kind is invariant.
+    
+    * Update src/coreclr/jit/gentree.cpp
+    
+    Co-authored-by: Filip Navara <filip.navara@gmail.com>
+    
+    ---------
+    
+    Co-authored-by: Filip Navara <filip.navara@gmail.com>
