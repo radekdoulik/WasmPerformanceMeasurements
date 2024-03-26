@@ -1,0 +1,9 @@
+commit 928ffaaaf29911eea11dd1899969c35087e3b3c5
+Author: Eirik Tsarpalis <eirik.tsarpalis@gmail.com>
+Date:   Mon Mar 25 19:16:04 2024 +0000
+
+    Populate JsonPropertyInfo.AttributeProvider in the source generator. (#100173)
+    
+    * Populate JsonPropertyInfo.AttributeProvider in the source generator.
+    
+    * Add test assertion checking the property type.
