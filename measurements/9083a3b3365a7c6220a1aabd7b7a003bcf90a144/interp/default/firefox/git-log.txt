@@ -1,0 +1,9 @@
+commit 9083a3b3365a7c6220a1aabd7b7a003bcf90a144
+Author: Aaron Robinson <arobins@microsoft.com>
+Date:   Tue Mar 26 09:23:04 2024 -0700
+
+    The layout of the ITypeLib2 interface is incorrect. (#100255)
+    
+    Since build-in COM marshalling relies on the declaration
+    order to build the RCW vtable, this is and has almost always
+    resulted in an A/V or undefined behavior.
