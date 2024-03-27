@@ -1,0 +1,26 @@
+commit fd22b92cb4b0b4e5c2a82d1623f1a389e95656d5
+Author: Jan Vorlicek <janvorli@microsoft.com>
+Date:   Wed Mar 27 17:08:35 2024 +0100
+
+    Remove preventing EH and entering EE at shutdown (#100293)
+    
+    * Remove preventing EH and entering EE at shutdown
+    
+    Historically, the runtime was trying to block handling exceptions,
+    entering EE and other stuff during shutdown of the runtime. We have
+    already removed most of that in the past, since it has been a deadlock
+    farm. While debugging a customer issue, I have found that we are still
+    preventing some things to happen during shutdown. We stop handling
+    exceptions at all and we also prevent entering EE at few places.
+    This change removes these, as the plan we've been on is to keep the
+    runtime running until the OS itself stops the process.
+    In the customer's case, the problem was that during a machine
+    shutdown, .NET runtime was generating watson dump due to an unhandled
+    exception stemming from a network socket related code that would otherwise
+    be handled.
+    
+    * Remove CanCallRuntimeInterfaceImplementations
+    
+    * Remove TSNC_UnsafeSkipEnterCooperative
+    
+    * More unwanted uninitialization removed
