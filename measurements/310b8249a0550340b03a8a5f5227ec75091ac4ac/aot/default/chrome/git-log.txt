@@ -1,0 +1,17 @@
+commit 310b8249a0550340b03a8a5f5227ec75091ac4ac
+Author: Michał Petryka <35800402+MichalPetryka@users.noreply.github.com>
+Date:   Thu Mar 21 16:48:10 2024 +0100
+
+    Remove invalid Unsafe.As from array helpers (#99778)
+    
+    * Remove UB from helpers
+    
+    * Cleanup more helpers
+    
+    * Fix Test.CoreLib
+    
+    * Cleanup
+    
+    ---------
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
