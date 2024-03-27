@@ -1,0 +1,9 @@
+commit 765ca4e9f2dddca2005ffdb45863b7980247a886
+Author: Mark Plesko <markples@microsoft.com>
+Date:   Wed Mar 27 01:01:10 2024 -0700
+
+    Disable msvc vectorization in GC get_promoted_bytes (#100309)
+    
+    This fixes the code generation rather than trying to address the symptoms of tests failing. Therefore, test Callback_Svr can be enabled again.
+    
+    See https://developercommunity.visualstudio.com/t/Bad-codegen-in-coreclr-GC-code/10625094. Issue may have been fixed already as later toolsets don't seem to show the issue, but this hasn't been verified.
