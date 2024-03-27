@@ -1,0 +1,22 @@
+commit f7334c45e6632df84fbd19f9065bb7a53450a8ea
+Author: Bruce Forstall <brucefo@microsoft.com>
+Date:   Fri Mar 22 10:34:54 2024 -0700
+
+    Add JIT debugging helpers, and other debugging output improvements (#100123)
+    
+    1. Add `DOTNET_JitHoistLimit` to specify the maximum number of
+    hoisted expressions to allow before stopping.
+    2. Add `DOTNET_JitStressModeNamesAllow` to allow specifying a set of
+    STRESS mode names to allow. Use this in conjunction with a `DOTNET_JitStress`
+    setting to allow JitStress to work as usual (with the usual weightings)
+    but only for a specified set of stress modes. This is basically the
+    opposite of `DOTNET_JitStressModeNamesNot`. One use is the enable JitStress,
+    get a JitDump, see all the JitStress mode names that were enabled, then
+    set `DOTNET_JitStressModeNamesAllow` to that set
+    (e.g., `STRESS_RANDOM_INLINE STRESS_GENERIC_VARN STRESS_UNWIND`). Remove them
+    one by one (or "binary search") to find the minimal set that causes a bug, to
+    reduce noise in the dump and additional complexity in the IR and generated code.
+    3. Fix a few JitDump cases missing `dspPtr` to create diffable dumps.
+    4. Add `DOTNET_JitInlineLimit` support to `RandomPolicy`
+    5. Add `DOTNET_JitNoCSE2` support to `CSE_HeuristicRandom`
+    6. Remove an extra newline from `eePrintObjectDescription`
