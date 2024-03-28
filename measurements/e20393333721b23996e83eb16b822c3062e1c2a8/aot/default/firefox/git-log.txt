@@ -1,0 +1,23 @@
+commit e20393333721b23996e83eb16b822c3062e1c2a8
+Author: Ilona Tomkowicz <32700855+ilonatommy@users.noreply.github.com>
+Date:   Thu Mar 28 08:52:28 2024 +0100
+
+    [ci] Fix Playwright test times out/fails because target closed (#100074)
+    
+    * Fix: `OnPageLoaded` did not guarantee WASM got already loaded.
+    
+    * Trigger the test only on first render, otherwise it would be triggered multiple times.
+    
+    * Add logs to see why the test timed out.
+    
+    * Even more logging.
+    
+    * Most logging won't be useful - remove.
+    
+    * Prevent no logs when error thrown in the app.
+    
+    * Cleanup.
+    
+    * typo
+    
+    * @maraf's feedback - make waiting deterministic
