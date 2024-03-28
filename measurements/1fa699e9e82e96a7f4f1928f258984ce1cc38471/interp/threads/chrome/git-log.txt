@@ -1,0 +1,9 @@
+commit 1fa699e9e82e96a7f4f1928f258984ce1cc38471
+Author: Jackson Schuster <36744439+jtschuster@users.noreply.github.com>
+Date:   Wed Mar 27 14:43:39 2024 -0700
+
+    [ILLink] Mark recursive interface implementations in MarkStep (#99922)
+    
+    Cache recursive interfaces for interface implementation dependency analysis. Use Cecil's TypeReferenceComparer for comparing type references.
+    
+    Co-authored-by: Sven Boemer <sbomer@gmail.com>
