@@ -1,0 +1,9 @@
+commit d7c4f0292dc9840c033c82ec3fa36af57dc3d8f6
+Author: David Wrighton <davidwr@microsoft.com>
+Date:   Wed Mar 27 18:02:10 2024 -0700
+
+    Remove support for non-indirect code headers (#100351)
+    
+    - We use indirect code headers on all platforms (except for Windows X86, which has no particular reason to not use them)
+      - Indirect code headers are required to support funclet style codegen, but work just fine in all cases.
+    - This removes one of the ways in which Windows X86 is different from all other platforms
