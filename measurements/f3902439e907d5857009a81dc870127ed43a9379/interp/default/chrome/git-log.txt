@@ -1,0 +1,14 @@
+commit f3902439e907d5857009a81dc870127ed43a9379
+Author: David Wrighton <davidwr@microsoft.com>
+Date:   Wed Mar 27 04:24:35 2024 -0700
+
+    Remove concept of temporary dynamic IL (#100318)
+    
+    * Remove concept of temporary dynamic IL
+    - This was once used for profiler IL rewrite scenarios, but hasn't been in use for some time
+    
+    * Update src/coreclr/vm/ceeload.cpp
+    
+    ---------
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
