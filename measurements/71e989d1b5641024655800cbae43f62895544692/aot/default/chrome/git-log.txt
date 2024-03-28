@@ -1,0 +1,23 @@
+commit 71e989d1b5641024655800cbae43f62895544692
+Author: dotnet-maestro[bot] <42748379+dotnet-maestro[bot]@users.noreply.github.com>
+Date:   Thu Mar 28 09:31:58 2024 +0100
+
+    [main] Update dependencies from dotnet/installer (#99901)
+    
+    * Update dependencies from https://github.com/dotnet/installer build
+    
+    Microsoft.Dotnet.Sdk.Internal
+     From Version 9.0.100-preview.3.24161.2 -> To Version 9.0.100-preview.3.24165.20
+    
+    * Update dependencies from https://github.com/dotnet/installer build
+    
+    Microsoft.Dotnet.Sdk.Internal
+     From Version 9.0.100-preview.3.24161.2 -> To Version 9.0.100-preview.4.24175.5
+    
+    * Hook ResolveCompressedFilesForPublishDependsOn and CompressFilesForPublishDependsOn not from nested publish
+    
+    ---------
+    
+    Co-authored-by: dotnet-maestro[bot] <dotnet-maestro[bot]@users.noreply.github.com>
+    Co-authored-by: Larry Ewing <lewing@microsoft.com>
+    Co-authored-by: Marek Fišera <mara@neptuo.com>
