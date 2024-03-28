@@ -1,0 +1,5 @@
+commit 78c2c98950534457424a65c6182e816a703ed2b1
+Author: Christopher Prosser <4368756+ProsserCJ@users.noreply.github.com>
+Date:   Wed Mar 27 17:01:02 2024 -0400
+
+    Don't log error from background service if host is gracefully stopped while still starting (#100032)
