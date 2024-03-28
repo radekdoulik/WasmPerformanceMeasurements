@@ -1,0 +1,17 @@
+commit 8c9f5109510f9d8346fd41c1a6b7270b53f95d13
+Author: Grzegorz Tomasz Czarnecki <grzegorz.czarnecki.2021@gmail.com>
+Date:   Tue Mar 26 20:14:06 2024 +0100
+
+    [RISC-V] Fix building errors in emitriscv64.cpp on windows (#100270)
+    
+    * [RISC-V] Fixes
+    
+    * [RISC-V] Final fixes
+    
+    * [RISC-V] Fixed NBitMask issue
+    
+    * [RISC-V] Removed some of the redundancy in the NBitMask
+    
+    * [RISC-V] Renamed NBitMask to WordMask and simplified it's implementation
+    
+    * [RISC-V] Removed noexcept from WordMask
