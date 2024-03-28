@@ -1,0 +1,11 @@
+commit d80a09ff6b7418dd219e114c604feca3398fea1e
+Author: Eirik Tsarpalis <eirik.tsarpalis@gmail.com>
+Date:   Thu Mar 28 17:03:05 2024 +0000
+
+    Fix a linker warning with the JsonSerializerOptionsUpdateHandler (#100362)
+    
+    * * Fixes a linker warning with JsonSerializerOptionsUpdateHandler.
+    * Makes a few cleanups in the MemberAccessor clases.
+    * Ensures that the MemberAccessor being used is a singleton.
+    
+    * Fix a number of trimmability warnings.
