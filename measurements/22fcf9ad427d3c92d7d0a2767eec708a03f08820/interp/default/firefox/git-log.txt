@@ -1,0 +1,10 @@
+commit 22fcf9ad427d3c92d7d0a2767eec708a03f08820
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Tue Mar 26 09:19:23 2024 +0100
+
+    JIT: Clean up some call multi-reg ret handling (#99679)
+    
+    - Switch some `IsMultiRegReturnedType` calls to use
+    `GenTreeCall::HasMultiRegRetVal`.
+    - Remove `Compiler*` parameter of `TreatAsShouldHaveRetBufArg`; the
+      function it was using on `Compiler` is static
