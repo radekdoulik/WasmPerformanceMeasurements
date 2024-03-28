@@ -1,0 +1,7 @@
+commit 71177d95d142a1341af9d7b5e8b4548889a42c70
+Author: Milos Kotlar <kotlarmilos@gmail.com>
+Date:   Thu Mar 28 19:49:27 2024 +0100
+
+    [infra] Enable linux-x64 Mono fullAOT mini job on extra platforms (#96332)
+    
+    This PR enables the linux-x64 full AOT mini job on extra platforms, utilizing the CBL-Mariner docker image. The parameters as_name and as_options, along with ld_name and ld_options are added to allow parameterization of the toolchain configuration.
