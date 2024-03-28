@@ -1,5 +1,18 @@
 ﻿import { dotnet } from './_framework/dotnet.js'
 
+const margin = { top: 60, right: 16, bottom: 80, left: 16 };
+const height = 500 - margin.top - margin.bottom;
+let originalWidth;
+let originalHeight;
+
+function getWidth() {
+    let clientWidth = document.getElementById("graphs").clientWidth;
+    if (!clientWidth) {
+        clientWidth = window.innerWidth * 0.75;
+    }
+    return clientWidth - margin.left - margin.right;
+}
+
 async function mainJS() {
     const is_browser = typeof window != "undefined";
     if (!is_browser) throw new Error(`Expected to be running in a browser`);
@@ -15,9 +28,6 @@ async function mainJS() {
     const roundAccurately = (number, decimalPlaces) => Number(Math.round(number + "e" + decimalPlaces) + "e-" + decimalPlaces);
     const regex = /[^a-zA-Z]/gi;
     const measurementsUrl = "https://raw.githubusercontent.com/radekdoulik/WasmPerformanceMeasurements/main/measurements/";
-    const margin = { top: 60, right: 120, bottom: 80, left: 120 };
-    const width = screen.width * 0.75 - margin.left - margin.right;
-    const height = 500 - margin.top - margin.bottom;
     const greenShade = d3.scaleLinear().domain([0, 100])
         .range(["white", "darkgreen"]);
     const redShade = d3.scaleLinear().domain([0, 100])
@@ -197,7 +207,7 @@ async function mainJS() {
                     permalinkFlavors(testsData[0].availableFlavors);
                 });
             selection.append("label")
-                .attr("class", "form-check-label")
+                .attr("class", "form-check-label ms-1")
                 .attr("for", lineClass)
                 .style("color", ordinal(flavors[i]))
                 .html(flavors[i]);
@@ -269,7 +279,7 @@ async function mainJS() {
         let xTicks = testData.x.ticks().length;
         let yTicks = testData.y.ticks().length;
         let xAxisGrid = d3.axisBottom(testData.x).tickSize(-height).tickFormat('').ticks(xTicks);
-        let yAxisGrid = d3.axisLeft(testData.y).tickSize(-width).tickFormat('').ticks(yTicks);
+        let yAxisGrid = d3.axisLeft(testData.y).tickSize(-getWidth()).tickFormat('').ticks(yTicks);
 
         testData.xGrid.call(xAxisGrid);
         testData.yGrid.call(yAxisGrid);
@@ -423,16 +433,21 @@ async function mainJS() {
         let testName = test.substring(1);
         let collapsible = getCollapsible(task, testName, testName);
         let div = collapsible.append("div");
+
+        originalWidth = getWidth() + margin.left + margin.right;
+        originalHeight = height + margin.top + margin.bottom;
         let dataGroup = div
             .append("svg")
               .attr("id", task + taskId)
-              .attr("width", width + margin.left + margin.right)
-              .attr("height", height + margin.top + margin.bottom)
+              .attr("width", originalWidth)
+              .attr("height", originalHeight)
+              .attr("viewBox", `0 0 ${originalWidth} ${originalHeight}`)
+              .attr("preserveAspectRatio", "xMinYMin meet")
             .append("g")
               .attr("transform", `translate(${margin.left},${margin.top})`);
 
         let x = d3.scaleTime()
-            .range([0, width])
+            .range([0, getWidth()])
             .nice();
 
         let xAxis = dataGroup
@@ -464,13 +479,13 @@ async function mainJS() {
         let yAxisRight = dataGroup
             .append("g")
               .attr("class", "yAxisRight")
-              .attr("transform", "translate(" + width + ",0)");
+              .attr("transform", "translate(" + getWidth() + ",0)");
 
-        let title = addSimpleText(dataGroup, width / 2, 10 - (margin.top / 2), "15pt", test, "black");
+        let title = addSimpleText(dataGroup, getWidth() / 2, 10 - (margin.top / 2), "15pt", test, "black");
         let units = task === "Size" ? "bytes" : "ms";
         let yLegendName = addSimpleText(dataGroup, - margin.left, - margin.top * 1.1, "15pt", `Results (${units})`, "black", -90);
         let testData = new TaskData(taskId, yLegendName, div, dataGroup, data, Array.from(flavors), x, y, xAxis, xGrid, yGrid, yAxisLeft, yAxisRight, units);
-        let brush = d3.brushX().on("end", () => brushed(testData)).extent([[0, 0], [width, height]]);
+        let brush = d3.brushX().on("end", () => brushed(testData)).extent([[0, 0], [getWidth(), height]]);
         dataGroup.append("g").attr("class", "brush").call(brush);
         testData.brush = brush;
         return testData;
@@ -922,5 +937,15 @@ async function mainJS() {
 
     await runMainAndExit(config.mainAssemblyName, []);
 }
+
+window.addEventListener("resize", () => {
+    const width = getWidth() + margin.left + margin.right;
+
+    const height = width / originalWidth * originalHeight;
+    document.querySelectorAll("svg").forEach(e => {
+        e.setAttribute("width", width);
+        e.setAttribute("height", height);
+    });
+});
 
 await mainJS();
