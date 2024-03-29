@@ -1,0 +1,9 @@
+commit f51d705d840ab5859a95e66cb3aacc5f17e90b4c
+Author: Filip Navara <filip.navara@gmail.com>
+Date:   Thu Mar 28 23:04:27 2024 +0100
+
+    NativeAOT/win-x86: Enable FEATURE_EH_CALLFINALLY_THUNKS (#99718)
+    
+    * NativeAOT/win-x86: Enable FEATURE_EH_CALLFINALLY_THUNKS
+    
+    * Update src/tests/JIT/jit64/eh/basics/throwinfinallyintryfilter2.ilproj
