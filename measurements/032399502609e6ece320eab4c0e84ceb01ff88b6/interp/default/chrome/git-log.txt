@@ -1,0 +1,8 @@
+commit 032399502609e6ece320eab4c0e84ceb01ff88b6
+Author: Bruce Forstall <brucefo@microsoft.com>
+Date:   Fri Mar 29 10:35:45 2024 -0700
+
+    Add more checking to `GenTreeArrAddr::ParseArrayAddress()` (#100327)
+    
+    If the ARR_ADDR node doesn't make sense, namely if the array
+    offset does not appear to be in the array, then bail.
