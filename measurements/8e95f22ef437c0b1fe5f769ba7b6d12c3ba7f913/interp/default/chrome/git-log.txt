@@ -1,0 +1,5 @@
+commit 8e95f22ef437c0b1fe5f769ba7b6d12c3ba7f913
+Author: Andrew Au <andrewau@microsoft.com>
+Date:   Fri Mar 29 06:05:10 2024 -0700
+
+    Make sure we compact the LOH when aggressive GC is requested (#98954)
