@@ -1,0 +1,18 @@
+commit 6561e7c88210ae2d1e4e672b6d7b3a1244e67022
+Author: Andy Ayers <andya@microsoft.com>
+Date:   Thu Mar 28 15:53:02 2024 -0700
+
+    JIT: fix count reconstruction problem (#100385)
+    
+    In large methods with lots of irreducible loops we may find
+    reconstructed counts reaching very large values.
+    
+    Since profile counts in practice won't ever be much larger than say
+    10^12, detect when reconstructed counts exceed this value, and stop
+    the algorithm.
+    
+    We may eventually decide to rerun in "hard blend" mode where we
+    intentionally limit the edge likelihood ranges. But this should do for
+    now.
+    
+    Closes #100350.
