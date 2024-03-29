@@ -1,0 +1,9 @@
+commit 316fc1615384d62f6ea28ff671d5c0a7c111b282
+Author: Elinor Fung <elfung@microsoft.com>
+Date:   Fri Mar 29 12:25:24 2024 -0700
+
+    Remove requirement for building packs to run host tests and infrastructure around restoring test project assets (#100324)
+    
+    - Delete build infrastructure around test project asset restore
+    - Remove requirement that packs must be built before running host tests
+      - Building packs was only necessary to support directing the restore/build for the test project assets to the built packs
