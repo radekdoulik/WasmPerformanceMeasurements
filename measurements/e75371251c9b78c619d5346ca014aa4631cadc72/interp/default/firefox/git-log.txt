@@ -1,0 +1,18 @@
+commit e75371251c9b78c619d5346ca014aa4631cadc72
+Author: Sven Boemer <sbomer@gmail.com>
+Date:   Thu Mar 28 14:24:06 2024 -0700
+
+    Allow trimming FeatureGuard and FeatureSwitchDefinition attributes (#100263)
+    
+    Under AggressiveAttributeTrimming setting.
+    
+    Fixes
+    https://github.com/dotnet/runtime/issues/100256. AggressiveAttributeTrimming
+    was attempting to remove RequiresDynamicCode attributes, but the
+    type was still referenced by FeatureGuardAttribute on
+    IsDynamicCodeCompiled.
+    
+    Adding FeatureGuardAttribute to the set of attributes that get
+    removed with AggressiveAttributeTrimming fixes this. Also adding
+    FeatureSwitchDefinitionAttribute because that one can be removed
+    as well.
