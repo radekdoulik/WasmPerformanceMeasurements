@@ -1,0 +1,7 @@
+commit a57fa6f57dab371d8c925e273e8d44de990e3b3e
+Author: Matous Kozak <55735845+matouskozak@users.noreply.github.com>
+Date:   Wed Mar 27 15:48:46 2024 +0100
+
+    [Mono][infra] Disable failing tests/pipelines on runtime-extra-platforms (#100227)
+    
+    Disable failing tests and fullAOT-llvm Mono pipelines from runtime-extra-platforms
