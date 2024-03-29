@@ -1,0 +1,28 @@
+commit 7486be885b298aef622833bec509732e6b3f1667
+Author: Aleksey Kliger (λgeek) <alklig@microsoft.com>
+Date:   Fri Mar 29 09:19:47 2024 -0400
+
+    [cdac] Data Descriptor Spec (#100253)
+    
+    Contributes to #100162 which is part of #99298
+    
+    Follow-up to #99936 that removes "type layout" and "global value" contracts and instead replaces them with a "data descriptor" blob.
+    
+    Conceptually a particular target runtime provides a pair of a logical data descriptor together with a set of algorithmic contract versions. The logical data descriptor is just a single model that defines all the globals and type layouts relevant to the set of algorithmic contract versions.
+    
+    A logical data descriptor is realized by merging two physical data descriptors in a proscribed order.
+    
+    The physical data descriptors provide some subset of the type layouts or global values.
+    
+    The physical data descriptors come in two flavors:
+    
+    - baseline descriptors that are checked into the dotnet/runtime repo and have well -known names
+    - in-proc descriptors that get embedded into a target runtime.
+    
+    Each in-proc descriptor may refer to a baseline and represents a delta applied on top of the baseline.
+    The data contract model works on top of a flattened logical data descriptor.
+    
+    
+    Co-authored-by: Aaron Robinson <arobins@microsoft.com>
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
+    Co-authored-by: Noah Falk <noahfalk@users.noreply.github.com>
