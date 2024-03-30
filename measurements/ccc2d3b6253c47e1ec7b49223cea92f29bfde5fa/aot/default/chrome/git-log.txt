@@ -1,0 +1,30 @@
+commit ccc2d3b6253c47e1ec7b49223cea92f29bfde5fa
+Author: Jan Vorlicek <janvorli@microsoft.com>
+Date:   Thu Mar 28 01:45:32 2024 +0100
+
+    Improve collided exception performance (#100169)
+    
+    * Improve collided exception performance
+    
+    With the new EH enabled, one exception handling performance test has
+    regressed while all other improved dramatically. I have investigated the
+    test case and it turned out that the regression is due to the way we
+    unwind during second pass when we have an exception that occured in a
+    catch or finally funclet call chain and escaped it.
+    What we do is that we unwind stack until we reach the parent stack frame
+    of the catch / finally and then continue searching for handlers.
+    The NativeAOT that the new EH is based on doesn't unwind stack though,
+    it just moves the current stack frame iterator to the position of the
+    previous exception's stack frame iterator by copying its state.
+    I have applied the same mechanism to the new EH in coreclr and it
+    improved the performance of that test 3-4 times on my machine.
+    
+    * Fix build on non-x64 platforms and add FP nonvol regs
+    
+    * Ensure Lr / Ra context pointers are non-null
+    
+    * Fix Apple where libunwind doesn't provide context pointers
+    
+    * Revert the LR/RA context pointers related changes
+    
+    * Remove saving / restoring the GS cookie stuff
