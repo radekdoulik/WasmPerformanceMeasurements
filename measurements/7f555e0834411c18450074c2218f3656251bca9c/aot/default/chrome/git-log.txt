@@ -1,0 +1,5 @@
+commit 7f555e0834411c18450074c2218f3656251bca9c
+Author: Vladimir Sadov <vsadov@microsoft.com>
+Date:   Mon Mar 25 21:53:04 2024 -0700
+
+    Always zero-init if object contains pointers (#100265)
