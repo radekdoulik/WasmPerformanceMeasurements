@@ -1,0 +1,7 @@
+commit e04d9aa773e18b4946e0dce27a8877828c73d226
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Tue Mar 26 18:13:56 2024 +0100
+
+    JIT: Generalize `hasFixedRetBuffReg` for ARM64 (#100277)
+    
+    Move a check from `CallArgs::GetCustomRegister` to `hasFixedRetBuffReg`.
