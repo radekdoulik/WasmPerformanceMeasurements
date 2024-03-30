@@ -1,0 +1,9 @@
+commit 7c14f7101083189affdb377b030237b89750196e
+Author: David Wrighton <davidwr@microsoft.com>
+Date:   Thu Mar 28 12:42:30 2024 -0700
+
+    Add support for the ISOSDacInterface14 api (#100364)
+    
+    * Add support for the ISOSDacInterface14 api
+    - This is a split out of the diagnostics changes associated with PR #99183
+    - This will allow the removal of the useability of the DomainLocalModule apis from ISOSDacInterface without changing the functionality of the interface by allowing consumers to move to the new apis - NOTE, the SOS_BREAKING_CHANGE number is expected to move from 4 to 5 at that point, so users of ISOSDacInterface which understand ISOSDacInterface14 should indicate that they understand version 5.
