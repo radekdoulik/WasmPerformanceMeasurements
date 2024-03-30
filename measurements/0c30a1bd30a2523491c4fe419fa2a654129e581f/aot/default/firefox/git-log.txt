@@ -1,0 +1,29 @@
+commit 0c30a1bd30a2523491c4fe419fa2a654129e581f
+Author: Ilona Tomkowicz <32700855+ilonatommy@users.noreply.github.com>
+Date:   Tue Mar 26 12:10:59 2024 +0100
+
+    [browser] Revert to full `NativeName` by interop with JS (#99956)
+    
+    * Fix NativeName and DisplayName for browser.
+    
+    * Nit - revert over-renaming.
+    
+    * Update src/libraries/System.Private.CoreLib/src/System/Globalization/CultureData.Browser.cs
+    
+    Co-authored-by: Meri Khamoyan <96171496+mkhamoyan@users.noreply.github.com>
+    
+    * Enable more tests and fix them - initialize english and native names on CultureInfo constructio
+    
+    * Ubnblock fixed test.
+    
+    * MT does not work with HG well, revet MT to original way of working.
+    
+    * Expect fixed version of NativeName in tests with single treaded runtime.
+    
+    * Assert.Contains does not know that `\u00F1` is same as `ñ` (it does not evaluate the string before comparison) - fix it with string interpolation.
+    
+    * Windows has problems with comparing utf8 by xunit.
+    
+    ---------
+    
+    Co-authored-by: Meri Khamoyan <96171496+mkhamoyan@users.noreply.github.com>
