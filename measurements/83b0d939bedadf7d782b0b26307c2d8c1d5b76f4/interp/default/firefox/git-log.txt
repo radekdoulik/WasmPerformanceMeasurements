@@ -1,0 +1,20 @@
+commit 83b0d939bedadf7d782b0b26307c2d8c1d5b76f4
+Author: Mario Pistrich <mario@pistrich.com>
+Date:   Fri Mar 29 01:05:34 2024 +0100
+
+    Fix CA2022 warnings (Avoid inexact read with 'Stream.Read') (#100352)
+    
+    * Configure CA2022 severity
+    
+    * Fix CA2022 warnings
+    
+    * Check for NET7_0_OR_GREATER before using ReadExactly
+    
+    * Fix CS1503
+    
+    * Formatting
+    
+    ---------
+    
+    Co-authored-by: Stephen Toub <stoub@microsoft.com>
+    Co-authored-by: Buyaa Namnan <bunamnan@microsoft.com>
