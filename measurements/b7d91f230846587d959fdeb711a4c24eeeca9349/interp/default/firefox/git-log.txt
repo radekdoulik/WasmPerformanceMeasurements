@@ -1,0 +1,17 @@
+commit b7d91f230846587d959fdeb711a4c24eeeca9349
+Author: Vladimir Sadov <vsadov@microsoft.com>
+Date:   Fri Mar 29 14:52:26 2024 -1000
+
+    Fix for stress failure when adjusting effective IP while stackwalking may put it on a wrong instruction. (#100376)
+    
+    * fix
+    
+    * same change for x86 and NativeAOT, get rid of ICodeManagerFlags::AbortingCall
+    
+    * Apply suggestions from code review
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
+    
+    ---------
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
