@@ -1,0 +1,10 @@
+commit a5b9a6a124cabe42cfa971d9cb72337eadd9e744
+Author: Jan Vorlicek <janvorli@microsoft.com>
+Date:   Thu Mar 28 17:21:43 2024 +0100
+
+    Fix exception interception on ARM64 with new EH (#100349)
+    
+    The interception stack frame was originally set to the caller SP on arm64,
+    but the checks in CallCatchFunclet and ExInfo::PopExInfos were using the
+    current frame SP instead. This change sets the interception frame to
+    the current frame SP on arm/arm64 too to fix the issue.
