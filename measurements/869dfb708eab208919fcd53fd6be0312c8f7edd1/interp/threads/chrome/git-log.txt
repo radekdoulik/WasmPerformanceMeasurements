@@ -1,0 +1,13 @@
+commit 869dfb708eab208919fcd53fd6be0312c8f7edd1
+Author: Aaron Robinson <arobins@microsoft.com>
+Date:   Fri Mar 29 13:22:35 2024 -0700
+
+    Reenable C4242 and C4244 warnings in libunwind (#100241)
+    
+    * Fix C4242 and C4244 warnings in libunwind
+    
+    * Add libunwind PR link
+    
+    ---------
+    
+    Co-authored-by: Filip Navara <filip.navara@gmail.com>
