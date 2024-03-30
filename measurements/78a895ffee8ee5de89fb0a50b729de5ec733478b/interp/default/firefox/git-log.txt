@@ -1,0 +1,8 @@
+commit 78a895ffee8ee5de89fb0a50b729de5ec733478b
+Author: Friedrich von Never <friedrich@fornever.me>
+Date:   Tue Mar 26 10:04:21 2024 +0700
+
+    Process.OSX: fix thread safety (#100260)
+    
+    Without this fix, it was possible for another thread to see an incorrect
+    (zero) value of s_timeBase_numer because of a race condition.
