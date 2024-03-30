@@ -1,0 +1,13 @@
+commit 34d13b27a4f0d62367145bcc1f67f7044ad2328a
+Author: Filip Navara <filip.navara@gmail.com>
+Date:   Fri Mar 29 15:54:13 2024 +0100
+
+    [NativeAOT/x86] Add SAFESEH support to assembly files and ObjectWriter (#100433)
+    
+    * Add SAFESEH support to assembly files and ObjectWriter
+    
+    * Specify SafeSEH only on x86, emit feat.00 symbol only if non-zero
+    
+    * Use /SAFESEH flag for NativeAOT/x86
+    
+    * Minor cleanup
