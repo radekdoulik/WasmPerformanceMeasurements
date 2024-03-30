@@ -1,0 +1,21 @@
+commit 3f7ffddedad2a43c919b5144dbea3d4307d10623
+Author: Jan Kotas <jkotas@microsoft.com>
+Date:   Wed Mar 27 06:14:44 2024 -0700
+
+    Move last P/Invoke error from native Thread and delete C/C++ SafeHandle implementation (#100267)
+    
+    * Delete native safehandle
+    
+    * Delete PInvoke last error on thread
+    
+    * Delete IsRealThreadPoolResetNeeded
+    
+    * Delete TS_TaskReset
+    
+    * Delete GetThreadContext
+    
+    * Fix build break
+    
+    * Delete unused resource strings
+    
+    * Introduce FEATURE_IJW and use it in number of places
