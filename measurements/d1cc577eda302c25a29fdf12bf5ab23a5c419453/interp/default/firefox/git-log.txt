@@ -1,0 +1,18 @@
+commit d1cc577eda302c25a29fdf12bf5ab23a5c419453
+Author: Andy Ayers <andya@microsoft.com>
+Date:   Fri Mar 29 14:01:28 2024 -0700
+
+    JIT: fix count reconstruction when a natural loop contains an improper loop (#100449)
+    
+    If a natural loop contains an improper loop, the cyclic probability computation
+    for the natural loop will be an underestimate, as the cyclic probability computation
+    assumes one pass convergence.
+    
+    In such cases count reconstruction may report convergence when it has not in
+    fact converged, as any natural loop header ignores flow from its back edges, assuming
+    their impact has been accounted for by the cyclic probability.
+    
+    So when a loop contains improper loops, fall back to normal iterative computation
+    for the loop. We could use the cyclic probability initially as a convergence
+    accelerator, but would need to switch over to not using it to guarantee full
+    convergence. But that complicates the logic and these cases are rare.
