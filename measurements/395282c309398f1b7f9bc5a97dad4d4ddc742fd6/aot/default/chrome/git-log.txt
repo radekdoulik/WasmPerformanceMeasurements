@@ -1,0 +1,7 @@
+commit 395282c309398f1b7f9bc5a97dad4d4ddc742fd6
+Author: Aman Khalid <amankhalid@microsoft.com>
+Date:   Tue Mar 26 22:14:10 2024 +0000
+
+    JIT: Add peephole for reversing BBJ_COND condition and removing false jump (#100262)
+    
+    Various flowgraph transformations may lead to a BBJ_COND block's true target being the next block. In such cases, if we reverse the block's condition right before emitting instructions, we can remove the jump to the false target.
