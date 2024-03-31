@@ -1,0 +1,27 @@
+commit c4796a362694a8c78f98a17322fb2b659fe2ae36
+Author: Bruce Forstall <brucefo@microsoft.com>
+Date:   Wed Mar 27 13:36:40 2024 -0700
+
+    Convert asserts in CEEInfo::getStaticFieldContent() to 'if' checks (#100320)
+    
+    * Add additional checks to optimization of constant static field loads
+    
+    In `fgGetStaticFieldSeqAndAddress`, if we have a static field address
+    altered by a tree of `ADD CNS_INS` nodes, we need to verify that the
+    address is within the found field sequence. It might not be after
+    shared constant CSE kicks in (e.g., under OptRepeat), where the
+    sequence of ADDs might be the alter an arbitrary constant address from
+    one type into the address of the static field of a different type.
+    So we can't use the FieldSeq of the base address when considering
+    the full offset.
+    
+    * Review feedback
+    
+    1. Use `eeGetFieldName` / `eeGetClassName` return pointer
+    2. Only query extra metadata under `verbose || JitConfig.EnableExtraSuperPmiQueries()`
+    
+    * Convert asserts in CEEInfo::getStaticFieldContent() to 'if' checks
+    
+    * Make fgGetStaticFieldSeqAndAddress static
+    
+    * Code review feedback
