@@ -1,0 +1,25 @@
+commit be1b0359f018ea1473408f7b153bf6acf8ab9917
+Author: Filip Navara <filip.navara@gmail.com>
+Date:   Tue Mar 26 17:04:56 2024 +0100
+
+    Fix NegotiateStream connections between Linux clients and Windows servers (#99909)
+    
+    * Send the NegotiateSeal NTLM flag when client asked for
+    ProtectionLevel.EncryptAndSign.
+    
+    Process the last handshake done message in NegotiateStream. In case of
+    SPNEGO protocol it may contain message integrity check. Additionally,
+    if the negotiated protocol is NTLM then we need to reset the encryption
+    key after the message integrity check is verified.
+    
+    * Add test for the NegotiateSeal flag
+    
+    * Fix the test
+    
+    * Dummy commit
+    
+    * Fix the new _remoteOk logic in NegotiateStream to fire only when HandshakeComplete.
+    
+    If HandshakeComplete is not true, then the authentication blob will get processed with the normal flow.
+    
+    * Fix the value of NegotiateSeal in the final authentication message of Managed NTLM
