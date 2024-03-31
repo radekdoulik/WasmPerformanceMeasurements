@@ -1,0 +1,33 @@
+commit 80d37dde175c53354517b57f7294818015034941
+Author: Huo Yaoyuan <huoyaoyuan@hotmail.com>
+Date:   Sat Mar 23 06:32:42 2024 +0800
+
+    Unify formatting part of BigInteger of CoreLib (#97889)
+    
+    * Revert "Remove Formatting.Common for PR"
+    
+    This reverts commit bcc70e356fe40453198079df3e6ef94572c4cdd8.
+    
+    * Move NumberToString and dependencies to Common
+    
+    * NumberToStringFormat and ParseFormatSpecifier
+    
+    * Polyfill for CoreLib internal members
+    
+    * Use common formatting for BigInteger
+    
+    * Remove unused FormatProvider and comments
+    
+    * Move CharStackBufferSize to CoreLib for now
+    
+    * Ue AOOE.ThrowIf method
+    
+    * Convert typeof assert to sizeof
+    
+    * Fix buffer length and type of span
+    
+    * Fix exponent length
+    
+    * Move unused DecimalPrecision back to CoreLib
+    
+    * Port conflicting diffs
