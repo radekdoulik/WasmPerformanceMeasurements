@@ -1,0 +1,7 @@
+commit eb0b5cd50cc3de4a8998ff9fcc205e13883c369e
+Author: Aman Khalid <amankhalid@microsoft.com>
+Date:   Mon Mar 25 16:46:18 2024 +0000
+
+    JIT ARM64-SVE: Add templated register encoding methods (#100081)
+    
+    Adds templated insEncodeReg_R, insEncodeReg_V, and insEncodeReg_P methods. The ARM64 unit test output remains unchanged.
