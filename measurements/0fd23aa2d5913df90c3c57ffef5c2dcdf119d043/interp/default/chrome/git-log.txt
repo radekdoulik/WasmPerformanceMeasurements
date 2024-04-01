@@ -1,0 +1,21 @@
+commit 0fd23aa2d5913df90c3c57ffef5c2dcdf119d043
+Author: Jan Kotas <jkotas@microsoft.com>
+Date:   Mon Apr 1 07:23:26 2024 -0700
+
+    Fix non-deterministic trigger of struct type initializers (#100469)
+    
+    * Add regression test
+    
+    * Skip cctor triggers for boxing
+    
+    * Delete unnecessary CheckRestore
+    
+    * Better test
+    
+    * Apply suggestions from code review
+    
+    Co-authored-by: Aaron Robinson <arobins@microsoft.com>
+    
+    ---------
+    
+    Co-authored-by: Aaron Robinson <arobins@microsoft.com>
