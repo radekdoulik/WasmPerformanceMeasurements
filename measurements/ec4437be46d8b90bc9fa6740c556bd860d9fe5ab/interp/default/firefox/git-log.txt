@@ -1,0 +1,10 @@
+commit ec4437be46d8b90bc9fa6740c556bd860d9fe5ab
+Author: Filip Navara <filip.navara@gmail.com>
+Date:   Mon Apr 1 09:50:56 2024 +0200
+
+    [NativeAOT] Use SoftFP ABI on linux-bionic-arm (#100392)
+    
+    Android uses the SoftFP ABI on ARM32 (https://android.googlesource.com/platform/ndk/+/ndk-r12-release/docs/HardFloatAbi.md).
+    
+    - Copy Crossgen2 logic for "armel" target into ILCompiler
+    - Use "armel" for linux-bionic-arm ILC target
