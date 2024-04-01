@@ -1,0 +1,9 @@
+commit e3dc83a3cffabba389c9a25cd38494673b1861b6
+Author: Bruce Forstall <brucefo@microsoft.com>
+Date:   Sun Mar 31 20:26:30 2024 -0600
+
+    Add OptRepeat phase start/end indications (#100471)
+    
+    When OptRepeat is active, for phases that are being repeated,
+    annotate the JitDump phase start/end output with the OptRepeat
+    iteration number.
