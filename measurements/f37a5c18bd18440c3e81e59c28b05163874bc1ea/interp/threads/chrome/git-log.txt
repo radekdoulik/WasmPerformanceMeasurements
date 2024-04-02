@@ -1,0 +1,7 @@
+commit f37a5c18bd18440c3e81e59c28b05163874bc1ea
+Author: Bruce Forstall <brucefo@microsoft.com>
+Date:   Tue Apr 2 09:22:38 2024 -0700
+
+    Add JitOptRepeat to JIT experimental AzDO pipeline (#100326)
+    
+    Add one job that runs JitOptRepeat on all functions, 2 repetitions.
