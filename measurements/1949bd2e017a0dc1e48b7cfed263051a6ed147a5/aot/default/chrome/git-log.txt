@@ -1,0 +1,15 @@
+commit 1949bd2e017a0dc1e48b7cfed263051a6ed147a5
+Author: Dong-Heon Jung <clamp03@gmail.com>
+Date:   Mon Apr 1 03:52:53 2024 +0900
+
+    [RISC-V] Fix intermittent failures due to unalignment access (#100431)
+    
+    * [RISC-V] Fix intermittent failures due to unalignment access
+    
+    * [RISC-V] Update for ALIGN_ACCESS
+    
+    * Apply suggestions from code review
+    
+    ---------
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
