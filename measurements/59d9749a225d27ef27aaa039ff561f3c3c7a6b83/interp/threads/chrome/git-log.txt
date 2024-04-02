@@ -1,0 +1,21 @@
+commit 59d9749a225d27ef27aaa039ff561f3c3c7a6b83
+Author: Alexandre Mutel <alexandre_mutel@live.com>
+Date:   Tue Apr 2 07:14:35 2024 +0200
+
+    Fix allocation of empty array in the frozen heap for collectible types (#100444)
+    
+    * Fix allocation of empty array in the frozen heap for collectible types (#100437)
+    
+    * Remove Optimize from csproj
+    
+    * Add test for generic with static
+    
+    * Apply suggestions from code review
+    
+    * Better test
+    
+    * Disable tests on Mono
+    
+    ---------
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
