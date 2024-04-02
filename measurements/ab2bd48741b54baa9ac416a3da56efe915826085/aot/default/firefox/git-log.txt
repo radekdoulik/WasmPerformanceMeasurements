@@ -1,0 +1,15 @@
+commit ab2bd48741b54baa9ac416a3da56efe915826085
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Mon Apr 1 22:06:42 2024 -0400
+
+    Add Task.WhenEach to process tasks as they complete (#100316)
+    
+    * Add Task.WhenEach to process tasks as they complete
+    
+    * Address PR feedback
+    
+    * Fix some async void tests to be async Task across libs
+    
+    * Remove extra awaiter field from state machine
+    
+    Also clean up an extra level of indentation.
