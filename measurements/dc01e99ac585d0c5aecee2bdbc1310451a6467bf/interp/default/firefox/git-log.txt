@@ -1,0 +1,11 @@
+commit dc01e99ac585d0c5aecee2bdbc1310451a6467bf
+Author: Bruce Forstall <brucefo@microsoft.com>
+Date:   Mon Apr 1 15:19:45 2024 -0700
+
+    Fix JitOptRepeat (#94250)
+    
+    1. Remove an assertion checking assert that can be invalid under JitOptRepeat, where we might
+    lose information that a constant was ever a handle.
+    2. Disable JIT/Directed/debugging/debuginfo/tester.csproj under OptRepeat: optimizations
+    mess with its debug info expectations.
+    3. Enable JitOptRepeat under stress
