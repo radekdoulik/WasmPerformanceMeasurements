@@ -1,0 +1,22 @@
+commit 10e87bcc74644ed83aea3d9469451411669ddd74
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Tue Apr 2 10:30:03 2024 +0200
+
+    JIT: Add separate ABI classifiers for x86/win-x64/SysV-x64/ARM64 (#100276)
+    
+    While trying to implement struct support for Swift reverse pinvokes I ended up
+    having to factor the ABI classification out of `lvaInitUserArgs` to be able to
+    invoke it multiple times for structs. In the end that led me to do the work to
+    split out the ABI classification into a different classifier for each ABI.
+    
+    ARM32, LA64 and RV64 still need to be split out.
+    
+    We still don't actually use this information for anything, but it's asserted
+    that it is correct. We are going to be using it in the backend for Swift reverse
+    pinvokes, and I expect to move more and more things to use it and get completely
+    rid of the ABI classification within `lvaInitUserArgs` (and in the long run
+    hopefully `CallArgs::AddFinalArgsAndDetermineABIInfo`).
+    
+    Another todo: this classification should be where we determine whether something
+    is passed implicit by reference instead of doing that in
+    `lvaSetStruct`/`getArgTypeForStruct`.
