@@ -1,0 +1,7 @@
+commit 34dc25951f072f5c59fa704554172ed998cd31f0
+Author: Katelyn Gadd <kg@luminance.org>
+Date:   Tue Mar 19 08:59:22 2024 -0700
+
+    [wasm] Raise default initial heap size minimum (#99927)
+    
+    The current minimum heap size (16mb) is too small for sgen to successfully start up without growing the heap, so this raises it to 32mb
