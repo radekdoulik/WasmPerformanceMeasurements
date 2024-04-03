@@ -1,0 +1,9 @@
+commit 7b81118772db43ef037fc17c6a195f7bcc425455
+Author: Elinor Fung <elfung@microsoft.com>
+Date:   Thu Mar 21 09:45:34 2024 -0700
+
+    Delete TestProjectFixture and associated helpers (#99847)
+    
+    As part of https://github.com/dotnet/runtime/issues/77800, we have gotten rid of building/publishing projects using the SDK during hosting test runs.
+    
+    This change removes test utilities like `TestProjectFixture` and `TestProject` which revolved around that building / publishing functionality. It also removes the `BuildReporter`/`AnsIConsole` logging from the test utils. It was a lot of infrastructure to set font colour and weight for output that would not normally be seen (redirected to a log file usually - only seen on non-Windows when running directly via dotnet test, not arcade infrastructure).
