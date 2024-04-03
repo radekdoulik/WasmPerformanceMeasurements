@@ -1,0 +1,8 @@
+commit a8daf55fa7dc51cc833f84765a653d5c6f774892
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Tue Apr 2 21:26:34 2024 +0200
+
+    SPMI: Fix Python 3.12 warnings in superpmi.py (#100533)
+    
+    Python 3.12 prints some warnings when parsing superpmi.py due to some
+    insufficiently escaped characters in some strings.
