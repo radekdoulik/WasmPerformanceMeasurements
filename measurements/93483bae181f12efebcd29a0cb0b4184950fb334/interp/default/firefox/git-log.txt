@@ -1,0 +1,5 @@
+commit 93483bae181f12efebcd29a0cb0b4184950fb334
+Author: Pavel Savara <pavel.savara@gmail.com>
+Date:   Tue Apr 2 19:50:38 2024 +0200
+
+    [browser][MT] fix error propagation when calling JSImport of missing JS function (#100408)
