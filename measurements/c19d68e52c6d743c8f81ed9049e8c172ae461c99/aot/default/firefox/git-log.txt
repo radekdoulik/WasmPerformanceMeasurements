@@ -1,0 +1,23 @@
+commit c19d68e52c6d743c8f81ed9049e8c172ae461c99
+Author: Alhad Deshpande <97085048+alhad-deshpande@users.noreply.github.com>
+Date:   Thu Apr 4 02:10:59 2024 +0530
+
+    [ppc64le] Fixed insufficient memory exception issue (#100337)
+    
+    * [ppc64le] Fixed thunk address 8 byte alignment issue
+    
+    * Fixed FSharp crash issue
+    
+    * [ppc64le] Implementation of mono_arch_get_delegate_virtual_invoke_impl method for ppc64le architecture
+    
+    * Fixed clang15 build issues and returning address of sc_sp instead of value
+    
+    * Added float32 support and implemented related opcodes
+    
+    * Correction in OP_RCONV_TO_R cases
+    
+    * Corrected code for few opcodes
+    
+    * [ppc64le] performance improvements while branching
+    
+    * [ppc64le] Fixed insufficient memory exception issue
