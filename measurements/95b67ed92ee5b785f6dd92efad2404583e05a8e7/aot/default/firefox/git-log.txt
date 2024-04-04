@@ -1,0 +1,13 @@
+commit 95b67ed92ee5b785f6dd92efad2404583e05a8e7
+Author: Jan Vorlicek <janvorli@microsoft.com>
+Date:   Thu Apr 4 01:48:33 2024 +0200
+
+    Remove HOST_CALLS contract and related stuff (#100604)
+    
+    * Remove HOST_CALLS contract and related stuff
+    
+    The HOST_CALLS contract is obsolete remainder from the .NET framework
+    era, this change removes all of the use of that contract and the related
+    code.
+    
+    * Remove ShouldAvoidHost calls et al too.
