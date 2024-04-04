@@ -1,0 +1,10 @@
+commit 5c4e2a301ec1dd8ef75a3ba98e5be1ff2cea0130
+Author: Jeremy Koritzinsky <jekoritz@microsoft.com>
+Date:   Wed Apr 3 20:31:21 2024 -0700
+
+    Remove remaining CRT PAL wrappers and enable including standard headers in the CoreCLR build (#98336)
+    
+    - Remove malloc-family PAL and update callsites that might get passed 0 to bump up to 1.
+    - Move `getenv` usage to use the `PAL` function directly when on non-Windows (to preserve the existing behavior).
+    - Remove other remaining CRT PAL shims
+    - Remove header shims and enable building with the CRT and STL headers across the product, with various build fixes required (mostly around using the standard min/max definitions)
