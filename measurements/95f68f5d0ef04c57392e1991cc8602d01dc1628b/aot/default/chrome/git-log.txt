@@ -1,0 +1,8 @@
+commit 95f68f5d0ef04c57392e1991cc8602d01dc1628b
+Author: Andy Ayers <andya@microsoft.com>
+Date:   Wed Apr 3 12:45:05 2024 -0700
+
+    JIT: add note on profile reconstruction (#100601)
+    
+    I left a long note on the algorithm as a comment on #99992.
+    Move it to the doc folder.
