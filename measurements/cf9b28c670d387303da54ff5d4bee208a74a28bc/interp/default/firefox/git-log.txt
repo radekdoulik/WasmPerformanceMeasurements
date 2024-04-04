@@ -1,0 +1,7 @@
+commit cf9b28c670d387303da54ff5d4bee208a74a28bc
+Author: Qiao Pengcheng <qiaopengcheng@loongson.cn>
+Date:   Thu Apr 4 21:55:07 2024 +0800
+
+    [LoongArch64] amend the disasmbly formate of lu52id and branches. (#100568)
+    
+    Also modify `STACKWALK_CONTROLPC_ADJUST_OFFSET` as there is no branch delay.
