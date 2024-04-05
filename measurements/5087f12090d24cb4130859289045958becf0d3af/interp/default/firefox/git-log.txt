@@ -1,0 +1,8 @@
+commit 5087f12090d24cb4130859289045958becf0d3af
+Author: Jan Vorlicek <janvorli@microsoft.com>
+Date:   Thu Apr 4 10:48:28 2024 +0200
+
+    Add extra logging to the unhandled exception test (#100620)
+    
+    The test has failed with timeout couple of times in the CI, this change
+    adds logging print after the target process completes.
