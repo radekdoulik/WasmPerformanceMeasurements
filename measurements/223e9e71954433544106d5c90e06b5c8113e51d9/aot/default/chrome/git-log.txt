@@ -1,0 +1,7 @@
+commit 223e9e71954433544106d5c90e06b5c8113e51d9
+Author: rzsc <160726116+rzsc@users.noreply.github.com>
+Date:   Thu Apr 4 11:49:02 2024 +0200
+
+    Enable tail call generation for test Runtime_87393 (#100593)
+    
+    To pass the test needs to be built with --tailcalls compiler flag enabled.
