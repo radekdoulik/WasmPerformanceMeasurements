@@ -1,0 +1,23 @@
+commit e020a93284ba85903107258ab696e5e64debf70b
+Author: Vladimir Vukicevic <vladimir@pobox.com>
+Date:   Tue Apr 2 17:24:13 2024 -0700
+
+    Enable FEATURE_PERFMAP on OSX, and update perfjitdump.cpp to work on OSX (#99986)
+    
+    * Enable FEATURE_PERFMAP on OSX, and update perfjitdump.cpp to work on OSX
+    
+    * Update PerfMapEnabled documentation
+    
+    * Enable only on OSX, and use PlatformGetCurrentThreadId
+    
+    * Manual mach_absolute_time calls
+    
+    * Use QueryPerformanceCounter
+    
+    * Cleaner QueryPerformanceFrequency verification
+    
+    * Use FEATURE_PERFMAP
+    
+    * Put back conditional, but all __APPLE__
+    
+    * Fix logic error when disabling jitdump
