@@ -1,0 +1,194 @@
+commit 1a7904ee34fe29d82fc605e0844f00e238d9d41b
+Author: Khushal Modi <kcmodi@asu.edu>
+Date:   Thu Apr 4 23:46:15 2024 -0700
+
+    Scalar/Packed conversions for floating point to integer (#97529)
+    
+    * merging with main
+    Initial changes for scalar conversion double -> ulong
+    
+    * Basic working version of double -> ulong saturation
+    
+    * Moving the code in a do-while with proper checks to amke sure we are adding the fixup node at all cases
+    
+    * adjusting comments
+    
+    * Merging with main
+    Saturating NaN to 0 and also adding Dbl2Ulng implementation in MathHelpers. Adding vector conversion support for double /float -> ulong conversion
+    
+    * removing conflicts from gentree.h flags
+    merging with main
+    doubel to uint conversion
+    
+    * float to uint conversion verified. removing commented code
+    
+    * merging with main. Making changes to simdashwintrinsic.cpp and
+    listxarch.h
+    float -> uint packed conversion
+    
+    * progress on double to long morphing
+    
+    * another attempt at double to long conversion
+    
+    * Merge with main
+    Merge with main
+    
+    adding a new helper function ofr float to uint scalar conversion for SSE2.
+    
+    * adding handling for scalar conversion cases for SSE2. Remaining float/double -> long/int for AVX512.
+    
+    * partial changes for float to int conversion using double to int for avx512. vfixup not working. next step is to fix the vfixup instruction and get it working
+    
+    * adding float to int working scalar conversion case. Working on vectro case here on.
+    
+    * partial work on float to int packed conversion
+    
+    * partial version of float to int conversion
+    
+    * working version of float to int scalar/packed for avx512
+    
+    * complete conversions code for floating point to integral conversions for scalar/packed for SSE / avx512
+    
+    * Merging with main.
+    fixing out of range test case adn adding conversion changes to simdashwintrinsic
+    
+    * fixing debug checks hitting asserts for TYP_ULONG and TYP_UINT at IR level
+    
+    * adding JIT_Dbl2Int for target_x86 and other architectures.
+    
+    * Supporting x86 for saturating conversions as well
+    
+    * fixing errors in packed conversion
+    
+    * accomodate unsigned in IR
+    
+    * adding evex support for cvttss2si
+    
+    * Mergw with main
+    defining nativeaot helpers for x86
+    
+    * Catch divide by zero exception
+    
+    * Handle overflow cases
+    
+    * Fix tests to check saturating behavior
+    
+    * Correct mapping of instructions
+    
+    * Convert float -> ulong / long as float -> double -> ulong / long
+    
+    * Merging with main
+    Initial changes for scalar conversion double -> ulong
+    
+    * Merging with main
+    adjusting comments
+    
+    * removing conflicts from gentree.h flags
+    merging with main
+    doubel to uint conversion
+    
+    * merging with main. Making changes to simdashwintrinsic.cpp and
+    listxarch.h
+    float -> uint packed conversion
+    
+    * adding a new helper function ofr float to uint scalar conversion for SSE2.
+    
+    * Merging with main
+    
+    adding handling for scalar conversion cases for SSE2. Remaining float/double -> long/int for AVX512.
+    
+    * partial changes for float to int conversion using double to int for avx512. vfixup not working. next step is to fix the vfixup instruction and get it working
+    
+    * partial version of float to int conversion
+    
+    * working version of float to int scalar/packed for avx512
+    
+    * Merging with main.
+    fixing out of range test case adn adding conversion changes to simdashwintrinsic
+    
+    * Changing the way helper functions are handled in morph
+    fixing debug checks hitting asserts for TYP_ULONG and TYP_UINT at IR level
+    
+    * adding JIT_Dbl2Int for target_x86 and other architectures.
+    
+    * Supporting x86 for saturating conversions as well
+    
+    * fixing errors in packed conversion
+    
+    * Correct mapping of instructions
+    
+    * delete extra files
+    
+    * Merging main
+    review changes
+    
+    * Merge with main and adding new helpers in nativeaot
+    Rebasing with main
+    
+    * changing type of cast node as signed when making cast nodes
+    
+    * Avoiding removing extra element from the stack
+    
+    * Fix formatting, Change comp->IsaSupportedDebugOnly to IsBaselineVector512SupportedDebugOnly
+    
+    * Reverting some changes to maintain uniformity in code
+    
+    * Handling cases where AVX512 is not supported in simdashwintrinsic.cpp
+    
+    * fixing exit conditions for ConvertVectorT_ToDouble
+    
+    * Check for AVX512 support for TARGET_XARCH
+    
+    * Avoid avx512 path for x86
+    
+    * Enable AVX512F codepath for conversions in x86 arch. Move x86 to using c++ helpers
+    
+    * Add SSE41 path for scalar conversions and 128 bit float to int packed conversions
+    
+    * Adding SSE41 path for floating point to UINT scalar conversions
+    
+    * Add AVX path for ConvertToInt32
+    
+    * Adding comments and cleaning the code
+    
+    * Fix errors in double to ulong
+    
+    * Addressing review comments
+    
+    * Fix tests
+    
+    * Reverse val < 0 check in dbltoUint and dbltoUlng helpers
+    
+    * Add overflow conversions for 86/x64, remove FastDbl2Lng and inline it
+    
+    * Apply suggestions from code review
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
+    
+    * Correct Dbl2UlngOvf
+    
+    * Apply suggestions from code review
+    
+    * Apply suggestions from code review
+    
+    * Update src/coreclr/vm/jithelpers.cpp
+    
+    * Disable failing mono tests
+    
+    * Working version of saturating logic moved to lowering for x86/x64
+    
+    * Making changes for pre SSE41
+    
+    * Apply suggestions from code review
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
+    
+    * Removing dead code
+    
+    * Fix formatting
+    
+    * Address review comments, add proper docstrings
+    
+    ---------
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
