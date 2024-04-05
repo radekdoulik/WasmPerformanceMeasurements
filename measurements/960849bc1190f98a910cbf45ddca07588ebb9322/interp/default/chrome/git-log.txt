@@ -1,0 +1,11 @@
+commit 960849bc1190f98a910cbf45ddca07588ebb9322
+Author: Elinor Fung <elfung@microsoft.com>
+Date:   Thu Apr 4 15:08:13 2024 -0700
+
+    Make host tests use single copy of shared framework (#100588)
+    
+    - Only create one .NET install layout to be shared by all host tests
+    -  Add `pretest.proj` for `host.pretest` subset that builds all test project assets and creates the single .NET install layout
+    - Fix `NativeHostApis` tests that were editing the .NET install layout directly (instead of creating a copy to edit)
+      - Remove some unnecessary copying/creating of SDKs and frameworks by sharing the fixture across tests
+    - Update host testing doc with simpler setup instructions and more details around investigating test failures
