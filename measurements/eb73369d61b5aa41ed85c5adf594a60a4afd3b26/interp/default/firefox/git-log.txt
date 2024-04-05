@@ -1,0 +1,18 @@
+commit eb73369d61b5aa41ed85c5adf594a60a4afd3b26
+Author: Sven Boemer <sbomer@gmail.com>
+Date:   Wed Apr 3 10:19:29 2024 -0700
+
+    Fix origin for warnings due to event methods (#100500)
+    
+    This fixes the warning origin to prevent warnings from being
+    reported on events for annotated event methods. Instead the
+    warning is shown at the location that introduces the dependency
+    on the event.
+    
+    Doesn't fix the multiple warnings reported in some cases. This is
+    due to MarkEvent also marking event methods, unlike
+    MarkProperty. We might consider fixing this too, but it was
+    looking like a larger change than I wanted to make here.
+    
+    This removes some spurious warnings that were showing up when
+    bubbling up RUC in winforms.
