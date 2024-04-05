@@ -1,0 +1,20 @@
+commit 96d5a66d300251ee2f32edc8cd7ffe849a3df667
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Thu Apr 4 21:33:54 2024 +0200
+
+    JIT: Fix profiler enter callback init reg trash logic (#100637)
+    
+    During prolog generation we sometimes generate code to call the profiler
+    enter callback. This may trash the "initReg" that we expect to keep
+    zeroed during the prolog. The logic to check if the initReg was being
+    trashed was wrong in a couple of cases:
+    - Most backends did not take into account that the logic also trashes
+      the registers used for arguments to the enter callback
+    - SysV x64 thought that the enter callback trashed the parameter
+      registers, but it does not
+    
+    This generally did not cause issues because `genFnPrologCalleeRegArgs`
+    is unnecessarily conservative around whether or not it trashes
+    `initReg`, and it comes after the profiler callback in the prolog.
+    However, with the rewrite of the homing function that is not going to be
+    the case anymore.
