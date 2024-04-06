@@ -1,0 +1,9 @@
+commit d79a753f0b4f78bf809b173018f18c6c98e6953d
+Author: Alexander Köplinger <alex.koeplinger@outlook.com>
+Date:   Fri Apr 5 18:14:56 2024 +0200
+
+    Add -cross flag to build.ps1 (#100678)
+    
+    Fixes VMR build error on Windows after https://github.com/dotnet/installer/pull/19321
+    
+    We haven't used or passed this on Windows before and a bunch of logic is conditioned based on the `CrossBuild` property (which is what `-cross` is turned into in build.sh) so ignore it for now.
