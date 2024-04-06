@@ -1,0 +1,18 @@
+commit f6237bc82b2d8f30fbaa9b27e2589960d713f0c3
+Author: Aaron Robinson <arobins@microsoft.com>
+Date:   Fri Apr 5 16:12:30 2024 -0700
+
+    Special casing `System.Guid` for COM VARIANT marshalling (#100377)
+    
+    * Support System.Guid marshalling via VARIANT
+    
+    VARIANT marshalling in .NET 5+ requires a TLB
+    for COM records (i.e., ValueType instances). This
+    means that without a runtime provided TLB, users
+    must define their own TLB for runtime types or
+    define their own transfer types.
+    
+    We address this here by deferring to the NetFX
+    mscorlib's TLB.
+    
+    Co-authored-by: Elinor Fung <elfung@microsoft.com>
