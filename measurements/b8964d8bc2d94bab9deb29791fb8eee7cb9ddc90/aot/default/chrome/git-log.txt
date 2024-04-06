@@ -1,0 +1,12 @@
+commit b8964d8bc2d94bab9deb29791fb8eee7cb9ddc90
+Author: Jan Vorlicek <janvorli@microsoft.com>
+Date:   Sat Apr 6 10:12:28 2024 +0200
+
+    Fix WinDbg first chance exception notification (#100714)
+    
+    With the new EH enabled, WinDbg couldn't recognize a first chance
+    exception since it bases that on RaiseException monitoring and the new
+    EH doesn't use SEH.
+    
+    This change fixes that by raising and immediatelly catching an exception
+    of EXCEPTION_COMPLUS type if a debugger is attached.
