@@ -1,0 +1,235 @@
+commit ed92ec40a465151e47c6d6c41b0b9bc95c29f1da
+Author: dotnet-maestro[bot] <42748379+dotnet-maestro[bot]@users.noreply.github.com>
+Date:   Fri Apr 5 22:45:32 2024 +0200
+
+    [main] Update dependencies from dotnet/hotreload-utils, dotnet/icu, dotnet/runtime, dotnet/runtime-assets, dotnet/xharness (#100280)
+    
+    * Update dependencies from https://github.com/dotnet/icu build
+    
+    Microsoft.NETCore.Runtime.ICU.Transport
+     From Version 9.0.0-preview.4.24172.4 -> To Version 9.0.0-preview.4.24175.1
+    
+    * Update dependencies from https://github.com/dotnet/xharness build
+    
+    Microsoft.DotNet.XHarness.CLI , Microsoft.DotNet.XHarness.TestRunners.Common , Microsoft.DotNet.XHarness.TestRunners.Xunit
+     From Version 9.0.0-prerelease.24168.2 -> To Version 9.0.0-prerelease.24175.1
+    
+    * Update dependencies from https://github.com/dotnet/runtime-assets build
+    
+    Microsoft.DotNet.CilStrip.Sources , System.ComponentModel.TypeConverter.TestData , System.Data.Common.TestData , System.Drawing.Common.TestData , System.Formats.Tar.TestData , System.IO.Compression.TestData , System.IO.Packaging.TestData , System.Net.TestData , System.Private.Runtime.UnicodeData , System.Runtime.Numerics.TestData , System.Runtime.TimeZoneData , System.Security.Cryptography.X509Certificates.TestData , System.Text.RegularExpressions.TestData , System.Windows.Extensions.TestData
+     From Version 9.0.0-beta.24170.12 -> To Version 9.0.0-beta.24175.1
+    
+    * Update dependencies from https://github.com/dotnet/hotreload-utils build
+    
+    Microsoft.DotNet.HotReload.Utils.Generator.BuildTool
+     From Version 9.0.0-alpha.0.24168.2 -> To Version 9.0.0-alpha.0.24175.1
+    
+    * Update dependencies from https://github.com/dotnet/icu build 20240325.1
+    
+    Microsoft.NETCore.Runtime.ICU.Transport
+     From Version 9.0.0-preview.4.24172.4 -> To Version 9.0.0-preview.4.24175.1
+    
+    * Update dependencies from https://github.com/dotnet/xharness build 20240325.1
+    
+    Microsoft.DotNet.XHarness.CLI , Microsoft.DotNet.XHarness.TestRunners.Common , Microsoft.DotNet.XHarness.TestRunners.Xunit
+     From Version 9.0.0-prerelease.24168.2 -> To Version 9.0.0-prerelease.24175.1
+    
+    * Update dependencies from https://github.com/dotnet/runtime-assets build 20240327.1
+    
+    Microsoft.DotNet.CilStrip.Sources , System.ComponentModel.TypeConverter.TestData , System.Data.Common.TestData , System.Drawing.Common.TestData , System.Formats.Tar.TestData , System.IO.Compression.TestData , System.IO.Packaging.TestData , System.Net.TestData , System.Private.Runtime.UnicodeData , System.Runtime.Numerics.TestData , System.Runtime.TimeZoneData , System.Security.Cryptography.X509Certificates.TestData , System.Text.RegularExpressions.TestData , System.Windows.Extensions.TestData
+     From Version 9.0.0-beta.24170.12 -> To Version 9.0.0-beta.24177.1
+    
+    * Update dependencies from https://github.com/dotnet/hotreload-utils build 20240325.1
+    
+    Microsoft.DotNet.HotReload.Utils.Generator.BuildTool
+     From Version 9.0.0-alpha.0.24168.2 -> To Version 9.0.0-alpha.0.24175.1
+    
+    * Update dependencies from https://github.com/dotnet/icu build 20240325.1
+    
+    Microsoft.NETCore.Runtime.ICU.Transport
+     From Version 9.0.0-preview.4.24172.4 -> To Version 9.0.0-preview.4.24175.1
+    
+    * Update dependencies from https://github.com/dotnet/xharness build 20240325.1
+    
+    Microsoft.DotNet.XHarness.CLI , Microsoft.DotNet.XHarness.TestRunners.Common , Microsoft.DotNet.XHarness.TestRunners.Xunit
+     From Version 9.0.0-prerelease.24168.2 -> To Version 9.0.0-prerelease.24175.1
+    
+    * Update dependencies from https://github.com/dotnet/runtime-assets build 20240327.1
+    
+    Microsoft.DotNet.CilStrip.Sources , System.ComponentModel.TypeConverter.TestData , System.Data.Common.TestData , System.Drawing.Common.TestData , System.Formats.Tar.TestData , System.IO.Compression.TestData , System.IO.Packaging.TestData , System.Net.TestData , System.Private.Runtime.UnicodeData , System.Runtime.Numerics.TestData , System.Runtime.TimeZoneData , System.Security.Cryptography.X509Certificates.TestData , System.Text.RegularExpressions.TestData , System.Windows.Extensions.TestData
+     From Version 9.0.0-beta.24170.12 -> To Version 9.0.0-beta.24177.1
+    
+    * Update dependencies from https://github.com/dotnet/hotreload-utils build 20240328.1
+    
+    Microsoft.DotNet.HotReload.Utils.Generator.BuildTool
+     From Version 9.0.0-alpha.0.24168.2 -> To Version 9.0.0-alpha.0.24178.1
+    
+    * Update dependencies from https://github.com/dotnet/icu build 20240328.1
+    
+    Microsoft.NETCore.Runtime.ICU.Transport
+     From Version 9.0.0-preview.4.24172.4 -> To Version 9.0.0-preview.4.24178.1
+    
+    * Update dependencies from https://github.com/dotnet/xharness build 20240328.1
+    
+    Microsoft.DotNet.XHarness.CLI , Microsoft.DotNet.XHarness.TestRunners.Common , Microsoft.DotNet.XHarness.TestRunners.Xunit
+     From Version 9.0.0-prerelease.24168.2 -> To Version 9.0.0-prerelease.24178.1
+    
+    * Update dependencies from https://github.com/dotnet/runtime-assets build 20240328.1
+    
+    Microsoft.DotNet.CilStrip.Sources , System.ComponentModel.TypeConverter.TestData , System.Data.Common.TestData , System.Drawing.Common.TestData , System.Formats.Tar.TestData , System.IO.Compression.TestData , System.IO.Packaging.TestData , System.Net.TestData , System.Private.Runtime.UnicodeData , System.Runtime.Numerics.TestData , System.Runtime.TimeZoneData , System.Security.Cryptography.X509Certificates.TestData , System.Text.RegularExpressions.TestData , System.Windows.Extensions.TestData
+     From Version 9.0.0-beta.24170.12 -> To Version 9.0.0-beta.24178.1
+    
+    * Update dependencies from https://github.com/dotnet/hotreload-utils build 20240328.1
+    
+    Microsoft.DotNet.HotReload.Utils.Generator.BuildTool
+     From Version 9.0.0-alpha.0.24168.2 -> To Version 9.0.0-alpha.0.24178.1
+    
+    * Update dependencies from https://github.com/dotnet/icu build 20240329.1
+    
+    Microsoft.NETCore.Runtime.ICU.Transport
+     From Version 9.0.0-preview.4.24172.4 -> To Version 9.0.0-preview.4.24179.1
+    
+    * Update dependencies from https://github.com/dotnet/xharness build 20240328.1
+    
+    Microsoft.DotNet.XHarness.CLI , Microsoft.DotNet.XHarness.TestRunners.Common , Microsoft.DotNet.XHarness.TestRunners.Xunit
+     From Version 9.0.0-prerelease.24168.2 -> To Version 9.0.0-prerelease.24178.1
+    
+    * Update dependencies from https://github.com/dotnet/runtime-assets build 20240328.1
+    
+    Microsoft.DotNet.CilStrip.Sources , System.ComponentModel.TypeConverter.TestData , System.Data.Common.TestData , System.Drawing.Common.TestData , System.Formats.Tar.TestData , System.IO.Compression.TestData , System.IO.Packaging.TestData , System.Net.TestData , System.Private.Runtime.UnicodeData , System.Runtime.Numerics.TestData , System.Runtime.TimeZoneData , System.Security.Cryptography.X509Certificates.TestData , System.Text.RegularExpressions.TestData , System.Windows.Extensions.TestData
+     From Version 9.0.0-beta.24170.12 -> To Version 9.0.0-beta.24178.1
+    
+    * Update dependencies from https://github.com/dotnet/hotreload-utils build 20240328.1
+    
+    Microsoft.DotNet.HotReload.Utils.Generator.BuildTool
+     From Version 9.0.0-alpha.0.24168.2 -> To Version 9.0.0-alpha.0.24178.1
+    
+    * Update dependencies from https://github.com/dotnet/icu build 20240329.1
+    
+    Microsoft.NETCore.Runtime.ICU.Transport
+     From Version 9.0.0-preview.4.24172.4 -> To Version 9.0.0-preview.4.24179.1
+    
+    * Update dependencies from https://github.com/dotnet/xharness build 20240328.1
+    
+    Microsoft.DotNet.XHarness.CLI , Microsoft.DotNet.XHarness.TestRunners.Common , Microsoft.DotNet.XHarness.TestRunners.Xunit
+     From Version 9.0.0-prerelease.24168.2 -> To Version 9.0.0-prerelease.24178.1
+    
+    * Update dependencies from https://github.com/dotnet/runtime-assets build 20240328.1
+    
+    Microsoft.DotNet.CilStrip.Sources , System.ComponentModel.TypeConverter.TestData , System.Data.Common.TestData , System.Drawing.Common.TestData , System.Formats.Tar.TestData , System.IO.Compression.TestData , System.IO.Packaging.TestData , System.Net.TestData , System.Private.Runtime.UnicodeData , System.Runtime.Numerics.TestData , System.Runtime.TimeZoneData , System.Security.Cryptography.X509Certificates.TestData , System.Text.RegularExpressions.TestData , System.Windows.Extensions.TestData
+     From Version 9.0.0-beta.24170.12 -> To Version 9.0.0-beta.24178.1
+    
+    * Update dependencies from https://github.com/dotnet/hotreload-utils build 20240328.1
+    
+    Microsoft.DotNet.HotReload.Utils.Generator.BuildTool
+     From Version 9.0.0-alpha.0.24168.2 -> To Version 9.0.0-alpha.0.24178.1
+    
+    * Update dependencies from https://github.com/dotnet/icu build 20240329.1
+    
+    Microsoft.NETCore.Runtime.ICU.Transport
+     From Version 9.0.0-preview.4.24172.4 -> To Version 9.0.0-preview.4.24179.1
+    
+    * Update dependencies from https://github.com/dotnet/xharness build 20240328.1
+    
+    Microsoft.DotNet.XHarness.CLI , Microsoft.DotNet.XHarness.TestRunners.Common , Microsoft.DotNet.XHarness.TestRunners.Xunit
+     From Version 9.0.0-prerelease.24168.2 -> To Version 9.0.0-prerelease.24178.1
+    
+    * Update dependencies from https://github.com/dotnet/runtime-assets build 20240328.1
+    
+    Microsoft.DotNet.CilStrip.Sources , System.ComponentModel.TypeConverter.TestData , System.Data.Common.TestData , System.Drawing.Common.TestData , System.Formats.Tar.TestData , System.IO.Compression.TestData , System.IO.Packaging.TestData , System.Net.TestData , System.Private.Runtime.UnicodeData , System.Runtime.Numerics.TestData , System.Runtime.TimeZoneData , System.Security.Cryptography.X509Certificates.TestData , System.Text.RegularExpressions.TestData , System.Windows.Extensions.TestData
+     From Version 9.0.0-beta.24170.12 -> To Version 9.0.0-beta.24178.1
+    
+    * Update dependencies from https://github.com/dotnet/hotreload-utils build 20240328.1
+    
+    Microsoft.DotNet.HotReload.Utils.Generator.BuildTool
+     From Version 9.0.0-alpha.0.24168.2 -> To Version 9.0.0-alpha.0.24178.1
+    
+    * Update dependencies from https://github.com/dotnet/runtime build 20240401.1
+    
+    Microsoft.DotNet.ILCompiler , Microsoft.NET.Sdk.IL , Microsoft.NETCore.App.Runtime.win-x64 , Microsoft.NETCore.ILAsm , runtime.native.System.IO.Ports , System.Reflection.Metadata , System.Reflection.MetadataLoadContext , System.Text.Json , Microsoft.SourceBuild.Intermediate.runtime.linux-x64
+     From Version 9.0.0-preview.4.24175.1 -> To Version 9.0.0-preview.4.24201.1
+    
+    * Update dependencies from https://github.com/dotnet/icu build 20240401.1
+    
+    Microsoft.NETCore.Runtime.ICU.Transport
+     From Version 9.0.0-preview.4.24172.4 -> To Version 9.0.0-preview.4.24201.1
+    
+    * Update dependencies from https://github.com/dotnet/xharness build 20240328.1
+    
+    Microsoft.DotNet.XHarness.CLI , Microsoft.DotNet.XHarness.TestRunners.Common , Microsoft.DotNet.XHarness.TestRunners.Xunit
+     From Version 9.0.0-prerelease.24168.2 -> To Version 9.0.0-prerelease.24178.1
+    
+    * Update dependencies from https://github.com/dotnet/runtime-assets build 20240328.1
+    
+    Microsoft.DotNet.CilStrip.Sources , System.ComponentModel.TypeConverter.TestData , System.Data.Common.TestData , System.Drawing.Common.TestData , System.Formats.Tar.TestData , System.IO.Compression.TestData , System.IO.Packaging.TestData , System.Net.TestData , System.Private.Runtime.UnicodeData , System.Runtime.Numerics.TestData , System.Runtime.TimeZoneData , System.Security.Cryptography.X509Certificates.TestData , System.Text.RegularExpressions.TestData , System.Windows.Extensions.TestData
+     From Version 9.0.0-beta.24170.12 -> To Version 9.0.0-beta.24178.1
+    
+    * Update dependencies from https://github.com/dotnet/hotreload-utils build 20240401.1
+    
+    Microsoft.DotNet.HotReload.Utils.Generator.BuildTool
+     From Version 9.0.0-alpha.0.24168.2 -> To Version 9.0.0-alpha.0.24201.1
+    
+    * Update dependencies from https://github.com/dotnet/icu build 20240401.1
+    
+    Microsoft.NETCore.Runtime.ICU.Transport
+     From Version 9.0.0-preview.4.24172.4 -> To Version 9.0.0-preview.4.24201.1
+    
+    * Update dependencies from https://github.com/dotnet/xharness build 20240403.1
+    
+    Microsoft.DotNet.XHarness.CLI , Microsoft.DotNet.XHarness.TestRunners.Common , Microsoft.DotNet.XHarness.TestRunners.Xunit
+     From Version 9.0.0-prerelease.24168.2 -> To Version 9.0.0-prerelease.24203.1
+    
+    * Update dependencies from https://github.com/dotnet/runtime-assets build 20240403.1
+    
+    Microsoft.DotNet.CilStrip.Sources , System.ComponentModel.TypeConverter.TestData , System.Data.Common.TestData , System.Drawing.Common.TestData , System.Formats.Tar.TestData , System.IO.Compression.TestData , System.IO.Packaging.TestData , System.Net.TestData , System.Private.Runtime.UnicodeData , System.Runtime.Numerics.TestData , System.Runtime.TimeZoneData , System.Security.Cryptography.X509Certificates.TestData , System.Text.RegularExpressions.TestData , System.Windows.Extensions.TestData
+     From Version 9.0.0-beta.24170.12 -> To Version 9.0.0-beta.24203.1
+    
+    * Update dependencies from https://github.com/dotnet/hotreload-utils build 20240401.1
+    
+    Microsoft.DotNet.HotReload.Utils.Generator.BuildTool
+     From Version 9.0.0-alpha.0.24168.2 -> To Version 9.0.0-alpha.0.24201.1
+    
+    * Update dependencies from https://github.com/dotnet/icu build 20240401.1
+    
+    Microsoft.NETCore.Runtime.ICU.Transport
+     From Version 9.0.0-preview.4.24172.4 -> To Version 9.0.0-preview.4.24201.1
+    
+    * Update dependencies from https://github.com/dotnet/xharness build 20240403.1
+    
+    Microsoft.DotNet.XHarness.CLI , Microsoft.DotNet.XHarness.TestRunners.Common , Microsoft.DotNet.XHarness.TestRunners.Xunit
+     From Version 9.0.0-prerelease.24168.2 -> To Version 9.0.0-prerelease.24203.1
+    
+    * Update dependencies from https://github.com/dotnet/runtime-assets build 20240403.1
+    
+    Microsoft.DotNet.CilStrip.Sources , System.ComponentModel.TypeConverter.TestData , System.Data.Common.TestData , System.Drawing.Common.TestData , System.Formats.Tar.TestData , System.IO.Compression.TestData , System.IO.Packaging.TestData , System.Net.TestData , System.Private.Runtime.UnicodeData , System.Runtime.Numerics.TestData , System.Runtime.TimeZoneData , System.Security.Cryptography.X509Certificates.TestData , System.Text.RegularExpressions.TestData , System.Windows.Extensions.TestData
+     From Version 9.0.0-beta.24170.12 -> To Version 9.0.0-beta.24203.1
+    
+    * Update dependencies from https://github.com/dotnet/hotreload-utils build 20240401.1
+    
+    Microsoft.DotNet.HotReload.Utils.Generator.BuildTool
+     From Version 9.0.0-alpha.0.24168.2 -> To Version 9.0.0-alpha.0.24201.1
+    
+    * Update dependencies from https://github.com/dotnet/icu build 20240401.1
+    
+    Microsoft.NETCore.Runtime.ICU.Transport
+     From Version 9.0.0-preview.4.24172.4 -> To Version 9.0.0-preview.4.24201.1
+    
+    * Update dependencies from https://github.com/dotnet/xharness build 20240403.1
+    
+    Microsoft.DotNet.XHarness.CLI , Microsoft.DotNet.XHarness.TestRunners.Common , Microsoft.DotNet.XHarness.TestRunners.Xunit
+     From Version 9.0.0-prerelease.24168.2 -> To Version 9.0.0-prerelease.24203.1
+    
+    * Update dependencies from https://github.com/dotnet/runtime-assets build 20240403.1
+    
+    Microsoft.DotNet.CilStrip.Sources , System.ComponentModel.TypeConverter.TestData , System.Data.Common.TestData , System.Drawing.Common.TestData , System.Formats.Tar.TestData , System.IO.Compression.TestData , System.IO.Packaging.TestData , System.Net.TestData , System.Private.Runtime.UnicodeData , System.Runtime.Numerics.TestData , System.Runtime.TimeZoneData , System.Security.Cryptography.X509Certificates.TestData , System.Text.RegularExpressions.TestData , System.Windows.Extensions.TestData
+     From Version 9.0.0-beta.24170.12 -> To Version 9.0.0-beta.24203.1
+    
+    * Update dependencies from https://github.com/dotnet/hotreload-utils build 20240401.1
+    
+    Microsoft.DotNet.HotReload.Utils.Generator.BuildTool
+     From Version 9.0.0-alpha.0.24168.2 -> To Version 9.0.0-alpha.0.24201.1
+    
+    ---------
+    
+    Co-authored-by: dotnet-maestro[bot] <dotnet-maestro[bot]@users.noreply.github.com>
+    Co-authored-by: Larry Ewing <lewing@microsoft.com>
