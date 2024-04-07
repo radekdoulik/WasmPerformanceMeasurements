@@ -1,0 +1,13 @@
+commit 41b10918904ac1a81616a854c230dea479fb060c
+Author: Filip Navara <filip.navara@gmail.com>
+Date:   Fri Apr 5 20:46:18 2024 +0200
+
+    Replace FEATURE_EH_FUNCLETS in JIT with runtime switch (#99191)
+    
+    * Replace FEATURE_EH_FUNCLETS/FEATURE_EH_CALLFINALLY_THUNKS in JIT with runtime switch
+    
+    * Cache Native AOT ABI check to see if TP improves
+    
+    ---------
+    
+    Co-authored-by: Bruce Forstall <brucefo@microsoft.com>
