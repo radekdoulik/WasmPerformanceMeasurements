@@ -1,0 +1,25 @@
+commit 3e988779476b4f5daaea450a1893a61b5bd4e944
+Author: Jan Vorlicek <janvorli@microsoft.com>
+Date:   Fri Apr 5 23:18:43 2024 +0200
+
+    Fix VS user unhandled exception notification (#100673)
+    
+    With the new EH enabled, VS is not breaking on user unhandled exceptions
+    stemming from reflection invoked code. These are exceptions that are
+    still handled, but not in the user code. The most frequent case when the
+    VS issue occurs is in unit tests execution, where a unit test assert
+    throws an exception that's caught by the xunit. With the old EH, VS
+    breaks on such exception and pops out a dialog reporting it as user
+    unhandled. With the new EH, it doesn't happen and the test execution
+    completes with the failure reported into a console instead.
+    
+    The reason is that VS is expecting to get a "catch handler found"
+    notification when EH locates the catch handler for the exception so that
+    it can decide whether the catch is in user code or not. We cannot
+    provide it when there are two separate passes of EH - one inside of the
+    reflected code and one in the caller of the reflected code.
+    
+    This change fixes it by turning off the path of reflection invocation
+    that uses the RuntimeMethodHandle::InvokeMethod when a debugger is
+    attached. In that case, it always uses the dynamically generated managed
+    code path.
