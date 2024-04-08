@@ -1,0 +1,8 @@
+commit 41670f590ca8daa497b75922eb9036d232860db4
+Author: Bruce Forstall <brucefo@microsoft.com>
+Date:   Sat Apr 6 00:02:56 2024 -0700
+
+    Re-enable Runtime_56953 on arm/arm64 (#100717)
+    
+    This test enables JitOptRepeat, which is fixed as of
+    https://github.com/dotnet/runtime/pull/94250
