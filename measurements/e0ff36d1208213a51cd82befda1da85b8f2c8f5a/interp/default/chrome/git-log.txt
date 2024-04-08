@@ -1,0 +1,7 @@
+commit e0ff36d1208213a51cd82befda1da85b8f2c8f5a
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Sat Apr 6 06:48:17 2024 -0400
+
+    Streamline Guid.NewGuid on Windows (#100719)
+    
+    Enable it to be inlined automatically and remove an extra LibraryImport helper
