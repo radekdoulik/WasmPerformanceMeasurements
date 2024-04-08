@@ -1,0 +1,9 @@
+commit 86188140a8c619451591168e044845b757167202
+Author: Ilona Tomkowicz <32700855+ilonatommy@users.noreply.github.com>
+Date:   Wed Apr 3 15:25:46 2024 +0200
+
+    [browser][ws] Do not duplicate code executed in `local_on_close` (#99685)
+    
+    * Do not duplicate code executed in "local_on_close".
+    
+    * Fix.
