@@ -1,0 +1,11 @@
+commit beac27479b402391a7cc04e207bf54ed20803c49
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Fri Apr 5 14:19:25 2024 +0900
+
+    Ensure Array.CreateInstance over reference types works (#100626)
+    
+    We have warning suppressions in place assuming `Array.CreateInstance` will succeed if it's over reference types, same as `MakeGeneric`. There's however no analysis to ensure we have the type loader template for `__Canon[]`. This adds the analysis.
+    
+    The `reflection\GenericAttribute` test is currently failing because of this but we don't see it because it's marked RequiresProcessIsolation and we have a bug that we don't look at those tests at all.
+    
+    We had this bug for a while, but the test regression is more recent because we're getting better at not generating useless stuff. Template for `__Canon[]` is probably part of any bigger test because it's common.
