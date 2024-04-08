@@ -1,0 +1,10 @@
+commit b973027549d44fa802a7f5883a9006ab2d4e5c4d
+Author: Elinor Fung <elfung@microsoft.com>
+Date:   Fri Apr 5 08:38:11 2024 -0700
+
+    [cdac] Add basic cdacreader project (#100623)
+    
+    This change adds a basic `cdacreader` project under src/native/managed.
+    - Built as part of the clr subset (via runtime-prereqs referencing compile-native.proj)
+    - Not yet integrated into anything in the product (that is, the dac doesn't try to use it yet)
+    - Can return a class that can implement the ISOSDacInterface* interfaces - currently does ISOSDacInterface9
