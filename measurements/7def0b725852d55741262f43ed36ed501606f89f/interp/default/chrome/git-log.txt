@@ -1,0 +1,5 @@
+commit 7def0b725852d55741262f43ed36ed501606f89f
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Fri Apr 5 07:33:11 2024 -0400
+
+    Use \e instead of \u001B or \x1B (#99659)
