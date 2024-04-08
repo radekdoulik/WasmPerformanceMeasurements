@@ -1,20 +1,8 @@
-<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk.WebAssembly">
   <PropertyGroup>
     <TargetFramework>net8.0-browser</TargetFramework>
-    <TargetArchitecture>wasm</TargetArchitecture>
-    <TargetOS>browser</TargetOS>
-    <RuntimeIdentifier>browser-wasm</RuntimeIdentifier>
-    <UseMonoRuntime>true</UseMonoRuntime>
-    <WasmMainJSPath>main.js</WasmMainJSPath>
-    <OutputType>Exe</OutputType>
-    <PublishTrimmed>true</PublishTrimmed>
     <WasmEmitSymbolMap Condition="'$(RunAOTCompilation)' != 'true'">true</WasmEmitSymbolMap>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
-
-  <ItemGroup>
-    <WasmExtraFilesToDeploy Include="index.html" />
-    <WasmExtraFilesToDeploy Include="main.js" />
-  </ItemGroup>
 </Project>
