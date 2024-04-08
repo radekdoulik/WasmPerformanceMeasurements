@@ -1,0 +1,7 @@
+commit 995409f2036aaa584aee7f950a55f84d03392ef4
+Author: Elinor Fung <elfung@microsoft.com>
+Date:   Fri Apr 5 20:03:34 2024 -0700
+
+    Disable compile-native projects for linux-bionic (#100712)
+    
+    After https://github.com/dotnet/runtime/pull/100623, the official build is broken. Our infrastructure for building native runtime component libraries using NativeAOT is failing for linux-bionic. Disable building on linux-bionic for now to unblock the build.
