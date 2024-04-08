@@ -1,0 +1,11 @@
+commit ef32337e53b8a1f646c4a33e7f83c6ae50a6e3e7
+Author: Dong-Heon Jung <clamp03@gmail.com>
+Date:   Mon Apr 8 16:02:27 2024 +0900
+
+    [RISC-V] Fix assertion for auipc and lui (#100578)
+    
+    * [RISC-V] Fix assertion for auipc and lui
+    
+    * [RISC-V] Update codegenriscv64
+    
+    * [RISC-V] Remove an assert
