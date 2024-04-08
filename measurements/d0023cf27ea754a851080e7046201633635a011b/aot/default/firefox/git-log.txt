@@ -1,0 +1,7 @@
+commit d0023cf27ea754a851080e7046201633635a011b
+Author: Pavel Savara <pavel.savara@gmail.com>
+Date:   Wed Apr 3 15:44:03 2024 +0200
+
+    [browser][MT] assert no managed transition on UI thread after start (#100410)
+    
+    Co-authored-by: Marek Fišera <mara@neptuo.com>
