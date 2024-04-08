@@ -1,0 +1,13 @@
+commit 2f189c1c987f9f615a273bdb0420c264ee87bc33
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Mon Apr 8 15:46:17 2024 +0900
+
+    Exclude unhandledTester test on native AOT (#100574)
+    
+    This is unfortunate because it was added for native AOT sake in #91415.
+    
+    Then Tomas rewrote the test to execute corerun.exe in #91560 making it 100% unsupportable with native AOT.
+    
+    What the test is doing doesn't look supportable with the merged runner infra and runs into the same issues I saw in #100269.
+    
+    We never noticed this test is broken because tests requiring process isolation are completely busted with native AOT. I did a local run and started re-baselining again because this is not the only regression.
