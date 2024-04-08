@@ -1,0 +1,15 @@
+commit 54c5b47acc0003fa82efece80fb784b6da1594f9
+Author: DeepakRajendrakumaran <deepak.rajendrakumaran@intel.com>
+Date:   Mon Apr 8 08:54:39 2024 -0700
+
+    Switch to iSimdVector and Align WidenAsciiToUtf16 (#99982)
+    
+    * Add AnyMatches() to iSimdVector interface
+    
+    * Switch to iSimdVector and Align WidenAsciiToUtf16.
+    
+    * Fixing perf
+    
+    * Addressing Review Comments.
+    
+    * Mirroring API change : https://github.com/dotnet/runtime/issues/98055#issuecomment-2032720254
