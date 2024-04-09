@@ -1,0 +1,20 @@
+commit f001fd08552465574667b392802415b763a29bab
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Mon Apr 8 15:42:34 2024 +0200
+
+    JIT: Use new ABI representation for x86 varargs handling (#100746)
+    
+    One difference is that the old representation counts register arguments
+    when assigning stack offsets, so it has to subtract that amount off. The
+    new representation does not need to do this as stack offsets only
+    account for stack arguments.
+    
+    x86 is also different in that the managed calling convention pushes
+    arguments in order and thus the parameters come in reverse order in the
+    callee. That is, the first parameter is at the top of the stack
+    arguments. The ABI representation therefore represents the stack offsets
+    relative to the top of stack arguments instead of from the bottom on
+    x86.
+    
+    Also introduce `Compiler::lvaGetParameterABIInfo` and switch all uses to
+    use it instead of directly accessing the array.
