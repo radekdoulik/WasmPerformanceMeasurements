@@ -1,0 +1,8 @@
+commit 22d12888e1c327e9edad74a090b265c11f48cd12
+Author: Alexander Köplinger <alex.koeplinger@outlook.com>
+Date:   Tue Apr 9 12:47:40 2024 +0200
+
+    Disable cdacreader project in source-build (#100807)
+    
+    NativeAOT doesn't work in source-build so we need to disable the project there to avoid restore errors.
+    See https://github.com/dotnet/installer/pull/19333#issuecomment-2041349776
