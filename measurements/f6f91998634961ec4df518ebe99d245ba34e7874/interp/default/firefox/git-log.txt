@@ -1,0 +1,21 @@
+commit f6f91998634961ec4df518ebe99d245ba34e7874
+Author: Bruce Forstall <brucefo@microsoft.com>
+Date:   Mon Apr 8 17:49:16 2024 -0700
+
+    Simplify jitconfigvalues.h (#100704)
+    
+    * Simplify jitconfigvalues.h
+    
+    It's been confusing to know if a configuration switch is available
+    in DEBUG or non-DEBUG (Release) builds because you need to figure
+    out which `ifdef` section it is defined in.
+    
+    This simplifies it by eliminating `#ifdef DEBUG` in jitconfigvalues.h.
+    Each config variable is explicitly using `CONFIG_...` for DEBUG or
+    `RELEASE_CONFIG_...` for non-DEBUG builds.
+    
+    I reformatted some of the CONFIG definitions to put the comments before
+    the CONFIG definition instead of on the same line, so they read better
+    after jit-format processes them.
+    
+    * Fix OPT_CONFIG defines
