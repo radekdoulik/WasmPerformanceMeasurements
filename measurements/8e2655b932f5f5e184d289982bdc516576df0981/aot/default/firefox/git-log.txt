@@ -1,0 +1,11 @@
+commit 8e2655b932f5f5e184d289982bdc516576df0981
+Author: Filip Navara <filip.navara@gmail.com>
+Date:   Mon Apr 8 21:16:22 2024 +0200
+
+    [NativeAOT/x86] Fix funclet unwinding (#100732)
+    
+    * Guard ABI changes necessary for funclet unwinding with UsesFunclets()/FEATURE_EH_FUNCLETS instead of UNIX_X86_ABI
+    
+    * Fix the emitFullArgInfo condition.
+    
+    * Update comments, add test case
