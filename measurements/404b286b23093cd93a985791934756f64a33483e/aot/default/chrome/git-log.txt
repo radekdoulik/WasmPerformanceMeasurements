@@ -1,0 +1,13 @@
+commit 404b286b23093cd93a985791934756f64a33483e
+Author: Matous Kozak <55735845+matouskozak@users.noreply.github.com>
+Date:   Tue Apr 9 07:02:41 2024 +0200
+
+    [mono][HybridGlobalization] Fix ShortDatePattern year format to be "yyyy" (#99908)
+    
+    * use yyyy year format for short date pattern
+    
+    * add test for yyyy short date pattern
+    
+    ---------
+    
+    Co-authored-by: Ilona Tomkowicz <32700855+ilonatommy@users.noreply.github.com>
