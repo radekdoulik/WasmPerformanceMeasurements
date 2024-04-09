@@ -1,0 +1,5 @@
+commit d1747a74705a49700d7c568fdb568704c2bbad58
+Author: Egor Bogatov <egorbo@gmail.com>
+Date:   Tue Apr 9 10:50:15 2024 +0200
+
+    Remove _ASSERTE(!m_pMethodBeingCompiled->IsDynamicMethod()); (#100797)
