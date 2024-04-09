@@ -1,0 +1,39 @@
+commit 07648642d345087d344bc8b7b9b3ea7c8793bbea
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Tue Apr 9 16:59:58 2024 +0200
+
+    JIT: Rewrite register parameter homing (#100572)
+    
+    Generalize register parameter homing to handle float and integer parameters
+    simultaneously, and to handle all parameters (including the Swift self
+    register). Base it on the new ABI representation. This implements the alternate
+    ideal fix mentioned in #96439.
+    
+    The new algorithm constructs a graph in which nodes are the source and
+    destination registers of all parameters. Edges in the graph indicate that (part
+    of) a register has to be moved into (part of) another register. To home
+    parameters we repeatedly pick a register (preferring nodes without any outgoing
+    edges) and perform the reg-reg moves indicated by its incoming edges. If we pick
+    a register that has any outgoing edges it means there is circularity, so we need
+    a temporary register to save its value.
+    
+    LA64 and RISCV64 should be able to reuse this implementation and get rid of
+    their two own copies as well, but first it requires adding the new style ABI
+    classifiers for them.
+    
+    Diffs from:
+    
+    - Improvements on xarch due to stack homing not rounding up sizes of structs to
+      TYP_I_IMPL size unnecessarily, leading to smaller encodings
+    
+    - Improvements from no longer zeroing initReg after register homing when
+      unnecessary because it is still zero
+    
+    - Improvements on arm32 from storing doubles to stack in a single store rather
+      than two stores
+    
+    - Some improvements and regressions on arm64 from different homing order,
+      leading to differences in stp optimizations
+    
+    - Some regressions on arm32 from reserving an extra callee save in functions
+      with all callee trashed float registers used by parameters
