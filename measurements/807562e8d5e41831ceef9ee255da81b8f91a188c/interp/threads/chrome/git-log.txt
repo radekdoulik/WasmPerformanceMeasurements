@@ -1,0 +1,7 @@
+commit 807562e8d5e41831ceef9ee255da81b8f91a188c
+Author: Katelyn Gadd <kg@luminance.org>
+Date:   Tue Apr 9 21:39:31 2024 -0700
+
+    Pre-compute and cache MonoClass name hash (#100847)
+    
+    During startup we spend a measurable amount of time hashing types, and some of that time is spent hashing classnames over and over again, so this PR caches the hash at class creation time instead.
