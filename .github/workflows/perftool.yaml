@@ -25,7 +25,7 @@ jobs:
       - uses: actions/upload-pages-artifact@v3
         with:
           artifact-name: github-pages
-          path: PerformanceTool/bin/Release/net8.0-browser/publish/wwwroot
+          path: PerformanceTool/bin/Release/net9.0-browser/publish/wwwroot
 
   deploy:
     name: Deploy to github.io
