@@ -1,0 +1,7 @@
+commit f8624eed1c9e71f1ffd0d3b93a579b5641b214d6
+Author: Andy Gocke <angocke@microsoft.com>
+Date:   Wed Apr 10 10:19:02 2024 -0700
+
+    Import pool providers (#100851)
+    
+    Import pool-providers in common variables. This should allow all stages access to the pool provider variables.
