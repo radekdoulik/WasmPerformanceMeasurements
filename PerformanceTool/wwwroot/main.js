@@ -1,6 +1,6 @@
 ﻿import { dotnet } from './_framework/dotnet.js'
 
-const margin = { top: 60, right: 16, bottom: 80, left: 16 };
+const margin = { top: 60, right: 64, bottom: 80, left: 64 };
 const height = 500 - margin.top - margin.bottom;
 let originalWidth;
 let originalHeight;
