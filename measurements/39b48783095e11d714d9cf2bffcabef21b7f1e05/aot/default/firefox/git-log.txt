@@ -1,0 +1,27 @@
+commit 39b48783095e11d714d9cf2bffcabef21b7f1e05
+Author: Radek Zikmund <32671551+rzikm@users.noreply.github.com>
+Date:   Wed Apr 10 14:47:40 2024 +0200
+
+    Support SSLKEYLOGFILE in Release builds (#100665)
+    
+    * Allow SSLKEYLOGFILE functionality in Release builds
+    
+    * Unify SSLKEYLOGFILE logging, gate behind AppContextSwitch
+    
+    * Add more points where QUIC secrets are logged
+    
+    * Enable in Debug builds without appctx switch
+    
+    * Update src/libraries/System.Net.Quic/src/System.Net.Quic.csproj
+    
+    Co-authored-by: Marie Píchová <11718369+ManickaP@users.noreply.github.com>
+    
+    * Code review feedback
+    
+    * More code review changes
+    
+    * iAdjust appctx switch name
+    
+    ---------
+    
+    Co-authored-by: Marie Píchová <11718369+ManickaP@users.noreply.github.com>
