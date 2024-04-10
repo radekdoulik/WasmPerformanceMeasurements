@@ -1,0 +1,9 @@
+commit 6b9381be09980dac0d2fc554cf478e054c005cdb
+Author: Elinor Fung <elfung@microsoft.com>
+Date:   Tue Apr 9 19:41:31 2024 -0700
+
+    Make src/native/managed projects use Microsoft.DotNet.ILCompiler version from Version.props (#100845)
+    
+    - Use the version of Microsoft.DotNet.ILCompiler specified in Version.props when producing runtime components in src/native/managed via NativeAOT
+      - This is the same version that `ILCompiler.csproj` / `ilc` itself uses to publish as NativeAOT
+    - Reduce the number of copies of the output by avoiding publishing and just running `LinkNative`
