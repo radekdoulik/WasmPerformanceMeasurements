@@ -1,0 +1,9 @@
+commit 700d724f6abadb372cb38894bdd342b193afc518
+Author: Sven Boemer <sbomer@gmail.com>
+Date:   Mon Apr 8 08:20:09 2024 -0700
+
+    Add feature switch to disable COM type descriptors (#100693)
+    
+    Together with dotnet/winforms#11165, this removes some
+    COM-related trim warnings in a winforms test app by disabling
+    support for browsing COM objects via the TypeDescriptor APIs.
