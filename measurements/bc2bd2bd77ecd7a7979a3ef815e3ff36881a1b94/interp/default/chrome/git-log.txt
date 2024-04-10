@@ -1,0 +1,9 @@
+commit bc2bd2bd77ecd7a7979a3ef815e3ff36881a1b94
+Author: Radek Zikmund <32671551+rzikm@users.noreply.github.com>
+Date:   Mon Apr 8 09:53:34 2024 +0200
+
+    Avoid frequent calls to CertificateValidationPal.IsLocalCertificateUsed (#100513)
+    
+    * Avoid frequent calls to CertificateValidationPal.IsLocalCertificateUsed
+    
+    * Code review feedback
