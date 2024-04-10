@@ -1,0 +1,15 @@
+commit f190dd2c2e79a3cd1829bf962a49499ad6510fcf
+Author: Andy Ayers <andya@microsoft.com>
+Date:   Mon Apr 8 17:31:44 2024 -0700
+
+    JIT: initial profile repair (#100456)
+    
+    Always run a repair pass after incorporating profile data. If that fails to converge, blend in synthetic likelihoods in increasing strengths to enable convergence (giving up some accuracy).
+    
+    Enable block weight consistency checks to run right after profile incorporation. Disable just after that.
+    
+    We can generally make profile data self-consistent, save for two exceptions:
+    1. if the flow graph contains an infinite (or effectively infinite) loop
+    2. if the IL is invalid
+    
+    Because of (2) we can't immediately assert if the profile is not consistent; we must defer until after we've successfully imported the method (since the importer contains many of the validity checks).
