@@ -18,7 +18,8 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: 8.x
+          dotnet-version: 9.x
+          dotnet-quality: 'preview'
       - run: dotnet workload install wasm-tools
       - run: dotnet publish -c Release -p:WasmCompileOptimizationFlag="-O3" -p:EmccLinkOptimizationFlag="-O3" -p:RunAOTCompilation=true PerformanceTool/PerformanceTool.csproj
       - uses: actions/upload-pages-artifact@v3
