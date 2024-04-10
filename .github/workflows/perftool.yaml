@@ -1,6 +1,6 @@
-name: Build and deply to github.io
+name: Build PerformanceTool and deply it to github.io
 
-concurrency: Build and deploy
+concurrency: Build and upload
 
 on:
   push:
@@ -19,8 +19,6 @@ jobs:
       - uses: actions/setup-dotnet@v4
         with:
           dotnet-version: 8.x
-          cache: true
-          cache-dependency-path: '**/packages.lock.json'
       - run: dotnet workload install wasm-tools
       - run: dotnet publish -c Release -p:WasmCompileOptimizationFlag="-O3" -p:EmccLinkOptimizationFlag="-O3" -p:RunAOTCompilation=true PerformanceTool/PerformanceTool.csproj
       - uses: actions/upload-pages-artifact@v3
