@@ -1,0 +1,7 @@
+commit d88c7ba88627b4b68ad523ba27cb354809eb7e67
+Author: Vlad Brezae <brezaevlad@gmail.com>
+Date:   Wed Apr 10 09:43:10 2024 +0300
+
+    [mono][interp] Keep delegate alive during invocation (#100832)
+    
+    When invoking a delegate, we were overwritting the stack slot containing the delegate object reference. In the case of invoking a delegate for a dynamic method, we were running into issues when the delegate object is collected while the method is executed because the method code is also discarded.
