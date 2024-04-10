@@ -1,0 +1,7 @@
+commit 129c6a7a714d803871bc7b382514b45b3ee5015a
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Wed Apr 10 06:05:25 2024 +0900
+
+    Fix Windows x86 testing (#100805)
+    
+    #100375 broke optimized Windows x86 runs.
