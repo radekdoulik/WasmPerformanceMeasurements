@@ -1,0 +1,7 @@
+commit e705ef5b0c9b03bf10d766a5f00f9965fd6d8b06
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Thu Apr 11 20:02:08 2024 +0200
+
+    JIT: Add a test around range check overflow (#100820)
+    
+    Add a test that fails without the overflow check in range check.
