@@ -1,0 +1,7 @@
+commit b4765bd242a49cf932ae96b2bced86830de97b55
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Thu Apr 4 18:07:23 2024 +0900
+
+    Mark managed/Compilation test as NativeAotIncompatible (#100625)
+    
+    The issues.targets exclusion doesn't seem to kick in with the merged wrapper, but whatever: this test compiles into a 100 MB executable because it includes a fully rooted Roslyn, and doesn't work anyway. Stop building it.
