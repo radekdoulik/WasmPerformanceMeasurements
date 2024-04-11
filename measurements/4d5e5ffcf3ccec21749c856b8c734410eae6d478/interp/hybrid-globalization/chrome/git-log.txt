@@ -1,0 +1,5 @@
+commit 4d5e5ffcf3ccec21749c856b8c734410eae6d478
+Author: Egor Bogatov <egorbo@gmail.com>
+Date:   Wed Apr 10 22:17:39 2024 +0200
+
+    Align up structs to IntPtr.Size if they have gc pointers (#100289)
