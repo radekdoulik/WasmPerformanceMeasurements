@@ -1,0 +1,8 @@
+commit 4a016020492b5eef249ff1687f0540d599031db9
+Author: Sven Boemer <sbomer@gmail.com>
+Date:   Wed Apr 10 14:33:44 2024 -0700
+
+    Disable COM descriptor support when trimming (#100881)
+    
+    Defaults the COM type descriptor feature switch to false in trimmed apps.
+    Depends on the SDK change https://github.com/dotnet/sdk/pull/40106.
