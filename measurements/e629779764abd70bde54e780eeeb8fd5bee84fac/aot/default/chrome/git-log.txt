@@ -1,0 +1,38 @@
+commit e629779764abd70bde54e780eeeb8fd5bee84fac
+Author: Aleksey Kliger (λgeek) <alklig@microsoft.com>
+Date:   Thu Apr 4 10:39:49 2024 -0400
+
+    [cdac] Physical contract descriptor spec (#100365)
+    
+    Building on #100253 , describe an in-memory representation of the toplevel contract descriptor, comprisied of:
+    * some target architecture properties
+    * a data descriptor
+    * a collection of compatible contracts
+    
+    Contributes to #99298
+    Fixes https://github.com/dotnet/runtime/issues/99299
+    
+    ---
+    
+    
+    * [cdac] Physical contract descriptor spec
+    
+    * Add "contracts" to the data descriptor
+    
+    *  one runtime per module
+    
+       if there are multiple hosted runtimes, diagnostic tooling should look in each loaded module to discover the contract descriptor
+    
+    * Apply suggestions from code review
+    
+    * Review feedback
+    
+       - put the aux data and descriptor sizes closer to the pointers
+    
+       - Don't include trailing nul `descriptor_size`.  Clarify it is counting bytes and that `descriptor` is in UTF-8
+    
+       - Simplify `DotNetRuntimeContractDescriptor` naming discussion
+    
+    ---------
+    
+    Co-authored-by: Elinor Fung <elfung@microsoft.com>
