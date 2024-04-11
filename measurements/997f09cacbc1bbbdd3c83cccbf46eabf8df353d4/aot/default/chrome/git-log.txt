@@ -1,0 +1,24 @@
+commit 997f09cacbc1bbbdd3c83cccbf46eabf8df353d4
+Author: Vlad Brezae <brezaevlad@gmail.com>
+Date:   Fri Apr 5 11:47:45 2024 +0300
+
+    [mono][interp] Reduce false pinning from interp stack (#100400)
+    
+    * [mono][interp] Reduce false pinning from interp stack
+    
+    Interpreter opcodes operate on the interp stack, an area of memory separately allocated. Each interp var will have an allocated stack offset in the current interpreter stack frame. When we allocate the storage for an interp var we can take into account the var type. If the type can represent a potential ref to an object or an interior ref then we mark the pointer slot as potentially containing refs, for the method that is being compiled.
+    
+    During GC, we used to conservatively scan the entire interp stack space used by each thread. After this change, in the first stage, we do a stack walkwhere we detect slots in each interp frame where no refs can reside. We mark these slots in a bit array. Afterwards we conservatively scan the interp stack of the thread, while ignoring slots that were previously marked as not containing any refs.
+    
+    System.Runtime.Tests suite was used for testing the effectiveness of the change, by computing the cumulative number of pinned objects throughout all GCs (about 1100).
+    minijit         - avg 702000 pinned objects
+    old-interp      - avg 641000 pinned objects
+    precise-interp  - avg 578000 pinned objects
+    
+    This resulted in 10% reduction in the number of pinned objects during collection. This change is meant to reduce memory usage of apps by making objects die earlier. We could further improve by being more precise. For example, for call sites we could reuse liveness information to precisely know which slots actually contain refs. This is a bit more complex to implement and it is unclear yet how impactful it would be.
+    
+    * [mono][interp] Add option to disable precise scanning of stack
+    
+    * [mono][interp] Fix pushing of byrefs on execution stack
+    
+    A lot of times, when we were pushing a byref type on the stack during compilation, we would first get the mint_type which would be MINT_TYPE_I4/I8. From the mint_type we would then obtain the STACK_TYPE_I4/I8, losing information because it should have been STACK_TYPE_MP. Because of this, the underlying interp var would end up being created as MONO_TYPE_I4/I8 instead of MONO_TYPE_I. Add another method for pushing directly a MonoType, with less confusing indirections. Code around here could further be refactored. This is only relevant for GC stack scanning, since we would want to scan only slots containing MONO_TYPE_I.
