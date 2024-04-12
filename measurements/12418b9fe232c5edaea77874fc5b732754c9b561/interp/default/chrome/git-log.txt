@@ -1,0 +1,11 @@
+commit 12418b9fe232c5edaea77874fc5b732754c9b561
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Fri Apr 12 07:32:47 2024 +0900
+
+    Avoid LINQ expressions in getting `GetService` (#100916)
+    
+    This makes ASP.NET 50 kB smaller with native AOT.
+    
+    We don't even need this `MethodInfo` but it's created in the static constructor along with other things that are needed so can't get rid of it. Could move it to a different type to get it fully out of the way.
+    
+    Note: this was previously grabbing `MethodInfo` of the lambda but that might have been unintentional.
