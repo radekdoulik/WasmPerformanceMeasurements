@@ -1,0 +1,12 @@
+commit 60ef7ec81b235e12f2e238d92969ad31ac56b548
+Author: Andy Ayers <andya@microsoft.com>
+Date:   Thu Apr 11 07:29:24 2024 -0700
+
+    JIT: revise how synthesis treats handler regions (#100899)
+    
+    Instead of giving hander regions a fraction of the entry weight, give them a small
+    fixed weight. This is intended to combat the lack of profile propagation out of
+    handler regions, where there are currently sometimes weight discontinuities large
+    enough to cause profile check asserts.
+    
+    Contributes to #93020.
