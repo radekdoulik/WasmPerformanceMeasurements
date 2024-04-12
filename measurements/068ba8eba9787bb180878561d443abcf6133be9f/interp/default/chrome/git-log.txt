@@ -1,0 +1,7 @@
+commit 068ba8eba9787bb180878561d443abcf6133be9f
+Author: Kevin Jones <kevin@vcsjones.com>
+Date:   Fri Apr 5 11:49:43 2024 -0400
+
+    Improve error when private key is missing in RSABCrypt
+    
+    CNG bcrypt gives an unhelpful error when a public key used in a way that requires the private key. RSABCrypt knows if the key is public or not so we can use this to throw a more helpful exception.
