@@ -1,0 +1,15 @@
+commit f02db51a058024755c849942625ffbad2a35d407
+Author: Thays Grazia <thaystg@gmail.com>
+Date:   Thu Apr 11 21:47:22 2024 -0300
+
+    [wasm][debugger] Support sending Assembly_Load events  on wasm (#100941)
+    
+    * Support sending Assembly_Load events  on wasm
+    
+    * Update debugger-agent.c
+    
+    update other assembly_load reference
+    
+    ---------
+    
+    Co-authored-by: Larry Ewing <lewing@microsoft.com>
