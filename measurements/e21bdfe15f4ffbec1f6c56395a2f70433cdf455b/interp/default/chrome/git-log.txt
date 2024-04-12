@@ -1,0 +1,7 @@
+commit e21bdfe15f4ffbec1f6c56395a2f70433cdf455b
+Author: Aaron Robinson <arobins@microsoft.com>
+Date:   Wed Apr 3 09:46:00 2024 -0700
+
+    Fix use of uninitialized `bool` value (#100560)
+    
+    Fixes https://github.com/dotnet/runtime/issues/100559
