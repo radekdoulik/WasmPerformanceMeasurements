@@ -1,0 +1,7 @@
+commit 1794d6599b20ea3e406b71d1a59e0ed26a4b5e12
+Author: Katelyn Gadd <kg@luminance.org>
+Date:   Thu Apr 11 14:13:29 2024 -0700
+
+    [mono] Reduce number of reallocs inside interp_create_var_explicit (#100801)
+    
+    During startup we realloc the vars table a lot, so pre-reserve some spare space in it to minimize the number of reallocs
