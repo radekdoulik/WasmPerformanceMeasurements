@@ -1,0 +1,40 @@
+commit 5fd286ac7a795c1cb1ef5c63efe40e2da1d670b6
+Author: dotnet-maestro[bot] <42748379+dotnet-maestro[bot]@users.noreply.github.com>
+Date:   Thu Apr 11 20:52:52 2024 -0500
+
+    [main] Update dependencies from dotnet/emsdk (#100812)
+    
+    * Update dependencies from https://github.com/dotnet/emsdk build 20240409.1
+    
+    Microsoft.SourceBuild.Intermediate.emsdk , Microsoft.NET.Runtime.Emscripten.3.1.34.Python.win-x64 , Microsoft.NET.Workload.Emscripten.Current.Manifest-9.0.100.Transport
+     From Version 9.0.0-preview.4.24204.9 -> To Version 9.0.0-preview.4.24209.1
+    
+    Dependency coherency updates
+    
+    runtime.linux-arm64.Microsoft.NETCore.Runtime.JIT.Tools,runtime.linux-x64.Microsoft.NETCore.Runtime.JIT.Tools,runtime.linux-musl-arm64.Microsoft.NETCore.Runtime.JIT.Tools,runtime.linux-musl-x64.Microsoft.NETCore.Runtime.JIT.Tools,runtime.win-arm64.Microsoft.NETCore.Runtime.JIT.Tools,runtime.win-x64.Microsoft.NETCore.Runtime.JIT.Tools,runtime.osx-arm64.Microsoft.NETCore.Runtime.JIT.Tools,runtime.osx-x64.Microsoft.NETCore.Runtime.JIT.Tools,runtime.linux-arm64.Microsoft.NETCore.Runtime.Mono.LLVM.Sdk,runtime.linux-arm64.Microsoft.NETCore.Runtime.Mono.LLVM.Tools,runtime.linux-musl-arm64.Microsoft.NETCore.Runtime.Mono.LLVM.Sdk,runtime.linux-musl-arm64.Microsoft.NETCore.Runtime.Mono.LLVM.Tools,runtime.linux-x64.Microsoft.NETCore.Runtime.Mono.LLVM.Sdk,runtime.linux-x64.Microsoft.NETCore.Runtime.Mono.LLVM.Tools,runtime.linux-musl-x64.Microsoft.NETCore.Runtime.Mono.LLVM.Sdk,runtime.linux-musl-x64.Microsoft.NETCore.Runtime.Mono.LLVM.Tools,runtime.win-x64.Microsoft.NETCore.Runtime.Mono.LLVM.Sdk,runtime.win-x64.Microsoft.NETCore.Runtime.Mono.LLVM.Tools,runtime.osx-arm64.Microsoft.NETCore.Runtime.Mono.LLVM.Sdk,runtime.osx-arm64.Microsoft.NETCore.Runtime.Mono.LLVM.Tools,runtime.osx-x64.Microsoft.NETCore.Runtime.Mono.LLVM.Sdk,runtime.osx-x64.Microsoft.NETCore.Runtime.Mono.LLVM.Tools
+     From Version 16.0.5-alpha.1.24203.4 -> To Version 16.0.5-alpha.1.24204.1 (parent: Microsoft.NET.Workload.Emscripten.Current.Manifest-9.0.100.Transport
+    
+    * Update dependencies from https://github.com/dotnet/emsdk build 20240409.5
+    
+    Microsoft.SourceBuild.Intermediate.emsdk , Microsoft.NET.Runtime.Emscripten.3.1.34.Python.win-x64 , Microsoft.NET.Workload.Emscripten.Current.Manifest-9.0.100.Transport
+     From Version 9.0.0-preview.4.24204.9 -> To Version 9.0.0-preview.4.24209.5
+    
+    Dependency coherency updates
+    
+    runtime.linux-arm64.Microsoft.NETCore.Runtime.JIT.Tools,runtime.linux-x64.Microsoft.NETCore.Runtime.JIT.Tools,runtime.linux-musl-arm64.Microsoft.NETCore.Runtime.JIT.Tools,runtime.linux-musl-x64.Microsoft.NETCore.Runtime.JIT.Tools,runtime.win-arm64.Microsoft.NETCore.Runtime.JIT.Tools,runtime.win-x64.Microsoft.NETCore.Runtime.JIT.Tools,runtime.osx-arm64.Microsoft.NETCore.Runtime.JIT.Tools,runtime.osx-x64.Microsoft.NETCore.Runtime.JIT.Tools,runtime.linux-arm64.Microsoft.NETCore.Runtime.Mono.LLVM.Sdk,runtime.linux-arm64.Microsoft.NETCore.Runtime.Mono.LLVM.Tools,runtime.linux-musl-arm64.Microsoft.NETCore.Runtime.Mono.LLVM.Sdk,runtime.linux-musl-arm64.Microsoft.NETCore.Runtime.Mono.LLVM.Tools,runtime.linux-x64.Microsoft.NETCore.Runtime.Mono.LLVM.Sdk,runtime.linux-x64.Microsoft.NETCore.Runtime.Mono.LLVM.Tools,runtime.linux-musl-x64.Microsoft.NETCore.Runtime.Mono.LLVM.Sdk,runtime.linux-musl-x64.Microsoft.NETCore.Runtime.Mono.LLVM.Tools,runtime.win-x64.Microsoft.NETCore.Runtime.Mono.LLVM.Sdk,runtime.win-x64.Microsoft.NETCore.Runtime.Mono.LLVM.Tools,runtime.osx-arm64.Microsoft.NETCore.Runtime.Mono.LLVM.Sdk,runtime.osx-arm64.Microsoft.NETCore.Runtime.Mono.LLVM.Tools,runtime.osx-x64.Microsoft.NETCore.Runtime.Mono.LLVM.Sdk,runtime.osx-x64.Microsoft.NETCore.Runtime.Mono.LLVM.Tools
+     From Version 16.0.5-alpha.1.24203.4 -> To Version 16.0.5-alpha.1.24204.1 (parent: Microsoft.NET.Workload.Emscripten.Current.Manifest-9.0.100.Transport
+    
+    * Update dependencies from https://github.com/dotnet/emsdk build 20240409.5
+    
+    Microsoft.SourceBuild.Intermediate.emsdk , Microsoft.NET.Runtime.Emscripten.3.1.34.Python.win-x64 , Microsoft.NET.Workload.Emscripten.Current.Manifest-9.0.100.Transport
+     From Version 9.0.0-preview.4.24204.9 -> To Version 9.0.0-preview.4.24209.5
+    
+    Dependency coherency updates
+    
+    runtime.linux-arm64.Microsoft.NETCore.Runtime.JIT.Tools,runtime.linux-x64.Microsoft.NETCore.Runtime.JIT.Tools,runtime.linux-musl-arm64.Microsoft.NETCore.Runtime.JIT.Tools,runtime.linux-musl-x64.Microsoft.NETCore.Runtime.JIT.Tools,runtime.win-arm64.Microsoft.NETCore.Runtime.JIT.Tools,runtime.win-x64.Microsoft.NETCore.Runtime.JIT.Tools,runtime.osx-arm64.Microsoft.NETCore.Runtime.JIT.Tools,runtime.osx-x64.Microsoft.NETCore.Runtime.JIT.Tools,runtime.linux-arm64.Microsoft.NETCore.Runtime.Mono.LLVM.Sdk,runtime.linux-arm64.Microsoft.NETCore.Runtime.Mono.LLVM.Tools,runtime.linux-musl-arm64.Microsoft.NETCore.Runtime.Mono.LLVM.Sdk,runtime.linux-musl-arm64.Microsoft.NETCore.Runtime.Mono.LLVM.Tools,runtime.linux-x64.Microsoft.NETCore.Runtime.Mono.LLVM.Sdk,runtime.linux-x64.Microsoft.NETCore.Runtime.Mono.LLVM.Tools,runtime.linux-musl-x64.Microsoft.NETCore.Runtime.Mono.LLVM.Sdk,runtime.linux-musl-x64.Microsoft.NETCore.Runtime.Mono.LLVM.Tools,runtime.win-x64.Microsoft.NETCore.Runtime.Mono.LLVM.Sdk,runtime.win-x64.Microsoft.NETCore.Runtime.Mono.LLVM.Tools,runtime.osx-arm64.Microsoft.NETCore.Runtime.Mono.LLVM.Sdk,runtime.osx-arm64.Microsoft.NETCore.Runtime.Mono.LLVM.Tools,runtime.osx-x64.Microsoft.NETCore.Runtime.Mono.LLVM.Sdk,runtime.osx-x64.Microsoft.NETCore.Runtime.Mono.LLVM.Tools
+     From Version 16.0.5-alpha.1.24203.4 -> To Version 16.0.5-alpha.1.24204.1 (parent: Microsoft.NET.Workload.Emscripten.Current.Manifest-9.0.100.Transport
+    
+    ---------
+    
+    Co-authored-by: dotnet-maestro[bot] <dotnet-maestro[bot]@users.noreply.github.com>
+    Co-authored-by: Larry Ewing <lewing@microsoft.com>
