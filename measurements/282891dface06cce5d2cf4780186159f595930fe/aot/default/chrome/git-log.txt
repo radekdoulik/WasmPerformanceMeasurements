@@ -1,0 +1,9 @@
+commit 282891dface06cce5d2cf4780186159f595930fe
+Author: Bruce Forstall <brucefo@microsoft.com>
+Date:   Mon Apr 1 18:57:06 2024 -0700
+
+    Make JitOptRepeat available in Release builds (#100494)
+    
+    Also, fix a problem in superpmi.py asmdiffs for Release builds
+    where we got a divide by zero because release builds don't have
+    PerfScore.
