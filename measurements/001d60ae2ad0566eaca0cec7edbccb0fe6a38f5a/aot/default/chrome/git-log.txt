@@ -1,0 +1,7 @@
+commit 001d60ae2ad0566eaca0cec7edbccb0fe6a38f5a
+Author: Katelyn Gadd <kg@luminance.org>
+Date:   Tue Apr 9 10:48:32 2024 -0700
+
+    [wasm] use sbrk instead of emscripten mmap or malloc when loading bytes into heap (#100106)
+    
+    Use sbrk to allocate persistent space for large load_bytes_into_heap calls to avoid the startup overhead of emscripten's malloc and memset for the new space
