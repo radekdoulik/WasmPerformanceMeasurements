@@ -1,0 +1,15 @@
+commit b76baa856babaac858c44bbcb943b873ba862b41
+Author: Michał Petryka <35800402+MichalPetryka@users.noreply.github.com>
+Date:   Fri Apr 5 17:46:08 2024 +0200
+
+    Cleanup NativeAOT math helpers (#100375)
+    
+    * Cleanup NativeAOT math helpers
+    
+    * Restore checked cast helpers
+    
+    * Rename variables
+    
+    ---------
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
