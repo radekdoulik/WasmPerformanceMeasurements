@@ -1,0 +1,15 @@
+commit 89bd91044e14ef0b4040dac086b30341dd1c831d
+Author: Maoni Stephens <Maoni0@users.noreply.github.com>
+Date:   Wed Apr 3 11:48:38 2024 -0700
+
+    DATAS for small HCs (#100390)
+    
+    I adjusted the formula for determining a new HC and change how we calculate the gen0 budget based on gen2 size.
+    
+    changes included -
+    
+    + currently we have a very simplistic formula for actually adapting to the size and this basically just makes all the asp.net benchmarks with low surv rate adjust to the min 2.5 mb gen0 budget, while those run ok with such a small budget on a 28 core machine, it doesn't work if we limit the heap count to a small number, eg, 4. what happens is the % time in GC is very high, some benchmarks run with 20% to 40% time in GC. this is obviously not desirable. I reworked this to make it actually adapting to the size. and we'll take the min of this and what we calculated without DATAS.
+    
+    + the formula I had previously did not handle small HCs well so I also adjust that.
+    
+    + got rid of the adjusting to cache size in gc1 for DATAS, this just makes things unpredictable especially for small workloads.
