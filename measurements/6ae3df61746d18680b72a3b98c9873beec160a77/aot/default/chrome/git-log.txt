@@ -1,0 +1,13 @@
+commit 6ae3df61746d18680b72a3b98c9873beec160a77
+Author: Bruce Forstall <brucefo@microsoft.com>
+Date:   Thu Apr 4 12:15:08 2024 -0700
+
+    Remove CLANG_FORMAT_COMMENT_ANCHOR (#100615)
+    
+    * Remove CLANG_FORMAT_COMMENT_ANCHOR
+    
+    Not needed after #100498
+    
+    * Fix build
+    
+    * Formatting
