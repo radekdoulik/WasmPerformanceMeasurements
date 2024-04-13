@@ -1,0 +1,9 @@
+commit 85e8f688ffaf02743da29adff95e98ebd22a6f53
+Author: Elinor Fung <elfung@microsoft.com>
+Date:   Tue Apr 2 19:13:30 2024 -0700
+
+    Cleanup of `fx_resolver_t` and tests in `NativeHostApis` (#100542)
+    
+    Slight cleanup of `fx_resolver_t` and `NativeHostApis` tests in preparation for #99027:
+    - Collapse `reconcile_fx_references_helper` into `reconcile_fx_references`
+    - Make `NativeHostApis` tests / `HostApiInvokerApp` more consistent in how they log and validate results
