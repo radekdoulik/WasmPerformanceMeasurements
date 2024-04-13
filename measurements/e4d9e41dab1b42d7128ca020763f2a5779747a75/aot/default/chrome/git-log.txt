@@ -1,0 +1,13 @@
+commit e4d9e41dab1b42d7128ca020763f2a5779747a75
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Thu Apr 4 17:57:33 2024 +0900
+
+    Fix official build break (#100624)
+    
+    #100512 caused an official build break by exposing a latent issue in how we build the managed artifacts. Official builds split managed and native builds for some reason. This is throwing off the heuristic that decides whether to use native AOT's corelib in build.
+    
+    We were always using the native AOT's corelib in x64 and arm64 legs because of the thrown off heuristic. This apparently didn't cause an immediate problem there.
+    
+    It causes a problem on x86 because crossgen2 is a trimmed+r2r+singlefile executable on x86 (and nowhere else) and ILLink execution doesn't like the layouts with `UseNativeAotCoreLib`.
+    
+    Tweak the heuristic to not use native AOT corelib if we're building JIT corelib.
