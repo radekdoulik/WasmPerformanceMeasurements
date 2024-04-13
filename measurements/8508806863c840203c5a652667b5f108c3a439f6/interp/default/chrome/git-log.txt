@@ -1,0 +1,28 @@
+commit 8508806863c840203c5a652667b5f108c3a439f6
+Author: Sven Boemer <sbomer@gmail.com>
+Date:   Mon Apr 8 11:26:42 2024 -0700
+
+    Fix bug in virtual annotation logic for RequiresUnreferencedCode (#100707)
+    
+    The following virtual methods are correctly annotated and do not warn:
+    
+    ```csharp
+    class Base {
+      virtual void M() {}
+    }
+    
+    [RequiresUnreferencedCode("Derived")]
+    class Derived : Base {
+      override void M() {}
+    }
+    ```
+    
+    However, if the method also happens to have DynamicallyAccessedMembers
+    annotations, there's a bug in the logic that causes this to produce
+    warnings in illink. This change fixes the bug.
+    
+    Hit this while experimenting with ComponentModel annotations.
+    
+    ---------
+    
+    Co-authored-by: Jackson Schuster <36744439+jtschuster@users.noreply.github.com>
