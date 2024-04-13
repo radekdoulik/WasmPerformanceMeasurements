@@ -1,0 +1,8 @@
+commit be3ad0d6ed572a1bdbdb3036a83e769b7607e693
+Author: Katelyn Gadd <kg@luminance.org>
+Date:   Thu Apr 11 17:40:54 2024 -0700
+
+    [mono] Optimize (typedef|table|declsec)_locator metadata loading (#100157)
+    
+    * Optimize typedef_locator, table_locator and declsec_locator by hoisting initialization out
+    * Cleanup duplicated code with different understandings of locator_t
