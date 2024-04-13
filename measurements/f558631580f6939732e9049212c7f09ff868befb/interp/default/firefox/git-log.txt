@@ -1,0 +1,8 @@
+commit f558631580f6939732e9049212c7f09ff868befb
+Author: Andy Ayers <andya@microsoft.com>
+Date:   Wed Apr 3 14:28:31 2024 -0700
+
+    JIT: fix some display math issues in reconstruction doc (#100609)
+    
+    Github does not handle `$$..$$` blocks on consecutive
+    lines. Add some blank lines in between.
