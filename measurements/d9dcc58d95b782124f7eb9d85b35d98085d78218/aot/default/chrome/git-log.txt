@@ -1,0 +1,11 @@
+commit d9dcc58d95b782124f7eb9d85b35d98085d78218
+Author: SingleAccretion <62474226+SingleAccretion@users.noreply.github.com>
+Date:   Fri Apr 5 21:57:14 2024 +0300
+
+    Remove more `ASG` terminlogy from the codebase (#86760)
+    
+    * Excise 'assignment' terminology from the codebase
+    
+    * Standardize on the 'value' terminology for store operands
+    
+    But only in the frontend; backend has lots of "data"s, and it did not seem purposeful renaming them.
