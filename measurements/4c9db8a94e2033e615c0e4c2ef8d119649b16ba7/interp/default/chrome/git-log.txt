@@ -1,0 +1,5 @@
+commit 4c9db8a94e2033e615c0e4c2ef8d119649b16ba7
+Author: Pavel Savara <pavel.savara@gmail.com>
+Date:   Tue Apr 9 12:44:58 2024 +0200
+
+    [browser][MT] fix thread creation race with finalizer (#100778)
