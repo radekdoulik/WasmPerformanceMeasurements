@@ -1,0 +1,7 @@
+commit ec7648702c1307ab4002a429996da7db023787dd
+Author: Aman Khalid <amankhalid@microsoft.com>
+Date:   Fri Apr 12 19:26:00 2024 +0000
+
+    JIT: Add GT_SWIFT_ERROR_RET to represent loading error register upon return (#100692)
+    
+    Follow-up to #100429. If a method has a `SwiftError*` out parameter, a new phase -- `fgAddSwiftErrorReturns` -- converts all `GT_RETURN` nodes into `GT_SWIFT_ERROR_RET` nodes; this new node type is a binop that takes the error value as its first operand, and the normal return value (if there is one) as its second operand. The error value is loaded into the Swift error register upon returning.
