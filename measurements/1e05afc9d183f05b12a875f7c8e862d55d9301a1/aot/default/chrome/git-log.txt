@@ -1,0 +1,5 @@
+commit 1e05afc9d183f05b12a875f7c8e862d55d9301a1
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Fri Apr 12 22:33:14 2024 -0400
+
+    Fix erroneous readonly on a mutable struct (#100996)
