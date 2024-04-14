@@ -1,0 +1,7 @@
+commit 0c92024e9d360b3dc11055326e342a9ead9a820f
+Author: Katelyn Gadd <kg@luminance.org>
+Date:   Fri Apr 5 10:41:50 2024 -0700
+
+    [wasm] Improvements to startup performance of mono_wasm_get_assembly_exports (#99924)
+    
+    Change generated JSImport/JSExport initializer to not rely on Environment.Version, for faster startup
