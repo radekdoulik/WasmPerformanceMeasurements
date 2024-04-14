@@ -1,0 +1,5 @@
+commit 93f886f5f64c738fd8122d5b85e2c032da23dd0e
+Author: Jeremy Koritzinsky <jekoritz@microsoft.com>
+Date:   Fri Apr 12 18:14:37 2024 -0700
+
+    Fix NULL conversion warnings found in Alpine x64 Source-Build (#100796)
