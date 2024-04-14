@@ -1,0 +1,9 @@
+commit fa1164c327052042120bf0d3b6fc81e86cfab69d
+Author: SwapnilGaikwad <swapnil.gaikwad@arm.com>
+Date:   Sun Apr 14 05:00:45 2024 +0100
+
+    Use multi-reg load/store for DecodeFromUTF8 (#100589)
+    
+    * Use multi-reg load/store for DecodeFromUTF8
+    
+    * Address review comments
