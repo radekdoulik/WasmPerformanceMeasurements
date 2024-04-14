@@ -1,0 +1,21 @@
+commit 7c365ec525da4b3afb87d8bf69c6d7d5dc0e6ddf
+Author: rhirano0715 <104247605+rhirano0715@users.noreply.github.com>
+Date:   Sat Apr 13 11:55:37 2024 +0900
+
+    Prevent IndexOutOfRangeException in RegexInterpreter (#97916)
+    
+    * Prevent IndexOutOfRangeException in RegexInterpreter
+    
+    This update fixes the IndexOutOfRangeException in RegexInterpreter by enhancing the `TrackPush` and `TrackPush2` methods. The adjustment involves checking the runtrack position before decrementing it, ensuring that it doesn't become negative, which was the root cause of the exception. This prevents potential out-of-range errors when handling large numbers of repetitions in regular expressions.
+    
+    Fix #62094
+    
+    * Changed to call EnsureStorage() unconditionally.
+    
+    If EnsureStorage() is called unconditionally, the array will be expanded, so the position will never become negative. When the conditions inside EnsureStorage() are true, it might be necessary to expand the array, regardless of the comparison between newpos and codepos.
+    
+    https://github.com/dotnet/runtime/blob/6ebc8bd86dbc780b2a2a7daf3ab6020f9104f09e/src/libraries/System.Text.RegularExpressions/tests/FunctionalTests/Regex.MultipleMatches.Tests.cs#L461-L469
+    
+    Before the change, in this test case, EnsureStorage() is not called because newpos == codepos == 6 from the first time until an exception occurs.
+    
+    Fix #62049
