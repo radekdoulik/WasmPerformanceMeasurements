@@ -1,0 +1,9 @@
+commit 3a78480ae21a909ecd3ac9edfd2aa3e63dd890fb
+Author: Grzegorz Tomasz Czarnecki <grzegorz.czarnecki.2021@gmail.com>
+Date:   Mon Apr 15 13:30:49 2024 +0200
+
+    [RISC-V] Fixed printing jump destinations in disassembler on release (#100967)
+    
+    * [RISC-V] Fixed printing jump destinations in release mode in disasm
+    
+    * [RISC-V] Fixed cast type
