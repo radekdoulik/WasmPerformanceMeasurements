@@ -1,0 +1,19 @@
+commit dd7c82e06b6bb231a51f1ce622c6b61cff99bef9
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Tue Apr 16 01:08:20 2024 +0900
+
+    Update SDK to preview 3 release (#100945)
+    
+    * Update global.json
+    
+    * Update blazor.csproj
+    
+    * Delete useless `RuntimeIdentifiers`
+    
+    * Fix up illinker tests
+    
+    * Fix two more preview1 versions
+    
+    ---------
+    
+    Co-authored-by: Alexander Köplinger <alex.koeplinger@outlook.com>
