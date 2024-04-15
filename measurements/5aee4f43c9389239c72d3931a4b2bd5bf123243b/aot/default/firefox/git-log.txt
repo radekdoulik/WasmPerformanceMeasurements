@@ -1,0 +1,8 @@
+commit 5aee4f43c9389239c72d3931a4b2bd5bf123243b
+Author: xtqqczze <45661989+xtqqczze@users.noreply.github.com>
+Date:   Mon Apr 15 07:34:05 2024 +0100
+
+    Replace unaligned casts in `SpanHelpers.Memmove` (#98812)
+    
+    Fix https://github.com/dotnet/runtime/issues/83709
+    IL size is reduced by ~140 bytes.
