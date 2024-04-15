@@ -1,0 +1,7 @@
+commit 8a1e0b7bedf22eb781afb222ae7592245e716979
+Author: Jan Kotas <jkotas@microsoft.com>
+Date:   Mon Apr 15 07:34:30 2024 -0700
+
+    [NativeAOT] Fix Activator.CreateInstance for shared generic structs (#101021)
+    
+    The default constructor has to be invoked using fat pointer in shared generic structs.
