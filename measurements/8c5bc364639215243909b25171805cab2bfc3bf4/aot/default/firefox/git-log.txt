@@ -1,0 +1,7 @@
+commit 8c5bc364639215243909b25171805cab2bfc3bf4
+Author: Alexander Köplinger <alex.koeplinger@outlook.com>
+Date:   Sat Apr 13 17:48:47 2024 +0200
+
+    Pass existing credscan suppression file to SDL scan (#100976)
+    
+    Avoids duplicate findings in the Guardian tools.
