@@ -1,0 +1,11 @@
+commit 2c824aed7b9626598481603d60821693900a187c
+Author: Aman Khalid <amankhalid@microsoft.com>
+Date:   Fri Apr 12 19:06:35 2024 +0000
+
+    JIT: Allow helper calls that always throw to be marked as no-return (#100900)
+    
+    Fixes #100458 by addressing two issues:
+    
+    When flagging a call node as no-return with GTF_CALL_M_DOES_NOT_RETURN, we should always increment Compiler::optNoReturnCallCount to avoid asserts in Compiler::fgTailMergeThrows. Previously, we weren't doing this in a unified place, which seemed error-prone.
+    When incrementing the optNoReturnCallCount member of an inlinee compiler, ensure this information is propagated to the inlinee's parent compiler. In a similar vein, if we try to inline a call, and the inlinee compiler determines it does not return, make sure we increment optNoReturnCallCount in the parent compiler object if the inline fails -- we've kept the call, and we now know it doesn't return.
+    With these changes, I can now mark helper calls that always throw as no-return; this unblocks morph to convert BBJ_ALWAYS blocks with helper calls that throw into BBJ_THROW blocks, and has the nice side effect of improving the efficacy of throw merging. Since I was touching relevant code, I decided to improve our usage of GenTreeCall::IsHelperCall, too.
