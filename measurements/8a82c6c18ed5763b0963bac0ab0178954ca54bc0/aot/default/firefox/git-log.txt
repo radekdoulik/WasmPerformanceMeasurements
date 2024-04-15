@@ -1,0 +1,9 @@
+commit 8a82c6c18ed5763b0963bac0ab0178954ca54bc0
+Author: Kunal Pathak <Kunal.Pathak@microsoft.com>
+Date:   Fri Apr 12 10:55:08 2024 -0700
+
+    Arm64: Add SVE feature detection for Windows (#100937)
+    
+    * Add SVE feature detection for Windows
+    
+    * Move the PF_ARM_SVE_INSTRUCTIONS_AVAILABLE under HOST_WINDOWS
