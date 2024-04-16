@@ -17,7 +17,7 @@ async function mainJS() {
     const is_browser = typeof window != "undefined";
     if (!is_browser) throw new Error(`Expected to be running in a browser`);
 
-    const { setModuleImports, getAssemblyExports, getConfig, runMainAndExit } = await dotnet
+    const { setModuleImports, getAssemblyExports, getConfig, runMain } = await dotnet
         .withDiagnosticTracing(false)
         .withApplicationArgumentsFromQuery()
         .create();
@@ -935,7 +935,7 @@ async function mainJS() {
     //console.log("processing after load: " + (new Date().getTime() - loadedTime));
     console.log("end of mainJS: " + (new Date().getTime() - startTime));
 
-    await runMainAndExit(config.mainAssemblyName, []);
+    await runMain(config.mainAssemblyName, []);
 }
 
 window.addEventListener("resize", () => {
