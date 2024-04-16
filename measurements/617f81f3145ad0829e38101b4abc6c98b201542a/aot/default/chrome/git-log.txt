@@ -1,0 +1,19 @@
+commit 617f81f3145ad0829e38101b4abc6c98b201542a
+Author: Miha Zupan <mihazupan.zupan1@gmail.com>
+Date:   Mon Apr 15 12:56:10 2024 -0700
+
+    Drop generic type constraints from Unsafe.BitCast (#100842)
+    
+    * Drop generic type constraints from Unsafe.BitCast
+    
+    * Add isNullableType to JIT interface
+    
+    * superpmi
+    
+    * Comment formatting
+    
+    * Check IsGenericParameter instead of Canon
+    
+    * Replace IsGenericParameter check with assert
+    
+    * Just kidding, remove it completely :D
