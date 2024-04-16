@@ -1,0 +1,25 @@
+commit 6f3b1a6784818684622ac32a910b1f333708ea82
+Author: Buyaa Namnan <bunamnan@microsoft.com>
+Date:   Tue Apr 16 08:56:28 2024 -0700
+
+    Add PDB support for PersistedAssemblyBuilder (#100706)
+    
+    * Initial PDB API shape and sequence point implementation
+    
+    * Finish PDB implementation and testing
+    
+    * Fix bug in multi doc sequence point
+    
+    * Validate null name for SetLocalSymInfo, do not add locals that has no name to the locals table
+    
+    * Throw on parent virtual methods, remove unnecessary throw
+    
+    * Apply suggestions from code review
+    
+    Co-authored-by: Aaron Robinson <arobins@microsoft.com>
+    
+    * Apply feedback, fix issue found in sequence point PreviousNonHidden.StatrtLine/StartColumn
+    
+    ---------
+    
+    Co-authored-by: Aaron Robinson <arobins@microsoft.com>
