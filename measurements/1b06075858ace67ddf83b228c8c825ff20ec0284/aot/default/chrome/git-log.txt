@@ -1,0 +1,9 @@
+commit 1b06075858ace67ddf83b228c8c825ff20ec0284
+Author: Jan Kotas <jkotas@microsoft.com>
+Date:   Mon Apr 15 23:14:56 2024 -0700
+
+    Ignore strongname mismatch for assemblies returned by AssemblyResolve event (#101039)
+    
+    This check was somehow missed during earlier cleanups that deleted strongname matching for assembly binding.
+    
+    Fixes #101029
