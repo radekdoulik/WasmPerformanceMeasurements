@@ -1,0 +1,13 @@
+commit 1a820cbf867abfa68acc5d7fb9c925a47132f36f
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Tue Apr 16 16:45:11 2024 +0900
+
+    Generate custom attributes from metadata instead of type system (#100763)
+    
+    Fixes #100688
+    
+    Fixes a bit more than just what was reported (see the test). We were losing type information in `attribute.DecodeValue` and could no longer distinguish between `new object[] { SomeEnum.Val }` and `new SomeEnum[] { SomeEnum.Val }`.
+    
+    The fix required a complete rewrite of attribute emission using the more low level API.
+    
+    Cc @dotnet/ilc-contrib
