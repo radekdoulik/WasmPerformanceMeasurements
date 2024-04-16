@@ -1,0 +1,15 @@
+commit f8afaea32baa10207e6d4299b1b13b46b16af556
+Author: Ahmet Ibrahim Aksoy <aaksoy@microsoft.com>
+Date:   Tue Apr 16 13:11:26 2024 +0200
+
+    Disable SocketsHttpHandler_HttpClientHandler_MaxResponseHeadersLength_Http3 Test Suite (#101110)
+    
+    * Disable SocketsHttpHandler_HttpClientHandler_MaxResponseHeadersLength_Http3 test suite
+    
+    * Update src/libraries/System.Net.Http/tests/FunctionalTests/SocketsHttpHandlerTest.cs
+    
+    Co-authored-by: Miha Zupan <mihazupan.zupan1@gmail.com>
+    
+    ---------
+    
+    Co-authored-by: Miha Zupan <mihazupan.zupan1@gmail.com>
