@@ -1,0 +1,56 @@
+commit 42f2b33e9f2028b50ddb2046439e7a8d8630836c
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Tue Apr 16 10:23:21 2024 +0200
+
+    JIT: Fix constrained call dereferences happening too early (#86638)
+    
+    Constrained calls in IL include an implicit dereference that occurs as
+    part of the call. The JIT was adding this dereference on top of the
+    'this' argument tree, which makes it happen too early (before other
+    arguments are evaluated). This changes the importer to spill when
+    necessary to preserve ordering.
+    
+    For:
+    ```cil
+      .method private hidebysig static void  Foo(class Runtime_73615/C arg) cil managed noinlining
+      {
+        // Code size       21 (0x15)
+        .maxstack  2
+        IL_0000:  ldarga.s   arg
+        IL_0002:  ldarga.s   arg
+        IL_0004:  call       int32 Runtime_73615::Bar(class Runtime_73615/C&)
+        IL_0009:  constrained. Runtime_73615/C
+        IL_000f:  callvirt   instance void Runtime_73615/C::Baz(int32)
+        IL_0014:  ret
+      }
+    ```
+    
+    Before:
+    ```
+    ***** BB01
+    STMT00000 ( 0x000[E-] ... 0x014 )
+                   [000003] --C-G------                         ▌  CALL nullcheck void   Runtime_73615+C:Baz(int):this
+                   [000004] n---G------ this                    ├──▌  IND       ref
+                   [000000] -----------                         │  └──▌  LCL_ADDR  long   V00 arg0         [+0]
+                   [000002] --C-G------ arg1                    └──▌  CALL      int    Runtime_73615:Bar(byref):int
+                   [000001] ----------- arg0                       └──▌  LCL_ADDR  byref  V00 arg0         [+0]
+    ```
+    
+    After:
+    ```
+    ***** BB01
+    STMT00000 ( 0x000[E-] ... 0x014 )
+                   [000005] -AC-G------                         ▌  ASG       int
+                   [000004] D------N---                         ├──▌  LCL_VAR   int    V02 tmp1
+                   [000002] --C-G------                         └──▌  CALL      int    Runtime_73615:Bar(byref):int
+                   [000001] ----------- arg0                       └──▌  LCL_ADDR  byref  V00 arg0         [+0]
+    
+    ***** BB01
+    STMT00001 ( ??? ... ??? )
+                   [000003] --C-G------                         ▌  CALL nullcheck void   Runtime_73615+C:Baz(int):this
+                   [000007] n---G------ this                    ├──▌  IND       ref
+                   [000000] -----------                         │  └──▌  LCL_ADDR  long   V00 arg0         [+0]
+                   [000006] ----------- arg1                    └──▌  LCL_VAR   int    V02 tmp1
+    ```
+    
+    Fix #73615
