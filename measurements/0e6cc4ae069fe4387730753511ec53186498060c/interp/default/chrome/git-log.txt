@@ -1,0 +1,5 @@
+commit 0e6cc4ae069fe4387730753511ec53186498060c
+Author: Pavel Savara <pavel.savara@gmail.com>
+Date:   Mon Apr 15 20:25:38 2024 +0200
+
+    [browser][MT] JSImport with DiscardNoWait is OK in the middle of pending synchronous call (#101044)
