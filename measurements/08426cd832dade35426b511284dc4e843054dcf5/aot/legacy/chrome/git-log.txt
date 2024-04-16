@@ -1,0 +1,7 @@
+commit 08426cd832dade35426b511284dc4e843054dcf5
+Author: Jan Kotas <jkotas@microsoft.com>
+Date:   Mon Apr 15 17:58:48 2024 -0700
+
+    Build CoreLib as AnyCPU (#101084)
+    
+    Reduce amount of architecture specific code. Minor cleanup motivated by #101038.
