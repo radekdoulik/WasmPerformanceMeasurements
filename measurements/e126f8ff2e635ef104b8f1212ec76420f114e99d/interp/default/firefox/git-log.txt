@@ -1,0 +1,10 @@
+commit e126f8ff2e635ef104b8f1212ec76420f114e99d
+Author: Elinor Fung <elfung@microsoft.com>
+Date:   Tue Apr 16 21:37:28 2024 -0700
+
+    [cdac] Make DAC load and use cDAC when available (#100946)
+    
+    - If `DOTNET_ENABLE_CDAC` environment variable is `1`, Look for `cdacreader` next to DAC and load it if found
+    - Implement `ISOSDacInterface` in cDAC - currently returns `E_NOTIMPL` for everything
+    - Make DAC delegate to cDAC (if available) for GetThreadStoreData and GetBreakingChangeVersion
+    - Initialize cDAC with function for reading from the target
