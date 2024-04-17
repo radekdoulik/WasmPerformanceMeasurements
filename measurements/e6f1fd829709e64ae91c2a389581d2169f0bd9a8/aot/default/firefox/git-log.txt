@@ -1,0 +1,7 @@
+commit e6f1fd829709e64ae91c2a389581d2169f0bd9a8
+Author: Parker Bibus <parkerbibus@microsoft.com>
+Date:   Tue Apr 16 15:38:23 2024 -0700
+
+    [PERF] Remove lttng-modules-dkms package at beginning of microbenchmark runs (#101142)
+    
+    Add removal of lttng-modules-dkms package as it is currently causing microbenchmarking runs to fail.
