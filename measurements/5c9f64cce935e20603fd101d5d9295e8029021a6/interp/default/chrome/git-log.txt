@@ -1,0 +1,7 @@
+commit 5c9f64cce935e20603fd101d5d9295e8029021a6
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Wed Apr 17 13:13:21 2024 -0400
+
+    Remove regex tests blocking on async calls (#100982)
+    
+    It looks like these were written this way due to the limitation that spans can't be locals in an async method, even if the span doesn't live past an await. Address this for now by separating the code out into a local function.
