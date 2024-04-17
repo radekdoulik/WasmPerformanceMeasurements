@@ -1,0 +1,22 @@
+commit 826202067a38eea5c1fee492df5a9814fe1a080f
+Author: Sven Boemer <sbomer@gmail.com>
+Date:   Tue Apr 16 13:34:24 2024 -0700
+
+    Add option to keep/remove COM interfaces (#101087)
+    
+    Adds an illink option that can be used to remove COM
+    interfaces (the existing behavior is to preserve COM interfaces
+    on marked types). If a type implements a COM interface that is
+    also marked elsewhere, it will still be kept even with
+    `--keep-com-interfaces false`. This includes windows runtime
+    interfaces under the same option name.
+    
+    This eliminates some trim warnings in winforms due to
+    trim-incompatible code in Control's implementations of COM
+    interfaces like IPersistPropertyBag. Experimentally, this still
+    produces a working app for the scenario we've been testing
+    (https://github.com/dotnet/winforms/tree/main/src/System.Windows.Forms/tests/IntegrationTests/TrimTest).
+    For now, this just introduces the option without setting it by
+    default anywhere (or exposing it in MSBuild) so that we can opt
+    in from the winforms scenario. We might consider setting it
+    wherever `BuiltInComInteropSupport` is false.
