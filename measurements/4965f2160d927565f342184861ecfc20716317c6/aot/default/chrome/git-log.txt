@@ -1,0 +1,21 @@
+commit 4965f2160d927565f342184861ecfc20716317c6
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Wed Apr 17 16:54:51 2024 +0200
+
+    JIT: Model JIT helper exceptions correctly in VN (#101062)
+    
+    The JIT currently models all exceptions thrown by helpers with a
+    singleton VN. This can cause CSE to remove exception side effects
+    incorrectly.
+    
+    This change starts modelling exceptions thrown by the following helpers
+    accurately:
+    - The R2R cast helper
+    - Division helpers
+    - Static constructor base helpers
+    
+    Remaining JIT helpers are modelled conservatively, with an opaque VN in
+    the exception part.
+    
+    Contributes to #63559
+    Fix #101028
