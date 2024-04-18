@@ -1,0 +1,9 @@
+commit b0118bebe385cb68f272a32ca6a5c5bb53c9b14f
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Thu Apr 18 08:19:56 2024 -0400
+
+    Add Task.WaitAll overload for `IEnumerable<Task>` (#100569)
+    
+    * Add Task.WaitAll overload for `IEnumerable<Task>`
+    
+    * Disable tests on browser
