@@ -1,0 +1,48 @@
+commit 6171ab5089a60c67cfc6377d741fe174774a79ed
+Author: Martin Costello <martin@martincostello.com>
+Date:   Tue Apr 16 16:12:32 2024 +0100
+
+    Add new line to be specified for JSON formatting (#100890)
+    
+    * Add new line to be specified for JSON formatting
+    
+    Allow the new line string to use for indented JSON to be specified through options.
+    Resolves #84117.
+    
+    * Address review feedback
+    
+    - Cater for `_newLine` in JsonSerializerOptions caching.
+    - Lazily initialize field.
+    - Allow null to reset to default.
+    - Add assertions.
+    - Add/update comments.
+    - Use `nameof()`.
+    - Remove redundant field.
+    - Extend tests.
+    
+    * Update Logging.Console tests
+    
+    - Update property count to fix assertion.
+    - Update test to validate `NewLine` can be set/bound.
+    
+    * Only normalize line endings if needed
+    
+    Only normalize the line endings if the `JsonWriterOptions` are not using the defaults.
+    
+    * Address feedback
+    
+    - Access lazily initialized field through property.
+    - Update hash code assertion.
+    
+    * Update exception message
+    
+    Use similar format string to `Format_InvalidGuidFormatSpecification`/
+    
+    * Address feedback
+    
+    Reword comment as suggested.
+    
+    * Address feedback
+    
+    - Simplify condition.
+    - Disallow null for `string NewLine` properties.
