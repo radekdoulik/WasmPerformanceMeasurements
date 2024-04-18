@@ -1,0 +1,7 @@
+commit 2fe9b3bfe6e5936abb1ef69b7d3ca25a72a52942
+Author: Vlad Brezae <brezaevlad@gmail.com>
+Date:   Wed Apr 17 19:24:57 2024 +0300
+
+    [mono][interp] Resolve virtual method on delegates created by compiled code (#101168)
+    
+    Creating a delegate would normally end up calling into the runtime via ves_icall_mono_delegate_ctor. However, jit/aot backand have a fastpath where the delegate is not fully initialized (relying on the delegate trampoline to resolve the actual method to be called when the delegate is first called). Interp delegate initialization therefore doesn't take place. If this is the case and the delegate method is virtual, we would need to resolve it based on the target object.
