@@ -1,0 +1,13 @@
+commit d7e2bc93afb3b30a38105b654b902991157c894a
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Fri Apr 19 04:51:07 2024 +0900
+
+    Disallow frozen `RuntimeType` for canonical types (#101173)
+    
+    * Disallow frozen `RuntimeType` for canonical types
+    
+    `__Canon` is a compile-time concept.
+    
+    * Create Runtime_101175.cs
+    
+    * Create Runtime_101175.csproj
