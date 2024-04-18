@@ -1,0 +1,7 @@
+commit 6d3a31c536de71c8b89aef901a88d91bf9635484
+Author: Katelyn Gadd <kg@luminance.org>
+Date:   Thu Apr 18 00:11:53 2024 -0700
+
+    [wasm] Optimize jiterpreter option table updates (#101207)
+    
+    The encode-decode-parse flow for the options JSON wastes some time during startup, this approach is a bit faster. The use of a string key still adds some overhead but it's much smaller than the previous overhead, and it's dwarfed by the cost of cwrap/ccall.
