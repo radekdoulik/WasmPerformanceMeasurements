@@ -1,0 +1,15 @@
+commit 3d0da2cc430333160de47b8345609c75830953ad
+Author: Tanner Gooding <tagoo@outlook.com>
+Date:   Mon Apr 15 10:49:32 2024 -0700
+
+    Add support for containing RotateLeft/RotateRight on Arm64 (#101030)
+    
+    * Add support for containing RotateLeft/RotateRight on Arm64
+    
+    * Fix a variable name
+    
+    * Applying formatting patch
+    
+    * Ensure lsrabuild handles contained GT_ROR
+    
+    * Ensure codegenlinear can consume contained GT_ROR
