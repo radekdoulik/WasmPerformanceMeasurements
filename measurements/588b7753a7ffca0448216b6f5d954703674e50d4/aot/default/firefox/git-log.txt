@@ -1,0 +1,9 @@
+commit 588b7753a7ffca0448216b6f5d954703674e50d4
+Author: Qiao Pengcheng <qiaopengcheng@loongson.cn>
+Date:   Thu Apr 18 22:13:17 2024 +0800
+
+    [LoongArch64] add new ABI classifier. (#101224)
+    
+    * add new ABI classifier.
+    
+    * share `CodeGen::genHomeRegisterParams` with XARCH-ARMARCH.
