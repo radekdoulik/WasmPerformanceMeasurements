@@ -1,0 +1,8 @@
+commit 56610095196ac12a397b1acd00835db4d86849b9
+Author: AdrienHache <83088022+AdrienHache@users.noreply.github.com>
+Date:   Fri Apr 19 16:51:18 2024 +0200
+
+    Vector128 wrong throw helper call (#101258)
+    
+    Create<T>(Vector64<T>, Vector64<T>) should use
+    ThrowHelper.ThrowForUnsupportedIntrinsicsVector128BaseType<T> instead of the Vector256 one.
