@@ -1,0 +1,39 @@
+commit 43b22a83964cb22d390292e1869acdfe09f13140
+Author: Aleksey Kliger (λgeek) <alklig@microsoft.com>
+Date:   Thu Apr 18 23:05:54 2024 -0400
+
+    [cdac] Implement a JSON contract reader (#100966)
+    
+    Implement a parser for the "compact" JSON contract descriptor format specified in [data_contracts.md](https://github.com/dotnet/runtime/blob/main/docs/design/datacontracts/data_descriptor.md)
+    
+    The data model is a WIP - it's likely we will want something a bit more abstract (and less mutable).
+    
+    This is not wired up to consume a real contract descriptor from target process memory at the moment.  It's only exercised by unit tests for now.
+    
+    ---
+    
+    * compact descriptor format json parser
+    
+    * suggestions from reviews; remove FieldDescriptor wrong conversion
+    
+       we incorrectly allowed `[number]` as a field descriptor conversion. that's not allowed.  removed it.
+    
+    * Make test project like the nativeoat+linker tests
+    
+       Dont' use libraries test infrastructure.  Just normal arcade xunit support.
+    
+    * add tools.cdacreadertests subset; add to CLR_Tools_Tests test leg
+    
+    * no duplicate fields/sizes in types
+    
+    * Make all cdacreader.csproj ProjectReferences use the same AdditionalProperties
+    
+       Since we set Configuration and RuntimeIdentifier, if we don't pass the same AdditionalProperties in all ProjectReferences, we bad project.assets.json files
+    
+    * Don't share the native compilation AdditionalProperties
+    
+    ---------
+    
+    Co-authored-by: Aaron Robinson <arobins@microsoft.com>
+    Co-authored-by: Adeel Mujahid <3840695+am11@users.noreply.github.com>
+    Co-authored-by: Elinor Fung <elfung@microsoft.com>
