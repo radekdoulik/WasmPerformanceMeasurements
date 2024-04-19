@@ -1,0 +1,26 @@
+commit b194416ea68e2d1c93a91fc7abf80eb2607b4831
+Author: Marek Fišera <mara@neptuo.com>
+Date:   Thu Apr 18 19:52:41 2024 +0200
+
+    [wasi] Select mono components (#100407)
+    
+    * Don't link icu for InvariantGlobalization=true
+    
+    * Don't link debugger for publish
+    
+    * Revert "Don't link icu for InvariantGlobalization=true"
+    
+    This reverts commit d62a165dd9e4ec1051f7fd49b6316252526a992b.
+    
+    # Conflicts:
+    #       src/mono/wasi/build/WasiApp.targets
+    
+    * Drop in-tree setup. Solve the rest of the components
+    
+    * Incorporate WasmDebugLevel
+    
+    * Hook MonoSelectRuntimeComponents. Unify component selection
+    
+    * Fix merge damage
+    
+    * Conditional mono targets
