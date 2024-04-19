@@ -1,0 +1,7 @@
+commit 6e051982f172b74b543067001e1ba5b3e357c421
+Author: SingleAccretion <62474226+SingleAccretion@users.noreply.github.com>
+Date:   Fri Apr 19 13:59:59 2024 +0300
+
+    Extend the copy propagation type check to local field cases (#101256)
+    
+    NOL locals are not modeled faithfully by VN, which makes this type check universally necessary.
