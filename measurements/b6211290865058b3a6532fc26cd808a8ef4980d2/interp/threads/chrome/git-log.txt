@@ -1,0 +1,11 @@
+commit b6211290865058b3a6532fc26cd808a8ef4980d2
+Author: Katelyn Gadd <kg@luminance.org>
+Date:   Fri Apr 19 11:28:26 2024 -0700
+
+    [wasm] Optimize out references to a bunch of BCL methods during JS interop startup (#101217)
+    
+    During startup for a simple wasm browser app, by my testing the interpreter has to generate code for ~870 methods. This PR reduces it to ~750.
+    
+    Most of the methods removed are SIMD-related, i.e. vector infrastructure or vectorized string algorithms. The interpolated string also pulls in a ton of threading and synchronization stuff due to renting from a pool.
+    
+    In the future we could move all of this string logic into C or JS to avoid involving managed code at all, since the resulting string is not used by C#.
