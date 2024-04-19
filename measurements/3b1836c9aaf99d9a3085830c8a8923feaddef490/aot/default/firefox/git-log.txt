@@ -1,0 +1,9 @@
+commit 3b1836c9aaf99d9a3085830c8a8923feaddef490
+Author: Sven Boemer <sbomer@gmail.com>
+Date:   Thu Apr 18 16:01:08 2024 -0700
+
+    Add tests for dataflow with invalid annotations (#101214)
+    
+    Adds some test coverage for
+    https://github.com/dotnet/runtime/issues/101211, including a case
+    where ILLink/NativeAot have a similar issue.
