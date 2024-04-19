@@ -1,0 +1,13 @@
+commit 5d38457bf3293d8a5af34a1b170f47a42c3c08cf
+Author: Elinor Fung <elfung@microsoft.com>
+Date:   Fri Apr 19 02:32:23 2024 -0700
+
+    Workaround for build failure when EmitCompilerGeneratedFiles=true (#101279)
+    
+    When we build `cdacreader`, we run the `LinkNative` target. This depends on `Compile` not `Build`, which means the `BuildOnlySettings` target that sets `BuildingProject=true` doesn't run. When `EmitCompilerGeneratedFiles=true`, this results in the generated output path not being created and the compiler erroring when trying to emit files to the path. See https://github.com/dotnet/roslyn/issues/73075.
+    
+    CodeQL injects `-p:EmitCompilerGeneratedFiles=true` into the command line arguments. This was resulting in build failures in jobs where CodeQL is run.
+    
+    This change adds a workaround to our infrastructure for building NativeAOT-ed runtime components such that the generated output path is always created if `EmitCompilerGeneratedFiles=true`. Manually tested by explicitly passing that property on the command line.
+    
+    Fixes https://github.com/dotnet/source-build/issues/4335
