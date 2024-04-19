@@ -1,0 +1,10 @@
+commit a344abdd6fa1283aba3b18c882fe780447b3bad2
+Author: Andy Ayers <andya@microsoft.com>
+Date:   Thu Apr 18 16:05:18 2024 -0700
+
+    JIT: fix stress issue with profile consistency (#101259)
+    
+    In rare cases profile stress will put weight on unreachable preds of
+    loop blocks, throwing off the cyclic probability computations.
+    
+    Fix by ignoring such preds.
