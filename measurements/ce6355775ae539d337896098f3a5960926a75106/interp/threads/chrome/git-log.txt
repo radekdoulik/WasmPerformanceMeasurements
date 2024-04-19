@@ -1,0 +1,7 @@
+commit ce6355775ae539d337896098f3a5960926a75106
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Fri Apr 19 21:31:53 2024 +0900
+
+    Stop building AppHost in native AOT testing (#101270)
+    
+    Fixes #79575.
