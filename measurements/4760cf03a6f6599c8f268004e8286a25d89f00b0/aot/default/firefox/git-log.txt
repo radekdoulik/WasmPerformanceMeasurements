@@ -1,0 +1,5 @@
+commit 4760cf03a6f6599c8f268004e8286a25d89f00b0
+Author: Jeremy Koritzinsky <jekoritz@microsoft.com>
+Date:   Thu Apr 18 14:38:42 2024 -0700
+
+    Introduce a `BuildAllTestsAsStandalone` environment variable to support some local dev scenarios. (#100709)
