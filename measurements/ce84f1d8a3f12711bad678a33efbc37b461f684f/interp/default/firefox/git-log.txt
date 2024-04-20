@@ -1,0 +1,7 @@
+commit ce84f1d8a3f12711bad678a33efbc37b461f684f
+Author: Andy Ayers <andya@microsoft.com>
+Date:   Sat Apr 20 07:50:26 2024 -0700
+
+    JIT: optimize popped boxes in the importer (#101303)
+    
+    Fixes #82291.
