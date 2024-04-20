@@ -1,0 +1,7 @@
+commit bc0380f039932b4392b1bbf11ff0cf41d54cc65c
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Sat Apr 20 10:05:45 2024 -0400
+
+    Remove some volatile use on objects in corelib (#100969)
+    
+    From a review of the use, all of this use for lazy initialization now appears to be superfluous, given our documented memory model.
