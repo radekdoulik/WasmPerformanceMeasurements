@@ -1,0 +1,7 @@
+commit 2346719742ea2dd795c52211e9b149fa6b3e2b1f
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Mon Apr 15 11:58:16 2024 -0400
+
+    Fix ArgumentNullException in SecurityIdentifier.CompareTo(null)
+    
+    Changed to `return 1` to conform to the interface's described behavior.
