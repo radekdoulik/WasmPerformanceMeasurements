@@ -1,0 +1,13 @@
+commit 76293f8a774c8d5afd6cda616a71429e096909f3
+Author: Mojtaba Tajik <onyfel@gmail.com>
+Date:   Sat Apr 20 20:32:37 2024 +0200
+
+    Changed GetNetworkInterfaces method to to retrieve information related to all interfaces (#100824)
+    
+    * Add IncludeAllInterfaces as falg to reterive all avaliable interfaces including disabled ones
+    
+    * Update tests to accommodate new adapters. Ensure adapters reflect proper speeds; non-positive speeds indicates absence of physical address.
+    
+    * Removed unnecessary assertion
+    
+    * Add assertion over physical address bytes
