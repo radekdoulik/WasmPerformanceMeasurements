@@ -1,0 +1,10 @@
+commit 907eff84ef204a2d71c10e7cd726b76951b051bd
+Author: Aleksey Kliger (λgeek) <alklig@microsoft.com>
+Date:   Fri Apr 19 18:36:22 2024 -0400
+
+    fix Alpine build break (#101302)
+    
+    Apline defines NULL as std::nullptr which is not comparable/assignable
+    with intptr_t
+    
+    Fixes https://github.com/dotnet/source-build/issues/4345
