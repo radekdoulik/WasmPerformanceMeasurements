@@ -1,0 +1,37 @@
+commit cb978a59424d37958e5e10a1a417afd599c59a5d
+Author: Jan Vorlicek <janvorli@microsoft.com>
+Date:   Sat Apr 20 18:38:19 2024 +0200
+
+    Fix missing explicit frame pop on arm32 (#101147)
+    
+    * Fix missing explicit frame pop on arm32
+    
+    There is an edge case during exception handling on arm32 where an active
+    InlinedCallFrame is not popped from the explicit frame list. That later
+    leads to various kinds of failures / crashes. For example, the on Alpine
+    arm32, the `dotnet help` hangs eating 100% of one CPU core. That happens
+    due to code executing after the exception was handled and its stack
+    overwriting the explicit frame contents.
+    
+    This can only occur when the pinvoke is inlined in a method that calls it
+    inside of a try region with catch in the same method and exception
+    occurs e.g. due to the target native function or the shared library not
+    existing.
+    
+    What happens is that when we pop the explicit frame, we pop frames that
+    are below the SP of the resume location after catch. But the
+    InlinedCallFrame is in this case above that SP, as it was created in the
+    prolog of the method.
+    
+    To fix that, we need to pop that frame too. The fix uses the same
+    condition as the old EH was using.
+    
+    Closes #100536
+    
+    * Remove forcing crossgen and filtering by target arch for the test
+    
+    * Reflect PR feedback
+    
+    ---------
+    
+    Co-authored-by: Jan Vorlicek <jan.vorlicek@volny,cz>
