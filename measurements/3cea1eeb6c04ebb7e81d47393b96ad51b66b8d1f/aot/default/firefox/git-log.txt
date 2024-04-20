@@ -1,0 +1,7 @@
+commit 3cea1eeb6c04ebb7e81d47393b96ad51b66b8d1f
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Fri Apr 19 13:03:55 2024 +0900
+
+    Ignore ControlFlowGuard outside Windows (#101268)
+    
+    Don't deoptimize dehydration for this.
