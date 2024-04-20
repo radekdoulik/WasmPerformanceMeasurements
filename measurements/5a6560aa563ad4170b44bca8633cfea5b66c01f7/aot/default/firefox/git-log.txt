@@ -1,0 +1,9 @@
+commit 5a6560aa563ad4170b44bca8633cfea5b66c01f7
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Tue Apr 16 16:26:33 2024 +0900
+
+    Ensure Array.CreateInstance for reference types works (#101048)
+    
+    Follow up to #100626. The original fix only worked for unoptimized builds because the list of templates doesn't survive from scanning phase (when we do dataflow) to codegen phase (when we no longer do dataflow).
+    
+    The test that this was supposed to fix is still failing in #100331.
