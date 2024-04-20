@@ -1,0 +1,13 @@
+commit fee679436ae156c8d8110a934a492391f3259403
+Author: Katelyn Gadd <kg@luminance.org>
+Date:   Fri Apr 19 13:36:51 2024 -0700
+
+    [mono] simdhash tweaks (#101082)
+    
+    * Optimize simdhash scalar bucket scan to generate chained cmovs instead of conditional branches, and to skip suffix slots that will always be empty
+    * Optimize temporary copies of hash->buffers out of most simdhash APIs
+    * Build fixes for ght-compatible simdhash
+    * Add missing license headers
+    * Improve simdhash microbenchmark suite and make it compatible with windows x64 MSVC
+    * Use xoshiro256 to generate random values in microbenchmark, with a fixed seed, instead of libc rand
+    * Add filtering support to simdhash microbenchmark makefile
