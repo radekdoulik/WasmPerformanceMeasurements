@@ -1,0 +1,7 @@
+commit 3e569f5696ddf6c93e56eeaaf1703bb64e561f1b
+Author: David Cantú <dacantu@microsoft.com>
+Date:   Wed Apr 17 05:28:16 2024 -0500
+
+    Revert "Add params ReadOnlySpan<T> overloads (#100898)" (#101123)
+    
+    This reverts commit 64a937cf26c5bac130d8b099e98940981e17aa19.
