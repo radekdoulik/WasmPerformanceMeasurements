@@ -1,0 +1,13 @@
+commit 7e7c1f01bd58531f9bcc1f7f51eaa72302394482
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Sat Apr 20 21:23:13 2024 -0400
+
+    Reduce frozen collection creation overheads for ignore-case with ASCII values (#100998)
+    
+    * Reduce frozen collection overheads for ignore-case with ASCII values
+    
+    Two changes:
+    1) We have a routine for computing ordinal ignore-case hash codes when we don't know whether the inputs are all ASCII or not. It's written to work regardless of target platform, but on .NET Core it can use string.GetHashCode(span, OrdinalIgnoreCase), which is faster than the implementation that's there, which converts the input to upper case first and then gets the hashcode of that.
+    2) When analyzing keys, a HashSet is constructed of those keys to determine uniqueness of the relevant substrings being analyzed. Adding each substring to the HashSet involves getting a hash code for it. With ignore-case, we're currently using a comparer that has to work with non-ASCII, and it hits that above code path. (1) helps for .NET Core, but for .NET Framework this comparer will still end up allocating strings as part of computing the hash codes. We can do an up-front check for whether all of the values are ASCII, and if they are, we can use a better comparer that doesn't need to allocate on .NET Framework and which is also a tad faster on .NET Core.
+    
+    * Address PR feedback
