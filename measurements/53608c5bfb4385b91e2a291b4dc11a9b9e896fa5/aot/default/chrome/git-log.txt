@@ -1,0 +1,9 @@
+commit 53608c5bfb4385b91e2a291b4dc11a9b9e896fa5
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Fri Apr 12 07:34:43 2024 +0900
+
+    Analyze generic parameter dataflow in `Type.GetType` (#100904)
+    
+    Fixes #95140.
+    
+    Dataflow wasn't looking at flow into annotated generic parameters in `Type.GetType` calls with known strings.
