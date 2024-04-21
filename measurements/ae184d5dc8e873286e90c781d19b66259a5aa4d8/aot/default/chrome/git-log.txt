@@ -1,0 +1,5 @@
+commit ae184d5dc8e873286e90c781d19b66259a5aa4d8
+Author: Radek Zikmund <32671551+rzikm@users.noreply.github.com>
+Date:   Tue Apr 9 22:46:40 2024 +0200
+
+    Disable user mapper for SslStream on Windows (TLS 1.3) (#100833)
