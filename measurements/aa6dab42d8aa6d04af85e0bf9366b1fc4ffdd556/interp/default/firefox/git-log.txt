@@ -1,0 +1,9 @@
+commit aa6dab42d8aa6d04af85e0bf9366b1fc4ffdd556
+Author: Jackson Schuster <36744439+jtschuster@users.noreply.github.com>
+Date:   Tue Apr 16 10:10:50 2024 -0700
+
+    Set `out` parameters to default instead of using SkipInit in Interop generators (#101076)
+    
+    * Set `out` parameters to default instead of using SkipInit
+    
+    * Assert value after P/Invoke
