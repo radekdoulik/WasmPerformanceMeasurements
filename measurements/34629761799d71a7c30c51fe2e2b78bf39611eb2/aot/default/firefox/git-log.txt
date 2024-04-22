@@ -1,0 +1,9 @@
+commit 34629761799d71a7c30c51fe2e2b78bf39611eb2
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Wed Apr 10 06:06:06 2024 +0900
+
+    Do not warn when accessing fields on T constrained to be enum (#100814)
+    
+    Fixes #97737.
+    
+    Trimming ensures we keep all the public fields on enums. `typeof(T).GetFields()` is safe when the `T` is constrained to be `System.Enum` or a derived type.
