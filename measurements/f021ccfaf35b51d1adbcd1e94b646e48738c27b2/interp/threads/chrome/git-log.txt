@@ -1,0 +1,5 @@
+commit f021ccfaf35b51d1adbcd1e94b646e48738c27b2
+Author: Egor Bogatov <egorbo@gmail.com>
+Date:   Mon Apr 22 15:35:14 2024 +0200
+
+    Fix Redundant bound check for span.Length == 0 pattern (#101323)
