@@ -1,0 +1,9 @@
+commit 2a176695d2c0a6f7199a61e2cfc307eeecef4790
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Sun Apr 21 13:33:30 2024 -0400
+
+    Remove some more unnecessary volatile read/write (#101346)
+    
+    * Remove some more unnecessary volatile
+    
+    * Put back assert
