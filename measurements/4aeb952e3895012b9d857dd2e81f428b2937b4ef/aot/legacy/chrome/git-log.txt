@@ -1,0 +1,11 @@
+commit 4aeb952e3895012b9d857dd2e81f428b2937b4ef
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Sun Apr 21 13:27:31 2024 -0400
+
+    Avoid unnecessary lazy init in StructuralComparisons (#101344)
+    
+    * Avoid unnecessary lazy init in StructuralComparisons
+    
+    Move the fields to the target types and make them readonly instead of manually lazy.
+    
+    * Update StructuralComparisons.cs
