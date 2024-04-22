@@ -1,0 +1,7 @@
+commit 422f77eba69a679d2bb8d0c37d8e860adce33614
+Author: Alexander Köplinger <alex.koeplinger@outlook.com>
+Date:   Sat Apr 20 22:30:55 2024 +0200
+
+    [mono] Cleanup unused functions on Windows (#101334)
+    
+    These were only used by legacy Mono to implement mscoree-style runtime activation which isn't a thing anymore in .NET Core.
