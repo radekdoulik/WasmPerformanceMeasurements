@@ -1,0 +1,7 @@
+commit 4810ba1bf0cfbf9f10dad0327327a41cf16eb291
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Mon Apr 22 15:34:23 2024 +0900
+
+    Fix mismatch between boxed/unboxed method entrypoints (#99443)
+    
+    Fixes #99198.
