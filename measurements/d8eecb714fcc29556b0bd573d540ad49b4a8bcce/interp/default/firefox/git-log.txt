@@ -1,0 +1,7 @@
+commit d8eecb714fcc29556b0bd573d540ad49b4a8bcce
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Mon Apr 22 18:44:17 2024 +0900
+
+    Run trimming tests as AOT tests (#101229)
+    
+    Not everything is passing, so I baselined this. Some we'll probably exclude permanently, others are more concerning and we need to determine if it's test issues or product issues.
