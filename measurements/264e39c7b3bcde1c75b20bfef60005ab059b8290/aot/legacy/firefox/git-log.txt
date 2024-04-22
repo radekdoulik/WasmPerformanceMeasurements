@@ -1,0 +1,31 @@
+commit 264e39c7b3bcde1c75b20bfef60005ab059b8290
+Author: Huo Yaoyuan <huoyaoyuan@hotmail.com>
+Date:   Tue Apr 23 00:53:33 2024 +0800
+
+    Optimize BigInteger formatting (#100181)
+    
+    * Cleanup DecStr formatting
+    
+    * Cleanup ToNumber portion
+    
+    * Clean and pool base1E9 buffer
+    
+    * Split leaf span and array path
+    
+    * Post cherry-pick update
+    
+    * Remove unworthy positive/negative span/string split
+    
+    * Use stackalloc for buffers
+    
+    * Update constant usage
+    
+    * Use UInt32ToDecChars
+    
+    * Fix type assert
+    
+    * Fix strLength
+    
+    ---------
+    
+    Co-authored-by: Tanner Gooding <tagoo@outlook.com>
