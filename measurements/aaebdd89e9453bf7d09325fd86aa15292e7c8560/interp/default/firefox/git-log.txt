@@ -1,0 +1,17 @@
+commit aaebdd89e9453bf7d09325fd86aa15292e7c8560
+Author: Andy Ayers <andya@microsoft.com>
+Date:   Mon Apr 22 07:25:48 2024 -0700
+
+    JIT: Move profile checking back until just before inlining (#101011)
+    
+    Fixes the following areas with proper profile updates:
+    * GDV chaining
+    * instrumentation-introduces flow
+    * OSR step blocks
+    * fgSplitEdge (used by instrumentation)
+    
+    Adds checking bypasses for:
+    * callfinally pair tails
+    * original method entries in OSR methods
+    
+    Contributes to #93020
