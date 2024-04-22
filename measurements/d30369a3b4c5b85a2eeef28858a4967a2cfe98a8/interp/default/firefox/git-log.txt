@@ -1,0 +1,15 @@
+commit d30369a3b4c5b85a2eeef28858a4967a2cfe98a8
+Author: Radek Zikmund <32671551+rzikm@users.noreply.github.com>
+Date:   Tue Apr 16 23:03:52 2024 +0200
+
+    Avoid rooting X509Certificate2 in SslSessionCache (#101120)
+    
+    * Avoid rooting X509Certificate2 in SslSessionCache
+    
+    * Update src/libraries/System.Net.Security/src/System/Net/Security/SslStreamPal.Windows.cs
+    
+    Co-authored-by: campersau <buchholz.bastian@googlemail.com>
+    
+    ---------
+    
+    Co-authored-by: campersau <buchholz.bastian@googlemail.com>
