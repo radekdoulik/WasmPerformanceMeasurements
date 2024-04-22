@@ -1,0 +1,7 @@
+commit 9bba3836ed4ddf2592ae9b92b3110dc6af03e453
+Author: Alexander Köplinger <alex.koeplinger@outlook.com>
+Date:   Mon Apr 22 20:18:23 2024 +0200
+
+    Disable AllItemsEnumeratedOnce_For test on s390x (#101389)
+    
+    It is currently hanging in CI: https://github.com/dotnet/runtime/issues/101380
