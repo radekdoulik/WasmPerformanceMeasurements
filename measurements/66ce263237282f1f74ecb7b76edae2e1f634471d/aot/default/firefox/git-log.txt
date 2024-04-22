@@ -1,0 +1,63 @@
+commit 66ce263237282f1f74ecb7b76edae2e1f634471d
+Author: Ilona Tomkowicz <32700855+ilonatommy@users.noreply.github.com>
+Date:   Mon Apr 22 14:15:35 2024 +0200
+
+    [mt] Add signalR WBT on WASM browser app (#100723)
+    
+    * WIP, fixing net::ERR_CONNECTION_REFUSED.
+    
+    * Change of setup - aspnet project serving WASM static files.
+    
+    * Enable SharedArrayBuffer.
+    
+    * WIP, investigating `JsonSerializerIsReflectionDisabled`
+    
+    * Fix serialization issue.
+    
+    * Fixed
+    
+    * Cleanup.
+    
+    * Trying to fix integrity check issue.
+    
+    * Async interop + more logging.
+    
+    * Move test preparation code to a method.
+    
+    * Remove buttons, match other TestAppScenarios style.
+    
+    * Moved the test out of TestAppScenarios. Standalone version works.
+    
+    * Working version of test.
+    
+    * Cleanup.
+    
+    * Cleanup.
+    
+    * @maraf's feedback - simplify the prebuild steps.
+    
+    * WIP - merging blazor and wasmapp into one proj.
+    
+    * Missing change in a non-related test.
+    
+    * Do not pack blazor into a subfolder.
+    
+    * Remove old app.
+    
+    * Connect test logic, simplify.
+    
+    * Not intentional.
+    
+    * AspServer serves only "standard content types"
+    
+    * Prevent loosing `InnerException` on exceptions thrown during `TaskCompletionSource` completion.
+    
+    * Revert.
+    
+    * Cleanup.
+    
+    * @maraf's cleanup
+    
+    * SignalR hub is located in a url with path.
+    
+    * Fix "GET http://localhost:5000/wasmclient, Response status code: 404"
