@@ -1,0 +1,14 @@
+commit a4f1e74ccc97234100afeab87cfdb68e573bc8ca
+Author: Thomas Farr <xtansia@xtansia.com>
+Date:   Tue Apr 16 04:06:38 2024 +1200
+
+    Preserve all InternalsVisibleTo attributes in ILLink Trimmer (#98910)
+    
+    Removes previous special handling to only keep IVT attributes for
+    assemblies that were resolvable and marked at link time. This behaviour
+    could cause a noticeable difference in behaviour at runtime without emitting
+    any trim analysis warnings while providing no mechanism to retain the
+    attributes. The removal of these attributes provides only a neglible
+    size reduction.
+    
+    Fixes #92582
