@@ -1,0 +1,13 @@
+commit 1c824d929b734db420babbc04f44a1491d8a7efb
+Author: David Cantú <dacantu@microsoft.com>
+Date:   Mon Apr 22 21:58:44 2024 -0500
+
+    Reapply params ReadOnlySpan overloads without params keyword (#101308)
+    
+    * Reapply "Add params ReadOnlySpan<T> overloads (#100898)" (#101123)
+    
+    This reverts commit 3e569f5696ddf6c93e56eeaaf1703bb64e561f1b.
+    
+    * Comment-out params keyword
+    
+    * Remove /*params*/ from ref
