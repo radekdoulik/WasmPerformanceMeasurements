@@ -1,0 +1,7 @@
+commit a4337b780f9d13a02633bd44b9ae675feb2c87df
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Tue Apr 23 06:14:35 2024 +0900
+
+    Remove `IlcKeepManagedDebuggerSupport` (#101369)
+    
+    This was introduced in #82696, but on a second thought, we should be able to use the documented `DebuggerSupport` for this. We still don't want to full on default this to `false` for reasons described in the PR, but the explicit value of `true` can be the escape hatch.
