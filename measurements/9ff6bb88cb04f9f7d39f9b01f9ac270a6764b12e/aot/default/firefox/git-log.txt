@@ -1,0 +1,10 @@
+commit 9ff6bb88cb04f9f7d39f9b01f9ac270a6764b12e
+Author: Steve Pfister <steveisok@users.noreply.github.com>
+Date:   Mon Apr 22 09:56:22 2024 -0400
+
+    Enable control flow guard for mono on windows (#101293)
+    
+    Resolves binskim warnings for the runtime and aot compilers on windows.
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
+    Co-authored-by: Alexander Köplinger <alex.koeplinger@outlook.com>
