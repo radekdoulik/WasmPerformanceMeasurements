@@ -1,0 +1,8 @@
+commit f8903fe264818a77eb32097fab0b444ce426d5ed
+Author: Jackson Schuster <36744439+jtschuster@users.noreply.github.com>
+Date:   Mon Apr 22 14:32:36 2024 -0700
+
+    Only add interface methods to _virtual_methods cache (#101139)
+    
+    We only ever do operations on interface methods, so we can only keep
+    interface methods rather than all virtual methods
