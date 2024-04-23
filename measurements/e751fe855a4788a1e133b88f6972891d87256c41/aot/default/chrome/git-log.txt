@@ -1,0 +1,9 @@
+commit e751fe855a4788a1e133b88f6972891d87256c41
+Author: Elinor Fung <elfung@microsoft.com>
+Date:   Mon Apr 22 14:57:14 2024 -0700
+
+    [cdac] Read contract descriptor from target (#101208)
+    
+    - Get `DotNetRuntimeContractDescriptor` address from the target
+    - Read contract descriptor to determine endianness and pointer size
+    - Parse JSON descriptor and store contracts
