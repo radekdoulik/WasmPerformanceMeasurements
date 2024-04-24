@@ -1,0 +1,11 @@
+commit 8017222b29b64863babf214050ecc80d5f28e323
+Author: Vladimir Sadov <vsadov@microsoft.com>
+Date:   Tue Apr 23 16:57:35 2024 -0700
+
+    Disable UnrollEqualsStartsWith for gcstress. The test takes very long time. (#101455)
+    
+    * Disable UnrollEqualsStartsWith for gcstress. The test takes very long time.
+    
+    * fix comment
+    
+    * added a comment for the reason to exclude
