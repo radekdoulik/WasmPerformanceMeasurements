@@ -1,0 +1,9 @@
+commit 6e866a6ed62c6178efc55e4fe276d3e44190e4f8
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Wed Apr 24 06:29:58 2024 +0900
+
+    Fix running tests with process isolation under naot (#100331)
+    
+    We don't currently run any RequiresProcessIsolation tests under native AOT because we hit the "not an applicable OS" early out here:
+    
+    https://github.com/dotnet/runtime/blob/765ca4e9f2dddca2005ffdb45863b7980247a886/src/tests/Common/CoreCLRTestLibrary/OutOfProcessTest.cs#L75-L79
