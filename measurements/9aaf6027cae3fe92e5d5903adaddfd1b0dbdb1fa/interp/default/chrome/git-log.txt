@@ -1,0 +1,7 @@
+commit 9aaf6027cae3fe92e5d5903adaddfd1b0dbdb1fa
+Author: Austin Wise <AustinWise@gmail.com>
+Date:   Tue Apr 23 20:51:46 2024 -0700
+
+    [mono] Fix condition for disabling extra checks in verify_class_overrides (#101445)
+    
+    `ENABLE_CHECKED_BUILD` is defined to mean "Enable additional checks" and is enabled in checked and debug builds. Therefore this performance optimization should be enabled when `ENABLE_CHECKED_BUILD` is *not* defined. Ref: #101312
