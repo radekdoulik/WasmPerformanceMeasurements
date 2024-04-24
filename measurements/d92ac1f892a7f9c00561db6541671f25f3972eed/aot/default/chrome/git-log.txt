@@ -1,0 +1,9 @@
+commit d92ac1f892a7f9c00561db6541671f25f3972eed
+Author: Radek Zikmund <32671551+rzikm@users.noreply.github.com>
+Date:   Tue Apr 23 22:14:09 2024 +0200
+
+    Fix SocketsHttpHandlerTest_HttpClientHandlerTest_Http3.ReadAsStreamAsync_Cancellation data race (#101428)
+    
+    * Fix SocketsHttpHandlerTest_HttpClientHandlerTest_Http3.ReadAsStreamAsync_Cancellation data race
+    
+    * Fix build
