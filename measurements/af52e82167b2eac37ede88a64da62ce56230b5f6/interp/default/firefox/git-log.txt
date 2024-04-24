@@ -1,0 +1,25 @@
+commit af52e82167b2eac37ede88a64da62ce56230b5f6
+Author: Ilona Tomkowicz <32700855+ilonatommy@users.noreply.github.com>
+Date:   Tue Apr 23 18:06:37 2024 +0200
+
+    [browser][hybrid] drop `wrap_error_root`, `wrap_no_error_root` (#101390)
+    
+    * Calendar - done
+    
+    * Culture info - done.
+    
+    * Missing change to the previous commit.
+    
+    * Change case - done.
+    
+    * issing change to previous commit
+    
+    * Collation - done.
+    
+    * Locales - done.
+    
+    * Feedback
+    
+    * remove MonoString that is not thread-safe
+    
+    * Preserve stack from JS correctly.
