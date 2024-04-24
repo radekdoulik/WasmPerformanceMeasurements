@@ -1,0 +1,11 @@
+commit f27056529982d9aea44f0a84f24fc0bb0ee52c96
+Author: Koundinya Veluri <kouvel@users.noreply.github.com>
+Date:   Tue Apr 23 12:19:41 2024 -0700
+
+    Fix class construction cycle in Lock on NativeAOT (#100374)
+    
+    When a thread reenters class construction through accessing NativeRuntimeEventSource.Log, Log would return null. Checks on IsFullyInitialized were added to ensure that the normal path would not be taken in that case, to avoid null checks in several places and in different files. That doesn't work when a different thread sees the initialization stage as Complete, as it would try to initialize NativeRuntimeEventSource and run into a class construction cycle.
+    
+    Fixed by removing the IsFullyInitialized checks, introducing a new initialization stage PartiallyCompelte, and not setting the stage to Complete until it has been verified that Log does not return null. When the stage is PartiallyCompelte, a thread would retry the relevant initialization. This again guarantees that there would be at most one attempt at initialization through Lock at any given time, and prevents the class construction cycle.
+    
+    Fixes https://github.com/dotnet/runtime/issues/99663
