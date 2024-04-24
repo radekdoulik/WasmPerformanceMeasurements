@@ -1,0 +1,7 @@
+commit 7e29a451396466bb4a8e5abb9ebfdd444cd2e8a1
+Author: Vlad Brezae <brezaevlad@gmail.com>
+Date:   Wed Apr 24 16:19:26 2024 +0300
+
+    Disable System.Text.Json.Tests suite on interp with debug runtime (#101483)
+    
+    Interpreter gets very slow on debug builds and this suite can also timeout.
