@@ -1,0 +1,8 @@
+commit bbf3a4a4031a13142a7c536c5b945b121497bf79
+Author: Katelyn Gadd <kg@luminance.org>
+Date:   Tue Apr 23 08:48:23 2024 -0700
+
+    [mono] Miscellaneous startup optimizations (#101263)
+    
+    * Optimize out an unnecessary memset under g_slist_prepend
+    * Don't inline constructors of Exception or its descendants into interpreter method bodies
