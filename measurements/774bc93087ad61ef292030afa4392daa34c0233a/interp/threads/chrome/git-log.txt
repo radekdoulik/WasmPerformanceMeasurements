@@ -1,0 +1,9 @@
+commit 774bc93087ad61ef292030afa4392daa34c0233a
+Author: Paulus Pärssinen <paulus.parssinen@gmail.com>
+Date:   Tue Apr 23 14:10:29 2024 +0300
+
+    Use BitOperations.RoundUpToPowerOf2 in more places (#101405)
+    
+    * Use BitOperations.RoundUpToPowerOf2 in ThreadLocal
+    
+    * Use BitOperations.RoundUpToPowerOf2 in CacheDict
