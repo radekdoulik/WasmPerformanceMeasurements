@@ -1,0 +1,50 @@
+commit a66dcfccb6e789fe11d5bb02bc41349424e429e7
+Author: Mikhail Ablakatov <164922675+mikabl-arm@users.noreply.github.com>
+Date:   Thu Apr 25 03:28:40 2024 +0100
+
+    JIT ARM64-SVE: Add Sve.LoadVector*ZeroExtendTo*() (#101291)
+    
+    * JIT ARM64-SVE: Add Sve.LoadVector*ZeroExtendTo*()
+    
+    Add the following APIs:
+    
+    LoadVectorByteZeroExtendToInt16
+    LoadVectorByteZeroExtendToInt32
+    LoadVectorByteZeroExtendToInt64
+    LoadVectorByteZeroExtendToUInt16
+    LoadVectorByteZeroExtendToUInt32
+    LoadVectorByteZeroExtendToUInt64
+    LoadVectorInt16SignExtendToInt32
+    LoadVectorInt16SignExtendToInt64
+    LoadVectorInt16SignExtendToUInt32
+    LoadVectorInt16SignExtendToUInt64
+    LoadVectorInt32SignExtendToInt64
+    LoadVectorInt32SignExtendToUInt64
+    LoadVectorSByteSignExtendToInt16
+    LoadVectorSByteSignExtendToInt32
+    LoadVectorSByteSignExtendToInt64
+    LoadVectorSByteSignExtendToUInt16
+    LoadVectorSByteSignExtendToUInt32
+    LoadVectorSByteSignExtendToUInt64
+    LoadVectorUInt16ZeroExtendToInt32
+    LoadVectorUInt16ZeroExtendToInt64
+    LoadVectorUInt16ZeroExtendToUInt32
+    LoadVectorUInt16ZeroExtendToUInt64
+    LoadVectorUInt32ZeroExtendToInt64
+    LoadVectorUInt32ZeroExtendToUInt64
+    
+    * cleanup: remove unwatnted comments
+    
+    Remove comments that mentions instuctions that APIs are never mapped to.
+    
+    * fix merge conflict
+    
+    * fix merge conflict
+    
+    * fix spacing
+    
+    * Mark LoadVector*Extend* as having HW_Flag_ExplicitMaskedOperation
+    
+    ---------
+    
+    Co-authored-by: Kunal Pathak <Kunal.Pathak@microsoft.com>
