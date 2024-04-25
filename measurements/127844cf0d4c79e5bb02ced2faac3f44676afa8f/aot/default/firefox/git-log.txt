@@ -1,0 +1,19 @@
+commit 127844cf0d4c79e5bb02ced2faac3f44676afa8f
+Author: Radek Zikmund <32671551+rzikm@users.noreply.github.com>
+Date:   Thu Apr 25 13:18:43 2024 +0200
+
+    Fix data race leading to a deadlock when opening QuicStream (#101250)
+    
+    * Fix data race leading to a deadlock.
+    
+    * Remove unwanted change
+    
+    * Code review feedback
+    
+    * Fix hang
+    
+    * Add assert
+    
+    * Fix potential crash
+    
+    * Code review feedback
