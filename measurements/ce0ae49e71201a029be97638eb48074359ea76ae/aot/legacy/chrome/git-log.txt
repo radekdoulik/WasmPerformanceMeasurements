@@ -1,0 +1,12 @@
+commit ce0ae49e71201a029be97638eb48074359ea76ae
+Author: Koundinya Veluri <kouvel@users.noreply.github.com>
+Date:   Wed Apr 24 12:27:34 2024 -0700
+
+    Add managed blocking info for lock and monitor waits (#101192)
+    
+    * Add managed blocking info for lock and monitor waits
+    
+    - Added a managed `ThreadBlockingInfo` struct that is similar to CoreCLR's `DebugBlockingItem`
+    - Updated `Lock`, `Condition`, and `Monitor` to record the info
+    - The `LockOwnerOSThreadId` and `LockOwnerManagedThreadId` properties can be used by debuggers to determine which thread owns a lock that the current thread is waiting on
+      - In CoreCLR, `Monitor` records the info using the `Monitor` object kinds. In NativeAOT, `Lock` and `Condition` are used for `Monitor` waits, so the object kinds would be `Lock/Condition`. For now, Mono's `Monitor` does not record this info.
