@@ -1,0 +1,7 @@
+commit 56dcfd700383a9462d4b8632e88abd75b4252357
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Tue Apr 23 08:15:15 2024 -0400
+
+    Remove some dead code from SharedArrayPool (#101410)
+    
+    In Trim, for high memory pressure, we're already setting the number of arrays to trim equal to the max number possible, so the subsequent logic that would increase the count wasn't useful. Deleting that also deleted the last use of _elementSize, which in turn allowed for the path that provided that value to be cleaned up.
