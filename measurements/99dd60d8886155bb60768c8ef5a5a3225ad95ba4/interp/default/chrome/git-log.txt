@@ -1,0 +1,25 @@
+commit 99dd60d8886155bb60768c8ef5a5a3225ad95ba4
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Fri Apr 26 10:00:38 2024 +0200
+
+    JIT: Check more invariants on ABI info and fix some arm32 bugs (#101372)
+    
+    - Implicit byref parameters should be passed as a single pointer sized segment
+    - Segments should not point outside the local size
+    - Segments should not overlap each other
+    - Segments should have size > 0
+    - Segments should be ordered by offset
+    - Fix a bug in the arm32 classifier when structs are split
+    - Fix a bug in the arm32 classifier for odd-sized structs with 8 byte alignment.
+      For example
+    ```csharp
+    [StructLayout(LayoutKind.Sequential, Size = 12)]
+    struct S
+    {
+        public double X;
+        public float Y;
+    }
+    ```
+    would be considered to take 4 slots before.
+    - Fix a bug in the Swift classifier that would cause the tail segments to have
+      an out-of-bounds size
