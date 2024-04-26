@@ -1,0 +1,9 @@
+commit 0f508f26cd22fffb7e8ab0ed3f7133ee48f3a6a0
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Fri Apr 26 21:58:39 2024 +0900
+
+    Allow preinitializing `EventSource` (#101573)
+    
+    We currently don't preinitialize any event sources because they have a finalizer. This is a bit of a problem for places like this: https://github.com/dotnet/runtime/blob/5c01ed22b7468a2bee13b498855dcfcc5ae4da50/src/libraries/System.Private.CoreLib/src/System/Runtime/CompilerServices/AsyncTaskMethodBuilderT.cs#L229-L232. We know `IsSupported` is false so we eliminate the branch, but we still need a cctor check because we access a static. The cctor check in a generic method that is instantiated many many many times becomes a death by a thousand papercuts.
+    
+    Saves 0.7% in size on the stage2 app with EventSource disabled.
