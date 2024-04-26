@@ -1,0 +1,7 @@
+commit 74d927967dcf9dc1801c310603d6dc843dc28ad6
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Thu Apr 25 18:56:26 2024 +0200
+
+    Store last OSR transition context in static memory in DEBUG builds (#101537)
+    
+    Hopefully will help with diagnosing #101060 once we get a new dump.
