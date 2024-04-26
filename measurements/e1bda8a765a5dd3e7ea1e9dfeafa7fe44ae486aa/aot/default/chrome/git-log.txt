@@ -1,0 +1,108 @@
+commit e1bda8a765a5dd3e7ea1e9dfeafa7fe44ae486aa
+Author: dotnet-maestro[bot] <42748379+dotnet-maestro[bot]@users.noreply.github.com>
+Date:   Thu Apr 25 20:45:29 2024 -0500
+
+    [main] Update dependencies from dotnet/cecil, dotnet/hotreload-utils, dotnet/icu, dotnet/runtime, dotnet/runtime-assets, dotnet/sdk, dotnet/xharness (#101378)
+    
+    * Update dependencies from https://github.com/dotnet/runtime build 20240419.3
+    
+    Microsoft.DotNet.ILCompiler , Microsoft.NET.Sdk.IL , Microsoft.NETCore.App.Runtime.win-x64 , Microsoft.NETCore.ILAsm , runtime.native.System.IO.Ports , System.Reflection.Metadata , System.Reflection.MetadataLoadContext , System.Text.Json , Microsoft.SourceBuild.Intermediate.runtime.linux-x64
+     From Version 9.0.0-preview.4.24215.1 -> To Version 9.0.0-preview.4.24219.3
+    
+    * Update dependencies from https://github.com/dotnet/sdk build 20240421.4
+    
+    Microsoft.SourceBuild.Intermediate.sdk , Microsoft.DotNet.ApiCompat.Task
+     From Version 9.0.100-preview.4.24215.1 -> To Version 9.0.100-preview.4.24221.4
+    
+    * Update dependencies from https://github.com/dotnet/icu build 20240422.1
+    
+    Microsoft.NETCore.Runtime.ICU.Transport
+     From Version 9.0.0-preview.4.24215.1 -> To Version 9.0.0-preview.4.24222.1
+    
+    * Update dependencies from https://github.com/dotnet/xharness build 20240422.1
+    
+    Microsoft.DotNet.XHarness.CLI , Microsoft.DotNet.XHarness.TestRunners.Common , Microsoft.DotNet.XHarness.TestRunners.Xunit
+     From Version 9.0.0-prerelease.24208.1 -> To Version 9.0.0-prerelease.24222.1
+    
+    * Update dependencies from https://github.com/dotnet/runtime-assets build 20240422.1
+    
+    Microsoft.DotNet.CilStrip.Sources , System.ComponentModel.TypeConverter.TestData , System.Data.Common.TestData , System.Drawing.Common.TestData , System.Formats.Tar.TestData , System.IO.Compression.TestData , System.IO.Packaging.TestData , System.Net.TestData , System.Private.Runtime.UnicodeData , System.Runtime.Numerics.TestData , System.Runtime.TimeZoneData , System.Security.Cryptography.X509Certificates.TestData , System.Text.RegularExpressions.TestData , System.Windows.Extensions.TestData
+     From Version 9.0.0-beta.24215.1 -> To Version 9.0.0-beta.24222.1
+    
+    * Update dependencies from https://github.com/dotnet/hotreload-utils build 20240422.1
+    
+    Microsoft.DotNet.HotReload.Utils.Generator.BuildTool
+     From Version 9.0.0-alpha.0.24215.1 -> To Version 9.0.0-alpha.0.24222.1
+    
+    * Update dependencies from https://github.com/dotnet/cecil build 20240422.1
+    
+    Microsoft.SourceBuild.Intermediate.cecil , Microsoft.DotNet.Cecil
+     From Version 0.11.4-alpha.24215.1 -> To Version 0.11.4-alpha.24222.1
+    
+    * Fix Enum constraint mismatches
+    
+    * More mismatches
+    
+    * INumber constraint
+    
+    * Update dependencies from https://github.com/dotnet/icu build 20240423.2
+    
+    Microsoft.NETCore.Runtime.ICU.Transport
+     From Version 9.0.0-preview.4.24215.1 -> To Version 9.0.0-preview.5.24223.2
+    
+    * Update dependencies from https://github.com/dotnet/xharness build 20240422.1
+    
+    Microsoft.DotNet.XHarness.CLI , Microsoft.DotNet.XHarness.TestRunners.Common , Microsoft.DotNet.XHarness.TestRunners.Xunit
+     From Version 9.0.0-prerelease.24208.1 -> To Version 9.0.0-prerelease.24222.1
+    
+    * Update dependencies from https://github.com/dotnet/runtime-assets build 20240422.1
+    
+    Microsoft.DotNet.CilStrip.Sources , System.ComponentModel.TypeConverter.TestData , System.Data.Common.TestData , System.Drawing.Common.TestData , System.Formats.Tar.TestData , System.IO.Compression.TestData , System.IO.Packaging.TestData , System.Net.TestData , System.Private.Runtime.UnicodeData , System.Runtime.Numerics.TestData , System.Runtime.TimeZoneData , System.Security.Cryptography.X509Certificates.TestData , System.Text.RegularExpressions.TestData , System.Windows.Extensions.TestData
+     From Version 9.0.0-beta.24215.1 -> To Version 9.0.0-beta.24222.1
+    
+    * Update dependencies from https://github.com/dotnet/hotreload-utils build 20240422.1
+    
+    Microsoft.DotNet.HotReload.Utils.Generator.BuildTool
+     From Version 9.0.0-alpha.0.24215.1 -> To Version 9.0.0-alpha.0.24222.1
+    
+    * Update dependencies from https://github.com/dotnet/cecil build 20240422.1
+    
+    Microsoft.SourceBuild.Intermediate.cecil , Microsoft.DotNet.Cecil
+     From Version 0.11.4-alpha.24215.1 -> To Version 0.11.4-alpha.24222.1
+    
+    * Fix issues with missing generic constraints
+    
+    * Remove constraint from Enum.TryFormat ref
+    
+    * Update ApiCompat suppression files
+    
+    * Update dependencies from https://github.com/dotnet/icu build 20240423.2
+    
+    Microsoft.NETCore.Runtime.ICU.Transport
+     From Version 9.0.0-preview.4.24215.1 -> To Version 9.0.0-preview.5.24223.2
+    
+    * Update dependencies from https://github.com/dotnet/xharness build 20240424.1
+    
+    Microsoft.DotNet.XHarness.CLI , Microsoft.DotNet.XHarness.TestRunners.Common , Microsoft.DotNet.XHarness.TestRunners.Xunit
+     From Version 9.0.0-prerelease.24208.1 -> To Version 9.0.0-prerelease.24224.1
+    
+    * Update dependencies from https://github.com/dotnet/runtime-assets build 20240422.1
+    
+    Microsoft.DotNet.CilStrip.Sources , System.ComponentModel.TypeConverter.TestData , System.Data.Common.TestData , System.Drawing.Common.TestData , System.Formats.Tar.TestData , System.IO.Compression.TestData , System.IO.Packaging.TestData , System.Net.TestData , System.Private.Runtime.UnicodeData , System.Runtime.Numerics.TestData , System.Runtime.TimeZoneData , System.Security.Cryptography.X509Certificates.TestData , System.Text.RegularExpressions.TestData , System.Windows.Extensions.TestData
+     From Version 9.0.0-beta.24215.1 -> To Version 9.0.0-beta.24222.1
+    
+    * Update dependencies from https://github.com/dotnet/hotreload-utils build 20240422.1
+    
+    Microsoft.DotNet.HotReload.Utils.Generator.BuildTool
+     From Version 9.0.0-alpha.0.24215.1 -> To Version 9.0.0-alpha.0.24222.1
+    
+    * Update dependencies from https://github.com/dotnet/cecil build 20240422.1
+    
+    Microsoft.SourceBuild.Intermediate.cecil , Microsoft.DotNet.Cecil
+     From Version 0.11.4-alpha.24215.1 -> To Version 0.11.4-alpha.24222.1
+    
+    ---------
+    
+    Co-authored-by: dotnet-maestro[bot] <dotnet-maestro[bot]@users.noreply.github.com>
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
+    Co-authored-by: Eric StJohn <ericstj@microsoft.com>
