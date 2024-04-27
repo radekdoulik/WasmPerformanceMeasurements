@@ -1,0 +1,7 @@
+commit c5ca516583831091a5659e723db56a689b13be13
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Fri Apr 26 12:45:45 2024 -0400
+
+    Fix regression in RegexGenerator.GetSHA256FieldName (#101606)
+    
+    A previous refactoring deleted the use of the hash.
