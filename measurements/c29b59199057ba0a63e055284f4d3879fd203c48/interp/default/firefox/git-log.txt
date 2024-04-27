@@ -1,0 +1,11 @@
+commit c29b59199057ba0a63e055284f4d3879fd203c48
+Author: Anton Firszov <Anton.Firszov@microsoft.com>
+Date:   Fri Apr 26 19:05:48 2024 +0200
+
+    Implement Activity.AddLink (#101381)
+    
+    * implement Activity.AddLink
+    
+    * extend tests
+    
+    * Add remarks to docs required by https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/trace/api.md#link
