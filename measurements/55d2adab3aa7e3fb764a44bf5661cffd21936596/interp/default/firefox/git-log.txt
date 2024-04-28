@@ -1,0 +1,11 @@
+commit 55d2adab3aa7e3fb764a44bf5661cffd21936596
+Author: Max Katz <maxkatz6@outlook.com>
+Date:   Sat Apr 27 12:22:16 2024 -0700
+
+    [WASM] Fix third parameter marshaling on callbacks (#101638)
+    
+    * Fix typo with get_signature_arg3_type incrorrecty arg2 instead of arg3
+    
+    get_signature_arg3_type method is expected to read argument type by Arg3MarshalerType (=28) offset instead of Arg2MarshalerType (=24)
+    
+    * Add another callback tests to cover different parameter types
