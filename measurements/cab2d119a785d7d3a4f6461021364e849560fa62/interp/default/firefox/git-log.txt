@@ -1,0 +1,13 @@
+commit cab2d119a785d7d3a4f6461021364e849560fa62
+Author: Meri Khamoyan <96171496+mkhamoyan@users.noreply.github.com>
+Date:   Fri Apr 26 20:18:33 2024 +0200
+
+    [mono][wasm] Include NativeLibrary items to the NativeFileReference items (#101532)
+    
+    * Include NativeLibary and add test case
+    
+    * Move to common place
+    
+    * Ignore missing NativeLibraries
+    
+    * Move items copying into target
