@@ -1,0 +1,11 @@
+commit c3e5ce97a29317d3dab98d09c310daf11a2260c7
+Author: Adeel Mujahid <3840695+am11@users.noreply.github.com>
+Date:   Sun Apr 28 22:08:05 2024 +0300
+
+    Fix x86 build with clang-18 (#101650)
+    
+    * Fix x86 build with clang-18
+    
+    * Suppress Wsync-alignment
+    
+    * Update x86 pipeline to use clang-18
