@@ -1,0 +1,15 @@
+commit b8fe1d0ccb60926d6e7ef5d42e2398c178c9ee5c
+Author: Jan Kotas <jkotas@microsoft.com>
+Date:   Sat Apr 27 15:04:08 2024 -0700
+
+    Revert "Make mutable generic collection interfaces implement read-only collection interfaces (#95830)" (#101644)
+    
+    * Revert "Update ICollection<T> usage to IReadOnlyCollection<T> where applicable (#101469)"
+    
+    This reverts commit e92b7d0074adcdb026408bc862f11ac484edeba8.
+    
+    * Revert "Make mutable generic collection interfaces implement read-only collection interfaces (#95830)"
+    
+    This reverts commit a2bd5830ce09cd81d834afd5571bc6c9e5ad879b.
+    
+    * Update src/coreclr/System.Private.CoreLib/src/System/Array.CoreCLR.cs
