@@ -1,0 +1,17 @@
+commit 901fd656ddda9153dbf46dfa4591ec7cacc03fe0
+Author: Basile Picard <4pipopolam@gmail.com>
+Date:   Mon Apr 29 08:54:50 2024 +0300
+
+    Read EnableWriteXorExecute from runtimeConfig (#101490)
+    
+    * Read System.Runtime.EnableWriteXorExecute from config.
+    
+    * Fixed default value for W^X enabling option.
+    
+    * Revert "Fixed default value for W^X enabling option."
+    
+    This reverts commit b6857a1a9a02b3ffb0f637ca9d30a394e6b21006.
+    
+    ---------
+    
+    Co-authored-by: Manish Godse <61718172+mangod9@users.noreply.github.com>
