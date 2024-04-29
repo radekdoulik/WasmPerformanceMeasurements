@@ -1,0 +1,15 @@
+commit 81c1d87dd777eddc4eff38d433077e2f20cdba79
+Author: Tomasz Sowiński <tomeksowi@gmail.com>
+Date:   Sat Apr 27 11:46:16 2024 +0200
+
+    [RISC-V] Use common CodeGen::genHomeRegisterParams (#101288)
+    
+    * Code review from #101114
+    
+    * Use common genHomeRegisterParams on RISC-V
+    
+    * Make passSlot integer-only because we know hardware floating-point calling convention passes in registers only
+    
+    * Make a RISC-V specific routine for homing stack parts of split parameters.
+    
+    * Move genHomeStackPartOfSplitParameter out of genHomeSwiftStructParameters, share stack segment homing with Swift code
