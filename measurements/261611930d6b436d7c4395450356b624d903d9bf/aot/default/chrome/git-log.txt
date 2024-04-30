@@ -1,0 +1,23 @@
+commit 261611930d6b436d7c4395450356b624d903d9bf
+Author: Viktor Hofer <viktor.hofer@microsoft.com>
+Date:   Mon Apr 29 21:28:04 2024 +0200
+
+    Replace usage of out-of-support TFM compiler directives (#101672)
+    
+    * Replace usage of out-of-support TFM compiler directives
+    
+    ... and directives for TFMs that we don't target anymore in main.
+    
+    Replaces the following directives with `NET` or `!NET`:
+    - `#if NETCOREAPP2*`
+    - `#if !NETCOREAPP2*`
+    - `#if NETCOREAPP3*`
+    - `#if !NETCOREAPP3*`
+    - `#if NET5*`
+    - `#if !NET5*`
+    - `#if NET6*`
+    - `#if !NET6*`
+    - `#if NET7*`
+    - `#if !NET7*`
+    
+    * Update EmitterTests.cs
