@@ -1,0 +1,17 @@
+commit a8e74e34dc796a488a5c9e76f3c4e85133d603ae
+Author: Alan Hayward <a74nh@users.noreply.github.com>
+Date:   Thu Apr 25 20:05:30 2024 +0100
+
+    JIT ARM64-SVE: Add CreateWhileLessThan* (#100949)
+    
+    * JIT ARM64-SVE: Add CreateWhileLessThan*
+    
+    * Set simdBaseJitType to type of input args
+    
+    * Hardcode opt in codegen
+    
+    * Fix gtNewSimdConvertMaskToVectorNode types
+    
+    * Use HW_Flag_BaseTypeFromFirstArg
+    
+    * Set base type to return type and auxiliary type to input type
