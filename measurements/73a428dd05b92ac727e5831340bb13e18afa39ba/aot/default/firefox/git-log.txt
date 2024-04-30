@@ -1,0 +1,13 @@
+commit 73a428dd05b92ac727e5831340bb13e18afa39ba
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Mon Apr 29 13:55:03 2024 -0400
+
+    Fix handling of case-sensitive set loops in RegexPrefixAnalyzer.FindPrefixes (#101608)
+    
+    * Fix handling of case-sensitive set loops in RegexPrefixAnalyzer.FindPrefixes
+    
+    For an expression like `[Aa]{2}`, we were generating the strings "AA" and "aa" but not "Aa" or "aA".
+    
+    This code isn't exercised yet, as we're currently only using FindPrefixes for case-insensitive, but I'm trying to enable it for case-sensitive as well, and hit this. I'm not adding new tests here as plenty of existing tests catch it once it's enabled.
+    
+    * Also exit early as soon as we can detect too many possible prefixes
