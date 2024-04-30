@@ -1,0 +1,13 @@
+commit 55c904024601c133f8ad081bc704c3c1fc5c7c9b
+Author: Kunal Pathak <Kunal.Pathak@microsoft.com>
+Date:   Mon Apr 29 20:05:01 2024 -0700
+
+    Arm64/Sve: Add SignExtend* and ZeroExtend* math APIs (#101702)
+    
+    * Add [Sign|Zero]Extend[8|16|32] APIs:
+    
+    * Add API to instruction mapping
+    
+    * eliminate extra movprfx for AllBitsSetMask
+    
+    * Add test cases
