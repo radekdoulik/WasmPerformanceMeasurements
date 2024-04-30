@@ -1,0 +1,12 @@
+commit 80aa46441244c7a05f7b2bbbbb0d4812f76b488a
+Author: Jan Kotas <jkotas@microsoft.com>
+Date:   Tue Apr 30 06:26:56 2024 -0700
+
+    Backport assorted changes from runtimelab (#101655)
+    
+    * Backport assorted changes from runtimelab
+    - Official build template
+    - FEATURE_HIJACK define
+    - Misc other cleanup
+    
+    * Delete unused DATA_ALIGNMENT definition
