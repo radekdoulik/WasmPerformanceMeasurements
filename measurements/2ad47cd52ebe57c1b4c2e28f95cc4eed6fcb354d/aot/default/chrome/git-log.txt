@@ -1,0 +1,13 @@
+commit 2ad47cd52ebe57c1b4c2e28f95cc4eed6fcb354d
+Author: Ilona Tomkowicz <32700855+ilonatommy@users.noreply.github.com>
+Date:   Tue Apr 30 12:57:18 2024 +0200
+
+    [wasm] Switch off `HybridGlobalization` lane on v8 on CI (#101671)
+    
+    * Stop testing on v8.
+    
+    * Try to block by scenario,
+    
+    * Limit scenarios.
+    
+    This reverts commit 38f64f7a8619b427f1b5c617db5dead7d8f194ee.
