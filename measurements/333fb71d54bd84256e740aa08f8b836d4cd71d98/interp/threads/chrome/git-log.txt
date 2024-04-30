@@ -1,0 +1,7 @@
+commit 333fb71d54bd84256e740aa08f8b836d4cd71d98
+Author: AtariDreams <gfunni234@gmail.com>
+Date:   Tue Apr 30 00:29:04 2024 -0400
+
+    Optimize flips between 1 and 0 (#100491)
+    
+    We can solve this with a bit flip rather than + 1 mod 2.
