@@ -1,0 +1,10 @@
+commit 30b3721b36ecaac4abb43c847940313d26f2edf7
+Author: Sven Boemer <sbomer@gmail.com>
+Date:   Tue Apr 30 15:38:49 2024 -0700
+
+    Preserve static type info for return value of ctor (#101212)
+    
+    Instead of tracking the return value as "TopValue" or "unknown",
+    this models the constructor as returning a value with a static
+    type when called with newobj, letting us undo the workaround from
+    https://github.com/dotnet/runtime/pull/101031.
