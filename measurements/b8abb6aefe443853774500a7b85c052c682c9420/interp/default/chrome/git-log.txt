@@ -1,0 +1,13 @@
+commit b8abb6aefe443853774500a7b85c052c682c9420
+Author: Aleksey Kliger (λgeek) <alklig@microsoft.com>
+Date:   Wed May 1 10:40:50 2024 -0400
+
+    [docs] Import mono manual page (#101765)
+    
+    Converted with Pandoc 3.1.13:
+    
+    ```console
+    pandoc --from=man --to=gfm mono.1 --shift-heading-level-by=1 --strip-comments=false
+    ```
+    
+    And tweaked by hand
