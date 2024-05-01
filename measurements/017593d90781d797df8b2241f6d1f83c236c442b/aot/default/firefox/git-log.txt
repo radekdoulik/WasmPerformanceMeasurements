@@ -1,0 +1,12 @@
+commit 017593d90781d797df8b2241f6d1f83c236c442b
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Tue Apr 30 18:29:30 2024 +0200
+
+    JIT: Avoid relying on bbNum to find lexical loop boundaries (#101714)
+    
+    Switch `FlowGraphNaturalLoop::GetLexicallyTopMostBlock` and
+    `FlowGraphNaturalLoop::GetLexicallyBottomMostBlock` to more robust
+    implementations that scan the basic block list forwards (and backwards)
+    to find the boundary blocks.
+    
+    Fix #101695
