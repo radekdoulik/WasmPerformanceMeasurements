@@ -1,0 +1,11 @@
+commit fc76b1cac3f02cc9729f6682d6850fd7982e9fe5
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Thu May 2 08:36:08 2024 -0400
+
+    Fix some TensorPrimitives tests failing for me locally with checked builds (#101745)
+    
+    This is just:
+    - Adding tolerance checks for NFloat that are the same as for float/double
+    - Adding tolerance for MultiplyAddEstimate that matches our other tolerances for "Estimate" functions
+    
+    This addresses everything failing for me locally, but it doesn't match the failure spike recently highlighted in CI.
