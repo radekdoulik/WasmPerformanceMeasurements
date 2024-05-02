@@ -1,0 +1,35 @@
+commit f95a76b58ec0d9af3179a6104eebf4744f42d778
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Thu May 2 11:24:50 2024 +0200
+
+    JIT: Process all register kills in bulk in LSRA (#101760)
+    
+    `RefTypeKill` is one of the most common types of ref position because we
+    create a separate one for every register whenever registers are killed,
+    and registers are killed with very high frequency (for example, all
+    callee trashed registers at calls). This can be seen in metrics: in
+    `libraries_tests.run`, `RefTypeKill` is as common as `RefTypeUse` and
+    `RefTypeDef` combined on x64, and 3x as common as them combined on arm64
+    due to having more registers.
+    
+    The main complication around changing `RefTypeKill` to represent killing
+    a full set of registers is the fact that we want to be able to easily
+    look up the next `RefPosition` at which a particular register is killed
+    or used. Today, this is very simple: all kills (`RefTypeKill`) and uses
+    (`RefTypeFixedReg`) participate in an intrusive linked list, and finding
+    the next `RefPosition` is as simple as following this list.
+    
+    This PR changes LSRA to model the kills in bulk instead of creating an
+    individual `RefPosition` for every kill. To handle finding the next
+    fixed reg ref position LSRA is updated to take into account that there
+    can be `RefPosition`'s corresponding to a register from two different
+    linked lists: the `RefTypeFixedReg` intrusive linked list, and also a
+    linked list of all `RefTypeKill` ref positions. The latter linked list
+    may take some searching (not every kill necessarily kills the register
+    we are looking for), but the reduction in number of `RefPosition`'s
+    created more than makes up for this.
+    
+    No codegen diffs, but significant throughput improvements.
+    
+    This change reduces memory usage of the JIT by around 12% for arm64,
+    and by around 7% for x64.
