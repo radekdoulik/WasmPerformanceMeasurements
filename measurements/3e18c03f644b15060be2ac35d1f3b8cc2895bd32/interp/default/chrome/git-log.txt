@@ -1,0 +1,19 @@
+commit 3e18c03f644b15060be2ac35d1f3b8cc2895bd32
+Author: Aaron Robinson <arobins@microsoft.com>
+Date:   Tue Apr 23 19:14:50 2024 -0700
+
+    Simplify managed MetadataImport creation (#101353)
+    
+    * Simplify managed MetadataImport creation
+    
+    Consolidate the create mechanism for the managed
+    MetadataImport type. This also removes some
+    Helper Method Frame usage.
+    
+    * Always get the latest metadataimport instance.
+    The field on the managed object can become
+    stale during HotReload or EnC scenarios.
+    
+    ---------
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
