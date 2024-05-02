@@ -1,0 +1,9 @@
+commit 2d2a5a2c75fcf078c408982dca7c056a02ca3a2a
+Author: Koundinya Veluri <kouvel@users.noreply.github.com>
+Date:   Thu May 2 09:52:48 2024 -0700
+
+    Fix Lock spin-waiting on single-proc machines (#101513)
+    
+    * Fix Lock spin-waiting on single-proc machines
+    
+    Small fix to check for a single proc during initialization. Also renamed things referring to "minSpinCount" to clarify it a bit.
