@@ -1,0 +1,13 @@
+commit ee93104aa0e7ac77ca7e4c6db9873356a9e3e622
+Author: Radek Zikmund <32671551+rzikm@users.noreply.github.com>
+Date:   Thu May 2 16:38:14 2024 +0200
+
+    Removed unused sessions from SSL_CTX internal cache (#101684)
+    
+    * Disable OpenSSL internal SSL_SESSION cache for clients
+    
+    * Attempt no. 2
+    
+    * Revert "Disable OpenSSL internal SSL_SESSION cache for clients"
+    
+    This reverts commit 56a308e88171bb797d13d50953b83262cd8289cd.
