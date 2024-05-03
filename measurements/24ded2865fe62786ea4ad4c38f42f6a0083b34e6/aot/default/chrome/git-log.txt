@@ -1,0 +1,8 @@
+commit 24ded2865fe62786ea4ad4c38f42f6a0083b34e6
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Thu May 2 21:21:15 2024 +0200
+
+    JIT: Remove LSRA arm32 quirk (#101791)
+    
+    For arm32 this query can return an earlier location if the upper half
+    register assigned to a TYP_DOUBLE interval has an earlier ref.
