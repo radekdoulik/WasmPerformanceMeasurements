@@ -1,0 +1,7 @@
+commit 5fe1a569099272cbe3cec4972c52e5531223b58e
+Author: SwapnilGaikwad <swapnil.gaikwad@arm.com>
+Date:   Wed Apr 24 16:07:10 2024 +0100
+
+    Fix checks to accommodate register wraparounds in multi-reg ops (#101430)
+    
+    Fixes issue #101070
