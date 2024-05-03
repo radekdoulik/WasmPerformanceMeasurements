@@ -1,0 +1,20 @@
+commit af889b9efd454c4ed513edbc59e92e22c78e3608
+Author: Andy Ayers <andya@microsoft.com>
+Date:   Thu May 2 17:32:11 2024 -0700
+
+    JIT: synthesize PGO if no schema, when dynamic PGO is active (#101739)
+    
+    If we know dynamic PGO is active, and we do not find a PGO schema for a method,
+    synthesize PGO data. The schema may be missing if the method was prejitted but
+    not covered by static PGO, or was considered too simple to need profiling (aka
+    minimal profiling).
+    
+    This synthesis removes the possibility of a mixed PGO/no PGO situation. These
+    are problematic, especially in methods that do a lot of inlining. Now when
+    dynamic PGO is active all methods that get optimized will have some form of
+    PGO data.
+    
+    Only run profile incorporation when optimizing. Reset BBOPT/pgo vars if we
+    switch away from optimization or have a min opts failover.
+    
+    Contributes to #93020.
