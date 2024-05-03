@@ -1,0 +1,13 @@
+commit 15e98e58e6023be3121dcb0ed2e701d1d5cd098e
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Fri May 3 09:38:31 2024 +0200
+
+    JIT: Mark swift error as busy before call definition RefPosition (#101792)
+    
+    The RefPosition we were inserting here was inserted too late to actually
+    protect the call definition from being allocated into the error
+    register.
+    
+    Instead, we can just mark the existing `RefTypeFixedReg` created for the
+    argument use as delay freed, which will have the intended effect of
+    keeping the error register busy until after the call definition.
