@@ -1,0 +1,11 @@
+commit 9e9667500701fd27b54ffc06ec6a5ec0583f8651
+Author: Larry Ewing <lewing@microsoft.com>
+Date:   Thu May 2 20:29:51 2024 -0500
+
+    Disable the wasi-aot-library tests on windows (#101827)
+    
+    The clang in the wasi-sdk is a 32bit exe and it is
+    failing to do aot compilation correctly so disable
+    the lane until that is fixed
+    
+    https://github.com/dotnet/runtime/issues/101533
