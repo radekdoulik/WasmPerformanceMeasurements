@@ -1,0 +1,21 @@
+commit 64d537accd7aa54094a34b104db35ad8d5e4e0b4
+Author: Tanner Gooding <tagoo@outlook.com>
+Date:   Fri May 3 18:29:20 2024 -0700
+
+    Ensure the scalar Reciprocal*Estimate APIs use AVX512 where possible (#101800)
+    
+    * Ensure the scalar Reciprocal*Estimate APIs use AVX512 where possible
+    
+    * Ensure that TensorPrimitives.Reciprocal APIs consistently use AVX512
+    
+    * Move the implementation of ReciprocalEstimate and ReciprocalSqrtEstimate to the JIT so R2R works
+    
+    * Ensure the relevant math intrinsics are marked betterToExpand
+    
+    * Apply formatting patch
+    
+    * Fixing the method header for impEstimateIntrinsic
+    
+    * Don't use the AVX512 paths for TensorPrimitives.Reciprocal*Estimate APIs on .NET 8
+    
+    * Workaround an issue where the TensorPrimitives net8 tests are not running on net8
