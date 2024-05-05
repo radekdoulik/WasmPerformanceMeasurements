@@ -1,0 +1,5 @@
+commit 358b0a4d350a6c72ccc825a0ac668620f849365a
+Author: Dan Moseley <danmose@microsoft.com>
+Date:   Fri May 3 22:29:12 2024 -0700
+
+    [browser] Fix ConvertDllsToWebCil stack dump on bad input to be error message with input path (#101162)
