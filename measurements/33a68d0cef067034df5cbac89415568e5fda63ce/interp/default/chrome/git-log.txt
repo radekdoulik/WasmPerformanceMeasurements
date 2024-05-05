@@ -1,0 +1,7 @@
+commit 33a68d0cef067034df5cbac89415568e5fda63ce
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Tue Apr 30 06:34:57 2024 +0900
+
+    Reduce generic specialized code in console formatters (#101474)
+    
+    Move code that doesn't need to be generic to a non-generic method. Reduces the size of the Stage 2 goldilocks app by 1.4% since these methods are rather large (especially the `JsonConsoleFormatter` one) and we have many specializations.
