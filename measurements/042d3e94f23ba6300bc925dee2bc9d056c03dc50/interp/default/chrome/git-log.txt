@@ -1,0 +1,17 @@
+commit 042d3e94f23ba6300bc925dee2bc9d056c03dc50
+Author: Kunal Pathak <Kunal.Pathak@microsoft.com>
+Date:   Sat May 4 20:40:56 2024 -0700
+
+    Arm64/Sve: Implement SVE Math Min*/Max* APIs (#101859)
+    
+    * Add the missing else
+    
+    * Max, MaxAcross, MaxNumber, MaxNumberAcross, Min, MinAcross, MinNumber, MinNumberAcross
+    
+    * Map APIs to instruction
+    
+    * Add test cases
+    
+    * Remove the space
+    
+    * fix the test case
