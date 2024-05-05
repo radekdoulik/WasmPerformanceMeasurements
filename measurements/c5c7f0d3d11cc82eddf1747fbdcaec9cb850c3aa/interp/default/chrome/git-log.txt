@@ -1,0 +1,9 @@
+commit c5c7f0d3d11cc82eddf1747fbdcaec9cb850c3aa
+Author: Alexander Köplinger <alex.koeplinger@outlook.com>
+Date:   Sun May 5 17:25:31 2024 +0200
+
+    Fix check for AppleClang in src/native/libs and fix warnings (#101875)
+    
+    While looking at https://github.com/dotnet/runtime/pull/101781 I noticed that we weren't catching AppleClang in the CMAKE_C_COMPILER_ID in src/native/libs/CMakeLists.txt because we used  STREQUAL instead of MATCHES like we do everywhere else.
+    
+    The result was that we didn't enable `-Weverything` on Apple platforms for the libs.native subset and a bunch of warnings didn't get enabled, this PR fixes that.
