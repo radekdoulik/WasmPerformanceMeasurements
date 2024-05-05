@@ -1,0 +1,16 @@
+commit cdfc8f255ddda5f6578e55fabb3b7382e6770730
+Author: Jackson Schuster <36744439+jtschuster@users.noreply.github.com>
+Date:   Fri Apr 26 15:25:05 2024 -0700
+
+    Create separate attribute for warning behavior differences (#101220)
+    
+    To help track differences in the warning behavior of the trimming related tools, this modifies how adds UnexpectedWarning, and requires an issue link to be provided when there is a ProducedBy argument to the constructor. To enforce that either both a ProducedBy and IssueLink is provided or neither, the ProducedBy property is removed and is provided as the second to last argument, and IssueLink is provided as the last argument.
+    
+    ExpectedWarning means that the correct behavior is to warn. Any attributes that expect it only from a subset of the tools must provide an issue link. (These are mostly blank strings now, though)
+    
+    UnexpectedWarning means that this warning is not the correct behavior. These attributes always include a ProducedBy anrdshould link to an issue.
+    
+    Changes
+    Look for a Tool attribute argument in the second to last position of ExpectedWarning and Unexpected warning when a ProducedBy property is not found.
+    Find a replace existing ExpectedWarnings to use the new constructors.
+    Adds issue links within AttributedMembersAccessedViaReflection.cs and in some places in ArrayDataFlow.cs
