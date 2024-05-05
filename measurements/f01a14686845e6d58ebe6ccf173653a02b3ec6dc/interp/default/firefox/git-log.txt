@@ -1,0 +1,17 @@
+commit f01a14686845e6d58ebe6ccf173653a02b3ec6dc
+Author: Alan Hayward <a74nh@users.noreply.github.com>
+Date:   Fri May 3 13:54:00 2024 +0100
+
+    JIT ARM64-SVE: Add simple bitwise ops (#101762)
+    
+    * JIT ARM64-SVE: Add simple bitwise ops
+    
+    And,AndAcross,Or,OrAcross,Xor,XorAcross
+    
+    * Fix fadda
+    
+    * Fix unpkh/fexpa/frecpe
+    
+    * Reorder System.Runtime.Intrinsics.cs
+    
+    * Fix API head comments
