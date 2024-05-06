@@ -1,0 +1,5 @@
+commit 54c87c2c9f966e7700b010a1797ee0f0d26ef242
+Author: Qiao Pengcheng <qiaopengcheng@loongson.cn>
+Date:   Mon May 6 19:16:47 2024 +0800
+
+    [LoongArch64] don't clear float-regs when passed by integer-regs. (#101902)
