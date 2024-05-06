@@ -1,0 +1,17 @@
+commit 5e949e1f0531052b8685f22c9ff03c5243c9c43f
+Author: Jeremi Kurdek <59935235+jkurdek@users.noreply.github.com>
+Date:   Mon May 6 16:18:50 2024 +0200
+
+    [mono] Add SwiftError support for Swift reverse pinvokes (#101122)
+    
+    * initialized swift reverse pinvokes for mini jit arm64
+    
+    * added comments
+    
+    * fixed reverse pinvokes error passing on arm64
+    
+    * implemented swift reverse pinvoke error passing on amd64
+    
+    * disable SwiftErrorHandling tests on mono interpreter for now
+    
+    * add comments
