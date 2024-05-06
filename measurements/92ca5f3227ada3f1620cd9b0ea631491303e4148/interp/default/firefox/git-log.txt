@@ -1,0 +1,11 @@
+commit 92ca5f3227ada3f1620cd9b0ea631491303e4148
+Author: Keith Dahlby <dahlbyk@gmail.com>
+Date:   Mon Apr 29 10:49:01 2024 -0500
+
+    Annotate `config.GetValue()` with `[NotNullIfNotNull]` (#101336)
+    
+    * Annotate GetValue() with [NotNullIfNotNull]
+    
+    * Avoid duplicate NullableAttributes.cs
+    
+    * Annotate generated GetValue() with [NotNullIfNotNull]
