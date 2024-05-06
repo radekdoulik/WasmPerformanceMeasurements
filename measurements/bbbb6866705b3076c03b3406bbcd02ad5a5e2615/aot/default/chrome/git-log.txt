@@ -1,0 +1,14 @@
+commit bbbb6866705b3076c03b3406bbcd02ad5a5e2615
+Author: SzpejnaDawid <166010737+SzpejnaDawid@users.noreply.github.com>
+Date:   Mon May 6 17:07:55 2024 +0200
+
+    [RISC-V] fix rm field in riscvd instruction (#101908)
+    
+    Changed rm from 1 to 0.
+    Fixed instructions:
+    - fcvt.d.w
+    - fcvt.w.d
+    - fcvt.d.wu
+    - fcvt.wu.d
+    - fcvt.d.s
+    - fcvt.s.d
