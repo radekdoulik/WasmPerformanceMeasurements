@@ -1,0 +1,35 @@
+commit c81eca8f65662dc5169327df5db6e2470979940e
+Author: Linus Hamlin <78953007+lilinus@users.noreply.github.com>
+Date:   Mon May 6 18:04:31 2024 +0200
+
+    Refactor some DateTime and TimeSpan formatting/parsing methods (#101640)
+    
+    * Refactor some DateTime and TimeSpan formatting/parsing methods
+    
+    * Fix assertion in TimeSpanParse.Pow10
+    
+    * Don't use Unsafe in TimeSpanParse.Pow10
+    
+    * Revert changes to TimeSpanParse.Pow10
+    
+    * Revert "Revert changes to TimeSpanParse.Pow10"
+    
+    This reverts commit 267d5e861c022c338de5004bb6c85e26d6179039.
+    
+    * Change method name to Pow10UpToMaxFractionDigits
+    
+    * Fix TimeSpanParse.TimeSpanToken.NormalizeAndValidateFraction
+    
+    * Address feedback in TimeSpanParse
+    
+    * Change from Math.Round to uint divison in TimeSpanParse.NormalizeAndValidateFraction
+    
+    * Comment for rounding division in TimeSpanParse.NormalizeAndValidateFraction
+    
+    * Update src/libraries/System.Private.CoreLib/src/System/Globalization/TimeSpanParse.cs
+    
+    Co-authored-by: xtqqczze <45661989+xtqqczze@users.noreply.github.com>
+    
+    ---------
+    
+    Co-authored-by: xtqqczze <45661989+xtqqczze@users.noreply.github.com>
