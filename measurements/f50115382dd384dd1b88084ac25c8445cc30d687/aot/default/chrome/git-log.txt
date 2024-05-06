@@ -1,0 +1,23 @@
+commit f50115382dd384dd1b88084ac25c8445cc30d687
+Author: Sergio Pedri <sergio0694@live.com>
+Date:   Sun May 5 17:26:35 2024 -0700
+
+    Optimize 'ConvertOrWidenPrimitivesEnumsAndPointersIfPossible' (#101858)
+    
+    * Optimize 'ConvertOrWidenPrimitivesEnumsAndPointersIfPossible'
+    
+    * Add missing U4 -> U8 widening flag
+    
+    * Skip type checks when unboxing
+    
+    * Centralized boxing operations
+    
+    * Remove unnecessary code to handle enums
+    
+    * Combine 'Char' cases with 'UInt16' ones
+    
+    * Deduplicate the implementation between array and reflection
+    
+    ---------
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
