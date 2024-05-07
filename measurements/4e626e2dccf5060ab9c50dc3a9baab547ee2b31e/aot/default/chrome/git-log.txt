@@ -1,0 +1,10 @@
+commit 4e626e2dccf5060ab9c50dc3a9baab547ee2b31e
+Author: Andy Ayers <andya@microsoft.com>
+Date:   Mon May 6 17:08:10 2024 -0700
+
+    JIT: fix STRESS_BB_PROFILE issue (#101925)
+    
+    Incorporate "stress" profile counts even if we're not optimizing.
+    Scale after synthesis, not before.
+    
+    Fixes #101901.
