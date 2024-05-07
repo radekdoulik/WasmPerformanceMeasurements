@@ -1,0 +1,13 @@
+commit fbb67a62d64b3472ede5c4ee4cfaccf1c03b8673
+Author: Jackson Schuster <36744439+jtschuster@users.noreply.github.com>
+Date:   Mon May 6 13:58:27 2024 -0700
+
+    Begin transition to dependency framework in illink (#101277)
+    
+    Recreates the Process() loop in MarkStep with node that depends on a new copy of itself when the loop needs to be rerun. Within the loop, the new Method and Type nodes are added to the dependency framework analyzer as roots when MarkMethod and MarkType are called, which leads to the OnMarked methods to be called, which forwards to the ProcessType/Method method in MarkStep. The dependency analyzer doesn't do anything interesting yet. In a follow-up I'll move dependencies from the MarkX and ProcessX methods to the DependencyNode types.
+    
+    Makes ILCompiler.DependencyAnalysisFramework output path independent of target architecture. Removes TargetArchitecture and TargetOS from ILLink.Tasks project references.
+    
+    ---------
+    
+    Co-authored-by: vitek-karas <10670590+vitek-karas@users.noreply.github.com>
