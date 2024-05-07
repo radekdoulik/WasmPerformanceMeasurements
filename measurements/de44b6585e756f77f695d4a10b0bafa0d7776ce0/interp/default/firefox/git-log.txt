@@ -1,0 +1,9 @@
+commit de44b6585e756f77f695d4a10b0bafa0d7776ce0
+Author: Elinor Fung <elfung@microsoft.com>
+Date:   Tue May 7 09:03:00 2024 -0700
+
+    Remove Thread::m_pDomain - always the one app domain (#101749)
+    
+    We only have one app domain now. The `Thread` constructor was always just initializing its member variable to the current domain.
+    - Remove `Thread::m_pDomain/GetDomain`
+    - Remove `AppDomain` parameter on `DebuggerPatchSkip` and checking for mismatch (always the current domain, no mismatch)
