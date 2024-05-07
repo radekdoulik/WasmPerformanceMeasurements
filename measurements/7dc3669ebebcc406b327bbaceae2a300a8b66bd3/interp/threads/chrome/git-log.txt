@@ -1,0 +1,5 @@
+commit 7dc3669ebebcc406b327bbaceae2a300a8b66bd3
+Author: David Mason <davmason@microsoft.com>
+Date:   Mon May 6 19:47:18 2024 -0700
+
+    Improve performance of Debugger.NotifyOfCrossThreadDependency under a debugger (#101864)
