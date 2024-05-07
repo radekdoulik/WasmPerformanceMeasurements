@@ -1,0 +1,9 @@
+commit e1c671760e23de03ee4be74eeb26831813488100
+Author: Vladimir Sadov <vsadov@microsoft.com>
+Date:   Mon May 6 23:19:58 2024 -0700
+
+    Use REG_INDIRECT_CALL_TARGET_REG for indirect calls on arm64 (#101927)
+    
+    * Use REG_INDIRECT_CALL_TARGET_REG for indirect calls on arm64
+    
+    * Added a comment about NativeAOT dependency at the place wehre we exclude LR from availableIntRegs
