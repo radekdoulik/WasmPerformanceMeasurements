@@ -1,0 +1,9 @@
+commit 9181d5ffe6287fd6492613ccb7cf2067b04e1af2
+Author: Adam Sitnik <adam.sitnik@gmail.com>
+Date:   Tue May 7 13:50:47 2024 +0200
+
+    Finish the TypeName cleanup (#101910)
+    
+    * remove pragma warning that was required when the code was linked by the tools
+    
+    * move the files
