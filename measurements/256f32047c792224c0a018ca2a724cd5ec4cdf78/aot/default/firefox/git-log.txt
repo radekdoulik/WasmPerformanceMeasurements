@@ -1,0 +1,7 @@
+commit 256f32047c792224c0a018ca2a724cd5ec4cdf78
+Author: Katelyn Gadd <kg@luminance.org>
+Date:   Tue May 7 03:26:14 2024 -0700
+
+    [mono] Remove unnecessary indirect use of managed wcslen from AppContext setup (#101318)
+    
+    Remove unnecessary indirect use of managed wcslen from AppContext setup since it pulls in vector dependencies and we already know the length of each string
