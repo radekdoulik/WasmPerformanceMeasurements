@@ -1,0 +1,7 @@
+commit 08e0f8954f3364dd7fd6ebeb5d4ddd4e9a9530b1
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Mon May 6 13:20:22 2024 -0400
+
+    Use IndexOf for bounded loops in a regex (#101899)
+    
+    Today with a pattern like `ab*c`, IndexOfAnyExcept('b') will be used to skip past the `b`s. But if that pattern is changed to `ab{0, 1000}c`, we'll end up manually iterating, as the current specialization only handles unbounded loops. This adds the minor improvements necessary to also enable using IndexOf for bounded loops.
