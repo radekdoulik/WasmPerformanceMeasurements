@@ -1,0 +1,21 @@
+commit d77b37ba4f02bc19217ea438f72c9799a51eaaed
+Author: Kunal Pathak <Kunal.Pathak@microsoft.com>
+Date:   Tue Apr 30 23:35:16 2024 -0700
+
+    Arm64/Sve: Add SignExtendWidening* and ZeroExtendWidening* math APIs (#101743)
+    
+    * Add SignExtendWidening* and ZeroExtendWidening* APIs
+    
+    * Map API to instruction
+    
+    * Add missing SignExtendWidening* APIs
+    
+    * Add test cases
+    
+    * fix bugs
+    
+    * Forgot to push the template
+    
+    * jit format
+    
+    * Fix the LargeVectorSize
