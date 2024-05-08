@@ -1,0 +1,11 @@
+commit d7a6ffa857ee8bee4732604c0cb7e9008f0df90c
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Tue Apr 30 10:48:47 2024 +0200
+
+    SPMI: Replay recorded allocPgoInstrumentationBySchema HRESULT (#101696)
+    
+    Current SPMI collection has a recorded allocPgoInstrumentationBySchema
+    call that failed (EE returned 0x80004001). SPMI fails to replay that
+    correctly.
+    
+    Fix #101685
