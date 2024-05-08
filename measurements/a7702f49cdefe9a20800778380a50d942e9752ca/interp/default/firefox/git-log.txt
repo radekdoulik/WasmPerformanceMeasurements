@@ -1,0 +1,7 @@
+commit a7702f49cdefe9a20800778380a50d942e9752ca
+Author: Anton Firszov <Anton.Firszov@microsoft.com>
+Date:   Wed May 8 17:45:14 2024 +0200
+
+    Move _cachedSendPinnedBuffer ownership to WinHttpRequestState (#101725)
+    
+    Fixes a race between `WinHttpRequestStream.WriteAsync` and `WinHttpRequestStream.Dispose` that can lead to AV.
