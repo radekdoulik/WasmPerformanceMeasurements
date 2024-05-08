@@ -1,0 +1,33 @@
+commit 5f02413cb09996896e9790f5d081f8429263b2d4
+Author: Vladimir Sadov <vsadov@microsoft.com>
+Date:   Wed May 8 07:39:46 2024 -0700
+
+    Use QueueUserAPC2  for EE suspension on CoreCLR win-arm64. (#101891)
+    
+    * use APC2 on arm64
+    
+    * Made AreCetShadowStacksEnabled available on arm64, with trivial implementation for now.
+    
+    * Enabled querying for GetReturnAddressHijackTarget  on arm64
+    
+    * Apply suggestions from code review
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
+    
+    * updated #endif
+    
+    * not handling STATUS_RETURN_ADDRESS_HIJACK_ATTEMPT if not in coop mode.
+    
+    * Assert that a hijack target is provided when CET is enabled
+    
+    * Nit
+    
+    * AreCetShadowStacksEnabled -> AreShadowStacksEnabled
+    
+    * Update src/coreclr/vm/threadsuspend.cpp
+    
+    * Update src/coreclr/vm/threads.cpp
+    
+    ---------
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
