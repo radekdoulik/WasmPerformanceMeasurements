@@ -1,0 +1,11 @@
+commit 28c39bc2805cdb952d8a7b0f14f5018b5f368c16
+Author: Aman Khalid <amankhalid@microsoft.com>
+Date:   Thu May 2 21:04:11 2024 +0000
+
+    JIT: Implement greedy RPO-based block layout (#101473)
+    
+    Part of #93020. Compiler::fgDoReversePostOrderLayout reorders blocks based on a RPO of the flowgraph's successor edges. When reordering based on the RPO, we only reorder blocks within the same EH region to avoid breaking up their contiguousness. After establishing an RPO-based layout, we do another pass to move cold blocks to the ends of their regions in fgMoveColdBlocks.
+    
+    The "greedy" part of this layout isn't all that greedy just yet. For now, we use edge likelihoods to make placement decisions only for BBJ_COND blocks' successors. I plan to extend this greediness to other multi-successor block kinds (BBJ_SWITCH, etc) in a follow-up so we can independently evaluate the value in doing so.
+    
+    This new layout is disabled by default for now.
