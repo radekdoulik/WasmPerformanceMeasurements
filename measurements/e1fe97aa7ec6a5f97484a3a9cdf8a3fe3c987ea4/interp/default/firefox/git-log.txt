@@ -1,0 +1,7 @@
+commit e1fe97aa7ec6a5f97484a3a9cdf8a3fe3c987ea4
+Author: Koundinya Veluri <kouvel@users.noreply.github.com>
+Date:   Thu Apr 25 11:42:14 2024 -0700
+
+    When initializing Lock in NativeAOT, get the processor count directly instead of using Environment (#101514)
+    
+    It's a bit safer to get the proc count directly since the Environment properties involve class construction. We used to get the proc count directly before, and there's still a reason to do so to get the correct value with the current initialization pattern due to in-thread reentrancy of the same class construction.
