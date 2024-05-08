@@ -1,0 +1,5 @@
+commit 188b3c49da631b1faa7527d0c33571c643e24aac
+Author: Jeremy Koritzinsky <jekoritz@microsoft.com>
+Date:   Tue May 7 23:42:14 2024 -0700
+
+    Declare __cxa_demangle where it's used based on the Itanium ABI instead of including the ABI header. (#101997)
