@@ -1,0 +1,9 @@
+commit 562457f9097f65c2932260f5d70c92083de99b1a
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Wed May 8 10:21:58 2024 +0200
+
+    JIT: Rewrite initial parameter frame layout in terms of new ABI info (#101340)
+    
+    Rewrite `lvaAssignVirtualFrameOffsetsToArgs` to make use of the ABI
+    information that was already computed as part of ABI classification in
+    the frontend.
