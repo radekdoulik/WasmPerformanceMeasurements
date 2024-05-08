@@ -1,0 +1,13 @@
+commit c652f1095bd8e02b7762b1f6a019db49fab03416
+Author: Marek Fišera <mara@neptuo.com>
+Date:   Fri Apr 26 20:00:02 2024 +0200
+
+    [wasi] Separate payload directories per WorkItemPrefix (#101599)
+    
+    * Separate wasi payload dirs per WorkItemPrefix
+    
+    * Use NormalizeDirectory
+    
+    * Remove debug output
+    
+    * Revert NormalizeDirectory
