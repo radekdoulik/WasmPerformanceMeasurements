@@ -1,0 +1,11 @@
+commit 5bc4a58895070bac0b4a90517582a6f643e54324
+Author: Jackson Schuster <36744439+jtschuster@users.noreply.github.com>
+Date:   Mon May 6 13:01:53 2024 -0700
+
+    Enable derived COM interfaces to hide base methods with the new keyword (#101577)
+    
+    When a COM interface method is defined with the new keyword, we should avoid creating a new shadowing method on the derived interface, and remove the new keyword when creating implementations of methods. This change tracks whether a method was declared with the new keyword. If it was, we search all the inherited methods for one with the same name and signature. If found, we mark that method as "HiddenOnDerivedInterface". The hidden method may not be found if the method hides a non-COM method. When generating methods, we only generate new shadowing method declarations for inherited methods that aren't already hidden, and we don't generate any stubs for inherited hidden methods. The diff for the generated code for the new test interfaces is shown below.
+    
+    ---------
+    
+    Co-authored-by: Aaron Robinson <arobins@microsoft.com>
