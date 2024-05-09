@@ -1,0 +1,9 @@
+commit d01ebfedb864f65c44f1d3107740545d1240605c
+Author: Elinor Fung <elfung@microsoft.com>
+Date:   Wed May 8 16:45:12 2024 -0700
+
+    Remove ThreadNative_GetProcessDefaultStackSize (#102003)
+    
+    * Remove ThreadNative_GetProcessDefaultStackSize
+    
+    * Remove PEDecoder::CheckWillCreateGuardPage
