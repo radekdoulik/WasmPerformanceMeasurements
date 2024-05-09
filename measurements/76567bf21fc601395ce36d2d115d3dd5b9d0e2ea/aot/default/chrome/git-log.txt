@@ -1,0 +1,5 @@
+commit 76567bf21fc601395ce36d2d115d3dd5b9d0e2ea
+Author: Andrew Au <andrewau@microsoft.com>
+Date:   Wed May 8 17:30:06 2024 -0700
+
+    Support loading standalone GC from an absolute path using a new config named DOTNET_GCPath (#101874)
