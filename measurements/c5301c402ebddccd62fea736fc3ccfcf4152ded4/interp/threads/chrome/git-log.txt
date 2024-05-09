@@ -1,0 +1,10 @@
+commit c5301c402ebddccd62fea736fc3ccfcf4152ded4
+Author: Andy Ayers <andya@microsoft.com>
+Date:   Wed May 8 14:29:10 2024 -0700
+
+    Update SPMI collection script for ASP.NET (#102025)
+    
+    * Add some new scenarios.
+    * Revise configs we use for collections
+    * Use .Net 8 for crank.
+    * Use temp dir that is not under the repo root for .NET install
