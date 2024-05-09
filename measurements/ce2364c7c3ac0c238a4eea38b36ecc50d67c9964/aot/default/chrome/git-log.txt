@@ -1,0 +1,7 @@
+commit ce2364c7c3ac0c238a4eea38b36ecc50d67c9964
+Author: Meri Khamoyan <96171496+mkhamoyan@users.noreply.github.com>
+Date:   Thu May 9 13:30:12 2024 +0200
+
+    [mono][wasm] Refactor mono_fixup_symbol_name (#101681)
+    
+    Refactor mono_fixup_symbol_name, apply @lambdageek's feedback
