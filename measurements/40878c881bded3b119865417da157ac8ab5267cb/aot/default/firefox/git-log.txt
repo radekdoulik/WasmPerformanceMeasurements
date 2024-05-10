@@ -1,0 +1,5 @@
+commit 40878c881bded3b119865417da157ac8ab5267cb
+Author: Jeremy Koritzinsky <jekoritz@microsoft.com>
+Date:   Fri May 3 07:18:18 2024 -0700
+
+    Don't enable use-after-return checking on Apple's Clang (#101781)
