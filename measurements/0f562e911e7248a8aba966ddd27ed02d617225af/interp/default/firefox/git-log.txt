@@ -1,0 +1,12 @@
+commit 0f562e911e7248a8aba966ddd27ed02d617225af
+Author: Jan Kotas <jkotas@microsoft.com>
+Date:   Fri Apr 26 11:54:58 2024 -0700
+
+    Improve tests/profiler/multiple/multiple.cs (#101607)
+    
+    - Add volatile for a field accessed by multiple threads without
+      synchronization
+    - Improve logging
+    - Delete test supression against closed issue
+    - Revert timeout increase that tried to work around a hang that was fixed since
+      then
