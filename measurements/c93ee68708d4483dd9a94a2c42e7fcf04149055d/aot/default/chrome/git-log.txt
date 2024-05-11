@@ -1,0 +1,13 @@
+commit c93ee68708d4483dd9a94a2c42e7fcf04149055d
+Author: Elinor Fung <elfung@microsoft.com>
+Date:   Thu May 9 21:42:57 2024 -0700
+
+    Add `hostfxr_resolve_frameworks_for_runtime_config` for resolving runtime frameworks (#101451)
+    
+    - `hostfxr_resolve_frameworks_for_runtime_config` provides a way to run the host's runtime framework resolution in an isolated manner
+      - Return code indicates basic success/failure and the optional callback can be used for additional information about what was or was not resolved
+      - For framework-dependent, runs through framework resolution and propagates the result
+        - Currently `unresolved_count` will always either be 0 or 1 - the host stops at the first failed resolution
+      - For self-contained, any `includedFrameworks` per the runtime config are treated as resolved to the app's directory
+    - Add tests to `NativeHostApis` tests and update `HostApiInvokerApp` test asset to exercise new API
+      - Update tests to stop copying hostfxr next to the app - pass in the paths via runtime config and make the test app resolve the load via DllImportResolver
