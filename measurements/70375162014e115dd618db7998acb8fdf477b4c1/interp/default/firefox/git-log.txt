@@ -1,0 +1,11 @@
+commit 70375162014e115dd618db7998acb8fdf477b4c1
+Author: SwapnilGaikwad <swapnil.gaikwad@arm.com>
+Date:   Thu May 9 19:08:25 2024 +0100
+
+    Refactor AdvSimd version of DecodeFromUTF8 (#101620)
+    
+    * Refactor AdvSimd version of DecodeFromUTF8
+    
+    * Refactor look-up table for readability
+    
+    * Fix the comments
