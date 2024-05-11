@@ -1,0 +1,69 @@
+commit 34e65b9e6c3100bbbebcd78fd03f3b2e88cdc9f0
+Author: Kunal Pathak <Kunal.Pathak@microsoft.com>
+Date:   Fri May 10 18:39:47 2024 -0700
+
+    Arm64/Sve: Implement SVE Math *Multiply* APIs (#102007)
+    
+    * Add *Fused* APIs
+    
+    * fix an assert in morph
+    
+    * Map APIs to instructions
+    
+    * Add test cases
+    
+    * handle fused* instructions
+    
+    * jit format
+    
+    * Added MultiplyAdd/MultiplySubtract
+    
+    * Add mapping of API to instruction
+    
+    * Add test cases
+    
+    * Handle mov Z, Z instruction
+    
+    * Reuse GetResultOpNumForRmwIntrinsic() for arm64
+    
+    * Reuse HW_Flag_FmaIntrinsic for arm64
+    
+    * Mark FMA APIs as HW_Flag_FmaIntrinsic
+    
+    * Handle FMA in LSRA and codegen
+    
+    * Remove the SpecialCodeGen flag from selectedScalar
+    
+    * address some more scenarios
+    
+    * jit format
+    
+    * Add MultiplyBySelectedScalar
+    
+    * Map the API to the instruction
+    
+    * fix a bug where *Indexed API used with ConditionalSelect were failing
+    
+    ` Sve.ConditionalSelect(op1, Sve.MultiplyBySelectedScalar(op1, op2, 0), op3);` was failing
+    because we were trying to check if `MultiplyBySelectedScalar` is contained and we hit the assert
+    because it is not containable. Added the check.
+    
+    * unpredicated movprfx should not send opt
+    
+    * Add the missing flags for Subtract/Multiply
+    
+    * Added tests for MultiplyBySelectedScalar
+    
+    Also updated *SelectedScalar* tests for ConditionalSelect
+    
+    * fixes to test cases
+    
+    * fix the parameter for selectedScalar test
+    
+    * jit format
+    
+    * Contain(op3) of CndSel if op1 is AllTrueMask
+    
+    * Handle FMA properly
+    
+    * added assert
