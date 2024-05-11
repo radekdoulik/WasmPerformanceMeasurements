@@ -1,0 +1,10 @@
+commit 6b03ebd5c3fc8fe851a533d1044cb17455ad4971
+Author: Katelyn Gadd <kg@luminance.org>
+Date:   Thu May 9 19:50:16 2024 -0700
+
+    [wasm] Add custom mmap/munmap implementation for anonymous mappings (#101871)
+    
+    * emscripten libc implements mmap/munmap as a broken adapter on top of malloc (not calloc), which means it has no choice but to invoke memset on every allocation in order to provide properly zeroed bytes for our allocation requests. this commit adds a custom mmap/munmap implementation that can skip zeroing already-zeroed pages
+    * re-enable freeing of pages in sgen on wasm if custom mmap is active
+    * add runtime option for custom mmap
+    * add warning switches to fix build on debian
