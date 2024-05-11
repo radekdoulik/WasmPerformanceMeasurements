@@ -1,0 +1,7 @@
+commit 31527d1b79c7ae4c9179db97841e70b266521e43
+Author: Sven Boemer <sbomer@gmail.com>
+Date:   Fri May 10 18:25:38 2024 -0700
+
+    Fix Mono.Linker.Tests build (#102102)
+    
+    And ensure changes to ProjectReferences trigger linker tests
