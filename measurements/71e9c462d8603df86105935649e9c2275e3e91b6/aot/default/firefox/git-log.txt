@@ -1,0 +1,9 @@
+commit 71e9c462d8603df86105935649e9c2275e3e91b6
+Author: Koundinya Veluri <kouvel@users.noreply.github.com>
+Date:   Thu May 2 09:51:50 2024 -0700
+
+    Notify the debugger of a cross-thread dependency in Lock (#101501)
+    
+    * Notify the debugger of a cross-thread dependency in Lock
+    
+    When a FuncEval tries to acquire a Lock that is held by a different thread, notify the debugger of a cross-thread dependency.
