@@ -1,0 +1,25 @@
+commit fdc9c9d9cd1edb1c0520643be100e0af471c560b
+Author: Kunal Pathak <Kunal.Pathak@microsoft.com>
+Date:   Fri May 10 23:02:28 2024 -0700
+
+    Handle more than 64 registers - Part 1 (#101950)
+    
+    * Convert regMaskTP for ARM64 to struct with single field
+    
+    * Fix genFirstRegNumFromMaskAndToggle() and genFirstRegNumFromMask()
+    
+    * minor fix
+    
+    * review feedback
+    
+    * fix the TP regression from 1.5% -> 0.5%
+    
+    * Pass by value
+    
+    * jit format
+    
+    * review feedback
+    
+    * Remove FORCEINLINE
+    
+    * Remove setLow()
