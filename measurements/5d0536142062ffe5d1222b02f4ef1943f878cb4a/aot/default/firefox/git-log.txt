@@ -1,0 +1,18 @@
+commit 5d0536142062ffe5d1222b02f4ef1943f878cb4a
+Author: Sven Boemer <sbomer@gmail.com>
+Date:   Wed May 1 10:24:56 2024 -0700
+
+    Track unknown value as result of unimplemented operations (#101752)
+    
+    Up until now, the analyzer has been set up to return `TopValue`
+    for operations which are not handled by their own `Visit`
+    overrides, to avoid producing warnings that are not produced from
+    ILLink or ILC. This changes the default handling to return
+    `UnknownValue.Instance`, so that such operations produce warnings
+    if the return value flows into a location with dataflow
+    requirements.
+    
+    Fixes https://github.com/dotnet/runtime/issues/101733, where the
+    return value of a string interpolation operation (which doesn't
+    have special handling in a `Visit` override) was not producing
+    warnings when passed to `Type.GetType`.
