@@ -1,0 +1,27 @@
+commit 102dcd1cdc9e983a5f3ec4edcc431441075143bf
+Author: Sven Boemer <sbomer@gmail.com>
+Date:   Tue May 7 10:06:44 2024 -0700
+
+    Switch from arm64 biarch image to Azure Linux image (#101946)
+    
+    The biarch image is currently unused in our ci builds.
+    
+    Use of the biarch image was added in
+    https://github.com/dotnet/runtime/pull/91019 but the job that
+    used it was disabled for arm64 in
+    https://github.com/dotnet/runtime/pull/92057. https://github.com/dotnet/runtime/issues/90427
+    tracks adding back the arm64 jobs.
+    
+    The arm64 fullaot job was added in
+    https://github.com/dotnet/runtime/pull/55362 which explains:
+    
+    > We don't ship any products using FullAOT on Linux x64/arm64, but this
+    compilation mode is used for iOS, FullAOT-related issues that affect iOS are
+    likely to be caught by FullAOT on Linux x64/arm64, and it is a lot easier to
+    build, develop, and debug on desktop OSes.
+    
+    If the arm64 job is enabled again in the future, it should be
+    made to use a new entry in `pipeline-with-resources.yml`, instead
+    of modifying the image used for all other linux_arm64 jobs.
+    
+    Fixes https://github.com/dotnet/runtime/issues/101707
