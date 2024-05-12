@@ -1,0 +1,35 @@
+commit 6cc6c66acc3f187f30e0fc7541e1097999863ff5
+Author: Edward Neal <55035479+edwardneal@users.noreply.github.com>
+Date:   Thu May 9 22:28:30 2024 +0100
+
+    Allow setting ZipArchiveEntry general-purpose flag bits (#98278)
+    
+    * Use CompressionLevel to set general-purpose bit flags
+    
+    Also changed mapping of ZipPackage's compression options, such that CompressionOption.Maximum now sets the compression level to SmallestSize, and SuperFast now sets the compression level to NoCompression.
+    Both of these changes restore compatibility with the .NET Framework.
+    
+    * Made function verbs consistent
+    
+    * Added test to verify read file contents
+    
+    * Corrected failing Packaging test
+    
+    This test was intended to ensure that bit 11 isn't set. It was actually performing a blind comparison of the entire bit field. Other tests in System.IO.Packaging function properly.
+    
+    * Changes following code review
+    
+    * Updated the conditional compilation directives for the .NET Framework/Core package CompressionLevel mappings.
+    * Specifying a CompressionMethod other than Deflate or Deflate64 will now set the compression level to NoCompression, and will write zeros to the relevant general purpose bits.
+    * The CompressionLevel always defaulted to Optimal for new archives, but this is now explicitly set (rather than relying upon setting it to null and null-coalescing it to Optimal.) This removes a condition to test for.
+    * Updated the test data for the CreateArchiveEntriesWithBitFlags test. If the compression level is set to NoCompression, we should expect the CompressionMethod to become Stored (which unsets the general purpose bits, returning an expected result of zero.)
+    
+    * Code review changes
+    
+    * Updated mapping between general purpose bit fields and CompressionLevel.
+    * Updated mapping from CompressionOption to CompressionLevel.
+    * Added test to verify round-trip of CompressionOption and its setting of the general purpose bit fields.
+    
+    ---------
+    
+    Co-authored-by: Carlos Sánchez López <1175054+carlossanlop@users.noreply.github.com>
