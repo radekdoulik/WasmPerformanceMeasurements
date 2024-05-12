@@ -1,0 +1,29 @@
+commit dc42750ad86e2ffa84831a0aa7a3e222c1161a74
+Author: Kunal Pathak <Kunal.Pathak@microsoft.com>
+Date:   Mon May 6 15:21:13 2024 -0700
+
+    Arm64/Sve: Some optimizations around loop scenario (#101885)
+    
+    * Add the missing else
+    
+    * Max, MaxAcross, MaxNumber, MaxNumberAcross, Min, MinAcross, MinNumber, MinNumberAcross
+    
+    * Map APIs to instruction
+    
+    * Add test cases
+    
+    * Remove the space
+    
+    * fix the test case
+    
+    * Add handling of delay free
+    
+    * fix some errors
+    
+    * wip: morph optimization
+    
+    * Track TYP_MASK for arm64
+    
+    * Enable mov predicate registers
+    
+    * jit format
