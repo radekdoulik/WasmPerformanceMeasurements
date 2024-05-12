@@ -1,0 +1,13 @@
+commit 07f7626dfcf7b2cb8fea6d9de279ad37931bf7e4
+Author: Egor Bogatov <egorbo@gmail.com>
+Date:   Sun May 12 08:34:37 2024 +0200
+
+    ARM64: avoid memory barrier in InlinedMemmoveGCRefsHelper if dest is not on heap (#102084)
+    
+    * don't put full barrier if dest is not on the heap
+    
+    * Address feedback
+    
+    ---------
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
