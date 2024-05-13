@@ -1,0 +1,5 @@
+commit 2cf44317b4decafd38b46eacb9663a04e118a803
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Mon May 13 10:01:15 2024 +0200
+
+    JIT: Handle GT_CNS_LNG and GT_CNS_DBL in GenTree::Compare (#102137)
