@@ -1,0 +1,7 @@
+commit 1be664e224dec7d5f43b9da19b18d1c6af2dd6be
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Mon May 13 20:16:59 2024 +0900
+
+    Make it possible to eliminate branches guarded by IsEnum (#100399)
+    
+    We use this check in CoreLib and currently it includes some unreachable code with a big closure.
