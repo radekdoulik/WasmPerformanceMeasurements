@@ -1,0 +1,27 @@
+commit 42f4c3096aa81da74aa27c63862611400639b8c4
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Mon Apr 29 20:22:21 2024 +0200
+
+    JIT: Move internal reserved registers to a side table (#101647)
+    
+    This gets rid of `GenTree::gtRsvdRegs` by moving internal registers to a side
+    table. We generally use internal registers very rarely, so making the lookup
+    more costly seems worth the trade off (especially to make it easier to expand
+    `regMaskTP` to 16 bytes).
+    
+    There was one exception where we used internal registers a lot, which was
+    `GT_CALL` for R2R codegen on arm64/arm32. For those nodes we always allocate an
+    internal register to load the target into (the target is obtained by loading the
+    R2R indirection cell that is passed in an argument register).
+    
+    For arm64 it was simple to avoid this internal register: we can simply use LR
+    always, since that register is going to be overwritten by the call anyway. This
+    results in -2% TP for crossgen2 arm64 just from avoiding building this extra
+    interval. This is also the cause of the asm diffs.
+    
+    For arm32 the same strategy doesn't work as well because loading into LR is a 4
+    byte instruction while loading into other registers is a 2 byte instruction. So
+    for arm32 we still use an internal register and take the small throughput hit.
+    
+    This change reduces JIT memory usage by ~1.5%. The throughput cost (when
+    discounting some spurious inlining decision changes) seems to be around 0.1%.
