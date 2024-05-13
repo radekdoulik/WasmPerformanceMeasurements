@@ -1,0 +1,12 @@
+commit 8a2e7e3e979d671d97cb408fbcbdbee5594479a4
+Author: Jan Kotas <jkotas@microsoft.com>
+Date:   Sun May 5 23:05:58 2024 -0700
+
+    Typename parsing cleanup (#101767)
+    
+    - Remove unnecessary System.Type wrapper for type name parsing in tools.
+      Create the type directly from the parsed name.
+    - Rename S.R.TypeNameParser to S.R.TypeNameResolver to avoid name collisions
+      with S.R.M.TypeNameParser
+    - Move type name Unescape and Split helpers into dedicated helper type
+    - Other cleanup
