@@ -1,0 +1,9 @@
+commit 0235164228604cd4fa0fee0f3398fc1e62b3a2d5
+Author: Katelyn Gadd <kg@luminance.org>
+Date:   Thu May 9 21:19:36 2024 -0700
+
+    [mono] miscellaneous AOT optimizations (#102039)
+    
+    * Lazily evaluate full name of methods when creating jiterpreter entry trampolines
+    * Optimize out an unnecessary memset in do_jit_call
+    * Migrate some hot ghashtables to simdhash
