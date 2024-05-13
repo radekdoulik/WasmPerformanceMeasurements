@@ -1,0 +1,12 @@
+commit 42c2362ca7d6030a4f665bb309fe49ce6552502b
+Author: Jan Kotas <jkotas@microsoft.com>
+Date:   Sun May 12 14:38:12 2024 -0700
+
+    Move checked math helpers to C# (#102129)
+    
+    * Move checked math helpers to C#
+    
+    - Eliminate a few more FCThrow
+    - Take advantage of ConvertToNative to make helpers faster on current hardware
+    
+    * Use collection expressions in more places
