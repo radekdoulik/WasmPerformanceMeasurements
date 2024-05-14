@@ -1,0 +1,5 @@
+commit abc23efa52c5a1641764375de4408926df31c5e3
+Author: Parker Bibus <parkerbibus@microsoft.com>
+Date:   Tue May 14 09:17:37 2024 -0700
+
+    Update ARM64 LLVM AOT runtime builds to use the generic libclang.so file as the new image does not have libclang.so.16, it has libclang.so and libclang.so.18 instead. (#102175)
