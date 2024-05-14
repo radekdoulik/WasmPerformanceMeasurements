@@ -1,0 +1,7 @@
+commit 753648476b64946b8f5f4d25e1294adbabd3165b
+Author: Robert Henry <rrh.henry@gmail.com>
+Date:   Mon May 13 03:06:08 2024 -0700
+
+    Change erroneous use of && to & when used to make a bitmask (#101338)
+    
+    As caught by clang-14
