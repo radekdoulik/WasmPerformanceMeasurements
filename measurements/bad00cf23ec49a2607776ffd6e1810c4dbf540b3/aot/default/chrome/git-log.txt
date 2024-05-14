@@ -1,0 +1,7 @@
+commit bad00cf23ec49a2607776ffd6e1810c4dbf540b3
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Tue May 14 16:46:51 2024 +0900
+
+    Fix name mangling for CoreLib (#102183)
+    
+    #96983 broke name mangling within corelib - we were not prepending the assembly name and not replacing dots with underscores.
