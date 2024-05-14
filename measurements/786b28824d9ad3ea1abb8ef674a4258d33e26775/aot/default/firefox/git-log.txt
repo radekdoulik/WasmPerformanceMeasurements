@@ -1,0 +1,15 @@
+commit 786b28824d9ad3ea1abb8ef674a4258d33e26775
+Author: Alan Hayward <a74nh@users.noreply.github.com>
+Date:   Mon May 13 21:35:39 2024 +0100
+
+    Refactor handling of two immediates in hwintrinsic (#102071)
+    
+    * Refactor handling of two immediates in hwintrinsic
+    
+    * Add immOp2 assert
+    
+    * Update comments for getHWIntrinsicImmTypes
+    
+    * fix arg name
+    
+    * update function summaries
