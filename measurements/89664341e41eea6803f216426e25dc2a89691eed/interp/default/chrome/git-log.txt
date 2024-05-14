@@ -1,0 +1,17 @@
+commit 89664341e41eea6803f216426e25dc2a89691eed
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Tue May 14 18:22:16 2024 +0200
+
+    JIT: Allow using pinvoke registers in the prolog (#102165)
+    
+    This code seems to be a leftover from a time where we generated pinvoke
+    helper init calls during the prolog. Today we create these calls as
+    normal IR in scratch BBs and merged return BBs, which means that it
+    should be just fine to use these registers during the prolog.
+    
+    This frees up a bunch of registers to be used for the init register.
+    Previously we could be in a situation where we had no register available
+    for the init register on x86 when EAX was taken for the "special stub
+    arg".
+    
+    Fix #102161
