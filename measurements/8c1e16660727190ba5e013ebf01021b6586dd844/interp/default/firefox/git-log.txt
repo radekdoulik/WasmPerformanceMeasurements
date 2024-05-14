@@ -1,0 +1,45 @@
+commit 8c1e16660727190ba5e013ebf01021b6586dd844
+Author: Kunal Pathak <Kunal.Pathak@microsoft.com>
+Date:   Mon May 13 21:11:27 2024 -0700
+
+    Arm64/Sve: Implement some more Math APIs (#102170)
+    
+    * Add AbsoluteDifference() API
+    
+    * Map API to instruction
+    
+    * add test cases
+    
+    * Add AddSaturate() API
+    
+    * Map API to instruction
+    
+    * Add test case
+    
+    * Add MultiplyExtend() API
+    
+    * Map API to instruction
+    
+    * Add test case
+    
+    * Add Negate() and SubtractSaturate() APIs
+    
+    * Map API to instruction
+    
+    * Add test cases
+    
+    * Fix AbsoluteDifference() tests
+    
+    * Add DotProduct() and DotProductBySelectedScalar() APIs
+    
+    * remove trailing space
+    
+    * Map API to instruction
+    
+    * Revert "Add DotProduct() and DotProductBySelectedScalar() APIs"
+    
+    This reverts commit be2b75f8782fa4331d7770ac4311bc5934702b1b.
+    
+    * Revert "Map API to instruction"
+    
+    This reverts commit 55d3e4edb31f9772e4db6b99b507dbf179e364fe.
