@@ -1,0 +1,5 @@
+commit a71a85a65f6527ca2754ccf336f1fc77f02c409b
+Author: Egor Bogatov <egorbo@gmail.com>
+Date:   Tue May 14 12:03:32 2024 +0200
+
+    Fix NRE in bulk memmove on x86 (#102171)
