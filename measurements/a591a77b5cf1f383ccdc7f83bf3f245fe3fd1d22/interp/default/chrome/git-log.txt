@@ -1,0 +1,12 @@
+commit a591a77b5cf1f383ccdc7f83bf3f245fe3fd1d22
+Author: yurai007 <dawid_jurek@vp.pl>
+Date:   Mon May 13 18:59:01 2024 +0200
+
+    Fix VirtualCallStubManager stats capturing on EE shutdown (#102073)
+    
+    * Fix VirtualCallStubManager stats capturing on EE shutdown
+    
+    Before this change logging stats to StubLog file doesn't work because on EE shutdown
+    we don't shut down manager. Since it's only about logging we can perform uninit earlier.
+    
+    * Address code review comments
