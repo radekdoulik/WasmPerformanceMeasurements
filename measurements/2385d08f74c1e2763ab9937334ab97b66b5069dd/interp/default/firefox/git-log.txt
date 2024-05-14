@@ -1,0 +1,99 @@
+commit 2385d08f74c1e2763ab9937334ab97b66b5069dd
+Author: Aleksey Kliger (λgeek) <alklig@microsoft.com>
+Date:   Mon May 13 17:49:22 2024 -0400
+
+    [mono] generic wrapper methods for unsafe accessors (#101732)
+    
+    1. Adds support for compiling generic wrapper methods to Mono.  In some situations we need to emit a wrapper method that is generic.  This makes the MethodBuilder infrastructure support that.
+    2. Adds support for inflating generic wrapper data.  Wrappers have pointer data associated with them that is used by the code generator (For example instead of emitting field tokens, we record the `MonoClassField*` directly and then emit a fake token that is just the index of the `MonoClassField*` in the `MonoMethodWrapper:method_data` array).  The pointer data associated with a wrapper is normally just consumed verbatim.  But if the wrapper is part of a generic class, or if the wrapper is a generic method, the wrapper data might have generic parameters (for example it might be a MonoClassField for `MyList<T>` instead of `MyList<string>`).  Add support for tagging the data with its kind and inflating it if the wrapper method is inflated.
+    3. Applies (1) and (2) to unsafe accessor methods - the unsafe accesor wrapper generation now always tries to get the generic definition and to generate a wrapper for that generic definition and then inflate it.
+    4. Some AOT changes so that FullAOT substitutes lookups for an unsafe accessor by lookups for the wrapper.  Including if the unsafe accessor or wrapper is generic.  This also enabled gshared and gsharedvt for unsafe accessor wrappers.  This also fixes https://github.com/dotnet/runtime/issues/92883
+    
+    
+    Contributes to https://github.com/dotnet/runtime/issues/99830, https://github.com/dotnet/runtime/issues/89439
+    
+    **NOT DONE**
+    - We don't check constraints on the generic target types yet
+    
+    ---
+    
+    
+    * always AOT wrappers, even for generics, not the actual accessor
+    
+    * add generic wrapper methods
+    
+    * use generic method owner caches
+    
+    * lookup unsafe accessor wrapper instances in aot-runtime
+    
+       if someone needs the unsafe accessor, lookup the wrapper instead.
+    
+       Needed when there's a call for extra instances
+    
+    * cleanup marshaling - dont' use ctx as a flag
+    
+    * handle some generic field accessors
+    
+       As long as the target is just some type that mentions a generic field, we're ok - the regular gsharing ldflda works.
+     It just can't be a type variable.
+    
+    * issues.targets: enable some unsafe accessor AOT tests
+    
+    * [metadata] add ability to inflate wrapper data
+    
+       When we create generic wrappers (or wrappers in a generic class), if the wrapper data needs to refer to a field, method, or parameter type of the definition, that data might need to be inflated if the containing class is inflated (or the generic wrapper method is inflated).
+    
+       Add a new function to opt into inflation:
+    
+       ```c
+           get_marshal_cb ()->mb_inflate_wrapper_data (mb);
+       ```
+    
+       Add a new function to be called after mono_mb_emit_op (or any other call that calls mono_mb_add_data):
+    
+       ```c
+           mono_mb_emit_op (mb, CEE_LDFLDA, field);
+           mono_mb_set_wrapper_data_kind (mb, MONO_MB_ILGEN_WRAPPER_DATA_FIELD);
+       ```
+    
+       Note: mono_mb_set_wrapper_data_kind asserts if you haven't called mb_inflate_wrapper_data.
+    
+       TODO: add more wrapper data kinds for MonoMethod* and MonoClass* etc
+    
+    * [marshal] refactor unsafe accessor; opt into inflate_wrapper_data
+    
+       Try to separate the ideas of "the call to the UnsafeAccessor method was inflated, so we need to inflate the wrapper" and "the UnsafeAccessor method is a generic method definition, so the wrapper should be a generic method definition, too"
+    
+    * inflate MonoMethod wrapper data; impl ctor generic unsafe accessors
+    
+    * fix windows build
+    
+    * [aot] handle case of partial generic sharing for unsafe accessor
+    
+       In partial generic sharing, a call to an instance like `Foo<int>` is replaced by `Foo<T_INT>` where T is constrained to `int` and enums that use `int` as a base type.
+    
+       In that case the AOT compiler will emit the unsafe accessor wrapper instantiated with `T_INT`.  So in the AOT lookup we have to find calls to `UnsafeAccessor<int>` and replace them with calls to `(wrapper)
+    UnsafeAccessor<T_INT>` to match what the AOT compiler is doing
+    
+    * [aot] for unsafe accessor wrappers with no name, record a length 0
+    
+       This is needed because for inflated unsafe accessors we write the inflated bit after the name.  So if we're accessing a constructor and we didn't record a name in the AOT image, we would erroneously read
+    the inflated bit as the name length.
+    
+    * [aot-runtime] try to fix gsharedvt lookup
+    
+    * better comments; remove fied FIXMEs
+    
+    * update HelloWorld sample to support either normal AOT or FullAOT
+    
+    * rename helper methods
+    
+    * apply suggestions from code review
+    
+    * DRY. compute inflate_generic_data in one place
+    
+    * Just do one loop for inflating generic wrapper data
+    
+    * better comments
+    
+    * DRY. move common AOT code to mini.c
