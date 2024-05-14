@@ -1,0 +1,33 @@
+commit 778cc8436260736c1ca5393abb27414ea42ad8a7
+Author: Huo Yaoyuan <huoyaoyuan@hotmail.com>
+Date:   Tue May 14 11:49:12 2024 +0800
+
+    Convert OAVariant interop to managed (#100176)
+    
+    * Convert BoxEnum to managed
+    
+    * SetFieldsObject to managed
+    
+    * Handle decimal and other CV_OBJECT
+    
+    * Managed ToOAVariant and FromOAVariant
+    
+    * Marshal for IUnknown and IDispatch
+    
+    * VariantChangeTypeEx interop
+    
+    * Use managed reflection for System.Drawing.Color conversion
+    
+    * Use MarshalNative for IDispatch/IUnknown marshalling
+    
+    * Move Color conversion to Variant
+    
+    * Respect VTToCV mapping
+    
+    * Improve test type coverage
+    
+    * Test for values in ReturnToManaged
+    
+    ---------
+    
+    Co-authored-by: Aaron Robinson <arobins@microsoft.com>
