@@ -1,0 +1,5 @@
+commit 9d0142f768aa54f7a00161beb289c74167b70ed1
+Author: Egor Bogatov <egorbo@gmail.com>
+Date:   Wed May 15 12:41:16 2024 +0200
+
+    Fix ulong->double conversion on x64 (without avx512f) (#102179)
