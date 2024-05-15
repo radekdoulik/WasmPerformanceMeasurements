@@ -1,0 +1,8 @@
+commit 1ee61b8667d9db31c0fe53d2e1abc274fb486cfc
+Author: Koundinya Veluri <kouvel@users.noreply.github.com>
+Date:   Wed May 15 11:48:56 2024 -0700
+
+    Remove `RequiresPreviewFeatures` attribute on `Lock`, add test using the `lock` keyword (#102222)
+    
+    - Also removed the `EnablePreviewFeatures` project properties that were added with `Lock` changes
+    - Added some basic tests with `Lock` using the `lock` keyword
