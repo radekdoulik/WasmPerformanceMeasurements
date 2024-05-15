@@ -1,0 +1,19 @@
+commit 426edd093a8d83a45119716c0ae75592b5dc4812
+Author: Adeel Mujahid <3840695+am11@users.noreply.github.com>
+Date:   Wed May 15 08:28:26 2024 +0300
+
+    Remove reflection from FrameworkDescription (#102164)
+    
+    * Remove reflection from FrameworkDescription
+    
+    * Switch to source gen
+    
+    * Address CR feedback
+    
+    * Update src/libraries/System.Private.CoreLib/gen/ProductVersionInfoGenerator.cs
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
+    
+    ---------
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
