@@ -1,0 +1,13 @@
+commit 09dd34ef27b55199f986e087bdda81987ad9136c
+Author: Fred Silberberg <frsilb@microsoft.com>
+Date:   Tue May 14 20:02:34 2024 -0700
+
+    Add OverloadResolutionPriorityAttribute (#102176)
+    
+    * Add OverloadResolutionPriorityAttribute
+    
+    Closes https://github.com/dotnet/runtime/issues/102173.
+    
+    * Base types
+    
+    * Switch from primary ctor to regular ctor, add docs.
