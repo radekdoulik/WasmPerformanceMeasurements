@@ -1,0 +1,5 @@
+commit 19467dccf4e6786296eecd8007f90e6dafe01818
+Author: Xu Liangyu <xuliangyu@loongson.cn>
+Date:   Wed May 15 23:50:52 2024 +0800
+
+    [LoongArch64] Fix the register conflict of the `REG_GSCOOKIE_TMP` and the `FastTailCall target register`. (#102192)
