@@ -1,0 +1,9 @@
+commit 78c8cb9b3d7cd736b93916c98749804d23f36f6e
+Author: Daniel Marbach <daniel.marbach@openplace.net>
+Date:   Mon May 13 18:05:16 2024 +0200
+
+    Less restrict in-range check to allow more timespan formats that would be accepted by Utf8Parser.TryParse (#102091)
+    
+    Fix #100538
+    
+    Co-authored-by: Daniel Marbach <danielmarbach@users.noreply.github.com>
