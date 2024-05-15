@@ -1,0 +1,9 @@
+commit 5140c3332545d46c674b1e7668e52fe21e04b4c3
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Wed May 15 16:09:12 2024 +0200
+
+    JIT: Refactor IV opts a bit (#102228)
+    
+    Introduce a general data structure to track local occurrences inside the
+    loops, to be used for future IV optimizations. Switch IV widening to
+    utilize this data structure as well.
