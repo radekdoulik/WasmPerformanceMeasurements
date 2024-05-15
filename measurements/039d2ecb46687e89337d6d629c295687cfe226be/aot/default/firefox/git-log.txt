@@ -1,0 +1,8 @@
+commit 039d2ecb46687e89337d6d629c295687cfe226be
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Tue May 14 16:03:19 2024 +0200
+
+    JIT: Unify `GT_JMP` handling in the backends (#102117)
+    
+    Switch the handling of `GT_JMP` into a single unified implementation
+    that utilizes the new ABI representation.
