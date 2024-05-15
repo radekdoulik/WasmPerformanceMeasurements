@@ -1,0 +1,5 @@
+commit 2b0c1debd40d45d2bda81c719d0719439596c248
+Author: Egor Bogatov <egorbo@gmail.com>
+Date:   Wed May 15 17:13:36 2024 +0200
+
+    Use SIMD for block inits with GC fields (#102132)
