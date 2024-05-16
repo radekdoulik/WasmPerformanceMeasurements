@@ -1,0 +1,60 @@
+commit a930ef591d905cb9212991e5dbbccc561eea78ba
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Wed May 15 23:25:44 2024 +0200
+
+    JIT: Reorder stores to make them amenable to stp optimization (#102133)
+    
+    This generalizes the indir reordering optimization (that currently only
+    triggers for loads) to kick in for GT_STOREIND nodes.
+    
+    The main complication with doing this is the fact that the data node of
+    the second indirection needs its own reordering with the previous
+    indirection. The existing logic works by reordering all nodes between
+    the first and second indirection that are unrelated to the second
+    indirection's computation to happen after it. Once that is done we know
+    that there are no uses of the first indirection's result between it and
+    the second indirection, so after doing the necessary interference checks
+    we can safely move the previous indirection to happen after the data
+    node of the second indirection.
+    
+    Example:
+    ```csharp
+    class Body { public double x, y, z, vx, vy, vz, mass; }
+    
+    static void Advance(double dt, Body[] bodies)
+    {
+        foreach (Body b in bodies)
+        {
+            b.x += dt * b.vx;
+            b.y += dt * b.vy;
+            b.z += dt * b.vz;
+        }
+    }
+    ```
+    
+    Diff:
+    ```diff
+    @@ -1,18 +1,17 @@
+    -G_M55007_IG04:  ;; offset=0x001C
+    +G_M55007_IG04:  ;; offset=0x0020
+                 ldr     x3, [x0, w1, UXTW #3]
+                 ldp     d16, d17, [x3, #0x08]
+                 ldp     d18, d19, [x3, #0x20]
+                 fmul    d18, d0, d18
+                 fadd    d16, d16, d18
+    -            str     d16, [x3, #0x08]
+    -            fmul    d16, d0, d19
+    -            fadd    d16, d17, d16
+    -            str     d16, [x3, #0x10]
+    +            fmul    d18, d0, d19
+    +            fadd    d17, d17, d18
+    +            stp     d16, d17, [x3, #0x08]
+                 ldr     d16, [x3, #0x18]
+                 ldr     d17, [x3, #0x30]
+                 fmul    d17, d0, d17
+                 fadd    d16, d16, d17
+                 str     d16, [x3, #0x18]
+                 add     w1, w1, #1
+                 cmp     w2, w1
+                 bgt     G_M55007_IG04
+    ```
