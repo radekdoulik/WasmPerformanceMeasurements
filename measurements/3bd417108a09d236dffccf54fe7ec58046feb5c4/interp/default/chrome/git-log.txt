@@ -1,0 +1,37 @@
+commit 3bd417108a09d236dffccf54fe7ec58046feb5c4
+Author: Tanner Gooding <tagoo@outlook.com>
+Date:   Mon May 13 14:01:21 2024 -0700
+
+    Change the ReciprocalEstimate and ReciprocalSqrtEstimate APIs to be mustExpand on RyuJIT (#102098)
+    
+    * Change the ReciprocalEstimate and ReciprocalSqrtEstimate APIs to be mustExpand on RyuJIT
+    
+    * Apply formatting patch
+    
+    * Fix the RV64 and LA64 builds
+    
+    * Mark the ReciprocalEstimate and ReciprocalSqrtEstimate methods as AggressiveOptimization to bypass R2R
+    
+    * Mark other usages of ReciprocalEstimate and ReciprocalSqrtEstimate in Corelib with AggressiveOptimization
+    
+    * Mark several non-deterministic APIs as BypassReadyToRun and skip intrinsic expansion in R2R
+    
+    * Cleanup based on PR recommendations to rely on the runtime rather than attributation of non-deterministic intrinsics
+    
+    * Adding a regression test ensuring direct and indirect invocation of non-deterministic intrinsic APIs returns the same result
+    
+    * Add a note about non-deterministic intrinsic expansion to the botr
+    
+    * Apply formatting patch
+    
+    * Ensure vector tests are correctly validating against the scalar implementation
+    
+    * Fix the JIT/SIMD/VectorConvert test and workaround a 32-bit test issue
+    
+    * Skip a test on Mono due to a known/tracked issue
+    
+    * Ensure that lowering on Arm64 doesn't make an assumption about cast shapes
+    
+    * Ensure the tier0opts local is used
+    
+    * Ensure impEstimateIntrinsic bails out for APIs that need to be implemented as user calls
