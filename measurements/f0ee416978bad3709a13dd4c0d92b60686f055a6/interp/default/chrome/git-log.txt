@@ -1,0 +1,23 @@
+commit f0ee416978bad3709a13dd4c0d92b60686f055a6
+Author: Vitaliy K <vk@alphacloud.net>
+Date:   Wed May 15 17:24:57 2024 -0400
+
+    Optimize memory allocations (#98702) (#99542)
+    
+    * Optimize memory allocations (#98702)
+    
+    * Use `UTF8.GetMaxCharCount`
+    
+    * Optimize memory allocations (#98702)
+    
+    * Use `UTF8.GetMaxCharCount`
+    
+    * Optimize netfx/netstandard 2.0 cases too
+    
+    * Fix formatting
+    
+    * Fix build error
+    
+    ---------
+    
+    Co-authored-by: Tarek Mahmoud Sayed <tarekms@microsoft.com>
