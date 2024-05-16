@@ -1,0 +1,55 @@
+commit b15e35138eaa43e242d5eaa8680f9cb3367b5ef6
+Author: Michael Sharp <51342856+michaelgsharp@users.noreply.github.com>
+Date:   Wed May 15 22:57:29 2024 -0600
+
+    Tensor wave 1 API's. (#101196)
+    
+    * Native Index/Range and ref.
+    
+    * SpanND without slice
+    
+    * index/range testing and implicit conversions
+    
+    * SpanND Tests
+    
+    * tensor working, still need more statics
+    
+    * more tensors updates
+    
+    * ref files updated
+    
+    * final ref update
+    
+    * span updates
+    
+    * all but broadcast and some TensorPrimitives
+    
+    * broadcast in
+    
+    * organizational changes
+    
+    * ref and implicit broadcast
+    
+    * build failures
+    
+    * updates from PR comments
+    
+    * error text moved to strings.resx
+    
+    * exception strings moved to strings.resc
+    
+    * comments from PR
+    
+    * more fixes from PR and API review
+    
+    * rebase on main. XML comments. API updates
+    
+    * NIndex,NRange,RO/TensorSpan API updates
+    
+    * IROTensor,ITensor,Tensor API updates
+    
+    * changes from pr comments
+    
+    * changes from PR comments
+    
+    * fixed test failure
