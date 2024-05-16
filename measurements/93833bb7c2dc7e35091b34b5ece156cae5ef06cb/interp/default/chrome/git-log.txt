@@ -1,0 +1,9 @@
+commit 93833bb7c2dc7e35091b34b5ece156cae5ef06cb
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Thu May 16 13:01:55 2024 +0200
+
+    JIT: Canonicalize entry BB early (#102280)
+    
+    Canonicalize entry BB before the early transformations instead of doing
+    it as part of the transformations. This allows us to move the morph DFS
+    even earlier, which will be useful for other phases as well.
