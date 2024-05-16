@@ -1,0 +1,21 @@
+commit 60edf5bb3e025d14ff0b64fbbb07df93f9037c95
+Author: Kunal Pathak <Kunal.Pathak@microsoft.com>
+Date:   Wed May 15 16:38:21 2024 -0700
+
+    Arm64/Sve: Implement Math's DotProduct* APIs (#102218)
+    
+    * Add DotProduct() and DotProductBySelectedScalar() APIs
+    
+    * Map API to instruction
+    
+    * Fix test cases
+    
+    * Make DotProductBySelectedScalar work
+    
+    * Fix mov unit tests
+    
+    * Add LowVector flag
+    
+    * jit format
+    
+    * fix the build error
