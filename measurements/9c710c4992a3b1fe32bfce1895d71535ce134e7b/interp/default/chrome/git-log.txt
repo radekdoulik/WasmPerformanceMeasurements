@@ -1,0 +1,11 @@
+commit 9c710c4992a3b1fe32bfce1895d71535ce134e7b
+Author: Buyaa Namnan <bunamnan@microsoft.com>
+Date:   Thu May 16 08:08:04 2024 -0700
+
+    Fix TypeBuilder.DefineMethodOverride validation error (#101246)
+    
+    * Fix DefineMethodOverride validation error
+    
+    * Add more checks and tests
+    
+    * Remove DefineMethodOverride validations that not exist in RuntimeTypeBuilder
