@@ -1,0 +1,7 @@
+commit 76cd4be69760b442fe51fce6eb5ecfef57c047b7
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Thu May 16 14:56:25 2024 +0900
+
+    Treat a couple more switches as output for make-repro-path (#102287)
+    
+    Without these, the output of `--make-repro-path` will refer to a non-existent `obj/...` path.
