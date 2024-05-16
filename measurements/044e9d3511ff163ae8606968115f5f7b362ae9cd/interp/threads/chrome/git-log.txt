@@ -1,0 +1,11 @@
+commit 044e9d3511ff163ae8606968115f5f7b362ae9cd
+Author: Marie Píchová <11718369+ManickaP@users.noreply.github.com>
+Date:   Thu May 16 18:38:12 2024 +0200
+
+    [QUIC] Validate Close/Abort errorCode parameter (#102264)
+    
+    * Validate Close/Abort errorCode parameter, shuffle around validation methods for better reuse
+    
+    * Remove unnecassary PNSE exclusion
+    
+    * Changed exception text and added tests.
