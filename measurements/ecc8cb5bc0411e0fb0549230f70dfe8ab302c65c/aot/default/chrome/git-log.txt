@@ -1,0 +1,5 @@
+commit ecc8cb5bc0411e0fb0549230f70dfe8ab302c65c
+Author: Tanner Gooding <tagoo@outlook.com>
+Date:   Wed May 15 19:12:31 2024 -0700
+
+    Ensure that we don't hit an assert if DOTNET_EnableSSE2=0 (#102288)
