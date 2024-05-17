@@ -1,0 +1,17 @@
+commit 379f7b1fc2fb154c64e8b89a8635f3855ae5687d
+Author: Jan Vorlicek <janvorli@microsoft.com>
+Date:   Fri May 17 00:24:50 2024 +0200
+
+    Workaround broken special APC when running x64 on arm64 windows (#102333)
+    
+    * Workaround broken special APC when running x64 on arm64 windows
+    
+    In ARM64 windows older than 24H2, the special APC is broken when running
+    x64 emulation. The callback that gets invoked doesn't get an argument
+    with correct CONTEXT of the interrupted location. This change disables
+    using the special APC for runtime suspension when running on the
+    affected Windows versions.
+    
+    Close #100425
+    
+    * Make the same fix for NativeAOT
