@@ -1,0 +1,14 @@
+commit 727f32b720c2fa6f74b80ac556133ddc8dd91cfe
+Author: Jan Vorlicek <janvorli@microsoft.com>
+Date:   Fri May 17 11:35:19 2024 +0200
+
+    Fix assert in Thread::VirtualUnwindCallFrame on ARM64 (#102350)
+    
+    My recent change to fix windows arm64 unwinding for native code has
+    started to trigger an assert in jitstress tests. The problem is that the
+    codeinfo that is passed to the Thread::VirtualUnwindCallFrame in case of
+    managed frames was created from an unadjusted PC, while the check that
+    we use to verify the codeinfo validity in debug builds gets the function
+    entry from the OS using the adjusted address.
+    The fix is to perform the adjustment only when codeinfo is not passed
+    in.
