@@ -1,0 +1,5 @@
+commit 0b10f4ba0a9174937829ec529c197dd42a569e36
+Author: Egor Bogatov <egorbo@gmail.com>
+Date:   Fri May 17 10:45:01 2024 +0200
+
+    Don't use write barriers for byref-like struct copies (#102316)
