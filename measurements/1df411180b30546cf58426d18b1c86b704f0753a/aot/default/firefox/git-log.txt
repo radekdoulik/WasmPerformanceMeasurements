@@ -1,0 +1,13 @@
+commit 1df411180b30546cf58426d18b1c86b704f0753a
+Author: rzsc <160726116+rzsc@users.noreply.github.com>
+Date:   Fri May 17 12:49:00 2024 +0200
+
+    Fix build of coreclr test JIT/Regression/JitBlue/Runtime_1102138/Runtime_102138.csproj (#102371)
+    
+    The coreclr test JIT/Regression/JitBlue/Runtime_1102138/Runtime_102138.csproj
+    when build with BuildAllTestsAsStandalone=true environment variable set
+    fails with an error:
+    
+    error XUW1002: Tests should not unconditionally return 100. Convert to a void return.
+    
+    The error message recommendation applied.
