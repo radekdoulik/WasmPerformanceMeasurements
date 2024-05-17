@@ -1,0 +1,7 @@
+commit 3ce07d3946a8c0f43c2248f5ab6190f8503ff3ee
+Author: Koundinya Veluri <kouvel@users.noreply.github.com>
+Date:   Thu May 16 18:01:29 2024 -0700
+
+    Fix some assertions that fail when using `Lock` instances with `Monitor` (#102327)
+    
+    Fixes https://github.com/dotnet/runtime/issues/102321
