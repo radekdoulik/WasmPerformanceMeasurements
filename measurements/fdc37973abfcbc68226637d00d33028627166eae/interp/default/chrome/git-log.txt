@@ -1,0 +1,7 @@
+commit fdc37973abfcbc68226637d00d33028627166eae
+Author: Jan Kotas <jkotas@microsoft.com>
+Date:   Fri May 17 08:07:55 2024 -0700
+
+    Delete PAL definitions of MS-specific __int... types (#102304)
+    
+    Also delete unused PAL methods with transitive dependency on these types
