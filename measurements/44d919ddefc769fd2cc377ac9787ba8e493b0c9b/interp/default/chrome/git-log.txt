@@ -1,0 +1,7 @@
+commit 44d919ddefc769fd2cc377ac9787ba8e493b0c9b
+Author: Jeremy Koritzinsky <jekoritz@microsoft.com>
+Date:   Wed May 15 11:40:14 2024 -0700
+
+    Provide MSBuild properties to use the new libc++ configuration we plan on using in our builds (#101773)
+    
+    Co-authored-by: Sven Boemer <sbomer@gmail.com>
