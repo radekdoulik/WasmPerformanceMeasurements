@@ -1,0 +1,25 @@
+commit b7727f55605d15b3a573cdfb7795ef714823bedb
+Author: Tanner Gooding <tagoo@outlook.com>
+Date:   Thu May 16 14:11:39 2024 -0700
+
+    Expose the FusedMultiplyAdd and MultiplyAddEstimate APIs on relevant vector and scalar types (#102181)
+    
+    * Expose FusedMultiplyAdd and MultiplyAddEstimate on the scalar and vector types
+    
+    * Adding tests covering FusedMultiplyAdd and MultiplyAddEstimate for the vector types
+    
+    * Ensure TensorPrimitives uses the xplat APIs on .NET 9+
+    
+    * Apply formatting patch
+    
+    * Fix an accidental change to GenericVectorTests
+    
+    * Ensure Arm64 passes fma operands in the correct order
+    
+    * Apply formatting patch
+    
+    * Ensure all the Arm64 code paths are spilling and swapping operands
+    
+    * Apply formatting patch
+    
+    * Don't pop the stack value twice
