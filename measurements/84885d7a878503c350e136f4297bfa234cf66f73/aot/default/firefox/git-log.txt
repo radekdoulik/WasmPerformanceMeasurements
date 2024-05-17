@@ -1,0 +1,9 @@
+commit 84885d7a878503c350e136f4297bfa234cf66f73
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Thu May 16 23:32:13 2024 -0400
+
+    Fix cancellation unregistration in DataflowBlock.OutputAvailableAsync (#99632)
+    
+    OutputAvailableAsync is not unregistering from the supplied CancellationToken. If a cancelable token is supplied and is long lived, each call with that token to OutputAvailableAsync will add another callback into that token, and that will continue to grow until either the token is dropped or has been cancellation requested.  For a long-lived cancellation token, this is akin to a leak.
+    
+    The implementation was trying to be too clever in avoiding an additional continuation that was previously there. However, this continuation makes it a lot easier to avoid possible deadlocks that can occur if a cancellation request comes in concurrently with a message being pushed.  Instead of trying to avoid it, just use an async method, which still incurs the extra task but does so with less allocation and greatly simplifies the code while also fixing the issue, as all cleanup can now be done in the continuation as part of the async method.
