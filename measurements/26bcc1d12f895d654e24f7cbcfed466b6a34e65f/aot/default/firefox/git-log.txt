@@ -1,0 +1,17 @@
+commit 26bcc1d12f895d654e24f7cbcfed466b6a34e65f
+Author: Fan Yang <52458914+fanyang-mono@users.noreply.github.com>
+Date:   Fri May 17 13:42:59 2024 -0400
+
+    [mono] Disable sse2 test on full aot lane (#102336)
+    
+    * Disable sse2 tests on mono full aot lane
+    
+    * Fix syntax
+    
+    * Update src/tests/JIT/HardwareIntrinsics/X86/Sse2/Program.Sse2.cs
+    
+    Co-authored-by: Matous Kozak <55735845+matouskozak@users.noreply.github.com>
+    
+    ---------
+    
+    Co-authored-by: Matous Kozak <55735845+matouskozak@users.noreply.github.com>
