@@ -1,0 +1,16 @@
+commit a37af8502b3dab59bcc42ce344c30b0273dddcfd
+Author: Badre BSAILA <54767641+pedrobsaila@users.noreply.github.com>
+Date:   Tue May 14 00:22:02 2024 +0200
+
+    Config generator emits lambdas for error path that force allocation on success path (#100257)
+    
+    * first draft
+    
+    * fix failing tests
+    
+    * delete no more used Identifier.getPath
+    
+    ---------
+    
+    Co-authored-by: Eirik Tsarpalis <eirik.tsarpalis@gmail.com>
+    Co-authored-by: Tarek Mahmoud Sayed <tarekms@microsoft.com>
