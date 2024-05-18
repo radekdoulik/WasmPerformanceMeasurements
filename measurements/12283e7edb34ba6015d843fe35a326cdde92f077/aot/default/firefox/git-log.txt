@@ -1,0 +1,7 @@
+commit 12283e7edb34ba6015d843fe35a326cdde92f077
+Author: Andy Gocke <angocke@microsoft.com>
+Date:   Fri May 17 11:52:58 2024 -0700
+
+    Mark LoadFrom overload that always throws as obsolete (#102292)
+    
+    Fixes #96410
