@@ -1,0 +1,25 @@
+commit 5474ab5c50fc639e780e0322cd500b2e43ee9b0d
+Author: Paulus Pärssinen <paulus.parssinen@gmail.com>
+Date:   Sat May 18 18:54:10 2024 +0300
+
+    Use BinaryPrimitives for `ObjectDataBuilder` primitive emit logic (#102394)
+    
+    * Add ArrayBuilder.Append(ROS<T>)
+    
+    - Only for .NET because of NS2.0 projects use it too: Microsoft.NET.HostModel and ILVerification
+    
+    * Use BinaryPrimitives to emit integer primitives in ObjectDataBuilder
+    
+    * Use BinaryPrimitives to emit reserved integer primitives in ObjectDataBuilder
+    
+    * Add ArrayBuilder.AsSpan overload to make this possible
+    
+    * Mark some ArrayBuilder members as readonly
+    
+    * Ask ArrayBuilder for a buffer instead of stackalloc + append
+    
+    * Follow ValueStringBuilder's AppendSpan implementation
+    
+    * Don't inline ArrayBuilder resize
+    
+    * This follows ValueStringBuilder and other buffer builder types.
