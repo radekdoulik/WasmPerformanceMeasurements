@@ -1,0 +1,13 @@
+commit 13d753ce9faa06e7fa77c070b580948759b6bc0e
+Author: Vladimir Sadov <vsadov@microsoft.com>
+Date:   Thu May 16 09:19:32 2024 -0700
+
+    [NativeAOT] Do not emit safe point for TLS_GET_ADDR calls into native runtime. (#102237)
+    
+    * Do not emit safe point for TLS_GET_ADDR calls into native runtime.
+    
+    * formatting
+    
+    * renamed parameter to `noSafePoint`, added comments.
+    
+    * clang formatting, bane of my existence
