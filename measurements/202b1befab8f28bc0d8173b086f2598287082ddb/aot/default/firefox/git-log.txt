@@ -1,0 +1,7 @@
+commit 202b1befab8f28bc0d8173b086f2598287082ddb
+Author: Jackson Schuster <36744439+jtschuster@users.noreply.github.com>
+Date:   Fri May 17 14:41:57 2024 -0700
+
+    ILLink: Add PropertyNode for dependency analysis (#102026)
+    
+    Adds a node for PropertyDefinitions to the trimmers dependency analysis, and moves the body of MarkProperty to the node's GetStaticDependencies.
