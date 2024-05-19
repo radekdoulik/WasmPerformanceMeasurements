@@ -1,0 +1,8 @@
+commit 9926d609dab5929941b7924a04521ea2c2df27f3
+Author: Katelyn Gadd <kg@luminance.org>
+Date:   Thu May 9 00:18:27 2024 -0700
+
+    [mono] Use simdhash for aot method lookup ptr->methodinfo cache (#102029)
+    
+    * Use simdhash for aot method lookup ptr->methodinfo cache
+    * Clean up simdhash cmake
