@@ -1,0 +1,5 @@
+commit f0edcd8ac87ff9f7f71d5cc3faf7429c18734b55
+Author: Jan Kotas <jkotas@microsoft.com>
+Date:   Wed May 15 11:27:17 2024 -0700
+
+    Find & replace MS specific __int8/16/32/64 with standard C++ types (#102241)
