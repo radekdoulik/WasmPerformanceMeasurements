@@ -1,0 +1,5 @@
+commit 7ac4c51706d9485911a2b6251c76711d16078b00
+Author: Egor Bogatov <egorbo@gmail.com>
+Date:   Thu May 16 12:22:11 2024 +0200
+
+    Fix ROR(x, 32) on arm64 (#102291)
