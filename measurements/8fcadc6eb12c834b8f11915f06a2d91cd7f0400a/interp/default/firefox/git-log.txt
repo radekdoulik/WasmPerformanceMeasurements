@@ -1,0 +1,21 @@
+commit 8fcadc6eb12c834b8f11915f06a2d91cd7f0400a
+Author: Radek Zikmund <32671551+rzikm@users.noreply.github.com>
+Date:   Mon May 20 11:42:28 2024 +0200
+
+    Check for newlines in email address. (#102311)
+    
+    * Check for newlines in email address.
+    
+    This adds validation for embedded newlines in email addresses.
+    There is opt-in System.Net.Mail.EnableFullDomainLiterals switch to allow previous behavior
+    
+    * Apply suggestions from code review
+    
+    Co-authored-by: Miha Zupan <mihazupan.zupan1@gmail.com>
+    
+    * Remove compat switch
+    
+    ---------
+    
+    Co-authored-by: Tomas Weinfurt <Tomas.Weinfurt@microsoft.com>
+    Co-authored-by: Miha Zupan <mihazupan.zupan1@gmail.com>
