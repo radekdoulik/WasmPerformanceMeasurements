@@ -1,0 +1,40 @@
+commit 741af4aeb2b6462d114bf702e007cd767f1c188b
+Author: Brennan <brecon@microsoft.com>
+Date:   Mon May 13 08:57:28 2024 -0700
+
+    Add PipeWriter overloads to Json (#101461)
+    
+    * Add PipeWriter overloads to Json
+    
+    * test
+    
+    * organize and tests
+    
+    * cleanup
+    
+    * FlushThreshold
+    
+    * cleanup
+    
+    * system.buffer is special
+    
+    * tests
+    
+    * fixup
+    
+    * de-dupe
+    
+    * minor
+    
+    * fb
+    
+    * no async!
+    
+    * Update src/libraries/System.Text.Json/tests/System.Text.Json.Tests/Serialization/Pipe.WriteTests.cs
+    
+    Co-authored-by: David Fowler <davidfowl@gmail.com>
+    
+    ---------
+    
+    Co-authored-by: Eirik Tsarpalis <eirik.tsarpalis@gmail.com>
+    Co-authored-by: David Fowler <davidfowl@gmail.com>
