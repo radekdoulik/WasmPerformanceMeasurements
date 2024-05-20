@@ -1,0 +1,11 @@
+commit 9a18cf5d88f1a43097646f147140a7078760ec4e
+Author: Sven Boemer <sbomer@gmail.com>
+Date:   Thu May 16 11:13:56 2024 -0700
+
+    Revert "Unpin arm build image, use Debian 12 helix images (#102059)" (#102324)
+    
+    This reverts commit 0129837c0f24eeabfce043e8662e5d0fad10cf01.
+    
+    Reverts dotnet/runtime#102059
+    
+    We need to address the failures mentioned in https://github.com/dotnet/runtime/issues/101444#issuecomment-2111415106 before upgrading to a Y2038-compatible glibc.
