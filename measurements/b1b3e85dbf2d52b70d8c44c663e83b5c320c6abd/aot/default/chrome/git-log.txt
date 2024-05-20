@@ -1,0 +1,13 @@
+commit b1b3e85dbf2d52b70d8c44c663e83b5c320c6abd
+Author: Matous Kozak <55735845+matouskozak@users.noreply.github.com>
+Date:   Mon May 20 16:18:54 2024 +0200
+
+    [mono][swift-interop] Support for Swift frozen struct lowering in mini-JIT/AOT/interpreter (#102143)
+    
+    * refactor + bug fixes for swift struct marshalling
+    
+    * mini struct lowering
+    
+    * interpreter swift struct lowering
+    
+    * enable SwiftAbiStress on Mono
