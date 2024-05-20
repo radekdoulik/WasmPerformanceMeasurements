@@ -1,0 +1,9 @@
+commit 3b95ae9494c6d1580b2ccbf06db7b04af1a265b1
+Author: Jan Kotas <jkotas@microsoft.com>
+Date:   Sun May 19 19:44:54 2024 -0700
+
+    Delete empty DebugType property from test projects (#102422)
+    
+    Empty string is not a valid value for DebugType property.
+    
+    Also deleted other unused properties and left-over comments.
