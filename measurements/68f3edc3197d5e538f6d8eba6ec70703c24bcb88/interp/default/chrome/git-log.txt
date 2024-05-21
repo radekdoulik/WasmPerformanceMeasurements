@@ -1,0 +1,7 @@
+commit 68f3edc3197d5e538f6d8eba6ec70703c24bcb88
+Author: Aman Khalid <amankhalid@microsoft.com>
+Date:   Tue May 21 14:47:21 2024 +0000
+
+    JIT: Move backward jumps to before their successors after RPO-based layout (#102461)
+    
+    Part of #93020. In #102343, we noticed the RPO-based layout sometimes makes suboptimal decisions in terms of placing a block's hottest predecessor before it -- in particular, this affects loops that aren't entered at the top. To address this, after establishing a baseline RPO layout, fgMoveBackwardJumpsToSuccessors will try to move backward unconditional jumps to right behind their targets to create fallthrough, if the predecessor block is sufficiently hot.
