@@ -1,0 +1,7 @@
+commit cfcd6e299f95c2dc7673db37e58888b8fc424e72
+Author: Jan Kotas <jkotas@microsoft.com>
+Date:   Fri May 17 08:02:27 2024 -0700
+
+    Fix "pPrecode->GetType() == PRECODE_FIXUP" assert (#102372)
+    
+    Fixes  #102294
