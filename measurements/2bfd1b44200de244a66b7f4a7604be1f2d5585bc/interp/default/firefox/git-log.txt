@@ -1,0 +1,9 @@
+commit 2bfd1b44200de244a66b7f4a7604be1f2d5585bc
+Author: Jan Kotas <jkotas@microsoft.com>
+Date:   Mon May 20 23:04:08 2024 -0700
+
+    Cleanup CoreLib CompatibilitySuppressions (#102363)
+    
+    * Cleanup CoreLib CompatibilitySuppressions
+    
+    * Revert ForceDictionaryLookupsAttribute change
