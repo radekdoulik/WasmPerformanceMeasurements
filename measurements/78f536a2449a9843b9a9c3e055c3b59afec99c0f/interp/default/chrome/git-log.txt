@@ -1,0 +1,16 @@
+commit 78f536a2449a9843b9a9c3e055c3b59afec99c0f
+Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+Date:   Tue May 21 13:54:02 2024 +0200
+
+    [wasm] Bump chrome for testing - linux: 125.0.6422.60, windows: 125.0.6422.60 (#102417)
+    
+    * Automated bump of chrome version
+    
+    * Update expected values in chrome v=125.
+    
+    * Firefox still behaves like chrome before the update.
+    
+    ---------
+    
+    Co-authored-by: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
+    Co-authored-by: Ilona Tomkowicz <itomkowicz@microsoft.com>
