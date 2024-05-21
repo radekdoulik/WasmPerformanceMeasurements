@@ -1,0 +1,19 @@
+commit 153a94b88d77cfe133682e05191bc41914af6b21
+Author: Jan Kotas <jkotas@microsoft.com>
+Date:   Tue May 21 08:15:28 2024 -0700
+
+    Delete DebugSymbols=true setting for the repo build (#102392)
+    
+    * Delete DebugSymbols
+    
+    This property does not do what its name says. The symbols are generated regardless of whether this property is true or false. What this property actually does is that it disables C# peephole IL optimizations.
+    
+    This change results in ~0.5% IL binary size improvement thanks to the Roslyn IL peephole optimizations that it enables.
+    
+    * Update eng/illink.targets
+    
+    Co-authored-by: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+    
+    ---------
+    
+    Co-authored-by: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
