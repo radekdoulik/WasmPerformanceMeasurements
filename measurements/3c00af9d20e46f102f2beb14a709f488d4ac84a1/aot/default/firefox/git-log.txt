@@ -1,0 +1,7 @@
+commit 3c00af9d20e46f102f2beb14a709f488d4ac84a1
+Author: Alexander Köplinger <alex.koeplinger@outlook.com>
+Date:   Tue May 7 11:01:35 2024 +0200
+
+    [mono] Remove unused --arch and --gc switches from driver.c (#101934)
+    
+    We don't support dynamically switching arch/GC anymore with modern dotnet.
