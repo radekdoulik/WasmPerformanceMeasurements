@@ -1,0 +1,38 @@
+commit a142e771536b9b211d7a9d72730868f95392e112
+Author: Jan Vorlicek <janvorli@microsoft.com>
+Date:   Tue May 21 13:45:56 2024 +0200
+
+    Fix VS debugger issues with funceval and secondary threads (#102470)
+    
+    * Fix VS debugger issues with funceval and secondary threads
+    
+    The VS team has recently reported two issues with the new exception
+    handling in Visual Studio debugger.
+    The first issue was that an unhandled exception on a secondary managed
+    thread wasn't showing any stack trace when the exception occured and the
+    debugger has broken in.
+    The other issue was that when an exception occured during a funceval
+    invoked from the immediate window, the debugger would not highlight the
+    source line where the exception occured and it would not display a
+    dialog with the exception details.
+    Both problems were caused by the same underlying problem. In both cases,
+    the "catch handler found" notification was to be sent at a point when
+    the managed stack frames were already gone - in native code in catch / filter.
+    In the funceval case, there was even a check that prevented sending the
+    notification at all when there was no exception info present.
+    
+    The fix is to move the notification to the point where the managed stack
+    frames are still present - when we detect in the EH code that there is
+    no managed frame left and either the DebuggerU2MCatchHandler frame or
+    FuncEvalFrame is the explicit frame we've encountered as the next one to
+    process. The FuncEvalFrame case is a bit more involved, as we always
+    push ProtectValueClassFrame after the FuncEvalFrame, so we need to skip
+    that one in the check. The debugger actually needs to get a pointer to
+    the FuncEvalFrame in the notification to do the right thing.
+    
+    Close #102178 and #101729
+    
+    * Fix too strong assert
+    
+    The ProtectValueClassFrame can also occur without FuncEvalFrame in the
+    reflection invocation.
