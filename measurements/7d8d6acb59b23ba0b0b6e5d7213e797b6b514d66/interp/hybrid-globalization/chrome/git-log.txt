@@ -1,0 +1,29 @@
+commit 7d8d6acb59b23ba0b0b6e5d7213e797b6b514d66
+Author: Dan Thompson <dan_j_thompson@hotmail.com>
+Date:   Tue May 21 23:50:08 2024 -0700
+
+    Console.ReadKey should not throw when read returns 0 records (#98684)
+    
+    This change fixes a problem where Console.ReadKey inappropriately throws
+    an InvalidOperationException.
+    
+    The Console.ReadKey function can throw an InvalidOperationException when
+    the "application does not have a console or when console input has been
+    redirected". That makes sense.
+    
+    However, there is *another* case where it throws an
+    InvalidOperationException, which happens when there are multiple
+    processes attached to the same console, which are waiting for input, and
+    one dies or is killed. In this case, the native read function returns a
+    "success" return code, but the "out" parameter indicating the number of
+    records read is 0, and in this case, Console.ReadKey is throwing, but it
+    should not be.
+    
+    Note that this behavior of the underlying platform is "almost certainly"
+    a bug (https://github.com/microsoft/terminal/issues/15859); however, it
+    is longstanding behavior, so we would like to avoid blowing up apps who
+    have the misfortune of stumbling into this situation.
+    
+    More details in the linked Issue:
+    
+    Fix #88697
