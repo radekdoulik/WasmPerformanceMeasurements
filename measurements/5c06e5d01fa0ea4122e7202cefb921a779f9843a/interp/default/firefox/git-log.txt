@@ -1,0 +1,79 @@
+commit 5c06e5d01fa0ea4122e7202cefb921a779f9843a
+Author: Miha Zupan <mihazupan.zupan1@gmail.com>
+Date:   Wed May 22 03:38:10 2024 -0700
+
+    Add .NET Libraries fuzzing targets and automation (#101993)
+    
+    * Initial fuzzing setup
+    
+    * Initial pipeline
+    
+    * Install sharpfuzz to the working directory
+    
+    * Initial instructions
+    
+    * Add a few helpful links
+    
+    * Enable OneFuzz deployment task
+    
+    * Remove BlameAlias default
+    
+    * Speed up headers fuzzer
+    
+    * Add BoundedMemory reference
+    
+    * Use BoundedMemory in SearchValues targets
+    
+    * Swap property order
+    
+    * Add a UTF8 fuzzing target
+    
+    * Reuse instrumented assemblies when unchanged
+    
+    * Add support for using dictionaries
+    
+    * Add simple json fuzzing target
+    
+    * Mention SharpFuzz in THIRD-PARTY-NOTICES.TXT
+    
+    * Tweak readme
+    
+    * Don't reuse assembly if prefixes changed
+    
+    * Temporarily disable dictionary files
+    
+    * Avoid name conflicts between CI jobs and test submissions
+    
+    * Add some basic OneFuzz docs
+    
+    * Add PooledBoundedMemory to fuzzer sample
+    
+    * Typo
+    
+    * More docs
+    
+    * Avoid transcoding overhead in Json fuzzer
+    
+    * Enable cron schedule
+    
+    * Tweak docs
+    
+    * Fix OneFuzz dictionary file paths
+    
+    * Workaround OneFuzz issue with multiple jobs in deployment
+    
+    * Clarify what alias to use
+    
+    * Test JsonDocument instead of JsonSerializer
+    
+    * Get rid of BlameAlias
+    
+    * Tweak getters
+    
+    * Remove a few unused helpers
+    
+    * Tweak OneFuzz workaround comment
+    
+    * Remove StringBuilder use
+    
+    * Avoid misaligned-span UB
