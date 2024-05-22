@@ -1,0 +1,45 @@
+commit 362a95d53d7266ee9b7452e351d07845dcc1edd2
+Author: Ivan Diaz Sanchez <ivdiazsa@microsoft.com>
+Date:   Tue May 21 10:36:04 2024 -0700
+
+    Add `SetEntryAssembly()` API to `System.Reflection` (#102271)
+    
+    * Trying out JanK's approach to override the entry assembly...
+    
+    * Fixed what was missing for this reflection scenario to work correctly.
+    
+    * Reverted the compatibility suppressions added by the build script.
+    
+    * Forgot to revert also the nativeaot part of the suppressions.
+    
+    * Addressed PR comments: Updated the tests to use the new
+    "s_overriddenEntryAssembly", added an API doc to SetEntryAssembly(),
+    added validation for it to be a Runtime Assembly, and changed the type
+    to allow a null entry assembly.
+    
+    * Added tests and addressed more comments on the PR.
+    
+    * Added exception test case for SetEntryAssembly, and wrapped all its
+    test cases in a RemoteExecutor.Invoke() call, in order to avoid
+    potentially interferring with the GetEntryAssembly tests.
+    
+    * Update src/libraries/System.Private.CoreLib/src/System/Reflection/Assembly.cs
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
+    
+    * Refactored further the tests that force a null entry assembly, and
+    fixed the issue with the remote executor.
+    
+    * Apply Jan's suggestions
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
+    
+    * Fixed a sneaky trailing whitespace that was messing up with the code analyzers.
+    
+    * Changed ConditionalTheory to ConditionalFact in the tests because we're not passing parameters to it.
+    
+    * Disabled building the CustomHostTests test file when .NET Framework
+    
+    ---------
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
