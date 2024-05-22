@@ -1,0 +1,11 @@
+commit 415734868eeaac947b891ff1f1bcfc33e12d5309
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Wed May 22 21:14:19 2024 +0900
+
+    Add support for exported types in illink XML formats (#102487)
+    
+    Addresses the TODO in the native AOT port.
+    
+    Ran into inability of rooting things from mscorlib with the illink XML format on native AOT so decided to fix the TODO.
+    
+    (It was possible to work around with `Type.GetType` (that's a supported pattern) or rd.xml, but this should work with the descriptors too.)
