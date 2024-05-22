@@ -1,0 +1,9 @@
+commit 56e67a7aacb8a644cc6b8b1e3db9e55c3eccb755
+Author: Mark Plesko <markples@microsoft.com>
+Date:   Wed May 8 01:51:10 2024 -0700
+
+    Partially revert "Disable msvc vectorization in GC get_promoted_bytes (#100309)" (#101995)
+    
+    (commit 765ca4e9f2dddca2005ffdb45863b7980247a886)
+    
+    Revert workaround but leave test in place.
