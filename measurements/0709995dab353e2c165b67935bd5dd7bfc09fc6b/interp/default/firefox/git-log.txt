@@ -1,0 +1,21 @@
+commit 0709995dab353e2c165b67935bd5dd7bfc09fc6b
+Author: Kunal Pathak <Kunal.Pathak@microsoft.com>
+Date:   Tue May 21 16:35:01 2024 -0700
+
+    LSRA: Refactor some of the methods around creating kill set (#102469)
+    
+    * refactor code around buildkill
+    
+    * fix build errors
+    
+    * some more errors
+    
+    * jit format
+    
+    * fix riscv64
+    
+    * make retTypeDesc as noway_assert
+    
+    * fix riscv64 errors
+    
+    * jit format
