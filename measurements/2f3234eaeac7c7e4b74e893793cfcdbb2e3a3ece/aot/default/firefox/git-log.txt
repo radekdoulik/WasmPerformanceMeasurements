@@ -1,0 +1,10 @@
+commit 2f3234eaeac7c7e4b74e893793cfcdbb2e3a3ece
+Author: Jan Kotas <jkotas@microsoft.com>
+Date:   Tue May 21 03:41:04 2024 -0700
+
+    Fix xcode-select : error : tool 'xcodebuild' requires Xcode (#102473)
+    
+    Port https://github.com/dotnet/runtime/pull/100190 to internal build
+    scripts
+    
+    Fixes #102471
