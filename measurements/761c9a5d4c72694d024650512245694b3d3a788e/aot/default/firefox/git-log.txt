@@ -1,0 +1,19 @@
+commit 761c9a5d4c72694d024650512245694b3d3a788e
+Author: Kunal Pathak <Kunal.Pathak@microsoft.com>
+Date:   Tue May 21 17:01:04 2024 -0700
+
+    Handle more than 64 registers - Part 2 (#102297)
+    
+    * Make regMaskTP struct for non-arm64 platforms
+    
+    * some refactoring
+    
+    * jit format
+    
+    * fix missing paranethesis in arm
+    
+    * fix riscv64 and loongarch build
+    
+    * minor change
+    
+    * review feedback
