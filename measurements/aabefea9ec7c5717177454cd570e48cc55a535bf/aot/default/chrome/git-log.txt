@@ -1,0 +1,11 @@
+commit aabefea9ec7c5717177454cd570e48cc55a535bf
+Author: Milos Kotlar <kotlarmilos@gmail.com>
+Date:   Thu May 23 09:50:47 2024 +0200
+
+    [mono][interp] Update mono struct lowering to use MonoMemoryManager (#102486)
+    
+    * Update mono_metadata_signature_dup_new_params to use MonoMemoryManager
+    
+    * Refactor mono_metadata_signature_dup_new_params to allocate memory for a MonoMethodSignature based on the provided parameters
+    
+    * Remove unused param from the mono_metadata_signature_dup_new_params
