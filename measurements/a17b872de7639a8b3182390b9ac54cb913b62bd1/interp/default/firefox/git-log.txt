@@ -1,0 +1,33 @@
+commit a17b872de7639a8b3182390b9ac54cb913b62bd1
+Author: Sven Boemer <sbomer@gmail.com>
+Date:   Wed May 22 14:27:51 2024 -0700
+
+    Build against Y2038-compatible glibc for linux arm32 (#102410)
+    
+    This updates our linux arm32 build to build against a more recent
+    glibc that supports _TIME_BITS (which we set to 64).
+    
+    Since openssl may be using either 32-bit or 64-bit time_t, this
+    includes detection logic to determine which case we are in, and
+    avoid passing time values that don't fit in 32 bits to openssl.
+    
+    The arm build image is updated to the latest version of the
+    images added in
+    https://github.com/dotnet/dotnet-buildtools-prereqs-docker/pull/1037.
+    
+    The helix test images are updated to debian images added in
+    https://github.com/dotnet/dotnet-buildtools-prereqs-docker/pull/1041.
+    Additional context:
+    
+    Additional context:
+    
+    Reintroduces the fix for Y2038 support on arm32
+    linux (https://github.com/dotnet/runtime/pull/102059), which was
+    reverted due to problems running against openssl built with
+    _TIME_BITS=32.
+    
+    Fixes https://github.com/dotnet/runtime/issues/101444 (both the
+    originally reported issue, and the test failures mentioned in
+    https://github.com/dotnet/runtime/issues/101444#issuecomment-2111415106).
+    
+    Supports: https://github.com/dotnet/runtime/issues/91826
