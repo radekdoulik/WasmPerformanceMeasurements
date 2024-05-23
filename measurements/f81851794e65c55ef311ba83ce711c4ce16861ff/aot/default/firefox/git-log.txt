@@ -1,0 +1,15 @@
+commit f81851794e65c55ef311ba83ce711c4ce16861ff
+Author: SwapnilGaikwad <swapnil.gaikwad@arm.com>
+Date:   Wed May 22 20:40:43 2024 +0100
+
+    Add support for Sve.Store() (#102262)
+    
+    * Add support for Sve.Store()
+    
+    * Fix formatting issues
+    
+    * Remove incorrect instructions from comment
+    
+    * Rename Sve.Store() -> Sve.StoreAndZip()
+    
+    * Refactor test templates
