@@ -1,0 +1,5 @@
+commit 198a2596229f69b8e02902bfb4ffc2a30be3b339
+Author: Radek Doulik <radek.doulik@gmail.com>
+Date:   Wed May 22 12:59:12 2024 +0200
+
+    [wasm] Do not pre-provision wasm, it is not needed anymore (#102554)
