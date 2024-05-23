@@ -1,0 +1,21 @@
+commit 6e5244567aab92dc59e1091ffd6606d6437dae32
+Author: Alan Hayward <a74nh@users.noreply.github.com>
+Date:   Thu May 23 05:51:19 2024 +0100
+
+    ARM64-SVE: LeadingSignCount, LeadingZeroCount, PopCount (#102548)
+    
+    * ARM64-SVE: LeadingSignCount + LeadingZeroCount
+    
+    * Add popcount
+    
+    * Fix PlatformNotSupported
+    
+    * Fix summary headers for popcount
+    
+    * Use SveSimpleVecOpTest for unsigned popcounts
+    
+    * Add HW_Flag_LowMaskedOperation() to LeadingSignCount() and LeadingZeroCount()
+    
+    ---------
+    
+    Co-authored-by: Kunal Pathak <Kunal.Pathak@microsoft.com>
