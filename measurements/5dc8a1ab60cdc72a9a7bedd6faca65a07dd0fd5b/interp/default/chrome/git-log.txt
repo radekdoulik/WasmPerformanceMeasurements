@@ -1,0 +1,9 @@
+commit 5dc8a1ab60cdc72a9a7bedd6faca65a07dd0fd5b
+Author: Jackson Schuster <36744439+jtschuster@users.noreply.github.com>
+Date:   Wed May 22 11:39:20 2024 -0700
+
+    ILLink: Fix event warning locations (#102528)
+    
+    Moves the marking of the associated event of an event method to MarkMethod rather than ProcessMethod, and changes the event marking reason and MessageOrigin to be the reason and origin from MarkMethod of the event method. To avoid infinite recursion, we will always give the reason EventMethod when calling MarkMethod from MarkEvent and will not call MarkEvent again from MarkMethod when the reason is EventMethod.
+    
+    Annotations also should not be processed during the call to MarkMethod that originated from MarkEvent, so EventMethod is added to the exclusion cases for ProcessAnalysisAnnotationsForMethod. MarkEventVisibleToReflection will mark events and each event method with the reason DynamicallyAccessedMember which will lead to warnings on RUC accessors. Also, anything that references add or remove directly will directly call MarkMethod with a different reason than EventMethod and warnings will be generated. A side effect of this is that if remove has RUC but is never accessed, but add is accessed, then remove will be kept for valid IL but no warning will be emitted. This should be fine since the program shouldn't be able to call the remove method.
