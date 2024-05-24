@@ -1,0 +1,23 @@
+commit a8bc8faa908d536ff8aceaa53ee38535fa63afd7
+Author: Kunal Pathak <Kunal.Pathak@microsoft.com>
+Date:   Thu May 23 17:21:46 2024 -0700
+
+    Fix build break on osx/arm64 Debug (#102631)
+    
+    * fix build break on osx/arm64 Debug
+    
+    * remove constexpr
+    
+    * Revert "remove constexpr"
+    
+    This reverts commit e67ca1a4f46f1b00de48dd7a742b99418cd3f625.
+    
+    * Revert "fix build break on osx/arm64 Debug"
+    
+    This reverts commit dc5ad929fc17171a0635db37851530c901019012.
+    
+    * remove static constexpr
+    
+    ---------
+    
+    Co-authored-by: Kunal Pathak <kunalpathak@kunals-mbp.lan>
