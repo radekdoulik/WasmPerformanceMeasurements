@@ -1,0 +1,7 @@
+commit f4c9264fe8448fdf1f66eda04a582cbade40cd39
+Author: Meri Khamoyan <96171496+mkhamoyan@users.noreply.github.com>
+Date:   Fri May 24 08:58:27 2024 +0200
+
+    [wasm] Fix WebSocket failures on wasm test runs (#102366)
+    
+    Update test cases to skip on wasm from outerloop attribute.
