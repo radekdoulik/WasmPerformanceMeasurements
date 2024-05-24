@@ -1,0 +1,10 @@
+commit 8025156a0f3309bf181f00a3468d54a95bd5abf5
+Author: Katelyn Gadd <kg@luminance.org>
+Date:   Thu May 23 14:32:13 2024 -0700
+
+    [mono] Add unchecked version of stelem_ref interpreter opcode (#99829)
+    
+    * Introduce mint_stelem_ref_unchecked
+    * Inline most of stelem_ref_unchecked in jiterpreter traces
+    * Add more complete type check for stelem_ref_unchecked
+    * Correctness fix and simplification for stelem_ref_unchecked
