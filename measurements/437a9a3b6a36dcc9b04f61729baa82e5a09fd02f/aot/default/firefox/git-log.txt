@@ -1,0 +1,9 @@
+commit 437a9a3b6a36dcc9b04f61729baa82e5a09fd02f
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Thu May 23 05:02:08 2024 +0900
+
+    Report catch type dependencies in IL scanner (#102550)
+    
+    We were missing reporting the type used in a catch when it doesn't require a generic lookup. This can be a problem when such type is never thrown and the exception is generic (in which case we sometimes upgrade necessary types to constructed types and those need scanned vtables).
+    
+    Found in the Pri 1 test suite.
