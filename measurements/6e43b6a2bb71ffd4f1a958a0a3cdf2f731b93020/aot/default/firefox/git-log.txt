@@ -1,0 +1,9 @@
+commit 6e43b6a2bb71ffd4f1a958a0a3cdf2f731b93020
+Author: Carlos Sánchez López <1175054+carlossanlop@users.noreply.github.com>
+Date:   Wed May 22 12:50:07 2024 -0600
+
+    Migrate to zlib-ng, part 1: copy source code only (#102520)
+    
+    * Bring in the zlib-ng source code into the repo but without plugging it in yet.
+    * Include the required zlib-ng license and version changes.
+    * Remove the zlib-ng/doc/ and zlib-ng/tests/ folders and mention this in the newly added zlib-ng-version.txt file.
