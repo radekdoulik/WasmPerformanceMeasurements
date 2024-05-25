@@ -1,0 +1,17 @@
+commit 80374cc0b2e27809208507bf2d5e6860cba0f530
+Author: Vladimir Sadov <vsadov@microsoft.com>
+Date:   Fri May 24 13:37:47 2024 -0700
+
+    [NativeAOT] reenable APC2 use on arm64 (#102667)
+    
+    * reenable APC2 use onarm64
+    
+    * make it build again
+    
+    * Apply suggestions from code review
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
+    
+    ---------
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
