@@ -1,0 +1,83 @@
+commit ce1477b5df9b378f1dfcbb9194aeed3932ecfc03
+Author: Kunal Pathak <Kunal.Pathak@microsoft.com>
+Date:   Fri May 24 16:36:17 2024 -0700
+
+    Handle more than 64 registers - Part 3 (#102592)
+    
+    * Add `high` in regMaskTP
+    
+    * Introduce SingleTypeRegSet
+    
+    * Use SingleTypeRegSet in few places
+    
+    * Delete some methods in regMaskTP
+    
+    * Delete some more methods of regMaskTP
+    
+    * Fix actualRegistersMask
+    
+    * Use SingleTypeRegSet in consecutive register code
+    
+    * Use SingleTypeRegSet in consecutive registers codebase
+    
+    * Change genRegMask*() method to return SingleTypeRegSet
+    
+    * wip
+    
+    * another wip
+    
+    * Everything except newRefPosition/killMask
+    
+    * refactor code around buildkill
+    
+    * fix build errors
+    
+    * some more errors
+    
+    * jit format
+    
+    * fixed build error for arm64
+    
+    * REVERT: temporary add #ifdef TARGET_ARM64 for accessing regMaskTP methods
+    
+    * forgot to add the new file
+    
+    * make addRegsForKill only on low
+    
+    * jit format
+    
+    * Revert "REVERT: temporary add #ifdef TARGET_ARM64 for accessing regMaskTP methods"
+    
+    This reverts commit 325bc6e241513b4b9305e747af2eee7c775502e3.
+    
+    * Various fixes after merge
+    
+    * passing arm64 build
+    
+    * clrjit build works
+    
+    * clrjit_universal_arm_x64 build works
+    
+    * clrjit_unix_x64_x64 build works
+    
+    * clrjit_win_x86_x64 build works
+    
+    * fix a bug in size
+    
+    * delete unwanted method
+    
+    * jit format
+    
+    * Remove high
+    
+    * Continue using regMaskTP for NodeInternalRegisters
+    
+    * Pass regType to getConstrainedRegMask()
+    
+    * jit format
+    
+    * fix a wrong parameter for consecutive register
+    
+    * fix riscv64 build errors
+    
+    * jit format
