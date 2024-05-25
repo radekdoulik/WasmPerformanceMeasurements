@@ -1,0 +1,7 @@
+commit 301604e35ccf41f53e01893e08cf7f33d5256c1a
+Author: Aman Khalid <amankhalid@microsoft.com>
+Date:   Wed May 22 14:06:19 2024 +0000
+
+    Handle GT_SWIFT_ERROR_RET in LinearScan::getKillSetForNode (#102519)
+    
+    Fixes #102349. In LinearScan::getKillSetForNode, GT_SWIFT_ERROR_RET (which represents the regular return value, alongside the Swift error register value to be loaded) needs to be handled like GT_RETURN if Compiler::compIsProfilerHookNeeded is true, which is possible under some JitStress scenarios.
