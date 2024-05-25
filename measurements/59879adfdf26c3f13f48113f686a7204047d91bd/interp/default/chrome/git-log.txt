@@ -1,0 +1,9 @@
+commit 59879adfdf26c3f13f48113f686a7204047d91bd
+Author: Jackson Schuster <36744439+jtschuster@users.noreply.github.com>
+Date:   Thu May 23 13:54:21 2024 -0700
+
+    Allow non-IMemberDefinition sources to be origin for event methods (#102613)
+    
+    There are some cases where an event may be marked by something that is not an IMemberDefinition, for example, an assembly level attribute. https://github.com/dotnet/runtime/pull/102528 made an assumption that this was not possible and threw in those cases. This reverts the change related to that assumption.
+    
+    Co-authored-by: Sven Boemer <sbomer@gmail.com>
