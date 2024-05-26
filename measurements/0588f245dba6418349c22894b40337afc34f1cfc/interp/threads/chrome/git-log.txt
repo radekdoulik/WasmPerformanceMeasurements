@@ -1,0 +1,11 @@
+commit 0588f245dba6418349c22894b40337afc34f1cfc
+Author: SwapnilGaikwad <swapnil.gaikwad@arm.com>
+Date:   Sun May 26 15:24:06 2024 +0100
+
+     Add support for Sve.StoreNarrowing() (#102605)
+    
+    * Add Sve.StoreNarrowing()
+    
+    * Incorporate review comments for Sve.StoreAndZip()
+    
+    * Fix formatting issues
