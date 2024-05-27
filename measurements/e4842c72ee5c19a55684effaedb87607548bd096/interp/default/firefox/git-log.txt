@@ -1,0 +1,19 @@
+commit e4842c72ee5c19a55684effaedb87607548bd096
+Author: dotnet-maestro[bot] <42748379+dotnet-maestro[bot]@users.noreply.github.com>
+Date:   Wed May 22 11:45:19 2024 -0500
+
+    [main] Update dependencies from dotnet/roslyn (#102493)
+    
+    * Update dependencies from https://github.com/dotnet/roslyn build 20240520.14
+    
+    Microsoft.SourceBuild.Intermediate.roslyn , Microsoft.CodeAnalysis , Microsoft.CodeAnalysis.CSharp , Microsoft.Net.Compilers.Toolset
+     From Version 4.11.0-2.24269.3 -> To Version 4.11.0-2.24270.14
+    
+    * Update dependencies from https://github.com/dotnet/roslyn build 20240521.11
+    
+    Microsoft.SourceBuild.Intermediate.roslyn , Microsoft.CodeAnalysis , Microsoft.CodeAnalysis.CSharp , Microsoft.Net.Compilers.Toolset
+     From Version 4.11.0-2.24269.3 -> To Version 4.11.0-2.24271.11
+    
+    ---------
+    
+    Co-authored-by: dotnet-maestro[bot] <dotnet-maestro[bot]@users.noreply.github.com>
