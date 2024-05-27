@@ -1,0 +1,10 @@
+commit 17dd68d626fd9033444dec43d4cea57851b87ebc
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Sat May 25 00:10:16 2024 +0900
+
+    Couple fixes to scanning fields (#102649)
+    
+    Found in the pri1 suite:
+    
+    * Accessing literal fields from IL is invalid. We throw an exception in JitInterface, but we didn't scan the exception type.
+    * Allow RVA statics on generics with a cctor. Leftover from https://github.com/dotnet/runtime/pull/86081#discussion_r1190647469. Looks like we have a test.
