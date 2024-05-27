@@ -1,0 +1,7 @@
+commit 2f08fcbfece0c09319f237a6aee6f74c4a9e14e8
+Author: Radek Zikmund <32671551+rzikm@users.noreply.github.com>
+Date:   Mon May 27 12:40:18 2024 +0200
+
+    Revert "Disable CertificateValidationClientServer_EndToEnd_Ok in Windows NativeAoT (#95333)" (#102517)
+    
+    This reverts commit 0a1adcd089245c6020e8d32efe788ddce7e0f0b0.
