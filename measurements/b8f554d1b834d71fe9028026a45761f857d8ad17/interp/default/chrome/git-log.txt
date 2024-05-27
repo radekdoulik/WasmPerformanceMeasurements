@@ -1,0 +1,15 @@
+commit b8f554d1b834d71fe9028026a45761f857d8ad17
+Author: Aaron Robinson <arobins@microsoft.com>
+Date:   Tue May 21 19:15:37 2024 -0700
+
+    `CodeVersionManager` updates (#102298)
+    
+    * Code Versioning - move native code versioning state
+    
+    Remove the dictionary from the CodeVersionManager
+    and instead store the data directly on the MethodDesc.
+    
+    * Remove dictionary for IL version states.
+    
+    Remove the dictionary from the CodeVersionManager
+    and instead store the data in the Module.
