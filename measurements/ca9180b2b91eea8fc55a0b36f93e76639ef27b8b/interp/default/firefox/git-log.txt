@@ -1,0 +1,61 @@
+commit ca9180b2b91eea8fc55a0b36f93e76639ef27b8b
+Author: Grzegorz Tomasz Czarnecki <grzegorz.czarnecki.2021@gmail.com>
+Date:   Mon May 27 16:32:31 2024 +0200
+
+    [RISC-V] Fix invalid operand register in the emitted addition/subtraction code (#102074)
+    
+    * [RISC-V] Added sext_w pseudoinstruction
+    
+    * [RISC-V] Inserted INS_sext_w pseudoinstruction
+    
+    * [RISC-V] Started implementing new overflow logic
+    
+    * [RISC-V] Finished preliminar implementation of bound checks
+    
+    * [RISC-V] Fixed invalid 32-bit instruction
+    
+    * [RISC-V] Fixed 32-bit addition overflow check assert
+    
+    * [RISC-V] More fixes in emitter
+    
+    * [RISC-V] Additional fixes
+    
+    * [RISC-V] Fixed triple same register problem in emitInsTernary addition and subtraction logic
+    
+    * [RISC-V] Added sext.w to disassembler
+    
+    * [RISC-V] Added comments
+    
+    * [RISC-V] Formatted code
+    
+    * [RISC-V] Fixed bug
+    
+    * [RISC-V] Fixed other bug
+    
+    * [RISC-V] Fixed bug causing the int32's version to never be emitted
+    
+    * [RISC-V] Fixed assert
+    
+    * [RISC-V] Improved comment
+    
+    * [RISC-V] Fixed comment
+    
+    * [RISC-V] Fixed temp reg acquiring
+    
+    * [RISC-V] Removed asserts
+    
+    * Fixed NodeInternalRegister's GetSingle method's comment
+    
+    * [RISC-V] Revoked more changes
+    
+    * [RISC-V] Revoked more changes
+    
+    * [RISC-V] Embedded sext_w into codegen
+    
+    * [RISC-V] Fixed some comments
+    
+    * [RISC-V] Added additional comment
+    
+    * [RISC-V] Improvements
+    
+    * [RISC-V] Added old comment
