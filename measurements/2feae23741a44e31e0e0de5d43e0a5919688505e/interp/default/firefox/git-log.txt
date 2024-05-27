@@ -1,0 +1,13 @@
+commit 2feae23741a44e31e0e0de5d43e0a5919688505e
+Author: Badre BSAILA <54767641+pedrobsaila@users.noreply.github.com>
+Date:   Mon May 27 20:38:42 2024 +0200
+
+    Http2Connection throws misleading exceptions on ping timeouts (#102691)
+    
+    * Http2Connection throws misleading exceptions on ping timeouts
+    
+    * fix unwanted diffs 1
+    
+    * fix unwanted diffs 2
+    
+    * fix remarks
