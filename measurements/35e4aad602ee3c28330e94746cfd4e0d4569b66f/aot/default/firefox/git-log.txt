@@ -1,0 +1,5 @@
+commit 35e4aad602ee3c28330e94746cfd4e0d4569b66f
+Author: Alexey Zakharov <alexeyzakharov@unity3d.com>
+Date:   Sat May 25 14:24:48 2024 +0200
+
+    ﻿Ensure LoaderAllocator can't be collected while we clean handles on collectible LoaderAllocators (#99998)
