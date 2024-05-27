@@ -1,0 +1,8 @@
+commit 4219e458f8a3151dab16224f22c99ed9d8481a6a
+Author: Katelyn Gadd <kg@luminance.org>
+Date:   Thu May 23 14:31:51 2024 -0700
+
+    [wasm] Optimize mmap and lock-free allocator
+    
+    * Use 64kb pages instead of 16kb pages in the lock-free allocator if custom mmap is active to reduce wasted memory
+    * Request non-zeroed pages from custom mmap in lock free allocator, since all of its callers memset their allocations anyway
