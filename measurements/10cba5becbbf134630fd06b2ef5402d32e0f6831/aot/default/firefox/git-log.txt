@@ -1,0 +1,21 @@
+commit 10cba5becbbf134630fd06b2ef5402d32e0f6831
+Author: skyoxZ <skyoxZ@qq.com>
+Date:   Tue May 14 21:21:47 2024 +0800
+
+    Remove received bytes length check (#100619)
+    
+    * Remove received bytes length check
+    
+    * delete whitespace
+    
+    * fix typo
+    
+    * Improve tests
+    
+    * Update UdpClientTest.cs
+    
+    * Update UdpClientTest.cs
+    
+    ---------
+    
+    Co-authored-by: Anton Firszov <Anton.Firszov@microsoft.com>
