@@ -1,0 +1,18 @@
+commit a71f19b802c68967b956c495c041ab64a69fdd96
+Author: Ynès Jaradin <yjaradin@gmail.com>
+Date:   Tue May 28 00:11:38 2024 +0200
+
+    ilasm support for methods with multiple documents (#102199)
+    
+    * ilasm support for methods with multiple documents
+    
+    Make sure the SequencePoints produced in the PDB
+    reference the documents indicated on the .line directive.
+    
+    Fix #102198
+    
+    * Clean up ilasm PortablePdb tests
+    
+    ---------
+    
+    Co-authored-by: Ivan Povazan <ivan.povazan@gmail.com>
