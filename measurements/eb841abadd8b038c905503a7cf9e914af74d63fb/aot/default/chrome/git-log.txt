@@ -1,0 +1,12 @@
+commit eb841abadd8b038c905503a7cf9e914af74d63fb
+Author: yurai007 <dawid_jurek@vp.pl>
+Date:   Tue May 28 04:35:50 2024 +0200
+
+    [RISC-V] Improve code generating resolve stub assembly (#102318)
+    
+    * [RISC-V] Improve code generating resolve stub assembly
+    
+    This change replaces magic numbers with proper offsetofs and use compile time asserts instead runtime ones.
+    That should make developers life easier in case of debugging or changing resolve stubs assembly.
+    
+    * Move annotation and don't check same thing many times
