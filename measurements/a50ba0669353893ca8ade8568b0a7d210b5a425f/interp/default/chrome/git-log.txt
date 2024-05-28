@@ -1,0 +1,5 @@
+commit a50ba0669353893ca8ade8568b0a7d210b5a425f
+Author: Egor Bogatov <egorbo@gmail.com>
+Date:   Tue May 28 02:38:52 2024 +0200
+
+    Conservative fix for struct stores in optRemoveRedundantZeroInits (#102580)
