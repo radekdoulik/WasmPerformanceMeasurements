@@ -1,0 +1,7 @@
+commit 9a43de3206c9146690fdb57fce9b37347d8d5720
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Mon May 27 21:44:40 2024 +0900
+
+    Disable Loader pri-1 tests that don't compile (#102709)
+    
+    These test various bad or crazy IL that we're never going to fix due to a test failure alone (would need a better business justification to spend time on).
