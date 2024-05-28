@@ -1,0 +1,23 @@
+commit 9daa4b41eb9f157e79eaf05e2f7451c9c8f6dbdc
+Author: Jacob Bundgaard <jacob@jacobbundgaard.dk>
+Date:   Tue May 28 18:13:32 2024 +0200
+
+    Add support for primary constructors in LoggerMessageGenerator (#101660)
+    
+    * Add support for primary constructors in LoggerMessageGenerator
+    
+    * Get the primary constructor parameters types from the constructor symbol instead of from the semantic model
+    
+    * Prioritize fields over primary constructor parameters and ignore shadowed parameters when finding a logger
+    
+    * Make checking for primary constructors non-conditional on Roslyn version and simplify project setup
+    
+    * Reintroduce Roslyn 4.8 test project
+    
+    * Add info-level diagnostic for logger primary constructor parameters that are shadowed by field
+    
+    * Update list of diagnostics with new logging message generator diagnostic
+    
+    * Only add non-logger field names to set of shadowed names
+    
+    * Add comment explaining the use of the set of shadowed names with an example
