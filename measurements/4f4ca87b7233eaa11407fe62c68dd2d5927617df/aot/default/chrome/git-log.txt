@@ -1,0 +1,48 @@
+commit 4f4ca87b7233eaa11407fe62c68dd2d5927617df
+Author: Kunal Pathak <Kunal.Pathak@microsoft.com>
+Date:   Wed May 22 13:51:08 2024 -0700
+
+    Arm64/SVE: JitStress/JitStressRegs fixes (#102543)
+    
+    * handle case for FMA where falseReg == embMaskOp1Reg
+    
+    * workaround because predicateRegister/vectorRegister are same
+    
+    * When intrinsic is wrapped in ConditionalSelect, make sure to check its LOW_PREDICATE flag
+    
+    * Mark AddAcross with HW_Flag_LowMaskedOperation
+    
+    * double check if ConditionalSelect's op2 is hwintrinsic
+    
+    * Mark Max with HW_Flag_LowMaskedOperation
+    
+    * Mark MaxAcross with HW_Flag_LowMaskedOperation
+    
+    * Mark MinNumber/MaxNumber/MinNumberAcross/MaxNumberAcross with HW_Flag_LowMaskedOperation
+    
+    * Mark Min/MinAcross with HW_Flag_LowMaskedOperation
+    
+    * fix the workaround for predicate vs. vector register
+    
+    * fix the predicate mask preference
+    
+    * Introduce INS_SCALABLE_OPTS_PREDICATE_MERGE_MOV
+    
+    * jit format
+    
+    * revert change to csproj
+    
+    * remove assert that can not happen for FMA
+    
+    if falseReg == embMaskOp2Reg, we simply generate:
+    
+    ```
+                sel     z16.s, p7, z9.s, z10.s
+                mla     z16.s, p7/m, z10.s, z11.s
+    ```
+    
+    Here `z10` holds `falseReg` and `embMaskOp2Reg`.
+    
+    * revert a condition added for workaround of predicate == vector register
+    
+    * remove the extra comment
