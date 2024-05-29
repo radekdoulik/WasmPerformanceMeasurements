@@ -1,0 +1,7 @@
+commit 3eb94d1a816f941dd66f01e62c1af25c108014bc
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Wed May 29 15:55:02 2024 +0900
+
+    Align reflection name formatting with CoreCLR-JIT (#102756)
+    
+    There was an observable difference between FormatTypeNameForReflection and FormatTypeName for TypedReference.
