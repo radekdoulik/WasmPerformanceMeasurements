@@ -1,0 +1,55 @@
+commit d9bc6806ce9667029075963c690891d1fa2ee1d2
+Author: Grzegorz Tomasz Czarnecki <grzegorz.czarnecki.2021@gmail.com>
+Date:   Wed May 29 14:15:21 2024 +0200
+
+    [RISC-V] Add pseudoinstructions to disassembler (#102260)
+    
+    * [RISC-V] Reworked emitDispInsName a bit to ease further development
+    
+    * [RISC-V] Little improvements
+    
+    * [RISC-V] Refactored code
+    
+    * [RISC-V] Added mv and nop pseudoinstructions to disasm
+    
+    * [RISC-V] Added branch pseudos to disasm
+    
+    * [RISC-V] Removed dead code
+    
+    * [RISC-V] Fixes
+    
+    * [RISC-V] Added j pseudoinstruction to disasm
+    
+    * [RISC-V] Improved readability
+    
+    * [RISC-V] Fixed mov pseudoinstruction
+    
+    * Revert "[RISC-V] Fixed mov pseudoinstruction"
+    
+    This reverts commit a011c43cb75ef7fff976e6804f6474417a18eda8.
+    
+    * [RISC-V] Fixed mov printing name
+    
+    * [RISC-V] After review changes
+    
+    * [RISC-V] More fixes after review
+    
+    * [RISC-V] Adjusted 32-bit shift disasm to changes
+    
+    * [RISC-V] Fixed bug
+    
+    * [RISC-V] Fixed comment
+    
+    * [RISC-V] Changed constants' literal type
+    
+    * [RISC-V] Added more constants
+    
+    * [RISC-V] Reinforced printing 1
+    
+    * [RISC-V] Reinforced printing 2
+    
+    * [RISC-V] Fixed bug
+    
+    * [RISC-V] Resolved more bugs
+    
+    * [RISC-V] Removed dead assert
