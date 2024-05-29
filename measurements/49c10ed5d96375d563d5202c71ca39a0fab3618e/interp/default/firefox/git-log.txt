@@ -1,0 +1,5 @@
+commit 49c10ed5d96375d563d5202c71ca39a0fab3618e
+Author: Trayan Zapryanov <lrt80@abv.bg>
+Date:   Wed May 29 21:40:34 2024 +0300
+
+    Use stackalloc char&byte arrays for decoding Url values in HttpUtiliy.ParseQueryString (#102745)
