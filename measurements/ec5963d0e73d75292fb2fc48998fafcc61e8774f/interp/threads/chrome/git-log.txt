@@ -1,0 +1,23 @@
+commit ec5963d0e73d75292fb2fc48998fafcc61e8774f
+Author: Tanner Gooding <tagoo@outlook.com>
+Date:   Tue May 28 22:27:03 2024 -0700
+
+    Update the JIT to support rewriting more complex intrinsics as user calls (#102702)
+    
+    * Update the JIT to support rewriting more complex intrinsics as user calls
+    
+    * Updating the shuffle hwintrinsic to always be imported as an intrinsic
+    
+    * Ensure multi-reg returns are initialized for rewritten hwintrinsics
+    
+    * Apply suggestions from code review
+    
+    Co-authored-by: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+    
+    * Adding function headers to SetMethodHandle and SetEntryPoint
+    
+    * Apply formatting patch
+    
+    ---------
+    
+    Co-authored-by: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
