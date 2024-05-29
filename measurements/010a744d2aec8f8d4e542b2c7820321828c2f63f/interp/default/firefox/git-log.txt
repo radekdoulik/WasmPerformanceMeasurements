@@ -1,0 +1,5 @@
+commit 010a744d2aec8f8d4e542b2c7820321828c2f63f
+Author: Brennan <brecon@microsoft.com>
+Date:   Tue May 28 16:39:04 2024 -0700
+
+    Periodically flush when using PipeWriter in Json (#102541)
