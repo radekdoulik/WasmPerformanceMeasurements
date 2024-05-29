@@ -1,0 +1,7 @@
+commit 28d35bddd97fd4bd1b2c20ff629f6d2a240cf362
+Author: Jackson Schuster <36744439+jtschuster@users.noreply.github.com>
+Date:   Tue May 28 18:52:41 2024 -0700
+
+    ILLink: Add test for dataflow in local method group passed as argument to delegate
+    
+    Adds a test for issue #95258 which passes without any source code fix.
