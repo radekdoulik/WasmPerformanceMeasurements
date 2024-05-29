@@ -1,0 +1,45 @@
+commit 8b1d06a5170628834b27c06b751ac0e54f65c7e3
+Author: Sven Boemer <sbomer@gmail.com>
+Date:   Tue May 28 17:34:42 2024 -0700
+
+    Avoid new constraint with structs in ILLink analyzer (#102784)
+    
+    This fixes an issue where the trim analyzer was producing
+    warnings inside Visual Studio, but not from a command-line build,
+    for code similar to the following:
+    
+    ```csharp
+    var typeName = Console.ReadLine() ?? string.Empty;
+    
+    if (RuntimeFeature.IsEnabled)
+    {
+        var type = Type.GetType(typeName); // warning IL2057: Unrecognized value passed to the parameter 'typeName'...'System.Type.GetType'...
+    }
+    else
+    {
+        Console.WriteLine($"Cannot lookup {typeName} because the feature id disabled.");
+    }
+    
+    internal static class RuntimeFeature
+    {
+    #pragma warning disable IL4000
+        [FeatureGuard(typeof(RequiresUnreferencedCodeAttribute))]
+        internal static bool IsEnabled => AppContext.TryGetSwitch("RuntimeFeature.IsEnabled", out bool enabled) ? enabled : true;
+    #pragma warning restore IL4000
+    }
+    ```
+    
+    This was due to https://github.com/dotnet/runtime/issues/6536
+    which was fixed in .NET Core, but still exists in .NET
+    Framework. It means that we can't rely the parameterless struct
+    constructor being called for struct types used through a generic
+    parameter with a `new()` constraint.
+    
+    This fixes the issue by avoiding use of the `new()` constraint
+    for generic parameters that might be structs. With the fix, the
+    warning is no longer reported when running in Visual Studio
+    locally, but there are no tests because we don't run tests on
+    full framework.
+    
+    Includes some unrelated debug helpers that were useful while
+    investigating this.
