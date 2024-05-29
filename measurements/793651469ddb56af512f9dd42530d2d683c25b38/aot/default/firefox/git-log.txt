@@ -1,0 +1,7 @@
+commit 793651469ddb56af512f9dd42530d2d683c25b38
+Author: Jackson Schuster <36744439+jtschuster@users.noreply.github.com>
+Date:   Tue May 28 13:28:44 2024 -0700
+
+    ILLink: Add test for event warning origin issue (#102405)
+    
+    Marking of events was a little weird in the trimmer. Previously, if any method is marked, all methods will be marked, but the other methods will be marked as a dependency of the first marked event method. This leads to warnings for the add method showing up on the remove method if the remove method is the only one referenced in the method body. The behavior has been fixed, but this commit adds a test for regression on this behavior.
