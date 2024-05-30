@@ -1,0 +1,11 @@
+commit 21f356a4f955bcff66f84762be4826ba605a3645
+Author: Jackson Schuster <36744439+jtschuster@users.noreply.github.com>
+Date:   Thu May 30 07:49:55 2024 -0700
+
+    Add regression test for assembly origin for event marking (#102836)
+    
+    Adds a regression test for the issue that was fixed in #102613.
+    
+    The assembly level attribute marks the members on the referenced type, and the assembly is the MessageOrigin for the marking.
+    
+    I confirmed this fails with before #102613.
