@@ -1,0 +1,7 @@
+commit 36a85b00695007652d8a2d5e1c5e9d99b7247505
+Author: Jackson Schuster <36744439+jtschuster@users.noreply.github.com>
+Date:   Wed May 29 20:35:38 2024 -0700
+
+    Propagate the 'this' keyword in LibraryImports (#102793)
+    
+    Since Roslyn just lowers the extension methods to a call to the static method there's no reason we shouldn't support creating extension methods that are also LibraryImport methods. This adds the IsExplicitThis property to TypePositionInfo and copies this to the generated signature if it is true.
