@@ -1,0 +1,96 @@
+commit 1ded19e700f267048a190fd45f949ed492469c1c
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Thu May 30 11:01:22 2024 +0200
+
+    JIT: Add reasoning about loop trip counts and optimize counted loops into downwards counted loops (#102261)
+    
+    This builds out some initial reasoning about trip counts of loops and utilizes
+    it to convert upwards counted loops into downwards counted loops when
+    beneficial.
+    
+    The trip count of a loop is defined to be the number of times the header block
+    is entered. When this value can be computed the loop is called counted. The
+    computation here is symbolic and can reason in terms of variables, such as array
+    or span lengths.
+    
+    To be able to compute the trip count requires the JIT to reason about overflow
+    and to prove various conditions related to the start and end values of the loop.
+    For example, a loop `for (int i = 0; i <= n; i++)` only has a determinable trip
+    count if we can prove that `n < int.MaxValue`. The implementation here utilizes
+    the logic provided by RBO to prove these conditions. In many cases we aren't
+    able to prove them and thus must give up, but this should be improvable in an
+    incremental fashion to handle common cases.
+    
+    Converting a counted loop to a downwards counting loop is beneficial if the
+    induction variable is not being used for anything else but the loop test. In
+    those cases our target platforms are able to combine the decrement with the exit
+    test into a single instruction. More importantly this usually frees up a
+    register inside the loop.
+    
+    This transformation does not have that many hits (as one can imagine, the IVs of
+    loops are usually used for something else). However, once strength reduction is
+    implemented we expect that this transformation will be significantly more
+    important since strength reduction in many cases is going to remove all uses of
+    an IV except the mutation and the loop test.
+    
+    The reasoning about trip counts is itself also needed by strength reduction
+    which also needs it to prove no overflow in various cases.
+    
+    TP regressions are going to be pretty large for this change:
+    - This enables DFS tree/loop finding in IV opts phase outside win-x64, which has
+      cost around 0.4% TP on its own
+    - This optimization furthermore requires us to build dominators, which comes
+      with its own TP cost
+    
+    Long term we could remove these costs if we could avoid changing control flow in
+    assertion prop and move RBO to the end of the opts loop (letting all control
+    flow changes happen there). But for now I think we just have to pay some of the
+    costs to allow us to do these optimizations.
+    
+    Example:
+    
+    ```csharp
+    private static int Foo(int[] arr, int start, int count)
+    {
+        int sum = 0;
+        for (int i = 0; i < count; i++)
+        {
+            sum += arr[start];
+            start++;
+        }
+    
+        return sum;
+    }
+    ```
+    
+    ```diff
+    @@ -1,19 +1,17 @@
+     G_M42127_IG02:  ;; offset=0x0004
+            xor      eax, eax
+    -       xor      r10d, r10d
+            test     r8d, r8d
+            jle      SHORT G_M42127_IG05
+    -                                               ;; size=10 bbWeight=1 PerfScore 1.75
+    -G_M42127_IG03:  ;; offset=0x000E
+    -       mov      r9d, dword ptr [rcx+0x08]
+    +                                               ;; size=7 bbWeight=1 PerfScore 1.50
+    +G_M42127_IG03:  ;; offset=0x000B
+    +       mov      r10d, dword ptr [rcx+0x08]
+            mov      edx, edx
+                                                    ;; size=6 bbWeight=0.25 PerfScore 0.56
+    -G_M42127_IG04:  ;; offset=0x0014
+    +G_M42127_IG04:  ;; offset=0x0011
+            cmp      edx, dword ptr [rcx+0x08]
+            jae      SHORT G_M42127_IG06
+            add      eax, dword ptr [rcx+4*rdx+0x10]
+            inc      edx
+    -       inc      r10d
+    -       cmp      r10d, r8d
+    -       jl       SHORT G_M42127_IG04
+    -                                               ;; size=19 bbWeight=4 PerfScore 35.00
+    +       dec      r8d
+    +       jne      SHORT G_M42127_IG04
+    +                                               ;; size=16 bbWeight=4 PerfScore 34.00
+    ```
+    
+    Fix #100915
