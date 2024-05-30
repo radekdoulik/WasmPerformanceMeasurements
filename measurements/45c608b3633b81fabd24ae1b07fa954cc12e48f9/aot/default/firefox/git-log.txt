@@ -1,0 +1,14 @@
+commit 45c608b3633b81fabd24ae1b07fa954cc12e48f9
+Author: Sven Boemer <sbomer@gmail.com>
+Date:   Thu May 30 09:22:14 2024 -0700
+
+    Keep metadata for rooted members in ILLink (#102850)
+    
+    ILLink wasn't keeping metadata (specifically parameter names) for
+    rooted members, whether rooted as:
+    - part of a root assembly
+    - by a root descriptor XML.
+    - by DebuggerDisplayAttribute/DebuggerTypeProxyAttribute
+    
+    This ensures all of those mark members visible to reflection so
+    that method parameter names are kept.
