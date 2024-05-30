@@ -1,0 +1,5 @@
+commit cdd1aca1706fb4d36f43a62fd7d745019c893b9b
+Author: Tanner Gooding <tagoo@outlook.com>
+Date:   Thu May 30 04:22:26 2024 -0700
+
+    Flow the CORINFO_CONST_LOOKUP down to the GenTreeIntrinsic/GenTreeHWIntrinsic creation sites (#102843)
