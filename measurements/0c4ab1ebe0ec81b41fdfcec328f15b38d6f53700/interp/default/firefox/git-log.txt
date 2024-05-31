@@ -1,0 +1,17 @@
+commit 0c4ab1ebe0ec81b41fdfcec328f15b38d6f53700
+Author: Buyaa Namnan <bunamnan@microsoft.com>
+Date:   Thu May 30 15:57:29 2024 +0000
+
+    Fix incorrect metadata token written for array, pointer populated from TypeBuilder (#102786)
+    
+    * Fix incorrect metadata token written for array, pointer populated from TypeBuilder
+    
+    * Add ByRef scenario
+    
+    * Update tests
+    
+    * Fix test error, add tests for Array as GenericTypeParameter scenario
+    
+    * Move ElementType check into IsConstructedFromTypeBuilder
+    
+    * Add test for jagged array
