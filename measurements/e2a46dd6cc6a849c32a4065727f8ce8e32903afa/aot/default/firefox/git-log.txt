@@ -1,0 +1,9 @@
+commit e2a46dd6cc6a849c32a4065727f8ce8e32903afa
+Author: Tom McDonald <tommcdon@microsoft.com>
+Date:   Wed May 29 19:22:02 2024 -0400
+
+    Avoid reporting new callstack chain on exceptions (#102774)
+    
+    * Avoid reporting new callstack chain on exceptions
+    
+    * Fix comment wording
