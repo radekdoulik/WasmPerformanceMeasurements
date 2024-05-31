@@ -1,0 +1,11 @@
+commit 635c816660ec26b4d50cfeb291c0382dc1c77365
+Author: Tanner Gooding <tagoo@outlook.com>
+Date:   Fri May 31 08:21:42 2024 -0700
+
+    Restrict the maximum length of BigInteger (#102874)
+    
+    * Restrict the maximum length of BigInteger
+    
+    * Fixing the op_rightshift test to use the new limit
+    
+    * Don't throw an overflow exception unnecessarily
