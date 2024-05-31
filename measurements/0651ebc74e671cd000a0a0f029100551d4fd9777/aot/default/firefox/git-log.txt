@@ -1,0 +1,13 @@
+commit 0651ebc74e671cd000a0a0f029100551d4fd9777
+Author: Ken Dale <kendale@microsoft.com>
+Date:   Thu May 30 16:45:06 2024 -0400
+
+    Update Span.cs and ReadOnlySpan.cs to specify zero-based index values (#102877)
+    
+    * Update Span.cs to specify zero-based index values
+    
+    Specify that `Span` index values are zero-based via xmldoc.
+    
+    Existing usages of zero-based for reference: https://github.com/search?q=repo%3Adotnet%2Fruntime%20zero-based&type=code
+    
+    * Update ReadOnlySpan.cs to specify zero-based index values
