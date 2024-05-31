@@ -1,0 +1,12 @@
+commit f6701e58766c8556919bc92cf2f9b33b6bb2383b
+Author: Elinor Fung <elfung@microsoft.com>
+Date:   Thu May 30 15:01:56 2024 -0700
+
+    [cdac] Implement GetThreadStoreData in cDAC (#102404)
+    
+    - Implement `GetThreadStoreData` and `GetThreadCounts` in `Thread` contract
+    - Finish implementing `ISOSDacInterface::GetThreadStoreData` in cDAC
+      - Add specific threads (first in thread store, Finalizer, GC) and counts
+    - Make existing DAC call into cDAC for `GetThreadData` if available
+      - Only fills out managed thread ID and next thread right now - always returns E_NOTIMPL
+    - Update the example C# API in docs to be closer to what we have now
