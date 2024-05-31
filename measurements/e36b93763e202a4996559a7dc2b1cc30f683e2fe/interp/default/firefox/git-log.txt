@@ -1,0 +1,13 @@
+commit e36b93763e202a4996559a7dc2b1cc30f683e2fe
+Author: Jackson Schuster <36744439+jtschuster@users.noreply.github.com>
+Date:   Wed May 29 09:21:41 2024 -0700
+
+    Make constructors private for parts of the ComInterfaceGenerator that should only be created from their static methods (#101740)
+    
+    Moves ComClassInfo to its own file and moves the Func that produces them in the ComClassGenerator pipeline to a static method on ComClassInfo.
+    
+    Makes the constructors for ComClassInfo, ComInterfaceContext, ComInterfaceInfo, and `ComMethoInfo private to enforce that they are only created from the static creation methods.
+    
+    Creates more static SpecialTypeInfo types for sbyte, uint, short, and ushort.
+    
+    Changes pattern matching on records to use property pattern matching rather than the deconstruction notation for records. Since the constructors are not accessible, neither are the deconstruct methods.
