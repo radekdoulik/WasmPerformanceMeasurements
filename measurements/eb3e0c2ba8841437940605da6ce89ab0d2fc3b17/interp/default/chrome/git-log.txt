@@ -1,0 +1,7 @@
+commit eb3e0c2ba8841437940605da6ce89ab0d2fc3b17
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Thu May 30 05:16:01 2024 +0900
+
+    Make SubstitutedILProvider more resilient to bad IL (#102799)
+    
+    Avoid out of range array access related crashes in bad IL.
