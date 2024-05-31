@@ -1,0 +1,17 @@
+commit 9a3a278ede38be0494af53c363c9cf25b90734be
+Author: Eirik Tsarpalis <eirik.tsarpalis@gmail.com>
+Date:   Thu May 30 13:45:56 2024 +0100
+
+    Fix STJ support for System.Reflection.NullabilityInfoContext.IsSupported = false (#102852)
+    
+    * Fix STJ support for System.Reflection.NullabilityInfoContext.IsSupported = false
+    
+    * Update src/libraries/System.Text.Json/tests/System.Text.Json.Tests/Serialization/OptionsTests.cs
+    
+    * Bring back exception in cases where RespectNullability has been turned on.
+    
+    * Update src/libraries/System.Text.Json/src/System/Text/Json/Serialization/Metadata/DefaultJsonTypeInfoResolver.Helpers.cs
+    
+    ---------
+    
+    Co-authored-by: David Cantú <dacantu@microsoft.com>
