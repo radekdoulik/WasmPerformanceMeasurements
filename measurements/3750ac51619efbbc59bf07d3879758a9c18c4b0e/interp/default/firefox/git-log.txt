@@ -1,0 +1,9 @@
+commit 3750ac51619efbbc59bf07d3879758a9c18c4b0e
+Author: Ilona Tomkowicz <32700855+ilonatommy@users.noreply.github.com>
+Date:   Fri May 31 12:42:07 2024 +0000
+
+    [browser] `HybridGlobalization` correct `HashCode` ranges of skipped unicodes (#102912)
+    
+    * Add full tests. Behavior is correct.
+    
+    * Feedback.
