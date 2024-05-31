@@ -1,0 +1,5 @@
+commit fef5289343bc613fb3ecfafa880bf9e48a6ed674
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Thu May 30 16:25:01 2024 -0400
+
+    Make span args to SearchValues.Create be params (#102831)
