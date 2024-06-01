@@ -1,0 +1,9 @@
+commit 2280972f784e4c878403d2d379d0494ac03e69c3
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Fri May 31 21:00:20 2024 +0200
+
+    Disable binder tracing test under jitstress (#102842)
+    
+    This test routinely times out under jitstress.
+    
+    Fix #97735
