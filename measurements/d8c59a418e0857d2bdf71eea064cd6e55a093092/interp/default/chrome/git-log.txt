@@ -1,0 +1,7 @@
+commit d8c59a418e0857d2bdf71eea064cd6e55a093092
+Author: Paul Spangler <7519484+spanglerco@users.noreply.github.com>
+Date:   Fri May 31 16:53:21 2024 -0500
+
+    MeterListener.Dispose always disables measurements (#102661)
+    
+    Fix #102465
