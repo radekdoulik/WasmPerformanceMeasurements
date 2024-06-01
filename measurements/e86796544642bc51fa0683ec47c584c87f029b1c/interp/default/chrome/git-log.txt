@@ -1,0 +1,81 @@
+commit e86796544642bc51fa0683ec47c584c87f029b1c
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Fri May 31 21:06:40 2024 +0200
+
+    JIT: Propagate `LCL_ADDR` nodes during local morph (#102808)
+    
+    This changes local morph to run in RPO when optimizations are enabled. It adds
+    infrastructure to track and propagate LCL_ADDR values assigned to locals during
+    local morph. This allows us to avoid address exposure in cases where the
+    destination local does not actually end up escaping in any way.
+    
+    Example:
+    ```csharp
+    public struct Awaitable
+    {
+        public int Opts;
+    
+        public Awaitable(bool value)
+        {
+            Opts = value ? 1 : 2;
+        }
+    }
+    
+    [MethodImpl(MethodImplOptions.NoInlining)]
+    public static int Test() => new Awaitable(false).Opts;
+    ```
+    
+    Before:
+    ```asm
+    G_M59043_IG01:  ;; offset=0x0000
+           push     rax
+                                                    ;; size=1 bbWeight=1 PerfScore 1.00
+    
+    G_M59043_IG02:  ;; offset=0x0001
+           xor      eax, eax
+           mov      dword ptr [rsp], eax
+           mov      dword ptr [rsp], 2
+           mov      eax, dword ptr [rsp]
+                                                    ;; size=15 bbWeight=1 PerfScore 3.25
+    
+    G_M59043_IG03:  ;; offset=0x0010
+           add      rsp, 8
+           ret
+                                                    ;; size=5 bbWeight=1 PerfScore 1.25
+    ; Total bytes of code: 21
+    
+    ```
+    
+    After:
+    ```asm
+    G_M59043_IG02:  ;; offset=0x0000
+           mov      eax, 2
+                                                    ;; size=5 bbWeight=1 PerfScore 0.25
+    
+    G_M59043_IG03:  ;; offset=0x0005
+           ret
+    ```
+    
+    Propagating the addresses works much like local assertion prop in morph does.
+    Proving that the locals that were stored to do not escape afterwards is done
+    with a simplistic approach: we check globally that no reads of the locals
+    exists, and if so, we replace the `LCL_ADDR` stored to them by a constant 0. We
+    leave it up to liveness to clean up the stores themselves.
+    
+    If we were able to remove any `LCL_ADDR` in this way then we run an additional
+    pass over the locals of the IR to compute the final set of exposed locals.
+    
+    This could be more sophisticated, but in practice this handles the reported
+    cases just fine.
+    
+    Fix #87072
+    Fix #102273
+    Fix #102518
+    
+    This is still not sufficient to handle #69254. To handle that we would need more
+    support around tracking the values of struct fields, and handling of promoted
+    fields. This PR currently does not handle promoted fields at all; we use
+    `lvHasLdAddrOp` as a conservative approximation of address exposure on the
+    destination locals, and promoted structs almost always have this set. If we were
+    to handle promoted fields we would need some other way to determine that a
+    destination holding a local address couldn't be exposed.
