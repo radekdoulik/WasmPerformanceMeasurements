@@ -1,0 +1,17 @@
+commit bde5a5221e904f2fa78bb597fcbb9085e5e80f37
+Author: Eirik Tsarpalis <eirik.tsarpalis@gmail.com>
+Date:   Fri May 31 18:29:15 2024 +0100
+
+    Expose additional metadata on the STJ contract model. (#102902)
+    
+    * Expose additional metadata on the STJ contract model.
+    
+    * Ensure attribute provider func is static.
+    
+    * Cleanups
+    
+    * Add testing for multiple constructors and shadowed members.
+    
+    * Add testing for non-generic collection types.
+    
+    * Ensure attribute provider factories are being cleared on initialization.
