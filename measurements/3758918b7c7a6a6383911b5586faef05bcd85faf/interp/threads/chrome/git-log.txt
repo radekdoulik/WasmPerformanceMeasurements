@@ -1,0 +1,25 @@
+commit 3758918b7c7a6a6383911b5586faef05bcd85faf
+Author: Tanner Gooding <tagoo@outlook.com>
+Date:   Sat Jun 1 12:29:42 2024 -0700
+
+    Allow shuffle and other hwintrinsic that require a constant to stay intrinsic if the operand becomes constant later (#102827)
+    
+    * Allow shuffle and other hwintrinsic that require a constant to stay intrinsic if the operand becomes constant later
+    
+    * Apply formatting patch
+    
+    * Ensure GT_HWINTRINSIC clone copies the entry point
+    
+    * Ensure we don't overwrite the entry point for a hwintrinsic that already had it set
+    
+    * Remove a bad assert check for GTF_IND_NONFAULTING on GT_HWINTRINSIC nodes
+    
+    * Ensure Arm64 uses ||
+    
+    * Fix an assert for Arm64
+    
+    * Make sure sigInfo is passed down
+    
+    * Ensure the call type is corrected where applicable
+    
+    * Don't allow rewriting of intrinsics that need GenTreeFieldList to user calls
