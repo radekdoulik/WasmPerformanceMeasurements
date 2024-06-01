@@ -1,0 +1,19 @@
+commit 5c741d7c046a3987e08e2ad448a17c1d8dfc8bd5
+Author: Alan Hayward <a74nh@users.noreply.github.com>
+Date:   Sat Jun 1 03:30:40 2024 +0100
+
+    ARM64-SVE: GetActiveElementCount (#102813)
+    
+    * ARM64-SVE: GetActiveElementCount
+    
+    * Fix cntp register printing
+    
+    * lsra support for mask in arg2
+    
+    * Simplify import
+    
+    * Add common lsra check for op2 mask
+    
+    * formatting
+    
+    * Fix morphing for mask removal
