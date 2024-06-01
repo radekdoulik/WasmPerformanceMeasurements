@@ -1,0 +1,5 @@
+commit 7e2e9ae059c4cfa1b9416a86b3cf692c2e161b1a
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Sat Jun 1 10:10:09 2024 -0400
+
+    Use `where T : allows ref struct` in runtime (#102795)
