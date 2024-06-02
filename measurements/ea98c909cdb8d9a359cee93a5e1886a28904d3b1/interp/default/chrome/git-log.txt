@@ -1,0 +1,11 @@
+commit ea98c909cdb8d9a359cee93a5e1886a28904d3b1
+Author: Buyaa Namnan <bunamnan@microsoft.com>
+Date:   Sat Jun 1 20:53:20 2024 +0000
+
+    Fix bug in referencing nested type in IL (#102933)
+    
+    * Fix bug in referencing nested type in IL
+    
+    * Move GetResolutionScope method inline
+    
+    * Change args order
