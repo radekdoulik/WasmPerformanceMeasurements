@@ -1,0 +1,7 @@
+commit fd4da9aaa16261d2b8d7104be0b8c77db991dff0
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Fri May 31 22:18:53 2024 +0900
+
+    Fix computing new EH ranges in SubstitutedILProvider (#102870)
+    
+    There was an IL test that was running into out of range access.
