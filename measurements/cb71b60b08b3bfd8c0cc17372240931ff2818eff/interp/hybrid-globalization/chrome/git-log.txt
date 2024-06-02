@@ -1,0 +1,7 @@
+commit cb71b60b08b3bfd8c0cc17372240931ff2818eff
+Author: Jan Kotas <jkotas@microsoft.com>
+Date:   Sat Jun 1 16:39:53 2024 -0700
+
+    Add retry loop around Process.Kill(entireProcessTree: true) (#102958)
+    
+    Workaround #93321
