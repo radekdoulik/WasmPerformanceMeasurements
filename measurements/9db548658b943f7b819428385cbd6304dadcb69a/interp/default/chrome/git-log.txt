@@ -1,0 +1,21 @@
+commit 9db548658b943f7b819428385cbd6304dadcb69a
+Author: rzsc <160726116+rzsc@users.noreply.github.com>
+Date:   Sat Jun 1 08:02:19 2024 +0200
+
+    Adjust repro file message for merged test (#102141)
+    
+    * Adjust message about repro file for a merged test
+    
+    For now the script ./src/tests/run.py outputs "Failed to create repro for test" for a failed merged test.
+    
+    But this comment
+    
+    1288                     if assembly_is_merged_tests_run:
+    1289                         # REVIEW: Even if the test is a .dll file or .CMD file and is found, we don't know how to
+    1290                         # build a repro case with it.
+    
+    from ./src/test/run.py script says that for a merged test a repro file should not be created at all.
+    
+    Changing the message "Failed to create repro for test" to "Skipping repro for merged test".
+    
+    * Apply PR code review suggestion
