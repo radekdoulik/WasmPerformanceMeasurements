@@ -1,0 +1,27 @@
+commit 26a1e72666e47edf742916185ce259167653fb2f
+Author: Aaron Robinson <arobins@microsoft.com>
+Date:   Fri May 31 09:07:03 2024 -0700
+
+    `Activator.CreateInstance` supports ByRefLike types (#102636)
+    
+    * Activator.CreateInstance similar to NAOT
+    
+    This represents an update of Activator.CreateInstance
+    to naturally support byreflike generics. It is modeled
+    off of the current native AOT implementation.
+    
+    * Permit ref structs for Activator.CreateInstance and Unsafe.As<F,T>().
+    
+    * Use MethodHandle.GetFunctionPointer to call the value constructor
+    
+    On the Mono interpreter, the ldftn opcode for a managed method returns a MonoFtnDesc*, not
+    a native code pointer, and the calli opcode expects a MonoFtnDesc*.
+    
+    The MethodHandle.GetFunctionPointer() function is an interpreter
+    intrinsic that returns such a MonoFtnDesc*
+    
+    * Update src/mono/System.Private.CoreLib/src/System/RuntimeType.Mono.cs
+    
+    ---------
+    
+    Co-authored-by: Aleksey Kliger <aleksey@lambdageek.org>
