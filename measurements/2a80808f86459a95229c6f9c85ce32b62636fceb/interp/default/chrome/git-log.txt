@@ -1,0 +1,7 @@
+commit 2a80808f86459a95229c6f9c85ce32b62636fceb
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Wed Jun 5 17:52:49 2024 +0900
+
+    Fix compiling methods with explicit this (#103045)
+    
+    One of the pri1 JIT tests hits asserts because we forget to set the bit.
