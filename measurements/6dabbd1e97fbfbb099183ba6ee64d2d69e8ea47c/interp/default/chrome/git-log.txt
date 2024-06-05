@@ -1,0 +1,21 @@
+commit 6dabbd1e97fbfbb099183ba6ee64d2d69e8ea47c
+Author: Badre BSAILA <54767641+pedrobsaila@users.noreply.github.com>
+Date:   Mon Jun 3 14:05:02 2024 +0200
+
+    forbid http request with invalid version (#102423)
+    
+    * forbid http request with invalid version
+    
+    * forbid using 0.0 as a valid version
+    
+    * do validation in socket handler
+    
+    * rollback unwanted diff
+    
+    * fix faling tests
+    
+    * fix failing tests 2
+    
+    * discard unwanted diffs
+    
+    * fix failing tests 3
