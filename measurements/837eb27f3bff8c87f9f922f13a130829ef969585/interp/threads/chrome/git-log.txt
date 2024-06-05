@@ -1,0 +1,10 @@
+commit 837eb27f3bff8c87f9f922f13a130829ef969585
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Tue Jun 4 16:30:08 2024 -0700
+
+    JIT: Reset optReachability bitvec traits in IV opts (#103042)
+    
+    IV opts relied on the RBO phase to reset these bitvec traits, which
+    would cause problems if the RBO phase was disabled.
+    
+    Fix #102978
