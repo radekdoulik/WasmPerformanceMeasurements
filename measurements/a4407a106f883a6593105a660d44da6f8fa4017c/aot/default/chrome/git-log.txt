@@ -1,0 +1,19 @@
+commit a4407a106f883a6593105a660d44da6f8fa4017c
+Author: Huo Yaoyuan <huoyaoyuan@hotmail.com>
+Date:   Tue Jun 4 02:35:27 2024 +0800
+
+    Use generic math for floating point formatting (#102683)
+    
+    * Generic DiyFp
+    
+    * Generic Grisu3
+    
+    * Generic Dragon4
+    
+    * Add MaxRoundTripDigits to MaxPrecisionCustomFormat to FormatInfo
+    
+    * Generic FormatFloat
+    
+    * Adapt with existing FP types
+    
+    * Fix ExtractFractionAndBiasedExponent
