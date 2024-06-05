@@ -1,0 +1,15 @@
+commit 5cbc38c46b2187776e980b0c3f4587f54abea741
+Author: Linus Hamlin <78953007+lilinus@users.noreply.github.com>
+Date:   Tue Jun 4 19:05:51 2024 +0200
+
+    Simplify some non-generic CompareTo methods (#101545)
+    
+    * Simplify some CompareTo methods
+    
+    * Simplify some more CompareTo methods
+    
+    * Revert "Simplify some more CompareTo methods"
+    
+    This reverts commit 5dab47d411871a4eb0be77968046cc528ae04f76.
+    
+    * Use DateTime.CompareTo in DatetimeOffset
