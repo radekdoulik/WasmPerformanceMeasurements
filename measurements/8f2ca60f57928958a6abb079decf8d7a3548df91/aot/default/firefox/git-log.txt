@@ -1,0 +1,7 @@
+commit 8f2ca60f57928958a6abb079decf8d7a3548df91
+Author: Jeremy Koritzinsky <jekoritz@microsoft.com>
+Date:   Wed Jun 5 10:26:14 2024 -0700
+
+    Rewrite the corehost CMake system to be more "Modern CMake"y and less MSBuild-y (#102475)
+    
+    Co-authored-by: Elinor Fung <elfung@microsoft.com>
