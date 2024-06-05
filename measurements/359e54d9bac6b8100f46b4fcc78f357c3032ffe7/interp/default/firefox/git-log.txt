@@ -1,0 +1,8 @@
+commit 359e54d9bac6b8100f46b4fcc78f357c3032ffe7
+Author: Bruce Forstall <brucefo@microsoft.com>
+Date:   Tue Jun 4 19:34:43 2024 -0700
+
+    Update osx-arm64, osx-x64, and linux-arm Helix queues (#103053)
+    
+    Match the current Helix queues specified in
+    eng/pipelines/coreclr/templates/helix-queues-setup.yml.
