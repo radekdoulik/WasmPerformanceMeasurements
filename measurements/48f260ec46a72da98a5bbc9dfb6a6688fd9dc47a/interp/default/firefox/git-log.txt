@@ -1,0 +1,7 @@
+commit 48f260ec46a72da98a5bbc9dfb6a6688fd9dc47a
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Mon Jun 3 10:49:59 2024 -0400
+
+    Make SocketsHttpHandler the default primary handler from HttpClientFactory (#101808)
+    
+    Today the default handler is HttpClientHandler, which is just a wrapper around SocketsHttpHandler on platforms where SocketsHttpHandler is supported. This means that the configuration possible on SocketsHttpHandler isn't available as part of the default handling, which means consumers get the default PooledConnectionLifetime of infinite. The lack of that was one of the main motivations behind HttpClientFactory's handler lifetime and handler recycling. Instead of constructing an HttpClientHandler as the default handler, we can construct a SocketsHttpHandler as the default handler, and we can set its PooledConnectionLifetime to match the HttpClientFactoryOptions.HandlerLifetime, whether its default of 2 minutes or whatever a user configured it to be. This in turn means that if code gets and holds on to a handler/client from the factory for a prolonged period of time, it's still getting the connection recycling according to its configured options.
