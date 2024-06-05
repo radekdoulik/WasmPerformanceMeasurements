@@ -1,0 +1,140 @@
+commit afc2df0f8e49e3fa004942509f4de64cc6e34383
+Author: Kunal Pathak <Kunal.Pathak@microsoft.com>
+Date:   Wed Jun 5 09:55:53 2024 -0700
+
+    Handle more than 64 registers - Part 4  (#102921)
+    
+    * Add high field
+    
+    * Do not use `const regMaskTP&` as parameter
+    
+    * Revert "Do not use `const regMaskTP&` as parameter"
+    
+    This reverts commit d53b62053d2abe4e0f82050aabb09328c740e667.
+    
+    By not passing `regMaskTP` using constant reference, there is a small cost
+    we have to pay:
+    
+    Without constant reference:
+    Overall: 1.80%
+    MinOpts: 2.05%
+    FullOpts: 1.62%
+    
+    With constant reference:
+    Overall: 1.74%
+    MinOpts: 1.94%
+    FullOpts: 1.6%
+    
+    * Furture reduce the TP cost
+    
+    Moved the *= operators as instance of `regMaskTP` so the `.low`
+    private field can directly be manipulated instead of converting
+    the `64-bit` value in `regMaskTP` before doing any operation.
+    
+    Overall: 0.74%
+    MinOpts: 0.82%
+    FullOpts: 0.68%
+    
+    * jit fornat
+    
+    * Add high to all platforms
+    
+    * use genSingleTypeRegMask()
+    
+    * Make high only to arm64
+    
+    * Use HAS_MORE_THAN_64_REGISTERS macro
+    
+    * Add regTypeTag in register*.h files
+    
+    * change the structure of regMaskTP for performance
+    
+    * AddRegNumInMask/AddRegNum
+    
+    * Use AddRegNumInMask() and AddRegNum()
+    
+    * RemoveRegNumFromMask() and RemoveRegNum() and consume them
+    
+    * Use IsEmpty() and IsNonEmpty()
+    
+    * IsRegNumInMask() and IsRegNumPresent()
+    
+    * AddGprRegs()
+    
+    * AddRegsetForType()
+    
+    * RemoveRegsetForType()
+    
+    * GetRegSetForType() defintion
+    
+    * operators() that operate on regNum
+    
+    * misc cleanup
+    
+    * fix some other build failures
+    
+    * jit format
+    
+    * Add operator[]
+    
+    * Move mapTypeToRegTypeIndex() and mapRegNumtoRegTypeIndex() in compiler.hpp
+    
+    * Move registerType in Referencable, add getRegisterType()
+    
+    * Add various variants of genRegNumFromMask() and use them
+    
+    * Change some more methods to return SingleTypeRegMask
+    
+    * Initialize regMaskTP in genRegMask()
+    
+    * bug fix
+    
+    * Add assert in genFindLowestBit() and genMaxOneBit() to be only applicable for gpr/float
+    
+    * genRegNumFromMask() to take SingleTypeRegSet
+    
+    * jit format
+    
+    * fix another assert
+    
+    * Rename getRegMask to getSingleTypeRegMask
+    
+    This will return `SingleTypeRegMask` and will save some cost of creating
+    `regMaskTP` unnecessarilyt.
+    
+    * Move HAS_MORE_THAN_64_REGISTERS related macros
+    
+    * skip unnecessary initialization
+    
+    * fix some places where implicit conversion from `SingleTypeRegSet -> regMaskTP` was happening
+    
+    * fix a bug for populating availableRegs
+    
+    * Simplify the updating of high field
+    
+    It also reduces the TP cost. The original thinking was branches can
+    be expensive and hence condition-less code was added, but we end up
+    with more instructions with condition-less. Additionally, branch predicators
+    should be better in making sure that mostly we would take the gpr/float code
+    path and rarely take the predicate registers code path. Also, we do PGO builds
+    which should feed that information and make branch code cheaper in TP cost wise.
+    
+    * Revert "Add regTypeTag in register*.h files"
+    
+    This reverts commit 4fe1caaa53379e71787267a2ef7223d542c7550a.
+    
+    * misc cleanup
+    
+    * jit format
+    
+    * fix the linux build error
+    
+    * Revert "fix the linux build error"
+    
+    This reverts commit 0b67c48d6afe666086ed78d7d6de58b1c57d1aa5.
+    
+    * fix linux error properly
+    
+    * fix linux/arm bug
+    
+    * review feedback
