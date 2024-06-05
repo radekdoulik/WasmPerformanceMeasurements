@@ -1,0 +1,9 @@
+commit 1e0c24330c4074de89d13bca21b3b670f051f6eb
+Author: Aaron Robinson <arobins@microsoft.com>
+Date:   Wed Jun 5 11:00:25 2024 -0700
+
+    Convert `RuntimeHelpers.IsReferenceOrContainsReferences` to JIT intrinsic (#103010)
+    
+    * Convert IsReferenceOrContainsReferences to JIT intrinsic
+    
+    Collapse all to a single definition across the runtimes.
