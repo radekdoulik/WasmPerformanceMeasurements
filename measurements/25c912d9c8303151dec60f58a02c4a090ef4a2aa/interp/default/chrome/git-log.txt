@@ -1,0 +1,17 @@
+commit 25c912d9c8303151dec60f58a02c4a090ef4a2aa
+Author: Radek Zikmund <32671551+rzikm@users.noreply.github.com>
+Date:   Thu Jun 6 14:01:29 2024 +0200
+
+    Don't query for negotiated ALPN protocol after renegotiation on Windows (#102751)
+    
+    * Failing test
+    
+    * Don't query for negotiated ALPN protocol after renegotiation on Windows
+    
+    * Apply workaround only for TLS 1.3
+    
+    * Run only supported TLS protocols
+    
+    * Test resume as well
+    
+    * Update SslStreamAlpnTests.cs
