@@ -1,0 +1,23 @@
+commit 2a6bf6f577f22f81f4a6794d9e836236e56a8575
+Author: Tanner Gooding <tagoo@outlook.com>
+Date:   Wed Jun 5 13:43:41 2024 -0700
+
+    Change Vector2/3/4, Quaternion, Plane, Vector<T>, and Vector64/128/256/512<T> to be implemented in managed where trivially possible (#102301)
+    
+    * Change Vector4 to be implemented entirely in managed
+    
+    * Change Plane to be implemented entirely in managed
+    
+    * Change Quaternion to be implemented entirely in managed
+    
+    * Avoid accidental recursion on Mono
+    
+    * Change Vector2/3, Vector<T>, and Vector64/128/256/512<T> to be implemented in managed where trivially possible
+    
+    * Don't regress the implementation of Dot
+    
+    * Fixing the handling of Vector512.CreateScalar
+    
+    * Continue tracking the System.Numerics and System.Runtime.Intrinsics APIs as intrinsic for the profitability boost
+    
+    * Don't use Unsafe.BitCast on Mono
