@@ -1,0 +1,13 @@
+commit d06120fb4b1eb0abeb59ccbe2b783680f1bad483
+Author: Eirik Tsarpalis <eirik.tsarpalis@gmail.com>
+Date:   Thu Jun 6 14:51:39 2024 +0200
+
+    Implement `JsonSerializerOptions.RespectRequiredConstructorParameters` (#103096)
+    
+    * Implement JsonSerializerOptions.RespectRequiredConstructorParameters
+    
+    * Update src/libraries/System.Text.Json/tests/Common/ConstructorTests/ConstructorTests.ParameterMatching.cs
+    
+    * Update src/libraries/System.Text.Json/tests/Common/ConstructorTests/ConstructorTests.ParameterMatching.cs
+    
+    * Update src/libraries/System.Text.Json/tests/System.Text.Json.Tests/Serialization/OptionsTests.cs
