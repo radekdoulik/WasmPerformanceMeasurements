@@ -1,0 +1,14 @@
+commit 53a187aa08d83b5462d090323bafeacaf4f52c72
+Author: Jan Vorlicek <janvorli@microsoft.com>
+Date:   Wed Jun 5 23:14:51 2024 +0200
+
+    Fix shadow stack handling during exception handling (#103047)
+    
+    The shadow stack pointer was not updated when resuming execution after a
+    catch handler. That was causing stack overflow crashes in some of the
+    coreclr tests when running with CET enabled.
+    
+    This change adds proper updating of the shadow stack pointer in a similar
+    way to what RtlRestoreContext does.
+    
+    Co-authored-by: Jan Vorlicek <jan.vorlicek@volny,cz>
