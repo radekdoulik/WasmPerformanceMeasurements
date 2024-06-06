@@ -1,0 +1,24 @@
+commit 43a5e4ae237098c60c291d7456c236b9c047de51
+Author: Jan Vorlicek <janvorli@microsoft.com>
+Date:   Wed Jun 5 10:49:56 2024 +0200
+
+    Fix handling of corrupting state exceptions (#103048)
+    
+    * Fix handling of corrupting state exceptions
+    
+    The new EH is not correctly handling corrupting state exceptions.
+    Instead of failing fast, the exceptions are actually handled like other
+    exceptions and can be caught by the user code.
+    
+    This change fixes it. Besides fixing the issue, I had to introduce a way
+    to trim exception handling code frames from the stack trace reported by
+    the failfast, otherwise the output would be confusing.
+    
+    As an additional change, I've noticed that hardware exceptions under
+    WinDbg don't trigger the WinDbg first chance exception mechanism. I've
+    recently fixed the same for software exceptions, this adds the same for
+    hardware ones.
+    
+    Close #103018
+    
+    * Remove the WinDbg first chance notification
