@@ -1,0 +1,9 @@
+commit a7386e007f0555c4436afe3c3b950c66a9703777
+Author: SwapnilGaikwad <swapnil.gaikwad@arm.com>
+Date:   Mon Jun 3 23:10:20 2024 +0100
+
+    Add support for Sve.ReverseElementX() (#102991)
+    
+    * Add support for Sve.ReverseElementX()
+    
+    * Make ReverseElement8/16/32 as low masked operation
