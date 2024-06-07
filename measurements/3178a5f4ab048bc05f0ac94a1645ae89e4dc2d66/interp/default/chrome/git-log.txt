@@ -1,0 +1,7 @@
+commit 3178a5f4ab048bc05f0ac94a1645ae89e4dc2d66
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Thu Jun 6 16:03:47 2024 -0400
+
+    Use JSON source generator in SSE tests (#103126)
+    
+    So that the tests work with AOT.
