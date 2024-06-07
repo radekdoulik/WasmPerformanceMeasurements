@@ -1,0 +1,7 @@
+commit f6a0ca9a5caf875a5af507bb2c5e748b51ef3624
+Author: Jackson Schuster <36744439+jtschuster@users.noreply.github.com>
+Date:   Thu Jun 6 09:06:09 2024 -0700
+
+    In Windows host, use WriteConsoleW for stdout and stderr, and locale enabled print for file output (#102295)
+    
+    Uses WriteConsoleW for writing to stdout and std err, and uses the locale version of vfwprintf to print to a file using the utf8 locale. This properly renders utf8 and GB18030 characters in the host output.
