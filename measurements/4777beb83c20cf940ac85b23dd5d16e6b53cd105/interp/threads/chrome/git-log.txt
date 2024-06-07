@@ -1,0 +1,19 @@
+commit 4777beb83c20cf940ac85b23dd5d16e6b53cd105
+Author: Larry Ewing <lewing@microsoft.com>
+Date:   Fri Jun 7 11:51:14 2024 -0700
+
+    [workloads] Add net current to current names to make them match in net10 (#103050)
+    
+    * Add net current to current names to make them match in net10
+    
+    * Alias them back to the real package name
+    
+    * Fixup AOTCompiler import
+    
+    * Remove extra whitespace
+    
+    * Update WorkloadManifest.json.in
+    
+    fix mt pack
+    
+    * Update WorkloadManifest.targets.in
