@@ -1,0 +1,8 @@
+commit 0afe5e12f6860b320bbc0c63c8a47bbda4337f75
+Author: Katelyn Gadd <kg@luminance.org>
+Date:   Thu Jun 6 10:53:33 2024 -0700
+
+    [mono] Don't allocate the renamable vars buffer in the interpreter unless optimizing (#102563)
+    
+    * The renamable vars buffer is only used when optimizing, so don't allocate it for interp codegen if we're not doing that.
+    * Don't overallocate renamable vars
