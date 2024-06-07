@@ -1,0 +1,5 @@
+commit 8b35851795d7d322b7f40f42c4e63765d74f8eed
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Thu Jun 6 10:17:08 2024 -0400
+
+    Remove some uses of #if BIGENDIAN (#103097)
