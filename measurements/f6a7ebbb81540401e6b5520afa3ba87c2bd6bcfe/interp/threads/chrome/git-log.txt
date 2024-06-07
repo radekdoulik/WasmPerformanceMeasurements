@@ -1,0 +1,11 @@
+commit f6a7ebbb81540401e6b5520afa3ba87c2bd6bcfe
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Thu Jun 6 15:07:47 2024 -0700
+
+    JIT: Build and consume FMA and Permute node operands in standard order (#103100)
+    
+    The building and consumption of these operands can happen in op1, op2,
+    op3 order regardless of whether the codegen uses the registers in a
+    different order.
+    
+    Fix #102773
