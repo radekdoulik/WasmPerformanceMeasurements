@@ -1,0 +1,5 @@
+commit 4aedd6288c0698b6696f625bc82b946ab44a825f
+Author: Tomasz Sowiński <tomeksowi@gmail.com>
+Date:   Fri Jun 7 15:24:46 2024 +0200
+
+    Fix ArgIteratorTemplate::GetNextOffset() for struct{Arr[], float} (#103125)
