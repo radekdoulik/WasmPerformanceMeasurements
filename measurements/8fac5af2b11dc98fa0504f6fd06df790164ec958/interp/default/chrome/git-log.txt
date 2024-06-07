@@ -1,0 +1,19 @@
+commit 8fac5af2b11dc98fa0504f6fd06df790164ec958
+Author: Pavel Savara <pavel.savara@gmail.com>
+Date:   Fri Jun 7 10:28:22 2024 +0200
+
+    [browser] Allow downloading WebAssembly resources without performing other WebAssembly runtime initalization (#102254)
+    
+    * await dotnet.download();
+    
+    * Added WBT.
+    
+    * Rename.
+    
+    * Feedback: add the new wbt to TestAppScenarios.
+    
+    * Check for re-download instead of specific files.
+    
+    ---------
+    
+    Co-authored-by: Ilona Tomkowicz <itomkowicz@microsoft.com>
