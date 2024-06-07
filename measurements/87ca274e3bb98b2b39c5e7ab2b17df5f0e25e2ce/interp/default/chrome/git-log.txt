@@ -1,0 +1,7 @@
+commit 87ca274e3bb98b2b39c5e7ab2b17df5f0e25e2ce
+Author: Radek Doulik <radek.doulik@gmail.com>
+Date:   Thu Jun 6 15:00:44 2024 +0200
+
+    [wasm] Fix emsdk check (#103027)
+    
+    We use system python on osx too
