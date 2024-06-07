@@ -1,0 +1,17 @@
+commit ddd19a73001ed8e2586c4a1f7169fda9343fe929
+Author: Trayan Zapryanov <lrt80@abv.bg>
+Date:   Thu Jun 6 18:00:40 2024 +0300
+
+    Optimize HttpUtility.JavaScriptStringEncode by using SearchValues (#102917)
+    
+    * Optimize HttpUtility.JavaScriptStringEncode by using SearchValues for invalid JavaScript characters.
+    
+    * remove duplicated test
+    
+    * more suggestions
+    
+    * EncodeCore and AppendSpanFormattable
+    
+    * Remove check for null
+    
+    * Use StackallocThreshold const
