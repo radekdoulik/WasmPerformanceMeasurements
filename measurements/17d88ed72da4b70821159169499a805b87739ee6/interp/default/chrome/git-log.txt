@@ -1,0 +1,37 @@
+commit 17d88ed72da4b70821159169499a805b87739ee6
+Author: SwapnilGaikwad <swapnil.gaikwad@arm.com>
+Date:   Fri Jun 7 01:48:35 2024 +0100
+
+    Add option to change SVE vector length for current and children processes (#101295)
+    
+    * Add option to change SVE vector length for current and children processes.
+    
+    * Use maxVectorTBitWidth to get desired SVE length
+    
+    * Use CNTB to determine current vector length
+    
+    * Use ACLE to detect vector length on Linux and hardcode on Windows
+    
+    * Use rdvl instead of cntb to count vector length
+    
+    * Add inline assembly suitable for MSVC
+    
+    * Add MSCV compatible assembly helper instead of inline assembly
+    
+    * Declare GetSveLengthFromOS on Arm64
+    
+    * Remove definition of GetSveLengthFromOS from .S file
+    
+    * Move non-windows definition of GetSveLengthFromOS to .S file
+    
+    * Apply suggestions from code review
+    
+    * Move declaration of GetSveLengthFromOS to .cpp file
+    
+    * Disable  temporarily for Windows on Arm machines
+    
+    * Hardcode GetSveLengthFromOS() to return SVE length as 128
+    
+    ---------
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
