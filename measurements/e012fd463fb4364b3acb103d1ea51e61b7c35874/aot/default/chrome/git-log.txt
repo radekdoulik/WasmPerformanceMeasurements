@@ -1,0 +1,15 @@
+commit e012fd463fb4364b3acb103d1ea51e61b7c35874
+Author: Tanner Gooding <tagoo@outlook.com>
+Date:   Fri Jun 7 10:36:10 2024 -0700
+
+    Minor cleanup of the Vector64/128/256/512 implementations to improve fallbacks (#103095)
+    
+    * Minor cleanup of the Vector64/128/256/512 implementations to improve fallbacks
+    
+    * Ensure gtNewSimdSumNode maintains consistency with the software fallback
+    
+    * Ensure Vector128.Sum also does pairwise adds for floating-point
+    
+    * Use the right type in the gtNewSimdBinOpNode call
+    
+    * Don't regress fallback scenarios using AndNot
