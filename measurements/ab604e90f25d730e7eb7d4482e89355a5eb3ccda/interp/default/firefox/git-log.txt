@@ -1,0 +1,12 @@
+commit ab604e90f25d730e7eb7d4482e89355a5eb3ccda
+Author: Milos Kotlar <kotlarmilos@gmail.com>
+Date:   Fri Jun 7 09:37:56 2024 +0200
+
+    Introduce `SwiftSelf<T>` and `SwiftIndirectResult` structs (#102717)
+    
+    * Introduce SwiftSelf<T> and SwiftIndirectResult structs
+    
+    ---------
+    
+    Co-authored-by: Matous Kozak <55735845+matouskozak@users.noreply.github.com>
+    Co-authored-by: Aaron Robinson <arobins@microsoft.com>
