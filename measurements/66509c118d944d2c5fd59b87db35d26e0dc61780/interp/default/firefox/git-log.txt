@@ -1,0 +1,25 @@
+commit 66509c118d944d2c5fd59b87db35d26e0dc61780
+Author: Mitch Gaffigan <mitch.gaffigan@comcast.net>
+Date:   Wed Jun 5 11:08:07 2024 -0500
+
+    Fix config binding generator ValueType defaults (#102733)
+    
+    * Added tests to verify setters are called with correct values
+    
+    * Updated handling of calling setters on unspecified configuration properties and update tests to match.
+    
+    * Reverted inappropriate removal of defaultValueIfNotFound and TestVirtualSet getter
+    
+    * Fix init-only codegen for configuration
+    
+    * Avoid suppress CS0183 for value types in config codegen
+    
+    * Reverted accidental commit of IntermediateOutputPath
+    
+    * Test config binder set-only property behavior
+    
+    * Fix typo in unit test for init + private get
+    
+    * Addressed PR formatting concerns
+    
+    * Added comments clarifying get+set requirements
