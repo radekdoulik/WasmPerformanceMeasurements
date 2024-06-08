@@ -1,0 +1,7 @@
+commit db2347845d639115917271ee6ee39227adcf892a
+Author: Jan Kotas <jkotas@microsoft.com>
+Date:   Sat Jun 1 10:39:55 2024 -0700
+
+    Delete VectorT size constants from minipal/cpufeatures (#102946)
+    
+    Vector<T> policy is JIT/EE interface level concern. It should not live in the PAL.
