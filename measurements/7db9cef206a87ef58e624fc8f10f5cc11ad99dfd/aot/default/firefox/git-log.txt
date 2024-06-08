@@ -1,0 +1,7 @@
+commit 7db9cef206a87ef58e624fc8f10f5cc11ad99dfd
+Author: Alexander Köplinger <alex.koeplinger@outlook.com>
+Date:   Thu Jun 6 16:03:26 2024 +0200
+
+    [mono] Fix hardcoded .NET 8.0 string in iOS sample (#103117)
+    
+    We always forget updating this string with new .NET releases so let's just not mention the version.
