@@ -1,0 +1,13 @@
+commit 2dba5a3587de19160fb09129dcd3d7a4089b67b5
+Author: Buyaa Namnan <bunamnan@microsoft.com>
+Date:   Fri Jun 7 16:13:58 2024 +0000
+
+    Add Base64Fuzzer to the repo (#103011)
+    
+    * Add Base64Fuzzer
+    
+    * Use the exact type instead of var
+    
+    * Update expected maxEncodedLength Asserts
+    
+    * Decode random input directly, Assert based on IsValid(input) call result
