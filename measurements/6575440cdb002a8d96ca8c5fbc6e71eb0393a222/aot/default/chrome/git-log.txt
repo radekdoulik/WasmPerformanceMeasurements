@@ -1,0 +1,13 @@
+commit 6575440cdb002a8d96ca8c5fbc6e71eb0393a222
+Author: Xu Liangyu <xuliangyu@loongson.cn>
+Date:   Thu Jun 6 23:34:16 2024 +0800
+
+    [LoongArch64] Fix the `ArgIteratorTemplate::GetNextOffset()` return argOfs for 'ELEMENT_TYPE_VALUETYPE' which is flattened liking struct{Arr[], float}. (#103108)
+    
+    * [LoongArch64] Fix the `ArgIteratorTemplate::GetNextOffset()` return argOfs for 'ELEMENT_TYPE_VALUETYPE' which is flattened liking struct{Arr[], float}.
+    * The 'ELEMENT_TYPE_VALUETYPE' is marked to 'TYPE_GC_OTHER' and the first flattened element Arr[] should GC.
+    * This also fixed the assert failure "!CREATE_CHECK_STRING(pMT && pMT->Validate())" under GC=8 of MarshalStructAsLayoutSeq.sh.
+    
+    * Update callingconvention.h
+    
+    delete redundancy condition.
