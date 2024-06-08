@@ -1,0 +1,13 @@
+commit 39ecbe0ed850fa6d6d4f0ebe1917bca1e154e82d
+Author: Jan Vorlicek <janvorli@microsoft.com>
+Date:   Sat Jun 8 07:52:29 2024 +0200
+
+    Fix CET - remove writing to shadow stack (#103171)
+    
+    In my recent fix for failures with CET enabled, I have also added a call to
+    the _wrssq intrinsic to push an address to shadow stack. It turns out
+    that instruction is privileged and cannot be used by user code.
+    Moreover, I have realized that it is not needed at all there, so I am
+    removing it.
+    
+    Co-authored-by: Jan Vorlicek <jan.vorlicek@volny,cz>
