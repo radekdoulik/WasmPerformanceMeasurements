@@ -1,0 +1,5 @@
+commit b2601edb8659236858d4cbf1f368ac3be910198b
+Author: Miha Zupan <mihazupan.zupan1@gmail.com>
+Date:   Thu Jun 6 16:57:41 2024 +0200
+
+    Avoid a few allocations in StringContent (#103008)
