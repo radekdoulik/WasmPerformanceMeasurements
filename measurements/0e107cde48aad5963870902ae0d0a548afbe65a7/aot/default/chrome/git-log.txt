@@ -1,0 +1,7 @@
+commit 0e107cde48aad5963870902ae0d0a548afbe65a7
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Wed Jun 5 03:04:52 2024 +0900
+
+    Weaken assert around folding constants (#103026)
+    
+    I ran into this assert with native AOT. It seems to be too strong - we are not allowed to fold IconHandle constants with prejit.
