@@ -1,0 +1,35 @@
+commit f47b4917464f34c439509a957e94cf8d0ef908f1
+Author: Aleksey Kliger (λgeek) <alklig@microsoft.com>
+Date:   Sun Jun 9 09:09:41 2024 -0400
+
+    [interp] handle box + brtrue/brfalse and box+isinst+unbox.any patterns up front (#103052)
+    
+    * [interp] handle box + brtrue/brfalse pattern for byreflike types
+    
+       In cases where we don't do cprop and deadce (for example if `mono_interp_opt` is 0 because we're debugging) don't emit a box_vt opcode before a branch.  Instead just emit a constant true
+    
+       Fixes https://github.com/dotnet/runtime/issues/102988
+    
+    * Revert "Revert uses of Unsafe.BitCast with spans to unblock mono (#102998)"
+    
+       This reverts commit c286a8efb3c0d534557dde476d5b54b15c0aeaed.
+    
+       Reverts https://github.com/dotnet/runtime/pull/102998
+    
+    * remove the box byreflike retry code
+    
+       we handle box byreflike code patterns directly now
+    
+    * handle box;isinst;{brtrue|brfalse|unbox.any} IL patterns
+    
+    * Add test locking down mismatched box;isinst;unbox.any pattern
+    
+    * remove the mismatch case in the interp.  throw IPE at execution time
+    
+    * Update src/tests/Loader/classloader/generics/ByRefLike/Validate.cs
+    
+    Co-authored-by: Aaron Robinson <arobins@microsoft.com>
+    
+    ---------
+    
+    Co-authored-by: Aaron Robinson <arobins@microsoft.com>
