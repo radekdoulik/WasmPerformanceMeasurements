@@ -1,0 +1,49 @@
+commit b5948bf4036215d9ccc022e17effd73228d19ede
+Author: Khushal Modi <kcmodi@asu.edu>
+Date:   Sat Jun 8 20:03:38 2024 -0700
+
+    AVX10.1 API introduction in JIT (#101938)
+    
+    * Add AVX10v1 API surface
+    
+    * Define HWINTRINSIC for AVX10v1, AVX10v1_V256 and AVX10v1_V512
+    
+    * Setup template testing for AVX10v1 APIs
+    
+    * Handle AVX10v1 APIs in JIT where equivalent AVX512* APIs are handled
+    
+    * Merge Avx10v1 and Avx10v1.V256. Rename Avx10.cs to Avx10v1.cs
+    
+    * Add Avx10v1 to relevant places
+    
+    * Fix CI errors. Add missing API in Avx10v1.PlatofrmNotSupported ad end line with a new character
+    
+    * Changes to be made with latest changes on main. Make appropriate comments. Update tests in template testing for Avx10v1
+    
+    * Lower AVX10v1 hwintrinsic in lowering and gentree.cpp for simdSize 32/16
+    
+    * Fix failures on GNR for AVX10v1
+    
+    * Disable template tests disabled for Avx512
+    
+    * Distinguish between Avx10v1 and Avx10v1/512, Add appropriate comments and clean up code in lowerCast
+    
+    * Remove duplicate code and rather use a single if condition
+    
+    * Use bool instead of compIsa checks where possible
+    
+    * remove duplication of code in shuffle
+    
+    * resolve review comments. Make evex encoding checks clear to read and resolve a bug in gtNewSimdCvtNode
+    
+    * Add FMA and Avx512F.X64 instructions to AVX10v1. Restructure code and compOpportunistic checks
+    
+    * Combine compOpportunistic checks with Avx10 check using IsAvx10OrIsaSupportedOpportunistically
+    
+    * Introduce a new internal ISA InstructionSet_EVEX and remove InstructionSet_AVX10v1_V256 to make space for the new ISA. Also change all the internal special intrinsic nodes for Avx512F on x86/x64 arch to evex nodes
+    
+    * Addressing review comments. resolving errors introduced when merged with main
+    
+    * fix formatting
+    
+    * Reorder declaration of InstructionSet_EVEX to proper position. Run formatting adn resolve errors introduced when merging with main
