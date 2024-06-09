@@ -1,0 +1,5 @@
+commit 1753956238f3c9b9aa0f79802f096e96e7a84398
+Author: Jeremy Koritzinsky <jekoritz@microsoft.com>
+Date:   Tue Jun 4 18:00:52 2024 -0700
+
+    Fix regression from RuntimeType.AllocateValueType rewrite (#101137)
