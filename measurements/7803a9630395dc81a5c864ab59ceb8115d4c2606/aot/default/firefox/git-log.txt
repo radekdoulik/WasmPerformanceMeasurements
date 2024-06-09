@@ -1,0 +1,7 @@
+commit 7803a9630395dc81a5c864ab59ceb8115d4c2606
+Author: Adeel Mujahid <3840695+am11@users.noreply.github.com>
+Date:   Tue Jun 4 08:49:06 2024 +0300
+
+    Use IsOSPlatform instead of checking for /proc (#101547)
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
