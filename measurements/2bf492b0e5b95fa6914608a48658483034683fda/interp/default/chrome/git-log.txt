@@ -1,0 +1,11 @@
+commit 2bf492b0e5b95fa6914608a48658483034683fda
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Mon Jun 3 18:02:23 2024 -0400
+
+    Enable GeneratedRegex on partial properties (#102977)
+    
+    * Enable GeneratedRegex on partial properties
+    
+    * Address PR feedback
+    
+    * Suppress API compat warning
