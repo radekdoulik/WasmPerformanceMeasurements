@@ -1,0 +1,15 @@
+commit fa1acc66beb64d9a8f4255bbca9784a443118c13
+Author: anthonycanino <anthony.canino@intel.com>
+Date:   Sun Jun 9 02:56:47 2024 +0000
+
+    Adding latency numbers for serialize instruction. (#103167)
+    
+    * Adding latency numbers for serialize instruction.
+    
+    * Update src/coreclr/jit/emitxarch.cpp
+    
+    Co-authored-by: Tanner Gooding <tagoo@outlook.com>
+    
+    ---------
+    
+    Co-authored-by: Tanner Gooding <tagoo@outlook.com>
