@@ -1,0 +1,7 @@
+commit 0c5fccf67ce1edd7761d9e3e91a7341428744493
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Thu Jun 6 05:33:28 2024 +0900
+
+    Don't run the new Microsoft.Extensions.Logging.Generators test with native AOT (#103074)
+    
+    What the test is testing is not trim/AOT safe. We don't run source generators with AOT.
