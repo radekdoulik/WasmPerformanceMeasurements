@@ -1,0 +1,44 @@
+commit 23cd59383d7803150ced9c4d88f1dcba36c4e7a6
+Author: dotnet-maestro[bot] <42748379+dotnet-maestro[bot]@users.noreply.github.com>
+Date:   Mon Jun 10 16:49:57 2024 +0200
+
+    [main] Update dependencies from dotnet/hotreload-utils, dotnet/icu, dotnet/runtime, dotnet/runtime-assets, dotnet/sdk, dotnet/xharness (#102720)
+    
+    * Update dependencies from https://github.com/dotnet/runtime build 20240525.1
+    
+    Microsoft.DotNet.ILCompiler , Microsoft.NET.Sdk.IL , Microsoft.NETCore.App.Runtime.win-x64 , Microsoft.NETCore.ILAsm , runtime.native.System.IO.Ports , System.Reflection.Metadata , System.Reflection.MetadataLoadContext , System.Text.Json , Microsoft.SourceBuild.Intermediate.runtime.linux-x64
+     From Version 9.0.0-preview.5.24272.3 -> To Version 9.0.0-preview.5.24275.1
+    
+    * Update dependencies from https://github.com/dotnet/sdk build 20240527.1
+    
+    Microsoft.SourceBuild.Intermediate.sdk , Microsoft.DotNet.ApiCompat.Task
+     From Version 9.0.100-preview.5.24272.19 -> To Version 9.0.100-preview.6.24277.1
+    
+    * Update dependencies from https://github.com/dotnet/icu build 20240527.1
+    
+    Microsoft.NETCore.Runtime.ICU.Transport
+     From Version 9.0.0-preview.6.24272.2 -> To Version 9.0.0-preview.6.24277.1
+    
+    * Update dependencies from https://github.com/dotnet/xharness build 20240527.1
+    
+    Microsoft.DotNet.XHarness.CLI , Microsoft.DotNet.XHarness.TestRunners.Common , Microsoft.DotNet.XHarness.TestRunners.Xunit
+     From Version 9.0.0-prerelease.24270.4 -> To Version 9.0.0-prerelease.24277.1
+    
+    * Update dependencies from https://github.com/dotnet/runtime-assets build 20240527.1
+    
+    Microsoft.DotNet.CilStrip.Sources , System.ComponentModel.TypeConverter.TestData , System.Data.Common.TestData , System.Drawing.Common.TestData , System.Formats.Tar.TestData , System.IO.Compression.TestData , System.IO.Packaging.TestData , System.Net.TestData , System.Private.Runtime.UnicodeData , System.Runtime.Numerics.TestData , System.Runtime.TimeZoneData , System.Security.Cryptography.X509Certificates.TestData , System.Text.RegularExpressions.TestData , System.Windows.Extensions.TestData
+     From Version 9.0.0-beta.24271.1 -> To Version 9.0.0-beta.24277.1
+    
+    * Update dependencies from https://github.com/dotnet/hotreload-utils build 20240527.1
+    
+    Microsoft.DotNet.HotReload.Utils.Generator.BuildTool
+     From Version 9.0.0-alpha.0.24271.3 -> To Version 9.0.0-alpha.0.24277.1
+    
+    * Update dependencies from https://github.com/dotnet/icu build 20240527.1
+    
+    Microsoft.NETCore.Runtime.ICU.Transport
+     From Version 9.0.0-preview.6.24272.2 -> To Version 9.0.0-preview.6.24277.1
+    
+    ---------
+    
+    Co-authored-by: dotnet-maestro[bot] <dotnet-maestro[bot]@users.noreply.github.com>
