@@ -1,0 +1,5 @@
+commit 838bc26b1b306c2d5c4601a06106c74e1285df23
+Author: Tanner Gooding <tagoo@outlook.com>
+Date:   Sun Jun 2 19:37:32 2024 -0700
+
+    Don't needlessly track the method handle for hwintrinsics when optimizations are disabled (#102973)
