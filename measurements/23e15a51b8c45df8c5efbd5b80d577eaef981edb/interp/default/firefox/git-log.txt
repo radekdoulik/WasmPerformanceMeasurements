@@ -1,0 +1,29 @@
+commit 23e15a51b8c45df8c5efbd5b80d577eaef981edb
+Author: Kunal Pathak <Kunal.Pathak@microsoft.com>
+Date:   Wed May 29 05:55:56 2024 -0700
+
+    LSRA: Make genRegMask() return `regMaskTP` (#102783)
+    
+    * genRegMask
+    
+    * Make genRegMask() return regMaskTP, introduce genSingleTypeRegMask() for LSRA
+    
+    * Make allFloat,allMask regMaskTP instead of `SingleTypeRegSet` so no affect on non-LSRA code
+    
+    * jit format
+    
+    * fix build errors
+    
+    * fix loongarch and risc
+    
+    * fix a typo
+    
+    * move more `genSingleTypeRegMask()`
+    
+    * jit format
+    
+    * Make genRegMask() use genSingleType*()
+    
+    * fix build errors
+    
+    * jit format
