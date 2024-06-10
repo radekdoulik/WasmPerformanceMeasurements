@@ -1,0 +1,13 @@
+commit 9d62ff90d1e86bb63e50b754e9d79d1c5482a065
+Author: Mike McLaughlin <mikem@microsoft.com>
+Date:   Wed Jun 5 09:54:18 2024 -0700
+
+    Better createdump error message for single-file apps for heap or triage dump types. (#102959)
+    
+    * Better createdump error message for single-file apps for heap or triage dump types.
+    
+    Issue: https://github.com/dotnet/runtime/issues/101957
+    
+    * Cleanup printf/trace functions
+    
+    * Update message
