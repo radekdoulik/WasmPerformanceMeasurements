@@ -1,0 +1,7 @@
+commit 772f973838521fcb803854543314f9d8bb1f8be1
+Author: Jan Kotas <jkotas@microsoft.com>
+Date:   Mon Jun 10 12:03:58 2024 -0700
+
+    Delete dead code in winwrap.h (#103193)
+    
+    Delete Wsz... aliases for Win32 APIs
