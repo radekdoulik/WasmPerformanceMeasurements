@@ -1,0 +1,7 @@
+commit c897ce62f21b061f8a53f6629fea97526cbb09a8
+Author: Jan Kotas <jkotas@microsoft.com>
+Date:   Mon Jun 10 20:03:29 2024 -0700
+
+    Cleanup some FEATURE_... ifdefs in the GC (#103200)
+    
+    Fixes #103198
