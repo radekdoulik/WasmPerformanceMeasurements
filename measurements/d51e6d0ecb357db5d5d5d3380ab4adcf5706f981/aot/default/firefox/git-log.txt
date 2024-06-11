@@ -1,0 +1,7 @@
+commit d51e6d0ecb357db5d5d5d3380ab4adcf5706f981
+Author: Jan Kotas <jkotas@microsoft.com>
+Date:   Mon May 27 08:35:20 2024 -0700
+
+    Revert "﻿Ensure LoaderAllocator can't be collected while we clean handles on …" (#102729)
+    
+    This reverts commit 35e4aad602ee3c28330e94746cfd4e0d4569b66f.
