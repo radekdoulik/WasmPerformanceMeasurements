@@ -1,0 +1,13 @@
+commit b1d537d8accde0e23b625573c481d4e7868138f5
+Author: Pierre Belin <contact@pierrebelin.fr>
+Date:   Mon Jun 10 21:02:38 2024 +0200
+
+    refactor: rename COMPlus classes to make a clear distinction with COM interop (#102922)
+    
+    * refactor: rename ComPlusCall, ComPlusCallInfo, ComPlusCallMethodDesc, GenericComPlusCallStub and ComPlusMethodFrame
+    
+    * refactor: CLRToCOMMethodFrame to CLRToCOMMethodFrame
+    
+    * refactor: rename file to GenericCLRToCOMCallStubs
+    
+    * refactor: rename define to uppercase + remove useless comments
