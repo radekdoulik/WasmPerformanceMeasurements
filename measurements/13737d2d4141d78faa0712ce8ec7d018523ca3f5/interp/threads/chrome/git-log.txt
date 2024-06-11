@@ -1,0 +1,19 @@
+commit 13737d2d4141d78faa0712ce8ec7d018523ca3f5
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Tue Jun 11 19:48:04 2024 +0900
+
+    Disable newly added System.Resources.Extensions tests with native AOT (#103269)
+    
+    Native AOT outerloop testing is on the floor due to build breaks:
+    
+    Build break 1:
+    
+    ```
+    The published project has a runtimeconfig.template.json that is not supported by PublishAot. Move the configuration to the project file using RuntimeHostConfigurationOption.
+    ```
+    
+    Build break 2 (this is a warning, but WarnAsError makes this more severe):
+    
+    ```
+    AOT analysis error IL3054: FluentAssertions.Equivalency.EquivalencyAssertionOptions`1<IEnumerable`1<IEnumerable`1<IEnumerable`1<IEnumerable`1<Int32[,,]>>>>>: Generic expansion to 'FluentAssertions.Equivalency.EquivalencyAssertionOptions`1<IEnumerable`1<IEnumerable`1<IEnumerable`1<IEnumerable`1<IEnumerable`1<Int32[,,]>>>>>>' was aborted due to generic recursion. An exception will be thrown at runtime if this codepath is ever reached. Generic recursion also negatively affects compilation speed and the size of the compilation output. It is advisable to remove the source of the generic recursion by restructuring the program around the source of recursion. The source of generic recursion might include: 'FluentAssertions.Equivalency.EquivalencyAssertionOptions`1', 'FluentAssertions.Equivalency.NestedExclusionOptionBuilder`2'
+    ```
