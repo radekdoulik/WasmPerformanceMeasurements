@@ -1,0 +1,15 @@
+commit a84854777ca1c5eed88ad2d98a91e5582041a1d2
+Author: Jb Evain <jb@evain.net>
+Date:   Mon Jun 10 09:32:11 2024 -0700
+
+    Fix a few small leaks by properly freeing the result of g_strsplit (#103189)
+    
+    * Free the result of g_strsplit in debugger_agent_parse_options
+    
+    * Free the result of g_strsplit in mono_gc_base_init for boehm
+    
+    * Free the result of g_strsplit in mono_main
+    
+    * Free the result of g_strsplit in interp_parse_options
+    
+    * Avoid double free
