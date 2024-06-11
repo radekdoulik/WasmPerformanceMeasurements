@@ -1,0 +1,11 @@
+commit 7cd8459e7bd3883f0aa86961c518948630dc2e49
+Author: Jackson Schuster <36744439+jtschuster@users.noreply.github.com>
+Date:   Mon Jun 10 13:55:54 2024 -0700
+
+    ILLink: Sweep .override for interface method if the .interfaceImpl is removed (#102857)
+    
+    When static interface methods are kept but an implementation of the method is only accessed via a direct call on the implementing type, the implementation method and the .override pointing to the interface method are both kept, but not the .interfaceImpl. This causes a TypeLoadException when the .override points to a method on an interface that the type doesn't implement. To fix this, we needed to update the condition for sweeping overrides to include the case where both the interface and the interface method are kept, but the .interfaceImpl is not kept.
+    
+    Tests are for static interface methods, but concrete and generic to test type resolution in SweepStep, which can be finicky. Instance methods shouldn't hit this issue since public interface methods don't have a .override and private methods can't be marked without instantiating the type or reflecting over the type, both of which mark the type's .interfaceImpls, and making the .override valid.
+    
+    For instance methods, we will always mark any methods referenced in a .override as well as their corresponding interface implementation, so we won't end up in a scenario where an instance method would have dangling references in a .override. I did fix up the interface implementation marking (MarkRuntimeInterfaceImplementation) to make sure it can find a recursive interface, and marks the .interfaceImpl with the exact same TypeReference rather than just the same TypeDefinition (for example, IGeneric<int> should be marked, not just the first IGeneric<> interfaceImpl). This was one of the examples where the trimmer would end up doing the right thing (all IGeneric<> implementations would end up marked anyway), but it would do it for a different reason than we expect.
