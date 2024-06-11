@@ -1,0 +1,47 @@
+commit d06fb0872b5f6cc82dd74876f778154974de8410
+Author: Kunal Pathak <Kunal.Pathak@microsoft.com>
+Date:   Tue Jun 11 10:18:13 2024 -0700
+
+    Handle more than 64 registers - Part 5 (#103188)
+    
+    * first cut
+    
+    * make clrjit/clrjit_universal_arm64_x64 working, introduce SRBM_*
+    
+    * make clrjit_universal_arm_x64 build
+    
+    * make everything else build
+    
+    * fix some static asserts
+    
+    * jit format
+    
+    * minor static assert fix
+    
+    * Remove RegMaskTP_NONE
+    
+    * fix some build errors
+    
+    * jit format
+    
+    * some more fixes
+    
+    * Use regMaskTP for kill RefPositions
+    
+    * fix a typo
+    
+    * Fix build errors for riscv64/loongarch64
+    
+    * try to fix gcc errors
+    
+    * jit format
+    
+    * Revert "try to fix gcc errors"
+    
+    This reverts commit b68f2d317d4f1c6cfb4dd02445335025c1780f31.
+    
+    * fix gcc build failure
+    
+    * minor code cleanup
+    
+    * review comments
