@@ -1,0 +1,7 @@
+commit 0686ce61ed1e1cb3cb420281a0154efa5d0d00d5
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Tue Jun 11 06:22:59 2024 +0900
+
+    Run System.Diagnostics.StackTrace tests with NAOT (#103151)
+    
+    Also fixes some corner case issues, like whether an empty stacktrace should stringify into a newline.
