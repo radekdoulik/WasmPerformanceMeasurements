@@ -1,0 +1,39 @@
+commit 4a8a95f8841e14b9db2ba48a4dc1f0917649fbaa
+Author: Radek Zikmund <32671551+rzikm@users.noreply.github.com>
+Date:   Wed Jun 12 09:33:01 2024 +0200
+
+    Support TLS Resume with client certificates on Linux (#102656)
+    
+    * Change SSL_CTX caching
+    
+    * Add failing test
+    
+    * Revert "Add failing test"
+    
+    This reverts commit 5f30d11666d8ec08bd4b05cbb964c25ceadcc426.
+    
+    * WIP, tests pass.
+    
+    * Update src/libraries/System.Net.Security/src/System/Net/Security/SslStreamPal.Unix.cs
+    
+    * Apply suggestions from code review
+    
+    * Move definition
+    
+    * Minor improvements
+    
+    * Add more tests
+    
+    * Add more no-resume tests
+    
+    * Move MsQuicConfiguration cache logic to common code
+    
+    * Use shared cache code for client SSL_CTX cache
+    
+    * Fix build
+    
+    * Update src/libraries/Common/src/Interop/Unix/System.Security.Cryptography.Native/Interop.OpenSsl.cs
+    
+    * Fix tests
+    
+    * Fix test
