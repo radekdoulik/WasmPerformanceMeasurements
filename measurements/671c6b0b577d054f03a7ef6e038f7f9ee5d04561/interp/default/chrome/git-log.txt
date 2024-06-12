@@ -1,0 +1,9 @@
+commit 671c6b0b577d054f03a7ef6e038f7f9ee5d04561
+Author: Larry Ewing <lewing@microsoft.com>
+Date:   Tue Jun 11 17:28:36 2024 -0500
+
+    [workload] Remove name versioning from coreclr runtime packs since they are never referenced by name (#103314)
+    
+    * Remove incorrect version from bare runtime packs
+    
+    * Add versioning back to the current pack but remove references in net8
