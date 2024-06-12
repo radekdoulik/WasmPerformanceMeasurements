@@ -1,0 +1,12 @@
+commit f690a1a16611449fe281fe3ba4065939986d95be
+Author: Marek Habersack <grendel@twistedcode.net>
+Date:   Wed Jun 12 11:23:01 2024 +0200
+
+    [android] Fix build with newer NDK (#103233)
+    
+    Newer versions of Android NDK (tested with 26.3) no longer include
+    support for 32-bit host machines and have moved libraries around for
+    that reason.  One of the libraries that changed its location is
+    `libclang.so`, required to build MonoVM for Android.
+    
+    This PR adds support to detect the library at its new location.
