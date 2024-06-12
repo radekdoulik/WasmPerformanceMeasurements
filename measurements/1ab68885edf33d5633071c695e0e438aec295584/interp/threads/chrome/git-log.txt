@@ -1,0 +1,14 @@
+commit 1ab68885edf33d5633071c695e0e438aec295584
+Author: Aleksey Kliger (λgeek) <alklig@microsoft.com>
+Date:   Wed Jun 12 10:30:48 2024 -0400
+
+    [vm] fix confusing use of m_pCanonMT (NFC) (#102936)
+    
+    `m_pCanonMT` and `m_pEEClass` are union members so they're the same
+    value where the lowest bit is used as a flag to indicate which one you
+    have.  In a canonical method table, you always have `m_pEEClass`.
+    `m_pEEClass` has the lowest bit cleared.  So to get the actual
+    pointer, just return it.
+    
+    This just cleans up hard to read code, there is no functional change
+    at runtime.
