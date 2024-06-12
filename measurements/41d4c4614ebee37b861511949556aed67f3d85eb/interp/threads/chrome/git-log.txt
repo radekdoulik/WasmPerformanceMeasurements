@@ -1,0 +1,19 @@
+commit 41d4c4614ebee37b861511949556aed67f3d85eb
+Author: joegoldman2 <147369450+joegoldman2@users.noreply.github.com>
+Date:   Tue Jun 11 21:29:21 2024 +0000
+
+    Fix `LoggerProviderDebugView.CalculateEnabledLogLevel` when the level is `None` (#103209)
+    
+    * Fix LoggerProviderDebugView.CalculateEnabledLogLevel when the level is None
+    
+    * Apply suggestion from review
+    
+    * Update src/libraries/Microsoft.Extensions.Logging/src/Logger.cs
+    
+    Co-authored-by: James Newton-King <james@newtonking.com>
+    
+    ---------
+    
+    Co-authored-by: joegoldman2 <147369450+joegoldman@users.noreply.github.com>
+    Co-authored-by: Tarek Mahmoud Sayed <tarekms@microsoft.com>
+    Co-authored-by: James Newton-King <james@newtonking.com>
