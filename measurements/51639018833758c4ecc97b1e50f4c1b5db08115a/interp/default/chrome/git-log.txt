@@ -1,0 +1,13 @@
+commit 51639018833758c4ecc97b1e50f4c1b5db08115a
+Author: Ilona Tomkowicz <32700855+ilonatommy@users.noreply.github.com>
+Date:   Wed Jun 12 10:08:41 2024 +0000
+
+    [CI][aot] Do not overwrite `scenarios` argument if they were passed (#103229)
+    
+    * Use fixed scenarios only when they are not passed.
+    
+    * Feedback.
+    
+    * String -> array.
+    
+    * Block HybridGlobalization_AOT.
