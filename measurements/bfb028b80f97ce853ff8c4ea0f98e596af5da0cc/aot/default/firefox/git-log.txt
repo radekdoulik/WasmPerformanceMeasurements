@@ -1,0 +1,7 @@
+commit bfb028b80f97ce853ff8c4ea0f98e596af5da0cc
+Author: Maoni Stephens <Maoni0@users.noreply.github.com>
+Date:   Wed Jun 12 19:23:18 2024 -0700
+
+    fix hang in failure case (#103386)
+    
+    when prepare_to_change_heap_count fails, we need to make sure to restart the EE otherwise the GC thread still holds the thread store lock
