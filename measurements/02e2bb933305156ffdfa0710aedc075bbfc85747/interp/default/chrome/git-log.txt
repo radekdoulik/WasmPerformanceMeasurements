@@ -1,0 +1,9 @@
+commit 02e2bb933305156ffdfa0710aedc075bbfc85747
+Author: Jackson Schuster <36744439+jtschuster@users.noreply.github.com>
+Date:   Wed Jun 12 13:49:48 2024 -0700
+
+    ILLink: Allow TypePreserve info to be applied multiple times (#103140)
+    
+    Allows TypePreserve info to be applied multiple times. Pending preserve items may not be processed when the preserve info is applied, and the preserve info may be applied twice (in ProcessMarkedPending and ProcessType). If the preserve has already been applied in these cases, we will just return early rather than throwing an exception.
+    
+    Adds a test that applies a preserve on an otherwise unreferenced type.
