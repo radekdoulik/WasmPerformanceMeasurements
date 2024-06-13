@@ -1,0 +1,9 @@
+commit 1ddfd18d31ece473a1708167a70f92b87e89f008
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Wed Jun 12 15:25:41 2024 -0400
+
+    Support IAlternateEqualityComparer with FrozenDictionary/Set (#103191)
+    
+    * Support IAlternateEqualityComparer with FrozenDictionary/Set
+    
+    * Address PR feedback
