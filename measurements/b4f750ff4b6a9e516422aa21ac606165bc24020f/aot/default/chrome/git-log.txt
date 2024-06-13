@@ -1,0 +1,15 @@
+commit b4f750ff4b6a9e516422aa21ac606165bc24020f
+Author: Badre BSAILA <54767641+pedrobsaila@users.noreply.github.com>
+Date:   Thu Jun 13 02:23:13 2024 +0200
+
+    HttpIOException when establishing connection, unobserved task exception (#102960)
+    
+    * HttpIOException when establishing connection, unobserved task exception
+    
+    * do not eagerly allocate InitialSettingsReceived
+    
+    * Update src/libraries/System.Net.Http/src/System/Net/Http/SocketsHttpHandler/Http2Connection.cs
+    
+    ---------
+    
+    Co-authored-by: Miha Zupan <mihazupan.zupan1@gmail.com>
