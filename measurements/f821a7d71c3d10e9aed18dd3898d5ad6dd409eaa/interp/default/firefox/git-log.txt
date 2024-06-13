@@ -1,0 +1,8 @@
+commit f821a7d71c3d10e9aed18dd3898d5ad6dd409eaa
+Author: Omair Majid <omajid@redhat.com>
+Date:   Thu Jun 13 09:16:35 2024 -0400
+
+    Dispose XMLReader after using in Xml/Utils.cs (#103236)
+    
+    They are IDisposables and should be Dispose()d after being used to avoid
+    resource leaks.
