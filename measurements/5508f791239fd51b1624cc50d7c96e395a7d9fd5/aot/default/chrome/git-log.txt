@@ -1,0 +1,9 @@
+commit 5508f791239fd51b1624cc50d7c96e395a7d9fd5
+Author: Will Smith <lol.tihan@gmail.com>
+Date:   Thu Jun 13 20:42:32 2024 -0700
+
+    JIT: Added `Sve.LoadVectorNonTemporal/NonFaulting/128AndReplicateToVector` APIs (#103392)
+    
+    * Added Sve LoadVectorNonTemporal/NonFaulting/128AndReplicateToVector APIs
+    
+    * Feedback
