@@ -1,0 +1,11 @@
+commit 39c49054a5e29bc442c16c6c9305ebaaf8c20c8b
+Author: Fan Yang <52458914+fanyang-mono@users.noreply.github.com>
+Date:   Thu Jun 13 20:52:41 2024 -0400
+
+    [mono] Fix assembly name parser to accommodate non-ASCII UTF8 strings  (#103363)
+    
+    Fixes #103276
+    
+    Added an automated test that the testcase failed in the above issue. It now passes with this change.
+    
+    Ideally, Mono should share the same assembly name parsing logic as CoreCLR, which is `AssemblyNameParser.TryParse`.
