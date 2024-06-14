@@ -1,0 +1,7 @@
+commit d901213ed6076c0989a2de2626b99c9711442543
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Fri Jun 14 17:55:41 2024 +0900
+
+    Set UseNativeAotForComponents to false on bionic (#103454)
+    
+    This was enabled in #103273 but needs more work to actually build. Official builds are failing.
