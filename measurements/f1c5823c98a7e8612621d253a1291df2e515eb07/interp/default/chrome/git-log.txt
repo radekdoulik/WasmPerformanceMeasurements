@@ -1,0 +1,5 @@
+commit f1c5823c98a7e8612621d253a1291df2e515eb07
+Author: Marek Fišera <mara@neptuo.com>
+Date:   Thu Jun 13 22:25:08 2024 +0200
+
+    [browser] Use DynamicDependencyAttribute contructor friendly to InternalsVisibleTo when registering JSExports (#103402)
