@@ -1,0 +1,11 @@
+commit f1f075012af193948fa2d33e24adfbc8d92b8782
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Fri Jun 14 23:31:09 2024 +0900
+
+    Do not set UseNativeAotForComponents for arm32 MUSL (#103469)
+    
+    Not clear why we can't find path to ILC, but this is failing official builds and we need to unblock.
+    
+    ```
+    error MSB3073: The command ""\tools\\ilc" @"/__w/1/s/artifacts/obj/cdacreader/Release/net9.0/linux-musl-arm/native/libcdacreader.ilc.rsp"" exited with code 127.
+    ```
