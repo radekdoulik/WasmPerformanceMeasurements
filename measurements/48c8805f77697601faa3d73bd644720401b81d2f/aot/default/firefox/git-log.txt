@@ -1,0 +1,103 @@
+commit 48c8805f77697601faa3d73bd644720401b81d2f
+Author: Buyaa Namnan <bunamnan@microsoft.com>
+Date:   Fri Jun 14 02:06:19 2024 +0000
+
+    Add Base64url encoding/decoding (#102364)
+    
+    * Base64Url encoding, validation impelementation
+    
+    * Validation related updates
+    
+    * Try fix perf regression in vectorized methods
+    
+    * Add decoder implementation and unit tests
+    
+    * Share code in place decoding code
+    
+    * Add span<char> oveloads with vectorization
+    
+    * Generalize Span char/byte implementations
+    
+    * Move ref update to runtime and other cleanup
+    
+    * Generalize the AdvSimd.Arm64 vectorization added recently
+    
+    * Apply suggestions from code review
+    
+    Co-authored-by: Günther Foidl <gue@korporal.at>
+    
+    * Apply some feedback
+    
+    * Try fix ARM failure
+    
+    * Use array pool whenever applicable
+    
+    * Handle '%' as url padding, add more tests and fix findings
+    
+    * Fix assertion failure, apply some feedback, try fix ARM failure
+    
+    * Update docs, small clean ups
+    
+    * Try fix ARM failure
+    
+    * Update src/libraries/System.Private.CoreLib/src/System/Buffers/Text/Base64Url/Base64UrlEncoder.cs
+    
+    Co-authored-by: Günther Foidl <gue@korporal.at>
+    
+    * Rename StoreToDetionation overloads, reuse some duplicate code
+    
+    * Improve perf for Base.IsValid() oveerloads, exclude ARM vectorization for char(ushort) overload
+    
+    * Apply feedbacks
+    
+    * Revert Assert
+    
+    * Fix ARM vectorization failure for char overload
+    
+    * Apply suggestions from code review
+    
+    Co-authored-by: Jeremy Barton <jbarton@microsoft.com>
+    
+    * Apply suggestions from code review
+    
+    Co-authored-by: Günther Foidl <gue@korporal.at>
+    
+    * Apply more feedback
+    
+    * Apply suggestions from code review
+    
+    Co-authored-by: Günther Foidl <gue@korporal.at>
+    
+    * Apply review comment left overs
+    
+    * Apply suggestions from code review
+    
+    Co-authored-by: Miha Zupan <mihazupan.zupan1@gmail.com>
+    
+    * Apply remaining feedback
+    
+    * Apply suggestions from code review
+    
+    Co-authored-by: Jeremy Barton <jbarton@microsoft.com>
+    
+    * Apply the doc feedback for other API docs
+    
+    * Fix Base64Url fuzzer findings
+    
+    * Apply suggestions from code review
+    
+    Co-authored-by: Jeremy Barton <jbarton@microsoft.com>
+    
+    * Rename utf8 -> source/destintion
+    
+    * Apply feedbacks
+    
+    * Apply feedback
+    
+    * Apply left out feedbacks
+    
+    ---------
+    
+    Co-authored-by: Günther Foidl <gue@korporal.at>
+    Co-authored-by: Jeremy Barton <jbarton@microsoft.com>
+    Co-authored-by: Miha Zupan <mihazupan.zupan1@gmail.com>
