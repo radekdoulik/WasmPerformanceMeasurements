@@ -1,0 +1,11 @@
+commit d7ae8c61f0937df4dcffe88ba96eae65fa523a78
+Author: Tanner Gooding <tagoo@outlook.com>
+Date:   Thu Jun 13 14:45:50 2024 -0700
+
+    Add basic support for folding and normalizing hwintrinsic trees in morph (#103143)
+    
+    * Add basic support for folding hwintrinsic trees in morph
+    
+    * Reduce the amount of copying required to evaluated vector constants
+    
+    * Have gtFoldExprHWIntrinsic handle side effects
