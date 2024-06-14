@@ -1,0 +1,11 @@
+commit 069c1561d065ecc0cec5d4e03895db4f8db147ae
+Author: Linus Hamlin <78953007+lilinus@users.noreply.github.com>
+Date:   Fri Jun 14 14:12:36 2024 +0200
+
+    Use ThrowHelper in Queue<T> (#103424)
+    
+    * Use ThrowHelper in Queue<T>
+    
+    * Don't use ThrowHelper in ThrowHelper
+    
+    * Remove empty line
