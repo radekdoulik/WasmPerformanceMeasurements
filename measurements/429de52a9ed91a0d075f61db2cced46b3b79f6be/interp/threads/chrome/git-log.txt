@@ -1,0 +1,10 @@
+commit 429de52a9ed91a0d075f61db2cced46b3b79f6be
+Author: David Wrighton <davidwr@microsoft.com>
+Date:   Fri Jun 14 16:51:22 2024 -0700
+
+    Fix linux arm64 release build (#103490)
+    
+    * Fix linux arm64 release build
+    - Workaround issue where the link register isn't being reported properly in the unwind data
+    
+    Works around #103489
