@@ -1,0 +1,19 @@
+commit 0d60428637137fffcf20585d773fc7ed4d09951e
+Author: Alan Hayward <a74nh@users.noreply.github.com>
+Date:   Fri Jun 14 21:12:57 2024 +0100
+
+    ARM64-SVE: gathervector extends (#103370)
+    
+    * ARM64-SVE: gathervector extends
+    
+    * Comment out 32bit address APIs
+    
+    * Replace triple quotes with doubles
+    
+    * restore commented API
+    
+    * Set HW_Category_MemoryLoad for all gatherloads
+    
+    * Fix cast checking for all load types
+    
+    * Remove GT_CAST changes
