@@ -1,0 +1,21 @@
+commit d2dbdd0bbbcb16cc53708a089e1b0388a57a5768
+Author: Phoebe Owusu <91153139+ebepho@users.noreply.github.com>
+Date:   Sat Jun 15 09:07:42 2024 -0700
+
+    Arm64/SVE: Implement ConvertToInt32 and ConvertToUInt32 for double (#103436)
+    
+    * Added ConverToInt32 and ConvertToUInt32 for float inputs.
+    
+    * Added flags to handle only low predicate registers.
+    
+    * Fix whitespace
+    
+    * Remove special codegen flag
+    
+    * Added new test template for operations with different return types.
+    
+    * Add new test template.
+    
+    * Added api for ConvertToInt32 and ConvertToUInt 32 for double.
+    
+    * all merge conflicts fixed.
