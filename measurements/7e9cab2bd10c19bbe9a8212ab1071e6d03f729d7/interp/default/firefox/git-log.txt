@@ -1,0 +1,21 @@
+commit 7e9cab2bd10c19bbe9a8212ab1071e6d03f729d7
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Sat Jun 15 17:16:13 2024 +0900
+
+    Revert "Consolidate <NativeAotSupported definitions (#103273)" (#103497)
+    
+    * Revert "Do not set UseNativeAotForComponents for arm32 MUSL (#103469)"
+    
+    This reverts commit f1f075012af193948fa2d33e24adfbc8d92b8782.
+    
+    * Revert "Set UseNativeAotForComponents to false on bionic (#103454)"
+    
+    This reverts commit d901213ed6076c0989a2de2626b99c9711442543.
+    
+    * Revert "Try fixing x86 Windows legs (#103411)"
+    
+    This reverts commit 6927fea7b4bca1dc2cea7a0afba0373c1303cedc.
+    
+    * Revert "Consolidate <NativeAotSupported definitions (#103273)"
+    
+    This reverts commit b86c463b66f19ce0d432ef95c001883390a5d241.
