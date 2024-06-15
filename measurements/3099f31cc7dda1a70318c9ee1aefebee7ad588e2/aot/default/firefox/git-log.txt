@@ -1,0 +1,12 @@
+commit 3099f31cc7dda1a70318c9ee1aefebee7ad588e2
+Author: Adeel Mujahid <3840695+am11@users.noreply.github.com>
+Date:   Sat Jun 15 07:59:19 2024 +0300
+
+    Delete -fms-extensions from coreclr native build (#102834)
+    
+    For stdcpp conformance, remove the remaining special extensions.
+    * clean up unnecessary __llvm  special handling.
+    * Add class, enum, struct prefixes to cases where the variable name is clashing with type name and it changes meaning  (-Werror=changes-meaning)
+      * In some trivial cases, I just renamed the variables..
+    * On x86, replace `__asm {}` syntax with `__asm ("")`
+    * Two small illumos related build fixes under `src/native` which helped validating the rest of the changes on the platform.
