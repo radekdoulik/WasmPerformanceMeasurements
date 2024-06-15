@@ -1,0 +1,10 @@
+commit b1f63dbfa4216f67b8f8d5aabdb33834d70989f6
+Author: Xu Liangyu <xuliangyu@loongson.cn>
+Date:   Sat Jun 15 14:07:56 2024 +0800
+
+    [LoongArch64] Implement 'JIT_GetDynamicNonGCStaticBase_SingleAppDomain', 'JIT_GetDynamicGCStaticBase_SingleAppDomain' after PR#99183. (#103467)
+    
+    * Implement `JIT_GetDynamicNonGCStaticBase_SingleAppDomain`, `JIT_GetDynamicGCStaticBase_SingleAppDomain` for LoongArch64 after PR #99183.
+    * Also fix the build error for LA64.
+    
+    Change-Id: Ifb9ee599bca3971270a5bc654770dfcc7e931955
