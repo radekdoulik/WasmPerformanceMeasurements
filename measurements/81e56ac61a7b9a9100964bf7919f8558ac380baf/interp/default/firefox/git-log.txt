@@ -1,0 +1,9 @@
+commit 81e56ac61a7b9a9100964bf7919f8558ac380baf
+Author: Tanner Gooding <tagoo@outlook.com>
+Date:   Fri Jun 14 15:23:33 2024 -0700
+
+    Expose the BigMul APIs publicly (#103455)
+    
+    * Expose the BigMul APIs publicly
+    
+    * Ensure that inputs for BigMuil32x32Signed are all naturally typed as int
