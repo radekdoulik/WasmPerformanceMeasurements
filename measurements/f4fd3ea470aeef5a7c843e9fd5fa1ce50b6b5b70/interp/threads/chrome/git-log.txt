@@ -1,0 +1,62 @@
+commit f4fd3ea470aeef5a7c843e9fd5fa1ce50b6b5b70
+Author: Sergio Pedri <sergio0694@live.com>
+Date:   Sun Jun 16 11:49:10 2024 -0700
+
+    Intrinsify typeof(T).IsGenericType (#99555)
+    
+    * Make Type.IsGenericType a JIT intrinsic
+    
+    * Add Type.IsGenericType intrinsic tests
+    
+    * Add intrinsic tests for nested types too
+    
+    * Skip expanding the intrinsic for __Canon
+    
+    * Add 'isGenericType' generated thunk
+    
+    Fix vtable in CorInfoImpl_generated.cs
+    
+    * Implement 'isGenericType' JIT/EE method
+    
+    * Plug 'isGenericType' in importer
+    
+    * Fix superPMI build
+    
+    * Use 'TypeCompareState' for 'isGenericType'
+    
+    * Add more test cases for shared generics
+    
+    * Remove ref struct type from 'IsGenericType' tests
+    
+    * Make __Canon type check less conservative
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
+    
+    * Update __Canon check in managed impl too
+    
+    Co-authored-by: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+    
+    * Update tests, make them no inline
+    
+    * Update generated code
+    
+    * Fix rebase errors
+    
+    * Fix more rebase errors
+    
+    * Update jitinterface.cpp
+    
+    * Make `isGenericType` use _LEAF transition
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
+    
+    * Make `isNullableType` use _LEAF transition
+    
+    * Remove unnecessary shared generic check
+    
+    ---------
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
+    Co-authored-by: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+    Co-authored-by: Miha Zupan <mihazupan.zupan1@gmail.com>
+    Co-authored-by: Egor Bogatov <egorbo@gmail.com>
