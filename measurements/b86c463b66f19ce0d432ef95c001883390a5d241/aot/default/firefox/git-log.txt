@@ -1,0 +1,41 @@
+commit b86c463b66f19ce0d432ef95c001883390a5d241
+Author: Adeel Mujahid <3840695+am11@users.noreply.github.com>
+Date:   Wed Jun 12 22:54:30 2024 +0300
+
+    Consolidate <NativeAotSupported definitions (#103273)
+    
+    * Align LA64 targetpacks with RV64
+    
+    * Block x86 during publish (until preview 5)
+    
+    * Separate CanExecute and Supported concerns
+    
+    * Revert x86 workaround
+    
+    * Address CR feedback
+    
+    * Change to explicit boolean condition
+    
+    * Record the original CrossBuild condition for tools
+    
+    * Fix windows build
+    
+    * Use public props
+    
+    * Update Subsets.props
+    
+    * Remve duplicate prop
+    
+    * Sort props
+    
+    * Update targetingpacks.targets
+    
+    * Update ILC version
+    
+    * Update src/installer/pkg/projects/netcoreappRIDs.props
+    
+    Co-authored-by: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+    
+    ---------
+    
+    Co-authored-by: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
