@@ -1,0 +1,9 @@
+commit f1f26353b9cd824502cde09c2dcfe557f73f7109
+Author: Adam Sitnik <adam.sitnik@gmail.com>
+Date:   Mon Jun 17 18:45:11 2024 +0200
+
+    mark all BinaryFormatter-related tests as conditional (#103471)
+    
+    * mark all BinaryFormatter-related tests as conditional
+    
+    * don't run BinaryFormatter tests for NativeAOT and Mobiles (they are not supported by design)
