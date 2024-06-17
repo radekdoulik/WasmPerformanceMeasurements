@@ -1,0 +1,17 @@
+commit 2d9373a2eb91c5052234d58b6e55024582403522
+Author: Huo Yaoyuan <huoyaoyuan@hotmail.com>
+Date:   Mon Jun 17 06:04:18 2024 +0800
+
+    Enable FEATURE_ARRAYSTUB_AS_IL on all platforms (#103533)
+    
+    * Enable ArrayStubAsIL on win-x86
+    
+    * Unconditionally enable at use sites
+    
+    * Delete dead code for old x86 stub
+    
+    * Delete feature flags
+    
+    * Fix SetILStubType
+    
+    * Delete unused asmconstant
