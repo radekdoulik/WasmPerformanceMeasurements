@@ -1,0 +1,7 @@
+commit 6e88cf8c62a8100c36eef4bcc26a3d830b60ff35
+Author: Aman Khalid <amankhalid@microsoft.com>
+Date:   Mon Jun 17 18:09:36 2024 +0000
+
+    JIT: Move targets of hot jumps to create fallthrough post-RPO layout (#102927)
+    
+    After establishing an RPO-based layout, we currently try to move any backward jumps up to their successors, if it is profitable to do so in spite of any fallthrough behavior lost. In #102763, we see many instances where the RPO layout fails to create fallthrough for forward jumps on the hot path, such as in cases where a block is reachable from many predecessors. This work addresses the RPO's limitations by also considering moving the targets of forward jumps (conditional and unconditional) to maximize fallthrough.
