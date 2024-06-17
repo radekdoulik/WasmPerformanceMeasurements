@@ -1,0 +1,9 @@
+commit 193b82684971378be9fa0754a97bfabf82e5fd28
+Author: Milos Kotlar <kotlarmilos@gmail.com>
+Date:   Mon Jun 17 12:33:12 2024 +0200
+
+    [mono] Fix `SwiftError` variable offset calculation (#103043)
+    
+    * Avoid var allocation when SwiftError is passed via the stack
+    
+    * Refactor Security.Cryptography tests to pass SwiftError at the end of the signature
