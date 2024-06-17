@@ -1,0 +1,13 @@
+commit af49288b790fdcd849469a86086191a91256dcff
+Author: Miha Zupan <mihazupan.zupan1@gmail.com>
+Date:   Mon Jun 17 00:36:04 2024 +0200
+
+    Add Span.StartsWith(T) and EndsWith(T) (#103458)
+    
+    * Add Span.StartsWith(T) and EndsWith(T)
+    
+    * Add tests
+    
+    * Use it in a few places
+    
+    * Add AggressiveInlining
