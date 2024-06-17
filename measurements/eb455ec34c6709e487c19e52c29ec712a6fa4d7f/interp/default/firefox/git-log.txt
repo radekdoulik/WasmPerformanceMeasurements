@@ -1,0 +1,11 @@
+commit eb455ec34c6709e487c19e52c29ec712a6fa4d7f
+Author: Huo Yaoyuan <huoyaoyuan@hotmail.com>
+Date:   Sun Jun 16 15:04:57 2024 +0800
+
+    Move type check of MD array to managed (#103414)
+    
+    * Call managed ArrayTypeCheck
+    
+    * Delete FCall of StubHelpers.ArrayTypeCheck
+    
+    * Use proper argument type for MD array
