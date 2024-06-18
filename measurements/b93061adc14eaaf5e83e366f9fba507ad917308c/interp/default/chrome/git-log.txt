@@ -1,0 +1,23 @@
+commit b93061adc14eaaf5e83e366f9fba507ad917308c
+Author: Phoebe Owusu <91153139+ebepho@users.noreply.github.com>
+Date:   Tue Jun 18 10:19:21 2024 -0700
+
+    Arm64/SVE: Implemented `RoundAwayFromZero`, `RoundToNearest`, `RouteToNegativeInfininty`, `RoundToPositiveInfinity`, `RoundToZero`  (#103588)
+    
+    * Added ConverToInt32 and ConvertToUInt32 for float inputs.
+    
+    * Added flags to handle only low predicate registers.
+    
+    * Fix whitespace
+    
+    * Remove special codegen flag
+    
+    * Added new test template for operations with different return types.
+    
+    * Add new test template.
+    
+    * Added api for ConvertToInt32 and ConvertToUInt 32 for double.
+    
+    * Round SVE intrinsics for floats.
+    
+    * Completed Round SVE fp apis.
