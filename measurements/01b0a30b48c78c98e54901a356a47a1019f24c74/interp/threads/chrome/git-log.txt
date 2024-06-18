@@ -1,0 +1,5 @@
+commit 01b0a30b48c78c98e54901a356a47a1019f24c74
+Author: Eirik Tsarpalis <eirik.tsarpalis@gmail.com>
+Date:   Tue Jun 18 20:42:09 2024 +0100
+
+    Use Type.GetProperty/GetField instead of GetMember. (#103275)
