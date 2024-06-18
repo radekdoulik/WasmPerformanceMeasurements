@@ -1,0 +1,11 @@
+commit 768ec1e6c4a31d35f17d402dcebc64420a856b63
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Mon Jun 17 22:10:13 2024 +0200
+
+    JIT: Skip IV optimizations when VN is disabled (#103580)
+    
+    IV opts have a dependency on VN since the trip count analysis was
+    introduced, so if VN is disabled we should skip the optimization,
+    otherwise we can crash on accesses to the VN store.
+    
+    Fix #103545
