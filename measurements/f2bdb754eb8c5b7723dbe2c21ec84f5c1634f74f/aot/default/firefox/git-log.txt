@@ -1,0 +1,5 @@
+commit f2bdb754eb8c5b7723dbe2c21ec84f5c1634f74f
+Author: Radek Zikmund <32671551+rzikm@users.noreply.github.com>
+Date:   Mon Jun 17 18:58:12 2024 +0200
+
+    Don't run ssl/http stress on release/6.0 and release/7.0 (#103572)
