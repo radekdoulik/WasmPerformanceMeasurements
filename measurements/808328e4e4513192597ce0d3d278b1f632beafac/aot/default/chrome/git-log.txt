@@ -1,0 +1,9 @@
+commit 808328e4e4513192597ce0d3d278b1f632beafac
+Author: Steve Pfister <steveisok@users.noreply.github.com>
+Date:   Tue Jun 18 11:20:25 2024 -0400
+
+    [mono] Add exists condition for copying hostfxr & hostpolicy symbol files (#103641)
+    
+    This was missing from https://github.com/dotnet/runtime/pull/103304 and it causes build issues on windows mono runs
+    
+    Fixes https://github.com/dotnet/runtime/issues/103642
