@@ -1,0 +1,15 @@
+commit 93eacbd8f7dd806bb8b0848c74fe8d72646c7fee
+Author: Ilona Tomkowicz <32700855+ilonatommy@users.noreply.github.com>
+Date:   Tue Jun 18 16:04:14 2024 +0000
+
+    [wasm] Move hardcoded `_BoolPropertiesThatTriggerRelinking` to `wasm-props.json` included in the runtime pack (#103422)
+    
+    * Fix.
+    
+    * Fix
+    
+    * Feedback.
+    
+    * Fix wasi wbt.
+    
+    * Fix CI - wbt testing native build should set it to true.
