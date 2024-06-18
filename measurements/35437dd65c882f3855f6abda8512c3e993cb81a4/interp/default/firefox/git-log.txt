@@ -1,0 +1,8 @@
+commit 35437dd65c882f3855f6abda8512c3e993cb81a4
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Tue Jun 18 15:58:15 2024 +0200
+
+    JIT: Add support for `SwiftIndirectResult` in Swift calling convention (#103570)
+    
+    Add a test for pinvoke/reverse pinvokes involving `SwiftIndirectResult`, and add
+    the necessary support to make the tests pass in RyuJIT.
