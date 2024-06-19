@@ -1,0 +1,22 @@
+commit 5f8a2ee126eb1b4c96d867efa6b7914839b29910
+Author: SwapnilGaikwad <swapnil.gaikwad@arm.com>
+Date:   Wed Jun 19 06:14:24 2024 +0100
+
+    Rename StoreVectorMxNAndZip to StoreVectorAndZip (#103638)
+    
+    * Arm AdvSimd: Rename StoreVectorMxNAndZip to StoreVectorAndZip
+    
+    * Mono: Rename StoreVectorMxNAndZip to StoreVectorAndZip
+    
+    * Use a single entry of StoreVectorAndZip instead of its NxM variants in hwintrinsiclistarm64.h
+    
+    * Wrap code in #ifdef DEBUG
+    
+    * Refactor StoreSelectedScalar to match VectorTableLookup
+    
+    * Fix the way that mono emits intrinsics of SN_StoreVectorAndZip
+    
+    ---------
+    
+    Co-authored-by: Kunal Pathak <Kunal.Pathak@microsoft.com>
+    Co-authored-by: fanyang-mono <yangfan@microsoft.com>
