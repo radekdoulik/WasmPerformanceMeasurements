@@ -1,0 +1,10 @@
+commit 2fc073f9ca3d36e8c3cd086773719dc5f8274c36
+Author: Omair Majid <omajid@redhat.com>
+Date:   Wed Jun 19 00:45:36 2024 -0400
+
+    Fix locking in ReflectionComposablePart.ImportsCache (#103660)
+    
+    The second check needs to use the value from the field (to see updates
+    made by other threads), not the local variable.
+    
+    Fixes: #103650
