@@ -1,0 +1,7 @@
+commit b5e62095a109df684f61506f9765efea0053e825
+Author: Fred Silberberg <frsilb@microsoft.com>
+Date:   Wed Jun 19 10:37:57 2024 -0700
+
+    Use the right link in the argument exception docs (#103682)
+    
+    We were linking to Vector128, not Vector, in a couple of the constructors.
