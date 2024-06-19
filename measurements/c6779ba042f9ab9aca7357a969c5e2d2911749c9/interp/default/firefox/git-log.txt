@@ -1,0 +1,17 @@
+commit c6779ba042f9ab9aca7357a969c5e2d2911749c9
+Author: Eirik Tsarpalis <eirik.tsarpalis@gmail.com>
+Date:   Wed Jun 19 09:15:59 2024 +0100
+
+    Add IList<T> and related APIs to JsonObject. (#103645)
+    
+    * Add IList<T> and related APIs to JsonObject.
+    
+    * Fix missing hashcode set in OrderedDictionary.SetAt
+    
+    * Re-enable disabled tests
+    
+    * Rename JsonPropertyDictionary<T> to OrderedDictionary<TKey, TValue>
+    
+    ---------
+    
+    Co-authored-by: Stephen Toub <stoub@microsoft.com>
