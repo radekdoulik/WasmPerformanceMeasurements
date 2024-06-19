@@ -1,0 +1,9 @@
+commit e0bd77624c711d024d662f49ff1714eff420c879
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Wed Jun 19 23:21:43 2024 +0900
+
+    Eliminate dead branches around typeof comparisons (#102248)
+    
+    RyuJIT will already do dead branch elimination for `typeof(X) == typeof(Y)` patterns, but we couldn't do elimination around `foo == typeof(X)`. This fixes that using whole program knowledge - if we never saw a constructed `MT` for `X`, the comparison is not going to be true. Because it needs whole program, we still scan this dead branch so in the end this doesn't save much. We can eventually do better.
+    
+    I'm doing this in `SubstitutedILProvider` instead of in RyuJIT: this is because we currently only reap a small benefit from this optimization due to it only happening during compilation phase. We need to do this during scanning as well. I think I can extend it to scannig. But the extension will require the optimization to 100% guaranteed happen during codegen. We cannot rely on whether RyuJIT will feel like it. `SubstitutedILProvider` is our way to ensure the optimization will happen no matter what - the IL from the branch will be gone and RyuJIT can at most remove the comparison (we don't mind much if it's left).
