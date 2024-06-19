@@ -1,0 +1,25 @@
+commit d5d244823211f2a9603118b7152fa6f3f36636f7
+Author: Kunal Pathak <Kunal.Pathak@microsoft.com>
+Date:   Tue Jun 18 15:18:16 2024 -0700
+
+    Arm64/Sve: Remove unwanted insScalableOpts and instructions (#103620)
+    
+    * Fix AV in GatherVector
+    
+    * Remove INS_SCALABLE_OPTS_UNPREDICATED
+    
+    * Remove INS_SCALABLE_OPTS_UNPREDICATED_WIDE
+    
+    * TO_PREDICATE AND TO_VECTOR
+    
+    * Remove INS_SCALABLE_OPTS_BROADCAST
+    
+    * Remove ins_sve_ldr_mask and ins_sve_str_mask
+    
+    * bug fix
+    
+    * jit format
+    
+    * proper handling of OperIsMemoryLoad() for Gather APIs
+    
+    * review comments
