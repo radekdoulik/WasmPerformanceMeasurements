@@ -1,0 +1,5 @@
+commit 9c51d32db656a832cdb23769ec7c63b1dd1d9e34
+Author: Egor Bogatov <egorbo@gmail.com>
+Date:   Wed Jun 19 14:39:20 2024 +0200
+
+    call gtFoldExpr after fgMorphExpandInstanceField (#103648)
