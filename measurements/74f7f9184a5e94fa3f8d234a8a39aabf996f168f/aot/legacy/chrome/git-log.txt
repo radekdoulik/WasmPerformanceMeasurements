@@ -1,0 +1,12 @@
+commit 74f7f9184a5e94fa3f8d234a8a39aabf996f168f
+Author: Andy Ayers <andya@microsoft.com>
+Date:   Wed Jun 19 08:41:01 2024 -0700
+
+    JIT: fix permute node type in AVX simd sum (#103680)
+    
+    In `gtNewSimdSumNode` we need to type permute nodes as `simd16`, not the sum's type.
+    If we split the tree at the permute we spill to the wrong typed temp.
+    
+    Also provide the ability to halt stress tree splitting after some number of splits.
+    
+    Fixes #102335.
