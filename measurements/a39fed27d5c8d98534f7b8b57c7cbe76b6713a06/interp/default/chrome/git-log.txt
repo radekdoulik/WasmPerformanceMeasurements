@@ -1,0 +1,12 @@
+commit a39fed27d5c8d98534f7b8b57c7cbe76b6713a06
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Wed Jun 19 20:17:07 2024 +0200
+
+    JIT: Clean up `RefPosition` "killed registers" storage (#103560)
+    
+    Avoid some ifdefs and rename the field to reflect more specifically what it
+    represents.
+    
+    Also avoid calling `getWeight` entirely for `RefTypeKill` ref positions, even
+    for dumping. Dumping this info does not make much sense since there was a
+    requirement that it was never called in non-dump paths anyway.
