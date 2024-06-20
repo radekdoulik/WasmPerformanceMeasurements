@@ -1,0 +1,9 @@
+commit 9e57de2b2a71b449057ffe75823d332e44ffe8fa
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Thu Jun 20 09:04:47 2024 +0200
+
+    JIT: Fix downwards loop transformation with multiply executed exiting blocks (#103723)
+    
+    The transformation to turn loops into downwards counted loops was
+    missing a check for whether the block containing the exit test was
+    potentially executed multiple times.
