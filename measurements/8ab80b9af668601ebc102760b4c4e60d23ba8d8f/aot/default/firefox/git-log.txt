@@ -1,0 +1,29 @@
+commit 8ab80b9af668601ebc102760b4c4e60d23ba8d8f
+Author: Tanner Gooding <tagoo@outlook.com>
+Date:   Wed Jun 19 21:56:04 2024 -0700
+
+    Additional cleanup and acceleration of the System.Numerics vector and related types (#103527)
+    
+    * Added SIMD paths for:
+    Vector3.Cross(Vector3 vector1, Vector3 vector2)
+    Vector3.Transform(Vector3 value, Quaternion rotation)
+    
+    * Fixed typo
+    
+    * fixed missing conversion back to Vector3
+    added simd paths for quaternion multiplication, division and concatenate
+    added simd path for matrix4x4 multiplication
+    
+    * Implemented feedback
+    
+    * fixed non static field
+    
+    * removed whitespace
+    
+    * Use Vector4.Transform
+    
+    * Perform some additional cleanup of the System.Numerics.Vector and Matrix types
+    
+    ---------
+    
+    Co-authored-by: martenf <marten-fahse@hotmail.de>
