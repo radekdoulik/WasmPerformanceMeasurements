@@ -1,0 +1,7 @@
+commit 5dbd6f6a9bd6638beb156d5f2b7a65d82ffaf166
+Author: Meri Khamoyan <96171496+mkhamoyan@users.noreply.github.com>
+Date:   Tue Jun 18 08:38:25 2024 +0200
+
+    [HybridGlobalization] Pass non-breaking space / narrow non-breaking space characters  (#103226)
+    
+    Pass non-breaking, narrow non-breaking space as they are
