@@ -1,0 +1,5 @@
+commit 8382cf16a625cc46bccad29683ee97f01a535963
+Author: Radek Zikmund <32671551+rzikm@users.noreply.github.com>
+Date:   Thu Jun 20 13:09:55 2024 +0200
+
+    Don't allocate unnecessary SslCtx (#103720)
