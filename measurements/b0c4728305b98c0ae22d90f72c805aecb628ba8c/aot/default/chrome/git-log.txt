@@ -1,0 +1,10 @@
+commit b0c4728305b98c0ae22d90f72c805aecb628ba8c
+Author: Aaron Robinson <arobins@microsoft.com>
+Date:   Thu Jun 20 11:09:48 2024 -0700
+
+    `InlineArray`'s `Equals` and `GetHashCode` throw (#103612)
+    
+    * InlineArray's Equals and GetHashCode throw
+    
+    The default Equals() and GetHashCode() throw
+    for types marked with InlineArrayAttribute.
