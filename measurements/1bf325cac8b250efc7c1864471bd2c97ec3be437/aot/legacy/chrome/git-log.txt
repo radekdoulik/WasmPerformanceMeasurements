@@ -1,0 +1,15 @@
+commit 1bf325cac8b250efc7c1864471bd2c97ec3be437
+Author: Tanner Gooding <tagoo@outlook.com>
+Date:   Thu Jun 20 09:05:19 2024 -0700
+
+    Change fgMorphMultiOp to fgMorphHWIntrinsic (#103732)
+    
+    * Remove a dead optimization from fgMorphMultiOp
+    
+    * Change fgMorphMultiOp to fgMorphHWIntrinsic
+    
+    * Move a couple of folding operations from `fgOptimizeHWIntrinsic` to `gtFoldExprHWIntrinsic`
+    
+    * Fix the query for if an intrinsic is commutative
+    
+    * Don't propagate vector constants unnecessarily
