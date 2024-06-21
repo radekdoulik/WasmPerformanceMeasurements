@@ -1,0 +1,13 @@
+commit 26567303fc4cb7068de49f78e36a17b53c548275
+Author: Jan Kotas <jkotas@microsoft.com>
+Date:   Tue Jun 18 13:38:31 2024 -0700
+
+    Support environment variables with empty value (#103551)
+    
+    * Support environment variables with no value
+    
+    Fixes #50554
+    
+    * Fix #34446: Ignore null values in ProcessStartInfo.Environment
+    
+    * Add tests
