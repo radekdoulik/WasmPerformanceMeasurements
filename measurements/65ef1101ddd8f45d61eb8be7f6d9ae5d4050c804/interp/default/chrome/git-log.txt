@@ -1,0 +1,10 @@
+commit 65ef1101ddd8f45d61eb8be7f6d9ae5d4050c804
+Author: Steve Pfister <steveisok@users.noreply.github.com>
+Date:   Fri Jun 21 09:47:57 2024 -0400
+
+    [workloads] Don't load mono librarymode targets if PublishAot is set (#103777)
+    
+    This change removes the incorrect error message when you using NativeAOT library mode
+    on mobile and you have `<NativeLib>` set. Previously, it would only detect if `<NativeLib>` was
+    set and error out if you didn't install the library builder workload. That only applies if mono
+    is your target.
