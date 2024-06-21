@@ -1,0 +1,15 @@
+commit 7bc92926b36617f7a0646a8d936782bc4c3264ab
+Author: Javier Calvarro Nelson <jacalvar@microsoft.com>
+Date:   Fri Jun 21 01:40:03 2024 +0200
+
+    [Wasm] Ensure traling slash in OutputPath (#103768)
+    
+    * [Wasm] Ensure traling slash in OutputPath
+    
+    * Update src/mono/nuget/Microsoft.NET.Sdk.WebAssembly.Pack/build/Microsoft.NET.Sdk.WebAssembly.Browser.targets
+    
+    Co-authored-by: Adeel Mujahid <3840695+am11@users.noreply.github.com>
+    
+    ---------
+    
+    Co-authored-by: Adeel Mujahid <3840695+am11@users.noreply.github.com>
