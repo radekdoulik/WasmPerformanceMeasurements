@@ -1,0 +1,11 @@
+commit 50e160441e04c2b6dda790479641c8888ce34f88
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Sat Jun 22 12:35:17 2024 -0400
+
+    Improve a couple of regex source generator oddities (#103851)
+    
+    * Avoiding generating a useless IndexOfAny
+    
+    When we can't efficiently enumerate a character class and it's not just a single range, we fall back to outputting a helper IndexOfXx method. This method does an optimized search for either any ASCII member of the set or anything non-ASCII, and then falls back to walking the items one-by-one. This makes sense, unless all of ASCII is in the set, in which case this is a meaningless IndexOfAny call because it's just going to always return 0 or -1. We should avoid emitting an IndexOfAny call in such a case.
+    
+    * This helper is emitting a call to IndexOfAnyExceptInRange, passing in the full ASCII range. The intent was for this to literally output the text `IndexOfAnyExceptInRange('\0', '\u007f')` into the generated C#, but because those are single slashes, it's actually outputting the characters (char)0x0 and (char(0x7F. That's functionally correct, but it's not what was intended and makes the code harder to read. The fix is just to put in the missing slashes.
