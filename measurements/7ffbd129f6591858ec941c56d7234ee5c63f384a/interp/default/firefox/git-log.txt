@@ -1,0 +1,7 @@
+commit 7ffbd129f6591858ec941c56d7234ee5c63f384a
+Author: Jackson Schuster <36744439+jtschuster@users.noreply.github.com>
+Date:   Mon Jun 17 12:45:00 2024 -0700
+
+    Create ReadOnlySpan marshaller for ManagedToUnmanagedOut scenarios (#101095)
+    
+    Provides a marshaller for ReadOnlySpan<T> for ManagedToUnmanagedOut direction. We have marshallers for UnmanagedToManagedOut and ManagedToUnmanagedIn. This API wasn't created previously due to the assumption that the managed ReadOnlySpan<T> would need to be written to in generated marshaling code, but that isn't strictly necessary for stateful marshallers. This API would allow LibraryImport methods to return ReadOnlySpan<T> without creating a new marshaller or specifying the marshaller type in the method definition.
