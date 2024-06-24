@@ -1,0 +1,17 @@
+commit 4c218b916ec71212da5034fdf49a96eee1274e39
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Mon Jun 24 11:00:06 2024 -0400
+
+    Vectorize a few more conversions in TensorPrimitives.ConvertXx (#103820)
+    
+    * Vectorize a few more conversions in TensorPrimitives.ConvertXx
+    
+    In particular byte to float.
+    
+    * Update src/libraries/System.Numerics.Tensors/src/System/Numerics/Tensors/netcore/Common/TensorPrimitives.IUnaryOneToFourOperator.cs
+    
+    Co-authored-by: Eirik Tsarpalis <eirik.tsarpalis@gmail.com>
+    
+    ---------
+    
+    Co-authored-by: Eirik Tsarpalis <eirik.tsarpalis@gmail.com>
