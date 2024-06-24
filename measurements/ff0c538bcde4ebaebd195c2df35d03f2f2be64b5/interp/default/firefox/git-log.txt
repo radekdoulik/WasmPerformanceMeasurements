@@ -1,0 +1,7 @@
+commit ff0c538bcde4ebaebd195c2df35d03f2f2be64b5
+Author: Sven Boemer <sbomer@gmail.com>
+Date:   Fri Jun 21 09:46:03 2024 -0700
+
+    Default DynamicCodeSupport to true for CoreCLR (#103594)
+    
+    Fixes https://github.com/dotnet/runtime/issues/80398
