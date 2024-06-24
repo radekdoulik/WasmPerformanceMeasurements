@@ -1,0 +1,7 @@
+commit 81441a1b1abc46309ce472539aac83af7f18cd39
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Mon Jun 24 21:59:43 2024 +0900
+
+    Do not fold exported UnmanagedCallersOnly symbols (#103884)
+    
+    Fixes issue that was ran into at https://github.com/MichalStrehovsky/rt-sz/actions/runs/9611846921.
