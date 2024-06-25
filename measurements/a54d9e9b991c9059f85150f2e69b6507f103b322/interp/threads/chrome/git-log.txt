@@ -1,0 +1,25 @@
+commit a54d9e9b991c9059f85150f2e69b6507f103b322
+Author: Emmanuel André <2341261+manandre@users.noreply.github.com>
+Date:   Tue Jun 25 02:58:26 2024 +0200
+
+    STJ: Dispose enumerator on exception (#100194)
+    
+    * STJ: Dispose enumerator on exception
+    
+    * Avoid code duplication
+    
+    * Rework fix
+    
+    * Remove useless Disposable field
+    
+    * Apply fix on all collection converters
+    
+    * Remove duplicate assignments
+    
+    * Skip fix for no-op Dispose implementation
+    
+    * Move IEnumerator disposal to WriteCore method.
+    
+    ---------
+    
+    Co-authored-by: Eirik Tsarpalis <eirik.tsarpalis@gmail.com>
