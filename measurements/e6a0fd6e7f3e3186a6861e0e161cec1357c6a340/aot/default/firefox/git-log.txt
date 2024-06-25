@@ -1,0 +1,9 @@
+commit e6a0fd6e7f3e3186a6861e0e161cec1357c6a340
+Author: Tanner Gooding <tagoo@outlook.com>
+Date:   Mon Jun 24 14:51:55 2024 -0700
+
+    Don't fold relops with side effects that are used in jumps (#103903)
+    
+    * Don't fold relops with side effects that are used in jumps
+    
+    * Reorder comparisons
