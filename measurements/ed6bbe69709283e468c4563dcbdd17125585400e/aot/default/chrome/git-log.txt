@@ -1,0 +1,11 @@
+commit ed6bbe69709283e468c4563dcbdd17125585400e
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Fri Jun 21 20:31:57 2024 +0200
+
+    JIT: Clean up `FlowGraphDominatorTree::Build` (#103803)
+    
+    We guarantee that `fgFirstBB` dominates all reachable basic blocks, so
+    `IntersectDom` is never going to end up seeing a `nullptr`. Also, if the
+    DFS tree does not have cycles the algorithm will converge in one
+    iteration, so there is no reason to run a second one to notice no
+    changes.
