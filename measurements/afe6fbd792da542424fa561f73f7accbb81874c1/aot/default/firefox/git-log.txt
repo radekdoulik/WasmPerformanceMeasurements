@@ -1,0 +1,15 @@
+commit afe6fbd792da542424fa561f73f7accbb81874c1
+Author: Sven Boemer <sbomer@gmail.com>
+Date:   Tue Jun 25 09:02:07 2024 -0700
+
+    Use SRM's TypeName parser in ILLink (#103740)
+    
+    This replaces the type name parser we copied from corert with the one
+    in System.Reflection.Metadata.
+    
+    Adds a test for resolving escaped type names, shared by ILLink and
+    Native AOT. To support this testcase, the test infra also uses
+    TypeNameResolver. The ILLink tests use it via IVT, and the Native AOT
+    tests use it by including source files. The sources have been factored
+    a little to make it possible to use just the TypeNameResolver from
+    NativeAot without pulling in other components of ILLink.
