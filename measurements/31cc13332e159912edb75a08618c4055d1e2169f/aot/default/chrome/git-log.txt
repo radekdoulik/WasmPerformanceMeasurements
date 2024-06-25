@@ -1,0 +1,25 @@
+commit 31cc13332e159912edb75a08618c4055d1e2169f
+Author: Will Smith <lol.tihan@gmail.com>
+Date:   Tue Jun 25 05:54:30 2024 -0700
+
+    JIT: Added SVE APIs - `Test*`, `ExtractVector` (#103739)
+    
+    * Initial work for Test* and Extract* SVE apis
+    
+    * Properly handling Test APIs
+    
+    * Added Sve.ExtractVector tests and they pass
+    
+    * Added more extract tests. Still getting asserts.
+    
+    * Fixed tests. Still working on assertion failures for LastScalar.
+    
+    * Removed ExtractLast and ExtractAfterLast APIs for now. Added more test coverage for TestAnyTrue, TestFirstTrue, TestLastTrue.
+    
+    * Fixing test
+    
+    * Fixed test again. Formatting.
+    
+    * Feedback
+    
+    * Fix ordering
