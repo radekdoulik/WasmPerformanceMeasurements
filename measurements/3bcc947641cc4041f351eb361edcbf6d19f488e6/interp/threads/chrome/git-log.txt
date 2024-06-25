@@ -1,0 +1,21 @@
+commit 3bcc947641cc4041f351eb361edcbf6d19f488e6
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Tue Jun 25 10:40:40 2024 +0200
+
+    JIT: Clean up liveness (#103809)
+    
+    We have a DFS tree available in both early liveness and SSA's liveness,
+    and we can use it to make the data flow cheaper by running in an RPO
+    over the DFS tree. This allows us to propagate the maximal amount of
+    knowledge in each iteration and also to stop the data flow early when
+    there is no cycle in the DFS tree.
+    
+    We do not have the DFS tree available in lowering where we also call
+    liveness. However, lowering was already iterating all blocks to remove
+    dead blocks; switch this to `fgDfsBlocksAndRemove` to remove dead blocks
+    and compute the DFS tree in one go, and remove the old code doing this.
+    
+    Additionally there was a bunch of logic in liveness to consider debug
+    scopes for debug codegen, left-over from a time where we tracked GC
+    pointers even in MinOpts. This code can be deleted since we do not do
+    liveness in MinOpts anymore.
