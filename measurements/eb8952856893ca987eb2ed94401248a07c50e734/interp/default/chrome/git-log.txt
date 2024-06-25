@@ -1,0 +1,34 @@
+commit eb8952856893ca987eb2ed94401248a07c50e734
+Author: Buyaa Namnan <bunamnan@microsoft.com>
+Date:   Mon Jun 24 09:00:58 2024 -0700
+
+    Add Base64Url support for netstandard 2.0 (#103617)
+    
+    * Base64Url netstandard support package
+    
+    * Enable compiler doc generation and simplify forwards
+    
+    * Add supression for [ClsCompliant(false)] attribute
+    
+    * Remove ClsComplaint attribute and diff suppression
+    
+    * Use char type direcly instead of ushort, as we are not using vectorization
+    
+    * Fix bug in char overload and other small updates
+    
+    * Apply suggestions from code review
+    
+    Co-authored-by: Stephen Toub <stoub@microsoft.com>
+    
+    * Update src/libraries/Microsoft.Bcl.Memory/src/System/Buffers/Text/Base64UrlDecoder.cs
+    
+    Co-authored-by: Stephen Toub <stoub@microsoft.com>
+    
+    * Use instance methods, share netstandard and .NET 9 code
+    
+    * Apply feedbacks
+    
+    ---------
+    
+    Co-authored-by: Viktor Hofer <viktor.hofer@microsoft.com>
+    Co-authored-by: Stephen Toub <stoub@microsoft.com>
