@@ -1,0 +1,11 @@
+commit c5e8f83db1606a89e70a9f4a0ac2fc03dea2418c
+Author: Tom Deseyn <tom.deseyn@gmail.com>
+Date:   Tue Jun 25 19:29:23 2024 +0200
+
+    Tar: support GNU numeric format. (#101172)
+    
+    The tar specification stores numeric fields using an octal representation. This limits the range of values that can be stored.
+    
+    To increase the supported range, a GNU extension defines that when the leading byte is 0xff/0x80 the remaining bytes are a negative/positive big endian formatted value.
+    
+    When writing under the PAX format, we continue to only use the only octal representation in the header fields. The values are overridden using extended attributes.
