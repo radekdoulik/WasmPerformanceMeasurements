@@ -1,0 +1,11 @@
+commit 973237dcbe2ba152fc873fbb704fef21464a21fe
+Author: Tomas Weinfurt <tweinfurt@yahoo.com>
+Date:   Mon Jun 24 23:31:09 2024 -0700
+
+    use also SslCertificateTrust when constructing CertificateContext (#103372)
+    
+    * use also SslCertificateTrust when constructing CertificateContext
+    
+    * 'build
+    
+    * feedback
