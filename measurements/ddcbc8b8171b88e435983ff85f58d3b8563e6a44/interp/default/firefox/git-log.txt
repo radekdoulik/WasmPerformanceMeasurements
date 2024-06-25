@@ -1,0 +1,27 @@
+commit ddcbc8b8171b88e435983ff85f58d3b8563e6a44
+Author: Phoebe Owusu <91153139+ebepho@users.noreply.github.com>
+Date:   Mon Jun 24 15:55:06 2024 -0700
+
+    Arm64/SVE: Implemented `Scale` and `Sqrt` (#103663)
+    
+    * Added ConverToInt32 and ConvertToUInt32 for float inputs.
+    
+    * Added flags to handle only low predicate registers.
+    
+    * Fix whitespace
+    
+    * Remove special codegen flag
+    
+    * Added new test template for operations with different return types.
+    
+    * Add new test template.
+    
+    * Added api for ConvertToInt32 and ConvertToUInt 32 for double.
+    
+    * Round SVE intrinsics for floats.
+    
+    * Completed Round SVE fp apis.
+    
+    * Completed sve apis for scale and sqrt, added a new test template for when Op1 and Op2 have different types.
+    
+    * Fixed test templates.
