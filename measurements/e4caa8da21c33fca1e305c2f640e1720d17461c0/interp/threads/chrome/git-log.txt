@@ -1,0 +1,8 @@
+commit e4caa8da21c33fca1e305c2f640e1720d17461c0
+Author: Elinor Fung <elfung@microsoft.com>
+Date:   Tue Jun 25 18:58:28 2024 -0700
+
+    Remove `MODULE_READY_FOR_TYPELOAD` flag on `Module` (#103990)
+    
+    - `MODULE_READY_FOR_TYPELOAD` flag on `Module` was only checked in an assert under a condition that would never be hit. I think this is left from ngen.
+    - Remove Module filter parameter on DebuggerMethodInfo::IterateAllDJIs - always `NULL`
