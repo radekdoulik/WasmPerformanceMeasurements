@@ -1,0 +1,13 @@
+commit 5c53e8ec9ca1a06a31c45936d3058fd6b1dc5961
+Author: Ilona Tomkowicz <32700855+ilonatommy@users.noreply.github.com>
+Date:   Wed Jun 26 12:41:05 2024 +0000
+
+    [browser] Fix: `HybridGlobalization` Invariant function differs from non-Hybrid (#103037)
+    
+    * Remove invaraint cace change from JS and rely on methods used in InvariantGlobalization.
+    
+    * Fix - some internal libs are using `ChangeCaseCore` with invariant culture.
+    
+    * Fix NodeJS failures - it behaves like old chrome.
+    
+    * Remove duplicated code.
