@@ -1,0 +1,5 @@
+commit c241cc99ac0cb3862bdee5e6f931f0ba60537631
+Author: Steve Harter <steveharter@users.noreply.github.com>
+Date:   Wed Jun 26 12:42:02 2024 -0500
+
+    Avoid rare deadlocks when using TypeDescriptor (#103835)
