@@ -1,0 +1,7 @@
+commit b8b3bf2ff50c5b63cc27db0b250ac29d5a40c5ad
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Wed Jun 26 07:02:02 2024 +0900
+
+    Report `RhpInitialDynamicInterfaceDispatch` reference in gfids (#103948)
+    
+    Some subset of tests is failing with control flow guard enabled because we're not able to indirectly call `RhpInitialDynamicInterfaceDispatch`. It's not clear why since we address take this method in C++ source files as well, but we should be reporting this from our object file too and doing that fixes it.
