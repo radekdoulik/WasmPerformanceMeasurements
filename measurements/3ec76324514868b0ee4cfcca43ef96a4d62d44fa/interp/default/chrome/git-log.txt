@@ -1,0 +1,16 @@
+commit 3ec76324514868b0ee4cfcca43ef96a4d62d44fa
+Author: Sven Boemer <sbomer@gmail.com>
+Date:   Tue Jun 25 16:40:53 2024 -0700
+
+    Fix detection of lambda and local function generated names (#103916)
+    
+    And share code between ILLink and Native AOT.
+    
+    Lambdas and local functions inside explicitly-implemented interface
+    methods include the interface type in the generated name. When the
+    interface type is generic, this breaks our heuristics (which were
+    looking for the first `>` to indicate the end of the user method name
+    in the generated method). This updates the heuristic to look for the
+    last `>` instead.
+    
+    Fixes https://github.com/dotnet/runtime/issues/98368
