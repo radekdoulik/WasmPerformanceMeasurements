@@ -1,0 +1,9 @@
+commit f6e5e243a5bd7d3f98e37809bc1cd61bd9dcb841
+Author: Elinor Fung <elfung@microsoft.com>
+Date:   Tue Jun 25 20:29:00 2024 -0700
+
+    Rename `Module::IsReflection` and `PEAssembly::IsDynamic` to `IsReflectionEmit` (#103999)
+    
+    * Module::IsReflection -> Module::IsReflectionEmit
+    
+    * PEAssembly::IsDynamic -> PEAssembly::IsReflectionEmit
