@@ -1,0 +1,67 @@
+commit c14e5dd49c5b8d95f69896b00e320a56a57b211e
+Author: Marie Píchová <11718369+ManickaP@users.noreply.github.com>
+Date:   Tue Jun 25 16:46:01 2024 +0200
+
+    [HTTP/3] Support for HTTP/3 multiple connections (#101531)
+    
+    * QuicConnection StreamsAvailable properties and event handler
+    
+    * EnableHttp3MultipleConnections property
+    
+    * H3 connection pool
+    
+    * Fixed unused methods.
+    
+    * Update src/libraries/System.Net.Http/src/System/Net/Http/SocketsHttpHandler/Http3Connection.cs
+    
+    Co-authored-by: Radek Zikmund <32671551+rzikm@users.noreply.github.com>
+    
+    * Fix release reserved stream count once it's opened.
+    
+    * Available streams count is thread safe
+    
+    * Move StreamsAvailable callback into connection options, remove count properties
+    
+    * HTTP adjustments to StreamsAvailable callback in options
+    
+    * Comments about multiple connections, including mention of being against RFC
+    
+    * Miha's Feedback: H/3 authority evaluation, user callback try-catch
+    
+    * Fix releasing stream
+    
+    * Added logging for stream counts
+    
+    * Fix stream counting in case of open stream failure
+    
+    * Feedback
+    
+    * Renamed API according to review feedback
+    
+    * Renamed API according to review feedback
+    
+    * More renames; Stored Action callback feedback
+    
+    * Fixed borked platform guard
+    
+    * Use the cached delegate :facepalm:
+    
+    * Easy feedback
+    
+    * Generated ref source
+    
+    * SupportedOS ordering, because I cannot stand it different
+    
+    * Idle connection back where it was
+    
+    * Assert
+    
+    * Fix handling negative stream capacity and 0 reporting STREAMS_AVAILABLE
+    
+    * Handling cummulative increments, canceled streams and more tests.
+    
+    * Removed logging
+    
+    ---------
+    
+    Co-authored-by: Radek Zikmund <32671551+rzikm@users.noreply.github.com>
