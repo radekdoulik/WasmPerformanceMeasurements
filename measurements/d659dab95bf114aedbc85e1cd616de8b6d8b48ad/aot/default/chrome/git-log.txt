@@ -1,0 +1,17 @@
+commit d659dab95bf114aedbc85e1cd616de8b6d8b48ad
+Author: Radek Zikmund <32671551+rzikm@users.noreply.github.com>
+Date:   Wed Jun 26 09:43:33 2024 +0200
+
+    Remove allocation of state machine in QuicStream.WriteAsync (#103902)
+    
+    * Remove unnecessary state machine allocation
+    
+    * Optimize hot path on QuicStream.ReadAsync
+    
+    * Revert "Optimize hot path on QuicStream.ReadAsync"
+    
+    This reverts commit 4b8db0e7a71b7d7738a154ad5b2aa4836d347abc.
+    
+    * No explicit throwing
+    
+    * ExceptionDispatchInfo.SetCurrentStackTrace
