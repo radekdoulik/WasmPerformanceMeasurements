@@ -1,0 +1,8 @@
+commit 9032715b81db6c430c28a2d5c6b468cbec08d885
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Wed Jun 26 13:12:52 2024 +0200
+
+    JIT: Handle QMARK properly for LCL_ADDR propagation (#103909)
+    
+    The assertions created/used need to take into account that qmark arms
+    are only conditionally executed.
