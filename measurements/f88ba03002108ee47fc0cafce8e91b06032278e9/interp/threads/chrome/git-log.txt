@@ -1,0 +1,11 @@
+commit f88ba03002108ee47fc0cafce8e91b06032278e9
+Author: Vlad Brezae <brezaevlad@gmail.com>
+Date:   Wed Jun 26 17:52:34 2024 +0300
+
+    [mono][interp] Improve precision of native offset estimation (#103956)
+    
+    The interpreter had always had problems with emitting branches, because the interpreter IR is actually executable. So when we generate branches we don't know if the branch will be long or short. A fix for this was to always generate long branches, and before the final codegen we compute conservative native offset estimates for instructions / bblocks (which are always larger that what would end up in the final code). Based on these, we determine if some branches can only be short, in which case, during codegen we emit a short branch.
+    
+    The problem arises with superinstructions doing branches which only have support for short branches. Before this pass, we need to compute the native offset estimates, in order to know if it is safe to optimize with a branch superins. The problem is that, it is hard to maintain the constraint for the native offset estimates if we are computing them so early in the optimization process. This commit fixes the estimate to account for additional moves that can be inserted by the var offset allocator. We still don't account for instructions inserted by some bblock optimizations (it is not clear if these are hit in practice).
+    
+    This commit is a conservative fix, addressing an existing precision issue with the computation, but a better long term fix would probably be to either deconstruct the super instruction if we detect it needs to do a long branch during final emit or to just move super instruction generation to a very late stage, after all optimizations and codgen happened, as a peephole optimization, where we can be certain whether a certain branch will be short or long.
