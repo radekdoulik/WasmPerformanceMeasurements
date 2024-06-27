@@ -1,0 +1,9 @@
+commit 5a0eb6e93c622fd140fafb2eb401c9c7d44cb2e3
+Author: Steve Pfister <steveisok@users.noreply.github.com>
+Date:   Wed Jun 26 16:47:24 2024 -0400
+
+    [mono] Use correct cast_class for IntPtr[] (#103841)
+    
+    This change fixes the behavior to be like modern .NET instead of .NET Framework.
+    
+    Fixes https://github.com/dotnet/runtime/issues/97145
