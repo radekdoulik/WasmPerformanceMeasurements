@@ -1,0 +1,8 @@
+commit 9d008f494797d96717be1b79f0bbbd8575c60b25
+Author: Roman Konecny <rokonecn@microsoft.com>
+Date:   Wed Jun 26 18:29:43 2024 +0300
+
+    Added test for missing cookie header value (#103969)
+    
+    * Test for missing cookie header value
+    * Disable this unit test on net48
