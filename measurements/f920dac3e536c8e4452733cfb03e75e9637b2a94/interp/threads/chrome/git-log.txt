@@ -1,0 +1,5 @@
+commit f920dac3e536c8e4452733cfb03e75e9637b2a94
+Author: Andrew Au <andrewau@microsoft.com>
+Date:   Wed Jun 26 23:04:43 2024 -0700
+
+    Minimize locking duration for decommitLock (#103996)
