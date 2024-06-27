@@ -1,0 +1,7 @@
+commit 53be9e5a36fa008406eed8720fc72b8e02f21256
+Author: Alexander Köplinger <alex.koeplinger@outlook.com>
+Date:   Thu Jun 27 11:14:48 2024 +0200
+
+    Suppress another credscan finding in TestData.cs (#104086)
+    
+    Instead of using the .gdnbaselines we can suppress it inline in code like we do for other places in this file.
