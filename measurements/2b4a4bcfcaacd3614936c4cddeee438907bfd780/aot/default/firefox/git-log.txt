@@ -1,0 +1,5 @@
+commit 2b4a4bcfcaacd3614936c4cddeee438907bfd780
+Author: Kevin Jones <kevin@vcsjones.com>
+Date:   Thu Jun 27 00:41:45 2024 -0400
+
+    Change X509CertificateLoader to wrap unsupported algorithms with a CryptographicException
