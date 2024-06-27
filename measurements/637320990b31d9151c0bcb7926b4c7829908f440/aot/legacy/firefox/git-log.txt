@@ -1,0 +1,11 @@
+commit 637320990b31d9151c0bcb7926b4c7829908f440
+Author: SwapnilGaikwad <swapnil.gaikwad@arm.com>
+Date:   Wed Jun 26 19:58:27 2024 +0100
+
+    Add support for Sve.VectorTableLookup() (#103989)
+    
+    * Add support for Sve.VectorTableLookup()
+    
+    * Incorporate review comments
+    
+    * Fix instruction format in comments
