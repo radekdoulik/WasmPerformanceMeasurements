@@ -1,0 +1,7 @@
+commit 6b4b371c44ea14536f860b75b5a1553605f49c82
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Fri Jun 28 07:02:15 2024 +0900
+
+    Delete ARM32-specific interface dispatch code (#104024)
+    
+    This was needed in .NET Native to support SharedLibrary.dll, but should not be needed for native AOT.
