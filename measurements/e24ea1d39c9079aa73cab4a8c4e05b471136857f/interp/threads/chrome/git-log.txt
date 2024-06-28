@@ -1,0 +1,29 @@
+commit e24ea1d39c9079aa73cab4a8c4e05b471136857f
+Author: Vladimir Sadov <vsadov@microsoft.com>
+Date:   Fri Jun 28 10:52:17 2024 -0700
+
+    Fix AV in GcInfoDecoder (#103938)
+    
+    * Add one bit padding to GC info
+    
+    * Do not prefetch when unsafe.
+    
+    * Revert "Add one bit padding to GC info"
+    
+    This reverts commit 3abb75e4f1c0aab3ec753cc0d476ba3cd6208f88.
+    
+    * better comments
+    
+    * FindSafePoint should use Skip - to be safe if method has no recorded variables of any kind
+    
+    * Apply suggestions from code review
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
+    
+    * Apply suggestions from code review
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
+    
+    ---------
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
