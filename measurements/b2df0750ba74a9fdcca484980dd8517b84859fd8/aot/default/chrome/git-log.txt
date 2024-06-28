@@ -1,0 +1,9 @@
+commit b2df0750ba74a9fdcca484980dd8517b84859fd8
+Author: Viktor Hofer <viktor.hofer@microsoft.com>
+Date:   Fri Jun 28 15:11:25 2024 +0200
+
+    Only build the most recent source generator when building from source (#104139)
+    
+    * Update Microsoft.Extensions.Logging.Abstractions.csproj
+    
+    * Update System.Text.Json.csproj
