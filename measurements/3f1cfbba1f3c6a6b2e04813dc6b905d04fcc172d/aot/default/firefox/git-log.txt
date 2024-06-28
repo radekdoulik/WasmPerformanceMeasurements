@@ -1,0 +1,11 @@
+commit 3f1cfbba1f3c6a6b2e04813dc6b905d04fcc172d
+Author: Gleb Balykov <g.balykov@samsung.com>
+Date:   Mon Jun 24 13:57:14 2024 +0300
+
+    [RISC-V] Add riscv64 arch to tracing/eventpipe/processinfo tests (#103832)
+    
+    * Add riscv64 arch to tracing/eventpipe/processinfo tests
+    
+    * Add loongarch64 to tracing/eventpipe/processinfo tests
+    
+    * Unify architecture identification in tracing/eventpipe/processinfo tests
