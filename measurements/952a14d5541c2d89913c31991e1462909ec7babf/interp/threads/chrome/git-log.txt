@@ -1,0 +1,9 @@
+commit 952a14d5541c2d89913c31991e1462909ec7babf
+Author: Adam Sitnik <adam.sitnik@gmail.com>
+Date:   Fri Jun 28 13:03:04 2024 +0200
+
+    re-enable BinaryFormatter tests, fixes #103447 (#104104)
+    
+    * re-enable BinaryFormatter tests, fixes #103447
+    
+    * don't run BF tests on WASM and Mobile
