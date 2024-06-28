@@ -1,0 +1,5 @@
+commit 74dd85398a7f409cb3852cfc6cd3bd309e6fb2eb
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Thu Jun 27 20:41:41 2024 -0400
+
+    Fix definite assignment error in regex source gen for some lazy loops (#104007)
