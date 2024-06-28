@@ -1,0 +1,7 @@
+commit 75b2501eb58c777c44ac966c479ed9fa356e2a9e
+Author: Radek Zikmund <32671551+rzikm@users.noreply.github.com>
+Date:   Fri Jun 28 20:54:20 2024 +0200
+
+    Revert "Fix potential Debug.Assert in QuicListener (#103965)" (#104154)
+    
+    This reverts commit 2fab73c966bbd6d5ad2ee721f70a29364925a8dc.
