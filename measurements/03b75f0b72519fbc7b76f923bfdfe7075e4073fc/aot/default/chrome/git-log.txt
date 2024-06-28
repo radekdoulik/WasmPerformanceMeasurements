@@ -1,0 +1,7 @@
+commit 03b75f0b72519fbc7b76f923bfdfe7075e4073fc
+Author: Tomasz Sowiński <tomeksowi@gmail.com>
+Date:   Fri Jun 28 08:30:58 2024 +0200
+
+    [x64][SysV] Classify empty structs for passing like padding (#103799)
+    
+    The current implementation barred a struct containing empty struct fields from enregistration. This did not match the [System V ABI](https://refspecs.linuxbase.org/elf/x86_64-abi-0.99.pdf) which says "NO_CLASS This class is used as initializer in the algorithms. It will be used for padding and **empty structures** and unions". It also does not match the behavior of GCC & Clang on Linux.
