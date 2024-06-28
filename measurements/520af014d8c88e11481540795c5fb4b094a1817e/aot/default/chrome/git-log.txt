@@ -1,0 +1,5 @@
+commit 520af014d8c88e11481540795c5fb4b094a1817e
+Author: Egor Bogatov <egorbo@gmail.com>
+Date:   Thu Jun 27 21:27:19 2024 +0200
+
+    JIT: Optimize out write barriers for fields in ref-like structs (#103503)
