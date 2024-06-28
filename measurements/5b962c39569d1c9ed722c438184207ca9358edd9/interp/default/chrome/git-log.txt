@@ -1,0 +1,19 @@
+commit 5b962c39569d1c9ed722c438184207ca9358edd9
+Author: SwapnilGaikwad <swapnil.gaikwad@arm.com>
+Date:   Thu Jun 27 16:41:06 2024 +0100
+
+    Add support for Sve.DuplicateSelectedScalarToVector() (#103228)
+    
+    * Add support for Sve.DuplicateScalarToVector()
+    
+    * Fix build errors from API mismatch
+    
+    * Use ConstantExpected instead of ConstantExpectedAttribute
+    
+    * Fix API incompatibility in Sve.PlatformNotSupported.cs
+    
+    * Fix emitting larger than 9-bit immediate with Sve LDR/STR instructions
+    
+    * Add HW_Category_SIMDByIndexedElement flag
+    
+    * Fix issue for getting incorrect register type for op2
