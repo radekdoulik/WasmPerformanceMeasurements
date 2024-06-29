@@ -1,0 +1,15 @@
+commit a0b8890f989d2d4b37507b99d94249506f161d6f
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Tue Jun 18 06:55:25 2024 +0900
+
+    Couple fixes for UseSystemResourceKeys (#103463)
+    
+    Fixes #102303.
+    
+    * Set a default value for the feature switch
+    * Make it possible to preinitialize the static constructor
+    * Fix generation of substitutions XML
+    * Update SR.vb to match SR.cs
+    * Fix resources in System.Diagnostics.FileVersionInfo.csproj
+    
+    @dotnet/illink
