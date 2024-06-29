@@ -1,0 +1,53 @@
+commit 6f1d8c5c0dbae1904d35fb9680957f811703d47d
+Author: Phoebe Owusu <91153139+ebepho@users.noreply.github.com>
+Date:   Fri Jun 28 21:19:20 2024 -0700
+
+    Arm64/SVE: Implemented `ConvertToint64` and `ConvertToUInt64` (#104069)
+    
+    * Added ConverToInt32 and ConvertToUInt32 for float inputs.
+    
+    * Added flags to handle only low predicate registers.
+    
+    * Fix whitespace
+    
+    * Remove special codegen flag
+    
+    * Added new test template for operations with different return types.
+    
+    * Add new test template.
+    
+    * Added api for ConvertToInt32 and ConvertToUInt 32 for double.
+    
+    * Completed SVE Apis for ConvertToInt64 and ConvertToUInt64.
+    
+    * ConvertToSingle for int and uint.
+    
+    * ConvertToSingle for long and ulong.
+    
+    * Started ConvertToDouble.
+    
+    * Changed Validation Template Test name.
+    
+    * ConvertToInt64.
+    
+    * ConvertToInt64 passes optimized tests.
+    
+    * Added cases for ConvertToSingle and ConvertToDouble.
+    
+    * double or long to 32 bit value.
+    
+    * Removed ConvertToDouble and ConvertToSingle.
+    
+    * Removed more of ConvertToSingle and ConvertToDouble.
+    
+    * all tests pass.
+    
+    * addressed comments.
+    
+    * jit format:
+    
+    * Remove trailing space
+    
+    ---------
+    
+    Co-authored-by: Kunal Pathak <Kunal.Pathak@microsoft.com>
