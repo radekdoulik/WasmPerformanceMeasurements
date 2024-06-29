@@ -1,0 +1,17 @@
+commit 9501cce7001aa355084bfdc2a728d12bc890a0a1
+Author: Vladimir Sadov <vsadov@microsoft.com>
+Date:   Fri Jun 28 13:43:27 2024 -0700
+
+    Avoid long busy-waiting between hijack retries. (#103212)
+    
+    * refactor suspension sleep into minipal_microsleep, avoid long busy-waiting
+    
+    * rename
+    
+    * Apply suggestions from code review
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
+    
+    ---------
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
