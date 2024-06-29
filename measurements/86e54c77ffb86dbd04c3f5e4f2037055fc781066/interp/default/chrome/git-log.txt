@@ -1,0 +1,9 @@
+commit 86e54c77ffb86dbd04c3f5e4f2037055fc781066
+Author: David Cantú <dacantu@microsoft.com>
+Date:   Fri Jun 28 14:34:41 2024 -0500
+
+    Subtract prior entry size when adding entry to cache (#103931)
+    
+    * Subtract prior entry size when adding entry to cache
+    
+    * Address feedback
