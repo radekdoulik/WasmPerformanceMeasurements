@@ -1,0 +1,9 @@
+commit a900bbf6fcf33fa2e799ed599ab86e00d6124c05
+Author: Adam Sitnik <adam.sitnik@gmail.com>
+Date:   Fri Jun 28 22:22:08 2024 +0200
+
+    [NRBF] change StartsWithPayloadHeader to accept a Span rather than array (#103636)
+    
+    * change StartsWithPayloadHeader to accept a Span rather than array
+    
+    * address code review feedback: don't use MemoryMarshal.Cast<byte, int> because it's not guaranteed to work everywhere
