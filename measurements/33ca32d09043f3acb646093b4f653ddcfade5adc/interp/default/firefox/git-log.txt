@@ -1,0 +1,8 @@
+commit 33ca32d09043f3acb646093b4f653ddcfade5adc
+Author: Egor Bogatov <egorbo@gmail.com>
+Date:   Fri Jun 28 23:40:54 2024 +0200
+
+    Accelerate Vector128<long>::op_Multiply on x64 (#103555)
+    
+    
+    Co-authored-by: Tanner Gooding <tagoo@outlook.com>
