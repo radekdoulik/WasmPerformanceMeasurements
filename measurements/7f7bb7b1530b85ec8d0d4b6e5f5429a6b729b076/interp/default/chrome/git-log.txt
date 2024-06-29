@@ -1,0 +1,19 @@
+commit 7f7bb7b1530b85ec8d0d4b6e5f5429a6b729b076
+Author: Kunal Pathak <Kunal.Pathak@microsoft.com>
+Date:   Fri Jun 28 16:10:22 2024 -0700
+
+    Arm64/Sve: Enable Sve only if vector length is 128 (#104174)
+    
+    * Enable InstructionSet_Sve only if system VL == 128
+    
+    * Update src/coreclr/vm/codeman.cpp
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
+    
+    * Update src/coreclr/vm/codeman.cpp
+    
+    * Remove hardcoding of 128 for windows
+    
+    ---------
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
