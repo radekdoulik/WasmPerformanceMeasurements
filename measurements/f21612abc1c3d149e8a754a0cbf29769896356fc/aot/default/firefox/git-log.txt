@@ -1,0 +1,15 @@
+commit f21612abc1c3d149e8a754a0cbf29769896356fc
+Author: Mikhail Ablakatov <164922675+mikabl-arm@users.noreply.github.com>
+Date:   Sat Jun 22 01:32:08 2024 +0100
+
+    Enbale TYP_MASK support for ARM64 (#103818)
+    
+    * Enbale TYP_MASK support for ARM64
+    
+    * cleanup: check for a FEATURE macro instead of TARGET
+    
+    * jit format
+    
+    ---------
+    
+    Co-authored-by: Kunal Pathak <Kunal.Pathak@microsoft.com>
