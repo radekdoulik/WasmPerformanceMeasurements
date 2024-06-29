@@ -1,0 +1,9 @@
+commit 9906682033b4fee6aadc12ac878ffa8fde1edfe1
+Author: Ruihan-Yin <107431934+Ruihan-Yin@users.noreply.github.com>
+Date:   Sat Jun 29 08:24:01 2024 -0700
+
+    remove unnecessary Avx512VL ISA flags. (#103144)
+    
+    * remove Avx10v1_V512 from XArchIntrisicConstants, let it imply by Avx512 and Avx10v1.
+    
+    * assert Avx10/V512 can be inferred from Avx10v1 and Avx512.
