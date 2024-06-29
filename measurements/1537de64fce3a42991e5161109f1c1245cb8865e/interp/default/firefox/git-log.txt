@@ -1,0 +1,5 @@
+commit 1537de64fce3a42991e5161109f1c1245cb8865e
+Author: Jeremy Koritzinsky <jekoritz@microsoft.com>
+Date:   Fri Jun 28 10:32:42 2024 -0700
+
+    Fix infinite loop in IGenericCacheEntry.CreateAndCache (#104126)
