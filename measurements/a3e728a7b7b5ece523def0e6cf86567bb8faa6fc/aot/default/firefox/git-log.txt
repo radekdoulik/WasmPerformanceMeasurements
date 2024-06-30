@@ -1,0 +1,15 @@
+commit a3e728a7b7b5ece523def0e6cf86567bb8faa6fc
+Author: Ahmet Ibrahim Aksoy <aaksoy@microsoft.com>
+Date:   Tue Jun 18 08:14:15 2024 +0200
+
+    [HTTP/3] Wrap Cancelled Request with OCE instead of QuicException (#103081)
+    
+    * Wrap Cancelled Request with OperationCanceledException instead of throwing QuicException as Inner
+    
+    * Handle wrapping OperationAborted in OCE on ReadResponseContent
+    
+    * Use properties from Concrete type
+    
+    * Convert OCE to TCE
+    
+    * Add comment for throwing TCE
