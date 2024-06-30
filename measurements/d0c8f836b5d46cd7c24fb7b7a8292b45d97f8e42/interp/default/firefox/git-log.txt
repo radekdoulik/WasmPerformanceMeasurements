@@ -1,0 +1,21 @@
+commit d0c8f836b5d46cd7c24fb7b7a8292b45d97f8e42
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Tue Jun 25 14:59:23 2024 +0200
+
+    JIT: Handle TYP_DOUBLE on arm softFP similarly to TYP_LONG (#103869)
+    
+    Avoids `PUTARG_REG` being a multi-reg node on arm32 to handle this special case.
+    
+    The gist of the change: we expect multi-reg structs, including `TYP_LONG` on
+    arm32/x86, to be put into a `FIELD_LIST(PUTARG_REG(low), PUTARG_REG(high))` form
+    before LSRA. For multi-reg structs this happens during morph, while for
+    `TYP_LONG` we keep them as primitives until lowering, so it happens during
+    lowering.
+    
+    There was a special case for arm32 with softFP where `TYP_DOUBLE` also ends up
+    being a similar multi-reg struct that is passed in two integer registers. There
+    was a bunch of special casing to handle this in the backend, by making
+    `PUTARG_REG` and `BITCAST` multireg nodes on arm32 only.
+    
+    This PR instead puts `TYP_DOUBLE` into the expected multireg-struct form during
+    lowering, allowing it to be handled like any other multireg struct.
