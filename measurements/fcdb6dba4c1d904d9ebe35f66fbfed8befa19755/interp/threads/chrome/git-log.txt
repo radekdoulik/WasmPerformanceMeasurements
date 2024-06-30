@@ -1,0 +1,13 @@
+commit fcdb6dba4c1d904d9ebe35f66fbfed8befa19755
+Author: Tanner Gooding <tagoo@outlook.com>
+Date:   Sun Jun 30 09:28:46 2024 -0700
+
+    Centralize the folding logic for ConditionalSelect and ensure side effects aren't dropped (#104175)
+    
+    * Centralize the folding logic for ConditionalSelect and ensure side effects aren't dropped
+    
+    * Ensure CndSel handles 64-bit operands where possible
+    
+    * Don't fold if op3 has side effects
+    
+    * Ensure that operands are passed into the lowered not->ternarylogic correctly
