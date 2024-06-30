@@ -1,0 +1,9 @@
+commit 03f58cb2790e9ef59b0d7d0eb60afd843ad103dc
+Author: Radek Zikmund <32671551+rzikm@users.noreply.github.com>
+Date:   Mon Jun 24 17:36:03 2024 +0200
+
+    Reduce some allocations in SslStream handshake. (#103814)
+    
+    * Reduce some allocations in SslStream handshake.
+    
+    * Remove now unnecessary change
