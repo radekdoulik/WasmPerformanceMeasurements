@@ -1,0 +1,15 @@
+commit b2ccd98a94db6f6977f8e7454ee3d135642ba253
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Tue Jun 18 13:31:33 2024 +0200
+
+    JIT: Produce special cased IR for boolean `isinst` checks (#103391)
+    
+    Currently the IR for boolean `isinst` checks ends up being something like `(x !=
+    null ? x.mt == expectedMT ? x : null : null) != null`, which the JIT ends up
+    having a hard time clean up early. With object stack allocation this pattern
+    usually leads to unnecessary address exposure.
+    
+    This adds a simple pattern match during import to produce different IR in the
+    common cases where the `isinst` is just used as a boolean check. We instead
+    produce IR like `(x != null ? x.mt == expectedMT ? 1 : 0 : 0) != 0`, which the
+    JIT has an easier time with.
