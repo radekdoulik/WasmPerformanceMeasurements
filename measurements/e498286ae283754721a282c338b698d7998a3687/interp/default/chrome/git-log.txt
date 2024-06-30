@@ -1,0 +1,112 @@
+commit e498286ae283754721a282c338b698d7998a3687
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Wed Jun 26 22:29:16 2024 +0200
+
+    JIT: Check for call interference when placing PUTARG nodes (#103301)
+    
+    This adds a legalization pass for call argument `PUTARG` nodes after they have
+    been created. We currently insert `PUTARG_*` nodes right after argument
+    definitions, which is usually a good placement because morph ensured that this
+    was ok.
+    However, due to LIR transformations this placement might not be legal if there
+    are any calls after the node. This PR moves the PUTARG_* nodes ahead of those
+    interfering calls when they exist.
+    
+    For example, for the case in #102919 we now end up with:
+    ```
+    Call [000278] has 7 PUTARG nodes that interfere with [002686]; will move them after it
+    Relocating [002700] after [002686]
+    Relocating [002699] after [002686]
+    Relocating [002698] after [002686]
+    Relocating [002697] after [002686]
+    Relocating [002696] after [002686]
+    Relocating [002695] after [002686]
+    Relocating [002694] after [002686]
+    Final result after legalization:
+    N001 (  1,  1) [000263] -----------                  t263 =    LCL_VAR   ref    V65 tmp36        u:4 $441
+    N002 (  1,  1) [000264] -----------                  t264 =    LCL_VAR   ref    V76 tmp47        u:4 $446
+    N003 (  1,  1) [000265] -----------                  t265 =    LCL_VAR   ref    V07 loc3         u:4 $448
+    N004 (  1,  1) [000266] -----------                  t266 =    LCL_VAR   int    V08 loc4         u:2 $371
+    N005 (  3,  2) [000267] -----------                  t267 =    LCL_VAR   ref    V09 loc5         u:6 $44c
+    N006 (  1,  1) [000268] -----------                  t268 =    LCL_VAR   ref    V10 loc6         u:6 $44d
+    N007 (  3,  2) [000269] -----------                  t269 =    LCL_VAR   int    V11 loc7         u:4 $780
+    N008 (  3,  2) [001733] -----------                 t1733 =    LCL_VAR   ref    V125 tmp96       u:2 (last use) $755
+    N009 (  1,  1) [001740] -c---------                 t1740 =    CNS_INT   long   16 $1c3
+                                                                ┌──▌  t1733  ref
+                                                                ├──▌  t1740  long
+    N010 (  3,  3) [001741] -------N---                 t1741 = ▌  ADD       byref  $3d4
+                                                                ┌──▌  t1741  byref
+                   [002690] DA---------                         ▌  STORE_LCL_VAR byref  V162 rat3
+                   [002691] -----------                 t2691 =    LCL_VAR   byref  V162 rat3
+                   [002692] -----------                 t2692 =    LCL_VAR   byref  V162 rat3
+                                                                ┌──▌  t2692  byref
+                   [002693] ---X-------                         ▌  NULLCHECK byte
+                   [002681] D----------                 t2681 =    LCL_ADDR  byref  V141 tmp112      [+0]
+                                                                ┌──▌  t2681  byref
+                   [002687] -----------                 t2687 = ▌  PUTARG_REG byref  REG rcx
+                                                                ┌──▌  t2691  byref
+                   [002688] -----------                 t2688 = ▌  PUTARG_REG byref  REG rdx
+                   [002682] -----------                 t2682 =    CNS_INT   long   128
+                                                                ┌──▌  t2682  long
+                   [002689] -----------                 t2689 = ▌  PUTARG_REG long   REG r8
+                                                                ┌──▌  t2687  byref  arg0 in rcx
+                                                                ├──▌  t2688  byref  arg1 in rdx
+                                                                ├──▌  t2689  long   arg2 in r8
+    N004 ( 17, 11) [002686] --CXG------                         ▌  CALL help void   CORINFO_HELP_BULK_WRITEBARRIER
+                                                                ┌──▌  t263   ref
+                   [002694] -----------                         ▌  PUTARG_STK [+0x20] void
+                                                                ┌──▌  t264   ref
+                   [002695] -----------                         ▌  PUTARG_STK [+0x28] void
+                                                                ┌──▌  t265   ref
+                   [002696] -----------                         ▌  PUTARG_STK [+0x30] void
+                                                                ┌──▌  t266   int
+                   [002697] -----------                         ▌  PUTARG_STK [+0x38] void
+                                                                ┌──▌  t267   ref
+                   [002698] -----------                         ▌  PUTARG_STK [+0x40] void
+                                                                ┌──▌  t268   ref
+                   [002699] -----------                         ▌  PUTARG_STK [+0x48] void
+                                                                ┌──▌  t269   int
+                   [002700] -----------                         ▌  PUTARG_STK [+0x50] void
+    N013 ( 19, 14) [001744] -----------                            NOP       void
+    N014 (  3,  2) [000275] -----------                  t275 =    LCL_VAR   ref    V123 tmp94       u:2 $754
+                                                                ┌──▌  t275   ref
+                   [002701] -----------                         ▌  PUTARG_STK [+0x60] void
+    N015 (  3,  3) [000276] -----------                  t276 =    LCL_ADDR  long   V22 loc18        [+0] $3d1
+                                                                ┌──▌  t276   long
+                   [002702] -----------                         ▌  PUTARG_STK [+0x68] void
+    N016 (  1,  1) [000277] -----------                  t277 =    LCL_VAR   ref    V03 arg3         u:1 $103
+                                                                ┌──▌  t277   ref
+                   [002703] -----------                         ▌  PUTARG_STK [+0x70] void
+    N017 (  3,  3) [001745] -----------                 t1745 =    LCL_ADDR  long   V141 tmp112      [+0] $3d8
+                                                                ┌──▌  t1745  long
+                   [002704] -----------                         ▌  PUTARG_STK [+0x58] void
+    N018 (  1,  1) [000261] -----------                  t261 =    LCL_VAR   ref    V01 arg1         u:1 $101
+                                                                ┌──▌  t261   ref
+                   [002705] -----------                 t2705 = ▌  PUTARG_REG ref    REG r8
+    N019 (  1,  1) [000262] -----------                  t262 =    LCL_VAR   ref    V02 arg2         u:1 $102
+                                                                ┌──▌  t262   ref
+                   [002706] -----------                 t2706 = ▌  PUTARG_REG ref    REG r9
+    N020 (  1,  1) [000259] -----------                  t259 =    LCL_VAR   ref    V00 this         u:1 $100
+                                                                ┌──▌  t259   ref
+                   [002707] -----------                 t2707 = ▌  PUTARG_REG ref    REG rcx
+    N021 (  1,  1) [001124] -----------                 t1124 =    CNS_INT   int    1 $c1
+                                                                ┌──▌  t1124  int
+                   [002708] -----------                 t2708 = ▌  PUTARG_REG int    REG rdx
+                                                                ┌──▌  t2705  ref    arg2 in r8
+                                                                ├──▌  t2706  ref    arg3 in r9
+                                                                ├──▌  t2707  ref    this in rcx
+                                                                ├──▌  t2708  int    arg1 in rdx
+    N022 ( 91, 46) [000278] -ACXGO-----                  t278 = ▌  CALL      ref    Microsoft.CodeAnalysis.CSharp.Binder:BindConstructorInitializerCoreContinued(ubyte,Microsoft.CodeAnalysis.CSharp.Syntax.ArgumentListSyntax,Microsoft.CodeAnalysis.CSharp.Symbols.MethodSymbol,Microsoft.CodeAnalysis.CSharp.AnalyzedArguments,Microsoft.CodeAnalysis.CSharp.Symbols.TypeSymbol,Microsoft.CodeAnalysis.CSharp.Symbols.NamedTypeSymbol,ubyte,Microsoft.CodeAnalysis.CSharp.CSharpSyntaxNode,Microsoft.CodeAnalysis.Location,ubyte,Microsoft.CodeAnalysis.CSharp.MemberResolutionResult`1[Microsoft.CodeAnalysis.CSharp.Symbols.MethodSymbol],System.Collections.Immutable.ImmutableArray`1[Microsoft.CodeAnalysis.CSharp.Symbols.MethodSymbol],byref,Microsoft.CodeAnalysis.CSharp.BindingDiagnosticBag):Microsoft.CodeAnalysis.CSharp.BoundExpression:this $135
+    ```
+    
+    without this change the `PUTARG_STK` nodes end up before the `BULKWRITEBARRIER` call.
+    
+    The algorithm works by first marking all `PUTARG` operand nodes of the call, and
+    then walking backwards from the call in linear order until we have visited all
+    marked nodes. If we see any call before visiting all marked nodes then we have
+    found an interfering call, and the remaining `PUTARG_` nodes need to be moved
+    after it.
+    
+    Fix #103300
+    Fix #102919
+    Fix #104042
