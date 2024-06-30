@@ -1,0 +1,7 @@
+commit d6f4beeb26812b82bea4f6300471998a6b92718b
+Author: Katelyn Gadd <kg@luminance.org>
+Date:   Thu Jun 27 23:41:02 2024 -0700
+
+    Repair very old merge damage and update comments (#104052)
+    
+    Restore missing or opcode for 2/4-byte shuffles with unknown-at-compile-time shuffle mask in the jiterpreter
