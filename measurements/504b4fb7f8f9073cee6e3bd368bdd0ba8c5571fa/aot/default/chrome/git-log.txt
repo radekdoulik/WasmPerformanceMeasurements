@@ -1,0 +1,10 @@
+commit 504b4fb7f8f9073cee6e3bd368bdd0ba8c5571fa
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Tue Jun 18 08:59:06 2024 +0200
+
+    JIT: Fix `resolveConflictingDefAndUse` to take kills into account (#103562)
+    
+    This function should have been updated as part of f95a76b to take into
+    account that kills are no longer present in the RefPosition list for
+    `RegRecord`s. We apparently did not see any issues as a result, but this
+    PR fixes it to account for that.
