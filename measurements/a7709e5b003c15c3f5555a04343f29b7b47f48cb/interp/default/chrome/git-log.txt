@@ -1,0 +1,9 @@
+commit a7709e5b003c15c3f5555a04343f29b7b47f48cb
+Author: Tanner Gooding <tagoo@outlook.com>
+Date:   Sun Jun 30 06:06:17 2024 -0700
+
+    Ensure GetElement are marked as having an immediate operand for Arm64 (#104204)
+    
+    * Ensure GetElement are marked as having an immediate operand for Arm64
+    
+    * Ensure IsSafeToContainMem is checked
