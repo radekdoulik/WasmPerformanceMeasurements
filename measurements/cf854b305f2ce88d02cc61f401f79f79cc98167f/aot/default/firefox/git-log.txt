@@ -1,0 +1,13 @@
+commit cf854b305f2ce88d02cc61f401f79f79cc98167f
+Author: Sven Boemer <sbomer@gmail.com>
+Date:   Mon Jun 17 11:00:21 2024 -0700
+
+    Validate generic constraints in ILLink tests (#103452)
+    
+    Adds validation of generic constraints in ILLink tests, and
+    adds a test for byref-like types to ensure that the new
+    `AllowByRefLike` special constraint is preserved.
+    
+    ---------
+    
+    Co-authored-by: Jackson Schuster <36744439+jtschuster@users.noreply.github.com>
