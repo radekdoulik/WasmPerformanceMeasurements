@@ -1,0 +1,28 @@
+commit 117cfccdd71abc164e6b933ca7602b509a1365dd
+Author: Jeremy Koritzinsky <jekoritz@microsoft.com>
+Date:   Wed Jun 19 21:04:05 2024 -0700
+
+    Create portable box helper and wrap the thread-local alloc context in a struct (#103607)
+    
+    * Create a portable box helper and remove the assembly-based one. The codegen is close, but we don't need to be exact as most box operations are inlined anyway
+    
+    * Create a new struct we can put GC-focused thread-locals on (like GC mode, frame/gc frame chains, etc)
+    
+    * Update jithelpers.cpp
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
+    
+    * GCThreadLocals/ThreadBuffer->RuntimeThreadLocals
+    
+    * Change pointer to be to RuntimeThreadLocals
+    
+    * Update cDAC
+    
+    * Update src/native/managed/cdacreader/src/Data/RuntimeThreadLocals.cs
+    
+    Co-authored-by: Elinor Fung <elfung@microsoft.com>
+    
+    ---------
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
+    Co-authored-by: Elinor Fung <elfung@microsoft.com>
