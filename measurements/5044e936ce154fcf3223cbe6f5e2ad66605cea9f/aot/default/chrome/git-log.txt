@@ -1,0 +1,24 @@
+commit 5044e936ce154fcf3223cbe6f5e2ad66605cea9f
+Author: Jan Kotas <jkotas@microsoft.com>
+Date:   Mon Jul 1 17:13:07 2024 -0700
+
+    Use RtlDllShutdownInProgress to detect process shutdown on Windows (#103877)
+    
+    * Use RtlDllShutdownInProgress to detect process shutdown on Windows
+    
+    Switching to cooperative mode is not safe during process shutdown on
+    Windows. Process shutdown can terminate a thread in the middle of the
+    GC. The shutdown thread deadlocks if it tries to switch to cooperative
+    mode and wait for the GC to finish in this situation.
+    
+    Use RtlDllShutdownInProgress Windows API to detect process
+    shutdown to skip cleanup that has to be done in cooperative mode.
+    
+    The existing g_fProcessDetach flag is set too late - using this flag to
+    skip cooperative mode switch would lead to shutdown deadlocks, and the
+    existing g_fEEShutDown flag is set too early - using this flag to skip
+    cooperative mode switch would lead to shutdown crashes.
+    
+    Fixes #103624
+    
+    * Replace direct g_fProcessDetach checks with a call to IsAtProcessExit
