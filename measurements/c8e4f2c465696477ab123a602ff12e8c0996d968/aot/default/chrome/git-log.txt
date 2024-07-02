@@ -1,0 +1,49 @@
+commit c8e4f2c465696477ab123a602ff12e8c0996d968
+Author: Vladimir Sadov <vsadov@microsoft.com>
+Date:   Tue Jul 2 12:47:18 2024 -0700
+
+    [NativeAOT] Adding CET support (#102680)
+    
+    * Add support for STATUS_RETURN_ADDRESS_HIJACK_ATTEMPT
+    
+    * fix build with clang
+    
+    * Allow hijacked returns that land in assembly thunks
+    
+    * fix x86 build
+    
+    * fail fast if hijack is hit on an unhijacked thread.
+    
+    * comment
+    
+    * assert that OS unhijacked the thread to the same target as stashed by us.
+    
+    * opt into CETCOMPAT by default
+    
+    * unify adjustment for thunks
+    
+    * Use CETCompat as condition. Narrow to x64.
+    
+    * Enable EHCONT, if CET and CFG are enabled
+    
+    * tweak comments
+    
+    * Reconcile shadow stack with SP changes in RhpCallCatchFunclet
+    
+    * Use RhFailFast for failfast
+    
+    * drop __fastcall in HijackFunc
+    
+    * Apply suggestions from code review
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
+    
+    * remove fastcall from RhpHijackForGcStress
+    
+    * Apply suggestions from code review
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
+    
+    ---------
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
