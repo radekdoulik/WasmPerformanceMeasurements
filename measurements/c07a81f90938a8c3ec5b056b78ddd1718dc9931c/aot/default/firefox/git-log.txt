@@ -1,0 +1,9 @@
+commit c07a81f90938a8c3ec5b056b78ddd1718dc9931c
+Author: Austin Wise <AustinWise@gmail.com>
+Date:   Tue Jul 2 00:05:06 2024 -0700
+
+    [NativeAOT] collect garbage when memory is low (#103857)
+    
+    This matches the existing feature in CoreCLR:
+    
+    https://github.com/dotnet/runtime/blob/main/src/coreclr/vm/finalizerthread.cpp#L250
