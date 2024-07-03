@@ -1,0 +1,5 @@
+commit a6743389d42ee6f0efefbd4d14227f6c15364663
+Author: Egor Bogatov <egorbo@gmail.com>
+Date:   Tue Jul 2 20:03:55 2024 +0200
+
+    Fix DEREF_AFTER_NULL in /src/coreclr/jit/fgopt.cpp (#102342)
