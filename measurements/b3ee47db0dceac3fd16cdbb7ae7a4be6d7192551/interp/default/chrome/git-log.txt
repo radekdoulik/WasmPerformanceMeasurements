@@ -1,0 +1,7 @@
+commit b3ee47db0dceac3fd16cdbb7ae7a4be6d7192551
+Author: Meri Khamoyan <96171496+mkhamoyan@users.noreply.github.com>
+Date:   Mon Jul 1 09:00:34 2024 +0200
+
+    [ios][HybridGlobalization] Fix default culture  (#104071)
+    
+    Update default locale name only return base name
