@@ -1,0 +1,10 @@
+commit 752558f4be7d19bbd3df1f94e8d4f5e655f8c28a
+Author: Jan Kotas <jkotas@microsoft.com>
+Date:   Tue Jul 2 14:50:30 2024 -0700
+
+    [NativeAOT] WindowsUse RtlDllShutdownInProgress to detect process (#104318)
+    
+    shutdown
+    
+    Port #103877 to Native AOT. This is fixing intermittent shutdown hangs
+    that can observed by running the tests attached to #103877.
