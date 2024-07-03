@@ -1,0 +1,55 @@
+commit f92499d226720aeee81dea2a9df137f75b2cbb37
+Author: Kunal Pathak <Kunal.Pathak@microsoft.com>
+Date:   Tue Jul 2 22:03:15 2024 -0700
+
+    NativeAOT/Windows/Arm64: Add TLS inline support (#104282)
+    
+    * working with 1 change remaining
+    
+    hack to test
+    
+    some fixes
+    
+    almost trhere
+    
+    fix assert
+    
+    Some comments and revert sample Program
+    
+    some renaming
+    
+    Revert changes for IF_DI_1E
+    
+    format IF_DI_2A code:
+    
+    Format emitIns_Add_Add_Tls_Reloc
+    
+    Fixed the code in IF_DI_2A
+    
+    * revert changes in reproNative.vcxproj
+    
+    * jit format
+    
+    * review feedback
+    
+    * remove commented code
+    
+    * review feedback
+    
+    * use CAST for LSH
+    
+    * review comemnts
+    
+    * fix the condition
+    
+    * Rename the enum names
+    
+    * update guid
+    
+    * Update src/coreclr/tools/Common/Compiler/DependencyAnalysis/Relocation.cs
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
+    
+    ---------
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
