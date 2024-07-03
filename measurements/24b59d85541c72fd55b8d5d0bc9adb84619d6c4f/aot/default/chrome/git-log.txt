@@ -1,0 +1,7 @@
+commit 24b59d85541c72fd55b8d5d0bc9adb84619d6c4f
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Wed Jun 19 15:32:25 2024 -0700
+
+    Avoid concatenating adjacent regex loops+strings under right-to-left (#103591)
+    
+    The pattern gets reversed but the actual strings in multis aren't (instead the evaluation just compares them in reverse), which means optimizations based on comparing nodes in a sequence and the text of such a string either need to take that into account or be disabled for right-to-left.
