@@ -1,0 +1,5 @@
+commit 1d16fd14fa772621c7b09ebd00f83610207b1abf
+Author: Elinor Fung <elfung@microsoft.com>
+Date:   Tue Jul 2 19:22:55 2024 -0700
+
+    Skip calling not implemented PEAssembly::GetDisplayName in DAC (#104326)
