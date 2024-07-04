@@ -1,0 +1,7 @@
+commit 5b86dca8e75627d1f5ad77f1dcffafa96e4f5049
+Author: Andy Gocke <angocke@microsoft.com>
+Date:   Thu Jul 4 06:47:50 2024 -0700
+
+    Revert "Migrate to zlib-ng, part 2: consume it in runtime (#102403)" (#104414)
+    
+    This reverts commit f5c9a5e8f5ab28c1e3e49c4ecc047b4368a63d27.
