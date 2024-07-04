@@ -1,0 +1,9 @@
+commit 426b00c6e4d32b26414007eb01a5233b28605144
+Author: Omair Majid <omajid@redhat.com>
+Date:   Mon Jul 1 16:07:49 2024 -0400
+
+    Fix typo in ComInterfaceInfo.OptionsAreValid (#102384)
+    
+    We want to check the derived type has the same wrapper as the base type.
+    But the code seems to have a copy-paste or typo error where it checks
+    the derived type wrapper against a different base type wrapper.
