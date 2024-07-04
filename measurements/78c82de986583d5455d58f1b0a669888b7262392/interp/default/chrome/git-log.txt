@@ -1,0 +1,9 @@
+commit 78c82de986583d5455d58f1b0a669888b7262392
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Fri Jun 21 06:57:45 2024 -0700
+
+    Use span-based dictionary lookup in System.Console (#103742)
+    
+    * Use span-based dictionary lookup in System.Console
+    
+    * Fix ctor
