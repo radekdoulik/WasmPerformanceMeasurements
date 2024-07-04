@@ -1,0 +1,7 @@
+commit e78b72b1fdf43d9678877400bcfe801b38c14681
+Author: Jeremy Barton <jbarton@microsoft.com>
+Date:   Thu Jul 4 10:50:30 2024 -0700
+
+    Fix certificate test failures on iOS(-likes)
+    
+    Also don't run ExportMultiplePrivateKeys on platforms that don't have Exportable
