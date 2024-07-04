@@ -1,0 +1,15 @@
+commit 745b77645fc13ff5667cedd0c8a02d0b0b86cf1f
+Author: Sun Lijun <sunlijun@loongson.cn>
+Date:   Tue Jul 2 23:23:56 2024 +0800
+
+    [LoongArch64] Part-2:Add runtime assembly code (*.S) files in nativeaot. (#104084)
+    
+    * [LoongArch64] Part-2:Add runtime assembly code (*.S) file in nativeaot.
+    
+    * Update AllocFast.S and PInvoke.S in nativeaot-runtime
+    
+    * Update src/coreclr/nativeaot/Runtime/loongarch64/WriteBarriers.S
+    
+    * Update AllocFast.S and ExceptionHandling.S
+    
+    * Rewrite PROLOG_SAVE_REG_PAIR_INDEXED and Add atomic.
