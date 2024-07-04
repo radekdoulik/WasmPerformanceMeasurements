@@ -1,0 +1,8 @@
+commit 4071a312c407c52dd891f208de5c935d7869745a
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Thu Jul 4 21:17:22 2024 +0200
+
+    JIT: Extract StructSegments to its own file (#104432)
+    
+    Also move the function to compute the significant segments for a class
+    handle from `Promotion` to `Compiler`.
