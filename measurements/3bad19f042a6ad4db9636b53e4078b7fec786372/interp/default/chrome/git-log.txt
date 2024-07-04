@@ -1,0 +1,29 @@
+commit 3bad19f042a6ad4db9636b53e4078b7fec786372
+Author: Eirik Tsarpalis <eirik.tsarpalis@gmail.com>
+Date:   Thu Jul 4 17:12:20 2024 +0100
+
+    Add Utf8JsonReader.AllowMultipleValues and related APIs. (#104328)
+    
+    * Add Utf8JsonReader.AllowMultipleValues and related APIs.
+    
+    * Update src/libraries/System.Text.Json/src/System/Text/Json/Reader/JsonReaderOptions.cs
+    
+    Co-authored-by: Stephen Toub <stoub@microsoft.com>
+    
+    * Update src/libraries/System.Text.Json/src/System/Text/Json/Serialization/JsonSerializer.Read.Stream.cs
+    
+    Co-authored-by: Stephen Toub <stoub@microsoft.com>
+    
+    * Address feedback
+    
+    * Update src/libraries/System.Text.Json/src/System/Text/Json/Serialization/JsonSerializer.Read.Stream.cs
+    
+    * Update src/libraries/System.Text.Json/src/System/Text/Json/Serialization/JsonSerializer.Read.Stream.cs
+    
+    * Update DOM tests to demonstrate chained root-value parsing.
+    
+    * Add another assertion
+    
+    ---------
+    
+    Co-authored-by: Stephen Toub <stoub@microsoft.com>
