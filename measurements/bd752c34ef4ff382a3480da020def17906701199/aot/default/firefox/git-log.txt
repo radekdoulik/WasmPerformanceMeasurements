@@ -1,0 +1,17 @@
+commit bd752c34ef4ff382a3480da020def17906701199
+Author: Miha Zupan <mihazupan.zupan1@gmail.com>
+Date:   Fri Jul 5 13:01:42 2024 +0200
+
+    Avoid unobserved task exceptions in Http tests (#104384)
+    
+    * Improve HttpProtocolTests
+    
+    * Avoid unobserved exceptions from H2's read loop
+    
+    * More test changes
+    
+    * Actually do what the test name suggests
+    
+    * Fix Dispose_DisposingHandlerCancelsActiveOperationsWithoutResponses
+    
+    * Revert some changes that Browser doesn't like
