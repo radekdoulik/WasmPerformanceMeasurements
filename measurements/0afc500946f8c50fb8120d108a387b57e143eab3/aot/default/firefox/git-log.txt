@@ -1,0 +1,16 @@
+commit 0afc500946f8c50fb8120d108a387b57e143eab3
+Author: Juan Hoyos <19413848+hoyosjs@users.noreply.github.com>
+Date:   Thu Jul 4 21:36:20 2024 -0700
+
+    Fix GetStaticsBases (#104412)
+    
+    * Fix GetStaticsBases
+    
+    * Enum all the statics info memory
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
+    
+    ---------
+    
+    Co-authored-by: Mike McLaughlin <mikem@microsoft.com>
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
