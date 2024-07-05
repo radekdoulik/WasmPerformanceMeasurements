@@ -1,0 +1,7 @@
+commit 5b7e77d086214ab3124fd93a618923f03751bff8
+Author: Katelyn Gadd <kg@luminance.org>
+Date:   Fri Jul 5 11:40:28 2024 -0700
+
+    [wasm] Don't use SyncTextWriter in single-threaded wasm builds (#101221)
+    
+    Bypass SyncTextWriter on single-threaded wasm to avoid compiling synchronization code during startup when console is touched
