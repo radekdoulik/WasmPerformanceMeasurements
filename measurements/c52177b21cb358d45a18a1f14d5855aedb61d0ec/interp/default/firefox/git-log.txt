@@ -1,0 +1,13 @@
+commit c52177b21cb358d45a18a1f14d5855aedb61d0ec
+Author: xtqqczze <45661989+xtqqczze@users.noreply.github.com>
+Date:   Fri Jul 5 13:55:05 2024 +0100
+
+    Remove `virtual` modifier from `GetDatePart` (#104456)
+    
+    * Remove `virtual` modifier from `GetDatePart`
+    
+    * Update HebrewCalendar.cs
+    
+    ---------
+    
+    Co-authored-by: Stephen Toub <stoub@microsoft.com>
