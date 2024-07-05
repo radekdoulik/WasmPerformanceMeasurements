@@ -1,0 +1,7 @@
+commit 64efe2654c8455e7591aa07e7e8505064f571fc4
+Author: Anton Firszov <Anton.Firszov@microsoft.com>
+Date:   Thu Jul 4 22:57:20 2024 +0200
+
+    [HttpClientFactory] Do not log query string by default (#103769)
+    
+    Query strings may often contain sensitive information, we should avoid logging them by default.
