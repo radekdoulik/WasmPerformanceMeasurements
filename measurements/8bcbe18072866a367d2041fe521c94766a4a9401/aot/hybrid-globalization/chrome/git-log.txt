@@ -1,0 +1,23 @@
+commit 8bcbe18072866a367d2041fe521c94766a4a9401
+Author: Artur Zgodziński <bivaro@gmail.com>
+Date:   Fri Jul 5 12:51:43 2024 +0100
+
+    Unify debug views of immutable dictionaries (#100745)
+    
+    * Unify debug views of immutable dictionaries
+    
+    Fixes #94289
+    
+    - Updates the way the debugger displays the remaining dictionaries (Frozen, Immutable, ImmutableSorted, Concurrent) to present their keys and values in separate columns.
+    - Fixes debugger views of Builder classes of immutable collections. Previous custom implementations incorrectly treated the Builder classes as immutable.
+    
+    * Fixed tests of debugger attributes with immutable and concurrent generic dictionaries
+    
+    * Removed tests superseded by DebugView.Tests.
+    * Fixed DebugView.Tests of cuncurrent and immutable generic dictionaries which failed on .Net Framework
+    
+    * Fix ns2.0 build.
+    
+    ---------
+    
+    Co-authored-by: Eirik Tsarpalis <eirik.tsarpalis@gmail.com>
