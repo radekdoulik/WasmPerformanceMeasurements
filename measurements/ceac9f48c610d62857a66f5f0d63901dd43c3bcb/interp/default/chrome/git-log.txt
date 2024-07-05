@@ -1,0 +1,7 @@
+commit ceac9f48c610d62857a66f5f0d63901dd43c3bcb
+Author: yurai007 <dawid_jurek@vp.pl>
+Date:   Fri Jul 5 07:15:58 2024 +0200
+
+    [RISC-V] Fix coreclr test readytorun/coreroot_determinism/coreroot_determinism/coreroot_determinism.sh (#104140)
+    
+    To make test passing we increase TimeoutMilliseconds to 30 min.
