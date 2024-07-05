@@ -1,0 +1,8 @@
+commit 84bda51cbe8ba5aa7b970dc8deea34e9f0d1912c
+Author: xtqqczze <45661989+xtqqczze@users.noreply.github.com>
+Date:   Fri Jul 5 22:13:43 2024 +0100
+
+    Remove `virtual` modifier from `InternalFallback` (#104483)
+    
+    * `System.Text.DecoderFallbackBuffer`
+    * `System.Text.EncoderFallbackBuffer`
