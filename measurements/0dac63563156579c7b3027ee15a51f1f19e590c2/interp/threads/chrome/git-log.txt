@@ -1,0 +1,10 @@
+commit 0dac63563156579c7b3027ee15a51f1f19e590c2
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Fri Jul 5 10:04:10 2024 +0200
+
+    JIT: Fix "elaborated type specifier" for enum class in JIT (#104450)
+    
+    It appears even scoped enums should just get the `enum` keyword in these
+    cases.
+    
+    Fix #104442
