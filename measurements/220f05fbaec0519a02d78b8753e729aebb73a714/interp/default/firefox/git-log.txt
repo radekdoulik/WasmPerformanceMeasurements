@@ -1,0 +1,20 @@
+commit 220f05fbaec0519a02d78b8753e729aebb73a714
+Author: Marc Brooks <IDisposable@gmail.com>
+Date:   Thu Jul 4 22:14:40 2024 -0500
+
+    Simplify Emit SignatureHelper WriteSimpleSignature (#104220)
+    
+    * Simplify Emit SignatureHelper WriteSimpleSignature
+    
+    Make the `default` case explicit and swap the early `return` to `break`s.
+    
+    * Update src/libraries/System.Reflection.Emit/src/System/Reflection/Emit/SignatureHelper.cs
+    
+    Co-authored-by: Buyaa Namnan <buyankhishig.namnan@microsoft.com>
+    
+    * Update src/libraries/System.Reflection.Emit/src/System/Reflection/Emit/SignatureHelper.cs
+    
+    ---------
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
+    Co-authored-by: Buyaa Namnan <buyankhishig.namnan@microsoft.com>
