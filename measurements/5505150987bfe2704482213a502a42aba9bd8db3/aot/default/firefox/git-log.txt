@@ -1,0 +1,25 @@
+commit 5505150987bfe2704482213a502a42aba9bd8db3
+Author: Kunal Pathak <Kunal.Pathak@microsoft.com>
+Date:   Fri Jul 5 15:13:12 2024 -0700
+
+    Arm64/Sve: Implement AbsoluteCompare* and Compare* APIs (#104464)
+    
+    * Add AbsoluteCompare*() APIs
+    
+    * Map API to instructions
+    
+    * Add test coverage
+    
+    * Add support for AbsoluteCompare
+    
+    * uncomment some other tests
+    
+    * Add CompareGreater* and CompareLess* APIs
+    
+    * Add remaining Compare* APIs
+    
+    * Map API to instructions
+    
+    * fix test cases
+    
+    * Add test coverage for Sve.CompareUnordered
