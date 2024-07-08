@@ -1,0 +1,31 @@
+commit 90d4c7d41a3fb3390cdcca598fc34cc6b986c75e
+Author: Eirik Tsarpalis <eirik.tsarpalis@gmail.com>
+Date:   Mon Jul 8 17:57:59 2024 +0100
+
+    Improve `JsonNode.DeepEquals` numeric equality. (#104255)
+    
+    * Attempt at improving JsonNode.DeepEquals numeric equality.
+    
+    * Implement arbitrary-precision decimal equality comparison.
+    
+    * Address feedback
+    
+    * Add more comments.
+    
+    * Update src/libraries/System.Text.Json/src/System/Text/Json/JsonHelpers.cs
+    
+    Co-authored-by: Stephen Toub <stoub@microsoft.com>
+    
+    * Address feedback
+    
+    * Improve comments
+    
+    * Update src/libraries/System.Text.Json/src/System/Text/Json/JsonHelpers.cs
+    
+    * Trim frac trailing zeros before trimming leading zeros.
+    
+    * Add handling for exponent values > Int32
+    
+    ---------
+    
+    Co-authored-by: Stephen Toub <stoub@microsoft.com>
