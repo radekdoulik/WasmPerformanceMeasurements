@@ -1,0 +1,82 @@
+commit e3363265b20905a55f4c6a7560f70150692548f7
+Author: Aleksey Kliger (λgeek) <alklig@microsoft.com>
+Date:   Mon Jul 8 09:09:23 2024 -0400
+
+    [cdac] RuntimeTypeSystem contract; rename ContainsPointers -> ContainsGCPointers (#103444)
+    
+    * Implement GetThreadStoreData in cDAC
+    
+    * [dac] Return canonical MethodTable instead of EEClass
+    
+       Instead of storing the EEClass pointer in DacpMethodTableData, store the canonical method table instead.
+    
+       Correspondingly, update GetMethodTableForEEClass to expect a canonical method table pointer instead of an EEClass
+    
+       Also update cDAC to do likewise
+    
+    * document GetMethodTableData string baseSize adjustment
+    
+    * Apply suggestions from code review
+    
+    Co-Authored-By: Aaron Robinson <arobins@microsoft.com>
+    
+    * [vm] rename ContainsPointers flag to ContainsGCPointers
+    
+       also rename getter/setter methods in MethodTable
+    
+    * code style suggestions from code review
+    
+    * DAC: always set wNumVirtuals and wNumVtableSlots to 0
+    
+       This information can be retreived from the MethodTable using normal lldb/windbg primitives and doesn't need to be part of the DAC API contract
+    
+    * Remove NumVirtuals and NumVtableSlots from RuntimeTypeSystem.md
+    
+       Co-authored-by: Jan Kotas <jkotas@microsoft.com>
+    
+    * "untrusted" -> "non-validated"
+    
+    * pull test target helpers out
+    
+       goal is to be able to use this for testing contracts that depend on some data in the heap
+    
+    * Add one FreeObjectMethodTable unit test
+    
+    * validate that a mock system object is a valid method table
+    
+    * code review feedback and more tests:
+    
+       1. rename AttrClass data descriptor field to CorTypeAttr
+       2. fixup HasComponentSize / RawGetComponentSize comments and code
+       3. update "system.object" mock methodtable with more field values
+       4. update "system.string" mock methodtable with more field values
+    
+    * Update src/coreclr/gc/env/gcenv.object.h
+    
+       Co-authored-by: Elinor Fung <elfung@microsoft.com>
+    
+    * Update src/native/managed/cdacreader/src/Contracts/Metadata_1.MethodTableFlags.cs
+    
+       Co-authored-by: Elinor Fung <elfung@microsoft.com>
+    
+    * move non-validated MethodTable handling to a separate class
+    
+    * clear up ComponentSize contract spec and impl
+    
+    * rename Metadata -> RuntimeTypeSystem
+    
+    * add validation failure test; change validation to throw InvalidOperationException
+    
+    * Update src/native/managed/cdacreader/src/Contracts/RuntimeTypeSystem_1.cs
+    
+       Co-authored-by: Jan Kotas <jkotas@microsoft.com>
+    
+    * Add a generic instance test
+    
+    * add array instance test
+    
+    ---------
+    
+    Co-authored-by: Elinor Fung <elfung@microsoft.com>
+    Co-authored-by: Aaron Robinson <arobins@microsoft.com>
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
