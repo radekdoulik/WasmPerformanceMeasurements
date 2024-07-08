@@ -1,0 +1,5 @@
+commit 26b6161c6b67af3e01051f3188b2102df2bedc8c
+Author: Ilona Tomkowicz <32700855+ilonatommy@users.noreply.github.com>
+Date:   Mon Jul 8 12:02:48 2024 +0000
+
+    [wasm] Re-try when browser's WBT fail with `System.TimeoutException` (#104481)
