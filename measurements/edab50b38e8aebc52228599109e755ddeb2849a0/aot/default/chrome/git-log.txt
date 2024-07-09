@@ -1,0 +1,19 @@
+commit edab50b38e8aebc52228599109e755ddeb2849a0
+Author: Emmanuel André <2341261+manandre@users.noreply.github.com>
+Date:   Mon Jul 8 23:23:45 2024 +0200
+
+    Add CancellationToken support for LoadIntoBufferAsync (#103991)
+    
+    * Add CancellationToken support for LoadIntoBufferAsync
+    
+    * Add documentation
+    
+    * Rework cancellation token in tests
+    
+    * Move to outerloop test using delays
+    
+    * Use IgnoreExceptions helper in tests
+    
+    ---------
+    
+    Co-authored-by: Miha Zupan <mihazupan.zupan1@gmail.com>
