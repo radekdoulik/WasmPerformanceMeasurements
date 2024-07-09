@@ -1,0 +1,7 @@
+commit 8b9ea5e18044e8516060d9883bf3c056da7d687c
+Author: Anton Firszov <Anton.Firszov@microsoft.com>
+Date:   Mon Jul 8 22:17:08 2024 +0200
+
+    Swap MetricsHandler and DiagnosticsHandler (#104455)
+    
+    To support Exemplars, http.request.duration must be recorded before stopping the HTTP request Activity.
