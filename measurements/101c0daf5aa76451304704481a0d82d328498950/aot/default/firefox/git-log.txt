@@ -1,0 +1,11 @@
+commit 101c0daf5aa76451304704481a0d82d328498950
+Author: Buyaa Namnan <bunamnan@microsoft.com>
+Date:   Mon Jul 8 08:23:32 2024 -0700
+
+    Remove unnecessary endianness dependent logic (#104332)
+    
+    * Remove unnecessary endianness logic
+    
+    * Revert back to the old more performant approach
+    
+    * Write 2 values once
