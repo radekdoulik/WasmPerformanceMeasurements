@@ -1,0 +1,13 @@
+commit 61f08d36ac9d92a2c93a5478bf22f3fc82a0b7e8
+Author: Larry Ewing <lewing@microsoft.com>
+Date:   Fri Jul 12 06:11:52 2024 -0500
+
+    [wasm] Bump the stj version to avoid error (#104751)
+    
+    * Bump the stj version to avoid error
+    
+    * System.Net.Http.Json does not have version 8.0.4, changing to net9 prev 5
+    
+    ---------
+    
+    Co-authored-by: Ilona Tomkowicz <32700855+ilonatommy@users.noreply.github.com>
