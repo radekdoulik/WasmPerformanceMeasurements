@@ -1,0 +1,21 @@
+commit 3922062977486629231e886e3ec6b6e096e79b89
+Author: Andrew J Said <andrewjsaid@gmail.com>
+Date:   Tue Jul 16 13:47:44 2024 +0100
+
+    Reimplement LINQ ToList using SegmentedArrayBuilder to reduce allocations (#104365)
+    
+    * Use SegmentedArrayBuilder in ToList
+    
+    * Implement SegmentedArrayBuilder for Select iterators
+    
+    * Implement SegmentedArrayBuilder for OfType and SelectMany iterators
+    
+    * Implement SegmentedArrayBuilder for SkipTake and Where iterators
+    
+    * Revert change to ToList for non-specialized cases as requested in review
+    
+    * Better naming for ToArray/ToList in Select enumerator when size is unknown
+    
+    ---------
+    
+    Co-authored-by: Eirik Tsarpalis <eirik.tsarpalis@gmail.com>
