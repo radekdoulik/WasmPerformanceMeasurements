@@ -1,0 +1,14 @@
+commit f1d9579490a73f5188590284fa371f8aabaf7e16
+Author: Omair Majid <omajid@redhat.com>
+Date:   Tue Jul 16 14:18:52 2024 -0400
+
+    Conditionally fix name of zlib that the linker needs (#104904)
+    
+    * Conditionally fix the name of zlib that the linker needs
+    
+    * Remove the android branch, add a comment to explain when z and zlib are used.
+    
+    ---------
+    
+    Co-authored-by: Carlos Sánchez López <1175054+carlossanlop@users.noreply.github.com>
+    Co-authored-by: Adeel Mujahid <3840695+am11@users.noreply.github.com>
