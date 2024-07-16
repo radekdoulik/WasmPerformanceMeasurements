@@ -1,0 +1,11 @@
+commit 25a50853236dbec65408c7942793df3eb2e8cdbc
+Author: Ahmet Ibrahim Aksoy <aaksoy@microsoft.com>
+Date:   Tue Jul 16 14:23:25 2024 +0200
+
+    Disable QUIC&HTTP/3 parallelization on tests (#104948)
+    
+    * Disable QUIC&HTTP/3 parallelization
+    
+    * Disable parallelization on more tests
+    
+    * Disable parallelization on HttpMetrics_Http30_MessageInvoker
