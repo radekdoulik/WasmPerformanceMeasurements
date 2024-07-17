@@ -1,0 +1,7 @@
+commit 405e292a8fa057e116fb0994d75e0c9735d75a0a
+Author: Viktor Hofer <viktor.hofer@microsoft.com>
+Date:   Wed Jul 17 09:25:44 2024 +0200
+
+    Automate the creation of the sfx PackageOverrides.txt file (#104971)
+    
+    Fixes https://github.com/dotnet/runtime/issues/104639
