@@ -1,0 +1,125 @@
+commit ad542b244bea3b453a6bda6b59440182c6c14ef2
+Author: Radek Doulik <radek.doulik@gmail.com>
+Date:   Mon Jul 15 23:09:44 2024 +0200
+
+    [wasm] emscripten bump 3.1.56 (#100334)
+    
+    * [wasm] Bump emscripten to 3.1.56
+    
+    * Replace Module.asm with Module.wasmExports
+    
+    Module.asm was removed, use wasmExports instead.
+    Context: https://github.com/emscripten-core/emscripten/pull/19816
+    
+    * Updates for .native.worker.js -> mjs rename
+    
+    Context: https://github.com/emscripten-core/emscripten/pull/21041
+    
+    * Update deps
+    
+    * Add general testing feed
+    
+    * Update mode deps
+    
+    * Update path
+    
+    * Use current python packages for now, we don't have newer ones
+    
+    The current names 3.1.34 are new enough
+    
+    * Keep using llvm 16 for runtime and aot compiler
+    
+    * Add -Wno-pre-c11-compat only for browser
+    
+    * Temporarily disable version checks to get further
+    
+    * Temporarily disable version checks to get further #2
+    
+    * Disable -Wunused-command-line-argument
+    
+    * Update emsdk deps
+    
+    * Update icu dependency
+    
+    * Revert "Temporarily disable version checks to get further #2"
+    
+    This reverts commit 3f8834f2a83405bdb46ffe4ae46560ce7c8755e3.
+    
+    * Revert "Temporarily disable version checks to get further"
+    
+    This reverts commit fe1e5c643c6ab4bbfeb1af06f1f13492722825b9.
+    
+    * Fix emsdk check
+    
+    We use system python on osx too
+    
+    * Workaround wasm-opt crash
+    
+    * Workaround wasm-opt crash
+    
+    * Workaround wasm-opt crash
+    
+    * Fix WBT test
+    
+    * Feedback
+    
+    * Update ICU dependency
+    
+    * Update emscripten deps
+    
+    * Revert "Workaround wasm-opt crash"
+    
+    This reverts commit 200cf3b3915d7e308414387628049cc710196992.
+    
+    * Revert "Workaround wasm-opt crash"
+    
+    This reverts commit 4530edfdcc64dd60d16f276a58fb7e3e5ede867d.
+    
+    * Revert "Workaround wasm-opt crash"
+    
+    This reverts commit 3593c41798f6c667a1778859f5576d8cfc723d5d.
+    
+    * Increase tests timeout
+    
+    * Show test progress
+    
+    * Increase MT library tests timeout
+    
+    * Disable WBT tests with SkiaSharp
+    
+    * Increase helix tests timeout on browser
+    
+    * Increase WBT timeout
+    
+    * Increase initial heap sizes
+    
+    * Fix mono_wasm_load_runtime cwrap signature
+    
+    Fixes: `Uncaught ExitStatus: Assertion failed: stringToUTF8Array expects a string (got number)`
+    
+    * Enable XunitShowProgress for threading tasks tests
+    
+    * Try to reduce number of parallel AOT compilations
+    
+    To check whether it will improve memory issues on CI
+    
+    * Use new docker image for helix/windows tests
+    
+    * Revert "Try to reduce number of parallel AOT compilations"
+    
+    This reverts commit 5d9a6d2352e1df268a591320ac36ed62b71f8c91.
+    
+    * Reduce the timeouts
+    
+    * Reduce intitial heap size
+    
+    * use active issues for MT
+    
+    * Remove testing channel from nuget config, update deps
+    
+    * Update emsdk and icu dependencies
+    
+    ---------
+    
+    Co-authored-by: Larry Ewing <lewing@microsoft.com>
+    Co-authored-by: pavelsavara <pavel.savara@gmail.com>
