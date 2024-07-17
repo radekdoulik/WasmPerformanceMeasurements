@@ -1,0 +1,25 @@
+commit 6d3cb53af95d99247a414b187b511a6d137cb007
+Author: Tanner Gooding <tagoo@outlook.com>
+Date:   Sat Jul 13 07:01:55 2024 -0700
+
+    Decompose some bitwise operations in HIR to allow more overall optimizations to kick in (#104517)
+    
+    * Decompose some bitwise operations in HIR to allow more overall optimizations to kick in
+    
+    * Ensure that we actually remove the underlying op
+    
+    * Ensure the AND_NOT decomposition is still folded during import for minopts
+    
+    * Ensure we propagate AllBitsSet into simd GT_XOR on xarch
+    
+    * Ensure that we prefer AndNot over TernaryLogic
+    
+    * Cleanup the TernaryLogic lowering code
+    
+    * Ensure that TernaryLogic picks the best operand for containment
+    
+    * Ensure we swap the operands that are being checked for containment
+    
+    * Ensure that TernaryLogic is simplified where possible
+    
+    * Apply formatting patch
