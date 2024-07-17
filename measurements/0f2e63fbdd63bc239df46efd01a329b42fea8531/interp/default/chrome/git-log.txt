@@ -1,0 +1,7 @@
+commit 0f2e63fbdd63bc239df46efd01a329b42fea8531
+Author: Alexander Köplinger <alex.koeplinger@outlook.com>
+Date:   Tue Jul 16 17:36:51 2024 +0200
+
+    Disable armv6 in runtime-community pipeline (#104951)
+    
+    Until the CI image is fixed: https://github.com/dotnet/runtime/issues/104333
