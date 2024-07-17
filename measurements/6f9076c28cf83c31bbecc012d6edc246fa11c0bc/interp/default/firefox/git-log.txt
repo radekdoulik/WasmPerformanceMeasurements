@@ -1,0 +1,16 @@
+commit 6f9076c28cf83c31bbecc012d6edc246fa11c0bc
+Author: Jeremy Barton <jbarton@microsoft.com>
+Date:   Wed Jul 3 21:21:05 2024 -0700
+
+    Make CertLoader reject duplicate attributes
+    
+    The new Pkcs12 loader will now reject duplicate attributes,
+    either as multiple attribute sets, or a set with multiple values.
+    
+    The LoaderLimits type gains an option to disable this filter, but
+    as of now it is not being made into public API (though the tests
+    show how to get at it anyways, by the cloning behavior on
+    DangerousNoLimits).
+    
+    This change also fixes the over-filtering of the MachineKey attribute,
+    and adds tests for how that behaves under DefaultKeySet.
