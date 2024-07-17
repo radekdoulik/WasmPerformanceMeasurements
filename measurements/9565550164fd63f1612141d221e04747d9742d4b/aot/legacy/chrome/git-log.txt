@@ -1,0 +1,15 @@
+commit 9565550164fd63f1612141d221e04747d9742d4b
+Author: Steve Harter <steveharter@users.noreply.github.com>
+Date:   Tue Jul 16 18:36:44 2024 -0500
+
+    Throw InvalidOperationException on RuntimeMethodHandle.GetFunctionPointer() for generic methods (#104644)
+    
+    * Throw InvalidOperationException on RuntimeMethodHandle.GetFunctionPointer() for generic methods
+    
+    * Also check if owning type is generic; add checks to mono interpreter
+    
+    * Update src/coreclr/vm/method.cpp
+    
+    ---------
+    
+    Co-authored-by: Buyaa Namnan <buyankhishig.namnan@microsoft.com>
