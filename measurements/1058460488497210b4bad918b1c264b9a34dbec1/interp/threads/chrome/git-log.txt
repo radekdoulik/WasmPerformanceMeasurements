@@ -1,0 +1,11 @@
+commit 1058460488497210b4bad918b1c264b9a34dbec1
+Author: Steve Pfister <steveisok@users.noreply.github.com>
+Date:   Wed Jul 17 08:36:01 2024 -0400
+
+    [mono] Fix aot compiler crash when checking for method signature (#104903)
+    
+    This fixes a problem with the aot compiler where it tries to get a generic parameter count from a method, but instead crashes because the reference is null.
+    
+    The problem stemmed from loading an assembly that had references to other assemblies that were not found. The aot compiler eventually figures out it can't do anything and exits. The crash occurred in between the validation process.
+    
+    Fixes https://github.com/dotnet/runtime/issues/103901
