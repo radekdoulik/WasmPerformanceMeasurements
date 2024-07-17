@@ -1,0 +1,11 @@
+commit b8ac8b2d7f79aec93f9cad722f3cc4ccb931b826
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Fri Jul 12 15:00:12 2024 +0200
+
+    JIT: Refine post-dominance check in strength reduction (#104687)
+    
+    When strength reduction has to find an insertion point for the new
+    primary IV update it needs to find a block that post-dominates all the
+    users of the IV. This was using `optReachable` before, but that is
+    conservative since it finds paths that may exit the loop. This
+    implements a more precise check.
