@@ -1,0 +1,17 @@
+commit 6c32206af89e0af15885832f367f65b02e871202
+Author: Steve Gordon <sgordon@hotmail.co.uk>
+Date:   Wed Jul 17 18:11:56 2024 +0100
+
+    Implement new `TagsList` constructor on `Measurement` (#105011)
+    
+    * Add ctor accepting TagList to Measurement
+    
+    * Improve the XML doc comments.
+    
+    * Update ref source with full type name
+    
+    Co-authored-by: Huo Yaoyuan <huoyaoyuan@hotmail.com>
+    
+    ---------
+    
+    Co-authored-by: Huo Yaoyuan <huoyaoyuan@hotmail.com>
