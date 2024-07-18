@@ -1,0 +1,9 @@
+commit c95095e5e2ff3ddad20933cffe6b0b1de6374214
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Thu Jul 18 20:39:09 2024 +0200
+
+    JIT: Skip strength reductions that are just widenings (#105075)
+    
+    The previous equality check does not catch the case where the SCEV is
+    just a widened version of the previous primary IV. We want to leave that
+    handling up to IV widening.
