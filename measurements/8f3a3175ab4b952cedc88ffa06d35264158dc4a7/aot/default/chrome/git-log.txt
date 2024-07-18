@@ -1,0 +1,5 @@
+commit 8f3a3175ab4b952cedc88ffa06d35264158dc4a7
+Author: Roman Konecny <rokonecn@microsoft.com>
+Date:   Thu Jul 18 13:09:54 2024 +0200
+
+    Change test request to POST to avoid retry on server Shutdown (#105035)
