@@ -1,0 +1,19 @@
+commit 513b503fe7ee58c4f602e2f60bf5a478995d4c84
+Author: Kunal Pathak <Kunal.Pathak@microsoft.com>
+Date:   Wed Jul 17 16:33:37 2024 -0700
+
+    Arm64/Sve: Fix a SVE issue and add CI leg for testing SVE with AltJit (#104998)
+    
+    * Add ci legs to test SVE using AltJit
+    
+    * fix a check for HWIntrinsic
+    
+    * add gentree.cpp for now
+    
+    * Revert "add gentree.cpp for now"
+    
+    This reverts commit ca23305256818b6067017ecfc908e60d1a8bb5cf.
+    
+    * review feedback
+    
+    * just have 1 CI leg
