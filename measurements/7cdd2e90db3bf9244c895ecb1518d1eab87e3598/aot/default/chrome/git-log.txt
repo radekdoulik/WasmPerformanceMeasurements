@@ -1,0 +1,5 @@
+commit 7cdd2e90db3bf9244c895ecb1518d1eab87e3598
+Author: Eric StJohn <ericstj@microsoft.com>
+Date:   Thu Jul 18 13:06:10 2024 -0700
+
+    Don't throw when deserializing SettingsPropertyValue that's not byte[] (#105057)
