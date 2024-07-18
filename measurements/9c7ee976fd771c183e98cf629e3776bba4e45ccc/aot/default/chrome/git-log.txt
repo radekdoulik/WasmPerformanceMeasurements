@@ -1,0 +1,22 @@
+commit 9c7ee976fd771c183e98cf629e3776bba4e45ccc
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Thu Jul 18 16:51:38 2024 +0200
+
+    Avoid scanning typeof checks when building whole program view (#103883)
+    
+    Before this PR, we were somewhat able to eliminate dead typeof checks such as:
+    
+    ```csharp
+    if (someType == typeof(Foo)
+    {
+        ExpensiveMethod();
+    }
+    ```
+    
+    This work was done in https://github.com/dotnet/runtime/pull/102248.
+    
+    However, the optimization only happened during codegen. This meant that when building the whole program view, we'd still look at `ExpensiveMethod` and whatever damage this caused to the whole program view was permanent.
+    
+    With this PR, the scanner now becomes aware of the optimization we do during codegen and tries to defer injecting dependencies until we will need them.
+    
+    With this change, we detect the conditional branch, and generate whatever dependencies from the basic block as conditional. That way scanning can fully skip scanning `ExpensiveMethod` and the subsequent optimization will ensure the missed scanning will not cause issues at codegen time.
