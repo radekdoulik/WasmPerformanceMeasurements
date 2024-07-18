@@ -1,0 +1,30 @@
+commit e5e56df26373e1dc2fe834f8288a864a6c0f643e
+Author: Jan Vorlicek <janvorli@microsoft.com>
+Date:   Wed Jul 17 23:33:11 2024 +0200
+
+    Fix mach hardware exception forwarding (#105003)
+    
+    * Fix mach hardware exception forwarding
+    
+    A recent change to enable AVX512 register state processing in the mach
+    exception handling on macOS x64 has broken a PAL test and also a case
+    when a hardware exception occurs in 3rd party native code.
+    In both cases runtime hangs, another exception occurs while forwarding
+    the exception message and that ends up happenning infinitely.
+    
+    The problem is caused by the fact that the MachMessageInfo has grown,
+    since we've changed a field containing float state to contain avx512
+    state instead. But the buffer that stores the message is of fixed size
+    of 1500 bytes and it is not sufficient.
+    
+    I have grown the buffer size to the necessary size, but there was another
+    issue lurking behind the first one. The MachExceptionInfo::RestoreState
+    was trying to restore the float state always as x86_FLOAT_STATE instead
+    of choosing x86_FLOAT_STATE, x86_AVX_STATE or x86_AVX512_STATE depending
+    of which of them was stored. So the thread_set_state was failing.
+    
+    This change fixes both of the problems.
+    
+    * Simplify the RestoreState
+    
+    * Set the message buffer to the size of the mach_msg_t plus trailer size
