@@ -1,0 +1,9 @@
+commit 1c4ac7d3ba615d96fde82176ee42cd1858e2930f
+Author: Ilona Tomkowicz <32700855+ilonatommy@users.noreply.github.com>
+Date:   Thu Jul 18 06:52:44 2024 +0000
+
+    [wasm] Remove "nuget.org" references in WBT (#104806)
+    
+    * Remove "nuget.org" references in WBT.
+    
+    * `dotnet-public` is needed
