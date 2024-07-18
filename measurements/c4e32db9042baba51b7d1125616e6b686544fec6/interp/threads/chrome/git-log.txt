@@ -1,0 +1,15 @@
+commit c4e32db9042baba51b7d1125616e6b686544fec6
+Author: Matous Kozak <55735845+matouskozak@users.noreply.github.com>
+Date:   Thu Jul 18 14:37:18 2024 +0200
+
+    [mono][infra] Remove Mono LLVMJIT builds (#104552)
+    
+    * update tracking issue for disabled AOTLLVM arm64
+    
+    * Remove LLVMJIT jobs from runtime-llvm.yml
+    
+    * remove LLVM JIT jobs from runtime-official.yml
+    
+    * Move mono LLVMJIT full product build to regular
+    
+    * remove -lc build flag (only Release)
