@@ -1,0 +1,31 @@
+commit e9ffa8c47dd0cbc1e5b8e188c6bdd61bcbf93b5f
+Author: Viktor Hofer <viktor.hofer@microsoft.com>
+Date:   Thu Jul 18 09:37:59 2024 +0200
+
+    Require package readmes for shipping packages (#105019)
+    
+    * Require package readmes for shipping packages
+    
+    Add a target that validates that a package readme
+    exists for a shipping package.
+    
+    Set EnableDefaultPackageReadmeFile=false in projects
+    that don't yet have a package readme.
+    
+    * Delete empty package readme files that were accidentally committed
+    
+    * Update packaging.targets
+    
+    * Only enable package readme validation for src/libraries
+    
+    * Move to targets file
+    
+    * Update eng/packaging.targets
+    
+    Co-authored-by: Carlos Sánchez López <1175054+carlossanlop@users.noreply.github.com>
+    
+    * Update packaging.targets
+    
+    ---------
+    
+    Co-authored-by: Carlos Sánchez López <1175054+carlossanlop@users.noreply.github.com>
