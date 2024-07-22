@@ -1,0 +1,7 @@
+commit 19f03850cafa68cf396ecadf86e19df714b0a280
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Wed Jul 17 06:44:53 2024 -0400
+
+    Replace most corelib uses of Unsafe.SizeOf<T> with sizeof(T) (#104923)
+    
+    Also suppress CS8500 globally rather than in hundreds of files individually and fix NoWarns that weren't inheriting global NoWarns.
