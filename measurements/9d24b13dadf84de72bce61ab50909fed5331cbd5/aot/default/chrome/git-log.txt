@@ -1,0 +1,45 @@
+commit 9d24b13dadf84de72bce61ab50909fed5331cbd5
+Author: Jeremi Kurdek <59935235+jkurdek@users.noreply.github.com>
+Date:   Mon Jul 15 15:40:23 2024 +0200
+
+    [Mono] [swift-interop] Add support for reverse pinvoke argument lowering (#104437)
+    
+    * Add support for reverse pinvoke argument lowering
+    
+    * Fix ILGeneration tests errors
+    
+    * Fix build errors
+    
+    * Reworked structure reassemble algorithm to work on sig
+    
+    * Fix x64 test errors
+    
+    * Add support for SwiftIndirectResult
+    
+    * Remove duplicate call to lowering algorithm
+    
+    * Refactor emitting swift lowered struct
+    
+    * Fix formatting
+    
+    * Remove extra newline
+    
+    * Fix SwiftIndirectResult errors
+    
+    * Address review comments
+    
+    * Fix loop indent
+    
+    * Update src/mono/mono/metadata/marshal-lightweight.c
+    
+    Co-authored-by: Aleksey Kliger (λgeek) <akliger@gmail.com>
+    
+    * Remove passing MonoImage
+    
+    * Fix formatting around conditional blocks
+    
+    * Fix missing whitespace
+    
+    ---------
+    
+    Co-authored-by: Aleksey Kliger (λgeek) <akliger@gmail.com>
