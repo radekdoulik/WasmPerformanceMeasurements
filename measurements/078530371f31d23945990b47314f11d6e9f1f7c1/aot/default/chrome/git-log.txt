@@ -1,0 +1,7 @@
+commit 078530371f31d23945990b47314f11d6e9f1f7c1
+Author: SingleAccretion <62474226+SingleAccretion@users.noreply.github.com>
+Date:   Thu Jul 18 13:00:36 2024 +0300
+
+    Move the NoGC helper classification to HelperCallProperties (#105040)
+    
+    Fixes a TODO and centralizes the assumptions about helpers in one place.
