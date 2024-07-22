@@ -1,0 +1,11 @@
+commit 8c95a64df153354871ce1762fb0f0131726d0898
+Author: Sven Boemer <sbomer@gmail.com>
+Date:   Wed Jul 17 15:10:17 2024 -0700
+
+    Fix testcase for ILC behavior with preserved generated code (#105042)
+    
+    The feature setting ensures that ILC sees a constant and has the
+    same warning behavior as ILLink. We decided this is the desired
+    behavior in https://github.com/dotnet/runtime/issues/85161.
+    
+    Fixes https://github.com/dotnet/runtime/issues/85161
