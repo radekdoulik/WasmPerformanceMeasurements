@@ -1,0 +1,23 @@
+commit 8ba8249272917366e2382bb4c67a2347d19d2fb6
+Author: Tanner Gooding <tagoo@outlook.com>
+Date:   Thu Jul 11 00:16:09 2024 -0700
+
+    Fix various asserts that were found by Antigen (#104625)
+    
+    * Ensure that we create a valid GT_IND node
+    
+    * Remove a bad assert in the associative morphs
+    
+    * Ensure that we check for GT_NULLCHECK when handling containment
+    
+    * Fix a bad assert for x64
+    
+    * Ensure we properly check for ConvertMaskToVector
+    
+    * Fix the memory size used for some vbroadcast instructions in disasm and asserts
+    
+    * Ensure rewriting WithElement takes into account unsupported ISAs
+    
+    * Ensure we check FEATURE_HW_INTRINSICS
+    
+    * Apply formatting patch
