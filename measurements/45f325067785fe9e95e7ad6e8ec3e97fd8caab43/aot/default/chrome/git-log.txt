@@ -1,0 +1,8 @@
+commit 45f325067785fe9e95e7ad6e8ec3e97fd8caab43
+Author: Roman Konecny <rokonecn@microsoft.com>
+Date:   Fri Jul 12 21:52:56 2024 +0300
+
+    Fix cancelability of DNS queries (#104420)
+    
+    * Fix cancelability of DNS queries
+    * Properly cascade cancelation info for connect by name exceptions
