@@ -1,0 +1,7 @@
+commit 7cac50fb1db6957859e4c22b9922cb3cbca26bee
+Author: Adam Sitnik <adam.sitnik@gmail.com>
+Date:   Mon Jul 22 19:32:32 2024 +0200
+
+    store the WeakReference targets in static fields, so they are never freed by the GC during test run (#105072)
+    
+    fixes #104905
