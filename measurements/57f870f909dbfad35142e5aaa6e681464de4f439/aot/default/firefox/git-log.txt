@@ -1,0 +1,16 @@
+commit 57f870f909dbfad35142e5aaa6e681464de4f439
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Wed Jul 17 21:24:21 2024 +0200
+
+    JIT: Improve strength reduction's prediction of loop reversal (#104800)
+    
+    The current goal is to make sure strength reduction does not introduce new
+    primary IVs. To do so we rely on the downwards-loop transformation to get rid of
+    uses of the primary IV in the loop test.
+    This PR refines the checks that strength reduction was using to predict whether
+    a use of the primary IV in a loop test will be removed. It should now be the
+    exact same checks as the downwards-transformation uses.
+    
+    Additionally, it means we can remove `CursorInfo::IsInsideExitTest`; we now just
+    avoid creating the cursor in the first place if we know the use will be
+    removable.
