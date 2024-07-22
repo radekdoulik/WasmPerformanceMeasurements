@@ -1,0 +1,7 @@
+commit 3f607bd6061299a20d29b76914b4176b9d835f66
+Author: Alexander Köplinger <alex.koeplinger@outlook.com>
+Date:   Wed Jul 17 16:10:51 2024 +0200
+
+    Disable failing BinaryFormatter tests on ppc64le (#105022)
+    
+    https://github.com/dotnet/runtime/issues/105020
