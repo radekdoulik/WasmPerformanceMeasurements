@@ -1,0 +1,13 @@
+commit f9016e3507a9669894c500c1cdd4a45aaef24354
+Author: Vladimir Sadov <vsadov@microsoft.com>
+Date:   Tue Jul 16 20:34:43 2024 -0700
+
+    [NativeAOT] When reconciling shadow stack after catch, use more precise way to figure how much to pop. (#104652)
+    
+    * keep SSP value in REGDISPLAY, update as we unwind.
+    
+    * fix Unix build
+    
+    * make SSP fields windows-specific
+    
+    * #if defined(TARGET_WINDOWS)  some uses of SSP
