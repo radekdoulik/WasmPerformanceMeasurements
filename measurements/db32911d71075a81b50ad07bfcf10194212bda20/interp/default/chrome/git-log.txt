@@ -1,0 +1,7 @@
+commit db32911d71075a81b50ad07bfcf10194212bda20
+Author: xtqqczze <45661989+xtqqczze@users.noreply.github.com>
+Date:   Mon Jul 22 03:23:40 2024 +0100
+
+    Fix unecessary `IDE0060` suppressions (#105036)
+    
+    Since https://github.com/dotnet/roslyn/pull/66535 `IDE0060` doesn't warn for throw-only methods.
