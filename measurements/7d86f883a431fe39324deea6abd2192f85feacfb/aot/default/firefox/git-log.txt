@@ -1,0 +1,8 @@
+commit 7d86f883a431fe39324deea6abd2192f85feacfb
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Tue Jul 23 16:24:58 2024 +0200
+
+    JIT: Change VN's representation for phi definitions (#105198)
+    
+    Replace `VNF_PhiDef` and `VNF_MemoryPhiDef` by new explicit
+    representations that represent all phi args directly.
