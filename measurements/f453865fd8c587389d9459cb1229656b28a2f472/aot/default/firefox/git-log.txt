@@ -1,0 +1,11 @@
+commit f453865fd8c587389d9459cb1229656b28a2f472
+Author: Linus Hamlin <78953007+lilinus@users.noreply.github.com>
+Date:   Thu Jun 13 03:24:35 2024 +0200
+
+    Use BigMul in BigMul (#100918)
+    
+    * Use BigMul in BigMul
+    
+    * Reverse usage of BigMul(uint, uint)
+    
+    * Add aggressive inline to Math.BigMul(ulong, ulong)
