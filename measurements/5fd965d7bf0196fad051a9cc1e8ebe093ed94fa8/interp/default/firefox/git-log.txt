@@ -1,0 +1,9 @@
+commit 5fd965d7bf0196fad051a9cc1e8ebe093ed94fa8
+Author: Elinor Fung <elfung@microsoft.com>
+Date:   Fri Jul 19 06:25:47 2024 -0700
+
+    [cdac] Implement GetObjectStringData (#105061)
+    
+    - Include `String` and `Object` in data descriptor
+    - Start an `Object` contract for getting information about known managed objects
+    - Make cDAC implement `ISOSDacInterface::GetObjectStringData`
