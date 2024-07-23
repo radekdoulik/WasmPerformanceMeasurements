@@ -1,0 +1,19 @@
+commit 7dd68f40ab9ae6f631d79b76f2d9b464f7ecee36
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Mon Jul 22 11:06:24 2024 +0200
+
+    JIT: Have lowering set up IR for post-indexed addressing and make strength reduced IV updates amenable to post-indexed addressing (#105185)
+    
+    * JIT: Have lowering set up IR for post-indexed addressing
+    
+    This adds a transformation in lowering that tries to set up the IR to be
+    amenable to post-indexed addressing in the backend. It does so by
+    looking for RMW additions/subtractions of a local that was also recently
+    used as the address to an indirection.
+    
+    * JIT: Make strength reduced IV updates amenable to post-indexed addressing
+    
+    On arm64 have strength reduction try to insert IV updates after the last
+    use if that last use is a legal insertion point. This often allows the
+    backend to use post-indexed addressing to combine the use with the IV
+    update.
