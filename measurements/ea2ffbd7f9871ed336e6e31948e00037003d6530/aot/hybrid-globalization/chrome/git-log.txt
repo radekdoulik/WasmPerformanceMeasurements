@@ -1,0 +1,7 @@
+commit ea2ffbd7f9871ed336e6e31948e00037003d6530
+Author: xtqqczze <45661989+xtqqczze@users.noreply.github.com>
+Date:   Mon Jul 22 22:53:10 2024 +0100
+
+    Avoid a byte[] in Guid construction in TypeConverter (#105208)
+    
+    Also clean up a stale optimization in Guid's ctor
