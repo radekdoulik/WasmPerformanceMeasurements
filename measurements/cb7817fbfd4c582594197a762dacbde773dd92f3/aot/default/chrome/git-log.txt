@@ -1,0 +1,9 @@
+commit cb7817fbfd4c582594197a762dacbde773dd92f3
+Author: Steve Pfister <steveisok@users.noreply.github.com>
+Date:   Mon Jul 22 22:17:15 2024 -0400
+
+    [mono][aot] Emit marhsalling exception when dealing with MONO_MARSHAL_CONV_OBJECT_IUNKNOWN (#105156)
+    
+    This change prevents the aot compiler from erroring out when dealing with COM types that were not marked with MarshalAs attributes. In most scenarios that we support, we want to allow pinvokes to aot compile as in cases like anything COM interop, will end up erroring out if you try to use it.
+    
+    Fixes https://github.com/dotnet/runtime/issues/104463
