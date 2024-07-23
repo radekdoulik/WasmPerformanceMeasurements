@@ -1,0 +1,11 @@
+commit d8a642fb46a6a047ef7c6c9c0e16b09674570c33
+Author: Omair Majid <omajid@redhat.com>
+Date:   Tue Jul 23 14:47:43 2024 -0400
+
+    Fix System.Globalization.Extensions.Tests for icu 74/unicode 15.1 (#105282)
+    
+    The test file IdnaTest_15_1.txt is a direct copy of
+    https://www.unicode.org/Public/idna/15.1.0/IdnaTestV2.txt without any
+    further changes.
+    
+    Fixes: #100287
