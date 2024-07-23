@@ -1,0 +1,15 @@
+commit e2a3511925e43217ef4814eb633ae729ed8d7246
+Author: Viktor Hofer <viktor.hofer@microsoft.com>
+Date:   Tue Jul 23 09:25:11 2024 +0200
+
+    Build .NETCoreApp source gens in allconfigurations build (#105247)
+    
+    * Build .NETCoreApp source gens in allconfigurations build
+    
+    Fixes https://github.com/dotnet/runtime/issues/100346
+    
+    * Update RegexGenerator.Emitter.cs
+    
+    ---------
+    
+    Co-authored-by: Matt Mitchell <mmitche@microsoft.com>
