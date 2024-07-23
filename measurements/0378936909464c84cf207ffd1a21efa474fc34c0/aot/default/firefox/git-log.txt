@@ -1,0 +1,7 @@
+commit 0378936909464c84cf207ffd1a21efa474fc34c0
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Tue Jul 23 11:54:05 2024 +0200
+
+    Make System.IO.Packaging test trim safe (#105160)
+    
+    The existing pattern doesn't get statically analyzed.
