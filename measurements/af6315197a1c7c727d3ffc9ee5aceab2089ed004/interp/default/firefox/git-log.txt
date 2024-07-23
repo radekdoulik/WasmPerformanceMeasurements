@@ -1,0 +1,18 @@
+commit af6315197a1c7c727d3ffc9ee5aceab2089ed004
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Sat Jul 20 12:11:58 2024 +0200
+
+    JIT: Switch `StaysWithinManagedObject` to peel offsets from VNs (#105169)
+    
+    The SCEV analysis does not care about the value of something once it is
+    seen to be invariant inside the loop we are currently analyzing. This
+    was problematic for this logic that tries to peel additions away from
+    offsets; for arm64, we may have hoisted `array + 0x10` outside the loop,
+    which would cause us to fail to get back to the base array.
+    
+    Switch the reasoning to use VNs and peel the offsets from the VNs
+    instead.
+    
+    No x64 diffs are expected as we do not hoist the `array + 0x10` out of
+    the loop there. Improvements expected on arm64 where we can now prove
+    that a "full" strength reduction is allowable more often.
