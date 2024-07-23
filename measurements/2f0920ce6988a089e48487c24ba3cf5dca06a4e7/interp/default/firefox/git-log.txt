@@ -1,0 +1,5 @@
+commit 2f0920ce6988a089e48487c24ba3cf5dca06a4e7
+Author: Jeremy Koritzinsky <jekoritz@microsoft.com>
+Date:   Fri Jul 19 16:37:25 2024 -0700
+
+    For transition profiler callbacks, always load the thread (#105104)
