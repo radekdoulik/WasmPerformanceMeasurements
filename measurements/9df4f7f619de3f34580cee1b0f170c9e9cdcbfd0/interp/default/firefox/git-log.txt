@@ -1,0 +1,5 @@
+commit 9df4f7f619de3f34580cee1b0f170c9e9cdcbfd0
+Author: Egor Bogatov <egorbo@gmail.com>
+Date:   Wed Jul 17 09:37:58 2024 +0200
+
+    Optimize BOX+UNBOX for "T? -> T" and "T -> T?" (#104931)
