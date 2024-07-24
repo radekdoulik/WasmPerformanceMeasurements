@@ -1,0 +1,13 @@
+commit efb09a57ddebfe213f43eea4289608031fe7795a
+Author: Sven Boemer <sbomer@gmail.com>
+Date:   Wed Jul 24 13:14:07 2024 -0700
+
+    Fix warning for MakeGenericType annotation mismatch (#104921)
+    
+    Fixes warning code when a generic type whose type parameters have DAM
+    annotations is used with MakeGenericType, over a type that doesn't
+    have matching annotations.
+    
+    The code IL2070 used to mention the 'this' argument. Instead it should
+    have been IL2071 which mentions the generic argument as the cause of
+    the mismatch. Similar for MakeGenericMethod with IL2090 and IL2091.
