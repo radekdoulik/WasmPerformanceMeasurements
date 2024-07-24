@@ -1,0 +1,5 @@
+commit f68d8e164fac3cced29afae43ba8dbc6832eadc3
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Tue Jul 23 19:28:54 2024 -0400
+
+    Fix handling of '\0' in Ascii.Trim (#105350)
