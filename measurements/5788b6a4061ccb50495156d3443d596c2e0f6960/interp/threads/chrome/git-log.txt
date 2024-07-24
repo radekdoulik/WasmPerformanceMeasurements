@@ -1,0 +1,9 @@
+commit 5788b6a4061ccb50495156d3443d596c2e0f6960
+Author: Jan Kotas <jkotas@microsoft.com>
+Date:   Wed Jul 24 01:13:08 2024 -0700
+
+    Delete unnecessary null checks (#105382)
+    
+    Delete unnecessary null checks that are confusing some static code analysis tools.
+    
+    Fixes #100210 and #100212
