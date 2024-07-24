@@ -1,0 +1,8 @@
+commit 367e064314175eb3c6dff461b2b15428299546d7
+Author: Viktor Hofer <viktor.hofer@microsoft.com>
+Date:   Wed Jul 24 15:38:16 2024 +0200
+
+    Remove unnecessary UseCompilerGeneratedDocXmlFile property (#105327)
+    
+    UseCompilerGeneratedDocXmlFile already defaults to
+    true. Remove the two hits to avoid confusion.
