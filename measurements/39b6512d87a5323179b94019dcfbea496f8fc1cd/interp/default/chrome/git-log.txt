@@ -1,0 +1,102 @@
+commit 39b6512d87a5323179b94019dcfbea496f8fc1cd
+Author: Mitchell Hwang <16830051+mdh1418@users.noreply.github.com>
+Date:   Thu Jul 11 13:14:43 2024 -0400
+
+    [ICorProfiler] Add new API to enumerate GC Heap objects (#103735)
+    
+    * [ICorProfiler] Add new ICorProfilerInfo API to enumerate gc heap
+    
+    * Update generated corprof.h
+    
+    After making changes to corprof.idl and building the clr subset
+    the generated corprof.h needs to be manually copied over from
+    the artifacts obj directory into the prebuilt directory.
+    
+    * [ICorProfiler] Extend header and source files to ICorProfilerInfo15
+    
+    * [ICorProfiler] Add EnumerateGCHeapObjects skeleton
+    
+    * [ICorProfiler] Add EnumerateGCHeapObjects implementation
+    
+    Add parameter check
+    Add SuspendEE akin to SuspendRuntime
+    Add DiagWalkHeap
+    Add RestartEE akin to ResumeRuntime
+    
+    * [GC] Add IGCHeap API to enumerate GC Heap objects outside of GC
+    
+    * Cleanup
+    
+    * [GC] Update gc interface minor version
+    
+    * Match callback PascalCase
+    
+    * Address feedback - naming and description
+    
+    * Cleanup
+    
+    * Add EEToProf EnumerateGCheapObjectsCallback wrapper
+    
+    Profilers may want to inspect objects encountered through the callback
+    with synchronous ICorProfilerInfo APIs. Wrapping the GC Heap walk
+    within a EEToProfInterfaceImpl helper with a CLR_TO_PROFILER_ENTRYPOINT
+    macro allows proper setting of callback state flags.
+    
+    * [Profiler][Tests] Add EnumerateGCHeapObjects unit test
+    
+    * Address feedback
+    
+    As EE may be suspended outside of ProfToEEInterfaceImpl::EnumerateGCHeapObjects,
+    conditionally suspend/resume EE if no prior suspension is in progress.
+    
+    * [ICorProfiler] Mitigate runtime suspension racing with EnumerateGCHeapObjects
+    
+    As the runtime may be suspended in other ways, error if not a profiler
+    requested suspension similar to ProfToEEInterfaceImpl::RuntimeSuspend
+    
+    * [ICorProfiler] Update Callback helper contract
+    
+    As EnumerateGCHeapObjectsCallback should only be invoked by
+    ProfToEEInterfaceImpl::EnumerateGCHeapObjects which suspends EE,
+    signal that no other EE suspension should occur with GC_NOTRIGGER
+    and kEE2PNoTrigger.
+    
+    Inherit MODE_ANY from EnumerateGCHeapObjects
+    
+    * Update test cases
+    
+    * [ICorProfiler] Change Suspend/Resume Runtime to Asynchronous
+    
+    * [Tests] Update profiler requested runtime test
+    
+    * fixup
+    
+    * Add test for background EnumerateGCHeapObject
+    
+    * Set profiler requested runtime suspend flag
+    
+    * Fix symbol exports
+    
+    * Try fix compiler issues
+    
+    * Allow runtime to resume before returning
+    
+    * Fix compilation errors on non-windows platforms
+    
+    * Lower expected object count
+    
+    * Add profiler requested runtime suspension note
+    
+    * [Tests] Protect custom test object from GC
+    
+    * Fix Profiler Runtime Suspension test
+    
+    * Expect to resolve classes during heap walk
+    
+    * Address feedback
+    
+    * Update EnumerateGCHeapObjects usage description
+    
+    * Add validation to extract class fields from objects
+    
+    * Cleanup
