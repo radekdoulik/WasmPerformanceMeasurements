@@ -1,0 +1,51 @@
+commit 53a362469f9abea383e94487e7b5fd89ae736c55
+Author: Eirik Tsarpalis <eirik.tsarpalis@gmail.com>
+Date:   Sat Jul 13 05:39:12 2024 +0100
+
+    Expose `JsonElement.DeepEquals` (#104579)
+    
+    * Expose JsonElement.DeepEquals
+    
+    * Remove unnecessary check.
+    
+    * Refine equality semantics of duplicate properties and address feedback.
+    
+    * Rename GetObjectSize -> GetObjectCount
+    
+    * Address feedback
+    
+    * Update src/libraries/System.Text.Json/src/System/Text/Json/Document/JsonElement.cs
+    
+    * Update src/libraries/System.Text.Json/src/System/Text/Json/Document/JsonElement.cs
+    
+    * Update src/libraries/System.Text.Json/src/System/Text/Json/Document/JsonElement.cs
+    
+    Co-authored-by: Stephen Toub <stoub@microsoft.com>
+    
+    * Update src/libraries/System.Text.Json/src/System/Text/Json/Document/JsonElement.cs
+    
+    Co-authored-by: Stephen Toub <stoub@microsoft.com>
+    
+    * Update src/libraries/System.Text.Json/src/System/Text/Json/Document/JsonElement.cs
+    
+    Co-authored-by: Stephen Toub <stoub@microsoft.com>
+    
+    * Update src/libraries/System.Text.Json/src/System/Text/Json/Document/JsonElement.cs
+    
+    Co-authored-by: Stephen Toub <stoub@microsoft.com>
+    
+    * Update src/libraries/System.Text.Json/src/System/Text/Json/ValueQueue.cs
+    
+    Co-authored-by: Stephen Toub <stoub@microsoft.com>
+    
+    * Update src/libraries/System.Text.Json/src/System/Text/Json/ValueQueue.cs
+    
+    Co-authored-by: Stephen Toub <stoub@microsoft.com>
+    
+    * Address feedback
+    
+    * Uses non-allocating unescaping when both inputs are escaped.
+    
+    ---------
+    
+    Co-authored-by: Stephen Toub <stoub@microsoft.com>
