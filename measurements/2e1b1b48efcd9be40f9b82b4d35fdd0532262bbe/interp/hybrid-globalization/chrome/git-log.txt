@@ -1,0 +1,5 @@
+commit 2e1b1b48efcd9be40f9b82b4d35fdd0532262bbe
+Author: Mike McLaughlin <mikem@microsoft.com>
+Date:   Tue Jul 23 19:04:18 2024 -0700
+
+    Fix DAC stack overflow in GetUsefulGlobals API (#105366)
