@@ -1,0 +1,8 @@
+commit f6994c7807376430c96011fc527dfc4363348d94
+Author: Alexander Köplinger <alex.koeplinger@outlook.com>
+Date:   Wed Jul 24 12:54:38 2024 +0200
+
+    [mono] Improve iOS sample Makefile (#105316)
+    
+    Fixes an issue where we were still harcoding the Debug config for tasks even though that changed with https://github.com/dotnet/runtime/pull/84931.
+    Also align the Makfile to make it more similar to the iOS-NativeAOT one.
