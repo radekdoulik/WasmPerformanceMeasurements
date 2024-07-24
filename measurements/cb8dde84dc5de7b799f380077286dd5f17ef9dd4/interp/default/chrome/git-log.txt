@@ -1,0 +1,13 @@
+commit cb8dde84dc5de7b799f380077286dd5f17ef9dd4
+Author: Adeel Mujahid <3840695+am11@users.noreply.github.com>
+Date:   Wed Jul 24 03:09:57 2024 +0300
+
+    Ensure linux uses zlib-ng and not system ZLIB (#105352)
+    
+    * Update extra_libs.cmake
+    
+    * Apply alternate suggestion
+    
+    ---------
+    
+    Co-authored-by: Carlos Sánchez López <1175054+carlossanlop@users.noreply.github.com>
