@@ -1,0 +1,7 @@
+commit 57a2712a4d1d1e5f91ee7f6a1a1f745d547a15b7
+Author: Jan Kotas <jkotas@microsoft.com>
+Date:   Thu Jul 18 21:41:00 2024 -0800
+
+    Revert "Replace a few stackallocs with collection expressions (#105121)" (#105128)
+    
+    This reverts commit 87cd8935bca05bc44448e00d1276ccbfce49769b.
