@@ -1,0 +1,11 @@
+commit e75fc2775a2c844ffd45e64b9a1b67b7e088959f
+Author: Ahmet Ibrahim Aksoy <aaksoy@microsoft.com>
+Date:   Wed Jul 24 20:39:08 2024 +0200
+
+    Change DefaultMaximumErrorResponseLength to KB from Byte (#105396)
+    
+    * Change DefaultMaximumErrorResponseLength to KB from Byte
+    
+    * Handle overflow
+    
+    * Review feedback
