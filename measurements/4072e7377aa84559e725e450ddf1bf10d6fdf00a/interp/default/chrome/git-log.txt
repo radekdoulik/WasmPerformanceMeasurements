@@ -1,0 +1,16 @@
+commit 4072e7377aa84559e725e450ddf1bf10d6fdf00a
+Author: Carlos Sánchez López <1175054+carlossanlop@users.noreply.github.com>
+Date:   Wed Jul 24 21:58:02 2024 -0700
+
+    Migrate to zlib-ng, part 3: Remove zlib and zlib-intel source code and license mentions (second attempt) (#105371)
+    
+    * Remove zlib/
+    * Remove zlib-intel/
+    * Remove third party notice
+    * Remove patches
+    * Remove version txts
+    * Remove cgmanifest.json entries
+    * Remove installer third party notice
+    * Update docs
+    ---------
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
