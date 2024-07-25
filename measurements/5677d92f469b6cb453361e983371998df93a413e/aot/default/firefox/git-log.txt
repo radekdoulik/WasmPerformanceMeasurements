@@ -1,0 +1,31 @@
+commit 5677d92f469b6cb453361e983371998df93a413e
+Author: Will Smith <lol.tihan@gmail.com>
+Date:   Wed Jul 17 10:58:54 2024 -0700
+
+    JIT: Added Sve.CreateBreakPropagateMask (#104704)
+    
+    * Added Sve.CreateBreakPropagateMask
+    
+    * Added assert
+    
+    * Fixed targetReg and maskReg using the same register
+    
+    * Minor rename
+    
+    * Formatting
+    
+    * No need to use predMask
+    
+    * More formatting
+    
+    * Add additional comment
+    
+    * Feedback
+    
+    * fix lsra
+    
+    * fix build error
+    
+    ---------
+    
+    Co-authored-by: Kunal Pathak <Kunal.Pathak@microsoft.com>
