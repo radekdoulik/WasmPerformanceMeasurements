@@ -1,0 +1,23 @@
+commit 27e9b9db7a4ea10636cb28983e849c6ed1c1ea94
+Author: Ahmet Ibrahim Aksoy <aaksoy@microsoft.com>
+Date:   Fri Jul 12 06:11:59 2024 +0200
+
+    [HTTP/2] Throw meaningful exception if we get GOAWAY while reading response body (#104707)
+    
+    * Throw HttpProtocolException in case we get a GOAWAY frame while waiting for next frame on response
+    
+    * Fix helper method names
+    
+    * Apply suggestions from code review
+    
+    Co-authored-by: Miha Zupan <mihazupan.zupan1@gmail.com>
+    
+    * Code review feedback
+    
+    * Revert method names
+    
+    * Fix test with the new behavior
+    
+    ---------
+    
+    Co-authored-by: Miha Zupan <mihazupan.zupan1@gmail.com>
