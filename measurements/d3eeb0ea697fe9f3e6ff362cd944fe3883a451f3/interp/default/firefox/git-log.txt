@@ -1,0 +1,11 @@
+commit d3eeb0ea697fe9f3e6ff362cd944fe3883a451f3
+Author: Tomasz Sowiński <tomeksowi@gmail.com>
+Date:   Wed Jul 24 23:18:09 2024 +0200
+
+    [RISC-V] Fix passing float and uint arguments in VM (#105021)
+    
+    * Add tests
+    
+    * Fix passing float and uint arguments in VM
+    
+    * Change test lib name so it doesn't clash with managed DLL on Windows
