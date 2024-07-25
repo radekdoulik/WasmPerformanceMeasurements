@@ -1,0 +1,9 @@
+commit e56ebd16a77992f9fea8e919960cec74955a6714
+Author: Eirik Tsarpalis <eirik.tsarpalis@gmail.com>
+Date:   Fri Jul 12 23:16:38 2024 +0100
+
+    Make build.ps1 default to the OS architecture (#104792)
+    
+    * Make build.ps1 default to the OS architecture
+    
+    * Make help message consistent with build.sh
