@@ -1,0 +1,11 @@
+commit 49e7fd5b156a8f5fb167bd4bdcd1207011723ed3
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Thu Jul 25 15:35:00 2024 -0400
+
+    Make TooDeepJsonDocument test more consistent across platforms (#105445)
+    
+    * Make TooDeepJsonDocument test more consistent across platforms
+    
+    Run the test on a thread with as consistent a stack size as possible so that we don't inadvertently succeed due to having a really large stack.
+    
+    * Disable test on mono
