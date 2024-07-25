@@ -1,0 +1,12 @@
+commit ca0011a9698ec113535b710285bdda942ec5bd2b
+Author: Radek Zikmund <32671551+rzikm@users.noreply.github.com>
+Date:   Thu Jul 11 16:40:28 2024 +0200
+
+    Use latest released SDK for HttpStress and SslStress. (#104713)
+    
+    * Use latest released SDK for HttpStress.
+    
+    This PR removes the .1xx suffix on the channel of the installed SDK to allow
+    installing more recent SDKs.
+    
+    * Apply to SslStress as well
