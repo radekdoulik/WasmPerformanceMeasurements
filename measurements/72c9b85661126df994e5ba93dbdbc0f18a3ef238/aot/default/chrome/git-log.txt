@@ -1,0 +1,13 @@
+commit 72c9b85661126df994e5ba93dbdbc0f18a3ef238
+Author: Viktor Hofer <viktor.hofer@microsoft.com>
+Date:   Thu Jul 25 16:07:46 2024 +0200
+
+    Set xunit env var to not print output for passing tests (#105392)
+    
+    * Set xunit env var to not print output for passing tests
+    
+    Fixes https://github.com/dotnet/runtime/issues/103445
+    
+    * Update xunit.console.targets
+    
+    * Update xunit.console.targets
