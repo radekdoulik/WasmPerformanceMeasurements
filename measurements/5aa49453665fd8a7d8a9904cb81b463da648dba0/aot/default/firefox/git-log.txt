@@ -1,0 +1,10 @@
+commit 5aa49453665fd8a7d8a9904cb81b463da648dba0
+Author: Alexander Köplinger <alex.koeplinger@outlook.com>
+Date:   Thu Jul 25 02:31:13 2024 +0200
+
+    Fix platform analyzer attribute order for MacCatalyst (#105409)
+    
+    We need to make sure the attribute for MacCatalyst comes _after_ the iOS one due to how MacCatalyst is a superset of iOS: https://learn.microsoft.com/en-us/dotnet/standard/analyzers/platform-compat-analyzer#platform-inclusion
+    
+    This caused an error in aspnetcore in the latest dependency flow because the analyzer thought AesGcm is _only_ supported on MacCatalyst:
+    > error CA1416: (NETCORE_ENGINEERING_TELEMETRY=Build) This call site is reachable on all platforms. 'AesGcm.Decrypt(ReadOnlySpan<byte>, ReadOnlySpan<byte>, ReadOnlySpan<byte>, Span<byte>, ReadOnlySpan<byte>)' is only supported on: 'maccatalyst' 13.0 and later.
