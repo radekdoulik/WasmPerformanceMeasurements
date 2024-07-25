@@ -1,0 +1,24 @@
+commit 1d27457dd6dad96226c22cbafe1653fa98480fd3
+Author: Sven Boemer <sbomer@gmail.com>
+Date:   Thu Jul 25 10:29:48 2024 -0700
+
+    Support field access on GetType() of T constrained to be Enum (#105351)
+    
+    Adds trimming support for instance.GetType().GetFields(), where
+    instance is a variable of type `T` that is constrained to System.Enum.
+    
+    This includes a change to have ILLink's TypeProxy track a
+    TypeReference instead of TypeDefinition, which was necessary to allow
+    TypeProxy to represent a generic parameter.
+    
+    Note that this only supports the specific case where `GetType()` is
+    called on a variable of type `T` that is constrained to `Enum`. A
+    variable of type `Enum` is not supported, so the following will still
+    warn:
+    
+    
+    ```csharp
+    static void M(Enum v) {
+        v.GetType().GetFields();
+    }
+    ```
