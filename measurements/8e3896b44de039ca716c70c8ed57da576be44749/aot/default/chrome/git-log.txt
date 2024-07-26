@@ -1,0 +1,9 @@
+commit 8e3896b44de039ca716c70c8ed57da576be44749
+Author: Mike McLaughlin <mikem@microsoft.com>
+Date:   Thu Jul 25 22:58:59 2024 -0700
+
+    Fix issue 98506 - Excessive exceptions generated in StackTraceSymbols (#105530)
+    
+    * Fix issue 98506 - Excessive exceptions generated in StackTraceSymbols
+    
+    * Code review feedback
