@@ -1,0 +1,87 @@
+commit 7d64842fdc41340440b00795c3f39f4c917acc62
+Author: Tomasz Sowiński <tomeksowi@gmail.com>
+Date:   Fri Jul 26 03:32:45 2024 +0200
+
+    [RISC-V][LoongArch64] New passing info for floating-point structs (#103945)
+    
+    * Replace StructFloatFieldInfoFlags with FpStructInRegistersInfo which carries also exact field sizes and offsets
+    
+    * Replace StructFloatFieldInfoFlags with FpStruct::Flags in profiler
+    
+    * Remove FpStructInRegistersInfo::FromOldFlags()
+    
+    * Fix duplicating types in HandleInlineArray
+    
+    * Remove signedness from FpStruct::IntKind because most probably we won't need it
+    
+    * Remove old StructFloatFieldInfoFlags calculating routine
+    
+    * Typo in TARGET_LOONGARCH64
+    
+    * Remove m_returnedFpFieldOffsets from ArgIterator
+    
+    * Add missing ENREGISTERED_PARAMTYPE_MAXSIZE condition to C# version of FpStruct info calculation
+    
+    * Rename RISCV64PassStructInRegister to match settled casing for RiscV in class names
+    
+    * Update hardcoded flags for float and double in ArgIteratorTemplate::ComputeReturnFlags()
+    
+    This fixes JIT/HardwareIntrinsics/General/Vector* tests.
+    
+    * Fix build on other platforms
+    
+    * Update LoongArch to use FpStructInRegistersInfo
+    
+    * Remove unused old flag masks
+    
+    * LoongArch64 typo
+    
+    Co-authored-by: Qiao Pengcheng <qiaopengcheng@loongson.cn>
+    
+    * Missing FpStruct namespace
+    
+    Co-authored-by: Qiao Pengcheng <qiaopengcheng@loongson.cn>
+    
+    * Missing FpStruct namespace
+    
+    Co-authored-by: Qiao Pengcheng <qiaopengcheng@loongson.cn>
+    
+    * Missing FpStruct namespace
+    
+    Co-authored-by: Qiao Pengcheng <qiaopengcheng@loongson.cn>
+    
+    * Use FpStruct namespace everywhere in JIT
+    
+    * JIT review
+    
+    * Update StructFloatFieldInfoFlags description
+    
+    * Revert to hitherto instruction set order as it's not the point of this PR
+    
+    * Unify get{LoongArch,RiscV}64PassFpStructInRegistersInfo JIT interfaces
+    
+    * Use JIT_TO_EE_TRANSITION instead of _LEAF because MethodTable::GetFpStructInRegistersInfo may throw
+    
+    * Remove FpStruct::IntKind, we should have similar info in ClassLayout in JIT
+    
+    * Change JIT interface to return a struct similar to CORINFO_SWIFT_LOWERING to facilitate code unification in the future
+    
+    * Change JIT to use new Swift-like getFpStructLowering
+    
+    * Cache CORINFO_FPSTRUCT_LOWERING
+    
+    * Update LoongArch classifier to use CORINFO_FPSTRUCT_LOWERING
+    
+    * Update StructFloatInfoFlags doc comment on C#
+    
+    * Move StructFloatFieldInfoFlags and FpStructInRegistersInfo out of the JIT interface
+    
+    * Merge LoongArch and RISC-V AOT calculation of FpStructInRegistersInfo because they were identical. Move it to Common\Internal/Runtime because it's no longer exposed in JIT interface.
+    
+    * Don't zero-initialize CORINFO_FPSTRUCT_LOWERING
+    
+    * Add note for CORINFO_FPSTRUCT_LOWERING::loweredElements type
+    
+    ---------
+    
+    Co-authored-by: Qiao Pengcheng <qiaopengcheng@loongson.cn>
