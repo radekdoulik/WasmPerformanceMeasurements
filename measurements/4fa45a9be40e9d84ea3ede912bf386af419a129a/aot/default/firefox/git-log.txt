@@ -1,0 +1,5 @@
+commit 4fa45a9be40e9d84ea3ede912bf386af419a129a
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Thu Jul 25 18:30:31 2024 -0400
+
+    Try to re-enable DeepEquals_TooDeepJsonDocument_ThrowsInsufficientExecutionStackException test on mono (#105509)
