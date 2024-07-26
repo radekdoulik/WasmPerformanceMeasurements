@@ -1,0 +1,8 @@
+commit e7f3ff1172b5366ccdd8ebd71c17906285a2864f
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Thu Jul 25 23:36:41 2024 +0200
+
+    Fix up Fuzzlyn CI scripts for new hardware intrinsics support (#105470)
+    
+    1) Strip out the extensions in the seed name when using it for file/directory names, since the list of extensions is quite long
+    2) Limit the number of unreduced/uncategorized example seeds we show
