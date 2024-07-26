@@ -1,0 +1,12 @@
+commit 012e5b38f899add39127b9556feb3dfd61b7143a
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Tue Jul 16 16:55:18 2024 +0200
+
+    Emulate shell exit code behavior for signals in PAL (#104902)
+    
+    The PAL versions of `GetExitCodeProcess` and `WaitForMultipleObjects`
+    currently just fake up an exit code using `EXIT_FAILURE` (usually 1)
+    whenever a child process is terminated by a signal. This PR changes the
+    logic to instead behave the same as most shells and
+    `SystemNative_WaitPidExitedNoHang`, where the exit code becomes 128 +
+    signal number.
