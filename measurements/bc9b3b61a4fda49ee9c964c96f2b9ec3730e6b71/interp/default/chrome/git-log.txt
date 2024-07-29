@@ -1,0 +1,15 @@
+commit bc9b3b61a4fda49ee9c964c96f2b9ec3730e6b71
+Author: Jan Vorlicek <janvorli@microsoft.com>
+Date:   Tue Jul 16 06:20:22 2024 +0200
+
+    Fix EH stacktrace keepalive array copy size (#104912)
+    
+    When the stacktrace keepalive array is grown, we were incorrectly
+    copying extra item from the original keepalive array to the new one. In
+    some cases, it ended up adding garbage to the array and GC object
+    verification has hickuped on it. In the CI, it was only hit by
+    GCStress-Extra tests that set DOTNET_HeapVerify=1 so far.
+    
+    This fixes the copied size to be the source array's number of elements.
+    
+    Close #104878
