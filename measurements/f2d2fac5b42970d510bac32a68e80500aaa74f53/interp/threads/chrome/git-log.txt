@@ -1,0 +1,5 @@
+commit f2d2fac5b42970d510bac32a68e80500aaa74f53
+Author: Eirik Tsarpalis <eirik.tsarpalis@gmail.com>
+Date:   Mon Jul 29 17:55:46 2024 +0100
+
+    Fix bug in handling of duplicate properties in the fast-path source generator. (#105628)
