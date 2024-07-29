@@ -1,0 +1,7 @@
+commit 553a1e9143c5601f6200d1a0f91e38957717eb89
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Mon Jul 29 21:01:38 2024 +0200
+
+    JIT: Filter out fields of implicit byref params for retbuf optimization (#105617)
+    
+    We cannot optimize these since we may end up undoing promotion.
