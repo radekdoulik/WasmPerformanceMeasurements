@@ -1,0 +1,9 @@
+commit 34f125f8cc673d8a0f2737d760be92161f24699e
+Author: Eirik Tsarpalis <eirik.tsarpalis@gmail.com>
+Date:   Wed Jul 24 10:00:29 2024 +0100
+
+    Fix DeepEquals_DeepJsonDocument stack overflow that manifests in xunit.console and netfx. (#105309)
+    
+    * Fix DeepEquals_DeepJsonDocument stack overflow that manifests in xunit.console and netfx.
+    
+    * Guard DeepEquals calls with EnsureSufficientExecutionStack().
