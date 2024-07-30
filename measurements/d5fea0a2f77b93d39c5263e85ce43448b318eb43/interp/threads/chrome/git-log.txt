@@ -1,0 +1,7 @@
+commit d5fea0a2f77b93d39c5263e85ce43448b318eb43
+Author: Anton Firszov <Anton.Firszov@microsoft.com>
+Date:   Tue Jul 30 13:59:47 2024 +0200
+
+     [Http/SslStress] Update linux containers to use centos-stream9 (#105631)
+    
+    This should bump the clang version and fix #105560
