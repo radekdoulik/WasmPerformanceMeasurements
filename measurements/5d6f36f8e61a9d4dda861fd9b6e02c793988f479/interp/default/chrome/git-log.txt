@@ -1,0 +1,15 @@
+commit 5d6f36f8e61a9d4dda861fd9b6e02c793988f479
+Author: Ahmet Ibrahim Aksoy <aaksoy@microsoft.com>
+Date:   Tue Jul 30 12:31:09 2024 +0200
+
+    Enable CertificateCallbackThrowPropagates on Alpine (#105489)
+    
+    * Enable CertificateCallbackThrowPropagates
+    
+    * Skip Test on platforms other than Alpine
+    
+    * Review feedback
+    
+    * Change condition to check MsQuic Version instead of Specific Distro
+    
+    * Delete unused property
