@@ -1,0 +1,11 @@
+commit d2425e99eb04edda5530b6425d6d16f094c9e881
+Author: Milos Kotlar <kotlarmilos@gmail.com>
+Date:   Thu Jul 25 17:34:37 2024 +0200
+
+    Enable NativeAOT runtime tests on MacCatalyst (#102882)
+    
+    This PR updates the CLRTest.Execute.Bash.targets file to set the apple run command for MacCatalyst. The command apple just-run used on Apple mobile is not permitted, and apple test requires the a test runner. Additionally, it is necessary to locate Info.plist in the Contents/ directory and the binary in Contents/MacOS/ within the bundle.
+    
+    ---------
+    
+    Co-authored-by: Ivan Povazan <ivan.povazan@gmail.com>
