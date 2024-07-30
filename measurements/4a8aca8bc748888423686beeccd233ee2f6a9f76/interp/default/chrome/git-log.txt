@@ -1,0 +1,18 @@
+commit 4a8aca8bc748888423686beeccd233ee2f6a9f76
+Author: Adeel Mujahid <3840695+am11@users.noreply.github.com>
+Date:   Wed Jul 24 20:55:38 2024 +0300
+
+    Update SDK to preview 6 (#104696)
+    
+    * Update SDK to preview 6
+    
+    * Update Shared.csproj
+    
+    Fix `error NU1903: Package 'System.Text.Json' 8.0.0 has a known high severity vulnerability`
+    
+    * Fix with existing version.
+    
+    ---------
+    
+    Co-authored-by: Ilona Tomkowicz <32700855+ilonatommy@users.noreply.github.com>
+    Co-authored-by: Viktor Hofer <viktor.hofer@microsoft.com>
