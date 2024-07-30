@@ -1,0 +1,5 @@
+commit dfa66c800ae7068912c860086002c8c775373f40
+Author: Aman Khalid <amankhalid@microsoft.com>
+Date:   Tue Jul 30 00:35:03 2024 +0000
+
+    JIT: Remove fallthrough constraint for `BBJ_SWITCH -> BBJ_COND` conversion (#105651)
