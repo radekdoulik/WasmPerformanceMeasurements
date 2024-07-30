@@ -1,0 +1,36 @@
+commit 4c58b5a5132cb089b23d32cafe3fcfa7e615a0da
+Author: Buyaa Namnan <bunamnan@microsoft.com>
+Date:   Mon Jul 29 13:03:03 2024 -0700
+
+    Add ZLib, Brotli compression options (#105430)
+    
+    * Add ZLibCompressionOptions, BrotliCompressionoptions
+    
+    * Revert code that referenced from System.Net.WebSockets project
+    
+    * Apply feedbacks
+    
+    * Remove TestDocument.docx from ZLibCompressionLevel_SizeInOrde test that failing in some CI legs
+    
+    * Apply suggestions from code review
+    
+    Co-authored-by: Stephen Toub <stoub@microsoft.com>
+    
+    * Apply remaining feedback
+    
+    * Apply suggestions from code review
+    
+    Co-authored-by: Carlos Sánchez López <1175054+carlossanlop@users.noreply.github.com>
+    
+    * Apply remaining feedback
+    
+    * Update src/libraries/System.IO.Compression/src/System/IO/Compression/ZLibCompressionOptions.cs
+    
+    Co-authored-by: Carlos Sánchez López <1175054+carlossanlop@users.noreply.github.com>
+    
+    * Update src/libraries/System.IO.Compression/src/System/IO/Compression/ZLibCompressionOptions.cs
+    
+    ---------
+    
+    Co-authored-by: Stephen Toub <stoub@microsoft.com>
+    Co-authored-by: Carlos Sánchez López <1175054+carlossanlop@users.noreply.github.com>
