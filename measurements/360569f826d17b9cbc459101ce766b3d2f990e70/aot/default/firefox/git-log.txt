@@ -1,0 +1,28 @@
+commit 360569f826d17b9cbc459101ce766b3d2f990e70
+Author: Jan Vorlicek <janvorli@microsoft.com>
+Date:   Fri Jul 26 17:24:27 2024 +0200
+
+    Fix missing frame on inner exception stack trace in release build (#105482)
+    
+    There is a problem in release builds of the runtime that was discovered
+    by SOS tests. When an exception is thrown from reflection code, the
+    inner exception was missing the frame(s) from the reflection called code
+    on the stack trace and had them in the `_remoteStackTraceString` instead.
+    So getting the exception stack trace as string still worked correctly.
+    In checked or debug builds, it was working as expected.
+    
+    It turned out that the issue was caused by the fact that when an
+    exception is rethrown as native one when exception unwinding reaches
+    native frames, it used `RealCOMPlusThrow` method. The catch was that while
+    in debug / checked builds it was using this method with Object*
+    argument, in release builds, the `OBJECTREF` and Object* are the same
+    thing, so the `RealCOMPlusThrow` with the explicit Object* was not
+    compiled and we were using the one with the OBJECTREF argument.
+    Unfortunately, that one has a different semantics - to save the current
+    stack trace into the `_remoteStackTraceString` and then building it from
+    scratch.
+    
+    The fix was to rename the RealCOMPlusThrow version with the Object*
+    argument to a different name so that it can be built for release,
+    checked and debug builds and used for the specific purpose of
+    propagating managed exception through the native frames.
