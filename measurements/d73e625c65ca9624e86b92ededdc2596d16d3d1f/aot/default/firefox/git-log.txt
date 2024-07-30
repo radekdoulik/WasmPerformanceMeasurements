@@ -1,0 +1,17 @@
+commit d73e625c65ca9624e86b92ededdc2596d16d3d1f
+Author: Ilona Tomkowicz <32700855+ilonatommy@users.noreply.github.com>
+Date:   Thu Jul 25 10:44:19 2024 +0200
+
+    [browser] Trigger relink on `EmccMaximumHeapSize` change (#105027)
+    
+    * Edit test + trigger relink.
+    
+    * Remove logging to speed up the test + decrease loop runs to prevent "Browser has been disconnected" error.
+    
+    * Feedback - properties are not bool-only anymore.
+    
+    * Fix: workload needed when heap size set.
+    
+    ---------
+    
+    Co-authored-by: Larry Ewing <lewing@microsoft.com>
