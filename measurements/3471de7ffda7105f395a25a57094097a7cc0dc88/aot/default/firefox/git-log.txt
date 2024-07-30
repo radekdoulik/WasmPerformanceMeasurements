@@ -1,0 +1,10 @@
+commit 3471de7ffda7105f395a25a57094097a7cc0dc88
+Author: Aaron Robinson <arobins@microsoft.com>
+Date:   Sat Jul 27 13:24:31 2024 -0700
+
+    Remove HelperMethodFrame from `GetMulticastInvoke` (#105584)
+    
+    * Remove HelperMethodFrame from GetMulticastInvoke
+    
+    Move MethodTable acquisition from unmanaged to managed.
+    This allows for converting instance FCalls to static.
