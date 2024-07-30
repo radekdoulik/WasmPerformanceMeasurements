@@ -1,0 +1,5 @@
+commit 6ce4666cfb8fa505716545f7f0138e1b35e6f586
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Wed Jul 24 10:22:08 2024 -0400
+
+    Fix LINQ Aggregate/CountBy tests for Native AOT (#105357)
