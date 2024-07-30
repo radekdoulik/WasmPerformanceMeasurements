@@ -1,0 +1,9 @@
+commit 676189ad5e60ce6ed3337120f29470bff38bad8d
+Author: Mike Oliphant <oliphant@nostatic.org>
+Date:   Wed Jul 24 13:44:18 2024 -0700
+
+    Add runtime config parameter to force ijwhost to load assemblies in an isolated context (#105337)
+    
+    * Add support for isolated load context in LoadInMemoryAssemblyInContext by passing -1 as loadContext
+    * Have ijwhost check a runtime config parameter to determine if it should run in an isolated load context
+    * Added test for ijwhost isolated load context runtime config option
