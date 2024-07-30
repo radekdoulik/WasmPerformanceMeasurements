@@ -1,0 +1,9 @@
+commit 6af853d7757e55a09fd9bc6dc1d6aa12c0b454f2
+Author: Tanner Gooding <tagoo@outlook.com>
+Date:   Thu Jul 25 21:31:39 2024 -0700
+
+    Ensure constant evaluation of shifts on xarch broadcast the operand to the correct size (#105487)
+    
+    * Ensure constant evaluation of shifts on xarch broadcast the operand to the correct size
+    
+    * Ensure we don't try to execute AVX2 code on unsupported platforms
