@@ -1,0 +1,5 @@
+commit f251b170fb1d1be8552e7e1f3238aca9bcc6bb7a
+Author: Egor Bogatov <egorbo@gmail.com>
+Date:   Mon Jul 29 17:43:49 2024 +0200
+
+    JIT: Fix ShiftRightLogical/Rotate* constant folding (#105571)
