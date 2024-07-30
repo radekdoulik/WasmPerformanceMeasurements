@@ -1,0 +1,21 @@
+commit eb765b71a4a93e4157cd7e1eaf33995ffc80285c
+Author: Buyaa Namnan <bunamnan@microsoft.com>
+Date:   Fri Jul 26 10:51:02 2024 -0700
+
+    Base 64 decoder, reject input when unused bits are not 0 (#105262)
+    
+    * Base 64 decoder, reject input when unused bits are not 0
+    
+    * Update invalid json test value, fix issue in Base64Url validation
+    
+    * Apply feedbacks
+    
+    * Update comments
+    
+    * Apply suggestions from code review
+    
+    Co-authored-by: Stephen Toub <stoub@microsoft.com>
+    
+    ---------
+    
+    Co-authored-by: Stephen Toub <stoub@microsoft.com>
