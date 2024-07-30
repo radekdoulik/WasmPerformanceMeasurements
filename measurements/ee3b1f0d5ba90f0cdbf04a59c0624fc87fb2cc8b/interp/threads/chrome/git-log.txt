@@ -1,0 +1,11 @@
+commit ee3b1f0d5ba90f0cdbf04a59c0624fc87fb2cc8b
+Author: Eric StJohn <ericstj@microsoft.com>
+Date:   Tue Jul 30 09:24:58 2024 -0700
+
+    Workaround bug in EvtFormatMessage (#105636)
+    
+    * Workaround bug in EvtFormatMessage
+    
+    * Add issue comment for 100198
+    
+    * Use stackalloc buffer
