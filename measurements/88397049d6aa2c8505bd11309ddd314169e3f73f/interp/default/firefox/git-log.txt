@@ -1,0 +1,11 @@
+commit 88397049d6aa2c8505bd11309ddd314169e3f73f
+Author: Sven Boemer <sbomer@gmail.com>
+Date:   Mon Jul 29 15:53:14 2024 -0700
+
+    Update suppression reason for Assembly.GetType call (#105577)
+    
+    With https://github.com/dotnet/runtime/pull/104060 there will be
+    trim warnings whenever a non-qualified type name is used with
+    this API, so the call to `_type.AssemblyGetType` is effectively
+    unreachable in a trimmed app with no trim warnings and it is safe
+    to suppress.
