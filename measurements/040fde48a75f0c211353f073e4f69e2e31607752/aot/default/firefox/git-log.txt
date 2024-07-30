@@ -1,0 +1,11 @@
+commit 040fde48a75f0c211353f073e4f69e2e31607752
+Author: Tanner Gooding <tagoo@outlook.com>
+Date:   Mon Jul 29 14:03:07 2024 -0700
+
+    Ensure that negation of floating-point values is correctly handled (#105629)
+    
+    * Ensure that negation of floating-point values is correctly handled
+    
+    * Fix paren in test
+    
+    * Ensure the managed fallback for negate handles float properly
