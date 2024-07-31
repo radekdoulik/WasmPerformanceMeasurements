@@ -1,0 +1,12 @@
+commit 7911e709c0d7d38f17faf46fa21cecc9c25f1e3a
+Author: SingleAccretion <62474226+SingleAccretion@users.noreply.github.com>
+Date:   Wed Jul 31 20:52:37 2024 +0300
+
+    Do not separate header comments from function definitions (#105754)
+    
+    * Do not separate header comments from function definitions
+    
+    Separating them with a space defeats a VS feature that shows
+    the header comments when you hover over a function in code.
+    
+    * Remove // static as well
