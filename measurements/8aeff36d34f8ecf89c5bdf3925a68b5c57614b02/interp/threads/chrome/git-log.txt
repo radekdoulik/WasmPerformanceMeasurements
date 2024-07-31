@@ -1,0 +1,5 @@
+commit 8aeff36d34f8ecf89c5bdf3925a68b5c57614b02
+Author: Aman Khalid <amankhalid@microsoft.com>
+Date:   Wed Jul 31 15:09:11 2024 +0000
+
+    JIT: Skip GT_LCL_FLD stress if GTF_VAR_CONTEXT is set (#105726)
