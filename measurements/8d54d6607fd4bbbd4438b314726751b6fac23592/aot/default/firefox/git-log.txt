@@ -1,0 +1,11 @@
+commit 8d54d6607fd4bbbd4438b314726751b6fac23592
+Author: Adeel Mujahid <3840695+am11@users.noreply.github.com>
+Date:   Sun Jul 28 19:09:54 2024 +0300
+
+    Export required symbols for FreeBSD ELFs (#105587)
+    
+    * Export required symbols for FreeBSD ELFs
+    
+    * Update src/coreclr/nativeaot/BuildIntegration/Microsoft.NETCore.Native.targets
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
