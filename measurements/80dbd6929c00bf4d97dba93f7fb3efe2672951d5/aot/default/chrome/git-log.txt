@@ -1,0 +1,8 @@
+commit 80dbd6929c00bf4d97dba93f7fb3efe2672951d5
+Author: Meri Khamoyan <96171496+mkhamoyan@users.noreply.github.com>
+Date:   Wed Jul 31 13:22:25 2024 +0200
+
+    [browser][wbt] Fix `InvalidOperationException: There is no currently active test` (#105561)
+    
+    * Unsubscribe from event handlers
+    * Fix wasi default scenario
