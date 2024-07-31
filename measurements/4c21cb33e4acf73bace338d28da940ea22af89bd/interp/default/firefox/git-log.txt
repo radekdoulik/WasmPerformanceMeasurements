@@ -1,0 +1,8 @@
+commit 4c21cb33e4acf73bace338d28da940ea22af89bd
+Author: Alexander Köplinger <alex.koeplinger@outlook.com>
+Date:   Mon Jul 22 23:17:36 2024 +0200
+
+    [mono] Exit early to prevent endless loop when crashing (#105249)
+    
+    We hit an issue where we got into an endless loop of crashes while trying to dump the stack trace.
+    Move the existing code to protect against this up to make sure we abort early enough.
