@@ -1,0 +1,7 @@
+commit 7e429c2393a002065b641c3817fff62145c926db
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Sat Jul 27 06:51:43 2024 -0400
+
+    Revert "Add SearchValues<char> implementation for two sets of 128 chars (#103…" (#105562)
+    
+    This reverts commit 13abb446cfda5a37bf193b4c0bc3cd372986fb88.
