@@ -1,0 +1,141 @@
+commit 767e4165641583c73918168a920a10513000572c
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Fri Jul 19 22:04:37 2024 +0200
+
+    JIT: Transform multi-reg args to FIELD_LIST in physical promotion (#104370)
+    
+    This allows promoted fields to stay in registers when they are passed as
+    multi-reg arguments.
+    
+    Example linux-x64 diff with `DOTNET_JitStressModeNames=STRESS_NO_OLD_PROMOTION`:
+    
+    ```csharp
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static void Test(int[] arr)
+    {
+        Foo(arr);
+    }
+    ```
+    
+    Base:
+    ```asm
+    ; Assembly listing for method Program:Test(int[]) (FullOpts)
+    ; Emitting BLENDED_CODE for X64 with AVX - Unix
+    ; FullOpts code
+    ; optimized code
+    ; rbp based frame
+    ; partially interruptible
+    ; No PGO data
+    ; 1 inlinees with PGO data; 1 single block inlinees; 0 inlinees without PGO data
+    ; invoked as altjit
+    ; Final local variable assignments
+    ;
+    ;  V00 arg0         [V00,T01] (  5,  4   )     ref  ->  rdi         class-hnd single-def <int[]>
+    ;# V01 OutArgs      [V01    ] (  1,  1   )  struct ( 0) [rsp+0x00]  do-not-enreg[XS] addr-exposed "OutgoingArgSpace"
+    ;* V02 tmp1         [V02    ] (  0,  0   )  struct (16) zero-ref    do-not-enreg[S] "spilled call-like call argument" <System.Span`1[int]>
+    ;  V03 tmp2         [V03,T00] (  4,  8   )  struct (16) [rbp-0x20]  do-not-enreg[SFA] multireg-arg must-init ld-addr-op "NewObj constructor temp" <System.Span`1[int]>
+    ;  V04 tmp3         [V04,T02] (  3,  1.50)   byref  ->  rbx         "V03.[000..008)"
+    ;  V05 tmp4         [V05,T03] (  3,  1.50)     int  ->  r15         "V03.[008..012)"
+    ;
+    ; Lcl frame size = 16
+    
+    G_M55702_IG01:  ;; offset=0x0000
+           push     rbp
+           push     r15
+           push     rbx
+           sub      rsp, 16
+           lea      rbp, [rsp+0x20]
+           xor      eax, eax
+           mov      qword ptr [rbp-0x20], rax
+                                                    ;; size=19 bbWeight=1 PerfScore 5.00
+    G_M55702_IG02:  ;; offset=0x0013
+           test     rdi, rdi
+           je       SHORT G_M55702_IG06
+                                                    ;; size=5 bbWeight=1 PerfScore 1.25
+    G_M55702_IG03:  ;; offset=0x0018
+           lea      rbx, bword ptr [rdi+0x10]
+           mov      r15d, dword ptr [rdi+0x08]
+                                                    ;; size=8 bbWeight=0.50 PerfScore 1.25
+    G_M55702_IG04:  ;; offset=0x0020
+           mov      bword ptr [rbp-0x20], rbx
+           mov      dword ptr [rbp-0x18], r15d
+           mov      rdi, bword ptr [rbp-0x20]
+           mov      rsi, qword ptr [rbp-0x18]
+           mov      rax, 0x7FF97F8FC648      ; code for Program:Foo(System.Span`1[int])
+           call     [rax]Program:Foo(System.Span`1[int])
+           nop
+                                                    ;; size=29 bbWeight=1 PerfScore 7.50
+    G_M55702_IG05:  ;; offset=0x003D
+           add      rsp, 16
+           pop      rbx
+           pop      r15
+           pop      rbp
+           ret
+                                                    ;; size=9 bbWeight=1 PerfScore 2.75
+    G_M55702_IG06:  ;; offset=0x0046
+           xor      rbx, rbx
+           xor      r15d, r15d
+           jmp      SHORT G_M55702_IG04
+                                                    ;; size=7 bbWeight=0 PerfScore 0.00
+    
+    ; Total bytes of code 77, prolog size 19, PerfScore 17.75, instruction count 26, allocated bytes for code 77 (MethodHash=340b2669) for method Program:Test(int[]) (FullOpts)
+    ; ============================================================
+    ```
+    
+    Diff:
+    ```asm
+    ; Assembly listing for method Program:Test(int[]) (FullOpts)
+    ; Emitting BLENDED_CODE for X64 with AVX - Unix
+    ; FullOpts code
+    ; optimized code
+    ; rbp based frame
+    ; partially interruptible
+    ; No PGO data
+    ; 1 inlinees with PGO data; 1 single block inlinees; 0 inlinees without PGO data
+    ; invoked as altjit
+    ; Final local variable assignments
+    ;
+    ;  V00 arg0         [V00,T00] (  5,  4   )     ref  ->  rdi         class-hnd single-def <int[]>
+    ;# V01 OutArgs      [V01    ] (  1,  1   )  struct ( 0) [rsp+0x00]  do-not-enreg[XS] addr-exposed "OutgoingArgSpace"
+    ;* V02 tmp1         [V02    ] (  0,  0   )  struct (16) zero-ref    do-not-enreg[S] "spilled call-like call argument" <System.Span`1[int]>
+    ;* V03 tmp2         [V03    ] (  0,  0   )  struct (16) zero-ref    do-not-enreg[SF] ld-addr-op "NewObj constructor temp" <System.Span`1[int]>
+    ;  V04 tmp3         [V04,T01] (  3,  1.50)   byref  ->  rax         "V03.[000..008)"
+    ;  V05 tmp4         [V05,T02] (  3,  1.50)     int  ->  rsi         "V03.[008..012)"
+    ;
+    ; Lcl frame size = 0
+    
+    G_M55702_IG01:  ;; offset=0x0000
+           push     rbp
+           mov      rbp, rsp
+                                                    ;; size=4 bbWeight=1 PerfScore 1.25
+    G_M55702_IG02:  ;; offset=0x0004
+           test     rdi, rdi
+           je       SHORT G_M55702_IG06
+                                                    ;; size=5 bbWeight=1 PerfScore 1.25
+    G_M55702_IG03:  ;; offset=0x0009
+           lea      rax, bword ptr [rdi+0x10]
+           mov      esi, dword ptr [rdi+0x08]
+                                                    ;; size=7 bbWeight=0.50 PerfScore 1.25
+    G_M55702_IG04:  ;; offset=0x0010
+           mov      rdi, rax
+           mov      rax, 0x7FF97F91C648      ; code for Program:Foo(System.Span`1[int])
+           call     [rax]Program:Foo(System.Span`1[int])
+           nop
+                                                    ;; size=16 bbWeight=1 PerfScore 3.75
+    G_M55702_IG05:  ;; offset=0x0020
+           pop      rbp
+           ret
+                                                    ;; size=2 bbWeight=1 PerfScore 1.50
+    G_M55702_IG06:  ;; offset=0x0022
+           xor      rax, rax
+           xor      esi, esi
+           jmp      SHORT G_M55702_IG04
+                                                    ;; size=6 bbWeight=0 PerfScore 0.00
+    
+    ; Total bytes of code 40, prolog size 4, PerfScore 9.00, instruction count 15, allocated bytes for code 40 (MethodHash=340b2669) for method Program:Test(int[]) (FullOpts)
+    ; ============================================================
+    ```
+    
+    Diffs aren't super large with old promotion enabled because most structs that
+    are candidates to be multi-register arguments are handled just fine by old
+    promotion. However, this moves us closer to being able to remove old promotion.
