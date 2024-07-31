@@ -1,0 +1,17 @@
+commit c86bcbb7a573bb09fcb1f4fcd7bc24323e9d6f44
+Author: Steve Gordon <sgordon@hotmail.co.uk>
+Date:   Wed Jul 31 00:24:21 2024 +0100
+
+    Update runtime metrics tests to avoid failures on some platforms (#105300)
+    
+    * Update runtime metrics tests to avoid failures on some platforms
+    
+    * Fix incorrect assertion in last commit
+    
+    * Skip CPU time on mobile
+    
+    * Skip test on Mobile platforms
+    
+    ---------
+    
+    Co-authored-by: Tarek Mahmoud Sayed <tarekms@microsoft.com>
