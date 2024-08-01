@@ -1,0 +1,7 @@
+commit 9fe8c95c890b0e68c77c7970f8413b1375afe18f
+Author: Thays Grazia <thaystg@gmail.com>
+Date:   Thu Aug 1 14:25:57 2024 -0300
+
+    [mono][debugger] Fixing AV on accessing source_file_list that is NULL (#105781)
+    
+    * Fixing AV on accessing source_file_list that is NULL
