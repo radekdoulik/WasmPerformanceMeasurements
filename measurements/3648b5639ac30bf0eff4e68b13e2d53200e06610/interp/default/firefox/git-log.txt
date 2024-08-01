@@ -1,0 +1,7 @@
+commit 3648b5639ac30bf0eff4e68b13e2d53200e06610
+Author: Milos Kotlar <kotlarmilos@gmail.com>
+Date:   Fri Jul 19 11:07:01 2024 +0200
+
+    Add support for `SwiftSelf<T>` in Mono JIT and Interpreter (#104171)
+    
+    This PR adds Mono support for SwiftSelf<T> in the Swift calling convention. This type enables the correct passing of frozen value types in instance methods in Swift.
