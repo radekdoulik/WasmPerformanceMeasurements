@@ -1,0 +1,7 @@
+commit 74c608d67d64675ff840c5888368669777c8aa2c
+Author: Aman Khalid <amankhalid@microsoft.com>
+Date:   Thu Aug 1 13:39:57 2024 +0000
+
+    JIT: Add out-of-bounds fallback for AdvSimd.ShiftRightLogical (#105777)
+    
+    Fixes #105621. When its immediate is out-of-bounds, AdvSimd.ShiftRightLogical can be transformed into AdvSimd.ShiftLogical, which takes the immediate in a register. This means AdvSimd.ShiftRightLogical will no longer throw ArgumentOutOfRangeException in Debug or Release; when optimizing, we'd previously fold the intrinsic away, thus creating behavioral discrepancies.
