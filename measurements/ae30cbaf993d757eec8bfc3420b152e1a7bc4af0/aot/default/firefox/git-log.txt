@@ -1,0 +1,9 @@
+commit ae30cbaf993d757eec8bfc3420b152e1a7bc4af0
+Author: Tanner Gooding <tagoo@outlook.com>
+Date:   Thu Aug 1 09:11:05 2024 -0700
+
+    Allow explicitly implemented ISimdVector APIs to be handled as intrinsic (#104983)
+    
+    * Allow explicitly implemented ISimdVector APIs to be handled as intrinsic
+    
+    * Apply formatting patch
