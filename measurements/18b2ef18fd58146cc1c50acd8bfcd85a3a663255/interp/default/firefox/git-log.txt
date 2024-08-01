@@ -1,0 +1,5 @@
+commit 18b2ef18fd58146cc1c50acd8bfcd85a3a663255
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Sun Jul 21 18:35:05 2024 +0200
+
+    JIT: Fix infinite loop in copy prop GT_COMMA update logic (#105196)
