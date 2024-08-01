@@ -1,0 +1,15 @@
+commit 45f69528832f3c1076bf990d3a599580aed762e0
+Author: Ahmet Ibrahim Aksoy <aaksoy@microsoft.com>
+Date:   Thu Aug 1 13:50:19 2024 +0200
+
+    Fix condition to run CertificateCallbackThrowPropagates test on msquic 2.4 and higher (#105789)
+    
+    * Fix condition
+    
+    * Apply suggestions from code review
+    
+    Co-authored-by: Radek Zikmund <32671551+rzikm@users.noreply.github.com>
+    
+    ---------
+    
+    Co-authored-by: Radek Zikmund <32671551+rzikm@users.noreply.github.com>
