@@ -1,0 +1,5 @@
+commit 8b078abecf549188a91c109b7d8890ddf5058f7b
+Author: Sun Lijun <sunlijun@loongson.cn>
+Date:   Thu Aug 1 17:33:22 2024 +0800
+
+    [LoongArch64] Fix the add overflow check for A=A+A. (#105674)
