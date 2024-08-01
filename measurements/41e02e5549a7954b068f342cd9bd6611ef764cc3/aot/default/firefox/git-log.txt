@@ -1,0 +1,13 @@
+commit 41e02e5549a7954b068f342cd9bd6611ef764cc3
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Fri Jul 19 12:44:27 2024 -0400
+
+    Remove class constraint from Interlocked.{Compare}Exchange (#104558)
+    
+    * Remove class constraint from Interlocked.{Compare}Exchange
+    
+    Today `Interlocked.CompareExchange<T>` and `Interlocked.Exchange<T>` support only reference type `T`s. Now that we have corresponding {Compare}Exchange methods that support types of size 1, 2, 4, and 8, we can remove the constraint and support any `T` that's either a reference type, a primitive type, or an enum type, making the generic overload more useful and avoiding consumers needing to choose less-than-ideal types just because of the need for atomicity with Interlocked.{Compare}Exchange.
+    
+    ---------
+    
+    Co-authored-by: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
