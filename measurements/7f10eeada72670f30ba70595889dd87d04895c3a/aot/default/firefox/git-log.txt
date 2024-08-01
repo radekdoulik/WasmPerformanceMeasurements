@@ -1,0 +1,5 @@
+commit 7f10eeada72670f30ba70595889dd87d04895c3a
+Author: Egor Bogatov <egorbo@gmail.com>
+Date:   Wed Jul 31 23:09:39 2024 +0200
+
+    Fix race condition in nongcheap.cpp test (#105658)
