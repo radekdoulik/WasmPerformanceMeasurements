@@ -1,0 +1,11 @@
+commit f4866b0bfa52fbdc9ea92ae25e5398fdb7b1bf7c
+Author: Radek Zikmund <32671551+rzikm@users.noreply.github.com>
+Date:   Thu Aug 1 14:43:43 2024 +0200
+
+    Revert "Temporarily disable NoCallback_RevokedCertificate_NoRevocationChecking_Succeeds" (#105793)
+    
+    * Revert "Temporarily disable NoCallback_RevokedCertificate_NoRevocationCheckin…"
+    
+    This reverts commit c1576ffb746b8ffc5bbfb931e1bd6cd0b43727eb.
+    
+    * Update src/libraries/Common/tests/System/Net/Http/HttpClientHandlerTest.ServerCertificates.cs
