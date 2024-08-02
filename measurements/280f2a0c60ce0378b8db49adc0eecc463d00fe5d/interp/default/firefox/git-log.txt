@@ -1,0 +1,7 @@
+commit 280f2a0c60ce0378b8db49adc0eecc463d00fe5d
+Author: Parker Bibus <parkerbibus@microsoft.com>
+Date:   Thu Aug 1 14:34:08 2024 -0700
+
+    [PERF] Update Android App Maui rollback generation (#105763)
+    
+    Move Maui workload installation until after we have performance installed so we have versions available, and use the performance repos versions and python files to generate the rollback.json.
