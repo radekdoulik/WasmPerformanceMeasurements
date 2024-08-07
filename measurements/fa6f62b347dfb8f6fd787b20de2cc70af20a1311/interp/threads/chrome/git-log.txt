@@ -1,0 +1,9 @@
+commit fa6f62b347dfb8f6fd787b20de2cc70af20a1311
+Author: Sun Lijun <sunlijun@loongson.cn>
+Date:   Wed Aug 7 22:45:50 2024 +0800
+
+    [LoongArch64] Fix code generation for type conversion from float/double to uint/ulong. (#105783)
+    
+    * [LoongArch64] Fix code generation for type conversion from float/double to uint/ulong.
+    
+    * Modify the code format.
