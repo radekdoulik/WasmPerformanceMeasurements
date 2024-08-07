@@ -1,0 +1,10 @@
+commit af1b3b0446650765814381fead7cc88bf60315b9
+Author: Matous Kozak <55735845+matouskozak@users.noreply.github.com>
+Date:   Wed Aug 7 13:43:53 2024 +0200
+
+    [mono] Mark AOT modules unusable if no AOT version is found (#106026)
+    
+    On Android, we might hit a collision where we instead of <libName>.dll.so try to load <libName>.so. By detecting this issue early we can mark the library as AOT unusable. We do this by checking if we were able to get the AOT file version and if not, we mark the .so file as unusable.
+    ---------
+    
+    Co-authored-by: Aleksey Kliger (λgeek) <akliger@gmail.com>
