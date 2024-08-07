@@ -1,0 +1,15 @@
+commit d78082bca2a967f7cb8e42a492f58d874f164f79
+Author: Vladimir Sadov <vsadov@microsoft.com>
+Date:   Mon Aug 5 11:34:01 2024 -0700
+
+    Partial re-revert of #104336. Only JIT fixes are included. (#105596)
+    
+    * Partial re-revert of #104336. Only JIT fixes are included.
+    
+    * fix for stress issues
+    
+    * comments and some cleanup
+    
+    * JIT format
+    
+    * keep existing code for x86
