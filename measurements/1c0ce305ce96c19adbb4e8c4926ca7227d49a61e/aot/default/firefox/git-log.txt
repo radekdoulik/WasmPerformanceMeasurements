@@ -1,0 +1,10 @@
+commit 1c0ce305ce96c19adbb4e8c4926ca7227d49a61e
+Author: TrueLunacy <TrueLunacy@users.noreply.github.com>
+Date:   Sat Aug 3 02:39:53 2024 +0200
+
+    Fix field offset not being set for 0-offset (#105894)
+    
+    PersistedAssemblyBuilder didn't write field offset correctly when field offset
+    was 0. This fixes that, and adds a test to ensure the behaviour is working.
+    
+    Fixes #105795
