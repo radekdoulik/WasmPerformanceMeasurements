@@ -1,0 +1,20 @@
+commit 3e572e9d09026f386a57302bfd624abd7b660fb5
+Author: Andy Gocke <angocke@microsoft.com>
+Date:   Fri Aug 2 09:10:13 2024 -0700
+
+    Allow muxer behind Windows symlink (#99576)
+    
+    The current logic for the muxer (dotnet.exe) doesn't resolve through symlinks
+    on Windows. For instance, it looks next to the entry point path for things like
+    hostfxr. This means that you cannot use a symlink to dotnet.exe, as it will look
+    next to your symlink for the runtime, rather than next to the target of the symlink.
+    
+    This PR fixes the problem just for the muxer. To do so, it introduces a new API:
+    fullpath. The existing realpath API has the behavior of always resolving symlinks
+    on Unix, and never resolving symlinks on Windows. The new `fullpath` API replicates
+    this behavior, while the old `realpath` API is changed to always resolve symlinks on
+    both Unix and Windows. Then, the realpath API is used in appropriate places when
+    resolving paths relative to the muxer to guarantee resolving through symlinks on
+    all platforms.
+    
+    Fixes #83314
