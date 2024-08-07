@@ -1,0 +1,9 @@
+commit 62784822a187d734cc13b595aaadc315e1c915e0
+Author: Sven Boemer <sbomer@gmail.com>
+Date:   Wed Aug 7 11:53:10 2024 -0700
+
+    ILLink: Keep parameter names unless DebuggerSupport is disabled (#105714)
+    
+    Parameter name trimming is currently the only metadata trimming
+    optimization, but the check covers "all" to include any future
+    metadata trimming optimizations that might impact debuggers.
