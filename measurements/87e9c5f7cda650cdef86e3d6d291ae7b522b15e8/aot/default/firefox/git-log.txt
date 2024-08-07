@@ -1,0 +1,13 @@
+commit 87e9c5f7cda650cdef86e3d6d291ae7b522b15e8
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Wed Aug 7 17:45:47 2024 +0200
+
+    JIT: Expose top-level address computations in local morph (#106065)
+    
+    Physical promotion relies on the invariant that we see no `LCL_ADDR`
+    nodes for unexposed locals (except for retbuf definitions). However,
+    local morph would not expose top level address computations with a note
+    that morph would get rid of it.
+    
+    We could extract side effects for this case, but it does not seem
+    frequent enough to warrant the special behavior.
