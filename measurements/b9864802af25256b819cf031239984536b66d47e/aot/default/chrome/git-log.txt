@@ -1,0 +1,7 @@
+commit b9864802af25256b819cf031239984536b66d47e
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Mon Aug 5 22:23:37 2024 +0200
+
+    Emit logging before recompiling bad IL (#105953)
+    
+    Should help with cases like #105947 that have inputs so bad we cannot compile fallback method body.
