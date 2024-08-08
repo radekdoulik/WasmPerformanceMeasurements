@@ -1,0 +1,19 @@
+commit ac898195da4ba1c6cb2431c47aab0a71cdee25a8
+Author: Vlad Brezae <brezaevlad@gmail.com>
+Date:   Fri Aug 2 15:20:27 2024 +0300
+
+    [mono][interp] Remove short branches (#105386)
+    
+    * [mono][interp] Make all branch super instructions operate on long offsets
+    
+    Previously they were all short branches without long counterparts. This was buggy and awkward because we tried to compute early conservatively whether a branch is short or long, at superins generation time. The conditions would always hold and we had no fallback if the branch didn't turn out to actually be short. Having a long offset for these branches should have negligible perf impact.
+    
+    * [mono][wasm] Fix jiterp for branch superins
+    
+    * [mono][interp] Don't compute native offset estimate during super ins pass
+    
+    We generate superins without caring if the branch is long or short since the superinstructions use a long offset now.
+    
+    * [mono][interp] Completely remove short branches
+    
+    They don't seem to have any benefit at the expense of a lot of code and added complexity.
