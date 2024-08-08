@@ -1,0 +1,7 @@
+commit 410cc18fd088ec8a6b121c9aa5f541a79b14fe02
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Thu Aug 8 21:04:19 2024 +0200
+
+    Allow data dehydration even if CFG is enabled (#106133)
+    
+    I chose to disable this for CFG but I don't understand why. On one hand it allows more data to be in the read-only segment, which is good for security, but on the other hand we already validate all indirect jumps so corrupting a pointer here still wouldn't lead to control flow hijack. It can still be disabled with an undocumented switch.
