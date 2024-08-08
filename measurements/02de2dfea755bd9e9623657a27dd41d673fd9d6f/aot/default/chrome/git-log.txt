@@ -1,0 +1,7 @@
+commit 02de2dfea755bd9e9623657a27dd41d673fd9d6f
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Fri Aug 2 07:13:25 2024 -0400
+
+    Revert "Use IndexOf for bounded loops in a regex (#101899)" (#105735)
+    
+    This reverts commit 08e0f8954f3364dd7fd6ebeb5d4ddd4e9a9530b1.
