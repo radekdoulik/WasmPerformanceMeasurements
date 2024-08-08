@@ -1,0 +1,5 @@
+commit 6931b3b729ec050f935f958122d3cc66bb46fdcf
+Author: Aman Khalid <amankhalid@microsoft.com>
+Date:   Mon Aug 5 13:09:55 2024 +0000
+
+    JIT: Fix over-shifting logic when constant-folding `AdvSimd.ShiftRight*` and `AdvSimd.ShiftLeft*` (#105847)
