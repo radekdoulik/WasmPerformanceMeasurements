@@ -1,0 +1,40 @@
+commit 194fec5428e0fa9c8ef2f3fad27303a9f6584b6e
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Wed Aug 7 23:46:08 2024 +0200
+
+    JIT: Fix loop memory dependence recording for sibling loops (#106076)
+    
+    During map selection VN will keep track of memory VNs that the result
+    depends on. This is used so that we can know whether the value computed
+    by a tree inside a loop depends on any previous memory that was defined
+    inside the loop; if so, we cannot allow hoisting for it.
+    
+    It was possible for the previous memory to be defined inside a more
+    nested loop. Take the following example:
+    
+    ```csharp
+    for (int i = 0; i < n; i++)
+    {
+      int j = 0;
+      do
+      {
+        s_otherField = [1];
+      } while (j < n);
+    
+      s_field = true;
+      Use(s_field);
+    }
+    ```
+    
+    In this case the memory dependence of the load of `s_field` ends up
+    being a memory definition inside the nested loop. (One could think the
+    dependency would come from the `s_field = true` block, but we do not
+    track the memory definitions on a fine-grained basis; rather we get it
+    from the previous memory phi def, which is good enough for hoisting.)
+    
+    The logic did not properly handle this case; if the memory definition is
+    in a more nested loop, we need to walk the ancestor loops to figure out
+    if the definition is actually happening inside one of them. If so there
+    is still a dependency.
+    
+    Fix #105413
