@@ -1,0 +1,5 @@
+commit 61b00205666de26231ed36dd4124517817a759f4
+Author: Marek Fišera <mara@neptuo.com>
+Date:   Thu Aug 8 14:57:50 2024 +0200
+
+    [browser] Always use ResolvedFileToPublish instead of WasmAssembliesFinal when targeting .NET 6 (#105805)
