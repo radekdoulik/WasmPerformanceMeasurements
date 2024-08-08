@@ -1,0 +1,11 @@
+commit 8a5f84254898961f207d74ea5aa420337f368ada
+Author: etemi <40637181+etemi@users.noreply.github.com>
+Date:   Thu Aug 8 11:42:01 2024 +0200
+
+    TimeOnlyConverter should tolerate more formats in line with TimeSpanConverter (#106053)
+    
+    * Allow values that would also have been parsed correctly using TimeOnly.Parse(string, CultureInfo.InvariantCulture)
+    
+    * Fix comment and add test
+    
+    * Add test cases for single-digit hour and minute values
