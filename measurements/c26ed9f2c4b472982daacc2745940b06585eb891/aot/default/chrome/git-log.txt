@@ -1,0 +1,7 @@
+commit c26ed9f2c4b472982daacc2745940b06585eb891
+Author: Mike McLaughlin <mikem@microsoft.com>
+Date:   Wed Aug 7 14:05:06 2024 -0700
+
+    Linux createdump: skip/ignore ptrace suspend on threads that have terminated (#106058)
+    
+    Issue: https://github.com/dotnet/runtime/issues/104256
