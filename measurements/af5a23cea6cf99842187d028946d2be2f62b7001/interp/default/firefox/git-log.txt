@@ -1,0 +1,10 @@
+commit af5a23cea6cf99842187d028946d2be2f62b7001
+Author: Jan Kotas <jkotas@microsoft.com>
+Date:   Mon Aug 5 19:39:13 2024 -0700
+
+    Fix comments around static constructor memory model (#105911)
+    
+    - Fix comments around static constructor memory model
+    - Delete unnecessary MemoryBarrier
+    
+    Contributes to #81151
