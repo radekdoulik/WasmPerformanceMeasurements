@@ -1,0 +1,19 @@
+commit 019d7580a27db97f1fbdcf0d26f7ae3fa54fc2d1
+Author: anthonycanino <anthony.canino@intel.com>
+Date:   Wed Aug 7 19:17:31 2024 -0700
+
+    Fix input size flag on `vpermd`. (#106054)
+    
+    * Fix input size flag on `vpermd`.
+    
+    * Update src/tests/JIT/Regression/JitBlue/Runtime_105824/Runtime_105824.cs
+    
+    Co-authored-by: Tanner Gooding <tagoo@outlook.com>
+    
+    * Update src/tests/JIT/Regression/JitBlue/Runtime_105824/Runtime_105824.cs
+    
+    Co-authored-by: Tanner Gooding <tagoo@outlook.com>
+    
+    ---------
+    
+    Co-authored-by: Tanner Gooding <tagoo@outlook.com>
