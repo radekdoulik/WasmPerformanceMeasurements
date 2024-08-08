@@ -1,0 +1,7 @@
+commit 44b6b2ae056092d7759b068a9661b86627ec1024
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Thu Aug 8 11:18:15 2024 -0400
+
+    Try making {Try}GetAlternateLookup instance methods on Dictionary/HashSet (#106107)
+    
+    We made them extension methods instead of instance methods to avoid potential native code size bloat. But the ergonomics of using these without partial generic inference is a bit painful, and we've had reports that it makes them harder to understand. This moves them to be instance methods, and we'll measure the impact on code size to re-evaluate the decision.
