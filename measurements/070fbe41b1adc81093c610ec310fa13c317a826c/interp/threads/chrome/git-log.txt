@@ -1,0 +1,8 @@
+commit 070fbe41b1adc81093c610ec310fa13c317a826c
+Author: Alexander Köplinger <alex.koeplinger@outlook.com>
+Date:   Fri Aug 9 18:27:48 2024 +0200
+
+    Add os-ios, os-android etc labels to area section in resourceManagement.yml (#106082)
+    
+    They only got triggered when an issue/PR was _opened_ with that label already applied, but not when it was added later on.
+    Make it consistent with the way the area labels work.
