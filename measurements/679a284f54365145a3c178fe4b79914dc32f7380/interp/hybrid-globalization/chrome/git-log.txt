@@ -1,0 +1,15 @@
+commit 679a284f54365145a3c178fe4b79914dc32f7380
+Author: Noah Falk <noahfalk@users.noreply.github.com>
+Date:   Thu Aug 8 16:39:45 2024 -0700
+
+    EventSource startup initialization (#106014)
+    
+    * EventSource startup initialization
+    
+    Fixes https://github.com/dotnet/runtime/issues/105845
+    
+    Previously MetricsEventSource wasn't being created for apps that didn't ever create a Meter. This caused a chicken-and-egg problem for RuntimeMetrics which weren't created until MetricsEventSource started a tracing session. This change ensures that MetricsEventSource will be created on demand if ETW, EventPipe, or EventListener based tooling starts a tracing session. I took some extra effort to create the EventSource in a deferred fashion to avoid eager loading System.Diagnostics.DiagnosticSource.dll when it might never be needed.
+    
+    Aside from the fix there were some small improvements:
+    - Moved NativeRuntimeEventSource to initialize in the same place as other startup EventSources
+    - Removed a useless lock(EventListener.EventListenersLock) around EventPipe eventProvider registration
