@@ -1,0 +1,9 @@
+commit 99f7f934927c7e2c2af2491cb9b9aa2063a562d2
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Fri Aug 9 09:43:40 2024 +0200
+
+    Consider methods returning constants same as substitutions (#105878)
+    
+    Fixes #105806
+    
+    Ports a bit of the logic from ILLinker that allows constant propagation across methods ("inlining").
