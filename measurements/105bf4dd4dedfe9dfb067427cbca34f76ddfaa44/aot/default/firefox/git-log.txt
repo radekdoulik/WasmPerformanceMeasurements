@@ -1,0 +1,9 @@
+commit 105bf4dd4dedfe9dfb067427cbca34f76ddfaa44
+Author: Mukund Raghav Sharma (Moko) <68247673+mrsharm@users.noreply.github.com>
+Date:   Thu Aug 8 14:48:23 2024 -0700
+
+    Fixed a broken build with STRESS_DYNAMIC_HEAP_COUNT enabled (#105507)
+    
+    * Fixed a broken build with STRESS_DYNAMIC_HEAP_COUNT enabled
+    
+    * Implemented a diff approach
