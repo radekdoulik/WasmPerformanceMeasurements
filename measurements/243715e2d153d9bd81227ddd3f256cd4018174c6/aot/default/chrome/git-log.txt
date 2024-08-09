@@ -1,0 +1,12 @@
+commit 243715e2d153d9bd81227ddd3f256cd4018174c6
+Author: Andy Ayers <andya@microsoft.com>
+Date:   Thu Aug 8 15:31:47 2024 -0700
+
+    JIT: fix assert in assertion prop (#106146)
+    
+    `optAssertionPropGlobal_RelOp` had branch where it was expecting both
+    op2 and op1 to be locals, but only had verified that op2 was.
+    
+    Add an extra check.
+    
+    Fixes #105670
