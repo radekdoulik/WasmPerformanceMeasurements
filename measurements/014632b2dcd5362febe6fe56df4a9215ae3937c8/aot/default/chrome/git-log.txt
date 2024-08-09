@@ -1,0 +1,20 @@
+commit 014632b2dcd5362febe6fe56df4a9215ae3937c8
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Fri Aug 2 22:16:51 2024 +0200
+
+    JIT: Encode SIMD base type in VN for all HW intrinsics (#105869)
+    
+    This changes the VN funcs for all HW intrinsic functions to always have an extra
+    parameter for the SIMD base type. Before this change it was based on the
+    instruction list, however that is not always the right thing (e.g. #105721 is a
+    bug because of that). We also kept it as part of the HW intrinsic table, but
+    that requires manual maintenance and is easy to get wrong. Always encoding the
+    type is much more simple and the diffs do not look too bad.
+    
+    In .NET 10 we can decide if we want to opt some intrinsics into not being
+    differentiated based on the SIMD base type. The easiest thing might be to always
+    map those to have the same base SIMD type (e.g. `CORINFO_TYPE_BYTE`) so that we
+    don't end up with differences in arities for some VN functions that are hard to
+    reason about.
+    
+    Fix #105721
