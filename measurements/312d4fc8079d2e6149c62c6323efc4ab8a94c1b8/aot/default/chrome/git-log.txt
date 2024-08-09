@@ -1,0 +1,7 @@
+commit 312d4fc8079d2e6149c62c6323efc4ab8a94c1b8
+Author: Jan Kotas <jkotas@microsoft.com>
+Date:   Sun Aug 4 23:31:24 2024 -0700
+
+    Revert "[NativeAOT] Respect Align8 flag for thread statics (#105905)" (#105920)
+    
+    This reverts commit 1cc0186c3e120ee4ed0494cf74fef0a3ef0118d6.
