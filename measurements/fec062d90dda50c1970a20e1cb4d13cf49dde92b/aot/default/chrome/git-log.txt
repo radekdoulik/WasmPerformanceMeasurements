@@ -1,0 +1,11 @@
+commit fec062d90dda50c1970a20e1cb4d13cf49dde92b
+Author: Dong-Heon Jung <clamp03@gmail.com>
+Date:   Fri Aug 9 21:31:55 2024 +0900
+
+    [RISC-V] Fix Reg Order for Float Registers (#105930)
+    
+    * [RISC-V] Fix coreroot_determinism in release build
+    
+    Initialize regOrder and put all floating registers in REG_VAR_ORDER_FLT
+    
+    * [RISC-V] Update GetLocalFloatingPointValue for RISC-V
