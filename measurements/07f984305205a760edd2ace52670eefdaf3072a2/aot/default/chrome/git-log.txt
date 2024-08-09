@@ -1,0 +1,13 @@
+commit 07f984305205a760edd2ace52670eefdaf3072a2
+Author: Vlad Brezae <brezaevlad@gmail.com>
+Date:   Fri Aug 9 17:32:08 2024 +0300
+
+    [mono][interp] Revert short branch removal (#106178)
+    
+    * Revert "[wasm] Fix long branches in jiterpreter (#106030)"
+    
+    This reverts commit 9fa8fd5cf77c28b465872b66745d657434706be7.
+    
+    * Revert "[mono][interp] Remove short branches (#105386)"
+    
+    This reverts commit ac898195da4ba1c6cb2431c47aab0a71cdee25a8.
