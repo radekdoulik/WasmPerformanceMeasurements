@@ -1,0 +1,7 @@
+commit 68511fd27fe4055ce5203742998ba12019dfcbd4
+Author: Katelyn Gadd <kg@luminance.org>
+Date:   Thu Aug 8 16:52:00 2024 -0700
+
+    [wasm] Be more cautious about page zeroing (#106080)
+    
+    Should fix #106007
