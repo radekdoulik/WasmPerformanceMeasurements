@@ -1,0 +1,32 @@
+commit 46c0166b34143e868e6361a9d545314a8bbddbfe
+Author: Tomasz Sowiński <tomeksowi@gmail.com>
+Date:   Sat Aug 10 04:49:16 2024 +0200
+
+    [RISC-V][LoongArch64] Pass FP struct fields at arbitrary offsets in ArgIterator and CallDescrWorker (#105800)
+    
+    * Add calls by reflection to tests
+    
+    * Adjust CallDescrWorker to support passing and returning structs according to floating-point calling convention fully
+    
+    * Adjust ArgIterator so C# and C++ versions match
+    
+    * Merge RISC-V and LoongArch ArgIterator implementations because our ABIs are nearly the same
+    
+    * Update LoongArch CallDescWorker assembly
+    
+    * Update ContainsPointers method name
+    
+    * Update tests by reflection
+    
+    * Missing asmconstants.h update for loongarch
+    
+    * Remove legacy StructFloatFieldInfoFlags
+    
+    * LoongArch typos
+    
+    Co-authored-by: Qiao Pengcheng <qiaopengcheng@loongson.cn>
+    
+    ---------
+    
+    Co-authored-by: Qiao Pengcheng <qiaopengcheng@loongson.cn>
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
