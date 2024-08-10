@@ -1,0 +1,10 @@
+commit 0953757c1edd732b0cdbd6e67839965218de52b1
+Author: Elinor Fung <elfung@microsoft.com>
+Date:   Fri Aug 9 16:51:48 2024 -0700
+
+    Cache the path on `Module` for easier diagnostics (#106103)
+    
+    - Make `PEImage` take a path in its constructor and make its member const
+    - Store the path when initializing `Module`
+    
+    This will let us avoid having to expose PEAssembly/PEImage in data descriptors to the cDAC just to get the module path.
