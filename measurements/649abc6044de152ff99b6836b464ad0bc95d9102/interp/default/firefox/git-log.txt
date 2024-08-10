@@ -1,0 +1,23 @@
+commit 649abc6044de152ff99b6836b464ad0bc95d9102
+Author: Adeel Mujahid <3840695+am11@users.noreply.github.com>
+Date:   Sat Aug 10 05:22:28 2024 +0300
+
+    Fix a nested-externs warning in mono (#104817)
+    
+    Merging on behalf of @am11
+    
+    * Fix a nested-externs warning in mono
+    
+    ```sh
+       In file included from /runtime/src/native/eventpipe/ep-rt.h:741,
+                       from /runtime/src/native/eventpipe/ep-stack-contents.h:7,
+                       from /runtime/src/native/eventpipe/ep.h:8,
+                       from /runtime/src/native/eventpipe/ep.c:7,
+                       from /runtime/artifacts/obj/mono/illumos.x64.Release/mono/mini/CMakeFiles/eventpipe-mono-objects.dir/Unity/unity_0_c.c:3:
+      /runtime/src/mono/mono/mini/../../mono/eventpipe/ep-rt-mono.h: In function 'ep_rt_mono_is_runtime_initialized':
+      /runtime/src/mono/mono/mini/../../mono/eventpipe/ep-rt-mono.h:1996:18: warning: nested extern declaration of '_ep_rt_mono_runtime_initialized' [-Wnested-externs]
+        extern gboolean _ep_rt_mono_runtime_initialized;
+                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    ```
+    
+    * Update dn-fwd-list.h
