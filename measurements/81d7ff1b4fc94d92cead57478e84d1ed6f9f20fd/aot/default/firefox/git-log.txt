@@ -1,0 +1,9 @@
+commit 81d7ff1b4fc94d92cead57478e84d1ed6f9f20fd
+Author: Tarek Mahmoud Sayed <10833894+tarekgh@users.noreply.github.com>
+Date:   Fri Aug 9 14:57:32 2024 -0700
+
+    Fix concurrency issue with metrics gauge value collection (#106175)
+    
+    * Fix concurrency issue with metrics gauge value collection
+    
+    * Address the feedback
