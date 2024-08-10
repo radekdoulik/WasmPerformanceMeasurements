@@ -1,0 +1,5 @@
+commit 8ca4759ed493336c36c0830b9231b5eab8ae0570
+Author: Steve Harter <steveharter@users.noreply.github.com>
+Date:   Fri Aug 9 15:43:51 2024 -0500
+
+    Fix threading issue during TraceSource initialization (#106192)
