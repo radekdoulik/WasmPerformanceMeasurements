@@ -1,0 +1,80 @@
+commit 5b921e2f3dc0c8654482525f93b9c7d261437077
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Sat Aug 10 14:36:12 2024 +0200
+
+    JIT: Model GetFfr* with a special side effect and handle it in VN (#105973)
+    
+    - Add `HW_Flag_SpecialSideEffect_Other` to GetFfr* HW intrinsics. These intrinsics essentially read memory from memory that we do not model, so we have to treat them conservatively.
+    - Add `GTF_CALL` and `GTF_GLOB_REF` to `GetFfr*` HW intrinsics. We have to give these a conservative set of a flag to disallow the rest of the JIT from potentially reordering them with `SetFfr`.
+    - Teach VN to give all HW intrinsics with any special side effect a unique VN
+    
+    Fix #105944
+    
+    In the test case head-merging reorders a `SetFfr` with a `GetFfr` since `GetFfr` is not given appropriately conservative side effect flags:
+    ```
+    *************** Starting PHASE Head and tail merge
+    Both succs of BB01 start with the same tree
+    STMT00006 ( 0x02F[E-] ... 0x03C )
+                   [000039] --C-G------                         *  HWINTRINSIC void   ubyte SetFfr
+                   [000037] -----------                         \--*  HWINTRINSIC mask   ubyte CreateTrueMaskByte
+                   [000036] -----------                            \--*  CNS_INT   int    31
+    Checking if we can move it into the predecessor...
+    We can; moving statement
+    
+    unlinking STMT00006 ( 0x02F[E-] ... 0x03C )
+                   [000039] --C-G------                         *  HWINTRINSIC void   ubyte SetFfr
+                   [000037] -----------                         \--*  HWINTRINSIC mask   ubyte CreateTrueMaskByte
+                   [000036] -----------                            \--*  CNS_INT   int    31
+     from BB02
+    
+    unlinking STMT00004 ( 0x03D[E-] ... 0x04A )
+                   [000031] --C-G------                         *  HWINTRINSIC void   ubyte SetFfr
+                   [000029] -----------                         \--*  HWINTRINSIC mask   ubyte CreateTrueMaskByte
+                   [000028] -----------                            \--*  CNS_INT   int    31
+     from BB03
+    Did 1 head merges in BB01
+    ...
+    ------------ BB01 [0000] [000..02F) -> BB03(0.5),BB02(0.5) (cond), preds={} succs={BB02,BB03}
+    
+    ***** BB01 [0000]
+    STMT00000 ( 0x000[E-] ... 0x01B )
+                   [000003] --C-G------                         *  HWINTRINSIC void   ubyte SetFfr
+                   [000001] -----------                         \--*  HWINTRINSIC mask   ubyte CreateTrueMaskByte
+                   [000000] -----------                            \--*  CNS_INT   int    31
+    
+    ***** BB01 [0000]
+    STMT00001 ( 0x00C[E-] ... ??? )
+                   [000016] DA-XG------                         *  STORE_LCL_VAR simd16 V02 tmp1
+                   [000013] ---XG------                         \--*  HWINTRINSIC simd16 ubyte LoadVectorFirstFaulting
+                   [000015] -----------                            +--*  HWINTRINSIC mask   ubyte ConvertVectorToMask
+                   [000014] -----------                            |  +--*  HWINTRINSIC mask   ubyte CreateTrueMaskAll
+                   [000008] -----------                            |  \--*  HWINTRINSIC simd16 ubyte ConvertMaskToVector
+                   [000007] -----------                            |     \--*  HWINTRINSIC mask   ubyte CreateTrueMaskByte
+                   [000006] -----------                            |        \--*  CNS_INT   int    31
+                   [000012] -----------                            \--*  ADD       long
+                   [000009] -----------                               +--*  LCL_VAR   long   V00 arg0
+                   [000011] -----------                               \--*  CAST      long <- int
+                   [000010] -----------                                  \--*  CNS_INT   int    1
+    
+    ***** BB01 [0000]
+    STMT00002 ( ??? ... ??? )
+                   [000018] -----------                         *  NOP       void
+    
+    ***** BB01 [0000]
+    STMT00006 ( 0x02F[E-] ... 0x03C )
+                   [000039] --C-G------                         *  HWINTRINSIC void   ubyte SetFfr                                ; head-merging moved this from the then/else blocks
+                   [000037] -----------                         \--*  HWINTRINSIC mask   ubyte CreateTrueMaskByte
+                   [000036] -----------                            \--*  CNS_INT   int    31
+    
+    ***** BB01 [0000]
+    STMT00003 ( 0x01C[E-] ... 0x02D )
+                   [000027] -----------                         *  JTRUE     void
+                   [000026] -----------                         \--*  EQ        int
+                   [000024] -----------                            +--*  HWINTRINSIC int    ubyte op_Equality
+                   [000020] -----------                            |  +--*  HWINTRINSIC simd16 ubyte ConvertMaskToVector
+                   [000019] -----------                            |  |  \--*  HWINTRINSIC mask   ubyte GetFfrByte
+                   [000023] -----------                            |  \--*  HWINTRINSIC simd16 ubyte ConvertMaskToVector
+                   [000022] -----------                            |     \--*  HWINTRINSIC mask   ubyte CreateTrueMaskByte
+                   [000021] -----------                            |        \--*  CNS_INT   int    31
+                   [000025] -----------                            \--*  CNS_INT   int    0
+    ```
