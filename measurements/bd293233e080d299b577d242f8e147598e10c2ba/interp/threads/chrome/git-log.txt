@@ -1,0 +1,11 @@
+commit bd293233e080d299b577d242f8e147598e10c2ba
+Author: Steve Molloy <smolloy@microsoft.com>
+Date:   Fri Aug 9 14:11:51 2024 -0700
+
+    MemoryCache - Remove unhandled exception handler (#105853)
+    
+    * Revert "Don't dispose timers if we're in our UnhandledException handler. (#103937)"
+    
+    * MemoryCache - Remove UnhandledException handler.
+    
+    * MemoryCache - Remove AppDomain.DomainUnload handler as well.
