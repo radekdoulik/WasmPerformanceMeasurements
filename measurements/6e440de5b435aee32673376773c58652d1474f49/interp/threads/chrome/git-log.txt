@@ -1,0 +1,16 @@
+commit 6e440de5b435aee32673376773c58652d1474f49
+Author: Eric StJohn <ericstj@microsoft.com>
+Date:   Mon Aug 12 11:15:19 2024 -0700
+
+    Avoid package dependencies on libraries in the shared framework (#106172)
+    
+    * Avoid package dependencies on libraries in the shared framework
+    
+    We can avoid these dependencies since we can count on the library being
+    part of the shared framework.  Fewer dependencies means less packages
+    downloaded, less for customers to service, less copied into the output
+    directory when serviced.
+    
+    * Add warning code.
+    
+    * Address feedback
