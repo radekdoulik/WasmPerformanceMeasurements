@@ -1,0 +1,18 @@
+commit fb8ae3e0e05ceeae1c92cca5ad70212ac18bd900
+Author: VincentBu <44959937+VincentBu@users.noreply.github.com>
+Date:   Sun Aug 11 11:44:20 2024 +0800
+
+    fix infinite loop in foregroundgc test (#106006)
+    
+    * fix infinite loop for foregroundgc
+    
+    * Update src/tests/GC/Features/BackgroundGC/foregroundgc.cs
+    
+    Co-authored-by: Mark Plesko <markples@microsoft.com>
+    
+    * remove redundant volatile and clean the code
+    
+    ---------
+    
+    Co-authored-by: Mukund Raghav Sharma (Moko) <68247673+mrsharm@users.noreply.github.com>
+    Co-authored-by: Mark Plesko <markples@microsoft.com>
