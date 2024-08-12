@@ -1,0 +1,21 @@
+commit 15e96faf4558b017ea8df1dc28d9b2169f0badc0
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Mon Aug 12 11:37:54 2024 +0200
+
+    JIT: Fix `gtNodeHasSideEffects` checking call arguments (#106185)
+    
+    `gtNodeHasSideEffects` is meant to check if a node has side effects when
+    you exclude its children. However, it was checking arguments of calls
+    which is more conservative than expected.
+    
+    The actual reason we were doing that seems to be `gtTreeHasSideEffects`
+    that sometimes wants to ignore `GTF_CALL` on pure helper calls. It was
+    relying on this check in `gtNodeHasSideEffect`; instead move it to
+    `gtTreeHasSideEffects` where it belongs.
+    
+    This is an alternative fix for #106129; there we leave a
+    `COMMA(CORINFO_HELP_RUNTIMELOOKUP_METHOD, ...)` around because
+    extracting side effects from op1 does not end up getting rid of the
+    call.
+    
+    Fix #106129
