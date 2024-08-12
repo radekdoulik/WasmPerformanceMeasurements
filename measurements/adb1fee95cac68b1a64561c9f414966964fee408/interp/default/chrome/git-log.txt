@@ -1,0 +1,5 @@
+commit adb1fee95cac68b1a64561c9f414966964fee408
+Author: Qiao Pengcheng <qiaopengcheng@loongson.cn>
+Date:   Tue Aug 13 00:44:31 2024 +0800
+
+    [LoongArch64] Enable TLS on linux/loongarch64 only for static resolver. (#106250)
