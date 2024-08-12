@@ -1,0 +1,13 @@
+commit 5ebf090a996530ea742ad702365dd72ad26b2ef5
+Author: Vlad Brezae <brezaevlad@gmail.com>
+Date:   Mon Aug 12 17:21:44 2024 +0300
+
+    [mono] Test llvm bump (#105867)
+    
+    * [mono] Test llvm bump
+    
+    * [mono][llvm] Disable shuffle intrinsic
+    
+    Something seems to be wrong with llvm instruction emitting.
+    
+    * Re-enable tests
