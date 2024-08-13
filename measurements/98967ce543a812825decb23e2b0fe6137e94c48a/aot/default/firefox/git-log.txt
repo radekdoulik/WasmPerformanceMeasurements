@@ -1,0 +1,16 @@
+commit 98967ce543a812825decb23e2b0fe6137e94c48a
+Author: Sven Boemer <sbomer@gmail.com>
+Date:   Mon Aug 12 12:02:25 2024 -0700
+
+    Clean up ILLink logic for "inflating" generic types (#106211)
+    
+    - Avoid passing LinkContext through. This was only used to resolve the
+      generic context type to get its parameter index, which was
+      unnecessary.
+    
+    - Use non-nullable return type and simplify some callsites.
+    
+    This cleanup helps with
+    https://github.com/dotnet/runtime/issues/105345 - it makes it so we
+    don't have to pass through LinkContext when operating on our proxy
+    types just to get the generic instantiation.
