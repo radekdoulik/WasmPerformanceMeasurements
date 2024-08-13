@@ -1,0 +1,18 @@
+commit bfb674ecf625f29d1b379a6648b01ef04a91d876
+Author: Maoni Stephens <Maoni0@users.noreply.github.com>
+Date:   Mon Aug 12 17:59:18 2024 -0700
+
+    DATAS tuning fixes (#105545)
+    
+    This includes the following tuning fixes
+    
+    + unusable fragmentation computation - this was causing gen1's unnecessarily. Also avoid volatility.
+    + don't rethread gen2 FL items during HC change because it might take too long. Instead trigger a BGC and disable gen1 GCs during this BGC. During BGC sweep we refresh the gen2 FL completely.
+    + reverse the order of calling `distribute_free_regions`/`age_free_regions` and setting BCD - what happened was each time we had to get new regions for alloc because BCD can be >> BCS. And since we don't get regions from decommit list, we keep accumulating more. For this I also cleaned up decommit_ephemeral_segment_pages and related methods and only have them defined when needed.
+    + initialize generation_skip_ratio to 100, not 0 when we recommission a heap - this was causing every eph GC right after an HC change to unnecessarily be a gen1 GC
+    + set dd_fragmentation for gen1 during BGC sweep otherwise we can hit the assert `assert (free_list_space_decrease <= dd_fragmentation (dd));` in `merge_fl_from_other_heaps` because frag simply hasn't been updated after a BGC. This can also be reproed by checking for frag at the beginning of a GC.
+    + if we haven't done a gen2 GC yet, and we are limited by DATAS for HC, we should trigger a gen2 immediately. this definitely helps for microbenchmarks but I'll need to make this more generic and not limited to just the initial gen2. But that'll come in a separate PR.
+    
+    and some instrumentation changes
+    + do_pre_gc/do_post_gc
+    + other dprintf changes for DATAS investigation (so all you need to do is turning logging on)
