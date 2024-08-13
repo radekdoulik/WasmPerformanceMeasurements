@@ -1,0 +1,5 @@
+commit abdef75cdb0199e7c3da38fd06511ca86f3e5f91
+Author: Tanner Gooding <tagoo@outlook.com>
+Date:   Mon Aug 12 15:36:41 2024 -0700
+
+    Don't vectorize division for integer types (#106288)
