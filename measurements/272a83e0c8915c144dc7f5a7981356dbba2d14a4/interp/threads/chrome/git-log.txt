@@ -1,0 +1,32 @@
+commit 272a83e0c8915c144dc7f5a7981356dbba2d14a4
+Author: David Wrighton <davidwr@microsoft.com>
+Date:   Tue Aug 13 08:55:56 2024 -0700
+
+    Implementation of SOSDacApi GetMethodDescName for cDAC (#106169)
+    
+    Add a number of new `MethodDesc` contract definitions
+    
+    | Contract algorithm on RuntimeTypeSystem |
+    | --- |
+    | `IsGenericMethodDefinition`|
+    |`GetGenericMethodInstantiation`|
+    |`GetMethodToken`|
+    |`IsArrayMethod`|
+    |`IsDynamicMethod`|
+    |`IsStoredSigMethodDesc`|
+    |`IsNoMetadataMethod`|
+    |`IsILStub`|
+    
+    Update cDAC compat asserts in cDAC to always be enabled by using a tls variable in `mscordaccore`
+    
+    Implement `GetMethodDescName` on `ISOSDacInterface` in the `cdacreader`
+    
+    Stub out an implementation of `GetPath` in the `Loader` contract used in a fallback after a fallback. This will need further work, but is included to make sure the code path isn't lost.
+    
+    Fix the `EcmaMetadataReader` to be able to find blobs in the metadata
+    
+    Add ability to read target data from a buffer held on the cdac side using the `Target` class. This was needed to handle signature containing a `CorElementType.Internal`.
+    
+    And finally actually implement the name generation algorithm via a line for line port from the CoreCLR codebase.
+    
+    Contributes to https://github.com/dotnet/runtime/issues/99302
