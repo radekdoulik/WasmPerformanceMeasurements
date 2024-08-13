@@ -1,0 +1,7 @@
+commit c788546f9ad43ea17981d5dc9343b00b6f76d98f
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Tue Aug 13 21:08:22 2024 +0200
+
+    Report exports as control flow guard targets (#106320)
+    
+    Fixes #105330 - see https://github.com/dotnet/runtime/issues/105330#issuecomment-2286235501 for more context. While link.exe should make sure entrypoints exported from a DLL are valid CFG targets, this doesn't happen for native AOT object files.
