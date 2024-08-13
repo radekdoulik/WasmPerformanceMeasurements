@@ -1,0 +1,9 @@
+commit 3481b6f4a3eaf976a32a69a5fcf6f8e05f42374d
+Author: Qiao Pengcheng <qiaopengcheng@loongson.cn>
+Date:   Tue Aug 13 22:22:37 2024 +0800
+
+    [LoongArch64] Add memory barriers to native AOT asm helpers. (#106252)
+    
+    * [LoongArch64] Add memory barriers to native AOT asm helpers.
+    
+    * rename `EmitDMB` to `EmitDBAR`.
