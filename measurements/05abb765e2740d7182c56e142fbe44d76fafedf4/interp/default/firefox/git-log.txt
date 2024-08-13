@@ -1,0 +1,19 @@
+commit 05abb765e2740d7182c56e142fbe44d76fafedf4
+Author: Tanner Gooding <tagoo@outlook.com>
+Date:   Mon Aug 12 22:54:40 2024 -0700
+
+    Ensure that aggregation is consistent regardless of data alignment (#106166)
+    
+    * Ensure that aggregation is consistent regardless of data alignment
+    
+    * Ensure we handle for all aggregation helpers
+    
+    * Ensure we don't process beg twice
+    
+    * Ensure that we properly track in the case we can't align
+    
+    * Add missing semicolon
+    
+    * Fix the handling on .NET Framework
+    
+    * Ensure yptr on .NET Framework is incremented as well
