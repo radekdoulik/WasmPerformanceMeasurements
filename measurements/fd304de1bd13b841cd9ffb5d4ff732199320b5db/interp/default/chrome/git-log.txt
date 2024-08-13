@@ -1,0 +1,9 @@
+commit fd304de1bd13b841cd9ffb5d4ff732199320b5db
+Author: Elinor Fung <elfung@microsoft.com>
+Date:   Mon Aug 12 14:28:16 2024 -0700
+
+    Fix loading of cDAC in DAC (#106289)
+    
+    When loading the cDAC, we were relying on `GetClrModuleDirectory` in the DAC actually giving us the DAC directory. With https://github.com/dotnet/runtime/pull/106217, it explicitly stores/uses the CLR module base. When we first try to load the cDAC in the DAC, that has not yet been set. The current intent is to actually load from next to the DAC, so switch the logic to look next to the current module for the cDAC instead of using the CLR module directory.
+    
+    Also renamed `GetCurrentModuleFileName` in utilcode to `GetCurrentExecutableFileName` so that it accurately represents what it does (I tried to use it and was sad).
