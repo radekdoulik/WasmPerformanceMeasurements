@@ -1,0 +1,9 @@
+commit b080dc2490dfd238d3671e4721308aef39ef14c3
+Author: Radek Zikmund <32671551+rzikm@users.noreply.github.com>
+Date:   Tue Aug 13 10:50:44 2024 +0200
+
+    Bump requirement for QUIC async cert validation to MsQuic 2.4 (#106251)
+    
+    * Bump requirement for async cert validation to 2.4
+    
+    * Update MsQuicApi.cs
