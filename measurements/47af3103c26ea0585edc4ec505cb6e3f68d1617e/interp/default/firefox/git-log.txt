@@ -1,0 +1,17 @@
+commit 47af3103c26ea0585edc4ec505cb6e3f68d1617e
+Author: Natalia Kondratyeva <knatalia@microsoft.com>
+Date:   Tue Aug 13 11:22:01 2024 +0100
+
+    [HttpClientFactory] Don't log header values by default (#106271)
+    
+    * Don't log header values by default
+    
+    * Apply suggestions from code review
+    
+    Co-authored-by: Miha Zupan <mihazupan.zupan1@gmail.com>
+    
+    * Update RedactedLogValueIntegrationTest.cs
+    
+    ---------
+    
+    Co-authored-by: Miha Zupan <mihazupan.zupan1@gmail.com>
