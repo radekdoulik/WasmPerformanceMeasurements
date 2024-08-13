@@ -1,0 +1,11 @@
+commit ec7fd04caa9ff0f018598c30f76b3f3d4ab8673b
+Author: Viktor Hofer <viktor.hofer@microsoft.com>
+Date:   Tue Aug 13 19:29:08 2024 +0200
+
+    Update System.Formats.Asn1.csproj (#106324)
+    
+    * Update System.Formats.Asn1.csproj
+    
+    Now that the project has a package README, the opt-out switch isn't required anymore. Also, remove the commonly used types section in favor of the package readme from the package description.
+    
+    * Update System.Formats.Asn1.csproj
