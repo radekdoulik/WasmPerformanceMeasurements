@@ -1,0 +1,7 @@
+commit ea9edef621398469cf777027909af286a35d6450
+Author: Vlad Brezae <brezaevlad@gmail.com>
+Date:   Tue Aug 13 10:17:49 2024 +0300
+
+    [mono][llvm] Fix handling of compare when last instruction in bblock (#106233)
+    
+    Compare opcodes are logically meant to set compare flags and they are always followed by a conditional instruction (that either branches or loads the comparison result in a register). When handling this instruction, if the next instruction was a nop or not a conditional instruction, then we can make the assumption that the conditional instruction was optimized out so there is no need to generate the compare instruction. We were missing the scenario when the conditional instruction was optimized out and the compare was left as the last instruction of the bblock, in which case we were crashing.
