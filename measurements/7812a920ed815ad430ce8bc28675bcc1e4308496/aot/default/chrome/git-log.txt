@@ -1,0 +1,11 @@
+commit 7812a920ed815ad430ce8bc28675bcc1e4308496
+Author: Vlad Brezae <brezaevlad@gmail.com>
+Date:   Tue Aug 13 18:48:09 2024 +0300
+
+    [mono][llvm] Fix alignment of local vars (#106313)
+    
+    * [mono][llvm] Fix alignment of local vars
+    
+    klass->min_align specifies the alignment required by the class fields. For example a class/struct containing an int64 will require a minimum alignment of 8 byte for its storage, while a a class/struct containing an int8 will require a 1 byte alignment. `build_named_alloca` is used to allocate storage for a local var of a certain type so using `klass->min_align` is incorrect. We should use `mono_type_size` instead, as this is used throughout the runtime for this purpose. A var of object type should have the alignment `sizeof (gpointer)` since it is a pointer, completely unrelated to the class field layout.
+    
+    * Re-enable tests
