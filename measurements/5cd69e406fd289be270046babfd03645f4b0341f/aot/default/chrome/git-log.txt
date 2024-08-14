@@ -1,0 +1,7 @@
+commit 5cd69e406fd289be270046babfd03645f4b0341f
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Wed Aug 14 10:23:10 2024 +0200
+
+    Reenable more_tailcalls under GCStress (#106287)
+    
+    Fix #99410
