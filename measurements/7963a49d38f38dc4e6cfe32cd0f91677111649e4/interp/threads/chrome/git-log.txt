@@ -1,0 +1,11 @@
+commit 7963a49d38f38dc4e6cfe32cd0f91677111649e4
+Author: anthonycanino <anthony.canino@intel.com>
+Date:   Tue Aug 13 17:35:15 2024 -0700
+
+    Fix issue 105966. (#106364)
+    
+    * Fix issue 105966.
+    
+    Cant fold a broadcast into another node unless memory is contained.
+    
+    * jit-format
