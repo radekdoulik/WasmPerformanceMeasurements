@@ -1,0 +1,31 @@
+commit 0fbd81404d1f211572387498474063bc6f407f0f
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Wed Aug 14 18:26:51 2024 +0200
+
+    JIT: Disallow separate CSE candidates for struct `GT_COMMA`s (#106387)
+    
+    CSE normally creates candidates based on the normal VN of trees.
+    However, there is an exception for `GT_COMMA` nodes, where the
+    `GT_COMMA` itself creates a candidate with its op1 exceptions, while the
+    op2 then creates the usual "normal VN" candidate.
+    
+    This can be problematic for `TYP_STRUCT` typed trees. In the JIT we do
+    not have a first class representation for `TYP_STRUCT` temporaries,
+    meaning that these always are restricted in what their immediate user
+    is. `gtNewTempStore` thus needs special logic to keep this invariant
+    satisfied; one of those special cases is that for `GT_COMMA`, instead of
+    creating the store with the comma as the source, we sink the store into
+    the `op2` recursively so that we end up with the store immediately next
+    to the node that produces the struct value. This is ok since we are
+    storing to a new local anyway, so there can't be interference with the
+    op1's of the commas we skipped into.
+    
+    This, however, causes problems for CSE with the `GT_COMMA` special case
+    above. If we end up CSE'ing the outer comma we will create a definition
+    that is sunk into `op2` of the comma. If that `op2` is itself as `COMMA`
+    that was a CSE candidate, then once we get to that candidate it no
+    longer has an IR shape that produces a value, and we thus cannot create
+    a CSE definition. The fix is to avoid creating separate CSE candidates
+    for struct-typed commas.
+    
+    Fix #106380
