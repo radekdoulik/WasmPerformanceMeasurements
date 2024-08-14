@@ -1,0 +1,9 @@
+commit dcf9814b9194cd1ab14ed8108098f06e0fd53e67
+Author: Thays Grazia <thaystg@gmail.com>
+Date:   Wed Aug 14 10:25:32 2024 -0300
+
+    [mono][debugger] Fix evaluate method in a struct that doesn't need extra_space (#106351)
+    
+    * Fix evaluate method in a struct that doesn't need extra_space.
+    
+    * Adding test case
