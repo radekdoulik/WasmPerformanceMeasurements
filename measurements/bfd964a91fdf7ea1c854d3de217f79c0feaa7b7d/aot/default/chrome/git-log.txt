@@ -1,0 +1,19 @@
+commit bfd964a91fdf7ea1c854d3de217f79c0feaa7b7d
+Author: Jeremy Koritzinsky <jekoritz@microsoft.com>
+Date:   Tue Aug 13 20:30:07 2024 -0700
+
+    [cdac] Synthesize a valid ECMA-335 image for read/write metadata instead of providing a separate metadata reader (#106164)
+    
+    * Synthesize a valid ECMA-335 image for read/write metadata instead of providing a separate metadata reader
+    
+    * Remove copies
+    
+    * Add a comment
+    
+    * Create EcmaMetadata contract for handling all metadata retrieval and remove metadata handling completely from the Loader contract.
+    
+    * Add EcmaMetadata contract to CoreCLR's list of implemented contracts
+    
+    ---------
+    
+    Co-authored-by: Elinor Fung <elfung@microsoft.com>
