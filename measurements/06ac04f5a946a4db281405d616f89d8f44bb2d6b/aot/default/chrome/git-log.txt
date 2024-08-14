@@ -1,0 +1,11 @@
+commit 06ac04f5a946a4db281405d616f89d8f44bb2d6b
+Author: Will Smith <lol.tihan@gmail.com>
+Date:   Thu Aug 8 13:29:35 2024 -0700
+
+    JIT: Fix `genHWIntrinsic_R_R_RM_I` assertion handling when ins is `INS_insertps` (#106100)
+    
+    * Fix genHWIntrinsic_R_R_RM_I assertion handling when ins is INS_insertps
+    
+    * Feedback
+    
+    * Feedback
