@@ -1,0 +1,28 @@
+commit 605ff6f6485101d4bd1eabb9ab97af345eee67a1
+Author: Eric StJohn <ericstj@microsoft.com>
+Date:   Tue Aug 13 17:50:23 2024 -0700
+
+    Update to Preview7 SDK (#106333)
+    
+    * Update to Preview7 SDK
+    
+    * Enable use of DefaultValueAttribute in trimming test
+    
+    * Fix the _DefaultValueAttributeSupport in generated trimming tests
+    
+    * Make DefaultValueAttributeCtorTest trimming test enable _DefaultValueAttributeSupport
+    
+    * Condition some DefaultValueAttributeTests on DefaultValueAttribute.IsSupported switch
+    
+    * Fix AmbientValueAttribute when IDesignerHost.IsSupported is false
+    
+    Throw only when type constructor is used. Fix tests to condition on this.
+    
+    * Condition some XmlSerializer tests
+    
+    These tests serialize types that use DefaultValueAttribute which is
+    disabled.
+    
+    * Update to final Preview7 versions
+    
+    * Fix ToolboxItemAttributeTests when IDesignerHost.IsSupported is false
