@@ -1,0 +1,17 @@
+commit 69bb1a4ff6d4675d937920aab9c3933ff39e480c
+Author: hrrrrustic <hrrrrustic@gmail.com>
+Date:   Mon Aug 12 22:58:36 2024 +0300
+
+    Convert.FromHexString exception with too large buffer (#105426)
+    
+    * Fix destination slicing
+    
+    * Correct destination slice
+    
+    * correct test expected value
+    
+    * Apply suggestions and add more unit tests.
+    
+    ---------
+    
+    Co-authored-by: Eirik Tsarpalis <eirik.tsarpalis@gmail.com>
