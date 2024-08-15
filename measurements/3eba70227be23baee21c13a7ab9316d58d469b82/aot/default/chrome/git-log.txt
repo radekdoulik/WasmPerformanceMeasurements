@@ -1,0 +1,23 @@
+commit 3eba70227be23baee21c13a7ab9316d58d469b82
+Author: Tom Deseyn <tom.deseyn@gmail.com>
+Date:   Wed Aug 14 20:55:19 2024 +0200
+
+    Console.Unix: revert SetWindowSize implementation. (#100272)
+    
+    * Console.Unix: revert SetWindowSize implementation.
+    
+    SetWindowSize was implemented using using TIOCSWINSZ.
+    TIOCSWINSZ is meant to inform the kernel of the terminal size.
+    The window that shows the terminal doesn't change to match that size.
+    
+    * Delete HAVE_TIOCSWINSZ.
+    
+    * Update compat supressions.
+    
+    * Code formatting.
+    
+    * Apply suggestions from code review
+    
+    ---------
+    
+    Co-authored-by: David Cantú <dacantu@microsoft.com>
