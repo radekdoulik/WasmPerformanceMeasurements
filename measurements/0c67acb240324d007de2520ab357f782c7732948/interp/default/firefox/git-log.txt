@@ -1,0 +1,7 @@
+commit 0c67acb240324d007de2520ab357f782c7732948
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Thu Aug 15 01:54:52 2024 +0200
+
+    JIT: Sign/zero-extend small primitive arguments for pinvokes on arm32 and Apple arm64 (#106314)
+    
+    Fix #101046
