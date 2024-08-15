@@ -1,0 +1,7 @@
+commit 3c7cc92daebf3352e96d7c6999cf3a3c86d9ffd4
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Wed Aug 14 21:02:07 2024 -0400
+
+    Fix Enum.ToObject(Type, object) for nint/nuint (#106109)
+    
+    These were never supported historically. The refactoring in .NET 7 added them, but accidentally as a nop. We might as well make them work.
