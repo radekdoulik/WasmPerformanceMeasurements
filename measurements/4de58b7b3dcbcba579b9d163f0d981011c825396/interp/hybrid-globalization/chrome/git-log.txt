@@ -1,0 +1,42 @@
+commit 4de58b7b3dcbcba579b9d163f0d981011c825396
+Author: dotnet-maestro[bot] <42748379+dotnet-maestro[bot]@users.noreply.github.com>
+Date:   Wed Aug 14 14:22:39 2024 -0700
+
+    [main] Update dependencies from dotnet/cecil, dotnet/hotreload-utils, dotnet/runtime, dotnet/sdk, dotnet/source-build-externals (#106261)
+    
+    * Update dependencies from https://github.com/dotnet/runtime build 20240810.5
+    
+    Microsoft.DotNet.ILCompiler , Microsoft.NET.Sdk.IL , Microsoft.NETCore.App.Runtime.win-x64 , Microsoft.NETCore.ILAsm , runtime.native.System.IO.Ports , System.Reflection.Metadata , System.Reflection.MetadataLoadContext , System.Text.Json , Microsoft.SourceBuild.Intermediate.runtime.linux-x64
+     From Version 9.0.0-rc.1.24403.1 -> To Version 9.0.0-rc.1.24410.5
+    
+    * Update dependencies from https://github.com/dotnet/sdk build 20240809.1
+    
+    Microsoft.SourceBuild.Intermediate.sdk , Microsoft.DotNet.ApiCompat.Task
+     From Version 9.0.100-rc.1.24378.3 -> To Version 9.0.100-rc.1.24409.1
+    
+    * Update dependencies from https://github.com/dotnet/hotreload-utils build 20240812.1
+    
+    Microsoft.DotNet.HotReload.Utils.Generator.BuildTool
+     From Version 9.0.0-alpha.0.24405.1 -> To Version 9.0.0-alpha.0.24412.1
+    
+    * Update dependencies from https://github.com/dotnet/cecil build 20240812.1
+    
+    Microsoft.SourceBuild.Intermediate.cecil , Microsoft.DotNet.Cecil
+     From Version 0.11.5-alpha.24379.1 -> To Version 0.11.5-alpha.24412.1
+    
+    * Update dependencies from https://github.com/dotnet/source-build-externals build 20240812.1
+    
+    Microsoft.SourceBuild.Intermediate.source-build-externals
+     From Version 9.0.0-alpha.1.24407.1 -> To Version 9.0.0-alpha.1.24412.1
+    
+    * Update dependencies from https://github.com/dotnet/cecil build 20240813.1
+    
+    Microsoft.SourceBuild.Intermediate.cecil , Microsoft.DotNet.Cecil
+     From Version 0.11.5-alpha.24412.1 -> To Version 0.11.5-alpha.24413.1
+    
+    * Implement new interface method
+    
+    ---------
+    
+    Co-authored-by: dotnet-maestro[bot] <dotnet-maestro[bot]@users.noreply.github.com>
+    Co-authored-by: Sven Boemer <sbomer@gmail.com>
