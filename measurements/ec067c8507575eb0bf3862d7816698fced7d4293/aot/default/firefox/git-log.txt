@@ -1,0 +1,73 @@
+commit ec067c8507575eb0bf3862d7816698fced7d4293
+Author: Jeremy Koritzinsky <jekoritz@microsoft.com>
+Date:   Wed Aug 14 13:16:46 2024 -0700
+
+    Inject IJW Copy Constructor calls in the JIT instead of in the IL stubs (#106000)
+    
+    * Revert "Disable GS checks in Reverse P/Invoke stubs to avoid missing these copies."
+    
+    This reverts commit 79b1cd234fbb866cd34f6bc8ccad20578bf7ddc7.
+    
+    * Revert "Since the fix is in the CoreCLR VM side, we need to disable the tests in JitStress (as they won't be fixed when the JIT introduces these extra checks when not asking the VM)"
+    
+    This reverts commit 35d0de9858ae7e78cbcd9fdecd3f41257b6f2d72.
+    
+    * Propagate the modreq to the stub and into the GS cookie logic to avoid creating shadow vars
+    
+    * Add RuntimeHelpers copy-constructor helper
+    
+    * Implement Reverse P/Invoke GS shadow copy for copy constructors
+    
+    * Use a jitinterface function instead of a jit helper so we don't need to do the generic method instantiation on every call (only when jitting)
+    
+    * Remove extra P/Invoke copy constructor call
+    
+    * Propagate the "special-copy" modifier into the JIT for byref locals (which the P/Invoke scenario will use)
+    
+    * Move copy constructor handling into the JIT for arguments
+    
+    * Remove now-dead code
+    
+    * Fix formatting
+    
+    * Fix build on Windows x64
+    
+    * Call copy helper in lowering and heavily reduce changes in higher layers
+    
+    * Revert "Call copy helper in lowering and heavily reduce changes in higher layers"
+    
+    This reverts commit 390185cb244d3fb661a1f4b6197a7a852924ff45.
+    
+    * Implement copy-constructor handling for P/Invokes via a map back to the original arg and don't do intermediate copy-constructor calls.
+    
+    The bitwise copies are invalid, but there's no possible way for the user to see them. They'll always get passed a correctly copy-constructed value.
+    
+    * Various PR feedback and propagate special copy directly from the IL arguments to the arg slot instead of tracing through locals.
+    
+    * Use a simple bool array instead of a vector as a function that has one parameter of this type will likely have multiple.
+    
+    * Format
+    
+    * Update hashing
+    
+    * Remove assert
+    
+    * Update Misc test
+    
+    * Cast through size_t to make it explicit that we're dropping the top bits
+    
+    * Use compArgsCount and remove assert
+    
+    * Various fixes
+    
+    * Fix GCC build
+    
+    * Fix signature type check
+    
+    * Feedback
+    
+    * Add headers
+    
+    * Fix superpmi build failures. Correctly handle multiple-arg copy constructor scenarios (by counting args in the correct direction)
+    
+    * Add check and assert
