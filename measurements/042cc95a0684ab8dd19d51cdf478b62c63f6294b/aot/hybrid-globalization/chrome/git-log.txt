@@ -1,0 +1,19 @@
+commit 042cc95a0684ab8dd19d51cdf478b62c63f6294b
+Author: Radek Zikmund <32671551+rzikm@users.noreply.github.com>
+Date:   Thu Aug 15 13:41:05 2024 +0200
+
+    Expose QUIC TLS details on QuicConnection. (#106391)
+    
+    * add NegotiatedCipherSuite to QuicConnection
+    
+    * Request negotiated cipher suite in QUIC_CONNECTION_EVENT_COMPLETED
+    
+    * Add SslProtocols property
+    
+    * Reintroduce removed code
+    
+    * Code review feedback
+    
+    ---------
+    
+    Co-authored-by: wfurt <tweinfurt@yahoo.com>
