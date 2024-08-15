@@ -1,0 +1,7 @@
+commit 67df47e1abb45b08f32063737e1e0f6eecb083e7
+Author: Ahmet Ibrahim Aksoy <aaksoy@microsoft.com>
+Date:   Thu Aug 15 06:47:04 2024 +0200
+
+    Revert "Disable QUIC&HTTP/3 parallelization on tests (#104948)" (#106404)
+    
+    This reverts commit 25a50853236dbec65408c7942793df3eb2e8cdbc.
