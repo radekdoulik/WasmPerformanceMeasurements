@@ -1,0 +1,17 @@
+commit 8fee24fbde0882fd83b68042747b210001c8ab33
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Sat Aug 10 18:00:37 2024 +0200
+
+    Add support for doubly nested intrinsic classes (#105761)
+    
+    `System.Runtime.Intrinsics.X86.Avx10v1+V512+X64.IsSupported` currently results
+    in an infinite loop. This PR fixes the problem by adding support in various
+    places for hardware intrinsic classes nested more than once.
+    
+    - Expand `getMethodNameFromMetadata` to allow returning names of multiple
+      enclosing classes
+    - Expand the type loader to recognize intrinsics in up to 2x nested classes
+    - Fix the JIT recognition to handle potentially multi-nested intrinsic classes
+    - Fix NAOT support for opportunistically querying for `Avx10v1` support
+    
+    Fix #105402
