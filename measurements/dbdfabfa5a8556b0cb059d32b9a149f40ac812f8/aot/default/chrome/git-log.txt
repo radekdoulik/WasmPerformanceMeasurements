@@ -1,0 +1,5 @@
+commit dbdfabfa5a8556b0cb059d32b9a149f40ac812f8
+Author: Aman Khalid <amankhalid@microsoft.com>
+Date:   Thu Aug 8 14:40:30 2024 +0000
+
+    JIT: Remove `GT_CAST` handling in `Lowering::IsValidConstForMovImm` (#106092)
