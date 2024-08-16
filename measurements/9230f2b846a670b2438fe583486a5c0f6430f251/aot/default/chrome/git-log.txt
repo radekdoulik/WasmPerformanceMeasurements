@@ -1,0 +1,21 @@
+commit 9230f2b846a670b2438fe583486a5c0f6430f251
+Author: Jan Vorlicek <janvorli@microsoft.com>
+Date:   Fri Aug 16 14:30:18 2024 +0200
+
+    Fix stack overflow handling with SuperPMI (#106495)
+    
+    * Fix stack overflow handling with SuperPMI
+    
+    When SuperPMI shared library is loaded last, its SIGSEGV handler
+    is the first one that's executed. But since there is no coreclr runtime handler
+    installed for it, it returns from the SwitchStackAndExecuteHandler in case
+    of SIGSEGV. The remaining code in the SIGSEGV handler was not expecting that and
+    thought that there was no stack overflow and attempted to run the hardware exception
+    handler on the original stack of the thread, which obviously crashed since the original
+    stack overflowed.
+    The fix is to make sure that we only call the previously registered signal handler in
+    this case.
+    
+    Close #84911
+    
+    * PR feedback
