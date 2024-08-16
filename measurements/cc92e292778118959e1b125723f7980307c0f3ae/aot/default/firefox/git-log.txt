@@ -1,0 +1,7 @@
+commit cc92e292778118959e1b125723f7980307c0f3ae
+Author: SwapnilGaikwad <swapnil.gaikwad@arm.com>
+Date:   Wed Aug 7 15:30:35 2024 +0100
+
+    ARM64-SVE: Use SVE1 variants of AddSaturate and SubtractSaturate instructions (#106068)
+    
+    Fixes: #105799
