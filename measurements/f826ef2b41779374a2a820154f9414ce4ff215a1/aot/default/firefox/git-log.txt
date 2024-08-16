@@ -1,0 +1,30 @@
+commit f826ef2b41779374a2a820154f9414ce4ff215a1
+Author: Jan Vorlicek <janvorli@microsoft.com>
+Date:   Fri Aug 16 18:58:36 2024 +0200
+
+    Remove CONTEXT_XSTATE in FaultingExceptionFrame::UpdateRegDisplay (#106466)
+    
+    Fixing the problem introduced by the previous attempt to fix that.
+    The problem was that the CONTEXT_XSTATE contains not only the bit for
+    the xstate, but also the architecture "id" (CONTEXT_AMD64,
+    CONTEXT_ARM64, ...).
+    
+    I've verified this fix using the debugger tests that the previous change
+    was breaking.
+    
+    There is a bug in updating REGDISPLAY from a faulting exception frame.
+    The context stored in the frame can contain extended state, but we only
+    copy the basic CONTEXT part. But we are not removing the CONTEXT_XSTATE
+    flag. There was an issue found on arm64 Windows with SVE enabled. The
+    context from a hardware exception contains the SVE extended state and
+    when we resume after catch for the exception or start propagating it
+    through native frames, the RtlRestoreContext uses some garbage to try to
+    restore the extended state and ends up corrupting memory.
+    
+    The fix is to remove the CONTEXT_XSTATE flag from the context after we
+    copy it to the REGDISPLAY.
+    
+    While we have hit this problem on Windows ARM64 with SVE only, I have
+    made the same change for other targets that can have extended state too.
+    
+    Close #105483
