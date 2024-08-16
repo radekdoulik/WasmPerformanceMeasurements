@@ -1,0 +1,5 @@
+commit e3d9bfd6d1f5647509a843cf8dbd9d39d68263e4
+Author: Steve Harter <steveharter@users.noreply.github.com>
+Date:   Wed Aug 7 12:34:22 2024 -0500
+
+    Return null instead of throwing in ServiceDescriptor.ImplementationInstance\Type\Factory if a keyed service (#105776)
