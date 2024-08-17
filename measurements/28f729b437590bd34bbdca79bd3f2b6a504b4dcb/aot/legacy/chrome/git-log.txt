@@ -1,0 +1,17 @@
+commit 28f729b437590bd34bbdca79bd3f2b6a504b4dcb
+Author: etemi <40637181+etemi@users.noreply.github.com>
+Date:   Sat Aug 17 21:43:54 2024 +0200
+
+    Make GetPropertyCount public and fix its return value (#106503)
+    
+    * Make GetPropertyCount public and fix its return value
+    
+    * Change order of assignments to match array counterpart
+    
+    * Reuse local variable
+    
+    * Show that GetPropertyCount() and EnumerateObject().Count() are the same at every object node
+    
+    * Fix test to also check objects inside arrays
+    
+    Also added checks for `GetArrayLength`
