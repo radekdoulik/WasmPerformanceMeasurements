@@ -1,0 +1,13 @@
+commit 53a500edf1d6527b4519f462901667d2ab233a04
+Author: Egor Bogatov <egorbo@gmail.com>
+Date:   Mon Aug 5 18:09:40 2024 +0200
+
+    Don't use ZR as target in LSE atomics (#105854)
+    
+    * Don't use ZR as target in LSE atomics
+    
+    * Update codegenarm64.cpp
+    
+    * Update lsraarm64.cpp
+    
+    * Update lsraarm64.cpp
