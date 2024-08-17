@@ -1,0 +1,11 @@
+commit f00fc033f7e4f51d7aede2da6830a7b4d3087929
+Author: Viktor Hofer <viktor.hofer@microsoft.com>
+Date:   Thu Aug 15 20:24:56 2024 +0200
+
+    Update packaging.targets (#106327)
+    
+    Fixes:
+    
+    > C:\git\runtime3\eng\packaging.targets(211,5): error NETPKG0001: Project reference '' is a reference to a framework asse
+    mbly and is not required in net9.0 (NetCoreAppCurrent). [C:\git\runtime3\src\libraries\System.Text.Json\src\System.Text
+    .Json.csproj::TargetFramework=net9.0]
