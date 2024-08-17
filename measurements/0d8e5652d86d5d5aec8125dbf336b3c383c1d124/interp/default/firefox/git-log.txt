@@ -1,0 +1,9 @@
+commit 0d8e5652d86d5d5aec8125dbf336b3c383c1d124
+Author: Aaron Robinson <arobins@microsoft.com>
+Date:   Fri Aug 16 17:12:18 2024 -0700
+
+    Remove managed interfaces impls defined in CoreCLR (#105965)
+    
+    * Remove managed interfaces impls defined in CoreCLR
+    
+    * Replace IEnumerable, IEnumerator, and ICustomAdapter with IDynamicInterfaceCastable on __ComObject
