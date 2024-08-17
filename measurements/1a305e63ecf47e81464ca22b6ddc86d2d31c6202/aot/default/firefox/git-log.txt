@@ -1,0 +1,13 @@
+commit 1a305e63ecf47e81464ca22b6ddc86d2d31c6202
+Author: Faolan <46481567+Faolan-Rad@users.noreply.github.com>
+Date:   Fri Aug 16 16:42:18 2024 -0400
+
+    Fixed creating generic type with abstract type when it is has a default constractor constrant (#101963)
+    
+    * Fixed creating generic type with abstract type when it is has a default constructor constraint
+    
+    * Fix missing ; in test.
+    
+    ---------
+    
+    Co-authored-by: Ivan Diaz <ivdiazsa@microsoft.com>
