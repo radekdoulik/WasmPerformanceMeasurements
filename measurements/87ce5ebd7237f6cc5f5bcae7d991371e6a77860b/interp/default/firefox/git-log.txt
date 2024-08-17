@@ -1,0 +1,5 @@
+commit 87ce5ebd7237f6cc5f5bcae7d991371e6a77860b
+Author: Elinor Fung <elfung@microsoft.com>
+Date:   Thu Aug 15 09:26:46 2024 -0700
+
+    [cdac] Fix ThreadStoreData finalizer and GC thread (#106435)
