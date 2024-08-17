@@ -1,0 +1,10 @@
+commit 8ea4779c0807a5156c595041c07e2f1058b9eaec
+Author: Andy Ayers <andya@microsoft.com>
+Date:   Thu Aug 15 19:13:23 2024 -0700
+
+    JIT: update simd base type when combining simd nodes for bitwise ops (#106510)
+    
+    If we merge two simd for bitwise ops (eg creating an AndNot), make sure to use
+    the simd base type of the parent (And) node when specializing the operator.
+    
+    Fixes #106478.
