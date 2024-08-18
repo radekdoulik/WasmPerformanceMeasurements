@@ -1,0 +1,9 @@
+commit 815650eaa0643ea769dfa46f320bf96ca73f7e59
+Author: Elinor Fung <elfung@microsoft.com>
+Date:   Mon Aug 5 12:23:58 2024 -0700
+
+    Initialize RuntimeEventSource as part of coreclr_initialize instead of only when running an app (#105902)
+    
+    We were only initializing `RuntimeEventSource` before running an application. This meant that native hosting scenarios - COM, C++/CLI, custom - would never initialize it. As a result, diagnostic tracing tools - like `dotnet-counters` - did not work properly.
+    
+    This moves the call to `RuntimeEventSource.Initialize` out of `StartupHookProvider.ManagedStartup` and to be part of `coreclr_initialize`.
