@@ -1,0 +1,10 @@
+commit ca4000c6a9e9067cb3e13986e86c7ffa40ac1f7d
+Author: Andy Ayers <andya@microsoft.com>
+Date:   Mon Aug 12 16:58:31 2024 -0700
+
+    JIT: limit phi-refinement to loop-invariant VNs (#106229)
+    
+    PhiArg VNs should be invariant in the loop that contains the Phi, otherwise
+    the same VN may refer to values from more than one iteration.
+    
+    Fixes #105792.
