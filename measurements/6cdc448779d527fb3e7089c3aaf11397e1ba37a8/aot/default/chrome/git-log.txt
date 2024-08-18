@@ -1,0 +1,7 @@
+commit 6cdc448779d527fb3e7089c3aaf11397e1ba37a8
+Author: Edward Neal <55035479+edwardneal@users.noreply.github.com>
+Date:   Tue Aug 6 18:06:57 2024 +0100
+
+    Respect general-purpose bit flags when decoding ZipArchiveEntry names and comments (#103271)
+    
+    If bit 11 in the general purpose bit flags is set, forces the use of UTF-8 instead of the encoding specified in the ZipArchive constructor.
