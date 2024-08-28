@@ -1,0 +1,11 @@
+commit 0c90519730843c81f292ece109e96e33afc6c1e5
+Author: Filip Navara <filip.navara@gmail.com>
+Date:   Mon Aug 19 17:38:28 2024 +0200
+
+    Add N_NO_DEAD_STRIP flag to section symbols to ensure that data at the beginning of the section are not stripped if there's no other N_NO_DEAD_STRIP symbol referencing them (#106444)
+    
+    Extracted from https://github.com/dotnet/runtime/pull/106224.
+    
+    PR #103039 added `N_NO_DEAD_STRIP` flag to all symbols emitted by ILC and enabled the dead code stripping in the native linker.
+    
+    It failed to handle one specific edge case that is luckily not happening in the wild. If the first node emitted into a section has a symbol with non-zero offset NN the first `N_NO_DEAD_STRIP` symbol is not pointing at the start of the section. The native linker then splits up the section into atom and the first atom from offset 0 to offset NN is never referenced and becomes eligible for dead code stripping. Since we emit a symbol for each section start (for use in section-relative relocations) we can just mark the symbol with `N_NO_DEAD_STRIP` to resolve the issue.
