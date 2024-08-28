@@ -1,0 +1,11 @@
+commit 21fe57174af159f7bcb39f591cd9fbb96a36bfcb
+Author: Aaron Robinson <arobins@microsoft.com>
+Date:   Mon Aug 19 21:06:09 2024 -0700
+
+    COMObject invoke through reflection (#106677)
+    
+    A regression was introduced by implementing
+    IDynamicInterfaceCastable on __ComObject. This means
+    that the order of checks is now important. Made the
+    order consistent in all places and added a test for
+    this particular case.
