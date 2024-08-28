@@ -1,0 +1,9 @@
+commit 2aca5e53dba1a620ae5b57972c355eebed0cdb08
+Author: Ilona Tomkowicz <32700855+ilonatommy@users.noreply.github.com>
+Date:   Wed Aug 28 17:56:26 2024 +0200
+
+    [wasm] Performance sample - remove public nugets and clean up (#107030)
+    
+    * Simplify nuget.config reading + remove "nuget.org".
+    
+    * Feedback from @radekdoulik
