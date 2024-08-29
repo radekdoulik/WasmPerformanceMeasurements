@@ -1,0 +1,7 @@
+commit d48751b92d5989f8b052ba4a5c20a385f3d4a983
+Author: Ilona Tomkowicz <32700855+ilonatommy@users.noreply.github.com>
+Date:   Thu Aug 29 12:23:40 2024 +0200
+
+    Enable the wasi-aot-library tests on windows (#107124)
+    
+    We use WASI SDK 24 which is 64bit - we can enable the test pipeline again.
