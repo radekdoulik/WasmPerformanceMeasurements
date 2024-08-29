@@ -1,0 +1,9 @@
+commit 063ae05c63307becef004eefbc8704ccb03c7f04
+Author: Elinor Fung <elfung@microsoft.com>
+Date:   Wed Aug 28 15:38:37 2024 -0700
+
+    Propagate RuntimeConfiguration for cross-subset builds (#107049)
+    
+    This addresses issues building cross-subset with clr (or mono) with mixed configurations.
+    
+    For example, `singlefilehost` is built as part of the `clr` subset, but the `host` subset copies it, embeds the DAC (when necessary) and packages it. When the clr and host configuration didn't match, this resulted in the host build looking for `singlefilehost` in the wrong location.
