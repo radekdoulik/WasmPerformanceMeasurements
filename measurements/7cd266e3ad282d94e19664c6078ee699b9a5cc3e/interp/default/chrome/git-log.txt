@@ -1,0 +1,8 @@
+commit 7cd266e3ad282d94e19664c6078ee699b9a5cc3e
+Author: Elinor Fung <elfung@microsoft.com>
+Date:   Tue Aug 20 10:04:01 2024 -0700
+
+    [cdac] Fix getting array function type in RuntimeTypeSystem.IsArrayMethod (#106512)
+    
+    - Array method index should be the slot minus the number of virtuals, not the number of slots
+    - Constructor index should include 3, not just greater than
