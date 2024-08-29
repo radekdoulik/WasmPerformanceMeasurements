@@ -1,0 +1,5 @@
+commit 89839049b486bf48239dd6faa722defd3de320cb
+Author: Adam Sitnik <adam.sitnik@gmail.com>
+Date:   Thu Aug 29 16:55:54 2024 +0200
+
+    Don't use WeakReferences in the round trip test, as the target may get freed in the meantime, fixes #104905 (#106967)
