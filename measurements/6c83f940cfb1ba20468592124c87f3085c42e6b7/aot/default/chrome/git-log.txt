@@ -1,0 +1,5 @@
+commit 6c83f940cfb1ba20468592124c87f3085c42e6b7
+Author: Kevin Jones <kevin@vcsjones.com>
+Date:   Fri Aug 23 14:09:31 2024 -0400
+
+    Use OpenSSL 3's KBKDF for SP800-108 if it is available
