@@ -1,0 +1,5 @@
+commit 9c9f6ada7ffd0cba60b75ca3e85f1052b9ab6404
+Author: Jeremy Koritzinsky <jekoritz@microsoft.com>
+Date:   Thu Aug 29 10:45:13 2024 -0700
+
+    Remove unused custom marshaler code and move ICustomMarshaler and Color marshalling handling to managed code (#106735)
