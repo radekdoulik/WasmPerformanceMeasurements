@@ -1,0 +1,7 @@
+commit 00553a87f77898b8a62f094b2dd12bd684d08b5c
+Author: Julie Lee <63486087+JulieLeeMSFT@users.noreply.github.com>
+Date:   Tue Aug 27 01:48:40 2024 -0700
+
+    Code cleanup: Remove TODO regarding optVNConstantPropOnJTrue removing a tree twice. (#106976)
+    
+    - The original issue (#10450) is closed as not reproducible becasue JIT no longer does any incremental ref count updates.
