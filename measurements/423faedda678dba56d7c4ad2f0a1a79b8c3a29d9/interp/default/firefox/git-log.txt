@@ -1,0 +1,50 @@
+commit 423faedda678dba56d7c4ad2f0a1a79b8c3a29d9
+Author: Fan Yang <52458914+fanyang-mono@users.noreply.github.com>
+Date:   Wed Aug 21 12:06:53 2024 -0400
+
+    Error out when struct size is bigger than int.MaxValue (#104393)
+    
+    * Error out when field size is too big
+    
+    * Error out during type loading and add a test
+    
+    * Move test to a different file
+    
+    * Make things loadable in the managed type system
+    
+    * Error out when size overflow the value that int could hold
+    
+    * Update the threshold to FIELD_OFFSET_LAST_REAL_OFFSET
+    
+    * Change the threashold to int.MaxValue
+    
+    * Fix mono struct size overflow issue
+    
+    * Add signed/unsigned type conversion
+    
+    * Use gint64 instead of long, due to windows
+    
+    * Update src/mono/mono/metadata/class-init.c
+    
+    Co-authored-by: Aleksey Kliger (λgeek) <akliger@gmail.com>
+    
+    * Fix test
+    
+    * Add CoreCLR test for Explicit struct
+    
+    * Address review feedback
+    
+    * Fixes Explicit struct size for Mono
+    
+    * Disable explicit struct tests on 32bit platforms, due to out of memory issue.
+    
+    * Disable CoreCLR test for NativeAOT and crossgen
+    
+    * Fix test
+    
+    * Add RequiresProcessIsolation for CoreCLR test
+    
+    ---------
+    
+    Co-authored-by: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+    Co-authored-by: Aleksey Kliger (λgeek) <akliger@gmail.com>
