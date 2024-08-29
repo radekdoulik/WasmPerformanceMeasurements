@@ -1,0 +1,13 @@
+commit 2e7ee69fbcd2e653e2728cfb64e8a0faf9829e09
+Author: Aaron Robinson <arobins@microsoft.com>
+Date:   Wed Aug 28 20:48:46 2024 -0700
+
+    Remove Helper Method Frames from debugdebugger (#107058)
+    
+    * Remove unused AllocObjectWrapper helper for x86.
+    
+    * Convert Debugger.Break()
+    
+    * Convert Debugger.CustomNotification()
+    
+    * Convert StackTrace.GetStackFramesInternal()
