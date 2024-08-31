@@ -1,0 +1,12 @@
+commit c6570a979dea6226d5e44fdade67460a83f822c8
+Author: Dawid <166010737+SzpejnaDawid@users.noreply.github.com>
+Date:   Mon Aug 26 22:53:28 2024 +0200
+
+    [RISC-V] Add JIT Helpers for RISCV64 (#106540)
+    
+    * Add JIT Helpers for RISCV64
+    
+    - JIT_GetDynamicNonGCStaticBase_SingleAppDomain
+    - JIT_GetDynamicGCStaticBase_SingleAppDomain
+    
+    * Delete nop instruction in JIT Helper
