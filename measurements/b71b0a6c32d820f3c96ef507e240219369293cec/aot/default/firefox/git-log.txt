@@ -1,0 +1,30 @@
+commit b71b0a6c32d820f3c96ef507e240219369293cec
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Fri Aug 23 00:44:46 2024 +0200
+
+    Parallelize superpmi-diffs pipeline per collection (#106759)
+    
+    This PR changes superpmi-diffs such that it submits a Helix work item for each
+    collection that we will be collecting asm diffs or tp diffs for.
+    - Add a partition generation step to `superpmi_diffs_setup.py` that creates a
+      .json file for every (target OS, target arch, collection) tuple
+    - Switch the Helix msbuild project to create partitions based on each of these
+      .json files
+    - Add a `--summary_as_json` CLI arg to `superpmi.py asmdiffs/tpdiff`. When
+      passed, `superpmi.py` will output the information necessary to generate a .md
+      summary as JSON instead. These JSON files are now the results of the Helix
+      work items.
+    - Add a `superpmi.py summarize` command. This command takes a collection of JSON
+      summary files and generates a consolidated .md summary in the same format as
+      before.
+    - Teach `superpmi_diffs_summarize.py` to consolidate the JSON summaries created
+      for each (target OS, target arch, collection) tuple into a consolidated .md
+      for each (target OS, target arch), before doing the final consolidation to the
+      single overall (host OS, host arg) .md file that is shown on AzDO.
+    
+    With this PR superpmi-diffs is significantly faster. Actual time spent doing
+    useful work (building and running superpmi) is only around 30 minutes total. The
+    remaining CI time is spent waiting for AzDO runners to pick up the pipeline
+    jobs, and for the Helix queues to pick up the Helix work items. An end-to-end
+    superpmi-diffs run takes a little over 1 hour now, in comparison to up to 3
+    hours before.
