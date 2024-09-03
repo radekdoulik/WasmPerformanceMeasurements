@@ -1,0 +1,11 @@
+commit 34c3442980978a19671e1ac90dfe280e75f36023
+Author: Steve <hez2010@outlook.com>
+Date:   Wed Sep 4 02:51:11 2024 +0900
+
+    Fix IntelliSense for gc.cpp (#105768)
+    
+    Fix IntelliSense for gc.cpp and its friends.
+    
+    VS defines `__INTELLISENSE__` for intellisense pass only (as per https://learn.microsoft.com/en-us/cpp/preprocessor/predefined-macros?view=msvc-170), move some code to gc.cpp and then utilize this predefinition to give intellisense a hint about the current gc mode, enabling full index, navigation, completion, linting and IntelliSense experience on gc code with minor effort.
+    
+    After this change, working on gc.cpp can be much easier. There're also many benefits of enabling IntelliSense. For example, VS now is able to detect uninitialized members, member declarations without actual definitions (maybe some leftover that we forgot to delete?), and etc.
