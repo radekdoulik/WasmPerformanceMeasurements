@@ -1,0 +1,9 @@
+commit 4ef370ff761e0f7b122d51e0ae2e13de12ee027d
+Author: Elinor Fung <elfung@microsoft.com>
+Date:   Thu Aug 29 10:06:39 2024 -0700
+
+    Fix RidAssetResolution to open shared framework file with read share access (#107112)
+    
+    The `RidAssetResolution` test was reading Microsoft.NETCoreApp.deps.json in a non-shareable way, which could result in other tests failing when trying to run an application (since that reads the .deps.json). This changes the test to open with `FileShare.Read` by going through `File.OpenRead`.
+    
+    The other two I just switched to `File.OpenRead` from `File.Open` with the equivalent arguments for consistency with the rest of HostModel and host tests.
