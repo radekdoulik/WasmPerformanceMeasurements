@@ -1,0 +1,45 @@
+commit 8fd46b2642bdc4897027901cc5212a1c5ed05020
+Author: Sven Boemer <sbomer@gmail.com>
+Date:   Fri Aug 23 16:41:10 2024 -0700
+
+    Fix dataflow warnings for invalid trim annotations (#106672)
+    
+    `DynamicallyAccessedMembers` annotations are only allowed on
+    parameters of certain types, such as `Type` and `string`. While
+    the analyzer correctly reports a warning about annotations on
+    unsupported types, it still respects those annotations:
+    
+    ```csharp
+    using System.Diagnostics.CodeAnalysis;
+    
+    class Program {
+        static void Main() {
+            RequireAll(GetFoo()); // Unexpected IL2072 because GetFoo return value doesn't satisfy All
+        }
+    
+        static void RequireAll([DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.All)] Foo f) {}  // IL2098 for bad annotation, expected
+    
+        static Foo GetFoo() => throw null;
+    }
+    
+    class Foo {}
+    ```
+    
+    ```
+    
+    Program.cs(8,17): warning IL2098: Parameter 'f' of method
+    'Program.RequireAll(Foo)' has
+    'DynamicallyAccessedMembersAttribute', but that attribute can
+    only be applied to parameters of type 'System.Type' or
+    'System.String'.
+    
+    Program.cs(5,9): warning IL2072: 'f' argument does not satisfy
+    'DynamicallyAccessedMemberTypes.All' in call to
+    'Program.RequireAll(Foo)'. The return value of method
+    'Program.GetFoo()' does not have matching annotations. The source
+    value must declare at least the same requirements as those
+    declared on the target location it is assigned to.  ```
+    
+    IL2098 is expected, but IL2072 is not. The invalid annotations
+    should not produce further warnings for assignments to that
+    location. This fixes that.
