@@ -1,0 +1,21 @@
+commit d722aeced32a5aa9c61154907039f09a48ca12a1
+Author: Sven Boemer <sbomer@gmail.com>
+Date:   Wed Aug 28 10:34:44 2024 -0700
+
+    ILLink: fix TypeProxy implementation of equality (#106990)
+    
+    The equality check needs to determine whether two TypeProxy instances
+    represent the same type. The check was incorrect when two different
+    object instances were allocated to represent the same generic
+    instantiated type.
+    
+    ILCompiler doesn't have this problem because it uses a cache to ensure
+    that the same object instance represents a given instantiated generic
+    type.
+    
+    Discovered while investigating
+    https://github.com/dotnet/runtime/pull/106215, see more context at
+    https://github.com/dotnet/runtime/pull/106215#discussion_r1725737204.
+    
+    The new testcase also uncovered an issue in the analyzer that was
+    fixed in https://github.com/dotnet/runtime/pull/106909.
