@@ -1,0 +1,10 @@
+commit 269ea267270838478e15e29f51c250f9bea81b67
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Fri Aug 23 09:20:25 2024 +0200
+
+    JIT: Move VN-based intrinsic expansion later (#106750)
+    
+    This avoids making CFG changes before IV opts, which relies on many
+    flowgraph related annotations. For example, this expansion will create
+    new basic blocks with empty liveness sets that IV opts potentially could
+    end up querying.
