@@ -1,0 +1,7 @@
+commit 27a7fe5c4bbe0762c231b2a46162e60ee04f3cde
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Fri Aug 30 19:46:05 2024 +0200
+
+    JIT: Delete dead `fgIsFirstBlockOfFilterOrHandler` (#107187)
+    
+    This exists as the more used function bbIsHandlerBeg
