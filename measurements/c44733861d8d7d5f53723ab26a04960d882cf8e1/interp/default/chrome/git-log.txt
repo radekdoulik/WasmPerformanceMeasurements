@@ -1,0 +1,9 @@
+commit c44733861d8d7d5f53723ab26a04960d882cf8e1
+Author: Sven Boemer <sbomer@gmail.com>
+Date:   Tue Aug 27 13:39:08 2024 -0700
+
+    Fix RunClassConstructor trim warning for Nullable<T> (#106975)
+    
+    The trimming tools (ILLink, native AOT, and the trim analyzer) report
+    warnings when RunClassConstructor is called for nullable value
+    types. This is not problematic for trimming and should not warn.
