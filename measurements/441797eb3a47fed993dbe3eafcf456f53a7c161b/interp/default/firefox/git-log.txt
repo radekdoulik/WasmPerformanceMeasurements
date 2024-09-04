@@ -1,0 +1,5 @@
+commit 441797eb3a47fed993dbe3eafcf456f53a7c161b
+Author: Kevin Jones <kevin@vcsjones.com>
+Date:   Thu Aug 22 17:47:15 2024 -0400
+
+    Fix MD5 failures on Azure Linux in System.Security.Cryptography.Pkcs
