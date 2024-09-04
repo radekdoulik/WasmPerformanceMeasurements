@@ -1,0 +1,10 @@
+commit 5026865050d0535cacda3826505111d08c9acdb2
+Author: Elinor Fung <elfung@microsoft.com>
+Date:   Tue Sep 3 14:39:46 2024 -0700
+
+    Move handle store and remaining crsts from `BaseDomain` to `AppDomain` (#107208)
+    
+    - The handle store was always the global handle store
+      - Make all the `Create*Handle` functions go through the `AppDomain`
+    - `m_crstLoaderAllocatorReferences` is only used for collectible loader allocators - so only assembly loader allocators (which correspond to `AppDomain`), not the global loader allocator (which corresponds to `SystemDomain`)
+    - Remove unnecessary `BaseDomain` on `PinnedHeapHandleTable`
