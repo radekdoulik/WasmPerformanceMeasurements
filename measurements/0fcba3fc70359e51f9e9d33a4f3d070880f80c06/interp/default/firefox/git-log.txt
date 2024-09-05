@@ -1,0 +1,15 @@
+commit 0fcba3fc70359e51f9e9d33a4f3d070880f80c06
+Author: Sven Boemer <sbomer@gmail.com>
+Date:   Tue Aug 27 09:37:38 2024 -0700
+
+    Use FeatureSwitchDefinition in a few places (#106564)
+    
+    This replaces much of our ILLink.Substitutions.xml with nearly
+    equivalent FeatureSwitchDefinitionAttribute. The minor difference is
+    that both true and false are substituted (when the feature switch is
+    set accordingly), whereas some of our substitution xmls only defined a
+    substitution for the false case.
+    
+    ---------
+    
+    Co-authored-by: Jackson Schuster <36744439+jtschuster@users.noreply.github.com>
