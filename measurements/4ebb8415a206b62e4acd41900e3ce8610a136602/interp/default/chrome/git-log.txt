@@ -1,0 +1,5 @@
+commit 4ebb8415a206b62e4acd41900e3ce8610a136602
+Author: Jeremy Koritzinsky <jekoritz@microsoft.com>
+Date:   Wed Sep 4 16:56:25 2024 -0700
+
+    Remove PointerNativeTypeAssignmentRewriter by introducing a separate local with the exact type and assigning to/from it (#107219)
