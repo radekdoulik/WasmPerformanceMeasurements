@@ -1,0 +1,10 @@
+commit 5fd3f22b98cb0d126e4f6328f5a0bf922a532f69
+Author: Andy Ayers <andya@microsoft.com>
+Date:   Sun Aug 25 08:59:27 2024 -0700
+
+    JIT: emit vzeroupper before calls to the bulk write barrier helper (#106908)
+    
+    The helper uses SSE2, so we need to take care to avoid AVX-SSE
+    transition penalties.
+    
+    Fixes #106679.
