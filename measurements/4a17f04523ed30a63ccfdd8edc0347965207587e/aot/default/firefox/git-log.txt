@@ -1,0 +1,14 @@
+commit 4a17f04523ed30a63ccfdd8edc0347965207587e
+Author: David Wrighton <davidwr@microsoft.com>
+Date:   Thu Sep 5 09:21:56 2024 -0700
+
+    Fix a case in MethodImpl overriding which wasn't handled as expected in ilc.exe for native aot (#106716)
+    
+    * Fix a case in MethodImpl overriding which wasn't handled as expected in ilc.exe for native aot
+    - This was causing real C# applications to fail to behave correctly on NativeAOT builds
+    - Enable testing for covariant byref returns on nativeaot (split testing up so that the tests do not expect TypeLoadException, which NativeAOT doesn't reliably generate)
+    - Put copy of attributetesting.il test into the managed type system unit test suite
+    - Add regression test of issue noted in #96175 into managed type system unit test suite
+    - Update workflow documentation to include a better path to finding details on how to run CoreCLR and Libraries tests for Native AOT
+    
+    Fixes #96175
