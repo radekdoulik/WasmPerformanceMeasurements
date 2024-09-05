@@ -1,0 +1,9 @@
+commit df2d2131e214a6cf4fa4774522c95370e3585040
+Author: Koundinya Veluri <kouvel@users.noreply.github.com>
+Date:   Fri Aug 23 12:03:31 2024 -0700
+
+    Disable IOCP config var test (#106888)
+    
+    The test is still failing occasionally. A simplified version is failing more frequently locally, needs further investigation to determine the cause.
+    
+    Tracking: https://github.com/dotnet/runtime/issues/106371
