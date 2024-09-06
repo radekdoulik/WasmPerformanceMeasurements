@@ -1,0 +1,9 @@
+commit fbf46726097e766bb7b8a3eb94315d55185e9cf3
+Author: Miha Zupan <mihazupan.zupan1@gmail.com>
+Date:   Thu Aug 29 13:33:18 2024 -0700
+
+    Fix libraries fuzzing pipeline (#107048)
+    
+    * Fix fuzzing builds for .NET 10
+    
+    * Keep TFM at 9.0
