@@ -1,0 +1,17 @@
+commit ce8f49e658d4a31e5708f0c06efa39784ee7c1ad
+Author: Maoni Stephens <Maoni0@users.noreply.github.com>
+Date:   Thu Sep 5 23:13:57 2024 -0700
+
+    don't call GetHeap to get the heap in wait_for_gc_done (#107073)
+    
+    we see the assert in GCHeap::GetHeap when called by wait_for_gc_done -
+    
+    GCHeap* GCHeap::GetHeap (int n)
+    {
+        assert (n < gc_heap::n_heaps);
+        return gc_heap::g_heaps[n]->vm_heap;
+    }
+    
+    when HC change is in progress and we are reducing the HC. this assert is actually unnecessary when called by wait_for_gc_done but is necessary when called by other methods like balance_heaps (those are in coop mode so they cannot observe the HC transition). so I just changed to getting the heap from g_heaps instead of calling GetHeap.
+    
+    previously I thought this could actually be a functional problem but after doing more thinking I think this is just a benign assert. if we are observing the transition from the old HC to the new HC in wait_for_gc_done and we happen to be waiting on a heap that's decommissioned, decommission_heap sets its heap's gc_done_event so what will happen is wait_for_gc_done will wake up from waiting as soon decommission_heap is executed. at this time n_heaps is also updated. so when it gets to the next iteration in the while loop it will get a valid heap's gc_done_event to wait on.
