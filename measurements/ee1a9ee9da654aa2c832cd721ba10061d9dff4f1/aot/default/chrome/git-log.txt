@@ -1,0 +1,7 @@
+commit ee1a9ee9da654aa2c832cd721ba10061d9dff4f1
+Author: Elinor Fung <elfung@microsoft.com>
+Date:   Thu Sep 5 19:02:11 2024 -0700
+
+    Fix incorrect handle type count when FEATURE_SIZED_REF_HANDLES is not defined (#107433)
+    
+    Regression from https://github.com/dotnet/runtime/pull/107326 - without `FEATURE_SIZED_REF_HANDLES` defined, this was incorrectly passing an array of two handle types - HNDTYPE_STRONG and HNDTYPE_WEAK_SHORT (0) - when promoting objects pointed to by strong handles.
