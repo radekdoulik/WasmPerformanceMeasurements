@@ -1,0 +1,5 @@
+commit d4601d390b6ca9177d62a5ac29b74d30cc16d63d
+Author: Elinor Fung <elfung@microsoft.com>
+Date:   Fri Sep 6 07:11:23 2024 -0700
+
+    Make ComponentActivator.[LoadAssemblyAnd]GetFunctionPointer set initialize out pointer to 0 (#107426)
