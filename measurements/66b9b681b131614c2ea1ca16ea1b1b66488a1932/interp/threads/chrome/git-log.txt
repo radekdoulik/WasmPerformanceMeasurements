@@ -1,0 +1,7 @@
+commit 66b9b681b131614c2ea1ca16ea1b1b66488a1932
+Author: Eduardo Velarde <32459232+eduardo-vp@users.noreply.github.com>
+Date:   Thu Sep 5 22:51:20 2024 -0700
+
+    Run native aot runtime tests on cet compatible machines (#105288)
+    
+    Enabling CET and CFG for the native aot runtime tests that run on windows_x64.
