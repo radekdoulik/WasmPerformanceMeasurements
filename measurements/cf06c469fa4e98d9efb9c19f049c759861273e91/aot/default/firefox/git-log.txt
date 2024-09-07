@@ -1,0 +1,11 @@
+commit cf06c469fa4e98d9efb9c19f049c759861273e91
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Fri Aug 30 21:24:15 2024 +0200
+
+    JIT: Give `Compiler` a proper constructor (#107098)
+    
+    - Add a proper constructor for `Compiler` and call it via placement new from
+      `jitNativeCode`.
+    - Remove `compInit`, `fgInit`, `impInit`, `lvaInit` and `optInit`. Move all
+      their initialization into the constructor or, when possible, initialize the
+      field directly with its declaration.
