@@ -1,0 +1,8 @@
+commit f0405a977ebf5d430ad73e57e52ad5cf5297eff6
+Author: Xu Liangyu <xuliangyu@loongson.cn>
+Date:   Sat Aug 31 00:05:37 2024 +0800
+
+    [LoongArch64] Add 'loongarch64' display in Crossgen2 and ILC cli. (#107130)
+    
+    * [LoongArch64] Add 'loongarch64' display in Crossgen2 and ILC cli.
+    * Add missing 'Architecture.LoongArch64' in libraries tests.
