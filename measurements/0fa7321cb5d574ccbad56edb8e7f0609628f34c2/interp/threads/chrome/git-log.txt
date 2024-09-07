@@ -1,0 +1,5 @@
+commit 0fa7321cb5d574ccbad56edb8e7f0609628f34c2
+Author: Aman Khalid <amankhalid@microsoft.com>
+Date:   Fri Sep 6 21:02:37 2024 +0000
+
+    JIT ARM64: Don't emit `mov` for zero case in jump tables for shift intrinsics (#107322)
