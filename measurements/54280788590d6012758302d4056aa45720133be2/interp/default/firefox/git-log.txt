@@ -1,0 +1,16 @@
+commit 54280788590d6012758302d4056aa45720133be2
+Author: Aaron Robinson <arobins@microsoft.com>
+Date:   Fri Sep 6 14:11:33 2024 -0700
+
+    Remove Helper Method Frames for Exception, GC and Thread methods (#107218)
+    
+    * Convert Exception.GetFrozenStackTrace()
+    
+    * Convert GC.AllocateNewArray()
+    Removed use of Unsafe.As().
+    
+    * Convert Thread.GetApartmentStateNative() and Thread.SetApartmentStateNative()
+    
+    * Convert Thread.Join()
+    
+    * Convert Thread.Priority property
