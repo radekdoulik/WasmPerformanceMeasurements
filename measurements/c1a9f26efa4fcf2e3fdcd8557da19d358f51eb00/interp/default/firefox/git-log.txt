@@ -1,0 +1,93 @@
+commit c1a9f26efa4fcf2e3fdcd8557da19d358f51eb00
+Author: Huo Yaoyuan <huoyaoyuan@hotmail.com>
+Date:   Wed Aug 28 10:40:27 2024 +0800
+
+    Cleanup VARIANT marshalling and convert to managed (#102498)
+    
+    * Handle simple cases of MarshalComVariantForOleVariant
+    
+    * Pseudo code for MarshalOleVariantForComVariant
+    
+    * Complete and setup managed call for MarshalObjectForOleVariant
+    
+    * Setup MarshalHelperConvertObjectToVariant except record
+    
+    * Setup MarshalHelperCastVariant
+    
+    * Cleanup Variant struct and FCall
+    
+    * Handle record case
+    
+    * Cleanup VariantOleToCom/VariantComToOle routines
+    
+    * Remove VariantData definition at unmanaged side
+    
+    * Eliminate a dead branch for ref
+    
+    * Remove CVTypes in native
+    
+    * Share GetComIPFromObjectRef
+    
+    * Add tests for managed to native side
+    
+    * Add test for native to managed side
+    
+    * Add test for byref returning to BYREF
+    
+    * Fix BYREF handling
+    
+    * Fix array marshalling
+    
+    * Fix record marshalling
+    
+    * Fix VT_VARIANT case
+    
+    * Cleanup and fix IUnknown case
+    
+    * Add more test for VT_UNKNOWN
+    
+    * Cleanup for VT_VARIANT
+    
+    * Cleanup SR and comment
+    
+    * Fix contract in GetTypeHandleForVarType
+    
+    * Move VariantChangeTypeEx to coreclr
+    
+    * Add unmanaged fast path for (U)Int64
+    
+    * Make ComVariant immutable
+    
+    * Add GCPROTECT in ConvertSystemColorToOleColor
+    
+    * Fix variant init
+    
+    * Fix BYREF|EMPTY
+    
+    * Initialize ComVariant
+    
+    * Move GCPROTECT to the QCall
+    
+    * Pass UnknownWrapper through SetFieldsObject
+    
+    * Apply suggestions from code review
+    
+    Co-authored-by: Aaron Robinson <arobins@microsoft.com>
+    
+    * Suggestions at native side
+    
+    * Rename ComIP
+    
+    * Add comments for ConvertWrappedObject
+    
+    * Try convert to RECORD for all cases
+    
+    * Dispose Variant on failure
+    
+    * Update formatting
+    
+    * Fix NO_MAPPING definition
+    
+    ---------
+    
+    Co-authored-by: Aaron Robinson <arobins@microsoft.com>
