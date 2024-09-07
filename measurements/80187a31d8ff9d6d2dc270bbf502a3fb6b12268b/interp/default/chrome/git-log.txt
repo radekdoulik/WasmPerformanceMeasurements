@@ -1,0 +1,8 @@
+commit 80187a31d8ff9d6d2dc270bbf502a3fb6b12268b
+Author: Aaron Robinson <arobins@microsoft.com>
+Date:   Thu Aug 29 09:38:33 2024 -0700
+
+    Convert stream override checks to `QCall` (#107117)
+    
+    * Convert stream override checks to QCalls and reduce
+    the check frequency.
