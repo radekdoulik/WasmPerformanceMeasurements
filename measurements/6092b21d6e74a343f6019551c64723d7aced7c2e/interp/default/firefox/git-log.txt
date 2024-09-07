@@ -1,0 +1,9 @@
+commit 6092b21d6e74a343f6019551c64723d7aced7c2e
+Author: Elinor Fung <elfung@microsoft.com>
+Date:   Fri Sep 6 10:13:12 2024 -0700
+
+    Move pinned heap handle table from `BaseDomain` to `AppDomain` and make callers go through the `AppDomain` (#107420)
+    
+    - Move the pinned heap handle table to `AppDomain`
+      - This does make the current use in the `GlobalLoaderAllocator` (went through `SystemDomain`) and in EnC adding a static field (went through `AppDomain`) use the same table. They have the same lifetime.
+    - Move `GetLoaderAllocator` (it already always returns the global one), `IsStringInterned`, `GetOrInternString`  functions from `BaseDomain` to `AppDomain`
