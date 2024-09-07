@@ -1,0 +1,9 @@
+commit aacb455f37a5e0ae0210835a3d707e57c5f6a688
+Author: Tanner Gooding <tagoo@outlook.com>
+Date:   Thu Aug 29 10:37:22 2024 -0700
+
+    Ensure that Vector128.CreateSequence works on x86 for non-constant 64-bit inputs (#107053)
+    
+    * Ensure that Vector128.CreateSequence works on x86 for non-constant 64-bit inputs
+    
+    * Update Runtime_106372.cs
