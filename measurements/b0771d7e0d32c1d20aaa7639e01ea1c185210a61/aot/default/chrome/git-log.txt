@@ -1,0 +1,27 @@
+commit b0771d7e0d32c1d20aaa7639e01ea1c185210a61
+Author: Jan Vorlicek <janvorli@microsoft.com>
+Date:   Wed Sep 4 22:01:20 2024 +0200
+
+    Fix getting SSP for threadabort in funceval (#107320)
+    
+    * Fix getting SSP for threadabort in funceval
+    
+    Diagnostics test that test threadabort during funceval crashes on
+    machines with CET enabled. The reason is that when a thread is
+    redirected to the RedirectForThrowControl, the original instruction
+    address from which we've redirected is not on the shadow stack.
+    That causes the exception handling propagating the related
+    thread abort to fail finding that instruction address on the shadow
+    stack. It walks out of its range and then crashes with access
+    violation.
+    
+    This change fixes it by storing the SSP in the FaultingExceptionFrame
+    and copying it to the REGDISPLAY when UpdateRegDisplay is called on
+    that frame. That way the correct SSP is already known in the SfiInit and
+    we don't need to look it up.
+    
+    * Clear rax before rdsspq for proper behavior on non-cet devices
+    
+    ---------
+    
+    Co-authored-by: Jan Vorlicek <jan.vorlicek@volny,cz>
