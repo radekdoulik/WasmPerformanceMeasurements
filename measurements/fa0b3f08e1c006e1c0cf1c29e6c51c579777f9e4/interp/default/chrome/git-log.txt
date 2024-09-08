@@ -1,0 +1,9 @@
+commit fa0b3f08e1c006e1c0cf1c29e6c51c579777f9e4
+Author: Ilona Tomkowicz <32700855+ilonatommy@users.noreply.github.com>
+Date:   Tue Sep 3 08:02:21 2024 +0200
+
+    [wasi][Windows] SingleFilebundle project with long path results in linking error (#107253)
+    
+    * Test case for long path issue on Windows.
+    
+    * Fix - using relative paths to objects located in the project shortens the linking command.
