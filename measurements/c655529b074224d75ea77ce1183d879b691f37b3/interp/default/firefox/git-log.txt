@@ -1,0 +1,18 @@
+commit c655529b074224d75ea77ce1183d879b691f37b3
+Author: Haris Okanovic <harisokn@gmail.com>
+Date:   Wed Aug 28 16:38:33 2024 -0500
+
+    pal init: Move InitializeFlushProcessWriteBuffers() after VIRTUALInitialize() (#107100)
+    
+    A fixup of commit 27ee590d that's broken on platforms which don't
+    support membarrier() syscall: GetVirtualPageSize() is called in the
+    fallback path of InitializeFlushProcessWriteBuffers() and attempts to
+    mmap() zero bytes.
+    
+    Move InitializeFlushProcessWriteBuffers() after VIRTUALInitialize() but
+    before the first thread is created.
+    
+    Fixes https://github.com/dotnet/runtime/issues/106892
+    Fixes https://github.com/dotnet/runtime/issues/106722
+    
+    Co-authored-by: Haris Okanovic <harisokn@amazon.com>
