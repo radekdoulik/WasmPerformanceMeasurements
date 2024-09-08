@@ -1,0 +1,9 @@
+commit 25209ff09176e8b43f9f3f7c5d7986e3d9d30de0
+Author: Elinor Fung <elfung@microsoft.com>
+Date:   Wed Aug 28 10:23:05 2024 -0700
+
+    Make host error message include pointer to architecture for Windows library load failure with ERROR_BAD_EXE_FORMAT (#107063)
+    
+    Check for `ERROR_BAD_EXE_FORMAT` and include a pointer towards architecture mismatch in the error message. This is only on Windows - we don't have a good way of detecting this on non-Windows - dlopen will fail and the host will just print the message from dlerror.
+    
+    This also removes the comment/link to install .NET prerequisites. I don't think there's anything there that would be helpful for the case of we found the library, but the operating system call to load it failed.
