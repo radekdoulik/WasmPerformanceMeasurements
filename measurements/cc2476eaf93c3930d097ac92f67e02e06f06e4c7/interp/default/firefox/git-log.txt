@@ -1,0 +1,15 @@
+commit cc2476eaf93c3930d097ac92f67e02e06f06e4c7
+Author: Kevin Jones <kevin@vcsjones.com>
+Date:   Fri Aug 30 10:13:34 2024 -0400
+
+    Fix Shake on Windows performing a double reset
+    
+    Shake's GetHashAndReset would perform a double-reset on Windows,  this fixes it so that exactly one reset happens.
+    
+    This occurred because the high-level type like Shake128 implemented GetHashAndReset as a call to Finalize, followed by a call to Reset.
+    
+    On Linux, this is reasonable. The finalize gets the output, and reset puts it back in to a working state.
+    
+    On Windows, Finalize (BCryptFinishHash) always does a reset. So we do the finalize with the implicit reset, then do an explicit reset.
+    
+    This change fixes that by making finalize+reset an operation that is PAL specific. On Linux, it continues to call Finalize and Reset. On Windows, it calls Finalize, and skips the reset call.
