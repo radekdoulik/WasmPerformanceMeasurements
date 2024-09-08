@@ -1,0 +1,7 @@
+commit ec2f534fb05a4a9b75a87339aa7107df1771db44
+Author: Elinor Fung <elfung@microsoft.com>
+Date:   Wed Sep 4 16:34:49 2024 -0700
+
+    Make `DomainAssembly` create its `Assembly` in its constructor and remove separate allocate load level (#107224)
+    
+    There is no logical distinction between creating a `DomainAssembly` and an `Assembly` now. Making `DomainAssembly` create the `Assembly` as soon as it is constructed should make it so that we can switch assorted things that currently store/use `DomainAssembly` to `Assembly`, since they will be created at the same time.
