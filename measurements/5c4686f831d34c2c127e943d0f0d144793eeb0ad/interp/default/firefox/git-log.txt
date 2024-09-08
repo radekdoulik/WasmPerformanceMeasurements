@@ -1,0 +1,9 @@
+commit 5c4686f831d34c2c127e943d0f0d144793eeb0ad
+Author: Katelyn Gadd <kg@luminance.org>
+Date:   Fri Sep 6 23:47:24 2024 -0700
+
+    [wasm] Implement MINT_SWITCH opcode in jiterpreter (#107423)
+    
+    * Implement MINT_SWITCH opcode (without support for backward jumps)
+    * Introduce runtime option for max switch size (set to 0 to disable switches)
+    * Disable trace generation once the trace table fills up, since there's no point to it
