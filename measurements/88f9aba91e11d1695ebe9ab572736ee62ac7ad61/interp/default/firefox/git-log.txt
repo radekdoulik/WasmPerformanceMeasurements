@@ -1,0 +1,7 @@
+commit 88f9aba91e11d1695ebe9ab572736ee62ac7ad61
+Author: yurai007 <dawid_jurek@vp.pl>
+Date:   Thu Sep 5 06:18:30 2024 +0200
+
+    [RISC-V] Increase timeouts in CacheTests (#107278)
+    
+    This patch fixes System.Text.Json.Serialization.Tests.CacheTests on Debug build.
