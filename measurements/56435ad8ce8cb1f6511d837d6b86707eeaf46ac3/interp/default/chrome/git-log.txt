@@ -1,0 +1,5 @@
+commit 56435ad8ce8cb1f6511d837d6b86707eeaf46ac3
+Author: Kevin Jones <kevin@vcsjones.com>
+Date:   Mon Aug 26 14:22:32 2024 -0400
+
+    Use OpenSSL 3's HKDF if it is available
