@@ -1,0 +1,9 @@
+commit 516e81e8a644b96b1e6c0eb930b02d26088fdb4a
+Author: Dong-Heon Jung <clamp03@gmail.com>
+Date:   Wed Sep 4 04:46:18 2024 +0900
+
+    [RISC-V] Disable `PublishAot` for RISC-V (#107274)
+    
+    Fix NETSDK1203: Ahead-of-time compilation is not supported
+    for the target runtime identifier 'linux-riscv64'.
+    [/runtime/src/tests/Common/XUnitLogChecker/XUnitLogChecker.csproj]
