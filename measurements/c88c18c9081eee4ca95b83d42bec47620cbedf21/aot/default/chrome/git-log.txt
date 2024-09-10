@@ -1,0 +1,38 @@
+commit c88c18c9081eee4ca95b83d42bec47620cbedf21
+Author: Eric StJohn <ericstj@microsoft.com>
+Date:   Mon Aug 26 08:14:22 2024 -0700
+
+    Don't copy XUnit runner to output for local builds (#106721)
+    
+    * Don't copy runner to test output during regular builds (#96826)
+    
+    * Don't copy runner to test output during regular builds
+    
+    The test runner is not required for local test execution, but is needed
+    for helix (today).  In the future we should try to change helix to not
+    expect the runner in the output directory, but instead as a correlation
+    payload.
+    
+    * Refine xunit 1651 workaround until we can pick up the fix
+    
+    * Update eng/testing/xunit/xunit.console.targets
+    
+    Co-authored-by: Carlos Sánchez López <1175054+carlossanlop@users.noreply.github.com>
+    
+    * Update xunit.console.targets
+    
+    ---------
+    
+    Co-authored-by: Carlos Sánchez López <1175054+carlossanlop@users.noreply.github.com>
+    Co-authored-by: Viktor Hofer <viktor.hofer@microsoft.com>
+    
+    * Copy xunit to output when BundleXunitRunner is set
+    
+    * Set the path to xunit.console when not bundling
+    
+    * Fix typo
+    
+    ---------
+    
+    Co-authored-by: Carlos Sánchez López <1175054+carlossanlop@users.noreply.github.com>
+    Co-authored-by: Viktor Hofer <viktor.hofer@microsoft.com>
