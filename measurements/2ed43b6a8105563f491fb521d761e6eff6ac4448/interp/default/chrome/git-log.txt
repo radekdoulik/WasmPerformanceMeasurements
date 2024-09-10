@@ -1,0 +1,9 @@
+commit 2ed43b6a8105563f491fb521d761e6eff6ac4448
+Author: Alan Hayward <a74nh@users.noreply.github.com>
+Date:   Mon Sep 9 23:53:45 2024 +0100
+
+    ARM64-SVE: Allow op inside conditionalselect to be non HWintrinsic (#107180)
+    
+    * ARM64-SVE: Allow op inside conditionselect to be non HWintrinsic
+    
+    * Add Sve.IsSupported check to test
