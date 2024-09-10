@@ -1,0 +1,9 @@
+commit b7b91cbef5d43545ecdb33002ac1a26758d6655b
+Author: Aaron Robinson <arobins@microsoft.com>
+Date:   Mon Sep 9 09:08:31 2024 -0700
+
+    Convert some handle APIs to QCalls (#107513)
+    
+    Convert RuntimeTypeHandle.GetAssembly()
+    Convert RuntimeTypeHandle.GetModule()
+    Convert RuntimeAssembly.GetManifestModule()
