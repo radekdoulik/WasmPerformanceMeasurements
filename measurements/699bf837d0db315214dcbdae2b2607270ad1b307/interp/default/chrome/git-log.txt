@@ -1,0 +1,21 @@
+commit 699bf837d0db315214dcbdae2b2607270ad1b307
+Author: Charles Stoner <10732005+cston@users.noreply.github.com>
+Date:   Tue Sep 10 11:51:33 2024 -0700
+
+    Add missing `[RequiresDynamicCode]` attributes to System.Linq.Expressions API in ref assembly (#107580)
+    
+    #94069 added new attributes to System.Linq.Expressions public APIs for [RequiresDynamicCode(Expression.DelegateCreationRequiresDynamicCode)]. But these attributes never made it into the ref assemblies. This adds the attributes to the ref assemblies.
+    
+    * dotnet build /t:GenerateReferenceAssemblySource
+    
+    * build ... /p:ApiCompatGenerateSuppressionFile=true
+    
+    * Update link
+    
+    * Resolve AOT warning in DependencyInjection ExpressionResolverBuilder
+    
+    Calling Expression.Lambda without a delegate type isn't AOT compatible. Fix this by passing the delegate type.
+    
+    ---------
+    
+    Co-authored-by: Eric Erhardt <eric.erhardt@microsoft.com>
