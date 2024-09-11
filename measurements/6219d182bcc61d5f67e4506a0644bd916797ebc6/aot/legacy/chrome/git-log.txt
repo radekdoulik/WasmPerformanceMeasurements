@@ -1,0 +1,21 @@
+commit 6219d182bcc61d5f67e4506a0644bd916797ebc6
+Author: Jan Vorlicek <janvorli@microsoft.com>
+Date:   Wed Sep 11 10:37:50 2024 +0200
+
+    Fix SSP issue with HW exceptions from JIT helpers (#107665)
+    
+    The recent change that was fixing bad SSP updating during exception
+    handling with funceval has also modified the way SSP is extracted for
+    hardware exceptions. That works fine for many cases, but there is a
+    problem when the exception occurs in a JIT helper. The
+    `AjustContextForJITHelpers` uses only the basic `CONTEXT` structure for
+    unwinding to the managed caller and so the SSP is not properly updated.
+    That makes it off by one slot when we set it when continuing execution
+    after catch.
+    This change removes storing SSP for hardware exceptions in the
+    FaultingExceptionFrame to mitigate the issue. It effectively returns to
+    the way software exceptions use - scanning shadow stack for the
+    instruction pointer of the frame to which it is going to resume after
+    catch.
+    
+    Co-authored-by: Jan Vorlicek <jan.vorlicek@volny,cz>
