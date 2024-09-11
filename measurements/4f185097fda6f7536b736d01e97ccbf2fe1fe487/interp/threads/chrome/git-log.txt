@@ -1,0 +1,5 @@
+commit 4f185097fda6f7536b736d01e97ccbf2fe1fe487
+Author: Eirik Tsarpalis <eirik.tsarpalis@gmail.com>
+Date:   Wed Sep 11 13:58:33 2024 +0100
+
+    Fix HashSet copy constructor handling of instances that have fallen back to the randomized hashcode generator. (#107613)
