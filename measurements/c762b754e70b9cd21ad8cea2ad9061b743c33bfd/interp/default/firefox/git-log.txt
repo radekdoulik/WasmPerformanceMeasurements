@@ -1,0 +1,17 @@
+commit c762b754e70b9cd21ad8cea2ad9061b743c33bfd
+Author: Martin Costello <martin@martincostello.com>
+Date:   Tue Sep 10 03:15:53 2024 +0100
+
+    Add [DebuggerDisplay] to CancellationTokenSource (#105764)
+    
+    * Add [DebuggerDisplay] to CancellationTokenSource
+    
+    Add `[DebuggerDisplay]` to `CancellationTokenSource` to show whether cancelled or disposed.
+    
+    Relates to #105698.
+    
+    * Update src/libraries/System.Private.CoreLib/src/System/Threading/CancellationTokenSource.cs
+    
+    ---------
+    
+    Co-authored-by: Stephen Toub <stoub@microsoft.com>
