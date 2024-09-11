@@ -1,0 +1,13 @@
+commit 600f6bd4faad7b4b1146eb3e159558d3a1ad1046
+Author: David Wrighton <davidwr@microsoft.com>
+Date:   Mon Sep 9 09:04:51 2024 -0700
+
+    Fix thread static cleanup paths (#107438)
+    
+    * Fix thread static cleanup paths
+    - Do not destroy GC handles while holding the spin lock
+    - Free the pLoaderHandle array when the thread is terminated
+    
+    * When using a ThreadStatics stress test on collectible assemblies, a few more issues were found
+    - Fix issue where the LoaderAllocator's SegmentedHandleIndex wasn't being freed
+    - Fix issue where the logic to re-use TLSIndex values wasn't working properly
