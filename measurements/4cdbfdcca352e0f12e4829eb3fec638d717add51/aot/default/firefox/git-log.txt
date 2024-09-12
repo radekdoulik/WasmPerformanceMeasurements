@@ -1,0 +1,16 @@
+commit 4cdbfdcca352e0f12e4829eb3fec638d717add51
+Author: Adam Sitnik <adam.sitnik@gmail.com>
+Date:   Thu Sep 12 11:09:15 2024 +0200
+
+    [NRBF] More bug fixes (#107682)
+    
+    - Don't use `Debug.Fail` not followed by an exception (it may cause problems for apps deployed in Debug)
+    - avoid Int32 overflow
+    - throw for unexpected enum values just in case parsing has not rejected them
+    - validate the number of chars read by BinaryReader.ReadChars
+    - pass serialization record id to ex message
+    - return false rather than throw EndOfStreamException when provided Stream has not enough data
+    - don't restore the position in finally
+    - limit max SZ and MD array length to Array.MaxLength, stop using LinkedList<T> as List<T> will be able to hold all elements now
+    - remove internal enum values that were always illegal, but needed to be handled everywhere
+    - Fix DebuggerDisplay
