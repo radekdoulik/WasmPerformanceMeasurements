@@ -1,0 +1,8 @@
+commit 4930e1b44027484e13a29c7f3230e1f0bb397e7c
+Author: Sanjam Panda <36253777+saitama951@users.noreply.github.com>
+Date:   Thu Sep 12 05:14:39 2024 +0530
+
+    fix slag instruction (#107559)
+    
+    Fixes #107387
+    The slag instructions throws an undefined behavior when moving from Float to Int in OP_MOVE_I4_TO_F
