@@ -1,0 +1,19 @@
+commit d7948dc7b9b061c7e3ee9ef6e3c9dd6854d195c0
+Author: Manodasan Wignarajah <mawign@microsoft.com>
+Date:   Thu Sep 12 10:57:18 2024 -0700
+
+    Fixes hang in WinUI apps published to AOT (#104583)
+    
+    * Fix exception during GC callback in WinUI scenarios due to removing from and adding to the nativeObjectReference list around the same time and causing removal to fail.
+    
+    * Move common logic
+    
+    * Change collection type to HashSet to match with JIT implementation and to improve performance of remove given it now takes a lock
+    
+    * Move to using a custom collection to protect against GC freezing threads during add / remove.
+    
+    * Address PR feedback by using alternative approach to handle race
+    
+    * Address PR feedback
+    
+    * Address PR feedback around handle being freed.
