@@ -1,0 +1,11 @@
+commit 8e8e7f7851dcac7f58d248cbdc22e9dcb7e15a69
+Author: SwapnilGaikwad <swapnil.gaikwad@arm.com>
+Date:   Wed Sep 11 23:23:15 2024 +0100
+
+    Fix SVE ExtendWidening ConditionalSelect tests (#107601)
+    
+    * Fix SVE ExtendWidening ConditionalSelect tests
+    
+    Fixes: #107537
+    
+    * Incorporate review comments
