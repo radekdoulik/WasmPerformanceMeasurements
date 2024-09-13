@@ -1,0 +1,9 @@
+commit c8ae8411238ec2fcda1446b58b59dc6206fd5445
+Author: Kunal Pathak <Kunal.Pathak@microsoft.com>
+Date:   Thu Sep 12 21:07:18 2024 -0700
+
+    Arm64/Sve: Remove entries of SVE APIs take 32-bit address  (#107758)
+    
+    * Remove entry of APIs because of #103297
+    
+    * comment out the test cases for unsupported APIs
