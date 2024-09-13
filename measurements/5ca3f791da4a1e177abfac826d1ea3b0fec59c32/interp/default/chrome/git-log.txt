@@ -1,0 +1,5 @@
+commit 5ca3f791da4a1e177abfac826d1ea3b0fec59c32
+Author: Elinor Fung <elfung@microsoft.com>
+Date:   Thu Sep 12 17:49:39 2024 -0700
+
+    Remove DebuggerModule::Get/SetPrimaryModule - always itself (#107767)
