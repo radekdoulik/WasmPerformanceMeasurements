@@ -1,0 +1,19 @@
+commit d58b1cade30a6aaf94d187fa0d5f939c3e561e29
+Author: David Wrighton <davidwr@microsoft.com>
+Date:   Fri Sep 13 16:03:41 2024 -0700
+
+    Fix perf problems found in investigation of issue #107728 (#107806)
+    
+    - `CheckRunClassInitThrowing` didn't check to see if the class had been initialized before taking a lock
+    - `EnsureTlsIndexAllocated` didn't check if the Tls index had been allocated before setting the flag via an expensive Interlocked call to indicate that it had been allocated
+    - And finally `JIT_GetNonGCThreadStaticBaseOptimized` and `JIT_GetGCThreadStaticBaseOptimized` were missing the fast paths which avoided even calling those apis at all.
+    
+    Perf with a small benchmark which does complex multithreaded work...
+    
+    | Runtime | Time |
+    | ---- | ---- |
+    | .NET 8 | 00.9414682 s |
+    | .NET 9 before this fix |  22.8079382 |
+    | .NET 9 with this fix | 00.2004539 |
+    
+    Fixes #107728
