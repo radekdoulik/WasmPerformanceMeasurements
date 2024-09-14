@@ -1,0 +1,33 @@
+commit f1bcbeb5fa2fe84698b62d88dd35199f0d7fbedb
+Author: Kunal Pathak <Kunal.Pathak@microsoft.com>
+Date:   Fri Sep 13 18:38:17 2024 -0700
+
+    Arm: Free up upper-half register that was not ready because of its association with busy lower-half register (#107714)
+    
+    * make sure the upperHalf is moved to ready pool when lowerHalf holding DOUBLE interval is done
+    
+    * remove the logging
+    
+    * added test cases
+    
+    * fix a typo
+    
+    * Add missing Xunit reference
+    
+    * Revert "remove the logging"
+    
+    This reverts commit d8f2f173df2c01fde0abea207bf329c48253e228.
+    
+    * better fix to free up upperHalf if lowerHalf is getting freed up
+    
+    * jit format
+    
+    * Revert "remove the logging"
+    
+    This reverts commit d8f2f173df2c01fde0abea207bf329c48253e228.
+    
+    * Handle upperHalf fix similar to lowerHalf code
+    
+    * formatting
+    
+    * jit format
