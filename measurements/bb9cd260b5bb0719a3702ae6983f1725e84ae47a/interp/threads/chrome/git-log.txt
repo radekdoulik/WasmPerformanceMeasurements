@@ -1,0 +1,7 @@
+commit bb9cd260b5bb0719a3702ae6983f1725e84ae47a
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Mon Sep 16 15:11:38 2024 +0900
+
+    Allow preinitializing spans created from arrays (#107575)
+    
+    Fixes #107541.
