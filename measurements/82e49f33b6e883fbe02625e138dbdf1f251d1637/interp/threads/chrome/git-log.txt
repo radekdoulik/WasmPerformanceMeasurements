@@ -1,0 +1,10 @@
+commit 82e49f33b6e883fbe02625e138dbdf1f251d1637
+Author: Elinor Fung <elfung@microsoft.com>
+Date:   Tue Aug 27 15:59:45 2024 -0700
+
+    Fix getting instantiation type handles for generic subclasses (#107014)
+    
+    We were always using the first instantiation dictionary when getting the type handles for the instantiation of a type. For types with inherited ones, we'd end up with the base class dictionary instead of the specific type.
+    
+    - Add GenericsDictInfo::NumDicts to the data descriptor
+    - Update the `RuntimeTypeSystem` contract implementation to use the last dictionary (the one for the specific type)
