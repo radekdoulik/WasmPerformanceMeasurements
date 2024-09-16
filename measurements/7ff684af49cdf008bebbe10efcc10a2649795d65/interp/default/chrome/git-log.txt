@@ -1,0 +1,15 @@
+commit 7ff684af49cdf008bebbe10efcc10a2649795d65
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Wed Aug 28 11:16:30 2024 +0200
+
+    Ensure the layout of `StackAllocatedBox<T>` matches boxed layouts (#107050)
+    
+    The boxed layout of a struct always has its data at +8, as evidenced by
+    `Object::UnBox`. This means that `StackAllocatedBox<T>` should have
+    `Pack = 1`, otherwise this may not be the case. In the test failure we
+    had a `StackAllocatedBox<Int128>` which had its `_value` field at offset
+    16. After object stack allocation this meant that we were saving data in
+    padding of the structure, which promotion does not guarantee to
+    preserve.
+    
+    Fix #106947
