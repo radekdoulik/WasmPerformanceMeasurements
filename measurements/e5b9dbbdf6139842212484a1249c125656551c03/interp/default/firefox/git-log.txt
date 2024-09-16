@@ -1,0 +1,5 @@
+commit e5b9dbbdf6139842212484a1249c125656551c03
+Author: Ivan Povazan <55002338+ivanpovazan@users.noreply.github.com>
+Date:   Thu Sep 5 12:38:15 2024 +0200
+
+    [mono][ci] Include PDBs from runtime pack when building on Helix if required (#107348)
