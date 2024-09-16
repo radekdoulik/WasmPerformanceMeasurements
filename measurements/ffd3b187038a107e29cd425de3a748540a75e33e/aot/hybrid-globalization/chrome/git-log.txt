@@ -1,0 +1,7 @@
+commit ffd3b187038a107e29cd425de3a748540a75e33e
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Sat Aug 31 21:51:53 2024 -0400
+
+    Remove O(N) List<T>.RemoveAt from RegexCache.Add (#106581)
+    
+    The cache maintains a list of all regexes in the cache, which it uses to be able to randomly access members as part of evicting when the cache is full and an item needs to be replaced. When evicting, it randomly samples a subset of the items, and then removes whichever is found to have the oldest timestamp. That RemoveAt call is O(N), as elements need to be shifted down. But the order of the list doesn't actually matter, so we can make that instead be O(1) by just moving the last element into the removal slot (overwriting the one to be removed) and then shrinking the size of the list.
