@@ -1,0 +1,11 @@
+commit a817006bfad0cd53d539d6973188f2d4181dade2
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Tue Sep 10 16:20:10 2024 +0900
+
+    Consider existence of EETypes and metadata for typeof checks (#107347)
+    
+    The problem was that when we optimize `typeof(Foo) == somevalue` checks, we were looking at the presence of a constructed `MethodTable` of `Foo` in the whole program view. If it didn't exist, we'd declare the equality comparison can't succeed. There is however an edge case where someone could obtain a `System.Type` representing a type by browsing the reflection metadata. Such `System.Type` might not have a workable constructed `MethodTable`, but should still compare equal to the `typeof`.
+    
+    An example of when this could happen is when the type is used in a custom attribute metadata blob - such type may even have no `MethodTable` at all.
+    
+    The fix is to look not just at `MethodTable` but also at the metadata for the type.
