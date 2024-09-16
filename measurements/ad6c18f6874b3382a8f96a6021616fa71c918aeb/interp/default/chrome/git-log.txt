@@ -1,0 +1,7 @@
+commit ad6c18f6874b3382a8f96a6021616fa71c918aeb
+Author: Meri Khamoyan <96171496+mkhamoyan@users.noreply.github.com>
+Date:   Tue Sep 10 14:54:19 2024 +0200
+
+    [iOS] [HybridGlobalization] Throw PNSE when methods with matchLength are used (#107390)
+    
+    * Throw PlatformNotSupportedException for matchLength
