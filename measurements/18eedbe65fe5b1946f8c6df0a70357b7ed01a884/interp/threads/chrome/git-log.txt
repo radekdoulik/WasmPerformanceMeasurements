@@ -1,0 +1,13 @@
+commit 18eedbe65fe5b1946f8c6df0a70357b7ed01a884
+Author: Aaron Robinson <arobins@microsoft.com>
+Date:   Mon Sep 9 14:02:51 2024 -0700
+
+    Convert Thread FCalls to QCalls (#107495)
+    
+    * Convert Thread.IsAlive property
+    
+    * Convert Thread.GetCurrentThread()
+    
+    * Convert Thread.ThreadState property
+    
+    * Convert Thread.Initialize()
