@@ -1,0 +1,13 @@
+commit 7ae87deb1250c978a207835e44cae6ca5f78680f
+Author: Larry Ewing <lewing@microsoft.com>
+Date:   Mon Sep 9 22:11:12 2024 -0500
+
+    [wasm] more cases when looking up unmanaged delegates (#107113)
+    
+    Make the association between the wasm_native_to_interp_ftndescs generation and the lookup from unmanaged more robust so that we don't see problems like #107212 where the same slot was being reused for multiple methods with different signatures. To do this we change the Key(s) we use and fix the string escaping it relies on, and attempt to lookup by token first.
+    
+    Next , we rewrite the C code generation to make it easier to read and modify and mitigate some potentially negative memory side effects of that we introduce a gratuitous custom text writer that understands the idea of concatenated strings and use that where possible when building the output.
+    
+    Next, we change the import code generation to use binary rather than linear search for both the module and symbol. And finally, we update the ICall table generation to use the extensions.
+    
+    part of #104391 and #107212
