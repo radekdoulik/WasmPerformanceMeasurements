@@ -1,0 +1,21 @@
+commit 657f18dbd8ac9ffae3abb79104d038155387df31
+Author: Tomasz Sowiński <tomeksowi@gmail.com>
+Date:   Mon Sep 16 22:47:56 2024 +0200
+
+    [RISC-V] Update ABI doc (#107286)
+    
+    * Update ABI doc
+    
+    * Managed/native varargs are supported on Windows only
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
+    
+    * Add github issue links
+    
+    * Update varargs link ref
+    
+    * Managed varargs are supported on Windows only
+    
+    ---------
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
