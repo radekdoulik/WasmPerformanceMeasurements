@@ -1,0 +1,11 @@
+commit 4d501d90ec35ae9872e711760cead299e2da22bf
+Author: Adam Sitnik <adam.sitnik@gmail.com>
+Date:   Mon Sep 2 14:29:12 2024 +0200
+
+    BinaryFormatter tests should be skipped only on AOT, WASM and Mobile (#106858)
+    
+    * respect AppContext switch (which is currently enabled for all projects in the root Directory.Build.props file)
+    
+    * add project reference to all test projects that need working BF (and were being skipped for a while)
+    
+    * adjust to changes from #104202: EqualityComparer<string>.Default is mapped to StringEqualityComparer, but serialized as GenericEqualityComparer<string>
