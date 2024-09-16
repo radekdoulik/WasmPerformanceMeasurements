@@ -1,0 +1,10 @@
+commit bb1b43a6a155eaeb45953a3c87f6e04b12979778
+Author: Andy Ayers <andya@microsoft.com>
+Date:   Sat Aug 17 08:49:56 2024 -0700
+
+    JIT: fix unused operand marking in LowerHWIntrinsicTernaryLogic (#106555)
+    
+    In `LowerHWIntrinsicTernaryLogic` we do some operand swapping and replacing,
+    and were not accounting for this when marking operands as unused.
+    
+    Fixes #106480.
