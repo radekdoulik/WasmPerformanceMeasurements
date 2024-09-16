@@ -1,0 +1,10 @@
+commit 57a4b04303ebb5a9418814d5d2778b08150a507b
+Author: Katelyn Gadd <kg@luminance.org>
+Date:   Wed Sep 4 00:34:01 2024 -0700
+
+    [wasm] Make jiterpreter module size limit configurable + clean up technical debt (#107318)
+    
+    Fix spurious "block stack not empty" errors when an error occurs during jiterp codegen
+    Add missing overflow checks to blob builder appends
+    Make maximum trace size a runtime option
+    Move blob builder capacity to a named constant near the top of the file
