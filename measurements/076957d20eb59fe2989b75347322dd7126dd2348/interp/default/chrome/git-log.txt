@@ -1,0 +1,33 @@
+commit 076957d20eb59fe2989b75347322dd7126dd2348
+Author: Alhad Deshpande <97085048+alhad-deshpande@users.noreply.github.com>
+Date:   Fri Sep 13 03:15:41 2024 +0530
+
+    [ppc64le] Fixed BinaryFormatter and Tensors tests (#107678)
+    
+    * [ppc64le] Fixed thunk address 8 byte alignment issue
+    
+    * Fixed FSharp crash issue
+    
+    * [ppc64le] Implementation of mono_arch_get_delegate_virtual_invoke_impl method for ppc64le architecture
+    
+    * Fixed clang15 build issues and returning address of sc_sp instead of value
+    
+    * Added float32 support and implemented related opcodes
+    
+    * Correction in OP_RCONV_TO_R cases
+    
+    * Corrected code for few opcodes
+    
+    * [ppc64le] performance improvements while branching
+    
+    * [ppc64le] Fixed insufficient memory exception issue
+    
+    * [ppc64le] Fixed BinaryFormatter and Tensors tests
+    
+    * Disable System.Runtime.Serialization.Formatters.Tests
+    
+    * Fix tests.proj
+    
+    ---------
+    
+    Co-authored-by: Alexander Köplinger <alex.koeplinger@outlook.com>
