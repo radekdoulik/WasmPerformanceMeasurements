@@ -1,0 +1,9 @@
+commit 566a3bd57607bd92d163ebac5125d2f5ed0cab6a
+Author: Mark Plesko <markples@microsoft.com>
+Date:   Fri Aug 16 11:39:25 2024 -0700
+
+    [GC] Allow distribute_free_regions to decommit and redistribute (#106414)
+    
+    In #105521, the number of regions to be decommitted can be reduced, but the budgets weren't updated to include the new regions.  This was fine for huge regions, which just sit in the global free list anyway, and it (sort of) works in release builds (though some regions may end up decommitted anyway if they are still in the surplus list at the end of distribution), but it isn't the intended behavior and can trigger a debug assertion that the surplus list is empty.
+    
+    This change (a subset of #106168), restructures distribute_free_regions so that instead of "decommit or adjust budgets", we first decommit and adjust the remaining balance.  Then we adjust budgets based on the new value.
