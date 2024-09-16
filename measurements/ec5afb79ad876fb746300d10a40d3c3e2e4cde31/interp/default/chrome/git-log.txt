@@ -1,0 +1,20 @@
+commit ec5afb79ad876fb746300d10a40d3c3e2e4cde31
+Author: Vladimir Sadov <vsadov@microsoft.com>
+Date:   Tue Jul 30 00:15:02 2024 -0700
+
+    Set GCStressIncompatible on GenericContext test (#105645)
+    
+    * Set GCStressIncompatible on GenericContext tests
+    
+    As suggested in https://github.com/dotnet/runtime/issues/104633, this may help in reducing test timeouts.
+    
+    * Update src/tests/Loader/classloader/StaticVirtualMethods/GenericContext/GenericContextCommonCs.csproj
+    
+    Co-authored-by: Vladimir Sadov <vsadov@microsoft.com>
+    
+    * Put suppression on tests exe projects, not on the common library.
+    
+    ---------
+    
+    Co-authored-by: Steve Pfister <stpfiste@microsoft.com>
+    Co-authored-by: Steve Pfister <steveisok@users.noreply.github.com>
