@@ -1,0 +1,21 @@
+commit 51ec0547246b48ddd4307c9581693e7d06eff716
+Author: elyoh <elyoh@users.noreply.github.com>
+Date:   Fri Aug 30 17:00:51 2024 +0100
+
+    Correct lengths of Chinese lunisolar calendar months 8 and 9 in 2057. (#107038)
+    
+    * Correct lengths on lunar months 8 and 9 in 2057.
+    
+    Fixes #107032
+    
+    * Add test.
+    
+    * Correct comment.
+    
+    * Addresses PR feedback.
+    
+    Local testing undertaken.
+    
+    ---------
+    
+    Co-authored-by: Tarek Mahmoud Sayed <10833894+tarekgh@users.noreply.github.com>
