@@ -1,0 +1,9 @@
+commit aa418fca02995ecfdfe64f89f040fb65ef38557a
+Author: Preeyan Parmar <4997904+preeyan@users.noreply.github.com>
+Date:   Sun Sep 8 22:44:27 2024 +0100
+
+    Remove unused declarations from clsload.hpp (#107509)
+    
+    * Remove unused declarations from clsload.hpp
+    
+    * also remove unused ClassLoader::TryEnsureLoaded
