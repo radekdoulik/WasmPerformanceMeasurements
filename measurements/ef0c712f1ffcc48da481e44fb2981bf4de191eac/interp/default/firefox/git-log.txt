@@ -1,0 +1,16 @@
+commit ef0c712f1ffcc48da481e44fb2981bf4de191eac
+Author: Jan Vorlicek <janvorli@microsoft.com>
+Date:   Tue Aug 27 13:54:54 2024 +0200
+
+    Fix storage of stack trace of exception from reflection (#106901)
+    
+    There was one more case where we have saved the stack trace into the _remoteStackTraceString
+    field in the exception when the exception was passing from reflection invoked code
+    to the caller of that code. While there is no visible difference in the Exception.ToString,
+    a SOS test was failing due to that. And it is not necessary to save the stack trace
+    there.
+    
+    I have thought about the cases when we really need the stack trace saved into the
+    _remoteStackTraceString and I believe that actually the only case is when an existing
+    exception is thrown again in managed code. So I have removed the option to save the stack
+    trace from all the variants of the DispatchManagedException.
