@@ -1,0 +1,22 @@
+commit 92d0ed4fc20aa6ff02de6cfac8fa5195abcf5bba
+Author: koenigst <koenigst@users.noreply.github.com>
+Date:   Thu Aug 29 18:13:08 2024 +0200
+
+    Added additional tests for generic attributes. (#106745)
+    
+    * Added additional tests for generic attributes.
+    - Added a test for GetCustomAttribute to verify that the values of the generic type are correctly initialized.
+    - Added some theory data to check the equality of generic attributes.
+    
+    Fixes #73735
+    
+    * Removed active issue attribute for solved issue 56887.
+    
+    * Added active issue attribute for solved issue #56887 because the test is still failing on Mono.
+    
+    * Update src/libraries/System.Runtime/tests/System.Runtime.Tests/System/Attributes.cs
+    
+    ---------
+    
+    Co-authored-by: Stefan König <stefan.koenig@zuehlke.com>
+    Co-authored-by: Buyaa Namnan <buyankhishig.namnan@microsoft.com>
