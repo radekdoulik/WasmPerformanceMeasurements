@@ -1,0 +1,5 @@
+commit aaec1c494bec68bb0022a8d78005982a32377327
+Author: Eirik Tsarpalis <eirik.tsarpalis@gmail.com>
+Date:   Thu Aug 29 11:15:36 2024 +0300
+
+    Ensure required properties are validated before invoking the deserialization constructor. (#107083)
