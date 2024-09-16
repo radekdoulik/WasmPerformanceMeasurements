@@ -1,0 +1,11 @@
+commit 0154a2f3403d94ea6d6f93f5a774b6e366969e0a
+Author: Adam Sitnik <adam.sitnik@gmail.com>
+Date:   Mon Sep 16 12:35:32 2024 +0200
+
+    [NRBF] Address issues discovered by Threat Model  (#106629)
+    
+    * introduce ArrayRecord.FlattenedLength
+    
+    * do not include invalid Type or Assembly names in the exception messages, as it's most likely corrupted/tampered/malicious data and could be used as a vector of attack.
+    
+    * It is possible to have binary array records have an element type of array without being marked as jagged
