@@ -1,0 +1,17 @@
+commit e4f93dbee0bc3f17f5ac2fad34e75f38865e866d
+Author: Bruce Forstall <brucefo@microsoft.com>
+Date:   Tue Sep 10 13:54:06 2024 -0700
+
+    Fix SuperPMI collections (#107588)
+    
+    * Fix SuperPMI collections
+    
+    1. Remove FSharp benchmark dll from realworld collection, since it no longer has any benchmarks.
+    2. Properly pass `-cross` switch when building CORE_ROOT. Propagate
+       `crossBuild` more widely through the scripts.
+    
+    * Pass `container` to xplat-job in run-superpmi-collect-job
+    
+    * Better error message
+    
+    * More `container` changes
