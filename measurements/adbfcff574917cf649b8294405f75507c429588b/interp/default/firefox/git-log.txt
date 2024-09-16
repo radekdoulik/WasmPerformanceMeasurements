@@ -1,0 +1,7 @@
+commit adbfcff574917cf649b8294405f75507c429588b
+Author: Noah Falk <noahfalk@users.noreply.github.com>
+Date:   Mon Aug 26 14:07:09 2024 -0700
+
+    Set GC metrics to zero prior to first GC (#106734)
+    
+    Fixes #106733
