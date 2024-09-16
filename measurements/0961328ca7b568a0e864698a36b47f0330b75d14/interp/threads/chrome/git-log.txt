@@ -1,0 +1,5 @@
+commit 0961328ca7b568a0e864698a36b47f0330b75d14
+Author: Aman Khalid <amankhalid@microsoft.com>
+Date:   Thu Sep 5 14:19:06 2024 +0000
+
+    JIT: Remove implicit fallthrough assumption in `fgExpandRarelyRunBlocks` (#107350)
