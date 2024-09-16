@@ -1,0 +1,9 @@
+commit b77b71ee2a70b30ee3f9b0884510b62efc74f5c9
+Author: Katelyn Gadd <kg@luminance.org>
+Date:   Mon Sep 9 17:40:14 2024 -0700
+
+    [wasm] Clean up some FIXMEs in the jiterpreter (#107562)
+    
+    * Cleanup some fixmes in the jiterpreter
+    
+    * Flow through size of the var in MINT_LDLOCA_S so jiterpreter can do accurate invalidation
