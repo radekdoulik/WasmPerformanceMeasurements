@@ -1,0 +1,5 @@
+commit f7fefced651f5a3f563998770f3e5bebfde0b2fd
+Author: Aman Khalid <amankhalid@microsoft.com>
+Date:   Thu Aug 29 11:51:34 2024 +0000
+
+    JIT: Use `ValueTuple` argument for SIMD type lookup for `AdvSimd.Store*` (#107099)
