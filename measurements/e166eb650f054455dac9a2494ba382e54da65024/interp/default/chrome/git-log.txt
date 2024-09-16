@@ -1,0 +1,26 @@
+commit e166eb650f054455dac9a2494ba382e54da65024
+Author: Jan Vorlicek <janvorli@microsoft.com>
+Date:   Fri Sep 6 01:05:52 2024 +0200
+
+    Fix stack overflow reporting with multiple PALs (#107264)
+    
+    * Fix stack overflow reporting with multiple PALs
+    
+    A recently reported issue in the stack overflow test running with
+    superpmi collect has revealed that there is a problem when multiple
+    shared libraries using coreclr PAL are loaded into the process.
+    Each such library registers signal handlers, including the SIGSEGV
+    one. The unexpected thing in the SIGSEGV handler in this scenario
+    is the fact that the GetCurrentPalThread() returns NULL in the
+    non-coreclr shared libraries in case the library didn't invoke
+    any function that would create the thread object.
+    That leads to the handler just writing "Stack overflow." to
+    the console and then calling PROCAbort(). This abort causes the process
+    to be torn down without reporting the stack overflow with full stack
+    trace by the coreclr.
+    
+    This change fixes it by calling the previous registered handler instead
+    aborting in this case. That gives the coreclr SIGSEGV handler a chance to
+    do the reporting as expected.
+    
+    * Reflect PR feedback - move comment
