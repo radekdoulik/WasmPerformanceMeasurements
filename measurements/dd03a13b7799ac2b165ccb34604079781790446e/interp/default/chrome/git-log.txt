@@ -1,0 +1,9 @@
+commit dd03a13b7799ac2b165ccb34604079781790446e
+Author: Ivan Povazan <55002338+ivanpovazan@users.noreply.github.com>
+Date:   Mon Sep 2 09:03:02 2024 +0200
+
+    [mono][tvos] Do not treat assembly.pdb/xml files as native files to bundle when AOTing on Helix (#107079)
+    
+    * Do not treat assembly.pdb/xml files as native files to bundle
+    
+    * Bundle satellite assemblies as well
