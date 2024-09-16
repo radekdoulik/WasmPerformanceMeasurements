@@ -1,0 +1,7 @@
+commit eec40f14a6e455e3d843b212f3da285fedf37d3b
+Author: David Wrighton <davidwr@microsoft.com>
+Date:   Wed Sep 4 14:39:17 2024 -0700
+
+    Fix CrossGen2SynthesizePgo on Windows (#107362)
+    
+    Due to an apparent typo, The CrossGen2SynthesizePgo test flag simply always skipped tests on Windows, instead of just skipping tests when synthesize pgo testing was enabled.
