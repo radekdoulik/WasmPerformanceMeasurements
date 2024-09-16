@@ -1,0 +1,5 @@
+commit 46c9a4fff83f35ec659e6659050440aadccf3201
+Author: SwapnilGaikwad <swapnil.gaikwad@arm.com>
+Date:   Tue Sep 3 15:22:59 2024 +0100
+
+    JIT ARM64-SVE: Avoid combining conditional select for reduction intrinsics (#107207)
