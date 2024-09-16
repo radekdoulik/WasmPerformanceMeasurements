@@ -1,0 +1,13 @@
+commit a842025bc406d08a6db8a5000073463c0e9be3af
+Author: Ilona Tomkowicz <32700855+ilonatommy@users.noreply.github.com>
+Date:   Thu Aug 15 16:35:03 2024 +0200
+
+    [browser] Fix `HybridGlobalization`, SoftHyphen is not ignored when it should be (#105946)
+    
+    * Ignore SoftHyphen.
+    
+    * Update docs.
+    
+    * Implementation with `matchLength` should throw with PNSE, not ArgumentException.
+    
+    * String.Replace uses IndexOf with matchLength, so expect it to throw.
