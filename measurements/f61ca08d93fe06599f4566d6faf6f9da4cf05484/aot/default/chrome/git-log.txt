@@ -1,0 +1,7 @@
+commit f61ca08d93fe06599f4566d6faf6f9da4cf05484
+Author: Jan Kotas <jkotas@microsoft.com>
+Date:   Sun Aug 25 00:08:52 2024 -0700
+
+    Revert "[LoongArch64] Add proj to generate nupkg runtime.linux-loongarch64.ru…" (#106882)
+    
+    This reverts commit ac63269054ac56a0fb4b76b5ea3bfbeeae9c53b5.
