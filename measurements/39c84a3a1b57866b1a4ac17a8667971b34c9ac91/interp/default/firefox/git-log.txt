@@ -1,0 +1,9 @@
+commit 39c84a3a1b57866b1a4ac17a8667971b34c9ac91
+Author: Jan Kotas <jkotas@microsoft.com>
+Date:   Sun Sep 8 11:24:13 2024 -0700
+
+    Fix corner-case accounting bug in new codeheap allocation (#107492)
+    
+    The size of internal CodeHeap structures was not included in
+    codeheap memory reservation. It caused false OOM exception to
+    be thrown when JITed method code size was near 64kB multiple
