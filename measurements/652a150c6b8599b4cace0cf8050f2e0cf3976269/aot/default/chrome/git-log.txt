@@ -1,0 +1,13 @@
+commit 652a150c6b8599b4cace0cf8050f2e0cf3976269
+Author: Aaron Robinson <arobins@microsoft.com>
+Date:   Fri Aug 16 07:29:14 2024 -0700
+
+    Remove `HelperMethodFrame`s from `Object` methods (#106497)
+    
+    * Remove HelperMethodFrames from Object methods
+    
+    Split GetHashCode into fast/slow managed functions.
+    Split GetType into fast/slow managed functions.
+    
+    ---------
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
