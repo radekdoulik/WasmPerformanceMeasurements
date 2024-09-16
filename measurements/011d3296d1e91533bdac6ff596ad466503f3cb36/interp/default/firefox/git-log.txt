@@ -1,0 +1,8 @@
+commit 011d3296d1e91533bdac6ff596ad466503f3cb36
+Author: Elinor Fung <elfung@microsoft.com>
+Date:   Tue Aug 27 09:56:45 2024 -0700
+
+    Move some members only needed for `AppDomain` off of `BaseDomain`  (#107015)
+    
+    - Move default binder, code version managed, and type ID map to `AppDomain` (such that `SystemDomain` won't unnecessarily have them)
+    - Remove unnecessarily stored `BaseDomain` on `VirtualCallStubManager`
