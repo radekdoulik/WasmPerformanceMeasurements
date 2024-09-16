@@ -1,0 +1,5 @@
+commit 9a31a5b47aa7484bec71ba28aa59712c7898b902
+Author: Aman Khalid <amankhalid@microsoft.com>
+Date:   Mon Aug 26 22:11:42 2024 +0000
+
+    JIT: Preserve range check for HW intrinsics with non-const/out-of-range immediates (#106765)
