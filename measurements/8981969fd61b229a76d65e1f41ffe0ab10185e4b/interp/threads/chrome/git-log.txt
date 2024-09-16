@@ -1,0 +1,17 @@
+commit 8981969fd61b229a76d65e1f41ffe0ab10185e4b
+Author: Marek Fišera <mara@neptuo.com>
+Date:   Tue Sep 10 18:47:09 2024 +0200
+
+    [wasm] Include .NET version in templates package id (#107182)
+    
+    * Include .NET version in templates package id
+    
+    * Disable templates package validation for the time being
+    
+    * Compute the package id dynamically based on MajorVersion
+    
+    * Revert "Compute the package id dynamically based on MajorVersion"
+    
+    This reverts commit 91505c1ff20be6384263bf632b4b1bd0783b6e10.
+    
+    * Comment about version
