@@ -1,0 +1,9 @@
+commit c4792a228ea36792b90f87ddf7fce2477e827822
+Author: Andy Ayers <andya@microsoft.com>
+Date:   Sat Sep 7 09:00:52 2024 -0700
+
+    JIT: don't create vector constants from relocatable constants (#107491)
+    
+    We can't represent relocations in data currently.
+    
+    Fixes #107396.
