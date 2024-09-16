@@ -1,0 +1,5 @@
+commit d2c7db0f5f54de27022be128cec8e0f9191c83f8
+Author: Tanner Gooding <tagoo@outlook.com>
+Date:   Mon Sep 9 11:06:45 2024 -0700
+
+    Disable TensorExtensionsTwoSpanInFloatOut due to https://github.com/dotnet/runtime/issues/107254 (#107555)
