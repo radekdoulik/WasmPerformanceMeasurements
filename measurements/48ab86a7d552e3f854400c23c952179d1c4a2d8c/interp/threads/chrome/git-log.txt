@@ -1,0 +1,9 @@
+commit 48ab86a7d552e3f854400c23c952179d1c4a2d8c
+Author: Elinor Fung <elfung@microsoft.com>
+Date:   Fri Aug 30 12:21:02 2024 -0700
+
+    Make host tests enable test-only behaviour for nethost before first use (#107170)
+    
+    On macOS with system integrity protection enabled, if a code-signed binary is loaded in a process, modified, and loaded again in another process, the second run will crash with Code Signature Invalid).
+    
+    Enabling test-only behaviour modifies the binary (re-writes a placeholder value). The nethost tests were enabling/disabling test-only behaviour for the same nethost binary used by all the tests. This change updates the tests to just always enable it before any use of the binary.
