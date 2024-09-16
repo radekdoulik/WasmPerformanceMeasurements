@@ -1,0 +1,8 @@
+commit a349912e4f8610f39a6ac3cb73d8d4d0968ccec4
+Author: Katelyn Gadd <kg@luminance.org>
+Date:   Fri Sep 6 15:52:37 2024 -0700
+
+    [wasm] Implement MONO_MEMORY_BARRIER in jiterpreter & enable MT jiterp traces (#107325)
+    
+    * Implement MONO_MEMORY_BARRIER in jiterpreter
+    * Enable jiterp traces for MT wasm
