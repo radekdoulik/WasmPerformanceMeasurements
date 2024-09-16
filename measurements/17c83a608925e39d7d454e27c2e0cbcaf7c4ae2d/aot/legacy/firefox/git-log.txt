@@ -1,0 +1,7 @@
+commit 17c83a608925e39d7d454e27c2e0cbcaf7c4ae2d
+Author: Eric StJohn <ericstj@microsoft.com>
+Date:   Mon Sep 16 08:27:00 2024 -0700
+
+    Ensure we create new RemoteInvokeOptions for every call (#107820)
+    
+    The RemoteInvokeOptions instance is mutated by RemoveExecutor.Invoke and cannot be shared.
