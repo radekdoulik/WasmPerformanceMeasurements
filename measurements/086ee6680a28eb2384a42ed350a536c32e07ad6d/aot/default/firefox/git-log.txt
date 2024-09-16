@@ -1,0 +1,5 @@
+commit 086ee6680a28eb2384a42ed350a536c32e07ad6d
+Author: Tanner Gooding <tagoo@outlook.com>
+Date:   Mon Aug 26 08:32:03 2024 -0700
+
+    Ensure that Arm64 correctly handles multiplication of simd by a 64-bit scalar (#106839)
