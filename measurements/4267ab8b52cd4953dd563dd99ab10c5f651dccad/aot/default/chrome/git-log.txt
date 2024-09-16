@@ -1,0 +1,5 @@
+commit 4267ab8b52cd4953dd563dd99ab10c5f651dccad
+Author: Elinor Fung <elfung@microsoft.com>
+Date:   Wed Sep 11 07:49:27 2024 -0700
+
+    Make hostfxr_get_runtime_property_value initialize out pointer to null (#107645)
