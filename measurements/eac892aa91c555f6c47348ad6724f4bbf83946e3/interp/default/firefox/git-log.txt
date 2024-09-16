@@ -1,0 +1,13 @@
+commit eac892aa91c555f6c47348ad6724f4bbf83946e3
+Author: Stefan Nikolei <stefan@nikolei.eu>
+Date:   Mon Sep 16 19:54:11 2024 +0200
+
+    Mark Encoding as nullable in StreamWriter's constructor (#106658)
+    
+    * Mark Encoding as nullable in StreamWriter's constructor
+    
+    * Update reference file
+    
+    * Align string constructors with Stream
+    
+    * add explicit test for null as encoding
