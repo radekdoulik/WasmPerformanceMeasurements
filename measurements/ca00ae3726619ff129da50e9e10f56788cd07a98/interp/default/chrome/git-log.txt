@@ -1,0 +1,12 @@
+commit ca00ae3726619ff129da50e9e10f56788cd07a98
+Author: Bruce Forstall <brucefo@microsoft.com>
+Date:   Thu Sep 12 09:51:14 2024 -0700
+
+    Work around F# ildasm/ilasm round-trip test failure (#107692)
+    
+    An F# compiler change caused significant generated IL change and
+    an ildasm/ilasm round-trip test failure. Adding
+    `<RealSig>false</RealSig>` reverts to the previous F# codegen
+    and fixes the problem.
+    
+    Tracking: https://github.com/dotnet/runtime/issues/106601
