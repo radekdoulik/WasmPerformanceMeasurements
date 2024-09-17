@@ -1,0 +1,7 @@
+commit 1231a9addd0fb3cfb806c2a89cb45a3018c48bb2
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Wed Sep 11 16:49:12 2024 -0400
+
+    Revert "Avoid taking lock for empty bucket in ConcurrentDictionary.TryRemove …" (#107653)
+    
+    This reverts commit 252018c3d3fffdb592413cf61d5b80cf751e0a59.
