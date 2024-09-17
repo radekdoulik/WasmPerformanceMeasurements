@@ -1,0 +1,9 @@
+commit 8ae3796ef109962725833610c26e3f0bb06e2988
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Tue Sep 17 12:49:53 2024 -0400
+
+    Fix RegexOptions.Compiled|IgnoreCase perf when dynamic code isn't supported (#107874)
+    
+    If a regex is created with RegexOptions.Compiled and RegexOptions.IgnoreCase, and it begins with a pattern that's a reasonably small number of alternating strings, it'll now end up using `SearchValues<string>` to find the next possible match location. However, the `SearchValues<string>` instance doesn't end up getting created if the interpreter is being used. If the implementation falls back to the interpreter because compilation isn't supported because dynamic code isn't supported, then it won't use any optimizations to find the next starting location. That's a regression from when it would previously at least use a vectorized search to find one character class from the set of starting strings.
+    
+    This fixes it to just always create the `SearchValues<string>`. This adds some overhead when using RegexOptions.Compiled, but it's typically just a few percentage points, and only applies in the cases where this `SearchValues<string>` optimization kicks in. At the moment, changing it to have perfect knowledge about whether it can avoid that creation is too invasive. This overhead also doesn't apply to the source generator.
