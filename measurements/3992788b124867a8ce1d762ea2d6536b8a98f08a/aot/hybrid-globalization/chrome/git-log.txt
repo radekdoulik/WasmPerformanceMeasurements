@@ -1,0 +1,8 @@
+commit 3992788b124867a8ce1d762ea2d6536b8a98f08a
+Author: Alexander Köplinger <alex.koeplinger@outlook.com>
+Date:   Tue Sep 17 16:11:35 2024 +0200
+
+    [mono] Remove .la fallback code in mono_dl_open_full (#107907)
+    
+    We don't use libtool files anymore.
+    Contributes to https://github.com/dotnet/runtime/issues/107883
