@@ -1,0 +1,5 @@
+commit e1c3f02af9cebdeb683ec4d94e8252ba6a7f03e1
+Author: Elinor Fung <elfung@microsoft.com>
+Date:   Fri Sep 13 07:56:35 2024 -0700
+
+    Make AppDomain::AssemblyIterator iterate over Assembly instead of DomainAssembly (#107768)
