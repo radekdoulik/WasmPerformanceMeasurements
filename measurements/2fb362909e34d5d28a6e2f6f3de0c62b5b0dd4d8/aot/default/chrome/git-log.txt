@@ -1,0 +1,10 @@
+commit 2fb362909e34d5d28a6e2f6f3de0c62b5b0dd4d8
+Author: Elinor Fung <elfung@microsoft.com>
+Date:   Mon Sep 9 08:03:27 2024 -0700
+
+    Remove `BaseDomain` use in `LoaderAllocator` and event tracing helpers (#107481)
+    
+    - Remove `BaseDomain` member on `LoaderAllocator`
+      - Add asserts in functions using `AppDomain` that the loader allocator is collectible and the type is `LAT_Assembly` (so `AssemblyLoaderAllocator` which always had `AppDomain`)
+    - Remove unnecessary `BaseDomain`/`AppDomain` parameters from event tracing helpers
+      - They were always being called with the current app domain
