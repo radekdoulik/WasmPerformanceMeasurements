@@ -1,0 +1,12 @@
+commit d2c458727ea78f8ff427d498842866a1f53ea5a1
+Author: Maoni Stephens <Maoni0@users.noreply.github.com>
+Date:   Mon Sep 16 16:45:28 2024 -0700
+
+    instrumentation (mostly) for DATAS (#107853)
+    
+    add instru to help with DATAS debugging
+    
+    + record heap count change history on blocking GC threads and BGC threads (I'm including a change to get the m_OSThreadId field of the Thread object since we recently discovered an issue where GC indicates a BGC thread was successfully created yet that field is 0. I'm only recording this on the OS we discovered this on. for future releases we should get it properly via a GCToEEInterface method)
+    + record BGC thread creation history
+    
+    record LLC size to help with gen0 min size debugging
