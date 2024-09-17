@@ -1,0 +1,10 @@
+commit f5acabe8f4b8528b7db0641d8ab505fcdf31da38
+Author: Andy Ayers <andya@microsoft.com>
+Date:   Tue Sep 17 09:18:13 2024 -0700
+
+    JIT: use explicit cast away GC when passing byref to unmanaged callees (#107811)
+    
+    Revise the fix done in #39105 to make the cast from byref to native int via
+    an explicit cast, rather than retyping the node.
+    
+    Fixes #107045.
