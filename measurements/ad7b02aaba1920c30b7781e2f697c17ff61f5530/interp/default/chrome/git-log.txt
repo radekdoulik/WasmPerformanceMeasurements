@@ -1,0 +1,21 @@
+commit ad7b02aaba1920c30b7781e2f697c17ff61f5530
+Author: Adam Sitnik <adam.sitnik@gmail.com>
+Date:   Mon Sep 16 09:37:48 2024 +0200
+
+    [NRBF] Comments and bug fixes from internal code review (#107735)
+    
+    * copy comments and asserts from Levis internal code review
+    
+    * apply Levis suggestion: don't store Array.MaxLength as a const, as it may change in the future
+    
+    * add missing and fix some of the existing comments
+    
+    * first bug fix: SerializationRecord.TypeNameMatches should throw ArgumentNullException for null Type argument
+    
+    * second bug fix: SerializationRecord.TypeNameMatches should know the difference between SZArray and single-dimension, non-zero offset arrays (example: int[] and int[*])
+    
+    * third bug fix: don't cast bytes to booleans
+    
+    * fourth bug fix: don't cast bytes to DateTimes
+    
+    * add one test case that I've forgot in previous PR
