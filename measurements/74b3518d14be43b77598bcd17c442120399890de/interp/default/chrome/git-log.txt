@@ -1,0 +1,17 @@
+commit 74b3518d14be43b77598bcd17c442120399890de
+Author: Shyn (Shynggyzkhan Olzhabayev) <olzhabaev.sh@outlook.com>
+Date:   Tue Sep 17 13:26:43 2024 +0200
+
+    Introducing new event for failed http requests #106284 (#106964)
+    
+    * Introduce new event for failed http requests
+    
+    * remove response code, because it is not applicable
+    
+    * fix log level from error to information and message
+    
+    * fix formating
+    
+    * fix message template and add tests
+    
+    * minor fixes
