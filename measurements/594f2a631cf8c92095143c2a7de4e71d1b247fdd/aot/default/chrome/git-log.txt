@@ -1,0 +1,5 @@
+commit 594f2a631cf8c92095143c2a7de4e71d1b247fdd
+Author: Aman Khalid <amankhalid@microsoft.com>
+Date:   Tue Sep 17 22:25:26 2024 +0000
+
+    JIT: Always use edge weights to assign block weight in `Compiler::fgSplitEdge` (#107941)
