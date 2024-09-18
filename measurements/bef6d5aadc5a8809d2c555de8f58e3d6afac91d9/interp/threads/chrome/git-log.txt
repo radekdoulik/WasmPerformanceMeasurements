@@ -1,0 +1,14 @@
+commit bef6d5aadc5a8809d2c555de8f58e3d6afac91d9
+Author: Sven Boemer <sbomer@gmail.com>
+Date:   Wed Sep 18 10:35:53 2024 -0700
+
+    Support class target in RUC/RDC code fixers (#107956)
+    
+    This adds support to the RequiresUnreferencedCode and
+    RequiresDynamicCode code fixer for adding new annotations at
+    the class level. This helps while annotating libraries where static field
+    initializers had trim/aot warnings.
+    
+    ---------
+    
+    Co-authored-by: Jackson Schuster <36744439+jtschuster@users.noreply.github.com>
