@@ -1,0 +1,5 @@
+commit 4878fb3c8681e7cb68ab6507600b36bc26c903a4
+Author: Eirik Tsarpalis <eirik.tsarpalis@gmail.com>
+Date:   Tue Sep 10 12:45:04 2024 +0100
+
+    Fix heap corruption issue in PriorityQueue.Remove (#107550)
