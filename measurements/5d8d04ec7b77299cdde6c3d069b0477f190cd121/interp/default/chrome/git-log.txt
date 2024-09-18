@@ -1,0 +1,5 @@
+commit 5d8d04ec7b77299cdde6c3d069b0477f190cd121
+Author: Aman Khalid <amankhalid@microsoft.com>
+Date:   Wed Sep 18 18:25:08 2024 +0000
+
+     JIT: Update lexical pointers after compacting blocks in `fgUpdateFlowGraph` (#107924)
