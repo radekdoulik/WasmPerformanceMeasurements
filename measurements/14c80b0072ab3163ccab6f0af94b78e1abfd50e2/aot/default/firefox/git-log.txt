@@ -1,0 +1,5 @@
+commit 14c80b0072ab3163ccab6f0af94b78e1abfd50e2
+Author: Qiao Pengcheng <qiaopengcheng@loongson.cn>
+Date:   Wed Sep 18 22:37:58 2024 +0800
+
+    [LoongArch64] Fixed DBG_DebugBreak stub for missing return instruction. (#107973)
