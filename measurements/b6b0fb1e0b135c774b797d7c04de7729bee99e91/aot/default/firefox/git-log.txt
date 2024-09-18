@@ -1,0 +1,25 @@
+commit b6b0fb1e0b135c774b797d7c04de7729bee99e91
+Author: Natalia Kondratyeva <knatalia@microsoft.com>
+Date:   Wed Sep 18 14:15:13 2024 +0100
+
+    WebSocket Feedback Follow-up (#107662)
+    
+    * Fixes
+    
+    * State validation update
+    
+    * Roll back dispose changes, fix mutex logging
+    
+    * Roll back observe changes
+    
+    * Add internal flags enum for states
+    
+    * Update src/libraries/System.Net.WebSockets/src/System/Net/WebSockets/WebSocketStateHelper.cs
+    
+    Co-authored-by: Miha Zupan <mihazupan.zupan1@gmail.com>
+    
+    * Feedback
+    
+    ---------
+    
+    Co-authored-by: Miha Zupan <mihazupan.zupan1@gmail.com>
