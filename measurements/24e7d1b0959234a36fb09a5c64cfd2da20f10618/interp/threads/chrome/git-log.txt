@@ -1,0 +1,11 @@
+commit 24e7d1b0959234a36fb09a5c64cfd2da20f10618
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Tue Sep 17 22:56:45 2024 -0400
+
+    Replace VectorXx.Exp's edge case fallback with scalar processing (#107886)
+    
+    * Replace VectorXx.Exp's edge case fallback with scalar processing
+    
+    The better, vectorized fix is more complex and can be done for .NET 10.
+    
+    * Revert addition to Helpers.IsEqualWithTolerance
