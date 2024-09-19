@@ -1,0 +1,10 @@
+commit 128fdfd1fd982e277e969d5c7ca1710345f4f649
+Author: David Wrighton <davidwr@microsoft.com>
+Date:   Wed Sep 18 16:52:02 2024 -0700
+
+    Remove JitGenericHandleCache (#106843)
+    
+    - It was only used for overflow scenarios from the generic dictionary (which don't happen), virtual resolution scenarios for creating delegates, and a few other rare R2R scenarios
+    - Replace the virtual resolution scenarios with a cache of the affected data in managed code, and move the helpers to managed
+      - Use the GenericCache type which was previously only used on NativeAOT for Generic Virtual method resolution paths.
+    - Just remove the pointless checks from within the various normal generic lookup paths, and since they no longer do anything interesting in their hot paths except erect a helper method frame and call a worker routine, move those jit helpers to managed as well.
