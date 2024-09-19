@@ -1,0 +1,23 @@
+commit 9eb48cd3c38584b16e7ea551666616b500c7cba3
+Author: Eirik Tsarpalis <eirik.tsarpalis@gmail.com>
+Date:   Thu Sep 19 00:16:33 2024 +0300
+
+    Remove InternalsVisibleTo from System.Collections.Immutable. (#107872)
+    
+    * Remove InternalsVisibleTo from System.Collections.Immutable.
+    
+    * Remove a few unneeded internal interfaces.
+    
+    * Replace IOrderedCollection<T> with IReadOnlyList<T>
+    
+    * Remove empty folder.
+    
+    * Avoid trimming necessary reflection metadata.
+    
+    * Do not look up IBinaryTree interface.
+    
+    * Revert "Avoid trimming necessary reflection metadata."
+    
+    This reverts commit d3cf8f9cfd068204ab7ecc739f282db7e2e58b7c.
+    
+    * Remove IBinaryTree interface.
