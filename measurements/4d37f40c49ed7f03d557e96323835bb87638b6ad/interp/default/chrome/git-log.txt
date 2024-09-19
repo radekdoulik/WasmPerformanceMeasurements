@@ -1,0 +1,15 @@
+commit 4d37f40c49ed7f03d557e96323835bb87638b6ad
+Author: Ilona Tomkowicz <32700855+ilonatommy@users.noreply.github.com>
+Date:   Thu Sep 19 18:00:38 2024 +0200
+
+    [browser] Fix custom icu fingerprinting. (#108011)
+    
+    * Fix custom icu fingerprinting.
+    
+    * Update src/mono/browser/runtime/loader/icu.ts
+    
+    Co-authored-by: Pavel Savara <pavelsavara@microsoft.com>
+    
+    ---------
+    
+    Co-authored-by: Pavel Savara <pavelsavara@microsoft.com>
