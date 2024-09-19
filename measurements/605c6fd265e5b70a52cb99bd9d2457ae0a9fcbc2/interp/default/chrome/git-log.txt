@@ -1,0 +1,163 @@
+commit 605c6fd265e5b70a52cb99bd9d2457ae0a9fcbc2
+Author: dotnet-maestro[bot] <42748379+dotnet-maestro[bot]@users.noreply.github.com>
+Date:   Wed Sep 11 15:51:31 2024 +0200
+
+    [main] Update dependencies from 7 repositories (#106873)
+    
+    * Update dependencies from https://github.com/dotnet/runtime-assets build 20240822.1
+    
+    Microsoft.DotNet.CilStrip.Sources , System.ComponentModel.TypeConverter.TestData , System.Data.Common.TestData , System.Drawing.Common.TestData , System.Formats.Tar.TestData , System.IO.Compression.TestData , System.IO.Packaging.TestData , System.Net.TestData , System.Private.Runtime.UnicodeData , System.Runtime.Numerics.TestData , System.Runtime.TimeZoneData , System.Security.Cryptography.X509Certificates.TestData , System.Text.RegularExpressions.TestData , System.Windows.Extensions.TestData
+     From Version 10.0.0-beta.24419.3 -> To Version 10.0.0-beta.24422.1
+    
+    * Update dependencies from https://github.com/dotnet/hotreload-utils build 20240823.1
+    
+    Microsoft.DotNet.HotReload.Utils.Generator.BuildTool
+     From Version 9.0.0-alpha.0.24419.1 -> To Version 9.0.0-alpha.0.24423.1
+    
+    * Update dependencies from https://github.com/dotnet/runtime build 20240825.2
+    
+    Microsoft.DotNet.ILCompiler , Microsoft.NET.Sdk.IL , Microsoft.NETCore.App.Runtime.win-x64 , Microsoft.NETCore.ILAsm , runtime.native.System.IO.Ports , System.Reflection.Metadata , System.Reflection.MetadataLoadContext , System.Text.Json , Microsoft.SourceBuild.Intermediate.runtime.linux-x64
+     From Version 9.0.0-rc.1.24410.5 -> To Version 10.0.0-alpha.1.24425.2
+    
+    * Update dependencies from https://github.com/dotnet/sdk build 20240826.1
+    
+    Microsoft.SourceBuild.Intermediate.sdk , Microsoft.DotNet.ApiCompat.Task
+     From Version 9.0.100-rc.1.24409.1 -> To Version 9.0.100-rc.1.24426.1
+    
+    * Update to the latest RC1 SDK
+    
+    * Revert "Update to the latest RC1 SDK"
+    
+    This reverts commit 7266d542b9282f15d0161b9baf2ba21ba9d16f6c.
+    
+    * Revert "Update dependencies from https://github.com/dotnet/runtime build 20240825.2"
+    
+    This reverts commit 6320bd39db4cf02f8a1403624fe46e9963abd058.
+    
+    * Update dependencies from https://github.com/dotnet/runtime-assets build 20240826.1
+    
+    Microsoft.DotNet.CilStrip.Sources , System.ComponentModel.TypeConverter.TestData , System.Data.Common.TestData , System.Drawing.Common.TestData , System.Formats.Tar.TestData , System.IO.Compression.TestData , System.IO.Packaging.TestData , System.Net.TestData , System.Private.Runtime.UnicodeData , System.Runtime.Numerics.TestData , System.Runtime.TimeZoneData , System.Security.Cryptography.X509Certificates.TestData , System.Text.RegularExpressions.TestData , System.Windows.Extensions.TestData
+     From Version 10.0.0-beta.24422.1 -> To Version 10.0.0-beta.24426.1
+    
+    * Update dependencies from https://github.com/dotnet/hotreload-utils build 20240826.1
+    
+    Microsoft.DotNet.HotReload.Utils.Generator.BuildTool
+     From Version 9.0.0-alpha.0.24423.1 -> To Version 9.0.0-alpha.0.24426.1
+    
+    * Update dependencies from https://github.com/dotnet/source-build-externals build 20240826.1
+    
+    Microsoft.SourceBuild.Intermediate.source-build-externals
+     From Version 9.0.0-alpha.1.24420.1 -> To Version 10.0.0-alpha.1.24426.1
+    
+    * Update dependencies from https://github.com/dotnet/icu build 20240827.2
+    
+    Microsoft.NETCore.Runtime.ICU.Transport
+     From Version 10.0.0-alpha.1.24421.1 -> To Version 10.0.0-alpha.1.24427.2
+    
+    * Update dependencies from https://github.com/dotnet/icu build 20240830.1
+    
+    Microsoft.NETCore.Runtime.ICU.Transport
+     From Version 10.0.0-alpha.1.24427.2 -> To Version 10.0.0-alpha.1.24430.1
+    
+    * Update dependencies from https://github.com/dotnet/runtime build 20240831.5
+    
+    Microsoft.DotNet.ILCompiler , Microsoft.NET.Sdk.IL , Microsoft.NETCore.App.Runtime.win-x64 , Microsoft.NETCore.ILAsm , runtime.native.System.IO.Ports , System.Reflection.Metadata , System.Reflection.MetadataLoadContext , System.Text.Json , Microsoft.SourceBuild.Intermediate.runtime.linux-x64
+     From Version 9.0.0-rc.1.24410.5 -> To Version 10.0.0-alpha.1.24431.5
+    
+    * Update dependencies from https://github.com/dotnet/sdk build 20240902.8
+    
+    Microsoft.SourceBuild.Intermediate.sdk , Microsoft.DotNet.ApiCompat.Task
+     From Version 9.0.100-rc.1.24426.1 -> To Version 10.0.100-alpha.2.24452.8
+    
+    * Update dependencies from https://github.com/dotnet/icu build 20240902.1
+    
+    Microsoft.NETCore.Runtime.ICU.Transport
+     From Version 10.0.0-alpha.1.24430.1 -> To Version 10.0.0-alpha.1.24452.1
+    
+    * Update dependencies from https://github.com/dotnet/runtime-assets build 20240902.1
+    
+    Microsoft.DotNet.CilStrip.Sources , System.ComponentModel.TypeConverter.TestData , System.Data.Common.TestData , System.Drawing.Common.TestData , System.Formats.Tar.TestData , System.IO.Compression.TestData , System.IO.Packaging.TestData , System.Net.TestData , System.Private.Runtime.UnicodeData , System.Runtime.Numerics.TestData , System.Runtime.TimeZoneData , System.Security.Cryptography.X509Certificates.TestData , System.Text.RegularExpressions.TestData , System.Windows.Extensions.TestData
+     From Version 10.0.0-beta.24426.1 -> To Version 10.0.0-beta.24452.1
+    
+    * Update dependencies from https://github.com/dotnet/runtime-assets build 20240903.1
+    
+    Microsoft.DotNet.CilStrip.Sources , System.ComponentModel.TypeConverter.TestData , System.Data.Common.TestData , System.Drawing.Common.TestData , System.Formats.Tar.TestData , System.IO.Compression.TestData , System.IO.Packaging.TestData , System.Net.TestData , System.Private.Runtime.UnicodeData , System.Runtime.Numerics.TestData , System.Runtime.TimeZoneData , System.Security.Cryptography.X509Certificates.TestData , System.Text.RegularExpressions.TestData , System.Windows.Extensions.TestData
+     From Version 10.0.0-beta.24452.1 -> To Version 10.0.0-beta.24453.1
+    
+    * Update dependencies from https://github.com/dotnet/hotreload-utils build 20240903.1
+    
+    Microsoft.DotNet.HotReload.Utils.Generator.BuildTool
+     From Version 9.0.0-alpha.0.24426.1 -> To Version 9.0.0-alpha.0.24453.1
+    
+    * Update dependencies from https://github.com/dotnet/source-build-externals build 20240903.1
+    
+    Microsoft.SourceBuild.Intermediate.source-build-externals
+     From Version 10.0.0-alpha.1.24426.1 -> To Version 10.0.0-alpha.1.24453.1
+    
+    * Update dependencies from https://github.com/dotnet/source-build-externals build 20240904.1
+    
+    Microsoft.SourceBuild.Intermediate.source-build-externals
+     From Version 10.0.0-alpha.1.24453.1 -> To Version 10.0.0-alpha.1.24454.1
+    
+    * Update dependencies from https://github.com/dotnet/hotreload-utils build 20240906.3
+    
+    Microsoft.DotNet.HotReload.Utils.Generator.BuildTool
+     From Version 9.0.0-alpha.0.24453.1 -> To Version 10.0.0-alpha.0.24456.3
+    
+    * Update dependencies from https://github.com/dotnet/runtime-assets build 20240907.1
+    
+    Microsoft.DotNet.CilStrip.Sources , System.ComponentModel.TypeConverter.TestData , System.Data.Common.TestData , System.Drawing.Common.TestData , System.Formats.Tar.TestData , System.IO.Compression.TestData , System.IO.Packaging.TestData , System.Net.TestData , System.Private.Runtime.UnicodeData , System.Runtime.Numerics.TestData , System.Runtime.TimeZoneData , System.Security.Cryptography.X509Certificates.TestData , System.Text.RegularExpressions.TestData , System.Windows.Extensions.TestData
+     From Version 10.0.0-beta.24453.1 -> To Version 10.0.0-beta.24457.1
+    
+    * Update dependencies from https://github.com/dotnet/runtime build 20240908.4
+    
+    Microsoft.DotNet.ILCompiler , Microsoft.NET.Sdk.IL , Microsoft.NETCore.App.Runtime.win-x64 , Microsoft.NETCore.ILAsm , runtime.native.System.IO.Ports , System.Reflection.Metadata , System.Reflection.MetadataLoadContext , System.Text.Json , Microsoft.SourceBuild.Intermediate.runtime.linux-x64
+     From Version 10.0.0-alpha.1.24431.5 -> To Version 10.0.0-alpha.1.24458.4
+    
+    * Update dependencies from https://github.com/dotnet/sdk build 20240909.4
+    
+    Microsoft.SourceBuild.Intermediate.sdk , Microsoft.DotNet.ApiCompat.Task
+     From Version 10.0.100-alpha.2.24452.8 -> To Version 10.0.100-alpha.2.24459.4
+    
+    * Revert "Update dependencies from https://github.com/dotnet/runtime build 20240908.4"
+    
+    This reverts commit 07bc37adb3daa6dc97140d63f0638cc776b9c082.
+    
+    * Revert "Update dependencies from https://github.com/dotnet/runtime build 20240831.5"
+    
+    This reverts commit 760938717f79a97deca0753afcda958af569a21f.
+    
+    * Pin SdkVersionForWorkloadTesting until we have a proper net10 SDK
+    
+    * Update dependencies from https://github.com/dotnet/icu build 20240909.2
+    
+    Microsoft.NETCore.Runtime.ICU.Transport
+     From Version 10.0.0-alpha.1.24452.1 -> To Version 10.0.0-alpha.1.24459.2
+    
+    * Update dependencies from https://github.com/dotnet/runtime-assets build 20240909.1
+    
+    Microsoft.DotNet.CilStrip.Sources , System.ComponentModel.TypeConverter.TestData , System.Data.Common.TestData , System.Drawing.Common.TestData , System.Formats.Tar.TestData , System.IO.Compression.TestData , System.IO.Packaging.TestData , System.Net.TestData , System.Private.Runtime.UnicodeData , System.Runtime.Numerics.TestData , System.Runtime.TimeZoneData , System.Security.Cryptography.X509Certificates.TestData , System.Text.RegularExpressions.TestData , System.Windows.Extensions.TestData
+     From Version 10.0.0-beta.24457.1 -> To Version 10.0.0-beta.24459.1
+    
+    * Update dependencies from https://github.com/dotnet/hotreload-utils build 20240909.1
+    
+    Microsoft.DotNet.HotReload.Utils.Generator.BuildTool
+     From Version 10.0.0-alpha.0.24456.3 -> To Version 10.0.0-alpha.0.24459.1
+    
+    * Update dependencies from https://github.com/dotnet/cecil build 20240910.1
+    
+    Microsoft.SourceBuild.Intermediate.cecil , Microsoft.DotNet.Cecil
+     From Version 0.11.5-alpha.24419.1 -> To Version 0.11.5-alpha.24460.1
+    
+    * Update dependencies from https://github.com/dotnet/source-build-externals build 20240909.1
+    
+    Microsoft.SourceBuild.Intermediate.source-build-externals
+     From Version 10.0.0-alpha.1.24454.1 -> To Version 10.0.0-alpha.1.24459.1
+    
+    ---------
+    
+    Co-authored-by: dotnet-maestro[bot] <dotnet-maestro[bot]@users.noreply.github.com>
+    Co-authored-by: Larry Ewing <lewing@microsoft.com>
+    Co-authored-by: Eric StJohn <ericstj@microsoft.com>
+    Co-authored-by: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+    Co-authored-by: Alexander Köplinger <alex.koeplinger@outlook.com>
