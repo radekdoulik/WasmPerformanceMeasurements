@@ -1,0 +1,28 @@
+commit 51bd2b970a90b0c12e59d4b904b9641491cc60af
+Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+Date:   Thu Sep 19 14:39:26 2024 +0200
+
+    [wasm] Bump chrome for testing - linux: 128.0.6613.119, windows: 128.0.6613.120 (#107504)
+    
+    * Automated bump of chrome version
+    
+    * Addning new `BrowserArguments` is possible without changes on xharness side.
+    
+    * Add `--disable-gpu` to lib tests as well.
+    
+    * Set `PageLoadStrategy=NONE` for browser on Windows to avoid timeouts in driver-browser communication.
+    
+    * Remove whitespace.
+    
+    * Set the fixing flag for lib tests on Windows.
+    
+    * Fix: add args to chrome scenario, not node.
+    
+    * Move appended WBT args to one place.
+    
+    ---------
+    
+    Co-authored-by: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
+    Co-authored-by: Ilona Tomkowicz <32700855+ilonatommy@users.noreply.github.com>
+    Co-authored-by: Larry Ewing <lewing@microsoft.com>
+    Co-authored-by: Ilona Tomkowicz <itomkowicz@microsoft.com>
