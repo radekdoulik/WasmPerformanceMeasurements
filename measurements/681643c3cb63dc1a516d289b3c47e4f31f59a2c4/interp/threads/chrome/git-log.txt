@@ -1,0 +1,13 @@
+commit 681643c3cb63dc1a516d289b3c47e4f31f59a2c4
+Author: Matthew Adams <matthew.adams@endjin.com>
+Date:   Thu Sep 19 21:41:31 2024 +0100
+
+    Added JsonMarshal.GetRawUtf8PropertyName API and corresponding JsonProperty tests. (#107784)
+    
+    * Added JsonMarshal API and corresponding JsonProperty tests.
+    
+    * Updated documentation to better reflect what is being returned.
+    
+    * Improved documentation.
+    
+    * Revert changes to System.Text.Json.sln
