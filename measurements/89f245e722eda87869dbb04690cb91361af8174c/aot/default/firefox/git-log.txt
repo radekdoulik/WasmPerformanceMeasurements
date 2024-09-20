@@ -1,0 +1,7 @@
+commit 89f245e722eda87869dbb04690cb91361af8174c
+Author: Theodore Tsirpanis <teo@tsirpanis.gr>
+Date:   Fri Sep 20 11:14:54 2024 +0300
+
+    [NRBF] Remove array allocation when decoding `decimal`s. (#107797)
+    
+    By directly passing a collection expression to `decimal`'s constructor, we avoid allocating an array on frameworks that have an overload that accepts a `ReadOnlySpan<int>`, in which case the span's memory is allocated on the stack.
