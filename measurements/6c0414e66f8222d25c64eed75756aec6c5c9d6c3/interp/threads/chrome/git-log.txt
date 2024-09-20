@@ -1,0 +1,7 @@
+commit 6c0414e66f8222d25c64eed75756aec6c5c9d6c3
+Author: Xu Liangyu <xuliangyu@loongson.cn>
+Date:   Fri Sep 20 23:20:32 2024 +0800
+
+    [LoongArch64] Align the ELF relocation type. (#108051)
+    
+    * Also fix the `dotnet --info` error on Alpine.
