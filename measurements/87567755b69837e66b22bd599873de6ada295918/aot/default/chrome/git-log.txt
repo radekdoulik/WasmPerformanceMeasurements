@@ -1,0 +1,11 @@
+commit 87567755b69837e66b22bd599873de6ada295918
+Author: Aman Khalid <amankhalid@microsoft.com>
+Date:   Fri Sep 20 03:49:23 2024 +0000
+
+    JIT: Don't create zero-sized method fragments in `emitter::emitSplit` (#107568)
+    
+    * Fix emitSplit logic
+    
+    * Remove TODO
+    
+    * Add more comments
