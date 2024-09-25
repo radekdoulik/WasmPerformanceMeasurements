@@ -1,0 +1,9 @@
+commit a709d731e0872711ceddc5089ea86af531001dd8
+Author: Eirik Tsarpalis <eirik.tsarpalis@gmail.com>
+Date:   Tue Sep 10 12:45:46 2024 +0100
+
+    Fix JsonSchemaExporter support for global UnmappedMemberHandling settings. (#107545)
+    
+    * Fix JsonSchemaExporter support for global UnmappedMemberHandling settings.
+    
+    * Pass correct parameter in unit test.
