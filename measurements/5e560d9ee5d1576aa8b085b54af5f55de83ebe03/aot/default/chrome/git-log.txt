@@ -1,0 +1,7 @@
+commit 5e560d9ee5d1576aa8b085b54af5f55de83ebe03
+Author: David Wrighton <davidwr@microsoft.com>
+Date:   Tue Sep 10 17:30:58 2024 -0700
+
+    Remove helper method frame from Profiler hooks (#107152)
+    
+    Remove helper method frame and update the CONTRACTs to suit the new behavior. This WILL change the profiler behavior in that a set of apis in the Profiler api surface will not fail immediately on any attempt to use them. However, the set of apis which change are I believe not safe to call within a ProfilerEnter/Leave hook as an actual triggered GC will cause potential memory corruption if the arguments/return value of the function have any GC pointers.
