@@ -1,0 +1,7 @@
+commit 102f28e5a64cdbe89484ac10414fdebb9a51c65f
+Author: Xu Liangyu <xuliangyu@loongson.cn>
+Date:   Wed Sep 11 13:55:43 2024 +0800
+
+    [LoongArch64] Fix the clr build error on Alpine. (#107669)
+    
+    * Apply libunwind: https://github.com/libunwind/libunwind/pull/741
