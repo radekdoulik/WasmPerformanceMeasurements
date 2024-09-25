@@ -1,0 +1,29 @@
+commit a16e0d58e92fe5f3bcda9e75e9afd1ee0f766967
+Author: dotnet-maestro[bot] <42748379+dotnet-maestro[bot]@users.noreply.github.com>
+Date:   Wed Sep 25 14:11:33 2024 -0500
+
+    [main] Update dependencies from dotnet/cecil, dotnet/hotreload-utils, dotnet/icu, dotnet/source-build-externals (#108183)
+    
+    * Update dependencies from https://github.com/dotnet/icu build 20240923.1
+    
+    Microsoft.NETCore.Runtime.ICU.Transport
+     From Version 10.0.0-alpha.1.24466.3 -> To Version 10.0.0-alpha.1.24473.1
+    
+    * Update dependencies from https://github.com/dotnet/hotreload-utils build 20240923.1
+    
+    Microsoft.DotNet.HotReload.Utils.Generator.BuildTool
+     From Version 10.0.0-alpha.0.24466.1 -> To Version 10.0.0-alpha.0.24473.1
+    
+    * Update dependencies from https://github.com/dotnet/cecil build 20240923.1
+    
+    Microsoft.SourceBuild.Intermediate.cecil , Microsoft.DotNet.Cecil
+     From Version 0.11.5-alpha.24467.1 -> To Version 0.11.5-alpha.24473.1
+    
+    * Update dependencies from https://github.com/dotnet/source-build-externals build 20240923.2
+    
+    Microsoft.SourceBuild.Intermediate.source-build-externals
+     From Version 10.0.0-alpha.1.24466.1 -> To Version 10.0.0-alpha.1.24473.2
+    
+    ---------
+    
+    Co-authored-by: dotnet-maestro[bot] <dotnet-maestro[bot]@users.noreply.github.com>
