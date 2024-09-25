@@ -1,0 +1,19 @@
+commit 0f9caba7b2077afcb9c4e8cfc93bffb4cddcb4e2
+Author: dotnet-maestro[bot] <42748379+dotnet-maestro[bot]@users.noreply.github.com>
+Date:   Mon Sep 23 11:23:13 2024 -0500
+
+    [main] Update dependencies from dotnet/runtime, dotnet/sdk (#108136)
+    
+    * Update dependencies from https://github.com/dotnet/runtime build 20240922.5
+    
+    Microsoft.NET.Sdk.IL , Microsoft.NETCore.App.Runtime.win-x64 , Microsoft.NETCore.ILAsm , runtime.native.System.IO.Ports , System.Reflection.Metadata , System.Reflection.MetadataLoadContext , System.Text.Json , Microsoft.SourceBuild.Intermediate.runtime.linux-x64
+     From Version 10.0.0-alpha.1.24463.8 -> To Version 10.0.0-alpha.1.24472.5
+    
+    * Update dependencies from https://github.com/dotnet/sdk build 20240922.4
+    
+    Microsoft.SourceBuild.Intermediate.sdk , Microsoft.DotNet.ApiCompat.Task
+     From Version 10.0.100-alpha.2.24464.2 -> To Version 10.0.100-alpha.1.24472.4
+    
+    ---------
+    
+    Co-authored-by: dotnet-maestro[bot] <dotnet-maestro[bot]@users.noreply.github.com>
