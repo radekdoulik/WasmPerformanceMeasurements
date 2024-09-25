@@ -1,0 +1,9 @@
+commit 8351e5f0090211d321e02fb8aaaa22d1404c6e78
+Author: Katelyn Gadd <kg@luminance.org>
+Date:   Wed Sep 11 04:14:02 2024 -0700
+
+    [wasm] Increase jiterpreter limits (#107557)
+    
+    * Raise module size limit to 16KB (from past testing this is a good compromise value that can actually reduce number of traces compiled and time spent compiling them)
+    * Raise total wasm bytes limit a bit since the modules are now bigger
+    * Raise switch case limit to 128, so switch statements over the 7-bit ASCII character range can be jitted. I expect this to improve text parsing performance; it might be worth raising it to 256.
