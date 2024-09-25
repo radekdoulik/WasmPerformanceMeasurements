@@ -1,0 +1,17 @@
+commit 9eef7761e814895fa87c66eed1f364d7f11fe987
+Author: Michael Sharp <51342856+michaelgsharp@users.noreply.github.com>
+Date:   Mon Sep 16 13:18:51 2024 -0600
+
+    Fixing 0 length issue with constructor (#107427)
+    
+    * fixing 0 length issue with constructor
+    
+    * Update src/libraries/System.Numerics.Tensors/src/System/Numerics/Tensors/netcore/ReadOnlyTensorSpan.cs
+    
+    Co-authored-by: Stephen Toub <stoub@microsoft.com>
+    
+    * comments from PR
+    
+    ---------
+    
+    Co-authored-by: Stephen Toub <stoub@microsoft.com>
