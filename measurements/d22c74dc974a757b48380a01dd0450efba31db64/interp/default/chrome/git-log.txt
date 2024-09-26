@@ -1,0 +1,21 @@
+commit d22c74dc974a757b48380a01dd0450efba31db64
+Author: Alan Hayward <a74nh@users.noreply.github.com>
+Date:   Thu Sep 26 13:53:53 2024 +0100
+
+    ARM64: Fix lsra for AdvSimd_LoadAndInsertScalar (#107786)
+    
+    * ARM64: Fix lsra for AdvSimd_LoadAndInsertScalar
+    
+    * Fix comment
+    
+    * Expand LoadAndInsertScalar testing
+    
+    * Only delayfree when register types match
+    
+    * fix formatting
+    
+    * Fix comment
+    
+    * Check that multiregister nodes use fp registers
+    
+    * Revert rmw assert
