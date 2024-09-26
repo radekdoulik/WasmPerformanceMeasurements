@@ -1,0 +1,19 @@
+commit 52a51e882eb2b3592500e34e2b0eb5e174998760
+Author: Edward Neal <55035479+edwardneal@users.noreply.github.com>
+Date:   Thu Sep 26 19:32:35 2024 +0100
+
+    Add test coverage for DirectoryServices.TransformControls (#107201)
+    
+    * Added tests for server response DirectoryControls
+    
+    * Addressing platform inconsistencies
+    
+    * There are looser rules in OpenLDAP when an octet string exceeds the length of its containing sequence.
+    * Windows 8.1 and below treats trailing 0x80 bytes differently to every other platform.
+    * Added a test which covers an octet string containing invalid Unicode bytes.
+    
+    * Handle differing .NET Framework behaviour
+    
+    Also handle changes to the "a" format string: Winldap in Windows 10 is stricter when a SEQUENCE's contents overflow its length
+    
+    * Update SortResponseControlTests.cs
