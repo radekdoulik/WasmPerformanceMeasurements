@@ -1,0 +1,9 @@
+commit e49d49711d809b3c1c1cb78fbc58233afe8d2ff1
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Fri Sep 20 18:34:42 2024 -0400
+
+    Improve Random{NumberGenerator}.GetItems/String for non-power of 2 choices (#107988)
+    
+    In .NET 9, we added an optimization to Random.GetItems and RandomNumberGenerator.GetItems/GetString that special-cases a power-of-2 number of choices that's <= 256. In such a case, we can avoid many trips to the RNG by requesting bytes in bulk, rather than requesting an Int32 per element. Each byte is masked to produce the index into the choices.
+    
+    This PR extends that optimization to also cover non-power-of-2 choices. It can't just mask off the bits as in the power-of-2 case, but it can mask off some bits and then do rejection sampling, which on average still yields big wins.
