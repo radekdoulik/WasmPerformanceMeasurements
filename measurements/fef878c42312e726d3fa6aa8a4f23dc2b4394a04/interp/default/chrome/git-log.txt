@@ -1,0 +1,7 @@
+commit fef878c42312e726d3fa6aa8a4f23dc2b4394a04
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Sat Sep 21 16:17:33 2024 -0400
+
+    Add missing params to WhenEach overloads (#107964)
+    
+    These were approved and intended but likely missed due to coming in at approximately the same time that params span support was added.
