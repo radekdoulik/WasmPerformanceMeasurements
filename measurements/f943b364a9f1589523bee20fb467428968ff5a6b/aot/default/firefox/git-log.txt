@@ -1,0 +1,27 @@
+commit f943b364a9f1589523bee20fb467428968ff5a6b
+Author: Huo Yaoyuan <huoyaoyuan@hotmail.com>
+Date:   Fri Sep 20 23:25:27 2024 +0800
+
+    Modernize C# generation tools under coreclr/inc (#106719)
+    
+    * Port genheaders to NetCoreAppToolCurrent
+    
+    * Modernize
+    
+    * Use XmlLinq
+    
+    * Update doc and add CORPROF_E_MODULE_IS_ENC
+    
+    * Port CrstTypeTool to NetCoreAppToolCurrent
+    
+    * Modernize
+    
+    * Modernize errors
+    
+    * Modernize
+    
+    * Update usage
+    
+    ---------
+    
+    Co-authored-by: Manish Godse <61718172+mangod9@users.noreply.github.com>
