@@ -1,0 +1,9 @@
+commit 2fcc09b50c2621a80c22067b6f547e31d4235c20
+Author: David Wrighton <davidwr@microsoft.com>
+Date:   Fri Sep 27 12:21:49 2024 -0700
+
+    Fix statics issue with barriers (#108311)
+    
+    * Fix statics issue with barriers
+    
+    * Add barriers for RiscV and Loongson
