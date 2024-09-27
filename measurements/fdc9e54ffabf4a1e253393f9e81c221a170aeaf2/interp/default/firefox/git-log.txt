@@ -1,0 +1,42 @@
+commit fdc9e54ffabf4a1e253393f9e81c221a170aeaf2
+Author: Aleksey Kliger (λgeek) <alklig@microsoft.com>
+Date:   Thu Sep 26 18:08:55 2024 -0400
+
+    [cdac][tests] Make it easier to set up a unit test (#108288)
+    
+    We used to stackalloc a lot of data because the Target callback had to be an UnmanagedCallersOnly function pointer. But now it's just a delegate. So we can heap allocate the mock memory space and get rid of a bunch of incidental fixed statements
+    We used to spell out the JSON contract descriptor in every test case. We dont' need to do that - most tests are not testing parsing. Hide all that stuff in MockMemorySpace.Builder
+    
+    * make MockMemorySpace.ReadContext a class
+    
+       Now that Target's reader callback is just a normal managed delegate, we don't have a lot of reason to make the testing ReadContext a ref struct.  So simplify our resource usage and just store the descriptors and json as heap allocated arrays
+    
+    * remove uses of fixed in tests
+    
+       The ReadContext for the  tests keeps a copy of the json payload, we don't need to use unmanaged pointers
+    
+    * make the MockMemorySpace.Builder a normal class
+    
+       we don't hold pointers to span data anymore
+    
+    * make MockMemorySpace.ReadContext private
+    
+    * begin hiding ContractDescriptorFill
+    
+       most of our tests that use a valid contract descriptor don't need to repeat the boilerplate to fill it in
+    
+    * start removing json and pointer data boilerplate
+    
+    * Don't fill the pointer data when there isn't any
+    
+       We previously did the wrong thing with TargetTestHelpers.MakeGlobalJson: it always filled in direct values.  So technically filling in the pointer data in all the other tests is unnecessary.
+    
+       Add a second SetGlobals overload for the builder that takes a 4-tuple (either ulong? Value or uint IndirectIndex) and a second collection of actual values for the indices.
+    
+    * remove unused MockMemorySpace.Builder functions
+    
+       everything is using high level construction now
+    
+    * remove unneeded stackalloc
+    
+    * describe test addresses
