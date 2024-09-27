@@ -1,0 +1,9 @@
+commit 65061add8d2ff36e7659930861c80a8087bda63e
+Author: AlanLiu90 <alanliu90@gmail.com>
+Date:   Tue Sep 24 03:21:32 2024 +0800
+
+    Avoid lock contention during thread creation of thread pool (#108135)
+    
+    For a worker thread, Thread.StartCore and Thread.SetThreadPoolWorkerThreadName have lock contention.
+    
+    Fix #108057
