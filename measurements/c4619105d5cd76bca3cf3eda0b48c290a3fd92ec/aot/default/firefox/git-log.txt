@@ -1,0 +1,13 @@
+commit c4619105d5cd76bca3cf3eda0b48c290a3fd92ec
+Author: Mike McLaughlin <mikem@microsoft.com>
+Date:   Mon Sep 23 21:03:02 2024 -0700
+
+    Fix createdump 'stack smashing detected' error on arm64 (#108166)
+    
+    The changes from PR #91865 were reverted by PR #95433.
+    
+    This change restores the fix from PR #91865 by changing the size back to SpecialDiagInfoSize
+    but uses the 4 parameter MemoryRegion constructor that doesn't assert the address/size is on
+    a PAGE_SIZE alignment (PR #95433).
+    
+    Issue: https://github.com/dotnet/runtime/issues/108023
