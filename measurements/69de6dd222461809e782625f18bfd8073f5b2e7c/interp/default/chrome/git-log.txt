@@ -1,0 +1,15 @@
+commit 69de6dd222461809e782625f18bfd8073f5b2e7c
+Author: Noah Falk <noahfalk@users.noreply.github.com>
+Date:   Thu Sep 26 20:10:42 2024 -0700
+
+    Root the System.Runtime EventSource (#108266)
+    
+    Root the System.Runtime EventSource
+    
+    The System.Runtime EventSource (RuntimeEventSource), was unintentionally being garbage collected because it wasn't rooted. This caused runtime EventCounters to no longer be available after GC occurred.
+    
+    This was a regression from a recent change (https://github.com/dotnet/runtime/pull/106014). That change accidentally converted the static field that was intended to the root the object into a property getter that returned a new instance each time it was called. This fix converts the property back to being initialized only once.
+    
+    This will fix #107919 once it is backported.
+    
+    Co-authored-by: Tarek Mahmoud Sayed <10833894+tarekgh@users.noreply.github.com>
