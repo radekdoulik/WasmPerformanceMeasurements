@@ -1,0 +1,15 @@
+commit 9b56e737ef9910fcb3b6e80f2bef795459c6982c
+Author: Aleksey Kliger (λgeek) <alklig@microsoft.com>
+Date:   Thu Sep 26 18:29:04 2024 -0400
+
+    [cdac-build-tool] don't embed resources (#108293)
+    
+    reviously we used EmbeddedResource to collect the contract descriptor baselines into cdac-build-tool and we also embedded the C source template.
+    
+    But we only ever run cdac-build-tool during the runtime build - the files are in the same source tree. Just pass their paths when invoking the tool, don't embed them.
+    
+    Fixes #107958
+    
+    * don't embed baselines into cdac-build-tool
+    
+    * don't embed the template source file in the tool
