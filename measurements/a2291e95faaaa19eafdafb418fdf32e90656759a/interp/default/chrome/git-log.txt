@@ -1,0 +1,9 @@
+commit a2291e95faaaa19eafdafb418fdf32e90656759a
+Author: kasperk81 <83082615+kasperk81@users.noreply.github.com>
+Date:   Sat Sep 28 02:47:08 2024 +0300
+
+    fix guid version > 7 (#108314)
+    
+    * fix guid version > 7
+    
+    * Update src/libraries/System.Runtime/tests/System.Runtime.Tests/System/GuidTests.cs
