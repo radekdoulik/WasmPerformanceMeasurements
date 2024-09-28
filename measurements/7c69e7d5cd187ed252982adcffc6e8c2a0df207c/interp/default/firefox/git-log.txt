@@ -1,0 +1,9 @@
+commit 7c69e7d5cd187ed252982adcffc6e8c2a0df207c
+Author: Aaron Robinson <arobins@microsoft.com>
+Date:   Fri Sep 27 22:35:33 2024 -0700
+
+    Fix the QCall contract for GC suppression. (#108344)
+    
+    * Fix the QCall contract for GC suppression.
+    
+    * Remove QCALL_BEGIN/END from method
