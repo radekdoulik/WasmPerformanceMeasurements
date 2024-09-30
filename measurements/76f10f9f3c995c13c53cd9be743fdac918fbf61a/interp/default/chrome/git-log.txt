@@ -1,0 +1,25 @@
+commit 76f10f9f3c995c13c53cd9be743fdac918fbf61a
+Author: Kunal Pathak <Kunal.Pathak@microsoft.com>
+Date:   Mon Sep 16 11:40:12 2024 -0700
+
+    Fix the operands of NI_AVX512F_TernaryLogic during lowering (#107813)
+    
+    * fix the operands for TernaryLogicUseFlags
+    
+    * Add test case
+    
+    * Revert "fix the operands for TernaryLogicUseFlags"
+    
+    This reverts commit 5b016430f5a35ef949dc3d4dc227631a926729bd.
+    
+    * proper fix
+    
+    * trim test
+    
+    * wrap test in try-catch
+    
+    * Revert "wrap test in try-catch"
+    
+    This reverts commit 33198757cf2112cbf894977fc9455139d0a10b71.
+    
+    * wrap in Avx512F.IsSupported
