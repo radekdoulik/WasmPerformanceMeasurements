@@ -1,0 +1,13 @@
+commit 98db53f064ef8fe9dcf9de762f391277a4e9081d
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Mon Sep 30 15:03:41 2024 +0900
+
+    Fix IDynamicInterfaceCastable with shared generic code (#108235)
+    
+    Fixes #72909.
+    
+    Internal team ran into this. Turns out CsWinRT also needs this, but they're were working around instead pushing on a fix.
+    
+    The big problem with this one is that we have an interface call to a default interface method that requires generic context. This means we need some kind of instantiating thunk (since callsite didn't provide generic context because it didn't know it). The normal default interface case uses an instantiating thunk that simply indexes into the interface list of `this`. We know the index of the interface (we don't know the concrete type because `T`s could be involved), but we can easily compute it at runtime from `this`.
+    
+    The problem with `IDynamicInterfaceCastable` is that `this` is useless (the class doesn't know anything about the interface). So we need to get the generic context from somewhere else. In this PR, I'm using the thunkpool as "somewhere else". When we finish interface lookup and find out `IDynamicInterfaceCastable` provided a shared method, we create a thunkpool thunk that stashes away the context. We then call the "default interface method instantiating thunk" and instead of indexing into interface list of `this`, we index into interface list of whatever was stashed away. So there are two thunks before we reach the point of executing the method body.
