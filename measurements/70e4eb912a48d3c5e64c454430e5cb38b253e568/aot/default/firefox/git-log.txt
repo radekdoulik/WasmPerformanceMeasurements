@@ -1,0 +1,12 @@
+commit 70e4eb912a48d3c5e64c454430e5cb38b253e568
+Author: Andy Ayers <andya@microsoft.com>
+Date:   Mon Sep 30 07:43:17 2024 -0700
+
+    JIT: use bbID for pred list ordering (#108357)
+    
+    Make `bbID` available in release builds, and use it to control the order
+    of edges in the pred list. This removes (almost all) the need for reordering
+    pred lists when blocks are renumbered (`bbNum` changes, but `bbID` doesn't).
+    
+    Also remove the need for sorting pred lists; in the one remaining place
+    where sorting might be needed, just remove, modify, and then re-add the edge.
