@@ -1,0 +1,7 @@
+commit 93995336a1ca62b319ccc08d71e0af8b5ffb9033
+Author: Elinor Fung <elfung@microsoft.com>
+Date:   Mon Sep 30 10:14:55 2024 -0700
+
+    Move computation of DebuggerAssemblyControlFlags from DomainAssembly to Assembly (#107809)
+    
+    This moves the initial computation into `Assembly` and removes the flags from `DomainAssembly`. Actual consumers were already getting the flags off of `Assembly` or `Module`
