@@ -1,0 +1,10 @@
+commit e4282ffe43a72a4c84777545932062364d77832f
+Author: Aleksey Kliger (λgeek) <alklig@microsoft.com>
+Date:   Thu Sep 26 14:31:02 2024 -0400
+
+    [mini] Don't use Unwind Backtrace on android-amd64 (#107615)
+    
+    Match what we do for other android RIDs.
+    
+    The _Unwind_Backtrace support is only used when llvmonly mode is
+    enabled, which is not something that we do for Android
