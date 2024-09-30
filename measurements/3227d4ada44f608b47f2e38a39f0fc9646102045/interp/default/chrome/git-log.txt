@@ -1,0 +1,22 @@
+commit 3227d4ada44f608b47f2e38a39f0fc9646102045
+Author: Jan Vorlicek <janvorli@microsoft.com>
+Date:   Wed Sep 25 17:51:52 2024 +0200
+
+    Enable GC double reporting detection (#107986)
+    
+    * Enable GC double reporting detection
+    
+    This change adds detection of double reporting of stack slots and
+    registers during GC stack walk. The detection is disabled by default and
+    can be enabled using the DOTNET_EnableGCHoleMonitoring env variable.
+    
+    If a double reporting is found, it triggers an assert in both release and
+    debug builds of the runtime.
+    
+    * Reflect PR feedback
+    
+    * Allocate the hash table only when the monitoring is on
+    
+    * Address PR feedback
+    
+    * Reflect PR feedback
