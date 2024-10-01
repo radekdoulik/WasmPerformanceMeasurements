@@ -1,0 +1,7 @@
+commit dee90100a179efdb9b5aeef9872a80eca5befc22
+Author: Noah Falk <noahfalk@users.noreply.github.com>
+Date:   Tue Sep 24 20:49:35 2024 -0700
+
+    Reduce funceval abort (#108220)
+    
+    Visual Studio reported that they were seeing unnecessary func-eval aborts. This was due to a lock ordering issue between CrstReadyToRunEntryPointToMethodDescMap and the coop mode transition. Flipping the ordering should fix the issue for this particular lock though it doesn't prevent any other lock from blocking func-evals. This should reduce, but not eliminate, the number of cases where func-eval abort is required.
