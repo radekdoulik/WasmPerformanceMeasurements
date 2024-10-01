@@ -1,0 +1,9 @@
+commit c582320c06c328a36523f5dafc6461f01b59b798
+Author: Manish Godse <61718172+mangod9@users.noreply.github.com>
+Date:   Fri Sep 20 15:34:12 2024 -0700
+
+    dont try to capture threadId for NativeAOT (#108045)
+    
+    * dont try to capture threadId for NativeAOT
+    
+    * add config to capture bgc threadid
