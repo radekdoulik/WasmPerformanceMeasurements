@@ -1,0 +1,32 @@
+commit a7e5426352ed2174ca73d1e80894928cbfb42392
+Author: Aleksey Kliger (λgeek) <alklig@microsoft.com>
+Date:   Mon Sep 30 15:20:59 2024 -0400
+
+    [cdac] break up cdacreader into 4 separate assemblies (#108156)
+    
+    Break up the monolithic cdacreader assembly into four parts:
+    
+    1. `Microsoft.Diagnostics.DataContractReader.Abstractions` just the API surface for contract implementations and clients. **Note**: everything is internal for now (with IVT for the other assemblies) - we're not committing to a public API surface yet
+    2. `Microsoft.Diagnostics.DataContractReader.Contracts`: the concrete implementations of the contracts and data
+    3. `Microsoft.Diagnostics.DataContractReader`: a concrete Target that ties everything together
+    4. `cdacreader`: just the unmanaged entrypoints and the legacy DAC API surface `SOSDacImpl`
+    
+    To untangle things I had to add a new `IContractFactory<TContract>` interface - this is what the target's ContractRegistry uses to instantiate specific versions of contracts.
+    
+    Goals:
+    
+    * Make it possible to mock a Target and its ContractRegistry so that concrete contracts can be tested in isolation for example by making dummy dependent contracts that return canned answers.
+    * Eventually make it possible to inject additional contract implementations into a ContractRegistry implementation
+    Make it possible to consume just the Target and Contracts without the unmanaged entrypoints or the legacy interfaces
+    
+    
+    Changes:
+    * [cdac] break up cdacreader into 4 separate assemblies
+    * rename the contract factories using libraries naming convention
+    * removed unused usings
+    * document all abstract Target members
+    * rename Target -> ContractDescriptorTarget
+    * Add ReadTargetPointerFromSpan to abstract Target
+       Allows the TypeNameBuidler and SigFormat to depend on the abstract target
+    * change SOSDacImpl to depend on the abstract Target
+    * fixup filenames and namespaces
