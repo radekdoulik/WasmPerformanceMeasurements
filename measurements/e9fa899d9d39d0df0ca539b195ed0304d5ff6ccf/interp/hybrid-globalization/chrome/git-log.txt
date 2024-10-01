@@ -1,0 +1,10 @@
+commit e9fa899d9d39d0df0ca539b195ed0304d5ff6ccf
+Author: Elinor Fung <elfung@microsoft.com>
+Date:   Mon Sep 30 22:45:34 2024 -0700
+
+    Add comments to host error_codes.h (#107775)
+    
+    Include basic descriptions of host error codes in `error_codes.h`. Slight clean-up (and some renames) of some error codes - these are all failures with no expected programmatic recovery, so the value change should be fine:
+    - Merged `LibHostCurExeFindFailure` with `CurrentHostFindFailure`
+    - Merged `LibHostSdkFindFailure` with `SdkResolveFailure`
+    - Merged `LibHostUnknownCommand` with `LibHostInvalidArgs`
