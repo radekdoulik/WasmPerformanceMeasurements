@@ -1,0 +1,8 @@
+commit b3a113aa56be849fcd9c9383226a62c1f5761244
+Author: Juan Hoyos <19413848+hoyosjs@users.noreply.github.com>
+Date:   Fri Sep 27 13:50:23 2024 -0700
+
+    Fix build-runtime-tests-and-send-to-helix auth for internal PRs (#107635)
+    
+    * Fix build-runtime-tests-and-send-to-helix auth for internal PRs
+    * Update build-runtime-tests-and-send-to-helix.yml
