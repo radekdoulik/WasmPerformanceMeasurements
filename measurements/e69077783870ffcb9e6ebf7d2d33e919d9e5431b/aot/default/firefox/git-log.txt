@@ -1,0 +1,7 @@
+commit e69077783870ffcb9e6ebf7d2d33e919d9e5431b
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Tue Oct 1 06:36:48 2024 +0900
+
+    Enable IDynamicInterfaceCastable tests disabled on fixed bug (#108376)
+    
+    These had to be excluded in #108235 but #108328 fixed them in the meantime. One of these PRs might be serviced for .NET 9 and the other may not, so I'm just reenabling this in a separate PR to make backports easier.
