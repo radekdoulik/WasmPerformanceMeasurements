@@ -1,0 +1,8 @@
+commit 7b1e788c34ee9a44f6dc548c170c153dd7eab559
+Author: Andy Ayers <andya@microsoft.com>
+Date:   Mon Sep 30 15:31:48 2024 -0700
+
+    JIT: remove some unnecessary DONT_REMOVE block flags (#108405)
+    
+    When we clone a finally or remove an empty try, the cloned handler
+    entry or former try region entry no longer need special protection.
