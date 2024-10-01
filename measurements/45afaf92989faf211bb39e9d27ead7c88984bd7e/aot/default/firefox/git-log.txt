@@ -1,0 +1,5 @@
+commit 45afaf92989faf211bb39e9d27ead7c88984bd7e
+Author: Egor Bogatov <egorbo@gmail.com>
+Date:   Thu Sep 19 23:33:29 2024 +0200
+
+    JIT: Don't expand virtual calls too early for minopts (#108002)
