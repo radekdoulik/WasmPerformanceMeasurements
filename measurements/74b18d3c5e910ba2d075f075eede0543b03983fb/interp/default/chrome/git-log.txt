@@ -1,0 +1,7 @@
+commit 74b18d3c5e910ba2d075f075eede0543b03983fb
+Author: Steve Gordon <sgordon@hotmail.co.uk>
+Date:   Mon Sep 30 18:21:52 2024 +0100
+
+    Remove duplicate code in DiagnosticsHandler (#108012)
+    
+    There seems to be some redundant instrumentation code in `DiagnosticsHandler`, which this PR removes.
