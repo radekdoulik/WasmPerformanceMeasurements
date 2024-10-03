@@ -1,0 +1,13 @@
+commit 3ca4ec8011f153bb8aa7508ea323a9acfe6e8283
+Author: Jeff Handley <jeffhandley@users.noreply.github.com>
+Date:   Tue Oct 1 20:22:10 2024 -0700
+
+    Update System.Formats.Nrbf ref sources and restore package description (#108430)
+    
+    * Restore System.Formats.Nrbf package description alongside package README
+    
+    * Add missing struct members to ref source
+    
+    * Update ref to match dotnet msbuild /t:GenerateReferenceAssemblySource
+    
+    * Remove 'EnableDefaultPackageReadmeFile' since 'true' is the default
