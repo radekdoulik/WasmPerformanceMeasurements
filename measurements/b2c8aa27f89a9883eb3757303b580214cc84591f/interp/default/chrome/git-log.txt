@@ -1,0 +1,11 @@
+commit b2c8aa27f89a9883eb3757303b580214cc84591f
+Author: Andy Ayers <andya@microsoft.com>
+Date:   Thu Oct 3 13:52:56 2024 -0700
+
+    JIT: remove fgAddCodeList (#108527)
+    
+    AddCodeDscs are currently kept in both a linked list and in a hash map.
+    Since the order of these descriptors is not important, remove the list
+    and use map iterators to enumerate them.
+    
+    This makes it easier to remove ACDs.
