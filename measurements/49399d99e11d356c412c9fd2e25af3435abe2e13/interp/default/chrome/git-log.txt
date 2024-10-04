@@ -1,0 +1,33 @@
+commit 49399d99e11d356c412c9fd2e25af3435abe2e13
+Author: Radek Zikmund <32671551+rzikm@users.noreply.github.com>
+Date:   Thu Oct 3 13:12:13 2024 +0200
+
+    Obsolete ExchangeAlgorithmType, CipherAlgorithmType and HashAlgorithmType and their usage (#105875)
+    
+    * Obsolete KeyExchangeAlgorithm, KeyExchangeStrength, CipherAlgorithm, CipherAlgorithmStrength, HashAlgorithm and HashStrength properties of SslStream.
+    
+    * Fix build of S.N.S
+    
+    * Tentatively unobsolete enum types
+    
+    * Revert "Tentatively unobsolete enum types"
+    
+    This reverts commit f5f6435b9d03d39c37f6d9de948c421a28f88428.
+    
+    * Obsolete other usages of enums
+    
+    * 9.0
+    
+    * Suppressions
+    
+    * Change #ifdef checks to 10.0
+    
+    * Update compatibility suppressions
+    
+    * Regenerated suppresions
+    
+    * Fix build
+    
+    ---------
+    
+    Co-authored-by: wfurt <tweinfurt@yahoo.com>
