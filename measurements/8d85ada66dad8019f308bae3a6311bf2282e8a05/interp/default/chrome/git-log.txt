@@ -1,0 +1,10 @@
+commit 8d85ada66dad8019f308bae3a6311bf2282e8a05
+Author: Sven Boemer <sbomer@gmail.com>
+Date:   Fri Oct 4 09:02:03 2024 -0700
+
+    Trim analyzer: fix member reported for generic warning (#108528)
+    
+    Fixes an incorrect member reported for warning due to RUC member
+    kept by new constraint. Also adds a testcase for
+    https://github.com/dotnet/runtime/issues/108507, but doesn't fix
+    that issue.
