@@ -1,0 +1,15 @@
+commit ee53b272b852e7edb4ff502d710812bd6e4e2d0b
+Author: Noah Falk <noahfalk@users.noreply.github.com>
+Date:   Tue Sep 24 12:45:54 2024 -0700
+
+    Improve debugger StackOverflow handling (#108172)
+    
+    * Improve debugger StackOverflow handling
+    
+    In the function Debugger::IsThreadAtSafePlace we have some code that attempts to avoid calling a stack intensive helper method if the runtime is currently handling a StackOverflowException. The logic to do that check was incorrect because the runtime's EH has some special case handling for StackOverflow. Most exceptions cause the EH code to create an ExceptionTracker object which in turn causes thread->IsExceptionInProgress() to return TRUE. StackOverflow doesn't set that and goes straight to fatal error handling so thread->IsExceptionInProgress() is false.
+    
+    The fix avoids checking IsExceptionInProgress(). g_pEEInterface->GetThreadException() works because it checks both the tracker and also falls back to thread->m_lastThrownObject where the StackOverflow exception will be stored.
+    
+    Fixes https://github.com/dotnet/runtime/issues/70755
+    
+    Co-authored-by: mikelle-rogers <45022607+mikelle-rogers@users.noreply.github.com>
