@@ -1,0 +1,21 @@
+commit e67f230f5f318b9a661ad3d42367172d4dd8c081
+Author: Sven Boemer <sbomer@gmail.com>
+Date:   Fri Oct 4 09:36:10 2024 -0700
+
+    ILLink: Avoid warning for RUC field rooted as part of a root assembly (#108498)
+    
+    Similar to https://github.com/dotnet/runtime/issues/81864, fields
+    in a RUC class are producing trim analysis warnings in the OOB
+    trim step (the mentioned issue was specific to library mode, but
+    it's also a problem for the normal root assembly mode).
+    
+    This extends the fix from
+    https://github.com/dotnet/runtime/pull/84620 to avoid producing
+    warnings for fields that are marked just because an assembly was
+    rooted. Arguably rooting an assembly _should_ warn about rooted
+    RUC members, but that's not the case today for RUC methods, so
+    this makes the behavior consistent for fields.
+    
+    ---------
+    
+    Co-authored-by: Jackson Schuster <36744439+jtschuster@users.noreply.github.com>
