@@ -1,0 +1,9 @@
+commit ed05fa9600264f610800a321991dab36fb44d924
+Author: Kunal Pathak <Kunal.Pathak@microsoft.com>
+Date:   Fri Oct 4 16:41:57 2024 -0700
+
+    linux/arm64: Verify TLS resolver code (#108419)
+    
+    * linux/arm64: Verify TLS resolver code
+    
+    * Move the flag at the top so customer can turn it off to get unblocked
