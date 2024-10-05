@@ -1,0 +1,14 @@
+commit 3bcaadb01aa12681d70dae1cb78f39a434bb724b
+Author: koenigst <koenigst@users.noreply.github.com>
+Date:   Sat Oct 5 08:12:34 2024 +0200
+
+    Stored the initial capacity of the ConcurrentDictionary for correctly sizing the backing array after clearing the collection. (#108065)
+    
+    * Stored the initial capacity of the ConcurrentDictionary for correctly sizing the backing array after clearing the collection.
+    
+    * Stored the capacity in the ctor.
+    * Used the stored capacity in Clear().
+    
+    Fixes #107016
+    
+    * Added a test to check the capacity logic of the ConcurrentDictionary.
