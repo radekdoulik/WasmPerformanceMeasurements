@@ -1,0 +1,12 @@
+commit fd4d0a9ae99d88f0dca7b5c95005149c641c2211
+Author: Max Charlamb <44248479+max-charlamb@users.noreply.github.com>
+Date:   Fri Oct 4 13:45:42 2024 -0700
+
+    [cdac] Tighten cdac_data friend declarations (#108525)
+    
+    tighten cdac_data friend declarations
+    
+    Previously classes exposed internals to all cdac_data specializations. By changing the
+    friend declarations to the exact specialization which needs will access the internals,
+    we can better verify where the internals are accessed and ensure cdac_data<T> accesses
+    the correct class.
