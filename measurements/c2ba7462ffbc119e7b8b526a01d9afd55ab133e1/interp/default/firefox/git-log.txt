@@ -1,0 +1,13 @@
+commit c2ba7462ffbc119e7b8b526a01d9afd55ab133e1
+Author: Max Charlamb <44248479+max-charlamb@users.noreply.github.com>
+Date:   Wed Oct 2 10:46:39 2024 -0400
+
+    Add instructions to debug CLI builds using VS (#108455)
+    
+    Adds instructions to use VS as a tool to debug CLI builds
+    
+    Previously the coreclr debugging docs only mentioned workflows for Visual Studio
+    which involve using VS for both building and debugging. This adds an additional
+    method to build using CLI scripts and use VS to only debug.
+    
+    Thank you @AaronRobinsonMSFT for showing me this method.
