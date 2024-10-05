@@ -1,0 +1,5 @@
+commit 9d9c64dfe1c9bbc5a9324a1e6d31be8628bbf876
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Fri Sep 27 05:09:29 2024 +0900
+
+    Disable System.Collections.Immutable tests on native AOT (#108275)
