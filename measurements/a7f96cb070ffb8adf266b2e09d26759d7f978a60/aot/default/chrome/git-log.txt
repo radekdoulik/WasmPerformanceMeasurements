@@ -1,0 +1,9 @@
+commit a7f96cb070ffb8adf266b2e09d26759d7f978a60
+Author: Adeel Mujahid <3840695+am11@users.noreply.github.com>
+Date:   Fri Oct 4 14:21:53 2024 +0300
+
+    Fix flag assignment in pal_termios (#108409)
+    
+    * Use bitwise OR when setting IGNBRK in pal_termios
+    
+    * Address feedback
