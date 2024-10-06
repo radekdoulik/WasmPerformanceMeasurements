@@ -1,0 +1,17 @@
+commit 735a031ac6dbda17b643554fb4524506d808b0d6
+Author: Michael Sharp <51342856+michaelgsharp@users.noreply.github.com>
+Date:   Thu Sep 26 12:08:58 2024 -0600
+
+    Fixing SetSlice, Reshape, TryCopyTo. (#107852)
+    
+    * working
+    
+    * comments from PR
+    
+    * can always reshape to self
+    
+    * fixed tests
+    
+    * comments from PR
+    
+    * fixing tests
