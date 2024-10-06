@@ -1,0 +1,14 @@
+commit 48dbc4fc836da67cf1efb6b348499a918c4dea8e
+Author: Jonathan Chambers <jonathan@unity3d.com>
+Date:   Sat Oct 5 17:02:39 2024 -0400
+
+    Use architecture independent code paths in Array (#108449)
+    
+    * Avoid architecture specific code path in Array.
+    
+    Check IntPtr.Size which should evaluate to constant/no-op by either the
+    trimmer or the compiler.
+    
+    * Use goto to reuse existing code paths
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
