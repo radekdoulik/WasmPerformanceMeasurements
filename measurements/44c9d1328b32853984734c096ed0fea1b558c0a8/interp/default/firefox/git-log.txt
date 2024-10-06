@@ -1,0 +1,5 @@
+commit 44c9d1328b32853984734c096ed0fea1b558c0a8
+Author: Marek Fišera <mara@neptuo.com>
+Date:   Tue Oct 1 13:45:39 2024 +0200
+
+    [wasm] Include browser targets if RID is not wasi-wasm (#108283)
