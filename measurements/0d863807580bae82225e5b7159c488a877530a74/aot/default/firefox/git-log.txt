@@ -1,0 +1,5 @@
+commit 0d863807580bae82225e5b7159c488a877530a74
+Author: Peter Jannesen <github@jannesen.com>
+Date:   Wed Oct 2 16:26:11 2024 +0200
+
+    HttpListener fix: Operations that change non-concurrent collections must have exclusive access (#107804)
