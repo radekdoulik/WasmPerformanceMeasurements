@@ -1,0 +1,7 @@
+commit 04c5a32aa4dc6b2f07440debd221f00d8a1582b1
+Author: Bruce Forstall <brucefo@microsoft.com>
+Date:   Tue Sep 24 05:46:43 2024 -0700
+
+    Revert "JIT: Extend jump tables (#107831)" (#108169)
+    
+    This reverts commit a35f7221bc70746591be305df7e14ec5ba53999f.
