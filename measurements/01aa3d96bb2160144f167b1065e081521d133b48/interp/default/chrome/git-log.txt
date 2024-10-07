@@ -1,0 +1,9 @@
+commit 01aa3d96bb2160144f167b1065e081521d133b48
+Author: Ilona Tomkowicz <32700855+ilonatommy@users.noreply.github.com>
+Date:   Fri Sep 27 12:19:14 2024 +0200
+
+    [wasm] Change ICU `WasmBuildTests` to use `wasmconsole` and `wasmbrowser` templates (#108271)
+    
+    * Clean up icu tests (automatic mode).
+    
+    * Block the failing test, mark problems with issue links.
