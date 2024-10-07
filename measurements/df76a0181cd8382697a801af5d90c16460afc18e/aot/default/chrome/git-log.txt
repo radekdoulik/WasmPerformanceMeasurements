@@ -1,0 +1,78 @@
+commit df76a0181cd8382697a801af5d90c16460afc18e
+Author: Eric StJohn <ericstj@microsoft.com>
+Date:   Wed Sep 25 08:08:48 2024 -0700
+
+    Enable NuGet Audit and fix issues (#107639)
+    
+    * Enable NuGet Audit and fix issues
+    
+    Microsoft.NET.HostModel can reference the live builds of the packages
+    it depends on.  These will be deployed by the SDK.
+    Most other audit alerts were due to tasks pulling in old dependencies
+    that aren't even used by the task. Avoid these by cherry-picking
+    just the assemblies needed by the tasks and provided by MSBuild / SDK.
+    This prevents NuGet from downloading the package closure with the
+    vulnerable packages.  We don't need those packages since the tasks
+    aren't responsible for deploying them.  A better solution in the future
+    would be a targeting pack for MSBuild and the .NET SDK - so that
+    components that contribute to these hosts have a surface area they can
+    target without taking on responsibility for servicing.
+    
+    There is once case where we have a test that references NuGet.* packages
+    which also bring in stale dependencies that overlap with framework
+    assemblies.  Avoid these by cherry-picking the NuGet packages in the
+    same way.
+    
+    * Fix package path on linux
+    
+    * Only use live JSON from HostModel
+    
+    SDK pins S.R.M and a few others, so don't make them upgrade yet.
+    
+    * Add a couple missing assembly references
+    
+    * Refactor tasks dependencies
+    
+    Consolidate representation of msbuild-provided task dependencies
+    
+    * Fix audit warnings in tests
+    
+    * Remove MetadataLoadContext from WasmAppBuilder package
+    
+    * Update Analyzer.Testing packages
+    
+    * Reduce exposure of Microsoft.Build.Tasks.Core
+    
+    * Fix audit warnings that only occur on browser
+    
+    * Update Asn1 used by linker analyzer tests
+    
+    * React to breaking change in analyzer test SDK
+    
+    * Enable working DryIoc tests
+    
+    * Fix double-write when LibrariesConfiguration differs from Configuration
+    
+    * Fix LibrariesConfiguration update target
+    
+    * Clean up references and add comments.
+    
+    * Make HostModel references private
+    
+    This ensures projects referenced will not be rebuilt by tests.
+    
+    This also means the HostModel package will not list these as references,
+    but that's OK since the SDK provides them and this is not a shipping
+    package.
+    
+    * Use ProjectReferenceExclusion to avoid framework project references
+    
+    On .NETCore we want to use the targeting pack and avoid rebuilding libs.
+    
+    * Update src/libraries/System.Runtime.InteropServices.JavaScript/tests/JSImportGenerator.UnitTest/JSImportGenerator.Unit.Tests.csproj
+    
+    Co-authored-by: Jeremy Koritzinsky <jkoritzinsky@gmail.com>
+    
+    ---------
+    
+    Co-authored-by: Jeremy Koritzinsky <jkoritzinsky@gmail.com>
