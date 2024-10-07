@@ -1,0 +1,7 @@
+commit e38e56a200259a2c6a7e004e371886f30013383a
+Author: Elinor Fung <elfung@microsoft.com>
+Date:   Tue Oct 1 09:54:29 2024 -0700
+
+    Remove AppDomain from DebugInterface Load/UnloadClass (#107808)
+    
+    Some more cases where we only have the one app domain and we don't need to pass it all over.
