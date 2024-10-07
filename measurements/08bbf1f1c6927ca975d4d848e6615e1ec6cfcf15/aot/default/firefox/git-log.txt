@@ -1,0 +1,11 @@
+commit 08bbf1f1c6927ca975d4d848e6615e1ec6cfcf15
+Author: Elinor Fung <elfung@microsoft.com>
+Date:   Mon Oct 7 10:41:32 2024 -0700
+
+    Fix getting default install location for x64 when running x86 host on x64 Windows (#108538)
+    
+    - Handle x86 on x64 looking for x64 install so that it looks at `ProgramW6432` instead of `ProgramFiles`
+    - Just check `ProgramFiles` for when determining location for current arch
+      - We were unnecessarily checking `ProgramFiles(x86)` for x86 running in wow64
+    
+    Because this is looking at machine-wide locations, our tests don't actually go down this path (tests for default install location go through a test-only environment variable which bypasses the ProgramFiles environment variables lookup).
