@@ -1,0 +1,27 @@
+commit 1fa1745581e26069093a679626e346b675aa534f
+Author: Jan Vorlicek <janvorli@microsoft.com>
+Date:   Fri Oct 4 09:56:48 2024 +0200
+
+    Improve software exception handling performance (#108480)
+    
+    * Improve software exception handling performance
+    
+    I have recently discovered that large part of the time spent in the EH
+    while handling software exception is in the RtlLookupFunctionEntry
+    Windows API. That API is called when unwinding native (non-managed)
+    frames on stack. The current implementation of the IL_Throw JIT helper
+    that is used to throw managed exceptions needs three unwinds to get to
+    the managed caller. Due to the two passes of EH, it means there are six
+    calls made to that API per throw.
+    This change reduces that to just a single unwind, which leads to about
+    12% improvement in single threaded scenarios and about 30% improvement
+    in multi threaded one for a case when an exception is thrown over 10
+    managed frames and then caught. It also leads to similar improvements in
+    async exception handling performance. On Linux, the multi-threaded gain is much higher,
+    I've measured 3 fold improvement.
+    
+    An additional benefit of this change is removal of the helper method
+    frame from IL_Throw and IL_Rethrow, which contributes to the current
+    effort of getting rid of the helper method frames.
+    
+    I have made this change for the new EH only.
