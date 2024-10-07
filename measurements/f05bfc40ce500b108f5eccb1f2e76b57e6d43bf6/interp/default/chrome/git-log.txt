@@ -1,0 +1,9 @@
+commit f05bfc40ce500b108f5eccb1f2e76b57e6d43bf6
+Author: Katelyn Gadd <kg@luminance.org>
+Date:   Thu Oct 3 21:09:27 2024 -0700
+
+    Reduce differences between bash and cmd versions of crossgen test script (#108500)
+    
+    * Reduce differences between bash and cmd versions of crossgen test script
+    * Fix bash crossgen runner script not passing full file list in composite mode
+    * Clean up shellcheck warnings
