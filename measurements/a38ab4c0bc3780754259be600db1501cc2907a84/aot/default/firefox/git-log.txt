@@ -1,0 +1,14 @@
+commit a38ab4c0bc3780754259be600db1501cc2907a84
+Author: Aaron Robinson <arobins@microsoft.com>
+Date:   Wed Oct 2 20:53:57 2024 -0700
+
+    Remove HelperMethodFrames (HMF) from Reflection code paths (#108415)
+    
+    Convert RuntimeTypeHandle.AllocateComObject() to QCall.
+    Convert RuntimeFieldHandle.GetValue() to QCall.
+    Remove FCThrow from RuntimeFieldHandle.GetToken().
+    Convert RuntimeFieldHandle.SetValue() to QCall.
+    Convert RuntimeTypeHandle.IsInstanceOfType() to fast/slow paths.
+    Convert RuntimeHelpers.PrepareDelegate() to QCall.
+    Convert ReflectionInvocation.InvokeDispMethod() to QCall.
+    Convert RuntimeType.get_GUID to QCall.
