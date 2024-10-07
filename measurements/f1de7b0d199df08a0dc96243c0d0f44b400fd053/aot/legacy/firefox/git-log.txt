@@ -1,0 +1,13 @@
+commit f1de7b0d199df08a0dc96243c0d0f44b400fd053
+Author: Tarek Mahmoud Sayed <10833894+tarekgh@users.noreply.github.com>
+Date:   Fri Oct 4 16:07:20 2024 -0700
+
+    Fix IndexOf Optimization Code (#108499)
+    
+    * Fix IndexOf Optimization Code
+    
+    * small typo
+    
+    * Address the feedback
+    
+    * Exclude hybrid globalization runs on the new added tests
