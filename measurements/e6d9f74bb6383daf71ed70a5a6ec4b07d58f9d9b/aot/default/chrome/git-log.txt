@@ -1,0 +1,9 @@
+commit e6d9f74bb6383daf71ed70a5a6ec4b07d58f9d9b
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Wed Oct 2 07:10:59 2024 +0900
+
+    Fix devirtualization across genericness in the hierarchy (#108442)
+    
+    This code was trying to answer question: "Was this method overriden by something else in a more derived class"? It was walking the base hierarchy in canonical form, but that was leading to methods not resolving at all. The fix is to walk the non-canonical hierarchy and canonicalize after we resolved everything.
+    
+    I ran into this in #108379 that unlocked more whole program devirtualization and `StringSearchValuesBase` is in this shape.
