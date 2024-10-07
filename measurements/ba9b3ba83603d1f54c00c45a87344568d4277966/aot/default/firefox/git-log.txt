@@ -1,0 +1,9 @@
+commit ba9b3ba83603d1f54c00c45a87344568d4277966
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Sun Sep 29 03:33:31 2024 +0900
+
+    Fix handling of IDynamicInterfaceCastable wrt CastCache (#108328)
+    
+    Fixes #108229.
+    
+    The actual fix is the addition of an `if` check where it originally wasn't. I also fixed the other checks for consistency - positive checks are fine to cache, and negative checks against non-interface targets are also fine to cache.
