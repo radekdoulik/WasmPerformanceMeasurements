@@ -1,0 +1,13 @@
+commit 770df102b0dfbf16c22ef64a270a989495cfe145
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Tue Oct 8 11:20:34 2024 +0200
+
+    JIT: Disallow SCEV analysis of non-values (#108603)
+    
+    SCEV analysis would allow stores either via simple add-rec handling or
+    by forwarding to the data of the store. Given that stores are not values
+    this is odd behavior that has bitten me while consuming the analysis
+    package.
+    
+    Switch the analysis to return nullptr for stores; instead add handling
+    for `GT_PHI` in the places where it was needed.
