@@ -1,0 +1,14 @@
+commit 0f04f6d7e59487fab5bb98e90c90d049cc7d48e1
+Author: Aaron Robinson <arobins@microsoft.com>
+Date:   Tue Oct 8 11:48:04 2024 -0700
+
+    Remove HelperMethodFrames (HMF) from Reflection code paths (#108535)
+    
+    Remove RuntimeFieldHandle.GetName() FCall.
+    Remove RuntimeMethodHandle.GetName() FCall.
+    Cleanup RuntimeTypeHandle.GetUtf8NameInternal().
+    Convert TypedReference.MakeTypedReference() to mostly managed.
+      - Increase CoreCLR and Mono shared code.
+    Convert RuntimeFieldHandle.GetValueDirect() to QCall.
+    Convert RuntimeFieldHandle.SetValueDirect() to QCall.
+    Removed unused FCThrow* macros.
