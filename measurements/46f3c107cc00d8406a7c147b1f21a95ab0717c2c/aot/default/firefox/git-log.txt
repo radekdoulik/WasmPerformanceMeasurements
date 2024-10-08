@@ -1,0 +1,5 @@
+commit 46f3c107cc00d8406a7c147b1f21a95ab0717c2c
+Author: Jeremy Koritzinsky <jekoritz@microsoft.com>
+Date:   Mon Oct 7 15:05:53 2024 -0700
+
+    Don't call HasCustomModifier when the argument type is something normalized to ELEMENT_TYPE_PTR or ELEMENT_TYPE_BYREF (#108610)
