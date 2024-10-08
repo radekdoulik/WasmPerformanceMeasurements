@@ -1,0 +1,51 @@
+commit a1d898f28e6a96d1126139e447536f458d7c75f7
+Author: Grzegorz Tomasz Czarnecki <grzegorz.czarnecki.2021@gmail.com>
+Date:   Mon Oct 7 18:38:49 2024 +0200
+
+    [RISC-V] Fix Int32 to Unsigned overflow check (#107024)
+    
+    * [RISC-V] Allowed CHECK_POSITIVE to have temporary register
+    
+    * [RISC-V] Fixed CHECK_POSITIVE in genIntCastOverflowCheck
+    
+    * [RISC-V] Improved J pseudoinstruction printing
+    
+    * [RISC-V] Added ret pseudoinstruction to disasm
+    
+    * [RISC-V] Fixed register type in disasm
+    
+    * [RISC-V] Fixed ins_Load
+    
+    * [RISC-V] Formatted code
+    
+    * [RISC-V] Fixed format bug
+    
+    * Revert "[RISC-V] Fixed ins_Load"
+    
+    This reverts commit 144629fb3f98ccbd817dbe3b5cd6d3f687ed942a.
+    
+    * [RISC-V] Fixed comment in codegenlinear
+    
+    * [RISC-V] Fixed sextw attribute type
+    
+    * [RISC-V] Simplified casts logic
+    
+    * [RISC-V] Improved CHECK_SMALL_INT_RANGE casts
+    
+    * [RISC-V] Optimized check int range
+    
+    * [RISC-V] Fixes in codegenriscv64
+    
+    * [RISC-V] Removed unused comment
+    
+    * [RISC-V] Fixed long/ulong casts
+    
+    * [RISC-V] Added some comments
+    
+    * [RISC-V] Fixes in CHECK_SMALL_INT_RANGE
+    
+    * [RISC-V] More bugfixes in int casts
+    
+    * [RISC-V] Generalized CHECK_SMALL_INT_RANGE a little bit
+    
+    * [RISC-V] Fixed typo
