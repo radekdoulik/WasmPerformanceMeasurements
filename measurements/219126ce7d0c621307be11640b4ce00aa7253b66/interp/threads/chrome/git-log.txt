@@ -1,0 +1,12 @@
+commit 219126ce7d0c621307be11640b4ce00aa7253b66
+Author: Max Charlamb <44248479+max-charlamb@users.noreply.github.com>
+Date:   Tue Oct 8 10:26:02 2024 -0400
+
+    [cdac] Implement ISOSDacInterface::GetPEFileBase in cDAC (#108602)
+    
+    Implements ISOSDacInterface::GetPEFileBase in cDAC
+    
+    Module already contains the Base so no change is needed.
+    Loader_1.cs already implements GetILBase to get the Base off of the module.
+    
+    Contributes to #108450
