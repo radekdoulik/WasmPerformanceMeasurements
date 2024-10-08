@@ -1,0 +1,8 @@
+commit 43295bb5378453d2ec4d9272cb44c6f50b4faa1f
+Author: Matous Kozak <55735845+matouskozak@users.noreply.github.com>
+Date:   Tue Oct 8 07:24:44 2024 +0200
+
+    [mono] Fix vector class retrieval and type checks for binary operand APIs (#107388)
+    
+    - change the function to be split by the OP code rather than the type of the operands
+    - add type checks to the callsite to ensure that the operands are of the correct type
