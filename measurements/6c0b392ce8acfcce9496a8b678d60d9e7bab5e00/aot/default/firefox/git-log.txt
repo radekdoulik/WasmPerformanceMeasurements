@@ -1,0 +1,67 @@
+commit 6c0b392ce8acfcce9496a8b678d60d9e7bab5e00
+Author: Alan Hayward <a74nh@users.noreply.github.com>
+Date:   Mon Oct 7 18:20:47 2024 +0100
+
+    ARM64-SVE: refactor lsra buildHWIntrinsic (#107459)
+    
+    * Add BuildConditionalSelectHWIntrinsic()
+    
+    * Add GetRMWOp()
+    
+    * Use GetDelayFreeOp() in BuildConditionalSelectWithEmbeddedOp()
+    
+    * simplify op2 handling
+    
+    * Add getVectorAddrOperand()
+    
+    * Add getConsecutiveRegistersOperand
+    
+    * Add BuildOperand()
+    
+    * Use BuildOperand for op1
+    
+    * Add buildHWIntrinsicImmediate
+    
+    * Add getOperandCandidates()
+    
+    * Remove BuildOperand()
+    
+    * remove delayFreeMultiple
+    
+    * Fixes from other PRs to be removed
+    
+    * Fix formatting
+    
+    * Use BuildHWIntrinsicImmediate for conditional select
+    
+    * Remove IsRMW
+    
+    * Replace BuildConditionalSelectWithEmbeddedOp() with BuildEmbeddedOperandUses()
+    
+    * Revert "Fixes from other PRs to be removed"
+    
+    * Move functions
+    
+    * Move functions
+    
+    * Remove failing unary tests
+    
+    * Fix opNum type
+    
+    * Revert "Remove failing unary tests"
+    
+    * Remove cases from getDelayFreeOperand that are handled by default
+    
+    * review cleanups
+    
+    * Simplify masks in getOperandCandidates()
+    
+    * Remove IsMaskedOperation()
+    
+    * Check for optional embedded masks in getDelayFreeOperand
+    
+    * Only call BuildDelayFreeUses when register types match
+    
+    * Assert only on Arm64
+    
+    * Comment fixups
