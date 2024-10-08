@@ -1,0 +1,5 @@
+commit 57feb11c6005c20625024f9d0c1ad216e4d15b93
+Author: Marek Fišera <mara@neptuo.com>
+Date:   Tue Oct 8 14:16:26 2024 +0200
+
+    [wasm] Read messages from binlog if process output is missing build finished message (#107280)
