@@ -1,0 +1,28 @@
+commit 9d923b8403a9ff5c5b1471453a0f476ba395a283
+Author: Aleksey Kliger (λgeek) <alklig@microsoft.com>
+Date:   Tue Oct 8 14:42:37 2024 -0400
+
+    [cdac] Implement NibbleMap lookup and tests (#108403)
+    
+    * [cdac] Implement NibbleMap lookup and tests
+    
+       The execution manager uses a nibble map to quickly map program counter pointers to the beginnings of the native code for the managed method.
+    
+       Implement the lookup algorithm for a nibble map.
+    
+       Start adding unit tests for the nibble map
+    
+       Also for testing in MockMemorySpace simplify ReaderContext, there's nothing special about the descriptor HeapFragments anymore.  We can use a uniform reader.
+    
+    * NibbleMap: remove unused _codeHeaderSize field
+    
+    * cleanup NibbleMap and tests
+    
+    * NibbleMap: use a struct for MapUnit
+    
+    * Clarify termination condition; clean up docs
+    
+       Add an example
+    
+    
+    Co-authored-by: Filip Navara <filip.navara@gmail.com>
