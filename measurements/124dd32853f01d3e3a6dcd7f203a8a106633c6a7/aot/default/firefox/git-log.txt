@@ -1,0 +1,11 @@
+commit 124dd32853f01d3e3a6dcd7f203a8a106633c6a7
+Author: Andrew J Said <andrewjsaid@gmail.com>
+Date:   Tue Oct 8 17:05:10 2024 +0100
+
+    Fix LINQ Last() in ConcatNIterator to also check base case (Concat2Iterator) (#108486)
+    
+    * Fix LINQ Last() in ConcatNIterator to also check base case (Concat2Iterator)
+    
+    * Add a few more test cases of empty concats
+    
+    * Simplify solution as suggested in PR Review
