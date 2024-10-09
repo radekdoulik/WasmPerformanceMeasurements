@@ -1,0 +1,7 @@
+commit 87273d64859e8bf5856d176915624e6f92ed3baf
+Author: Aman Khalid <amankhalid@microsoft.com>
+Date:   Wed Oct 9 14:55:02 2024 +0000
+
+    JIT: Run single EH region repair pass after layout (#108634)
+    
+    Fixes #108608. To simplify EH maintenance logic, leave EH regions in a deconstructed phase during block reordering, and correct the end block pointers of each region in a pass over the block list after. By walking the list backwards, we can short-circuit finding the end of each region, and we don't run into the issue of an EH region not being able to determine if it's at the end of its parent region due to some awkward placement of a sibling region.
