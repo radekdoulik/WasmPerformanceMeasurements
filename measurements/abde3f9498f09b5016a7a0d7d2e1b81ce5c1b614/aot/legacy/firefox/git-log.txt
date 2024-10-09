@@ -1,0 +1,15 @@
+commit abde3f9498f09b5016a7a0d7d2e1b81ce5c1b614
+Author: mikelle-rogers <45022607+mikelle-rogers@users.noreply.github.com>
+Date:   Tue Oct 8 18:12:38 2024 -0700
+
+    Update stepping through MulticastDelegate under the Debugger (#108414)
+    
+    * macOS stepping with multicast delegates
+    
+    * remove one call of  MulticastDebuggerTraceHelper
+    
+    * change int to INT_PTR
+    
+    * change to QCall and optimize
+    
+    * styling and cleanup
