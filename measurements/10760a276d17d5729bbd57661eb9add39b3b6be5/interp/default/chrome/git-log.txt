@@ -1,0 +1,9 @@
+commit 10760a276d17d5729bbd57661eb9add39b3b6be5
+Author: Eric StJohn <ericstj@microsoft.com>
+Date:   Tue Oct 8 16:29:58 2024 -0700
+
+    ZipArchive: Improve performance of removing extra fields (#108665)
+    
+    This improves the performance of removing extra fields in the ZipArchive by optimizing the removal process.
+    
+    `src/libraries/System.IO.Compression/src/System/IO/Compression/ZipBlocks.cs`: Replaced multiple iterations and list operations with a single `RemoveAll` call to enhance efficiency.
