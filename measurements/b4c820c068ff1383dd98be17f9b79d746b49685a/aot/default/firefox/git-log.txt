@@ -1,0 +1,11 @@
+commit b4c820c068ff1383dd98be17f9b79d746b49685a
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Thu Oct 3 19:49:56 2024 +0900
+
+    Allow devirt into abstract classes if we saw a non-abstract child (#108379)
+    
+    We avoid devirtualizing into abstract classes because whole program view might have optimized away the method bodies and devirtualizing them doesn't lead to anything good.
+    
+    However, if the whole program view had a non-abstract child of this, we can no longer optimize this out and devirtualization should be fine.
+    
+    Fixes issue encountered in https://github.com/dotnet/runtime/pull/108153#issuecomment-2380094723
