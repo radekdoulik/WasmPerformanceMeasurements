@@ -1,0 +1,15 @@
+commit 59a460ad76fc785d58701725109e0de9db8cba60
+Author: Pavel Savara <pavel.savara@gmail.com>
+Date:   Tue Oct 8 20:02:48 2024 +0200
+
+    [browser] stop testing runtime with nodejs (#108582)
+    
+    * stop testing with nodejs
+    
+    * One condition, more readible.
+    
+    * Apply @kasperk81's feedback - this project is not used in WBT anymore.
+    
+    ---------
+    
+    Co-authored-by: Ilona Tomkowicz <itomkowicz@microsoft.com>
