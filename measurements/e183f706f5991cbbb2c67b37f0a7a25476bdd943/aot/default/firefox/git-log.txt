@@ -1,0 +1,16 @@
+commit e183f706f5991cbbb2c67b37f0a7a25476bdd943
+Author: Sven Boemer <sbomer@gmail.com>
+Date:   Fri Oct 4 09:34:30 2024 -0700
+
+    Fix ILLink behavior for modreq types (#108494)
+    
+    Cecil represents modreq/modopt in signatures as part of the
+    TypeReference (using subclasses
+    RequiredModifierType/OptionalModifierType). We need to unwrap
+    these to get the correct behavior in IsNamedType.
+    
+    This fixes the `IsTypeInterestingForDataflow` check for
+    modreq/modopt types (`Type modreq(IsVolatile)` should be
+    considered interesting for dataflow, and `Type[]
+    modreq(IsVolatile)` should not). Includes a similar fix for
+    function pointers.
