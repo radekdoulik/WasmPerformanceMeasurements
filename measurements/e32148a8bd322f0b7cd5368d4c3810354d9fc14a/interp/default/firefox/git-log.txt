@@ -1,0 +1,7 @@
+commit e32148a8bd322f0b7cd5368d4c3810354d9fc14a
+Author: Aman Khalid <amankhalid@microsoft.com>
+Date:   Thu Oct 10 04:40:22 2024 +0000
+
+    JIT: Add loop-aware RPO, and use as LSRA's block sequence (#108086)
+    
+    Part of #107749, and follow-up to #107927. When computing a RPO of the flow graph, ensuring that the entirety of a loop body is visited before any of the loop's successors has the benefit of keeping the loop body compact in the traversal. This is certainly ideal when computing an initial block layout, and may be preferable for register allocation, too. Thus, this change formalizes loop-aware RPO creation as part of the flowgraph API surface, and uses it for LSRA's block sequence.
