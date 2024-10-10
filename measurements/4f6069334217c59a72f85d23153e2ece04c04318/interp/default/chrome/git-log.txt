@@ -1,0 +1,129 @@
+commit 4f6069334217c59a72f85d23153e2ece04c04318
+Author: Tomasz Sowiński <tomeksowi@gmail.com>
+Date:   Wed Oct 9 22:55:58 2024 +0200
+
+    [RISC-V] Transfer arguments between calling conventions in shuffling thunks (#107282)
+    
+    * Log ShuffleEntries from GenerateShuffleArray
+    
+    * Add failing tests for passing FP structs through shuffling thunks
+    
+    * Report proper ShuffleEntries for lowered FP structs
+    
+    * Implement shuffling thunk generation in tighter, more focused loops instead of an omnibus loop handling ShuffleEntries
+    
+    * Generate ShuffleEntries for delowered arguments
+    
+    * Better ShuffleEntry mask names, one more bit for field offset
+    
+    * Fix FpStruct for dst arg loc
+    
+    * Fold ShuffleEntry generation code for lowering and delowering FpStructs
+    
+    * ShuffleEntry mask doc update
+    
+    * Implement forward shuffling of floating registers and delowering of FpStructs. EmptyStructs test passes except for ShufflingThunk_FloatEmptyShort_DoubleFloatNestedEmpty_RiscV
+    
+    * Fix shuffling of integer registers for member functions
+    
+    * The delowered argument can also be put in the first stack slot
+    
+    * Stask shuffling after delowered argument doesn't start with 0. Fixes Regressions/coreclr/GitHub_16833/Test16833
+    
+    * Code cleanup, fewer indents
+    
+    * Support second lowering
+    
+    * Remove unused CondCode
+    
+    * Handle stack slot shuffling to the right
+    
+    * Add some stack slots to shuffle in the growing stack test case
+    
+    * Fix Equals signature on test structs
+    
+    * Remodel the shuffling with calling convention transfer to recognize the key points first, which simplifies code and solves some corner cases e.g. where we can't assume struct stack size by checking the size + offset of the last field
+    
+    * Use helper functions in EmitComputedInstantiatingMethodStub
+    
+    * Implement stack growing in shuffling thunk
+    
+    * Use signed immediate in EmitSubImm to be consistent with EmitAddImm
+    
+    * Use ABI register names in logs
+    
+    * Remove LoadRegPair because it's not used
+    
+    * Add logging for slli and lui
+    
+    * Remove stack growing from hand-emitted shuffle thunks
+    
+    * Minor FloatFloatEmpty test cleanup
+    
+    * Implement IL shuffling thunks for cases where the stack is growing
+    
+    * Test stack walking in frames laid by the IL shuffle thunk
+    
+    * Add assert and comment in CreateILDelegateShuffleThunk
+    
+    * Fix release build
+    
+    * Fixes for static delegates from member methods
+    
+    * Fix log and comment
+    
+    * Remove EmitJumpAndLinkRegister because it's no longer used
+    
+    * Use TransferredField.reg in delowering (cosmetic fix to restart CI)
+    
+    * New stub type for delegate shuffle thunk so it doesn't go in multidelegate code paths
+    
+    * Make Test_ShufflingThunk_MemberGrowsStack_RiscV harder by returning via buffer
+    
+    * Explain lowering
+    
+    * Fold 12-bit sign extension branch in EmitMovConstant
+    
+    * Harden Test_ShufflingThunk_PackedEmptyUintEmptyFloat_PackedEmptyDouble to cover interleaving FP and int arguments
+    
+    * Handle shuffles between calling conventions in IL stubs
+    
+    * Update comments
+    
+    * Don't use NewStub for IL stubs
+    
+    * Fold some more duplicated code into SetupShuffleThunk
+    
+    * Clean up unnecessary diffs
+    
+    * IL shuffle thunk takes target function address from delegate object. Cache the generated thunk on DelegateEEClass
+    
+    * Build target signature based on delegate signature instead of just using the signature from target method to retain type context
+    
+    * Test calling instance and static methods via the same delegate type
+    
+    * Simplify shuffle thunk caching on DelegateEEClass
+    
+    * Clean up CreateILDelegateShuffleThunk
+    
+    * Delete Windows X86 stack size check
+    
+    * Remove #ifdefs around ILSTUB_DELEGATE_SHUFFLE_THUNK, fix typo in GetStubMethodName
+    
+    * Fix DecRef'ing path when the IL thunk is already cached on DelegateEEClass
+    
+    * Fix shuffle thunk destruction in EEClass::Destruct: properly handle IL shuffle thunks and call RemoveStubRange if m_pInstRetBuffCallStub was deleted
+    
+    * Don't use RemoveStubRange in the destructor, make code for dereferencing shuffle thunk when caching fails the same as destructor
+    
+    * Remove unused RemoveStubRange
+    
+    * Cover IL shuffle thunks in ILStubManager::TraceManager
+    
+    * Remove unused start, end arguments from RangeList::RemoveRanges[Worker]
+    
+    * Update src/coreclr/vm/comdelegate.cpp
+    
+    ---------
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
