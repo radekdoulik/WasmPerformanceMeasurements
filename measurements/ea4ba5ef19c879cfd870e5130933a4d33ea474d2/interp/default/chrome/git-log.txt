@@ -1,0 +1,7 @@
+commit ea4ba5ef19c879cfd870e5130933a4d33ea474d2
+Author: Katelyn Gadd <kg@luminance.org>
+Date:   Wed Oct 9 12:59:02 2024 -0700
+
+    Normalize `--` and case for options in src/tests/build.sh like we do in eng/build(-commons).sh (#107425)
+    
+    Normalize `--` in src/tests/build.sh like we do in eng/build.sh and eng/build-commons.sh, so that `--cross` always works
