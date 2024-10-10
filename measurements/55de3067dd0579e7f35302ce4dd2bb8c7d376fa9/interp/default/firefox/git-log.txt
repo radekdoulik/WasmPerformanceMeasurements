@@ -1,0 +1,7 @@
+commit 55de3067dd0579e7f35302ce4dd2bb8c7d376fa9
+Author: Aaron Robinson <arobins@microsoft.com>
+Date:   Thu Oct 10 08:27:00 2024 -0700
+
+    Avoid backing field for marshallers. (#108737)
+    
+    This also makes the BufferSize pattern consistent across all new custom marshallers.
