@@ -1,0 +1,25 @@
+commit 6fad3763d888838695ec06c6564d6996ddd215f2
+Author: Alhad Deshpande <97085048+alhad-deshpande@users.noreply.github.com>
+Date:   Thu Oct 10 02:45:38 2024 +0530
+
+    [ppc64le] Fixed assertion failure which was occurring while running System.Runtime.Serialization.Formatters tests (#108429)
+    
+    * [ppc64le] Fixed thunk address 8 byte alignment issue
+    
+    * Fixed FSharp crash issue
+    
+    * [ppc64le] Implementation of mono_arch_get_delegate_virtual_invoke_impl method for ppc64le architecture
+    
+    * Fixed clang15 build issues and returning address of sc_sp instead of value
+    
+    * Added float32 support and implemented related opcodes
+    
+    * Correction in OP_RCONV_TO_R cases
+    
+    * Corrected code for few opcodes
+    
+    * [ppc64le] performance improvements while branching
+    
+    * [ppc64le] Fixed insufficient memory exception issue
+    
+    * [ppc64le] Fixed assertion failure which was occurring while running System.Runtime.Serialization.Formatters tests
