@@ -1,0 +1,9 @@
+commit 985c17771202d32b6c6cff6d3bd9082ca5a4b0ff
+Author: Andy Ayers <andya@microsoft.com>
+Date:   Thu Oct 10 18:01:52 2024 -0700
+
+    JIT: run a late pass of empty try/finally/fault removal (#108003)
+    
+    The JIT can sometimes optimize away all the code in a finally or fault, so rerun
+    and generalize the empty try-finally removal to cover faults and run it
+    again after the main optimization passes.
