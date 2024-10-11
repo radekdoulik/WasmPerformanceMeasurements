@@ -1,0 +1,15 @@
+commit cb256e20e4e4db764f7693d4ed5de932a67ec6e9
+Author: Kunal Pathak <Kunal.Pathak@microsoft.com>
+Date:   Thu Oct 10 15:49:34 2024 -0700
+
+     Ensure to use float reserved register for TYP_SIMD12 (#108629)
+    
+    * Use Float reserved registers
+    
+    * add test case
+    
+    * Use consistent internal register requirement for TYP_SIMD12
+    
+    * Also do in loongarch and risc
+    
+    * Use Extract to retrieve internal register for SIMD12
