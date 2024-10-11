@@ -1,0 +1,13 @@
+commit a910792710bfefbe245f244b1d3ddb6f390a5ee5
+Author: Maoni Stephens <Maoni0@users.noreply.github.com>
+Date:   Thu Oct 10 23:55:37 2024 -0700
+
+    bgc deadlock fix (#108773)
+    
+    this was a regression introduced in #105545. this would only manifest during the beginning of a process when we needed to grow the # of heaps (and can grow) and we haven't done a gen2 GC yet so we set it to doing one.
+    
+    the problem is the check I made did not include the ephemeral GC that may happen at the beginning of a BGC before we set gc_background_running to true. so at the end of that eph GC, we are in calculate_new_heap_count and set trigger_initial_gen2_p to true, not realizing we are already in a BGC.
+    
+    then during the joined_generation_to_condemn at the beginning of the next GC, if our conclusion was still doing an eph GC we'd make it a BGC due to trigger_initial_gen2_p which obviously would cause problem if a BGC is already in progress (I do have an assert for this but we haven't seen this in a dbg build...).
+    
+    the fix is to simply use the right check - is_bgc_in_progress() instead of background_running_p() which includes that eph GC case.
