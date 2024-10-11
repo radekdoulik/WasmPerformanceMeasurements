@@ -1,0 +1,5 @@
+commit a276e2bd22e971307ce99df0353c3955d274a4b6
+Author: Xu Liangyu <xuliangyu@loongson.cn>
+Date:   Fri Oct 11 21:16:47 2024 +0800
+
+    [LoongArch64] Fix the instruction check in 'CodeGen::genInstrWithConstant()' when called by 'CodeGen::genHomeStackSegment()'. (#108776)
