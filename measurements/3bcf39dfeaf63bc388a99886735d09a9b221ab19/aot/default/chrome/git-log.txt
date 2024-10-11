@@ -1,0 +1,5 @@
+commit 3bcf39dfeaf63bc388a99886735d09a9b221ab19
+Author: Aman Khalid <amankhalid@microsoft.com>
+Date:   Fri Oct 11 14:45:28 2024 +0000
+
+    JIT: Use binary search in `FlowGraphNaturalLoops::GetLoopByHeader` (#108739)
