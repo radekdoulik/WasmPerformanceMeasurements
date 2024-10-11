@@ -1,0 +1,20 @@
+commit e4ff0d850c1da263d27af3662c01e2d5d8992c1d
+Author: Jeremy Barton <jbarton@microsoft.com>
+Date:   Fri Oct 11 00:32:01 2024 -0700
+
+    Remove string.Trim{,Start,End}(ReadOnlySpan<char>)
+    
+    These three methods have a higher overload resolution priority than any potential
+    user defined extension methods `TrimEnd(this string, string)` (et al), but invariably
+    yield a different answer than those extension methods: for an existing call
+    `text.TrimEnd("suffix")` the extension method wants to remove just the suffix, so
+    "prefixinfixsuffix" becomes "prefixinfix".  However, our method treats it as a call
+    of `text.TrimEnd('s', 'u', 'f', 'f', 'i', 'x')`, yielding the result "prefixin".
+    
+    An alternative solution to this problem would be to define our own
+    `string.TrimEnd(string)` instance method, but that has its own set of
+    complications and is too risky to consider for backporting into .NET 9.
+    
+    This change only removes the methods from the System.Runtime (ref) assembly,
+    in order to work better with the slightly circular dependency/flow in the dotnet/*
+    repositories.
