@@ -1,0 +1,7 @@
+commit a038f65e16afd2592c313bd2ee7dbcf4a00ae17b
+Author: Andy Ayers <andya@microsoft.com>
+Date:   Fri Oct 11 17:44:56 2024 -0700
+
+    JIT: reset reverse opts when updating HW intrinsic (#108807)
+    
+    Fixes #106544
