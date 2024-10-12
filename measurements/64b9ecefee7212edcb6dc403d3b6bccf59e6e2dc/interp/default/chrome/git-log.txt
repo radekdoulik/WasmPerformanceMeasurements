@@ -1,0 +1,19 @@
+commit 64b9ecefee7212edcb6dc403d3b6bccf59e6e2dc
+Author: Jan Vorlicek <janvorli@microsoft.com>
+Date:   Fri Oct 11 22:10:42 2024 +0200
+
+    Remove managed EH code frames from stack trace (#108723)
+    
+    When StackTrace is created inside of an exception filter, it contains
+    stack frames of the managed exception handling code, like
+    System.Runtime.EH.RhThrowEx
+    System.Runtime.EH.DispatchEx
+    System.Runtime.EH.FindFirstPassHandler
+    
+    These should not occur on the stack trace as they are internal
+    implementation detail of the new EH.
+    
+    This change fixes it by adding [StackTraceHidden] attribute to these
+    methods.
+    
+    Close #107995
