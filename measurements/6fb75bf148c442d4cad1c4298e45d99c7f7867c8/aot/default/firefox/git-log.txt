@@ -1,0 +1,7 @@
+commit 6fb75bf148c442d4cad1c4298e45d99c7f7867c8
+Author: Jan Kotas <jkotas@microsoft.com>
+Date:   Sat Oct 12 06:20:24 2024 +0200
+
+    Delete STUBLINKER_GENERATES_UNWIND_INFO (#108684)
+    
+    None of the stublinker stubs need this anymore
