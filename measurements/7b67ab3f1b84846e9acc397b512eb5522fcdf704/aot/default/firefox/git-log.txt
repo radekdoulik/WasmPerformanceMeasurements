@@ -1,0 +1,11 @@
+commit 7b67ab3f1b84846e9acc397b512eb5522fcdf704
+Author: Bruce Forstall <brucefo@microsoft.com>
+Date:   Fri Oct 11 12:59:37 2024 -0700
+
+    Fix optimization of Vector512 And + Not to AndNot (#108775)
+    
+    * Fix optimization of Vector512 And + Not to AndNot
+    
+    Fixes #108613
+    
+    * Fix test
