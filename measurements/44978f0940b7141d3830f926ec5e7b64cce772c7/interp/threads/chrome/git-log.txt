@@ -1,0 +1,13 @@
+commit 44978f0940b7141d3830f926ec5e7b64cce772c7
+Author: Eric StJohn <ericstj@microsoft.com>
+Date:   Mon Oct 14 12:02:35 2024 -0700
+
+    Enable all configurations inner loop (#108848)
+    
+    * Revert "Disable linux-x64 dev-innerloop (#108581)"
+    
+    This reverts commit 7b69459abc771fda88349204654989c69ade0592.
+    
+    * Don't build tests in linux_x64_dev_innerloop
+    
+    Testing to determine if building tests were the source of OOMs in CI
