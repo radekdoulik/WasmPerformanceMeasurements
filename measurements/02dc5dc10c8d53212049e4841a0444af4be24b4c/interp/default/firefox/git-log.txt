@@ -1,0 +1,16 @@
+commit 02dc5dc10c8d53212049e4841a0444af4be24b4c
+Author: Jan Vorlicek <janvorli@microsoft.com>
+Date:   Wed Oct 9 14:30:48 2024 +0200
+
+    Fix macOS arm64 Unix breakpoint (#108560)
+    
+    * Fix arm64 Unix breakpoint
+    
+    Currently we use brk #0, but lldb cannot step over it. Using brk #0xf000 instead
+    works fine.
+    
+    Close #108541
+    
+    * Unify windows and unix brk
+    
+    * Fix formatting
