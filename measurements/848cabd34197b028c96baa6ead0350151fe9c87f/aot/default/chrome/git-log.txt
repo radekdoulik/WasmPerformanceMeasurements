@@ -1,0 +1,5 @@
+commit 848cabd34197b028c96baa6ead0350151fe9c87f
+Author: Buyaa Namnan <bunamnan@microsoft.com>
+Date:   Tue Oct 8 09:54:48 2024 -0700
+
+    Call native BrotliEncoderMaxCompressedSize method for BrotliEncoder.GetMaxCompressedLength (#108043)
