@@ -1,0 +1,22 @@
+commit 5cc1eb52d79d5dd4b11205699410dba72b6286b5
+Author: Eric StJohn <ericstj@microsoft.com>
+Date:   Thu Oct 10 10:08:17 2024 -0700
+
+    Packaging: Port fix for GetParts from .NETFramework (#108681)
+    
+    * Packaging: Port fix for GetParts from .NETFramework
+    
+    This ports a fix for the `GetParts` method to improve part URI handling and collision detection.
+    
+    `src/libraries/System.IO.Packaging/src/System/IO/Packaging/Package.cs`: Added sorting of parts array to ensure proper order, introduced a dictionary and list to track parts and detect collisions, and implemented a new method `CopyPartDictionaryToPartList` to copy parts to `_partList`.
+    
+    * Fix regression in ExtensionEqualityComparer
+    
+    Previously this comparison was Ordinal after calling ToUpperInvariant
+    
+    This was changed to InvariantIgnoreCase which breaks because it will
+    treat things like ß and ss as equal where they were not before.
+    
+    * Address feedback
+    
+    * Remove servicing properties from IO.Packaging
