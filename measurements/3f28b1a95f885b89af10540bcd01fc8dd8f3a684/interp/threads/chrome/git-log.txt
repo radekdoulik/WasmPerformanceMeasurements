@@ -1,0 +1,11 @@
+commit 3f28b1a95f885b89af10540bcd01fc8dd8f3a684
+Author: Andy Gocke <angocke@microsoft.com>
+Date:   Tue Oct 8 14:47:00 2024 -0700
+
+    Move tools to use LKG ILC (#107772)
+    
+    Starts with crossgen2 and moves shared helpers into a central targets file.
+    
+    This still leaves a significant amount of work to do. We're still building 3 copies of the crossgen2 and ILC projects (plain, in-build, and AOT) and not all might be necessary. Also, some pieces could maybe be reused in other portions of the build.
+    
+    There's also no way to _not_ use LKG bits. That's left as future work.
