@@ -1,0 +1,7 @@
+commit f938d80c30b6ab962bb681ad1ecddf146b014437
+Author: Steve Pfister <steveisok@users.noreply.github.com>
+Date:   Fri Oct 11 00:38:16 2024 -0400
+
+    Disable codeql on official builds part 2 (#108767)
+    
+    According to the most updated docs, enabled and justification need to be underneath compiled.
