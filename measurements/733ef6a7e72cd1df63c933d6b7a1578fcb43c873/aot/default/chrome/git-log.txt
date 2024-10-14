@@ -1,0 +1,16 @@
+commit 733ef6a7e72cd1df63c933d6b7a1578fcb43c873
+Author: kumarravik78c <141877164+kumarravik78c@users.noreply.github.com>
+Date:   Mon Oct 7 21:46:32 2024 -0700
+
+    MSFT:53847109 [.NET Core] DTS / UserPrincipal.GetAuthorizationGroups returns PrincipalOperationException:  Information about the domain could not be retrieved (1212). (#108032)
+    
+    * Handling sentinel SID when classifying SIDS
+    
+    * code review comments
+    
+    * Apply suggestions from code review
+    
+    ---------
+    
+    Co-authored-by: Ravi Kumar <kumarr@microsoft.com>
+    Co-authored-by: Buyaa Namnan <buyankhishig.namnan@microsoft.com>
