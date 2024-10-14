@@ -1,0 +1,100 @@
+commit 1e48f9ebbfd11ac31e07d03761db991d564b2505
+Author: Radek Doulik <radek.doulik@gmail.com>
+Date:   Mon Oct 14 15:27:47 2024 +0200
+
+    [mono] Use llvm 19.1.0 (#105427)
+    
+    * Bump to updated llvm 19
+    
+    * Fix mono_llvm_check_cpu_features
+    
+    * Update llvm deps
+    
+    * Update emsdk and icu deps
+    
+    * Remove wrong python dependency
+    
+    * Temporarily make WBT use WorkloadsTestPreviousVersions = true
+    
+    * Fix windows build, add ntdll dependency
+    
+    Co-authored-by: Alexander Köplinger <alex.koeplinger@outlook.com>
+    
+    * Fix alloca builder creation
+    
+    This was hitting assert with debug version of llvm
+    
+    * Update eh_typeid_for intrinsic
+    
+    The signature changed in https://github.com/dotnet/llvm-project/commit/10edb4991c127
+    
+    This fixes crash during registration of the intrinsic and the generated IR is now different.
+    
+    Before:
+    
+        CATCHPAD0_BB4:                                    ; preds = %LPAD0_BB3
+          %11 = catchpad within %10 [ptr @_ZTIPi]
+          %12 = tail call ptr @llvm.wasm.get.exception(token %11)
+          %13 = tail call i32 @llvm.wasm.get.ehselector(token %11)
+          %14 = tail call i32 @llvm.eh.typeid.for(ptr @_ZTIPi)
+          %15 = icmp eq i32 %13, %14
+          br i1 %15, label %CATCH_BB5, label %NOCATCH_BB6
+    
+    After:
+    
+        CATCHPAD0_BB4:                                    ; preds = %LPAD0_BB3
+          %11 = catchpad within %10 [ptr @_ZTIPi]
+          %12 = tail call ptr @llvm.wasm.get.exception(token %11)
+          %13 = tail call i32 @llvm.wasm.get.ehselector(token %11)
+          %14 = tail call i32 @llvm.eh.typeid.for.p0(ptr @_ZTIPi)
+          %15 = icmp eq i32 %13, %14
+          br i1 %15, label %CATCH_BB5, label %NOCATCH_BB6
+    
+    * Fix crash in emit_llvmonly_handler_start
+    
+    Do not try to emit branch when target_bb is not set
+    
+    * Fix swizzle_mask type
+    
+    That was catched by llvm debug asserts, the mask should be vector of 16 int8
+    
+    * Set unwind table kind
+    
+    To stop hitting assert in the verbose output, when aot compiler is built
+    with the debug configuration of llvm
+    
+    * Update deps to llvm rc3
+    
+    * Update emsdk and icu deps
+    
+    * Revert "Temporarily make WBT use WorkloadsTestPreviousVersions = true"
+    
+    This reverts commit 7c370825cdaf5beec8ce10b1884fa5efb66b661b.
+    
+    * Update deps for llvm 19/rc4
+    
+    * Revert "Set unwind table kind"
+    
+    This reverts commit bba756cfbb03d3e606f690ca79ff6c6c5613b5a0.
+    
+    * Remove crashing wasi AOT tests
+    
+    * Disable wasi smoke AOT tests
+    
+    * Disable failing WBT test for wasi
+    
+    * Update dependencies to get llvm 19.1.0
+    
+    * Update emsdk and icu deps with updated binaryen
+    
+    * Fix emscripten versions
+    
+    * Add emscripten coherency dependencies back
+    
+    * Update llvm and derived dependencies
+    
+    * Remove general testing channel
+    
+    ---------
+    
+    Co-authored-by: Alexander Köplinger <alex.koeplinger@outlook.com>
