@@ -1,0 +1,5 @@
+commit 667c0073fb8adb7ada0d55e89dc198d77f4b2a12
+Author: Egor Bogatov <egorbo@gmail.com>
+Date:   Tue Oct 8 15:04:11 2024 +0200
+
+    JIT: Optimize Memmove unrolling for constant src (#108576)
