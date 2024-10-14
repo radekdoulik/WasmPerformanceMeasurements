@@ -1,0 +1,15 @@
+commit f457155a28c4a0f203516ef20f38822dc0ae9a76
+Author: Elinor Fung <elfung@microsoft.com>
+Date:   Fri Oct 11 14:06:34 2024 -0700
+
+    Add project to create helix work items for host tests (#108529)
+    
+    - Add `src/installer/tests/helixpublish.proj`
+      - Defines correlation payloads (pre-built test targets, .NET install layout, product host binaries, test/mock host binaries)
+      - Sets pre-commands to set environment variables used by tests for test assets and artifacts locations
+      - Generate helix work items for each host test project - runs `dotnet test <host_test_dll>` for each test with the built output as the payload directory
+    - Update `RepoDirectoryProvider` to use `HELIX_CORRELATION_PAYLOAD` (when available) for path to product/test host binaries.
+    
+    This is not hooked up to actually run in a pipeline. I tested by manually kicking off runs by setting environment variables and directly building the new project. For example:
+    - `dotnet build src\installer\tests\helixpublish.proj -c Release /t:Test /p:Creator=dev /p:HelixTargetQueues=Windows.Amd64.Server2022.Open`
+    - `dotnet build ./src/installer/tests/helixpublish.proj -c Release /t:Test /p:Creator=dev /p:HelixTargetQueues=Ubuntu.2204.Amd64.Open`
