@@ -1,0 +1,9 @@
+commit 96968171150e154a2657d6fadca8b75bea9022c4
+Author: Steve Pfister <steveisok@users.noreply.github.com>
+Date:   Wed Oct 9 21:43:38 2024 -0400
+
+    Disable Comparer_get_Default test on linux-arm64-crossgen (#108725)
+    
+    This test was disabled on windows-arm64, but the outerloop also fails on linux-arm64.
+    
+    See https://github.com/dotnet/runtime/issues/104927
