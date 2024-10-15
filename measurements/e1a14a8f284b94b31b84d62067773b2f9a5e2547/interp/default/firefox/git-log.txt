@@ -1,0 +1,17 @@
+commit e1a14a8f284b94b31b84d62067773b2f9a5e2547
+Author: Bruce Forstall <brucefo@microsoft.com>
+Date:   Mon Oct 14 22:13:37 2024 -0700
+
+    Fix argument passing of structs with padding on x86 (#108867)
+    
+    When passing a struct by value on x86, we copy its value to the stack.
+    Sometimes this is done one field at a time, if the struct has been
+    promoted. If there is padding between the fields (to create appropriate
+    field alignment), then that padding needs to be zeroed.
+    
+    The bug is a case where there is padding between an earlier `double`
+    field and a later, larger, SIMD field. We push 4-byte zeros but the code thinks
+    it is pushing 8-byte zeros. The fix is simply to correctly calculate the number
+    of zeros to push.
+    
+    Fixes #106140
