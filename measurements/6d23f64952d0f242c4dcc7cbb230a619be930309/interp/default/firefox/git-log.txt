@@ -1,0 +1,10 @@
+commit 6d23f64952d0f242c4dcc7cbb230a619be930309
+Author: Sven Boemer <sbomer@gmail.com>
+Date:   Mon Oct 14 14:36:14 2024 -0700
+
+    ILLink: Don't mark attributes from MarkEntireType (#108552)
+    
+    Attributes are already marked from MarkType, called by MarkEntireType.
+    The removed marking logic was using the assembly as the warning
+    message origin, making these warnings hard to suppress (in
+    addition to being redundant with the warnings at the type level).
