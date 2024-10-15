@@ -1,0 +1,15 @@
+commit a174fd12be93592cf694978cfc6bd89517e47c63
+Author: xtqqczze <45661989+xtqqczze@users.noreply.github.com>
+Date:   Tue Oct 15 16:59:16 2024 +0100
+
+    Avoid `OverflowException` in `Boolean.TryFormat` (#108572)
+    
+    * Avoid `OverflowException` in `Boolean.TryFormat`
+    
+    `MemoryMarshal.AsBytes` would throw unnecessarily when `destination.Length` exceeds 0x3FFFFFFF.
+    
+    * Use `string.TryCopyTo`
+    
+    ---------
+    
+    Co-authored-by: Egor Bogatov <egorbo@gmail.com>
