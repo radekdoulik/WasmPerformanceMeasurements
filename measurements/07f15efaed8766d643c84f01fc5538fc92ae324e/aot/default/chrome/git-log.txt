@@ -1,0 +1,10 @@
+commit 07f15efaed8766d643c84f01fc5538fc92ae324e
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Tue Oct 15 10:15:32 2024 +0200
+
+    JIT: Stop calling morph from CSE (#106695)
+    
+    CSE cannot tolerate morph removing any defs, which many of morphs
+    transformations can do. We have been slowly infecting morph with more
+    and more checks to avoid this, but in reality CSE just should not
+    reinvoke morph -- the benefits of doing this are minimal.
