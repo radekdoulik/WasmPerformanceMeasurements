@@ -1,0 +1,65 @@
+commit a636e6d8264608dc6d47da8d6c73df37ca6c80ff
+Author: Tom McDonald <tommcdon@microsoft.com>
+Date:   Tue Oct 15 01:01:21 2024 -0400
+
+    Fix CET debugger stepping over CALL instructions (#108809)
+    
+    * Initial changes to support in-place single-stepping over call instructions from out of process
+    
+    * ThreadSuspension WIP
+    
+    * Change how in-place single step is tracked
+    
+    * Pass fSSCompleted to the right side
+    
+    * Only suspend other threads for in-place single step
+    
+    * Add thread resume in HandleSetThreadContextNeeded
+    
+    * ScanForTriggers should return DebuggerPatchSkip
+    
+    * Refactor out of proc thread suspension into CordbThread
+    
+    * Avoid using DebuggerPatchSkip for tracking in-place single step on left side, and resume threads on the right side before the left side is notified
+    
+    * Track InplaceSteppingThreads at the process level on the RS, ApplyRemotePatch/RemoveRemotePatch for patch writing
+    
+    * Block detach if m_inplaceSteppingThreads is not empty
+    
+    * Refactor InplaceSteppingThreads impl
+    
+    * Track thread create and exit for thread suspension
+    
+    * Change comments to minimize size of change
+    
+    * Fix blank space diff
+    
+    * Keep track of single step thread suspension count at the process level
+    
+    * Cleanup and correctly pass bool from LS to RS
+    
+    * Workaround crash caused by SSP restore on fake context
+    
+    * Change page protections when clearing or writing breakpoints
+    
+    * Remove debug output and perform some cleanup
+    
+    * Track unmanaged threads with SHash instead of unordered_map
+    
+    * Revert "Workaround crash caused by SSP restore on fake context"
+    
+    This reverts commit 874c465495edef0c85f55bdda9a82850c68a9af6.
+    
+    * Fix func-eval abort with minimal code change
+    
+    * Apply suggestions from noahfalk
+    
+    Co-authored-by: Noah Falk <noahfalk@users.noreply.github.com>
+    
+    * Always define IsInPlaceSingleStep and return false if not implemented
+    
+    * CR feedback from mikelle-rogers - correctly set begin iterator for suspending/resuming/closing threads
+    
+    ---------
+    
+    Co-authored-by: Noah Falk <noahfalk@users.noreply.github.com>
