@@ -1,0 +1,9 @@
+commit 7bf8802f43acf345d0c100c7eb61e5daf1836ed3
+Author: Radek Doulik <radek.doulik@gmail.com>
+Date:   Wed Oct 16 11:03:01 2024 +0200
+
+    [wasi] Remove unused string parameter from mono_wasm_load_runtime (#104608)
+    
+    Context: https://github.com/dotnet/runtime/pull/104356#issuecomment-2205858362
+    
+    Co-authored-by: Pavel Savara <pavel.savara@gmail.com>
