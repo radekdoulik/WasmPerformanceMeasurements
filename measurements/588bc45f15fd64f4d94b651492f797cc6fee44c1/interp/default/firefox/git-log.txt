@@ -1,0 +1,13 @@
+commit 588bc45f15fd64f4d94b651492f797cc6fee44c1
+Author: Noah Falk <noahfalk@users.noreply.github.com>
+Date:   Wed Oct 16 01:16:35 2024 -0700
+
+    Add ee_alloc_context (NativeAOT) (#104851)
+    
+    This change is some preparatory refactoring for the randomized allocation sampling feature. We need to add more state onto allocation context but we don't want to do a breaking change of the GC interface. The new state only needs to be visible to the EE but we want it physically near the existing alloc context state for good cache locality. To accomplish this we created a new ee_alloc_context struct which contains an instance of gc_alloc_context within it.
+    
+    The new ee_alloc_context::combined_limit should be used by fast allocation helpers to determine when to go down the slow path. Most of the time combined_limit has the same value as alloc_limit, but periodically we need to emit an allocation sampling event on an object that is somewhere in the middle of an AC. Using combined_limit rather than alloc_limit as the slow path trigger allows us to keep all the sampling event logic in the slow path.
+    
+    * PR feedback
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
