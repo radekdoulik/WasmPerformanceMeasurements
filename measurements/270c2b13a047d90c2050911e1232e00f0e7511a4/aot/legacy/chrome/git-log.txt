@@ -1,0 +1,15 @@
+commit 270c2b13a047d90c2050911e1232e00f0e7511a4
+Author: Bruce Forstall <brucefo@microsoft.com>
+Date:   Tue Oct 15 11:45:20 2024 -0700
+
+    Introduce a mechanism to disable CLR tests under SuperPMI collection (#108873)
+    
+    It should be _extremely_ rare to need to disable a test during SuperPMI
+    collection. However, one case was found, so introduce the ability to do so.
+    
+    Use `<SuperPmiCollectIncompatible>true</SuperPmiCollectIncompatible>` in
+    a test project file.
+    
+    (which also requires `<RequiresProcessIsolation>true</RequiresProcessIsolation>`)
+    
+    Fixes #108215
