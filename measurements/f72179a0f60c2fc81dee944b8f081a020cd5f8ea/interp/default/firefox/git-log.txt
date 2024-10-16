@@ -1,0 +1,5 @@
+commit f72179a0f60c2fc81dee944b8f081a020cd5f8ea
+Author: Aman Khalid <amankhalid@microsoft.com>
+Date:   Wed Oct 16 01:10:22 2024 +0000
+
+    JIT: Remove fallthrough checks in `Compiler::TryLowerSwitchToBitTest` (#108106)
