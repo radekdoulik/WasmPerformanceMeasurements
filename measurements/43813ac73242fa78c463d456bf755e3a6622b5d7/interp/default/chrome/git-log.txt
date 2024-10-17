@@ -1,0 +1,7 @@
+commit 43813ac73242fa78c463d456bf755e3a6622b5d7
+Author: Elinor Fung <elfung@microsoft.com>
+Date:   Thu Oct 17 10:07:04 2024 -0700
+
+    Fix HostApiInvokerApp setting DllImportResolver for hostfxr (#108954)
+    
+    The test wasn't saving the modified runtime config, so the app didn't actually set the DllImportResolver. The app was also using the incorrect path in its implementation. Whether or not it is needed for the test to run properly is dependent on the platform (and how it handles trying to load an already loaded native binary). I found this when trying to run the host tests on linux-musl-x64.
