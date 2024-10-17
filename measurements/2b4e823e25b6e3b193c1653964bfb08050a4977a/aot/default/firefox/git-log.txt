@@ -1,0 +1,9 @@
+commit 2b4e823e25b6e3b193c1653964bfb08050a4977a
+Author: Katelyn Gadd <kg@luminance.org>
+Date:   Wed Oct 16 14:51:22 2024 -0700
+
+    Automatically synthesize ilproj assembly names for tests (#108730)
+    
+    * Add -ANAME=xxx option to ilasm
+    * Update IL SDK to add SynthesizeIlasmAssemblyName property
+    * Update one test subfolder to use new property
