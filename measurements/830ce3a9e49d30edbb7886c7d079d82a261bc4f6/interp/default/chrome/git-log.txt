@@ -1,0 +1,37 @@
+commit 830ce3a9e49d30edbb7886c7d079d82a261bc4f6
+Author: Hamish Arblaster <hamarb123@gmail.com>
+Date:   Thu Oct 17 23:37:21 2024 +1100
+
+    Implement volatile barrier APIs (#107843)
+    
+    * Initial commit
+    
+    * Follow-up commit
+    
+    Now that I'm on the correct branch
+    
+    * jit-format
+    
+    * Implement Feedback
+    
+    - And fix missed file from jit-format
+    
+    * Fix typos & use appropriate barrier type in mono
+    
+    * Use optimised dmb on arm64 where possible on mini-mono runtime
+    
+    - And fix up some FIXMEs & comments re cpobj and cpblk
+    
+    * Update Memory-model.md
+    
+    * Address feedback
+    
+    * Fix compile error
+    
+    * Move BarrierKind into compiler.h
+    
+    * Fix build & jit-format
+    
+    * Update jiteeversionguid.h
+    
+    * Update jiteeversionguid.h
