@@ -1,0 +1,9 @@
+commit ffc5e169be0cd481ea623b11e4d1378fd8526d09
+Author: Maoni Stephens <Maoni0@users.noreply.github.com>
+Date:   Wed Oct 16 19:15:25 2024 -0700
+
+    2 accounting fixes (#108880)
+    
+    I'm planning to use the # of set cards as a tuning parameter but currently they are not counted correctly (and sometimes it can go negative; and since we never actually used this number for tuning I hadn't tried to fix it till now). the tuning change will only be for SOH so I'm only including the accounting fix for SOH there. we are actually leaving some cards uncleared but I'm not doing that in this PR as clearing cards is a functional change.
+    
+    also included another accounting fix for counting the old gen survived bytes which should include all objects in the mark queue.
