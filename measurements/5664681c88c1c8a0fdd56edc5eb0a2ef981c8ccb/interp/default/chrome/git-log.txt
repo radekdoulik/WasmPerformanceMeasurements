@@ -1,0 +1,5 @@
+commit 5664681c88c1c8a0fdd56edc5eb0a2ef981c8ccb
+Author: Michał Petryka <35800402+MichalPetryka@users.noreply.github.com>
+Date:   Thu Oct 17 11:02:16 2024 +0200
+
+    Fix JIT refusing to inline methods accessing static readonly arrays (#108953)
