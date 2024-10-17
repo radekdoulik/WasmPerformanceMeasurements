@@ -1,0 +1,9 @@
+commit 3001129ea7b0061c68176c32ba2e3520ccbb23a8
+Author: David Wrighton <davidwr@microsoft.com>
+Date:   Wed Oct 16 13:48:08 2024 -0700
+
+    Remove static monitor helper functions (#107667)
+    
+    - Replace them with using the normal monitor helpers
+    - Change CORINFO_HELP_GETSYNCFROMCLASSHANDLE to return an `object` instead of the underlying lock object, implementation of the JIT helper can be shared with other `TypeHandle` to `RuntimeType` scenarios
+    - This will likely improve the performance of synchronized methods, but that is beside the point, since this feature is so rarely used
