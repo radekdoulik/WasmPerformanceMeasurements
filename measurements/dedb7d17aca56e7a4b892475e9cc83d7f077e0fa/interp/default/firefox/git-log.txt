@@ -1,0 +1,5 @@
+commit dedb7d17aca56e7a4b892475e9cc83d7f077e0fa
+Author: Andy Ayers <andya@microsoft.com>
+Date:   Tue Oct 15 14:59:26 2024 -0700
+
+    unblock cloning of loops where the header is a try begin (#108604)
