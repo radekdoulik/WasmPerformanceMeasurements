@@ -1,0 +1,31 @@
+commit bf2310246960a0a635e72d21ab94599fc96b88bb
+Author: dotnet-maestro[bot] <42748379+dotnet-maestro[bot]@users.noreply.github.com>
+Date:   Thu Oct 17 11:15:17 2024 +0200
+
+    [main] Update dependencies from dotnet/arcade (#108757)
+    
+    * Update dependencies from https://github.com/dotnet/arcade build 20241010.1
+    
+    Microsoft.SourceBuild.Intermediate.arcade , Microsoft.DotNet.Arcade.Sdk , Microsoft.DotNet.Build.Tasks.Archives , Microsoft.DotNet.Build.Tasks.Feed , Microsoft.DotNet.Build.Tasks.Installers , Microsoft.DotNet.Build.Tasks.Packaging , Microsoft.DotNet.Build.Tasks.TargetFramework , Microsoft.DotNet.Build.Tasks.Templating , Microsoft.DotNet.Build.Tasks.Workloads , Microsoft.DotNet.CodeAnalysis , Microsoft.DotNet.GenAPI , Microsoft.DotNet.GenFacades , Microsoft.DotNet.Helix.Sdk , Microsoft.DotNet.PackageTesting , Microsoft.DotNet.RemoteExecutor , Microsoft.DotNet.SharedFramework.Sdk , Microsoft.DotNet.VersionTools.Tasks , Microsoft.DotNet.XliffTasks , Microsoft.DotNet.XUnitAssert , Microsoft.DotNet.XUnitConsoleRunner , Microsoft.DotNet.XUnitExtensions
+     From Version 10.0.0-beta.24504.4 -> To Version 10.0.0-beta.24510.1
+    
+    * Update dependencies from https://github.com/dotnet/arcade build 20241010.3
+    
+    Microsoft.SourceBuild.Intermediate.arcade , Microsoft.DotNet.Arcade.Sdk , Microsoft.DotNet.Build.Tasks.Archives , Microsoft.DotNet.Build.Tasks.Feed , Microsoft.DotNet.Build.Tasks.Installers , Microsoft.DotNet.Build.Tasks.Packaging , Microsoft.DotNet.Build.Tasks.TargetFramework , Microsoft.DotNet.Build.Tasks.Templating , Microsoft.DotNet.Build.Tasks.Workloads , Microsoft.DotNet.CodeAnalysis , Microsoft.DotNet.GenAPI , Microsoft.DotNet.GenFacades , Microsoft.DotNet.Helix.Sdk , Microsoft.DotNet.PackageTesting , Microsoft.DotNet.RemoteExecutor , Microsoft.DotNet.SharedFramework.Sdk , Microsoft.DotNet.VersionTools.Tasks , Microsoft.DotNet.XliffTasks , Microsoft.DotNet.XUnitAssert , Microsoft.DotNet.XUnitConsoleRunner , Microsoft.DotNet.XUnitExtensions
+     From Version 10.0.0-beta.24510.1 -> To Version 10.0.0-beta.24510.3
+    
+    * Update dependencies from https://github.com/dotnet/arcade build 20241011.1
+    
+    Microsoft.SourceBuild.Intermediate.arcade , Microsoft.DotNet.Arcade.Sdk , Microsoft.DotNet.Build.Tasks.Archives , Microsoft.DotNet.Build.Tasks.Feed , Microsoft.DotNet.Build.Tasks.Installers , Microsoft.DotNet.Build.Tasks.Packaging , Microsoft.DotNet.Build.Tasks.TargetFramework , Microsoft.DotNet.Build.Tasks.Templating , Microsoft.DotNet.Build.Tasks.Workloads , Microsoft.DotNet.CodeAnalysis , Microsoft.DotNet.GenAPI , Microsoft.DotNet.GenFacades , Microsoft.DotNet.Helix.Sdk , Microsoft.DotNet.PackageTesting , Microsoft.DotNet.RemoteExecutor , Microsoft.DotNet.SharedFramework.Sdk , Microsoft.DotNet.VersionTools.Tasks , Microsoft.DotNet.XliffTasks , Microsoft.DotNet.XUnitAssert , Microsoft.DotNet.XUnitConsoleRunner , Microsoft.DotNet.XUnitExtensions
+     From Version 10.0.0-beta.24510.3 -> To Version 10.0.0-beta.24511.1
+    
+    * Suppress IL3050 warnings
+    
+    * Upgrade SDK to 9.0.0-rc2
+    
+    ---------
+    
+    Co-authored-by: dotnet-maestro[bot] <dotnet-maestro[bot]@users.noreply.github.com>
+    Co-authored-by: Larry Ewing <lewing@microsoft.com>
+    Co-authored-by: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+    Co-authored-by: Adeel Mujahid <3840695+am11@users.noreply.github.com>
