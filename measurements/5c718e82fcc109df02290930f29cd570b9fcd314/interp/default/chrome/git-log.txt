@@ -1,0 +1,15 @@
+commit 5c718e82fcc109df02290930f29cd570b9fcd314
+Author: dotnet-maestro[bot] <42748379+dotnet-maestro[bot]@users.noreply.github.com>
+Date:   Tue Oct 15 18:09:51 2024 -0500
+
+    Update dependencies from https://github.com/dotnet/emsdk build 20241014.2 (#108884)
+    
+    Microsoft.SourceBuild.Intermediate.emsdk , Microsoft.NET.Workload.Emscripten.Current.Manifest-10.0.100.Transport
+     From Version 10.0.0-alpha.1.24508.1 -> To Version 10.0.0-alpha.1.24514.2
+    
+    Dependency coherency updates
+    
+    runtime.linux-arm64.Microsoft.NETCore.Runtime.JIT.Tools,runtime.linux-x64.Microsoft.NETCore.Runtime.JIT.Tools,runtime.linux-musl-arm64.Microsoft.NETCore.Runtime.JIT.Tools,runtime.linux-musl-x64.Microsoft.NETCore.Runtime.JIT.Tools,runtime.win-arm64.Microsoft.NETCore.Runtime.JIT.Tools,runtime.win-x64.Microsoft.NETCore.Runtime.JIT.Tools,runtime.osx-arm64.Microsoft.NETCore.Runtime.JIT.Tools,runtime.osx-x64.Microsoft.NETCore.Runtime.JIT.Tools,runtime.linux-arm64.Microsoft.NETCore.Runtime.Mono.LLVM.Sdk,runtime.linux-arm64.Microsoft.NETCore.Runtime.Mono.LLVM.Tools,runtime.linux-musl-arm64.Microsoft.NETCore.Runtime.Mono.LLVM.Sdk,runtime.linux-musl-arm64.Microsoft.NETCore.Runtime.Mono.LLVM.Tools,runtime.linux-x64.Microsoft.NETCore.Runtime.Mono.LLVM.Sdk,runtime.linux-x64.Microsoft.NETCore.Runtime.Mono.LLVM.Tools,runtime.linux-musl-x64.Microsoft.NETCore.Runtime.Mono.LLVM.Sdk,runtime.linux-musl-x64.Microsoft.NETCore.Runtime.Mono.LLVM.Tools,runtime.win-x64.Microsoft.NETCore.Runtime.Mono.LLVM.Sdk,runtime.win-x64.Microsoft.NETCore.Runtime.Mono.LLVM.Tools,runtime.osx-arm64.Microsoft.NETCore.Runtime.Mono.LLVM.Sdk,runtime.osx-arm64.Microsoft.NETCore.Runtime.Mono.LLVM.Tools,runtime.osx-x64.Microsoft.NETCore.Runtime.Mono.LLVM.Sdk,runtime.osx-x64.Microsoft.NETCore.Runtime.Mono.LLVM.Tools
+     From Version 19.1.0-alpha.1.24501.1 -> To Version 19.1.0-alpha.1.24510.2 (parent: Microsoft.NET.Workload.Emscripten.Current.Manifest-10.0.100.Transport
+    
+    Co-authored-by: dotnet-maestro[bot] <dotnet-maestro[bot]@users.noreply.github.com>
