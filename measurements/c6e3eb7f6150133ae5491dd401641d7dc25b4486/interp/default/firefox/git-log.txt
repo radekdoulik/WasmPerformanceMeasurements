@@ -1,0 +1,7 @@
+commit c6e3eb7f6150133ae5491dd401641d7dc25b4486
+Author: Noah Falk <noahfalk@users.noreply.github.com>
+Date:   Fri Oct 18 08:58:54 2024 -0700
+
+    Initialize m_fInPlaceSS (#109008)
+    
+    A recent fix added a new field to the DebuggerPatchSkip object and missed initializing it false. This causes the new in-place patch skipping logic activate at random depending on the value of uninitialized memory. Fixing this by initializing the variable.
