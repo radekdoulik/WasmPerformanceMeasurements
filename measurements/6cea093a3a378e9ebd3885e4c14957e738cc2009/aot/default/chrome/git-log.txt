@@ -1,0 +1,9 @@
+commit 6cea093a3a378e9ebd3885e4c14957e738cc2009
+Author: Tanner Gooding <tagoo@outlook.com>
+Date:   Sat Oct 19 06:57:06 2024 -0700
+
+    Update a few code paths to ensure the trimmer can do its job (#106777)
+    
+    * Update a few code paths to ensure the trimmer can do its job
+    
+    * Ensure that the throw helper works on downlevel targets
