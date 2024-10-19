@@ -1,0 +1,63 @@
+commit d6ca550be9c92e7724b986d48983ccaa89704538
+Author: Aleksey Kliger (λgeek) <alklig@microsoft.com>
+Date:   Fri Oct 18 19:30:35 2024 -0400
+
+    [cdac] CodeVersions contract and tests (#109021)
+    
+    * [cdac] Add a CodeVersions contract
+    
+    The CodeVersions contract implements the IL and native code versioning
+    as described in [code-versioning.md](docs/design/features/code-versioning.md)
+    
+    Contributes to https://github.com/dotnet/runtime/issues/108553
+    Contributes to https://github.com/dotnet/runtime/issues/99302
+    
+    * rename contract NativeCodePointers => CodeVersions
+    
+    *  FindActiveILCodeVersion
+    
+    * implement GetModuleLookupMapElement
+    
+    * FindActiveILCodeVersion/FindActiveNativeCodeVersion
+    
+    * il code version lookup table
+    
+    * remove AppDomain.CodeVersionManager from cdac
+    
+    * CodeVersionManager is basically a static class in the C++ side
+    
+    * NativeCodeVersionContract.GetSpecificNativeCodeVersion
+    
+    * checkpoint: start adding NativeCodeVersion operations
+    
+    * WIP: native code version
+    
+    * tighter cdac_data friends
+    
+    * remove unused DataType values
+    
+    they'll come in from a future PR
+    
+    * move ecma metadata helpers to their own class
+    
+    * WIP: CodeVersionsTests
+    
+    * WIP: TestGetNativeCodeVersionOneVersionVersionable
+    
+    * implement GetNativeCode for a NativeCodeVersionNode handle
+    
+    * checkpoint: TestGetNativeCodeVersionOneVersionVersionable passes
+    
+    * Add TestGetActiveNativeCodeVersionDefaultCase
+    
+    * don't add ILCodeVersioningState::Next field yet
+    
+    * describe Loader::GetModuleLookupMapElement contract
+    
+    * remove unused member
+    
+    * update contract markdown
+    
+    * simplify flags handling a bit
+    
+    * add TODOs for RuntimeTypeSystem additions
