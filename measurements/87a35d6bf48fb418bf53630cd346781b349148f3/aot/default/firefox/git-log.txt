@@ -1,0 +1,66 @@
+commit 87a35d6bf48fb418bf53630cd346781b349148f3
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Tue Oct 15 12:30:48 2024 +0200
+
+    JIT: Advance cursors through stores in strength reduction (#105267)
+    
+    This allows us to look through CSE'd locals when an IV was CSE'd.
+    
+    Example diff:
+    ```csharp
+    private static void CopyInts(int[] arr1, int[] arr2)
+    {
+        if (arr2.Length != arr1.Length)
+            return;
+    
+        for (int i = 0; i < arr1.Length; i++)
+        {
+            arr2[i] = arr1[i];
+        }
+    }
+    ```
+    
+    ```diff
+    @@ -1,14 +1,16 @@
+     G_M55903_IG03:  ;; offset=0x000C
+    -       xor      eax, eax
+            test     r8d, r8d
+    -       jle      SHORT G_M55903_IG05
+    -                                               ;; size=7 bbWeight=0.50 PerfScore 0.75
+    +       jle      SHORT G_M55903_IG06
+    +                                               ;; size=5 bbWeight=0.50 PerfScore 0.62
+    
+    -G_M55903_IG04:  ;; offset=0x0013
+    -       mov      r10d, eax
+    -       mov      r9d, dword ptr [rcx+4*r10+0x10]
+    -       mov      dword ptr [rdx+4*r10+0x10], r9d
+    -       inc      eax
+    -       cmp      r8d, eax
+    -       jg       SHORT G_M55903_IG04
+    -                                               ;; size=20 bbWeight=3.96 PerfScore 18.81
+    +G_M55903_IG04:  ;; offset=0x0011
+    +       mov      eax, 16
+    +                                               ;; size=5 bbWeight=0.25 PerfScore 0.06
+    +
+    +G_M55903_IG05:  ;; offset=0x0016
+    +       mov      r10d, dword ptr [rcx+rax]
+    +       mov      dword ptr [rdx+rax], r10d
+    +       add      rax, 4
+    +       dec      r8d
+    +       jne      SHORT G_M55903_IG05
+    +                                               ;; size=17 bbWeight=3.96 PerfScore 17.82
+    ```
+    
+    arm64 especially benefits from strength reduction, e.g. a benchmark for the above:
+    
+    ```
+    BenchmarkDotNet v0.13.12, Ubuntu 22.04.4 LTS (Jammy Jellyfish)
+    Unknown processor
+      Job-GXMAGJ : .NET 9.0.0 (42.42.42.42424), Arm64 RyuJIT AdvSIMD
+      Job-MLUOLU : .NET 9.0.0 (42.42.42.42424), Arm64 RyuJIT AdvSIMD
+    ```
+    
+    | Method   | Toolchain               | Mean     | Error     | Ratio |
+    |--------- |------------------------ |---------:|----------:|------:|
+    | CopyInts | Main | 6.683 μs | 0.0010 μs |  1.00 |
+    | CopyInts | PR | 5.014 μs | 0.0003 μs |  0.75 |
