@@ -1,0 +1,19 @@
+commit 6a9e153bb5a0890680388bd03e8184ed735a4991
+Author: Jan Kotas <jkotas@microsoft.com>
+Date:   Mon Oct 14 19:10:29 2024 -0700
+
+    Crossgen2 outer loop fixes (#108819)
+    
+    * Crossgen2 outer loop fixes
+    
+    * Test musl arm
+    
+    * Fix SingleFileHostSourcePath property for UseLocalAppHostPack=false
+    
+    * Unrelated typo
+    
+    * Fix crossgen executable name
+    
+    * Fix python
+    
+    * Executable permissions
