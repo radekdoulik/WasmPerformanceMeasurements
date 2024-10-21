@@ -1,0 +1,9 @@
+commit 061941a4e3dacd3e35c42e397386e0ab70b86f2e
+Author: Ilona Tomkowicz <32700855+ilonatommy@users.noreply.github.com>
+Date:   Mon Oct 21 15:09:45 2024 +0200
+
+    [debugger] Opening the inspector session can fail with other exceptions than cancellation (#109063)
+    
+    * Opening the session fails with other exceptions types.
+    
+    * Extend the basic exception handling to cover more than `TaskCanceledException`
