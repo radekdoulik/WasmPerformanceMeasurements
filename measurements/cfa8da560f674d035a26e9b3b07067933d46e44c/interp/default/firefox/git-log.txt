@@ -1,0 +1,25 @@
+commit cfa8da560f674d035a26e9b3b07067933d46e44c
+Author: Andrew Lalaev <89579304+AndreyLalaev@users.noreply.github.com>
+Date:   Thu Aug 22 00:57:36 2024 +0300
+
+    Avoid signed overflow in DBG_FlushInstructionCache (#105918)
+    
+    On ARM32 Linux we can have an infinite loop because of integer overflow.
+    For example, if DBG_FlushInstructionCache is called with
+    the following parameters & locals:
+      dwSize = 28
+      pageSize = 4096
+      begin = lpBaseAddress = 0x7ffff000
+      end = begin + dwSize = 0x7ffff01c
+    
+    ALIGN_UP(0x7ffff000, 4096) returns 0x80000000 which is actually a
+    negative number because INT_PTR is just int32_t (on ARM32). And here we
+    are getting an infinite loop because "begin" will never be greater or
+    equal than "end".
+    
+    So, this issue is related to all addresses between INT32_MAX - PAGE_SIZE and
+    INT32_MAX because ALIGN_UP returns the address of the next page which
+    will be greater or equal to INT32_MAX
+    
+    Signed-off-by: Andrei Lalaev <andrei.lalaev@anton-paar.com>
+    Co-authored-by: Andrei Lalaev <andrei.lalaev@anton-paar.com>
