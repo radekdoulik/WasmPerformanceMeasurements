@@ -1,0 +1,32 @@
+commit 790a607786ccd5d2c7902596b41e48c836c56a97
+Author: Alex Covington <68252706+alexcovington@users.noreply.github.com>
+Date:   Wed Oct 16 03:42:15 2024 -0700
+
+    Vectorize codegen for left shift operator on byte vector (#108336)
+    
+    * Generate vectorized left shift for Vector128<Byte>
+    
+    * Use lower ISA instead
+    
+    * Expand for larger size vector widths
+    
+    * jit format
+    
+    * Move transformation to gtNewSimdBinOp
+    
+    * Remove conditional, use assert similar to GT_RSZ case
+    
+    * Fix missing semicolon
+    
+    * Use fgMakeMultiUse instead of gtCloneExpr, re-use previous shift count calculation
+    
+    * Consolidate GT_LSH path into same path as GT_RSZ
+    
+    * Use TYP_INT instead of TYP_SHORT for GT_LSH
+    
+    * Also only use CORINFO_TYPE_INT
+    
+    ---------
+    
+    Co-authored-by: Alex Covington (Advanced Micro Devices <b-alexco@microsoft.com>
+    Co-authored-by: Tanner Gooding <tagoo@outlook.com>
