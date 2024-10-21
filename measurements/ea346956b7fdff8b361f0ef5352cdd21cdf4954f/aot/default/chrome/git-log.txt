@@ -1,0 +1,15 @@
+commit ea346956b7fdff8b361f0ef5352cdd21cdf4954f
+Author: Ilona Tomkowicz <32700855+ilonatommy@users.noreply.github.com>
+Date:   Fri Oct 18 21:42:50 2024 +0200
+
+    [debugger] Throw with short and easily caught message in debugger tests. (#109011)
+    
+    * Throw with short and easily cought message in debugger tests.
+    
+    Co-authored-by: Marek Fišera <mara@neptuo.com>
+    
+    * Timeout when we're waiting longer than 10 sec.
+    
+    ---------
+    
+    Co-authored-by: Marek Fišera <mara@neptuo.com>
