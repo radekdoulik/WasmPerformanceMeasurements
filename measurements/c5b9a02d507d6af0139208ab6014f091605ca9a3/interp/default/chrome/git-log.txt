@@ -1,0 +1,19 @@
+commit c5b9a02d507d6af0139208ab6014f091605ca9a3
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Tue Oct 15 19:47:08 2024 +0200
+
+    JIT: Produce correctly typed IR in TLS helper expansion (#108836)
+    
+    The TLS helper expansion would produce `ADD(long, int)` trees like
+    ```
+    ▌  STORE_LCL_VAR long   V01 rat0
+    └──▌  ADD       long
+       ├──▌  ADD       long
+       │  ├──▌  LCL_VAR   long   V02 rat1
+       │  └──▌  CNS_INT   int    72 $41
+       └──▌  CNS_INT   long   192
+    ```
+    
+    which is not legal IR. Fix that by inserting a cast. Also do some more
+    aggressive folding to get rid of these casts in the normal cases, and to
+    fold some constant arithmeticf in other cases.
