@@ -1,0 +1,18 @@
+commit adba54da2298de9c715922b506bfe17a974a3650
+Author: Elinor Fung <elfung@microsoft.com>
+Date:   Mon Oct 14 08:06:12 2024 -0700
+
+    [cdac] Make cDAC delegate to the DAC instead of the other way around (#108772)
+    
+    - `SOSDacImpl` in cDAC implements all the interfaces implemented by `ClrDataAccess`
+    - `CLRDataCreateInstance` returns cDAC if it is enabled
+    - `cdac_reader_get_sos_interface` takes the legacy DAC implementation
+    - Legacy DAC no longer calls into cDAC for its `ISOSDac*` implementations
+    - cDAC delegates to legacy DAC (if it has one) for APIs it has not implemented and asserts that the results are the same for APIs it has implemented
+    
+    Behavioural differences of note:
+    - Since asserts comparing results are in the cDAC instead of DAC now, they will come through as a fail fast with or without a debugger attached - as opposed to before, when they were silently ignored when a debugger was attached. The assert message will print to the debugger output (if attached) or OutputDebugString/syslog.
+    - If the cDAC implementation of an API errors, it does not fall back to calling the legacy DAC. I think this is reasonable given that we plan to put the ability to choose cDAC vs legacy DAC at a higher level. If cDAC implementation fails, it should fail and not try to hide it.
+    - `ClrDataAccess` lifetime is handled by cDAC (when enabled), so actual release is dependent on finalization of the COM object.
+    
+    I ran the SOS tests in diagnostics repo against this change locally both with and without the cDAC enabled.
