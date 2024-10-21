@@ -1,0 +1,5 @@
+commit 741390a68500e54b11dc8958573ca900e76fd80d
+Author: Xu Liangyu <xuliangyu@loongson.cn>
+Date:   Mon Oct 21 16:09:47 2024 +0800
+
+    Change the PAGE_SIZE to obtain from 'Environment.SystemPageSize' for CoreRoot testcases: 'MisSizedStructs_ArmArch' and 'Runtime_65937'. (#108917)
