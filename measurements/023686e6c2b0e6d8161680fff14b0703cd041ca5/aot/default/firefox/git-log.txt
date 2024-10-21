@@ -1,0 +1,13 @@
+commit 023686e6c2b0e6d8161680fff14b0703cd041ca5
+Author: Aman Khalid <amankhalid@microsoft.com>
+Date:   Fri Oct 18 18:59:01 2024 +0000
+
+    JIT: Break up try regions in `Compiler::fgMoveColdBlocks`, and fix contiguity later (#108914)
+    
+    Part of #107749. `Compiler::fgMoveColdBlocks` currently moves cold try blocks to the end of their innermost regions. This is problematic for our 3-opt layout plans: When identifying a candidate span of blocks to reorder, assuming that all cold blocks are at the end of the method vastly simplifies our implementation. However, if we have EH regions with their own cold sections, `fgMoveColdBlocks` will interleave hot and cold blocks. To facilitate later layout passes, we can simplify `fgMoveColdBlocks` to naively move all cold blocks to the end of the method, regardless of EH region, and rely on a "fixup" pass for making EH regions contiguous again.
+    
+    To start, I've tweaked `fgMoveColdBlocks` to break up try regions only. When handlers are placed in the funclet section, we don't need to do anything extra to get cold EH blocks out of the main method body's hot section. However, for jitted x86 code, we don't use the funclet model (yet), so cold handler blocks can still litter the main method body, hindering 3-opt's candidate space. I'd rather not expand on this PR's logic to rebuild handler regions if we can do something simpler, such as getting #101613 merged in, and using `fgRelocateEHRegions` to move all handlers to the end of the method under the assumption that they're cold (i.e. a pseudo-funclet region).
+    
+    Moving try entry blocks in `fgMoveColdBlocks` proved painful enough that I think we're better off leaving them as-is. Leaving each try region's entry in-place gives us a nice breadcrumb for reinserting the remaining blocks, and it might be beneficial to leave these entries in the candidate span of blocks for 3-opt, so we can effectively move entire try regions just by moving the entry. For try regions that are entirely cold, I can look into calling `fgRelocateEHRegions` before `fgMoveColdBlocks` on all platforms to quickly get these out of the way.
+    
+    All of this would be unnecessary if we could remove the VM's requirement of contiguous EH regions, and the codegen improvements would likely outweigh the additional VM complexity, though that's a conversation for another day.
