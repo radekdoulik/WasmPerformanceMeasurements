@@ -1,0 +1,13 @@
+commit 209898103eb2ddb787e79c0cee3727e53f7f3bc4
+Author: Andy Ayers <andya@microsoft.com>
+Date:   Mon Oct 14 15:37:27 2024 -0700
+
+    JIT: very simple cloning heuristic (#108771)
+    
+    Avoid cloning large loops.
+    
+    We compute loop size by counting tree nodes of all statements of all
+    blocks in the loop. If this is over a threshold, we inhibit cloning.
+    
+    Threshold value was chosen based on distribution of unrestricted cloned
+    loop sizes in the benchmark run_pgo collection.
