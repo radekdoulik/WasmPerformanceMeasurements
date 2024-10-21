@@ -1,0 +1,91 @@
+commit 1b8f744913b0cbeec256bfb1beb5146f516ad11c
+Author: Aleksey Kliger (λgeek) <alklig@microsoft.com>
+Date:   Thu Oct 17 11:38:16 2024 -0400
+
+    [cdac] ExecutionManager contract and RangeSectionMap lookup unit tests (#108685)
+    
+    RangeSectionMap is a data structure for coarse-grained lookups to man native code pointers to managed method descriptors that cover the entire addressable memory.
+    
+    This PR adds unit tests for the cdac reader RangeSectionMap lookup algorithm and some unit tests for the ExecutionManager contract APIs that use a RangeSectionMap and NibbleMap together to do a full TargetCodePointer->MethodDesc lookup
+    
+    Contributes to #108553
+    
+    * [cdac] ExecutionManager contract and lookup map tests
+    
+    *  add RangeSectionMap docs
+    
+    *  exhaustively test RangeSectionMap.GetIndexForLevel
+    
+    *  fix lookup in RangeSection.Find
+    
+        RangeSectionLookupAlgorithm.FindFragment finds the slot containing the range section fragment pointer.
+        Have to dereference it once to get the actual RangeSectionFragment pointer from the slot.
+    
+        This "worked" before because RangeSectionFragment.Next is at offset 0, so the first lookup would have a garbage range, so we would follow the "next" field and get to the correct fragment
+    
+    *   make a testable RangeSectionMap.FindFragmentInternal
+    
+    *   brief nibble map summary
+    
+    *   [cdac] Implement NibbleMap lookup and tests
+    
+        The execution manager uses a nibble map to quickly map program counter
+        pointers to the beginnings of the native code for the managed method.
+    
+        Implement the lookup algorithm for a nibble map.
+    
+        Start adding unit tests for the nibble map
+    
+        Also for testing in MockMemorySpace simplify ReaderContext, there's nothing special about the descriptor HeapFragments anymore.  We can use a uniform reader.
+    
+    *   NibbleMap: fix bug and add test
+    
+        Previously we incorrectly computed the prior map index when doing the backward linear search
+    
+    *   [testing] display Target values in hex in debugger views
+    
+    *   MockMemorySpace: simplify ReaderContext
+    
+        there's nothing special about the descriptor HeapFragments anymore.  We can use a uniform reader
+    
+    *   refactor ExecutionManager
+    
+    *   ExecutionManager contract
+    
+        the presence of RangeSection.R2RModule is a discriminator for whether we're looking at EE code or R2R code
+    
+    * use better cdac_data friends
+    
+    * markdown cleanup
+    
+    * document the ExecutionManager methods
+    
+    * cache CodeBlock based on given code pointer, not start of the method
+    
+       The CodeBlock includes the relative offset (given ip - start of method) so it's not ok to share for different code pointers into the same method
+    
+    * Make TestPlaceholderTarget data cache more useful; make TestRegistry lazy
+    
+    * bugfix: StubCodeBlockLast is uint8
+    
+    * add a simple bump allocator to MockMemorySpace
+    
+    * Add a field layout algorithm to TargetTestHelpers
+    
+    * move all the test builders to a separate class
+    
+    * cleanup test infra
+    
+    * remove a few more magic constants
+    
+    * EECodeInfo -> CodeBlock
+    
+    * EffectiveBitsForLevel -> GetIndexForLevel
+    
+    * add documentation to managed contract impl
+    
+    * RSLATestTarget -> RSMTestTarget
+    
+    ---------
+    
+    Co-authored-by: Elinor Fung <elfung@microsoft.com>
