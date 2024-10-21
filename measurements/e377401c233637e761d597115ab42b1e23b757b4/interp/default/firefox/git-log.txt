@@ -1,0 +1,9 @@
+commit e377401c233637e761d597115ab42b1e23b757b4
+Author: Aaron Robinson <arobins@microsoft.com>
+Date:   Thu Oct 17 15:03:47 2024 -0700
+
+    Remove HelperMethodFrames (HMF) from Reflection code paths (#108952)
+    
+    Convert ModuleHandle::GetDynamicMethod to QCall.
+    Convert ModuleHandle::GetToken to QCall.
+    Convert ModuleHandle::GetMDStreamVersion to QCall.
