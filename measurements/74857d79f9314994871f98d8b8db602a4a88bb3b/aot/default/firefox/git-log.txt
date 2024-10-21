@@ -1,0 +1,8 @@
+commit 74857d79f9314994871f98d8b8db602a4a88bb3b
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Tue Oct 15 10:06:00 2024 +0200
+
+    Switch `SwiftSelf<T>` position requirement to last (#108547)
+    
+    This is added as the last parameter by the Swift compiler, so to support
+    instance calls taking parameters this needs to come last.
