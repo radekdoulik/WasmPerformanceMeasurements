@@ -1,0 +1,11 @@
+commit 44b7ba3cf6af26bcf9f6b2bbd1e75cd1aeaa1331
+Author: Adeel Mujahid <3840695+am11@users.noreply.github.com>
+Date:   Wed Oct 16 01:57:10 2024 +0300
+
+    Move IsDebuggerPresent to minipal, convert to QCall (#108837)
+    
+    * Move IsDebuggerPresent to minipal, convert to QCall
+    
+    ---------
+    
+    Co-authored-by: Aaron Robinson <arobins@microsoft.com>
