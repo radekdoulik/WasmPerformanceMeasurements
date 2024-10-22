@@ -1,0 +1,7 @@
+commit 82256bf8eb5da3db1b0c02ecd26b86932eb3ba62
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Tue Oct 22 00:38:05 2024 +0200
+
+    JIT: Fix folding of GC pointer arithmetic in lowering (#108838)
+    
+    Fix #108830
