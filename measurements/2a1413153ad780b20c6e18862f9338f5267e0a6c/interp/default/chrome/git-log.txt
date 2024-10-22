@@ -1,0 +1,7 @@
+commit 2a1413153ad780b20c6e18862f9338f5267e0a6c
+Author: Alexander Köplinger <alex.koeplinger@outlook.com>
+Date:   Mon Oct 21 22:56:52 2024 +0200
+
+    Remove workaround in http/ssl stress test docker files (#109066)
+    
+    The issue was fixed in the pipeline images back 5 months ago so we should be able to remove the workaround: https://github.com/actions/runner-images/issues/9670
