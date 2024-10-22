@@ -1,0 +1,9 @@
+commit 489a1512f55961e91e46054f06eaecafb94ce5ee
+Author: Michał Petryka <35800402+MichalPetryka@users.noreply.github.com>
+Date:   Tue Oct 22 03:12:46 2024 +0200
+
+    Remove ldsfld quirk (#108606)
+    
+    Alternative to spilling changes in #108579
+    
+    Co-authored-by: Egor Bogatov <egorbo@gmail.com>
