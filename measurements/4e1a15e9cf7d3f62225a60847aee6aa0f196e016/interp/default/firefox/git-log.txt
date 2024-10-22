@@ -1,0 +1,5 @@
+commit 4e1a15e9cf7d3f62225a60847aee6aa0f196e016
+Author: Jeremy Koritzinsky <jekoritz@microsoft.com>
+Date:   Mon Oct 21 19:53:19 2024 -0700
+
+    Initialize managed and native values in the ICustomMarshaler marshaler to null when the other is null. (#109092)
