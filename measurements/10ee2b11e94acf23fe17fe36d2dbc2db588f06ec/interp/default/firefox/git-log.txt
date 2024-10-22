@@ -1,0 +1,18 @@
+commit 10ee2b11e94acf23fe17fe36d2dbc2db588f06ec
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Tue Oct 22 18:55:55 2024 +0200
+
+    JIT: Read back all replacements before statements with implicit EH control flow (#109107)
+    
+    Physical promotion sometimes needs to insert read backs of all stale
+    pending replacements when it encounters potential implicit EH control
+    flow (that is, intra-function control flow because of locally caught
+    exceptions). It would be possible for this to interact with QMARKs such
+    that we inserted readbacks inside one of the branches, yet believed we
+    had read back the replacement on all paths.
+    
+    The fix here is to indiscriminately start reading back all replacements
+    before a statement that may cause potential intra-function control flow
+    to occur.
+    
+    Fix #108969
