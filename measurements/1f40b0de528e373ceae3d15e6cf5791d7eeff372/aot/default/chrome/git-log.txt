@@ -1,0 +1,10 @@
+commit 1f40b0de528e373ceae3d15e6cf5791d7eeff372
+Author: Radek Zikmund <32671551+rzikm@users.noreply.github.com>
+Date:   Tue Oct 22 14:27:58 2024 +0200
+
+    System.Net Stress Tests Improvements 2 (#108703)
+    
+    - replace docker-compose with docker compose on windows (removew workaround for https://github.com/actions/runner-images/issues/7080)
+    - Add -nobuild option to run-docker-compose.ps1/sh script to simplify running without building the images
+    - remove version field from docker-compose.yml files to avoid triggering warnings
+    - Add mount for crash dumps collections on ssl stress tests
