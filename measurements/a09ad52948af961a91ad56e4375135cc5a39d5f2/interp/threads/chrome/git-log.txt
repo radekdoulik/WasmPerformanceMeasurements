@@ -1,0 +1,8 @@
+commit a09ad52948af961a91ad56e4375135cc5a39d5f2
+Author: Andy Gocke <angocke@microsoft.com>
+Date:   Mon Oct 21 21:57:03 2024 -0700
+
+    Change return type for MemberData tests to IEnumerable<array> (#109090)
+    
+    The XUnitWrapperGenerator doesn't support TheoryData. This was previously accidentally
+    working because TheoryData was convertible to `object[]`
