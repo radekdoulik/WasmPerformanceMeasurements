@@ -1,0 +1,7 @@
+commit f2a38bfa153776c8c4fc5eeb1611de66e663a49e
+Author: Katelyn Gadd <kg@luminance.org>
+Date:   Mon Oct 21 19:32:33 2024 -0700
+
+    Don't try to overrun the buffer in emitMetaData (#109086)
+    
+    This should fix the System.BadImageFormatException failures in #108636 that were being caused by ilasm producing malformed DLLs in some cases.
