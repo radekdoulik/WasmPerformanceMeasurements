@@ -1,0 +1,25 @@
+commit 9e59acb298c20658788567e0c6f0793fe97d37f6
+Author: Jeremy Koritzinsky <jekoritz@microsoft.com>
+Date:   Wed Oct 23 08:18:37 2024 -0700
+
+    Unify dotnet/runtime on using Arcade -publish (#108990)
+    
+    * Unify dotnet/runtime on using Arcade -publish
+    
+    Fixes https://github.com/dotnet/source-build/issues/4239
+    
+    Replaces https://github.com/dotnet/runtime/pull/100004
+    
+    Co-authored By: Viktor Hofer <viktor.hofer@microsoft.com>
+    
+    * Use DotNetBuildOrchestrator to avoid executing in a repo source-build context.
+    
+    * Actually, we want this logic to run only when we're running in a non-VMR-like context, even repo build.
+    
+    * Restore, but only restore the toolset in the publish job
+    
+    * Fix Exists check and do the "restore toolset only" check one degree away from the Arcade SDK.
+    
+    * Set the "publish using pipelines" global property when publishing
+    
+    * Don't produce the product version files on repo source build.
