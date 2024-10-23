@@ -1,0 +1,12 @@
+commit 9ecef8c2d709b88b959d9d6a00ad62a8f72a094f
+Author: Jo Shields <directhex@apebox.org>
+Date:   Wed Oct 23 03:25:27 2024 -0400
+
+    Rename SourceBuildUseMonoRuntime property, which is not SB specific (#108145)
+    
+    This is a coordinated cross-repo change, and might break the build until
+    all four PRs are merged. The other three are:
+    
+    Ref: https://github.com/dotnet/source-build/issues/4165
+    
+    Co-authored-by: Viktor Hofer <viktor.hofer@microsoft.com>
