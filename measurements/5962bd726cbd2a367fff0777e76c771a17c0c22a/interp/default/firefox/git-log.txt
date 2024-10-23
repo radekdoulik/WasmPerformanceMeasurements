@@ -1,0 +1,5 @@
+commit 5962bd726cbd2a367fff0777e76c771a17c0c22a
+Author: Aman Khalid <amankhalid@microsoft.com>
+Date:   Tue Oct 22 11:40:20 2024 +0000
+
+    JIT: Track visited blocks in LSRA with post-order number-based `BitVec` (#108932)
