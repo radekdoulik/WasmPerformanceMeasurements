@@ -1,0 +1,5 @@
+commit 601fad878bc06eacbc69e67433c62d2be1de79a7
+Author: Aman Khalid <amankhalid@microsoft.com>
+Date:   Tue Oct 22 22:06:04 2024 +0000
+
+    JIT: Run Compiler::fgDetermineFirstColdBlock at most once (#109127)
