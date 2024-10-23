@@ -1,0 +1,13 @@
+commit 9b10a46868ea76a6172b68679ff3ed9d02cdfbdb
+Author: Kevin Jones <kevin@vcsjones.com>
+Date:   Tue Oct 22 19:32:42 2024 -0400
+
+    Permit unencrypted key exports from CNG (#109119)
+    
+    Permit unencrypted key exports from CNG.
+    
+    CNG, by default, loads PKCS#12 certificate private keys as "AllowExport", not "AllowsPlaintextExport". When users attempt to export the private key from a loaded PKCS#12, they will receive an error that the operation is not permitted because they are expected to perform an encrypted export.
+    
+    This is counter-intuitive to some people, as the general expectation is that they can export private keys they just loaded. Starting in .NET 9, we are loading more PKCS#12 private keys in CNG instead of the legacy CSP, meaning users will hit this problem more. This is also a regression from .NET 8. The default provider changed, meaning keys that were once exportable no longer are.
+    
+    This pull request makes a change similar to what we do for macOS. If a user asks for an unencrypted export of the private key, and the key does not permit that, we will ask CNG for an encrypted export of the private key and decrypt it for them. This makes the unencrypted exports "just work", as they do on other platforms.
