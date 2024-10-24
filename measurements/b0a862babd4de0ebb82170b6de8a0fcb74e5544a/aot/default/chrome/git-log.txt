@@ -1,0 +1,20 @@
+commit b0a862babd4de0ebb82170b6de8a0fcb74e5544a
+Author: David Wrighton <davidwr@microsoft.com>
+Date:   Thu Oct 17 15:55:14 2024 -0700
+
+    Move init class helpers to managed code (#108029)
+    
+    Move the helpers for `CORINFO_HELP_INITCLASS` and `CORINFO_HELP_INITINSTCLASS` to managed code
+    
+    In addition, I noticed that `JIT_InitInstantiatedClass` used `EnsureInstanceActivated` and `ClassLoader::LoadGenericInstantiationThrowing` in its hot path.
+    
+    `EnsureInstanceActivated` did a fairly expensive recursive walk to ensure that various modules were "Activated" and the result of this walk wasn't cached, so I added a caching to indicate that the expensive walk does not need to be done. This caching is somewhat complicated by the detail that sometimes the code completes while still leaving the system in a state where a future call can fail. I used a thread local variable to detect that situation, and skip setting the cache bit. Now that the check for this is only a single bit on the `MethodTable`, it is practical to hoist the fast path of that check into the managed helper.
+    
+    `ClassLoader::LoadGenericInstantiationThrowing` was used when a much simpler call to `MethodTable::GetMethodTableMatchingParentClass` could be used.
+    
+    A small bespoke perf benchmark for this indicated that the performance of a scenario using `CORINFO_HELP_INITCLASS` was slightly slower than the C++ code (but still substantially faster than .NET 8), and that the performance of the managed replacement for `CORINFO_HELP_INITINSTCLASS` is now only somewhat slower than `CORINFO_HELP_INITCLASS`, and does not have the performance scaling problem with complex generics that the previous implementation had.
+    
+    | Test Scenario | .NET 8 | Before PR | After PR |
+    | ---- | ---- | ---- | ---- |
+    | `CORINFO_HELP_INITCLASS` | 826 | 451 | 468 |
+    | `CORINFO_HELP_INITINSTCLASS` | 6383 | 6936 | 547 |
