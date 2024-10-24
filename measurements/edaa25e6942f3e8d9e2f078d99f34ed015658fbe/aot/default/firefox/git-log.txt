@@ -1,0 +1,8 @@
+commit edaa25e6942f3e8d9e2f078d99f34ed015658fbe
+Author: Katelyn Gadd <kg@luminance.org>
+Date:   Wed Oct 23 16:48:19 2024 -0700
+
+    Synthesize assembly names by default for ilproj-based tests (#108997)
+    
+    * Synthesize ilasm assembly names by default for all IL tests
+    * Fix diamondshape tests
