@@ -1,0 +1,10 @@
+commit 3db28cd1cbd31268b8d4433c6cedd84ee44662ea
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Thu Oct 24 18:24:57 2024 +0200
+
+    JIT: Propagate LCL_ADDRs into handlers (#109182)
+    
+    Expand the support for LCL_ADDR propagation to keep assertions around in
+    handler blocks when they are true at all points in all predecessor
+    blocks of those handlers. This requires keeping track of the "always
+    true" assertions for each block.
