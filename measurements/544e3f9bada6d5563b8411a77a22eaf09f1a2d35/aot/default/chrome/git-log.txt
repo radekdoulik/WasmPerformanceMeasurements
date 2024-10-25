@@ -1,0 +1,9 @@
+commit 544e3f9bada6d5563b8411a77a22eaf09f1a2d35
+Author: Aaron Robinson <arobins@microsoft.com>
+Date:   Thu Oct 24 18:31:15 2024 -0700
+
+    Update `wellknownattributes.h` (#109191)
+    
+    * Remove WinRT MarshalingBehaviorAttribute support.
+    
+    * Add assert and comment about implicit ReadyToRun contract.
