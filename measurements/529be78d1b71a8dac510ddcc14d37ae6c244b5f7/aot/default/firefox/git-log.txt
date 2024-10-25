@@ -1,0 +1,15 @@
+commit 529be78d1b71a8dac510ddcc14d37ae6c244b5f7
+Author: Xu Liangyu <xuliangyu@loongson.cn>
+Date:   Thu Oct 24 22:17:26 2024 +0800
+
+    [LoongArch64] Sync with PR#107282: Transfer arguments between calling conventions in shuffling thunks. (#109102)
+    
+    * [LoongArch64] Sync with PR#107282: Transfer arguments between calling conventions in shuffling thunks.
+    * Set `varDsc->lvIsMultiRegArg = true` when passing struct with two regs in Compiler::lvaInitUserArgs()
+    to avoid changing passing struct with two regs into one regs in Prolog.
+    
+    * clean up unused code.
+    
+    * Update lclvars.cpp
+    
+    Also set 'varDsc->lvIsMultiRegArg = true' in 'Compiler::lvaInitUserArgs()' when passing struct with multi regs for RiscV64.
