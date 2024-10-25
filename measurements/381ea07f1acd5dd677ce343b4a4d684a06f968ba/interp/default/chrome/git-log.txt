@@ -1,0 +1,7 @@
+commit 381ea07f1acd5dd677ce343b4a4d684a06f968ba
+Author: Alexander Köplinger <alex.koeplinger@outlook.com>
+Date:   Fri Oct 25 00:20:19 2024 +0200
+
+    [mono] Use libclang from dotnet/llvm-project for offsets-tool.py (#109188)
+    
+    Removes the need for a system-installed libclang.
