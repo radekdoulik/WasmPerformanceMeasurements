@@ -1,0 +1,8 @@
+commit 661fd5ed2f3fef7234488583950c61e18d68c593
+Author: Aaron Robinson <arobins@microsoft.com>
+Date:   Fri Oct 25 08:45:49 2024 -0700
+
+    Remove MethodDesc::GetSig. (#109211)
+    
+    This API is inherently unsafe because it doesn't provide a length.
+    All uses are replaced with MethodDesc::GetSigPointer or MethodDesc::GetSigParser.
