@@ -1,0 +1,13 @@
+commit 1a7664d2a28c20da42963b5796ab31d2c2da5e7b
+Author: Jan Vorlicek <janvorli@microsoft.com>
+Date:   Sat Oct 26 10:18:53 2024 +0200
+
+    Fix unhandled exception test for composite r2r case (#109244)
+    
+    The test fails when built as r2r composite on linux coreclr due to the fact that the
+    unhandled exception differs in this case from regular non-composite or non-r2r builds.
+    It gets System.EntryPointNotFoundException instead of System.DllNotFoundException due
+    to a different order the resolving happens in this case.
+    
+    This change fixes that by modifying the unhandledTester to accept both of these
+    cases as success.
