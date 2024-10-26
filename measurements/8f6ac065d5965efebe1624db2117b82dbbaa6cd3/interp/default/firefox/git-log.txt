@@ -1,0 +1,13 @@
+commit 8f6ac065d5965efebe1624db2117b82dbbaa6cd3
+Author: Huo Yaoyuan <huoyaoyuan@hotmail.com>
+Date:   Sat Oct 26 02:56:17 2024 +0800
+
+    Cleanup NET8_0_OR_GREATER ifdef in json converters (#109176)
+    
+    * Cleanup Int128
+    
+    * Cleanup Half
+    
+    * Cleanup UInt128
+    
+    * Cleanup DateOnly
