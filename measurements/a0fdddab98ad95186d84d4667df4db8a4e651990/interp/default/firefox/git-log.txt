@@ -1,0 +1,15 @@
+commit a0fdddab98ad95186d84d4667df4db8a4e651990
+Author: dotnet-maestro[bot] <42748379+dotnet-maestro[bot]@users.noreply.github.com>
+Date:   Fri Oct 25 10:29:03 2024 +0200
+
+    Update dependencies from https://github.com/dotnet/emsdk build 20241024.3 (#109205)
+    
+    Microsoft.SourceBuild.Intermediate.emsdk , Microsoft.NET.Workload.Emscripten.Current.Manifest-10.0.100.Transport
+     From Version 10.0.0-alpha.1.24515.3 -> To Version 10.0.0-alpha.1.24524.3
+    
+    Dependency coherency updates
+    
+    runtime.linux-arm64.Microsoft.NETCore.Runtime.JIT.Tools,runtime.linux-x64.Microsoft.NETCore.Runtime.JIT.Tools,runtime.linux-musl-arm64.Microsoft.NETCore.Runtime.JIT.Tools,runtime.linux-musl-x64.Microsoft.NETCore.Runtime.JIT.Tools,runtime.win-arm64.Microsoft.NETCore.Runtime.JIT.Tools,runtime.win-x64.Microsoft.NETCore.Runtime.JIT.Tools,runtime.osx-arm64.Microsoft.NETCore.Runtime.JIT.Tools,runtime.osx-x64.Microsoft.NETCore.Runtime.JIT.Tools,runtime.linux-arm64.Microsoft.NETCore.Runtime.Mono.LLVM.Libclang,runtime.linux-arm64.Microsoft.NETCore.Runtime.Mono.LLVM.Sdk,runtime.linux-arm64.Microsoft.NETCore.Runtime.Mono.LLVM.Tools,runtime.linux-musl-arm64.Microsoft.NETCore.Runtime.Mono.LLVM.Libclang,runtime.linux-musl-arm64.Microsoft.NETCore.Runtime.Mono.LLVM.Sdk,runtime.linux-musl-arm64.Microsoft.NETCore.Runtime.Mono.LLVM.Tools,runtime.linux-x64.Microsoft.NETCore.Runtime.Mono.LLVM.Libclang,runtime.linux-x64.Microsoft.NETCore.Runtime.Mono.LLVM.Sdk,runtime.linux-x64.Microsoft.NETCore.Runtime.Mono.LLVM.Tools,runtime.linux-musl-x64.Microsoft.NETCore.Runtime.Mono.LLVM.Libclang,runtime.linux-musl-x64.Microsoft.NETCore.Runtime.Mono.LLVM.Sdk,runtime.linux-musl-x64.Microsoft.NETCore.Runtime.Mono.LLVM.Tools,runtime.win-x64.Microsoft.NETCore.Runtime.Mono.LLVM.Libclang,runtime.win-x64.Microsoft.NETCore.Runtime.Mono.LLVM.Sdk,runtime.win-x64.Microsoft.NETCore.Runtime.Mono.LLVM.Tools,runtime.osx-arm64.Microsoft.NETCore.Runtime.Mono.LLVM.Libclang,runtime.osx-arm64.Microsoft.NETCore.Runtime.Mono.LLVM.Sdk,runtime.osx-arm64.Microsoft.NETCore.Runtime.Mono.LLVM.Tools,runtime.osx-x64.Microsoft.NETCore.Runtime.Mono.LLVM.Libclang,runtime.osx-x64.Microsoft.NETCore.Runtime.Mono.LLVM.Sdk,runtime.osx-x64.Microsoft.NETCore.Runtime.Mono.LLVM.Tools,runtime.linux-arm64.Microsoft.NETCore.Runtime.Wasm.Node.Transport,runtime.linux-musl-arm64.Microsoft.NETCore.Runtime.Wasm.Node.Transport,runtime.linux-x64.Microsoft.NETCore.Runtime.Wasm.Node.Transport,runtime.linux-musl-x64.Microsoft.NETCore.Runtime.Wasm.Node.Transport,runtime.osx-arm64.Microsoft.NETCore.Runtime.Wasm.Node.Transport,runtime.osx-x64.Microsoft.NETCore.Runtime.Wasm.Node.Transport,runtime.win-arm64.Microsoft.NETCore.Runtime.Wasm.Node.Transport,runtime.win-x64.Microsoft.NETCore.Runtime.Wasm.Node.Transport
+     From Version 19.1.0-alpha.1.24510.2 -> To Version 19.1.0-alpha.1.24517.1 (parent: Microsoft.NET.Workload.Emscripten.Current.Manifest-10.0.100.Transport
+    
+    Co-authored-by: dotnet-maestro[bot] <dotnet-maestro[bot]@users.noreply.github.com>
