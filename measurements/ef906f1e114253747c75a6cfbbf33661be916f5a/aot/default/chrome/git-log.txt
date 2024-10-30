@@ -1,0 +1,12 @@
+commit ef906f1e114253747c75a6cfbbf33661be916f5a
+Author: Elinor Fung <elfung@microsoft.com>
+Date:   Mon Oct 28 15:04:23 2024 -0700
+
+    [cdac] Implement `IXCLRDataProcess::GetTaskByOSThreadID` (#109230)
+    
+    - Add `ClrDataTask` to cDAC as its implementation of `IXCLRDataTask`
+      - Currently delegates everything to legacy implementation
+    - Implement `IXCLRDataProcess::GetTaskByOSThreadID`
+      - Uses `Thread` contract to find the address of the thread corresponding to the specified OS thread ID.
+      - Gets the result from the legacy DAC and passes it to the cDAC `ClrDataTask`
+    - Add tests for `Thread` contract
