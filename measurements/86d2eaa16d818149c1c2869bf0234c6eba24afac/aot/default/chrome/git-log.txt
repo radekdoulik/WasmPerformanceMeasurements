@@ -1,0 +1,13 @@
+commit 86d2eaa16d818149c1c2869bf0234c6eba24afac
+Author: Andy Ayers <andya@microsoft.com>
+Date:   Wed Oct 30 14:46:41 2024 -0700
+
+    JIT: fix non-funclet EH empty finally/fault removal (#109361)
+    
+    For non-funclet EH we don't use the handler index to constrain the placement
+    of add code descs, but we were still recording the handler index in the ACD.
+    
+    This lead to some errors in ACD maintenance if there was an EH region
+    being removed with an ACD in the try and an equivalent one in the handler.
+    
+    Fixes #108851
