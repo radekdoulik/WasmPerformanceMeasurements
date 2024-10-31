@@ -1,0 +1,21 @@
+commit 797306fb84b3cab32ddbea1659b93267e98c3140
+Author: Adeel Mujahid <3840695+am11@users.noreply.github.com>
+Date:   Thu Oct 31 13:47:03 2024 +0200
+
+    Avoid a LINQ usage in tensor extensions (#109405)
+    
+    * Avoid a LINQ usage in tensor extensions
+    
+    This one, in particular, was causing an error with upcoming compiler changes:
+    
+        /vmr/src/runtime/src/libraries/System.Private.CoreLib/src/System/Runtime/CompilerServices/QCallHandles.cs(39,26): warning CS9265: Field 'ByteRef._ref' is never ref-assigned to, and will always have its default value (null reference) [/vmr/src/runtime/src/coreclr/System.Private.CoreLib/System.Private.CoreLib.csproj]
+        /vmr/src/runtime/src/libraries/System.Net.Http/src/System/Net/Http/Headers/HttpHeaders.cs(1168,30): warning CS8619: Nullability of reference types in value of type 'string[]' doesn't match target type 'Span<string?>'. [/vmr/src/runtime/src/libraries/System.Net.Http/src/System.Net.Http.csproj::TargetFramework=net10.0-linux]
+        /vmr/src/runtime/src/libraries/System.Net.Http/src/System/Net/Http/Headers/HttpHeaders.cs(1208,42): warning CS8620: Argument of type 'string[]' cannot be used for parameter 'values' of type 'Span<string?>' in 'void HttpHeaders.ReadStoreValues<object?>(Span<string?> values, object? storeValue, HttpHeaderParser? parser, ref int currentIndex)' due to differences in the nullability of reference types. [/vmr/src/runtime/src/libraries/System.Net.Http/src/System.Net.Http.csproj::TargetFramework=net10.0-linux]
+        /vmr/src/runtime/src/libraries/System.Net.Http/src/System/Net/Http/Headers/HttpHeaders.cs(1209,42): warning CS8620: Argument of type 'string[]' cannot be used for parameter 'values' of type 'Span<string?>' in 'void HttpHeaders.ReadStoreValues<string?>(Span<string?> values, object? storeValue, HttpHeaderParser? parser, ref int currentIndex)' due to differences in the nullability of reference types. [/vmr/src/runtime/src/libraries/System.Net.Http/src/System.Net.Http.csproj::TargetFramework=net10.0-linux]
+        /vmr/src/runtime/src/libraries/System.Numerics.Tensors/src/System/Numerics/Tensors/netcore/TensorExtensions.cs(2661,56): error CS0023: Operator '.' cannot be applied to operand of type 'void' [/vmr/src/runtime/src/libraries/System.Numerics.Tensors/src/System.Numerics.Tensors.csproj::TargetFramework=net10.0]
+            4 Warning(s)
+            1 Error(s)
+    
+    * Fold into one loop
+    
+    * Remove unnecessary wrapper
