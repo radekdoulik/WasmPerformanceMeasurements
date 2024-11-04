@@ -1,0 +1,7 @@
+commit f1ad214fb1030ca0e8129473039bb0756bd1e242
+Author: Dong-Heon Jung <clamp03@gmail.com>
+Date:   Mon Oct 28 20:22:14 2024 +0900
+
+    [RISC-V] Opt `emitLoadImmediate` (#109062)
+    
+    Skip `slli` and `add` if `low12` is 0 for the iterations.
