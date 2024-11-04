@@ -1,0 +1,9 @@
+commit e4473e06b50d898193b5a260b4521977cd0be34c
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Wed Oct 30 14:32:11 2024 +0100
+
+    JIT: Remove "getenv" calls (#109339)
+    
+    Several of these have JitConfig equivalents already (in the
+    "JitEnableXRange" style), which seems like a better way to phrase these
+    debugging aids.
