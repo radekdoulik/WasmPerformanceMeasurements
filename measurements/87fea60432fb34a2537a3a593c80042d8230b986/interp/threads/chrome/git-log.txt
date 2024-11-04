@@ -1,0 +1,24 @@
+commit 87fea60432fb34a2537a3a593c80042d8230b986
+Author: Andy Ayers <andya@microsoft.com>
+Date:   Mon Oct 28 14:16:59 2024 -0700
+
+    JIT: enable devirtualization/inlining of other array interface methods (#109209)
+    
+    The JIT recently enabled devirtualization of `GetEnumerator`, but for some cases
+    were inhibited from devirtualization because the runtime was returning an
+    instantiating stub instead of the actual method. This blocked inlining and
+    the JIT currently will not GDV unless it can also inline.
+    
+    So for instance `ICollection<T>.Count` would not devirtualize.
+    
+    We think we know enough to pass the right inst parameter (the exact method
+    desc) so enable this for the array case, at least for normal jitting.
+    
+    For NAOT array devirtualization happens via normal paths thanks to `Array<T>` so
+    should already fpr these cases. For R2R we don't do array interface devirt (yet).
+    
+    There was an existing field on `CORINFO_DEVIRTUALIZATION_INFO` to record the
+    need for an inst parameter, but it was unused and so I renamed it and use it
+    for this case.
+    
+    Contributes to #108913.
