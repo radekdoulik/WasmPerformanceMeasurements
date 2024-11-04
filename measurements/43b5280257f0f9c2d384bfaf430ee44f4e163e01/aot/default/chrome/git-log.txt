@@ -1,0 +1,9 @@
+commit 43b5280257f0f9c2d384bfaf430ee44f4e163e01
+Author: Adeel Mujahid <3840695+am11@users.noreply.github.com>
+Date:   Mon Nov 4 22:24:32 2024 +0200
+
+    Fix condition in PAL's SetThreadDescription (#109470)
+    
+    * Fix condition in PAL's SetThreadDescription
+    
+    * Add nullcheck before ReleaseReference
