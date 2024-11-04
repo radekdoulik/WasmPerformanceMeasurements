@@ -1,0 +1,30 @@
+commit e70aaa8e2fba2f6caa934501f4b5373790cebe11
+Author: dotnet-maestro[bot] <42748379+dotnet-maestro[bot]@users.noreply.github.com>
+Date:   Wed Oct 23 21:54:08 2024 +0200
+
+    [main] Update dependencies from dotnet/command-line-api, dotnet/hotreload-utils, dotnet/runtime-assets (#109145)
+    
+    * Update dependencies from https://github.com/dotnet/runtime-assets build 20241022.1
+    
+    Microsoft.DotNet.CilStrip.Sources , System.ComponentModel.TypeConverter.TestData , System.Data.Common.TestData , System.Drawing.Common.TestData , System.Formats.Tar.TestData , System.IO.Compression.TestData , System.IO.Packaging.TestData , System.Net.TestData , System.Private.Runtime.UnicodeData , System.Runtime.Numerics.TestData , System.Runtime.TimeZoneData , System.Security.Cryptography.X509Certificates.TestData , System.Text.RegularExpressions.TestData , System.Windows.Extensions.TestData
+     From Version 10.0.0-beta.24521.1 -> To Version 10.0.0-beta.24522.1
+    
+    Dependency coherency updates
+    
+    runtime.linux-arm64.Microsoft.NETCore.Runtime.Wasm.Node.Transport,runtime.linux-musl-arm64.Microsoft.NETCore.Runtime.Wasm.Node.Transport,runtime.linux-x64.Microsoft.NETCore.Runtime.Wasm.Node.Transport,runtime.linux-musl-x64.Microsoft.NETCore.Runtime.Wasm.Node.Transport,runtime.osx-arm64.Microsoft.NETCore.Runtime.Wasm.Node.Transport,runtime.osx-x64.Microsoft.NETCore.Runtime.Wasm.Node.Transport,runtime.win-arm64.Microsoft.NETCore.Runtime.Wasm.Node.Transport,runtime.win-x64.Microsoft.NETCore.Runtime.Wasm.Node.Transport
+     From Version 9.0.0-alpha.1.24175.1 -> To Version 10.0.0-alpha.1.24514.4 (parent: Microsoft.NET.Workload.Emscripten.Current.Manifest-10.0.100.Transport
+    
+    * Update dependencies from https://github.com/dotnet/hotreload-utils build 20241023.1
+    
+    Microsoft.DotNet.HotReload.Utils.Generator.BuildTool
+     From Version 10.0.0-alpha.0.24514.1 -> To Version 10.0.0-alpha.0.24523.1
+    
+    * Update dependencies from https://github.com/dotnet/command-line-api build 20241017.1
+    
+    Microsoft.SourceBuild.Intermediate.command-line-api , System.CommandLine
+     From Version 0.1.532403 -> To Version 0.1.551701
+    
+    ---------
+    
+    Co-authored-by: dotnet-maestro[bot] <dotnet-maestro[bot]@users.noreply.github.com>
+    Co-authored-by: Viktor Hofer <viktor.hofer@microsoft.com>
