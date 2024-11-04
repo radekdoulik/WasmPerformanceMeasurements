@@ -1,0 +1,11 @@
+commit 004d59ade00c9cdf929bc520ef6a950eb851578f
+Author: Steve Pfister <steveisok@users.noreply.github.com>
+Date:   Mon Nov 4 08:04:38 2024 -0800
+
+    [android] Fix crash in method_to_ir (#109381)
+    
+    There exists a possibility where the klass being passed to try_prepare_objaddr_callvirt_optimization is not legit. This can result in unpredictable crashes.
+    
+    To fix, we pass the MonoType and flush out the MonoClass by calling mono_class_from_mono_type_internal.
+    
+    Fixes https://github.com/dotnet/runtime/issues/109111
