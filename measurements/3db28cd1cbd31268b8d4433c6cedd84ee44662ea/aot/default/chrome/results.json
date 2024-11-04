@@ -1,64 +1,76 @@
 {
   "results": [
     {
-      "span": "00:00:04.2580000",
-      "steps": 102,
+      "span": "00:00:04.5120000",
+      "steps": 110,
       "taskName": "AppStart",
       "measurementName": "Page show"
     },
     {
-      "span": "00:00:05.2620000",
-      "steps": 133,
+      "span": "00:00:05.0620000",
+      "steps": 132,
       "taskName": "AppStart",
       "measurementName": "Page show"
     },
     {
-      "span": "00:00:04.8070000",
-      "steps": 126,
+      "span": "00:00:05.0340000",
+      "steps": 145,
       "taskName": "AppStart",
       "measurementName": "Page show"
     },
     {
-      "span": "00:00:06.2770000",
-      "steps": 135,
+      "span": "00:00:05.5250000",
+      "steps": 159,
       "taskName": "AppStart",
       "measurementName": "Page show"
     },
     {
-      "span": "00:00:04.0970000",
-      "steps": 107,
+      "span": "00:00:05.2700000",
+      "steps": 157,
       "taskName": "AppStart",
       "measurementName": "Page show"
     },
     {
-      "span": "00:00:06.0540000",
-      "steps": 14,
+      "span": "00:00:06.7350000",
+      "steps": 15,
       "taskName": "AppStart",
       "measurementName": "Reach managed"
     },
     {
-      "span": "00:00:05.9960000",
-      "steps": 11,
+      "span": "00:00:07.6680000",
+      "steps": 16,
       "taskName": "AppStart",
       "measurementName": "Reach managed"
     },
     {
-      "span": "00:00:02.9350000",
+      "span": "00:00:05.6550000",
+      "steps": 8,
+      "taskName": "AppStart",
+      "measurementName": "Reach managed"
+    },
+    {
+      "span": "00:00:05.3720000",
       "steps": 6,
       "taskName": "AppStart",
       "measurementName": "Reach managed"
     },
     {
-      "span": "00:00:06.6640000",
-      "steps": 12,
+      "span": "00:00:03.7060000",
+      "steps": 5,
       "taskName": "AppStart",
       "measurementName": "Reach managed"
     },
     {
-      "span": "00:00:08.0390000",
-      "steps": 12,
+      "span": "00:00:21.2900000",
+      "steps": 3,
       "taskName": "AppStart",
-      "measurementName": "Reach managed"
+      "measurementName": "Reach managed cold"
+    },
+    {
+      "span": "00:00:21.3140000",
+      "steps": 3,
+      "taskName": "AppStart",
+      "measurementName": "Reach managed cold"
     },
     {
       "span": "00:00:21.2970000",
@@ -67,7 +79,7 @@
       "measurementName": "Reach managed cold"
     },
     {
-      "span": "00:00:21.3140000",
+      "span": "00:00:21.3090000",
       "steps": 3,
       "taskName": "AppStart",
       "measurementName": "Reach managed cold"
@@ -79,469 +91,457 @@
       "measurementName": "Reach managed cold"
     },
     {
-      "span": "00:00:21.3020000",
-      "steps": 3,
-      "taskName": "AppStart",
-      "measurementName": "Reach managed cold"
-    },
-    {
-      "span": "00:00:21.3140000",
-      "steps": 3,
-      "taskName": "AppStart",
-      "measurementName": "Reach managed cold"
-    },
-    {
-      "span": "00:00:00.6660000",
-      "steps": 11071895,
+      "span": "00:00:00.6850000",
+      "steps": 11217865,
       "taskName": "Exceptions",
       "measurementName": "NoExceptionHandling"
     },
     {
-      "span": "00:00:00.7550000",
+      "span": "00:00:00.7680000",
       "steps": 12750545,
       "taskName": "Exceptions",
       "measurementName": "NoExceptionHandling"
     },
     {
-      "span": "00:00:00.7550000",
+      "span": "00:00:00.7680000",
       "steps": 12750545,
       "taskName": "Exceptions",
       "measurementName": "NoExceptionHandling"
     },
     {
-      "span": "00:00:00.7440000",
-      "steps": 12557913,
-      "taskName": "Exceptions",
-      "measurementName": "NoExceptionHandling"
-    },
-    {
-      "span": "00:00:00.7550000",
+      "span": "00:00:00.7680000",
       "steps": 12750545,
       "taskName": "Exceptions",
       "measurementName": "NoExceptionHandling"
     },
     {
-      "span": "00:00:00.7440000",
+      "span": "00:00:00.7690000",
+      "steps": 12750545,
+      "taskName": "Exceptions",
+      "measurementName": "NoExceptionHandling"
+    },
+    {
+      "span": "00:00:00.7450000",
       "steps": 9103824,
       "taskName": "Exceptions",
       "measurementName": "TryCatch"
     },
     {
-      "span": "00:00:00.7790000",
-      "steps": 9597959,
+      "span": "00:00:00.7960000",
+      "steps": 9812908,
       "taskName": "Exceptions",
       "measurementName": "TryCatch"
     },
     {
-      "span": "00:00:00.7790000",
-      "steps": 9597959,
+      "span": "00:00:00.7880000",
+      "steps": 9704107,
       "taskName": "Exceptions",
       "measurementName": "TryCatch"
     },
     {
-      "span": "00:00:00.7780000",
-      "steps": 9597959,
+      "span": "00:00:00.7960000",
+      "steps": 9812908,
       "taskName": "Exceptions",
       "measurementName": "TryCatch"
     },
     {
-      "span": "00:00:00.4050000",
-      "steps": 5001000,
+      "span": "00:00:00.7880000",
+      "steps": 9704107,
       "taskName": "Exceptions",
       "measurementName": "TryCatch"
     },
     {
-      "span": "00:00:07.9850000",
-      "steps": 260462,
+      "span": "00:00:04.1430000",
+      "steps": 132578,
       "taskName": "Exceptions",
       "measurementName": "TryCatchThrow"
     },
     {
-      "span": "00:00:08.0190000",
-      "steps": 265289,
+      "span": "00:00:08.0350000",
+      "steps": 264527,
       "taskName": "Exceptions",
       "measurementName": "TryCatchThrow"
     },
     {
-      "span": "00:00:08.0190000",
-      "steps": 265727,
+      "span": "00:00:08.0330000",
+      "steps": 264419,
       "taskName": "Exceptions",
       "measurementName": "TryCatchThrow"
     },
     {
-      "span": "00:00:08.0110000",
-      "steps": 265289,
+      "span": "00:00:08.0390000",
+      "steps": 264744,
       "taskName": "Exceptions",
       "measurementName": "TryCatchThrow"
     },
     {
-      "span": "00:00:08.0070000",
-      "steps": 265343,
+      "span": "00:00:04.9310000",
+      "steps": 162290,
       "taskName": "Exceptions",
       "measurementName": "TryCatchThrow"
     },
     {
-      "span": "00:00:04.4860000",
-      "steps": 55655555,
+      "span": "00:00:04.1290000",
+      "steps": 50100000,
       "taskName": "Exceptions",
       "measurementName": "TryCatchFilter"
     },
     {
-      "span": "00:00:05.0450000",
+      "span": "00:00:05.1580000",
       "steps": 62600000,
       "taskName": "Exceptions",
       "measurementName": "TryCatchFilter"
     },
     {
-      "span": "00:00:05.0430000",
+      "span": "00:00:05.1570000",
       "steps": 62600000,
       "taskName": "Exceptions",
       "measurementName": "TryCatchFilter"
     },
     {
-      "span": "00:00:04.4850000",
-      "steps": 55655555,
-      "taskName": "Exceptions",
-      "measurementName": "TryCatchFilter"
-    },
-    {
-      "span": "00:00:05.0440000",
+      "span": "00:00:05.1560000",
       "steps": 62600000,
       "taskName": "Exceptions",
       "measurementName": "TryCatchFilter"
     },
     {
-      "span": "00:00:04.5060000",
+      "span": "00:00:05.1570000",
+      "steps": 62600000,
+      "taskName": "Exceptions",
+      "measurementName": "TryCatchFilter"
+    },
+    {
+      "span": "00:00:04.1280000",
+      "steps": 50100000,
+      "taskName": "Exceptions",
+      "measurementName": "TryCatchFilterInline"
+    },
+    {
+      "span": "00:00:04.5830000",
       "steps": 55655555,
       "taskName": "Exceptions",
       "measurementName": "TryCatchFilterInline"
     },
     {
-      "span": "00:00:04.5050000",
-      "steps": 55655555,
-      "taskName": "Exceptions",
-      "measurementName": "TryCatchFilterInline"
-    },
-    {
-      "span": "00:00:05.0690000",
+      "span": "00:00:05.1540000",
       "steps": 62600000,
       "taskName": "Exceptions",
       "measurementName": "TryCatchFilterInline"
     },
     {
-      "span": "00:00:04.5060000",
+      "span": "00:00:04.5840000",
       "steps": 55655555,
       "taskName": "Exceptions",
       "measurementName": "TryCatchFilterInline"
     },
     {
-      "span": "00:00:05.0670000",
-      "steps": 62600000,
+      "span": "00:00:04.5840000",
+      "steps": 55655555,
       "taskName": "Exceptions",
       "measurementName": "TryCatchFilterInline"
     },
     {
-      "span": "00:00:08.5520000",
-      "steps": 239082,
+      "span": "00:00:04.7190000",
+      "steps": 129205,
       "taskName": "Exceptions",
       "measurementName": "TryCatchFilterThrow"
     },
     {
-      "span": "00:00:08.5530000",
-      "steps": 240805,
+      "span": "00:00:08.6450000",
+      "steps": 237475,
       "taskName": "Exceptions",
       "measurementName": "TryCatchFilterThrow"
     },
     {
-      "span": "00:00:08.5490000",
-      "steps": 240805,
+      "span": "00:00:08.6160000",
+      "steps": 238083,
       "taskName": "Exceptions",
       "measurementName": "TryCatchFilterThrow"
     },
     {
-      "span": "00:00:04.9670000",
-      "steps": 139888,
+      "span": "00:00:04.9330000",
+      "steps": 136135,
       "taskName": "Exceptions",
       "measurementName": "TryCatchFilterThrow"
     },
     {
-      "span": "00:00:08.5420000",
-      "steps": 240845,
+      "span": "00:00:08.6160000",
+      "steps": 238121,
       "taskName": "Exceptions",
       "measurementName": "TryCatchFilterThrow"
     },
     {
-      "span": "00:00:07.6190000",
-      "steps": 290548,
+      "span": "00:00:07.6990000",
+      "steps": 284569,
       "taskName": "Exceptions",
       "measurementName": "TryCatchFilterThrowApplies"
     },
     {
-      "span": "00:00:07.6150000",
-      "steps": 290766,
+      "span": "00:00:04.8510000",
+      "steps": 179571,
       "taskName": "Exceptions",
       "measurementName": "TryCatchFilterThrowApplies"
     },
     {
-      "span": "00:00:07.6260000",
-      "steps": 290621,
+      "span": "00:00:07.7050000",
+      "steps": 285048,
       "taskName": "Exceptions",
       "measurementName": "TryCatchFilterThrowApplies"
     },
     {
-      "span": "00:00:07.6140000",
-      "steps": 290621,
+      "span": "00:00:07.6980000",
+      "steps": 285048,
       "taskName": "Exceptions",
       "measurementName": "TryCatchFilterThrowApplies"
     },
     {
-      "span": "00:00:07.6160000",
-      "steps": 290621,
+      "span": "00:00:07.7100000",
+      "steps": 284979,
       "taskName": "Exceptions",
       "measurementName": "TryCatchFilterThrowApplies"
     },
     {
-      "span": "00:00:04.3420000",
+      "span": "00:00:04.4640000",
       "steps": 50100000,
       "taskName": "Exceptions",
       "measurementName": "TryFinally"
     },
     {
-      "span": "00:00:04.8250000",
+      "span": "00:00:04.9570000",
       "steps": 55655555,
       "taskName": "Exceptions",
       "measurementName": "TryFinally"
     },
     {
-      "span": "00:00:04.8230000",
+      "span": "00:00:04.9580000",
       "steps": 55655555,
       "taskName": "Exceptions",
       "measurementName": "TryFinally"
     },
     {
-      "span": "00:00:04.8240000",
+      "span": "00:00:04.9580000",
       "steps": 55655555,
       "taskName": "Exceptions",
       "measurementName": "TryFinally"
     },
     {
-      "span": "00:00:05.4280000",
-      "steps": 62600000,
+      "span": "00:00:00.4450000",
+      "steps": 5001000,
       "taskName": "Exceptions",
       "measurementName": "TryFinally"
     },
     {
-      "span": "00:00:05.0210000",
+      "span": "00:00:04.5820000",
+      "steps": 4176,
+      "taskName": "Json",
+      "measurementName": "non-ASCII text serialize"
+    },
+    {
+      "span": "00:00:04.9720000",
       "steps": 4555,
       "taskName": "Json",
       "measurementName": "non-ASCII text serialize"
     },
     {
-      "span": "00:00:05.0140000",
+      "span": "00:00:04.9670000",
       "steps": 4555,
       "taskName": "Json",
       "measurementName": "non-ASCII text serialize"
     },
     {
-      "span": "00:00:05.0050000",
+      "span": "00:00:04.9760000",
       "steps": 4555,
       "taskName": "Json",
       "measurementName": "non-ASCII text serialize"
     },
     {
-      "span": "00:00:05.0080000",
+      "span": "00:00:04.9680000",
       "steps": 4555,
       "taskName": "Json",
       "measurementName": "non-ASCII text serialize"
     },
     {
-      "span": "00:00:05.0120000",
-      "steps": 4555,
-      "taskName": "Json",
-      "measurementName": "non-ASCII text serialize"
-    },
-    {
-      "span": "00:00:04.8950000",
+      "span": "00:00:04.9110000",
       "steps": 2510,
       "taskName": "Json",
       "measurementName": "non-ASCII text deserialize"
     },
     {
-      "span": "00:00:04.8880000",
+      "span": "00:00:04.9090000",
       "steps": 2510,
       "taskName": "Json",
       "measurementName": "non-ASCII text deserialize"
     },
     {
-      "span": "00:00:04.8910000",
+      "span": "00:00:04.9090000",
       "steps": 2510,
       "taskName": "Json",
       "measurementName": "non-ASCII text deserialize"
     },
     {
-      "span": "00:00:04.8850000",
+      "span": "00:00:04.9040000",
       "steps": 2510,
       "taskName": "Json",
       "measurementName": "non-ASCII text deserialize"
     },
     {
-      "span": "00:00:04.8870000",
+      "span": "00:00:04.9030000",
       "steps": 2510,
       "taskName": "Json",
       "measurementName": "non-ASCII text deserialize"
     },
     {
-      "span": "00:00:02.8640000",
+      "span": "00:00:02.8890000",
       "steps": 50010,
       "taskName": "Json",
       "measurementName": "small serialize"
     },
     {
-      "span": "00:00:02.8220000",
+      "span": "00:00:02.8420000",
       "steps": 50010,
       "taskName": "Json",
       "measurementName": "small serialize"
     },
     {
-      "span": "00:00:02.8230000",
+      "span": "00:00:02.8420000",
       "steps": 50010,
       "taskName": "Json",
       "measurementName": "small serialize"
     },
     {
-      "span": "00:00:02.8250000",
+      "span": "00:00:02.8420000",
       "steps": 50010,
       "taskName": "Json",
       "measurementName": "small serialize"
     },
     {
-      "span": "00:00:02.8230000",
+      "span": "00:00:02.8420000",
       "steps": 50010,
       "taskName": "Json",
       "measurementName": "small serialize"
     },
     {
-      "span": "00:00:02.6830000",
-      "steps": 16676,
-      "taskName": "Json",
-      "measurementName": "small deserialize"
-    },
-    {
-      "span": "00:00:03.8840000",
+      "span": "00:00:03.8920000",
       "steps": 25010,
       "taskName": "Json",
       "measurementName": "small deserialize"
     },
     {
-      "span": "00:00:03.8720000",
+      "span": "00:00:03.7980000",
       "steps": 25010,
       "taskName": "Json",
       "measurementName": "small deserialize"
     },
     {
-      "span": "00:00:03.8730000",
+      "span": "00:00:03.7940000",
       "steps": 25010,
       "taskName": "Json",
       "measurementName": "small deserialize"
     },
     {
-      "span": "00:00:03.8750000",
+      "span": "00:00:03.7910000",
       "steps": 25010,
       "taskName": "Json",
       "measurementName": "small deserialize"
     },
     {
-      "span": "00:00:05.1360000",
+      "span": "00:00:03.7910000",
+      "steps": 25010,
+      "taskName": "Json",
+      "measurementName": "small deserialize"
+    },
+    {
+      "span": "00:00:05.0930000",
       "steps": 322,
       "taskName": "Json",
       "measurementName": "large serialize"
     },
     {
-      "span": "00:00:05.0250000",
-      "steps": 315,
-      "taskName": "Json",
-      "measurementName": "large serialize"
-    },
-    {
-      "span": "00:00:05.1360000",
+      "span": "00:00:05.0950000",
       "steps": 322,
       "taskName": "Json",
       "measurementName": "large serialize"
     },
     {
-      "span": "00:00:05.1380000",
+      "span": "00:00:05.0890000",
       "steps": 322,
       "taskName": "Json",
       "measurementName": "large serialize"
     },
     {
-      "span": "00:00:05.1350000",
+      "span": "00:00:05.0890000",
       "steps": 322,
       "taskName": "Json",
       "measurementName": "large serialize"
     },
     {
-      "span": "00:00:05.4390000",
-      "steps": 123,
+      "span": "00:00:05.0880000",
+      "steps": 322,
+      "taskName": "Json",
+      "measurementName": "large serialize"
+    },
+    {
+      "span": "00:00:05.4110000",
+      "steps": 125,
       "taskName": "Json",
       "measurementName": "large deserialize"
     },
     {
-      "span": "00:00:05.3850000",
-      "steps": 122,
+      "span": "00:00:05.3970000",
+      "steps": 125,
       "taskName": "Json",
       "measurementName": "large deserialize"
     },
     {
-      "span": "00:00:05.4270000",
-      "steps": 123,
+      "span": "00:00:05.3930000",
+      "steps": 125,
       "taskName": "Json",
       "measurementName": "large deserialize"
     },
     {
-      "span": "00:00:05.4270000",
-      "steps": 123,
+      "span": "00:00:05.3950000",
+      "steps": 125,
       "taskName": "Json",
       "measurementName": "large deserialize"
     },
     {
-      "span": "00:00:05.4610000",
-      "steps": 123,
+      "span": "00:00:05.3930000",
+      "steps": 125,
       "taskName": "Json",
       "measurementName": "large deserialize"
     },
     {
-      "span": "00:00:01.3130000",
-      "steps": 75030,
-      "taskName": "Span",
-      "measurementName": "Reverse bytes"
-    },
-    {
-      "span": "00:00:02.6190000",
+      "span": "00:00:02.6210000",
       "steps": 150030,
       "taskName": "Span",
       "measurementName": "Reverse bytes"
     },
     {
-      "span": "00:00:02.6200000",
+      "span": "00:00:02.6170000",
       "steps": 150030,
       "taskName": "Span",
       "measurementName": "Reverse bytes"
     },
     {
-      "span": "00:00:02.6200000",
+      "span": "00:00:02.6170000",
       "steps": 150030,
       "taskName": "Span",
       "measurementName": "Reverse bytes"
     },
     {
-      "span": "00:00:02.6200000",
+      "span": "00:00:02.6170000",
       "steps": 150030,
       "taskName": "Span",
       "measurementName": "Reverse bytes"
     },
     {
-      "span": "00:00:02.2020000",
+      "span": "00:00:02.6180000",
+      "steps": 150030,
+      "taskName": "Span",
+      "measurementName": "Reverse bytes"
+    },
+    {
+      "span": "00:00:02.2030000",
       "steps": 50030,
       "taskName": "Span",
       "measurementName": "Reverse chars"
@@ -553,67 +553,73 @@
       "measurementName": "Reverse chars"
     },
     {
-      "span": "00:00:06.5960000",
-      "steps": 150030,
-      "taskName": "Span",
-      "measurementName": "Reverse chars"
-    },
-    {
-      "span": "00:00:06.5960000",
-      "steps": 150030,
-      "taskName": "Span",
-      "measurementName": "Reverse chars"
-    },
-    {
-      "span": "00:00:06.5960000",
-      "steps": 150030,
-      "taskName": "Span",
-      "measurementName": "Reverse chars"
-    },
-    {
-      "span": "00:00:01.2640000",
-      "steps": 5001000,
-      "taskName": "Span",
-      "measurementName": "IndexOf bytes"
-    },
-    {
-      "span": "00:00:01.2650000",
-      "steps": 5001000,
-      "taskName": "Span",
-      "measurementName": "IndexOf bytes"
-    },
-    {
-      "span": "00:00:01.2640000",
-      "steps": 5001000,
-      "taskName": "Span",
-      "measurementName": "IndexOf bytes"
-    },
-    {
-      "span": "00:00:01.2910000",
-      "steps": 5001000,
-      "taskName": "Span",
-      "measurementName": "IndexOf bytes"
-    },
-    {
-      "span": "00:00:01.2640000",
-      "steps": 5001000,
-      "taskName": "Span",
-      "measurementName": "IndexOf bytes"
-    },
-    {
-      "span": "00:00:01.4160000",
+      "span": "00:00:03.2990000",
       "steps": 75030,
       "taskName": "Span",
+      "measurementName": "Reverse chars"
+    },
+    {
+      "span": "00:00:03.2990000",
+      "steps": 75030,
+      "taskName": "Span",
+      "measurementName": "Reverse chars"
+    },
+    {
+      "span": "00:00:06.5970000",
+      "steps": 150030,
+      "taskName": "Span",
+      "measurementName": "Reverse chars"
+    },
+    {
+      "span": "00:00:01.3160000",
+      "steps": 5001000,
+      "taskName": "Span",
+      "measurementName": "IndexOf bytes"
+    },
+    {
+      "span": "00:00:01.2680000",
+      "steps": 5001000,
+      "taskName": "Span",
+      "measurementName": "IndexOf bytes"
+    },
+    {
+      "span": "00:00:01.2680000",
+      "steps": 5001000,
+      "taskName": "Span",
+      "measurementName": "IndexOf bytes"
+    },
+    {
+      "span": "00:00:01.2680000",
+      "steps": 5001000,
+      "taskName": "Span",
+      "measurementName": "IndexOf bytes"
+    },
+    {
+      "span": "00:00:01.2670000",
+      "steps": 5001000,
+      "taskName": "Span",
+      "measurementName": "IndexOf bytes"
+    },
+    {
+      "span": "00:00:00.9460000",
+      "steps": 50030,
+      "taskName": "Span",
       "measurementName": "IndexOf chars"
     },
     {
-      "span": "00:00:02.8320000",
+      "span": "00:00:02.8330000",
       "steps": 150030,
       "taskName": "Span",
       "measurementName": "IndexOf chars"
     },
     {
-      "span": "00:00:02.8320000",
+      "span": "00:00:02.8340000",
+      "steps": 150030,
+      "taskName": "Span",
+      "measurementName": "IndexOf chars"
+    },
+    {
+      "span": "00:00:02.8350000",
       "steps": 150030,
       "taskName": "Span",
       "measurementName": "IndexOf chars"
@@ -625,13 +631,7 @@
       "measurementName": "IndexOf chars"
     },
     {
-      "span": "00:00:02.8310000",
-      "steps": 150030,
-      "taskName": "Span",
-      "measurementName": "IndexOf chars"
-    },
-    {
-      "span": "00:00:00.0570000",
+      "span": "00:00:00.0610000",
       "steps": 150030,
       "taskName": "Span",
       "measurementName": "IndexOf strings"
@@ -643,7 +643,7 @@
       "measurementName": "IndexOf strings"
     },
     {
-      "span": "00:00:00.0520000",
+      "span": "00:00:00.0510000",
       "steps": 150030,
       "taskName": "Span",
       "measurementName": "IndexOf strings"
@@ -655,13 +655,13 @@
       "measurementName": "IndexOf strings"
     },
     {
-      "span": "00:00:00.0520000",
+      "span": "00:00:00.0510000",
       "steps": 150030,
       "taskName": "Span",
       "measurementName": "IndexOf strings"
     },
     {
-      "span": "00:00:02.1110000",
+      "span": "00:00:02.1100000",
       "steps": 150030,
       "taskName": "Span",
       "measurementName": "SequenceEqual bytes"
@@ -691,50 +691,38 @@
       "measurementName": "SequenceEqual bytes"
     },
     {
-      "span": "00:00:04.4880000",
+      "span": "00:00:04.4860000",
       "steps": 150030,
       "taskName": "Span",
       "measurementName": "SequenceEqual chars"
     },
     {
-      "span": "00:00:04.5270000",
+      "span": "00:00:04.5250000",
       "steps": 150030,
       "taskName": "Span",
       "measurementName": "SequenceEqual chars"
     },
     {
-      "span": "00:00:04.1910000",
+      "span": "00:00:04.1890000",
       "steps": 150030,
       "taskName": "Span",
       "measurementName": "SequenceEqual chars"
     },
     {
-      "span": "00:00:04.5270000",
+      "span": "00:00:04.5250000",
       "steps": 150030,
       "taskName": "Span",
       "measurementName": "SequenceEqual chars"
     },
     {
-      "span": "00:00:04.3380000",
+      "span": "00:00:04.3360000",
       "steps": 150030,
       "taskName": "Span",
       "measurementName": "SequenceEqual chars"
     },
     {
-      "span": "00:00:04.9430000",
-      "steps": 2337,
-      "taskName": "String",
-      "measurementName": "Normalize"
-    },
-    {
-      "span": "00:00:05.1560000",
-      "steps": 2449,
-      "taskName": "String",
-      "measurementName": "Normalize"
-    },
-    {
-      "span": "00:00:05.1590000",
-      "steps": 2449,
+      "span": "00:00:05.0120000",
+      "steps": 2373,
       "taskName": "String",
       "measurementName": "Normalize"
     },
@@ -745,31 +733,43 @@
       "measurementName": "Normalize"
     },
     {
-      "span": "00:00:05.1590000",
+      "span": "00:00:05.0760000",
+      "steps": 2410,
+      "taskName": "String",
+      "measurementName": "Normalize"
+    },
+    {
+      "span": "00:00:05.1580000",
       "steps": 2449,
       "taskName": "String",
       "measurementName": "Normalize"
     },
     {
-      "span": "00:00:05.0400000",
+      "span": "00:00:05.1580000",
+      "steps": 2449,
+      "taskName": "String",
+      "measurementName": "Normalize"
+    },
+    {
+      "span": "00:00:04.4790000",
+      "steps": 16696,
+      "taskName": "String",
+      "measurementName": "IsNormalized"
+    },
+    {
+      "span": "00:00:05.0350000",
       "steps": 18780,
       "taskName": "String",
       "measurementName": "IsNormalized"
     },
     {
-      "span": "00:00:05.0380000",
-      "steps": 18780,
+      "span": "00:00:04.4770000",
+      "steps": 16696,
       "taskName": "String",
       "measurementName": "IsNormalized"
     },
     {
-      "span": "00:00:05.0360000",
-      "steps": 18780,
-      "taskName": "String",
-      "measurementName": "IsNormalized"
-    },
-    {
-      "span": "00:00:05.0360000",
+      "span": "00:00:05.0340000",
       "steps": 18780,
       "taskName": "String",
       "measurementName": "IsNormalized"
@@ -781,19 +781,25 @@
       "measurementName": "IsNormalized"
     },
     {
-      "span": "00:00:02.4460000",
+      "span": "00:00:02.4520000",
       "steps": 150030,
       "taskName": "String",
       "measurementName": "Normalize ASCII"
     },
     {
-      "span": "00:00:02.4580000",
+      "span": "00:00:02.4420000",
       "steps": 150030,
       "taskName": "String",
       "measurementName": "Normalize ASCII"
     },
     {
-      "span": "00:00:02.4480000",
+      "span": "00:00:02.4520000",
+      "steps": 150030,
+      "taskName": "String",
+      "measurementName": "Normalize ASCII"
+    },
+    {
+      "span": "00:00:02.4430000",
       "steps": 150030,
       "taskName": "String",
       "measurementName": "Normalize ASCII"
@@ -805,32 +811,8 @@
       "measurementName": "Normalize ASCII"
     },
     {
-      "span": "00:00:02.4500000",
-      "steps": 150030,
-      "taskName": "String",
-      "measurementName": "Normalize ASCII"
-    },
-    {
-      "span": "00:00:04.8220000",
-      "steps": 3290,
-      "taskName": "String",
-      "measurementName": "TextInfo ToLower"
-    },
-    {
-      "span": "00:00:05.1460000",
-      "steps": 3518,
-      "taskName": "String",
-      "measurementName": "TextInfo ToLower"
-    },
-    {
-      "span": "00:00:05.1470000",
-      "steps": 3518,
-      "taskName": "String",
-      "measurementName": "TextInfo ToLower"
-    },
-    {
-      "span": "00:00:05.2700000",
-      "steps": 3601,
+      "span": "00:00:04.7270000",
+      "steps": 3221,
       "taskName": "String",
       "measurementName": "TextInfo ToLower"
     },
@@ -841,25 +823,31 @@
       "measurementName": "TextInfo ToLower"
     },
     {
-      "span": "00:00:05.1990000",
-      "steps": 3876,
+      "span": "00:00:05.1520000",
+      "steps": 3518,
+      "taskName": "String",
+      "measurementName": "TextInfo ToLower"
+    },
+    {
+      "span": "00:00:05.1480000",
+      "steps": 3518,
+      "taskName": "String",
+      "measurementName": "TextInfo ToLower"
+    },
+    {
+      "span": "00:00:05.1520000",
+      "steps": 3518,
+      "taskName": "String",
+      "measurementName": "TextInfo ToLower"
+    },
+    {
+      "span": "00:00:05.0690000",
+      "steps": 3780,
       "taskName": "String",
       "measurementName": "TextInfo ToUpper"
     },
     {
-      "span": "00:00:05.1980000",
-      "steps": 3876,
-      "taskName": "String",
-      "measurementName": "TextInfo ToUpper"
-    },
-    {
-      "span": "00:00:05.1980000",
-      "steps": 3876,
-      "taskName": "String",
-      "measurementName": "TextInfo ToUpper"
-    },
-    {
-      "span": "00:00:05.1980000",
+      "span": "00:00:05.1970000",
       "steps": 3876,
       "taskName": "String",
       "measurementName": "TextInfo ToUpper"
@@ -871,56 +859,68 @@
       "measurementName": "TextInfo ToUpper"
     },
     {
-      "span": "00:00:05.1730000",
-      "steps": 724,
+      "span": "00:00:05.2000000",
+      "steps": 3876,
+      "taskName": "String",
+      "measurementName": "TextInfo ToUpper"
+    },
+    {
+      "span": "00:00:05.1950000",
+      "steps": 3876,
+      "taskName": "String",
+      "measurementName": "TextInfo ToUpper"
+    },
+    {
+      "span": "00:00:05.1460000",
+      "steps": 718,
       "taskName": "String",
       "measurementName": "TextInfo ToTitleCase"
     },
     {
-      "span": "00:00:05.2660000",
+      "span": "00:00:05.2710000",
       "steps": 737,
       "taskName": "String",
       "measurementName": "TextInfo ToTitleCase"
     },
     {
       "span": "00:00:05.2590000",
+      "steps": 734,
+      "taskName": "String",
+      "measurementName": "TextInfo ToTitleCase"
+    },
+    {
+      "span": "00:00:05.2760000",
       "steps": 737,
       "taskName": "String",
       "measurementName": "TextInfo ToTitleCase"
     },
     {
-      "span": "00:00:05.2610000",
-      "steps": 737,
+      "span": "00:00:05.2570000",
+      "steps": 734,
       "taskName": "String",
       "measurementName": "TextInfo ToTitleCase"
     },
     {
-      "span": "00:00:05.2560000",
-      "steps": 737,
-      "taskName": "String",
-      "measurementName": "TextInfo ToTitleCase"
-    },
-    {
-      "span": "00:00:04.9300000",
+      "span": "00:00:04.9280000",
       "steps": 17341,
       "taskName": "String",
       "measurementName": "String Compare"
     },
     {
-      "span": "00:00:04.9260000",
+      "span": "00:00:04.9250000",
       "steps": 17341,
       "taskName": "String",
       "measurementName": "String Compare"
     },
     {
-      "span": "00:00:04.9240000",
+      "span": "00:00:04.9230000",
       "steps": 17341,
       "taskName": "String",
       "measurementName": "String Compare"
     },
     {
-      "span": "00:00:05.0970000",
-      "steps": 17957,
+      "span": "00:00:04.9220000",
+      "steps": 17341,
       "taskName": "String",
       "measurementName": "String Compare"
     },
@@ -937,37 +937,31 @@
       "measurementName": "String Equals"
     },
     {
+      "span": "00:00:04.9200000",
+      "steps": 17341,
+      "taskName": "String",
+      "measurementName": "String Equals"
+    },
+    {
+      "span": "00:00:05.0930000",
+      "steps": 17957,
+      "taskName": "String",
+      "measurementName": "String Equals"
+    },
+    {
+      "span": "00:00:04.9190000",
+      "steps": 17341,
+      "taskName": "String",
+      "measurementName": "String Equals"
+    },
+    {
+      "span": "00:00:04.9190000",
+      "steps": 17341,
+      "taskName": "String",
+      "measurementName": "String Equals"
+    },
+    {
       "span": "00:00:05.0940000",
-      "steps": 17957,
-      "taskName": "String",
-      "measurementName": "String Equals"
-    },
-    {
-      "span": "00:00:04.9190000",
-      "steps": 17341,
-      "taskName": "String",
-      "measurementName": "String Equals"
-    },
-    {
-      "span": "00:00:05.0930000",
-      "steps": 17957,
-      "taskName": "String",
-      "measurementName": "String Equals"
-    },
-    {
-      "span": "00:00:05.0930000",
-      "steps": 17957,
-      "taskName": "String",
-      "measurementName": "String Equals"
-    },
-    {
-      "span": "00:00:04.9190000",
-      "steps": 17341,
-      "taskName": "String",
-      "measurementName": "CompareInfo Compare"
-    },
-    {
-      "span": "00:00:05.0920000",
       "steps": 17957,
       "taskName": "String",
       "measurementName": "CompareInfo Compare"
@@ -979,91 +973,85 @@
       "measurementName": "CompareInfo Compare"
     },
     {
+      "span": "00:00:04.9190000",
+      "steps": 17341,
+      "taskName": "String",
+      "measurementName": "CompareInfo Compare"
+    },
+    {
       "span": "00:00:05.0920000",
       "steps": 17957,
       "taskName": "String",
       "measurementName": "CompareInfo Compare"
     },
     {
-      "span": "00:00:05.0930000",
-      "steps": 17957,
+      "span": "00:00:04.9190000",
+      "steps": 17341,
       "taskName": "String",
       "measurementName": "CompareInfo Compare"
     },
     {
-      "span": "00:00:05.9300000",
+      "span": "00:00:05.9330000",
       "steps": 270,
       "taskName": "String",
       "measurementName": "CompareInfo IsPrefix"
     },
     {
-      "span": "00:00:05.9710000",
+      "span": "00:00:05.9740000",
       "steps": 272,
       "taskName": "String",
       "measurementName": "CompareInfo IsPrefix"
     },
     {
-      "span": "00:00:05.9290000",
+      "span": "00:00:05.9310000",
       "steps": 270,
       "taskName": "String",
       "measurementName": "CompareInfo IsPrefix"
     },
     {
-      "span": "00:00:05.9270000",
+      "span": "00:00:05.9310000",
       "steps": 270,
       "taskName": "String",
       "measurementName": "CompareInfo IsPrefix"
     },
     {
-      "span": "00:00:05.9700000",
+      "span": "00:00:05.9740000",
       "steps": 272,
       "taskName": "String",
       "measurementName": "CompareInfo IsPrefix"
     },
     {
-      "span": "00:00:05.8780000",
-      "steps": 134,
-      "taskName": "String",
-      "measurementName": "CompareInfo IsSuffix"
-    },
-    {
-      "span": "00:00:05.9200000",
+      "span": "00:00:05.9430000",
       "steps": 135,
       "taskName": "String",
       "measurementName": "CompareInfo IsSuffix"
     },
     {
-      "span": "00:00:05.9640000",
-      "steps": 136,
-      "taskName": "String",
-      "measurementName": "CompareInfo IsSuffix"
-    },
-    {
-      "span": "00:00:05.9230000",
+      "span": "00:00:05.9410000",
       "steps": 135,
       "taskName": "String",
       "measurementName": "CompareInfo IsSuffix"
     },
     {
-      "span": "00:00:05.9240000",
+      "span": "00:00:05.9420000",
       "steps": 135,
       "taskName": "String",
       "measurementName": "CompareInfo IsSuffix"
     },
     {
-      "span": "00:00:05.9720000",
-      "steps": 272,
+      "span": "00:00:05.9430000",
+      "steps": 135,
       "taskName": "String",
-      "measurementName": "String StartsWith"
+      "measurementName": "CompareInfo IsSuffix"
     },
     {
-      "span": "00:00:05.9710000",
-      "steps": 272,
+      "span": "00:00:05.9410000",
+      "steps": 135,
       "taskName": "String",
-      "measurementName": "String StartsWith"
+      "measurementName": "CompareInfo IsSuffix"
     },
     {
-      "span": "00:00:05.9700000",
+      "span": "00:00:05.9740000",
       "steps": 272,
       "taskName": "String",
       "measurementName": "String StartsWith"
@@ -1075,199 +1063,223 @@
       "measurementName": "String StartsWith"
     },
     {
-      "span": "00:00:05.9690000",
+      "span": "00:00:05.9770000",
       "steps": 272,
       "taskName": "String",
       "measurementName": "String StartsWith"
     },
     {
-      "span": "00:00:05.9220000",
+      "span": "00:00:05.9280000",
+      "steps": 270,
+      "taskName": "String",
+      "measurementName": "String StartsWith"
+    },
+    {
+      "span": "00:00:05.9730000",
+      "steps": 272,
+      "taskName": "String",
+      "measurementName": "String StartsWith"
+    },
+    {
+      "span": "00:00:05.9410000",
       "steps": 135,
       "taskName": "String",
       "measurementName": "String EndsWith"
     },
     {
-      "span": "00:00:05.9230000",
+      "span": "00:00:05.9420000",
       "steps": 135,
       "taskName": "String",
       "measurementName": "String EndsWith"
     },
     {
-      "span": "00:00:05.9220000",
+      "span": "00:00:05.9420000",
       "steps": 135,
       "taskName": "String",
       "measurementName": "String EndsWith"
     },
     {
-      "span": "00:00:05.9220000",
+      "span": "00:00:05.9410000",
       "steps": 135,
       "taskName": "String",
       "measurementName": "String EndsWith"
     },
     {
-      "span": "00:00:05.9220000",
+      "span": "00:00:05.9420000",
       "steps": 135,
       "taskName": "String",
       "measurementName": "String EndsWith"
     },
     {
-      "span": "00:00:05.8690000",
-      "steps": 191,
+      "span": "00:00:05.9310000",
+      "steps": 192,
       "taskName": "String",
       "measurementName": "String IndexOf"
     },
     {
-      "span": "00:00:05.9590000",
+      "span": "00:00:05.9750000",
       "steps": 194,
       "taskName": "String",
       "measurementName": "String IndexOf"
     },
     {
-      "span": "00:00:05.9550000",
+      "span": "00:00:05.9760000",
       "steps": 194,
       "taskName": "String",
       "measurementName": "String IndexOf"
     },
     {
-      "span": "00:00:05.9570000",
+      "span": "00:00:05.9750000",
       "steps": 194,
       "taskName": "String",
       "measurementName": "String IndexOf"
     },
     {
-      "span": "00:00:05.9560000",
+      "span": "00:00:05.9720000",
       "steps": 194,
       "taskName": "String",
       "measurementName": "String IndexOf"
     },
     {
-      "span": "00:00:05.5760000",
+      "span": "00:00:05.5720000",
       "steps": 114,
       "taskName": "String",
       "measurementName": "String LastIndexOf"
     },
     {
-      "span": "00:00:05.9770000",
-      "steps": 126,
-      "taskName": "String",
-      "measurementName": "String LastIndexOf"
-    },
-    {
-      "span": "00:00:05.9790000",
-      "steps": 126,
-      "taskName": "String",
-      "measurementName": "String LastIndexOf"
-    },
-    {
-      "span": "00:00:05.9330000",
+      "span": "00:00:05.9450000",
       "steps": 125,
       "taskName": "String",
       "measurementName": "String LastIndexOf"
     },
     {
-      "span": "00:00:05.9290000",
+      "span": "00:00:05.9400000",
       "steps": 125,
       "taskName": "String",
       "measurementName": "String LastIndexOf"
     },
     {
-      "span": "00:00:00.4800000",
-      "steps": 7242857,
-      "taskName": "Vector",
-      "measurementName": "Create Vector128"
+      "span": "00:00:05.9400000",
+      "steps": 125,
+      "taskName": "String",
+      "measurementName": "String LastIndexOf"
     },
     {
-      "span": "00:00:00.5720000",
-      "steps": 10100000,
-      "taskName": "Vector",
-      "measurementName": "Create Vector128"
-    },
-    {
-      "span": "00:00:00.4790000",
-      "steps": 8433333,
-      "taskName": "Vector",
-      "measurementName": "Create Vector128"
-    },
-    {
-      "span": "00:00:00.4780000",
-      "steps": 8433333,
-      "taskName": "Vector",
-      "measurementName": "Create Vector128"
-    },
-    {
-      "span": "00:00:00.4780000",
-      "steps": 8433333,
-      "taskName": "Vector",
-      "measurementName": "Create Vector128"
-    },
-    {
-      "span": "00:00:00.4780000",
-      "steps": 7242857,
-      "taskName": "Vector",
-      "measurementName": "Pack Vector128 (Constant)"
-    },
-    {
-      "span": "00:00:00.4920000",
-      "steps": 8433333,
-      "taskName": "Vector",
-      "measurementName": "Pack Vector128 (Constant)"
-    },
-    {
-      "span": "00:00:00.5880000",
-      "steps": 10100000,
-      "taskName": "Vector",
-      "measurementName": "Pack Vector128 (Constant)"
-    },
-    {
-      "span": "00:00:00.4920000",
-      "steps": 8433333,
-      "taskName": "Vector",
-      "measurementName": "Pack Vector128 (Constant)"
-    },
-    {
-      "span": "00:00:00.5880000",
-      "steps": 10100000,
-      "taskName": "Vector",
-      "measurementName": "Pack Vector128 (Constant)"
+      "span": "00:00:05.9400000",
+      "steps": 125,
+      "taskName": "String",
+      "measurementName": "String LastIndexOf"
     },
     {
       "span": "00:00:00.4860000",
       "steps": 7242857,
       "taskName": "Vector",
-      "measurementName": "Pack Vector128"
+      "measurementName": "Create Vector128"
     },
     {
-      "span": "00:00:00.5790000",
-      "steps": 10100000,
-      "taskName": "Vector",
-      "measurementName": "Pack Vector128"
-    },
-    {
-      "span": "00:00:00.4840000",
+      "span": "00:00:00.5010000",
       "steps": 8433333,
       "taskName": "Vector",
-      "measurementName": "Pack Vector128"
+      "measurementName": "Create Vector128"
     },
     {
-      "span": "00:00:00.5780000",
-      "steps": 10100000,
+      "span": "00:00:00.5020000",
+      "steps": 8433333,
       "taskName": "Vector",
-      "measurementName": "Pack Vector128"
+      "measurementName": "Create Vector128"
     },
     {
-      "span": "00:00:00.5790000",
-      "steps": 10100000,
+      "span": "00:00:00.5010000",
+      "steps": 8433333,
       "taskName": "Vector",
-      "measurementName": "Pack Vector128"
+      "measurementName": "Create Vector128"
     },
     {
-      "span": "00:00:00.4310000",
+      "span": "00:00:00.5010000",
+      "steps": 8433333,
+      "taskName": "Vector",
+      "measurementName": "Create Vector128"
+    },
+    {
+      "span": "00:00:00.4970000",
+      "steps": 8433333,
+      "taskName": "Vector",
+      "measurementName": "Pack Vector128 (Constant)"
+    },
+    {
+      "span": "00:00:00.4890000",
+      "steps": 8433333,
+      "taskName": "Vector",
+      "measurementName": "Pack Vector128 (Constant)"
+    },
+    {
+      "span": "00:00:00.4900000",
+      "steps": 8433333,
+      "taskName": "Vector",
+      "measurementName": "Pack Vector128 (Constant)"
+    },
+    {
+      "span": "00:00:00.4900000",
+      "steps": 8433333,
+      "taskName": "Vector",
+      "measurementName": "Pack Vector128 (Constant)"
+    },
+    {
+      "span": "00:00:00.4900000",
+      "steps": 8433333,
+      "taskName": "Vector",
+      "measurementName": "Pack Vector128 (Constant)"
+    },
+    {
+      "span": "00:00:00.4930000",
       "steps": 7242857,
       "taskName": "Vector",
+      "measurementName": "Pack Vector128"
+    },
+    {
+      "span": "00:00:00.4930000",
+      "steps": 8433333,
+      "taskName": "Vector",
+      "measurementName": "Pack Vector128"
+    },
+    {
+      "span": "00:00:00.4940000",
+      "steps": 8433333,
+      "taskName": "Vector",
+      "measurementName": "Pack Vector128"
+    },
+    {
+      "span": "00:00:00.4930000",
+      "steps": 8433333,
+      "taskName": "Vector",
+      "measurementName": "Pack Vector128"
+    },
+    {
+      "span": "00:00:00.4940000",
+      "steps": 8433333,
+      "taskName": "Vector",
+      "measurementName": "Pack Vector128"
+    },
+    {
+      "span": "00:00:00.0310000",
+      "steps": 501000,
+      "taskName": "Vector",
       "measurementName": "Add 2 Vector128\u0027s"
     },
     {
-      "span": "00:00:00.5010000",
+      "span": "00:00:00.5020000",
+      "steps": 8433333,
+      "taskName": "Vector",
+      "measurementName": "Add 2 Vector128\u0027s"
+    },
+    {
+      "span": "00:00:00.5020000",
+      "steps": 8433333,
+      "taskName": "Vector",
+      "measurementName": "Add 2 Vector128\u0027s"
+    },
+    {
+      "span": "00:00:00.5020000",
       "steps": 8433333,
       "taskName": "Vector",
       "measurementName": "Add 2 Vector128\u0027s"
@@ -1279,25 +1291,19 @@
       "measurementName": "Add 2 Vector128\u0027s"
     },
     {
-      "span": "00:00:00.5010000",
-      "steps": 8433333,
-      "taskName": "Vector",
-      "measurementName": "Add 2 Vector128\u0027s"
-    },
-    {
-      "span": "00:00:00.5010000",
-      "steps": 8433333,
-      "taskName": "Vector",
-      "measurementName": "Add 2 Vector128\u0027s"
-    },
-    {
-      "span": "00:00:00.4250000",
+      "span": "00:00:00.4240000",
       "steps": 7242857,
       "taskName": "Vector",
       "measurementName": "Multiply 2 Vector128\u0027s"
     },
     {
-      "span": "00:00:00.4940000",
+      "span": "00:00:00.4930000",
+      "steps": 8433333,
+      "taskName": "Vector",
+      "measurementName": "Multiply 2 Vector128\u0027s"
+    },
+    {
+      "span": "00:00:00.4930000",
       "steps": 8433333,
       "taskName": "Vector",
       "measurementName": "Multiply 2 Vector128\u0027s"
@@ -1315,50 +1321,56 @@
       "measurementName": "Multiply 2 Vector128\u0027s"
     },
     {
-      "span": "00:00:00.4930000",
-      "steps": 8433333,
-      "taskName": "Vector",
-      "measurementName": "Multiply 2 Vector128\u0027s"
-    },
-    {
-      "span": "00:00:00.4210000",
-      "steps": 6350000,
-      "taskName": "Vector",
-      "measurementName": "Dot product int"
-    },
-    {
-      "span": "00:00:00.4800000",
+      "span": "00:00:00.4780000",
       "steps": 7242857,
       "taskName": "Vector",
       "measurementName": "Dot product int"
     },
     {
-      "span": "00:00:00.4790000",
+      "span": "00:00:00.5550000",
+      "steps": 8433333,
+      "taskName": "Vector",
+      "measurementName": "Dot product int"
+    },
+    {
+      "span": "00:00:00.0330000",
+      "steps": 501000,
+      "taskName": "Vector",
+      "measurementName": "Dot product int"
+    },
+    {
+      "span": "00:00:00.4770000",
       "steps": 7242857,
       "taskName": "Vector",
       "measurementName": "Dot product int"
     },
     {
-      "span": "00:00:00.5580000",
-      "steps": 8433333,
+      "span": "00:00:00.4770000",
+      "steps": 7242857,
       "taskName": "Vector",
       "measurementName": "Dot product int"
     },
     {
-      "span": "00:00:00.5580000",
-      "steps": 8433333,
-      "taskName": "Vector",
-      "measurementName": "Dot product int"
-    },
-    {
-      "span": "00:00:00.4590000",
+      "span": "00:00:00.4600000",
       "steps": 7242857,
       "taskName": "Vector",
       "measurementName": "Dot product ulong"
     },
     {
-      "span": "00:00:00.5330000",
+      "span": "00:00:00.5360000",
       "steps": 8433333,
+      "taskName": "Vector",
+      "measurementName": "Dot product ulong"
+    },
+    {
+      "span": "00:00:00.5360000",
+      "steps": 8433333,
+      "taskName": "Vector",
+      "measurementName": "Dot product ulong"
+    },
+    {
+      "span": "00:00:00.4600000",
+      "steps": 7242857,
       "taskName": "Vector",
       "measurementName": "Dot product ulong"
     },
@@ -1369,61 +1381,49 @@
       "measurementName": "Dot product ulong"
     },
     {
-      "span": "00:00:00.4590000",
-      "steps": 7242857,
+      "span": "00:00:00.4200000",
+      "steps": 6350000,
       "taskName": "Vector",
-      "measurementName": "Dot product ulong"
+      "measurementName": "Dot product float"
     },
     {
-      "span": "00:00:00.5330000",
-      "steps": 8433333,
-      "taskName": "Vector",
-      "measurementName": "Dot product ulong"
-    },
-    {
-      "span": "00:00:00.4820000",
+      "span": "00:00:00.4770000",
       "steps": 7242857,
       "taskName": "Vector",
       "measurementName": "Dot product float"
     },
     {
-      "span": "00:00:00.4820000",
-      "steps": 7242857,
-      "taskName": "Vector",
-      "measurementName": "Dot product float"
-    },
-    {
-      "span": "00:00:00.4820000",
-      "steps": 7242857,
-      "taskName": "Vector",
-      "measurementName": "Dot product float"
-    },
-    {
-      "span": "00:00:00.5610000",
+      "span": "00:00:00.5560000",
       "steps": 8433333,
       "taskName": "Vector",
       "measurementName": "Dot product float"
     },
     {
-      "span": "00:00:00.5610000",
+      "span": "00:00:00.5560000",
       "steps": 8433333,
       "taskName": "Vector",
       "measurementName": "Dot product float"
     },
     {
-      "span": "00:00:00.4460000",
+      "span": "00:00:00.4810000",
+      "steps": 7242857,
+      "taskName": "Vector",
+      "measurementName": "Dot product float"
+    },
+    {
+      "span": "00:00:00.4490000",
       "steps": 7242857,
       "taskName": "Vector",
       "measurementName": "Dot product double"
     },
     {
-      "span": "00:00:00.5190000",
+      "span": "00:00:00.5210000",
       "steps": 8433333,
       "taskName": "Vector",
       "measurementName": "Dot product double"
     },
     {
-      "span": "00:00:00.4460000",
+      "span": "00:00:00.4480000",
       "steps": 7242857,
       "taskName": "Vector",
       "measurementName": "Dot product double"
@@ -1435,110 +1435,104 @@
       "measurementName": "Dot product double"
     },
     {
-      "span": "00:00:00.5180000",
-      "steps": 8433333,
+      "span": "00:00:00.4470000",
+      "steps": 7242857,
       "taskName": "Vector",
       "measurementName": "Dot product double"
     },
     {
-      "span": "00:00:00.4660000",
+      "span": "00:00:00.4480000",
       "steps": 6350000,
       "taskName": "Vector",
       "measurementName": "Sum sbyte"
     },
     {
-      "span": "00:00:00.5310000",
+      "span": "00:00:00.5110000",
       "steps": 7242857,
       "taskName": "Vector",
       "measurementName": "Sum sbyte"
+    },
+    {
+      "span": "00:00:00.5100000",
+      "steps": 7242857,
+      "taskName": "Vector",
+      "measurementName": "Sum sbyte"
+    },
+    {
+      "span": "00:00:00.5110000",
+      "steps": 7242857,
+      "taskName": "Vector",
+      "measurementName": "Sum sbyte"
+    },
+    {
+      "span": "00:00:00.5110000",
+      "steps": 7242857,
+      "taskName": "Vector",
+      "measurementName": "Sum sbyte"
+    },
+    {
+      "span": "00:00:00.4230000",
+      "steps": 6350000,
+      "taskName": "Vector",
+      "measurementName": "Sum short"
+    },
+    {
+      "span": "00:00:00.5600000",
+      "steps": 8433333,
+      "taskName": "Vector",
+      "measurementName": "Sum short"
+    },
+    {
+      "span": "00:00:00.4810000",
+      "steps": 7242857,
+      "taskName": "Vector",
+      "measurementName": "Sum short"
+    },
+    {
+      "span": "00:00:00.4830000",
+      "steps": 7242857,
+      "taskName": "Vector",
+      "measurementName": "Sum short"
+    },
+    {
+      "span": "00:00:00.5610000",
+      "steps": 8433333,
+      "taskName": "Vector",
+      "measurementName": "Sum short"
+    },
+    {
+      "span": "00:00:00.4670000",
+      "steps": 7242857,
+      "taskName": "Vector",
+      "measurementName": "Sum uint"
     },
     {
       "span": "00:00:00.4660000",
-      "steps": 6350000,
-      "taskName": "Vector",
-      "measurementName": "Sum sbyte"
-    },
-    {
-      "span": "00:00:00.5310000",
-      "steps": 7242857,
-      "taskName": "Vector",
-      "measurementName": "Sum sbyte"
-    },
-    {
-      "span": "00:00:00.0360000",
-      "steps": 501000,
-      "taskName": "Vector",
-      "measurementName": "Sum sbyte"
-    },
-    {
-      "span": "00:00:00.4860000",
-      "steps": 7242857,
-      "taskName": "Vector",
-      "measurementName": "Sum short"
-    },
-    {
-      "span": "00:00:00.4870000",
-      "steps": 7242857,
-      "taskName": "Vector",
-      "measurementName": "Sum short"
-    },
-    {
-      "span": "00:00:00.5650000",
-      "steps": 8433333,
-      "taskName": "Vector",
-      "measurementName": "Sum short"
-    },
-    {
-      "span": "00:00:00.4840000",
-      "steps": 7242857,
-      "taskName": "Vector",
-      "measurementName": "Sum short"
-    },
-    {
-      "span": "00:00:00.4850000",
-      "steps": 7242857,
-      "taskName": "Vector",
-      "measurementName": "Sum short"
-    },
-    {
-      "span": "00:00:00.4690000",
       "steps": 7242857,
       "taskName": "Vector",
       "measurementName": "Sum uint"
     },
     {
-      "span": "00:00:00.4690000",
+      "span": "00:00:00.4670000",
       "steps": 7242857,
       "taskName": "Vector",
       "measurementName": "Sum uint"
     },
     {
-      "span": "00:00:00.4690000",
-      "steps": 7242857,
-      "taskName": "Vector",
-      "measurementName": "Sum uint"
-    },
-    {
-      "span": "00:00:00.5460000",
+      "span": "00:00:00.5420000",
       "steps": 8433333,
       "taskName": "Vector",
       "measurementName": "Sum uint"
     },
     {
-      "span": "00:00:00.5450000",
-      "steps": 8433333,
+      "span": "00:00:00.4670000",
+      "steps": 7242857,
       "taskName": "Vector",
       "measurementName": "Sum uint"
     },
     {
-      "span": "00:00:00.4360000",
+      "span": "00:00:00.4380000",
       "steps": 7242857,
-      "taskName": "Vector",
-      "measurementName": "Sum double"
-    },
-    {
-      "span": "00:00:00.5090000",
-      "steps": 8433333,
       "taskName": "Vector",
       "measurementName": "Sum double"
     },
@@ -1549,7 +1543,13 @@
       "measurementName": "Sum double"
     },
     {
-      "span": "00:00:00.5070000",
+      "span": "00:00:00.4370000",
+      "steps": 7242857,
+      "taskName": "Vector",
+      "measurementName": "Sum double"
+    },
+    {
+      "span": "00:00:00.5080000",
       "steps": 8433333,
       "taskName": "Vector",
       "measurementName": "Sum double"
@@ -1561,34 +1561,58 @@
       "measurementName": "Sum double"
     },
     {
-      "span": "00:00:00.4480000",
+      "span": "00:00:00.4450000",
       "steps": 7242857,
       "taskName": "Vector",
       "measurementName": "Min float"
     },
     {
-      "span": "00:00:00.5190000",
+      "span": "00:00:00.5180000",
       "steps": 8433333,
       "taskName": "Vector",
       "measurementName": "Min float"
     },
     {
-      "span": "00:00:00.5200000",
+      "span": "00:00:00.5180000",
       "steps": 8433333,
       "taskName": "Vector",
       "measurementName": "Min float"
     },
     {
-      "span": "00:00:00.5190000",
+      "span": "00:00:00.5180000",
       "steps": 8433333,
       "taskName": "Vector",
       "measurementName": "Min float"
     },
     {
-      "span": "00:00:00.5200000",
+      "span": "00:00:00.5180000",
       "steps": 8433333,
       "taskName": "Vector",
       "measurementName": "Min float"
+    },
+    {
+      "span": "00:00:00.4410000",
+      "steps": 7242857,
+      "taskName": "Vector",
+      "measurementName": "Max float"
+    },
+    {
+      "span": "00:00:00.5120000",
+      "steps": 8433333,
+      "taskName": "Vector",
+      "measurementName": "Max float"
+    },
+    {
+      "span": "00:00:00.5120000",
+      "steps": 8433333,
+      "taskName": "Vector",
+      "measurementName": "Max float"
+    },
+    {
+      "span": "00:00:00.5120000",
+      "steps": 8433333,
+      "taskName": "Vector",
+      "measurementName": "Max float"
     },
     {
       "span": "00:00:00.4400000",
@@ -1597,55 +1621,31 @@
       "measurementName": "Max float"
     },
     {
-      "span": "00:00:00.5120000",
-      "steps": 8433333,
-      "taskName": "Vector",
-      "measurementName": "Max float"
-    },
-    {
-      "span": "00:00:00.5120000",
-      "steps": 8433333,
-      "taskName": "Vector",
-      "measurementName": "Max float"
-    },
-    {
-      "span": "00:00:00.5120000",
-      "steps": 8433333,
-      "taskName": "Vector",
-      "measurementName": "Max float"
-    },
-    {
-      "span": "00:00:00.5120000",
-      "steps": 8433333,
-      "taskName": "Vector",
-      "measurementName": "Max float"
-    },
-    {
-      "span": "00:00:00.4480000",
+      "span": "00:00:00.4450000",
       "steps": 7242857,
       "taskName": "Vector",
       "measurementName": "Min double"
     },
     {
-      "span": "00:00:00.4470000",
+      "span": "00:00:00.5180000",
+      "steps": 8433333,
+      "taskName": "Vector",
+      "measurementName": "Min double"
+    },
+    {
+      "span": "00:00:00.4450000",
       "steps": 7242857,
       "taskName": "Vector",
       "measurementName": "Min double"
     },
     {
-      "span": "00:00:00.5190000",
+      "span": "00:00:00.5180000",
       "steps": 8433333,
       "taskName": "Vector",
       "measurementName": "Min double"
     },
     {
-      "span": "00:00:00.5200000",
-      "steps": 8433333,
-      "taskName": "Vector",
-      "measurementName": "Min double"
-    },
-    {
-      "span": "00:00:00.5190000",
+      "span": "00:00:00.5180000",
       "steps": 8433333,
       "taskName": "Vector",
       "measurementName": "Min double"
@@ -1663,7 +1663,7 @@
       "measurementName": "Max double"
     },
     {
-      "span": "00:00:00.5120000",
+      "span": "00:00:00.5130000",
       "steps": 8433333,
       "taskName": "Vector",
       "measurementName": "Max double"
@@ -1681,61 +1681,61 @@
       "measurementName": "Max double"
     },
     {
-      "span": "00:00:00.4570000",
+      "span": "00:00:00.4690000",
       "steps": 6350000,
       "taskName": "Vector",
       "measurementName": "Normalize float"
     },
     {
-      "span": "00:00:00.5200000",
+      "span": "00:00:00.5330000",
       "steps": 7242857,
       "taskName": "Vector",
       "measurementName": "Normalize float"
     },
     {
-      "span": "00:00:00.4570000",
-      "steps": 6350000,
-      "taskName": "Vector",
-      "measurementName": "Normalize float"
-    },
-    {
-      "span": "00:00:00.5210000",
+      "span": "00:00:00.5330000",
       "steps": 7242857,
       "taskName": "Vector",
       "measurementName": "Normalize float"
     },
     {
-      "span": "00:00:00.5210000",
+      "span": "00:00:00.5320000",
       "steps": 7242857,
       "taskName": "Vector",
       "measurementName": "Normalize float"
     },
     {
-      "span": "00:00:00.5060000",
+      "span": "00:00:00.5330000",
+      "steps": 7242857,
+      "taskName": "Vector",
+      "measurementName": "Normalize float"
+    },
+    {
+      "span": "00:00:00.4390000",
+      "steps": 7242857,
+      "taskName": "Vector",
+      "measurementName": "Equals Int32"
+    },
+    {
+      "span": "00:00:00.5110000",
       "steps": 8433333,
       "taskName": "Vector",
       "measurementName": "Equals Int32"
     },
     {
-      "span": "00:00:00.5070000",
+      "span": "00:00:00.5110000",
       "steps": 8433333,
       "taskName": "Vector",
       "measurementName": "Equals Int32"
     },
     {
-      "span": "00:00:00.5070000",
+      "span": "00:00:00.5110000",
       "steps": 8433333,
       "taskName": "Vector",
       "measurementName": "Equals Int32"
     },
     {
-      "span": "00:00:00.5070000",
-      "steps": 8433333,
-      "taskName": "Vector",
-      "measurementName": "Equals Int32"
-    },
-    {
-      "span": "00:00:00.5060000",
+      "span": "00:00:00.5110000",
       "steps": 8433333,
       "taskName": "Vector",
       "measurementName": "Equals Int32"
@@ -1747,319 +1747,307 @@
       "measurementName": "Equals Float"
     },
     {
-      "span": "00:00:00.4850000",
-      "steps": 7242857,
-      "taskName": "Vector",
-      "measurementName": "Equals Float"
-    },
-    {
-      "span": "00:00:00.5640000",
-      "steps": 8433333,
-      "taskName": "Vector",
-      "measurementName": "Equals Float"
-    },
-    {
-      "span": "00:00:00.5640000",
-      "steps": 8433333,
-      "taskName": "Vector",
-      "measurementName": "Equals Float"
-    },
-    {
       "span": "00:00:00.4870000",
       "steps": 7242857,
       "taskName": "Vector",
       "measurementName": "Equals Float"
     },
     {
-      "span": "00:00:04.9490000",
-      "steps": 437,
+      "span": "00:00:00.4860000",
+      "steps": 7242857,
+      "taskName": "Vector",
+      "measurementName": "Equals Float"
+    },
+    {
+      "span": "00:00:00.5660000",
+      "steps": 8433333,
+      "taskName": "Vector",
+      "measurementName": "Equals Float"
+    },
+    {
+      "span": "00:00:00.4860000",
+      "steps": 7242857,
+      "taskName": "Vector",
+      "measurementName": "Equals Float"
+    },
+    {
+      "span": "00:00:04.9910000",
+      "steps": 413,
       "taskName": "JSInterop",
       "measurementName": "JSExportInt"
     },
     {
-      "span": "00:00:05.1030000",
-      "steps": 437,
+      "span": "00:00:04.9020000",
+      "steps": 403,
       "taskName": "JSInterop",
       "measurementName": "JSExportInt"
     },
     {
-      "span": "00:00:05.1060000",
-      "steps": 437,
+      "span": "00:00:05.0900000",
+      "steps": 419,
       "taskName": "JSInterop",
       "measurementName": "JSExportInt"
     },
     {
-      "span": "00:00:05.1030000",
-      "steps": 437,
+      "span": "00:00:05.0880000",
+      "steps": 419,
       "taskName": "JSInterop",
       "measurementName": "JSExportInt"
     },
     {
-      "span": "00:00:04.9440000",
-      "steps": 423,
+      "span": "00:00:05.0910000",
+      "steps": 419,
       "taskName": "JSInterop",
       "measurementName": "JSExportInt"
     },
     {
-      "span": "00:00:05.3060000",
-      "steps": 50,
+      "span": "00:00:05.0050000",
+      "steps": 45,
       "taskName": "JSInterop",
       "measurementName": "JSExportString"
     },
     {
-      "span": "00:00:05.2830000",
-      "steps": 50,
+      "span": "00:00:05.3950000",
+      "steps": 49,
       "taskName": "JSInterop",
       "measurementName": "JSExportString"
     },
     {
-      "span": "00:00:05.3780000",
-      "steps": 51,
+      "span": "00:00:05.3940000",
+      "steps": 49,
       "taskName": "JSInterop",
       "measurementName": "JSExportString"
     },
     {
-      "span": "00:00:05.2840000",
-      "steps": 50,
+      "span": "00:00:05.3950000",
+      "steps": 49,
       "taskName": "JSInterop",
       "measurementName": "JSExportString"
     },
     {
-      "span": "00:00:05.3690000",
-      "steps": 51,
+      "span": "00:00:05.3910000",
+      "steps": 49,
       "taskName": "JSInterop",
       "measurementName": "JSExportString"
     },
     {
-      "span": "00:00:04.3460000",
-      "steps": 829,
+      "span": "00:00:04.4410000",
+      "steps": 843,
       "taskName": "JSInterop",
       "measurementName": "JSImportInt"
     },
     {
-      "span": "00:00:05.0870000",
+      "span": "00:00:05.1070000",
       "steps": 971,
       "taskName": "JSInterop",
       "measurementName": "JSImportInt"
     },
     {
-      "span": "00:00:04.9870000",
+      "span": "00:00:05.0120000",
       "steps": 953,
       "taskName": "JSInterop",
       "measurementName": "JSImportInt"
     },
     {
-      "span": "00:00:05.0720000",
-      "steps": 971,
-      "taskName": "JSInterop",
-      "measurementName": "JSImportInt"
-    },
-    {
-      "span": "00:00:04.9810000",
+      "span": "00:00:05.0140000",
       "steps": 953,
       "taskName": "JSInterop",
       "measurementName": "JSImportInt"
     },
     {
-      "span": "00:00:05.8080000",
-      "steps": 53,
+      "span": "00:00:05.0060000",
+      "steps": 953,
       "taskName": "JSInterop",
-      "measurementName": "JSImportString"
+      "measurementName": "JSImportInt"
     },
     {
-      "span": "00:00:05.6030000",
+      "span": "00:00:06.0020000",
       "steps": 51,
       "taskName": "JSInterop",
       "measurementName": "JSImportString"
     },
     {
-      "span": "00:00:05.6310000",
-      "steps": 51,
+      "span": "00:00:05.6360000",
+      "steps": 47,
       "taskName": "JSInterop",
       "measurementName": "JSImportString"
     },
     {
-      "span": "00:00:04.6330000",
-      "steps": 42,
+      "span": "00:00:05.6170000",
+      "steps": 47,
       "taskName": "JSInterop",
       "measurementName": "JSImportString"
     },
     {
-      "span": "00:00:05.6070000",
-      "steps": 51,
+      "span": "00:00:05.5970000",
+      "steps": 47,
       "taskName": "JSInterop",
       "measurementName": "JSImportString"
     },
     {
-      "span": "00:00:05.8610000",
-      "steps": 36,
+      "span": "00:00:05.7840000",
+      "steps": 49,
+      "taskName": "JSInterop",
+      "measurementName": "JSImportString"
+    },
+    {
+      "span": "00:00:05.8180000",
+      "steps": 34,
       "taskName": "JSInterop",
       "measurementName": "JSImportManyArgs"
     },
     {
-      "span": "00:00:05.6690000",
-      "steps": 35,
+      "span": "00:00:05.6980000",
+      "steps": 33,
       "taskName": "JSInterop",
       "measurementName": "JSImportManyArgs"
     },
     {
-      "span": "00:00:05.6760000",
-      "steps": 35,
+      "span": "00:00:05.8260000",
+      "steps": 34,
       "taskName": "JSInterop",
       "measurementName": "JSImportManyArgs"
     },
     {
-      "span": "00:00:05.7060000",
-      "steps": 35,
+      "span": "00:00:05.6870000",
+      "steps": 33,
       "taskName": "JSInterop",
       "measurementName": "JSImportManyArgs"
     },
     {
-      "span": "00:00:05.7410000",
-      "steps": 35,
+      "span": "00:00:05.6470000",
+      "steps": 33,
       "taskName": "JSInterop",
       "measurementName": "JSImportManyArgs"
     },
     {
-      "span": "00:00:05.8900000",
+      "span": "00:00:05.9730000",
       "steps": 4,
       "taskName": "JSInterop",
       "measurementName": "JSImportTask"
     },
     {
-      "span": "00:00:05.6730000",
+      "span": "00:00:05.8140000",
       "steps": 4,
       "taskName": "JSInterop",
       "measurementName": "JSImportTask"
     },
     {
-      "span": "00:00:05.6550000",
+      "span": "00:00:05.8140000",
       "steps": 4,
       "taskName": "JSInterop",
       "measurementName": "JSImportTask"
     },
     {
-      "span": "00:00:05.6800000",
+      "span": "00:00:05.7580000",
       "steps": 4,
       "taskName": "JSInterop",
       "measurementName": "JSImportTask"
     },
     {
-      "span": "00:00:05.7050000",
+      "span": "00:00:05.8120000",
       "steps": 4,
       "taskName": "JSInterop",
       "measurementName": "JSImportTask"
     },
     {
-      "span": "00:00:07.4520000",
+      "span": "00:00:07.5000000",
       "steps": 2,
       "taskName": "JSInterop",
       "measurementName": "JSImportTaskFail"
     },
     {
-      "span": "00:00:07.5130000",
+      "span": "00:00:07.3320000",
       "steps": 2,
       "taskName": "JSInterop",
       "measurementName": "JSImportTaskFail"
     },
     {
-      "span": "00:00:07.3860000",
+      "span": "00:00:07.3000000",
       "steps": 2,
       "taskName": "JSInterop",
       "measurementName": "JSImportTaskFail"
     },
     {
-      "span": "00:00:07.2710000",
+      "span": "00:00:07.2600000",
       "steps": 2,
       "taskName": "JSInterop",
       "measurementName": "JSImportTaskFail"
     },
     {
-      "span": "00:00:07.3330000",
+      "span": "00:00:07.2530000",
       "steps": 2,
       "taskName": "JSInterop",
       "measurementName": "JSImportTaskFail"
     },
     {
-      "span": "00:00:05.5540000",
+      "span": "00:00:05.5340000",
       "steps": 10,
       "taskName": "JSInterop",
       "measurementName": "JSImportFail"
     },
     {
-      "span": "00:00:05.5370000",
+      "span": "00:00:05.5560000",
       "steps": 10,
       "taskName": "JSInterop",
       "measurementName": "JSImportFail"
     },
     {
-      "span": "00:00:05.5530000",
+      "span": "00:00:05.5740000",
       "steps": 10,
       "taskName": "JSInterop",
       "measurementName": "JSImportFail"
     },
     {
-      "span": "00:00:05.5900000",
+      "span": "00:00:05.6000000",
       "steps": 10,
       "taskName": "JSInterop",
       "measurementName": "JSImportFail"
     },
     {
-      "span": "00:00:05.5800000",
+      "span": "00:00:05.5930000",
       "steps": 10,
       "taskName": "JSInterop",
       "measurementName": "JSImportFail"
     },
     {
-      "span": "00:00:04.2820000",
+      "span": "00:00:04.2900000",
       "steps": 251000,
       "taskName": "WebSocket",
       "measurementName": "PartialSend_1B"
     },
     {
-      "span": "00:00:04.2030000",
+      "span": "00:00:04.2370000",
       "steps": 251000,
       "taskName": "WebSocket",
       "measurementName": "PartialSend_1B"
     },
     {
-      "span": "00:00:04.1950000",
+      "span": "00:00:04.2350000",
       "steps": 251000,
       "taskName": "WebSocket",
       "measurementName": "PartialSend_1B"
     },
     {
-      "span": "00:00:04.1970000",
+      "span": "00:00:04.2310000",
       "steps": 251000,
       "taskName": "WebSocket",
       "measurementName": "PartialSend_1B"
     },
     {
-      "span": "00:00:04.1990000",
+      "span": "00:00:04.2180000",
       "steps": 251000,
       "taskName": "WebSocket",
       "measurementName": "PartialSend_1B"
     },
     {
-      "span": "00:00:00.8060000",
+      "span": "00:00:00.7200000",
       "steps": 4000,
       "taskName": "WebSocket",
       "measurementName": "PartialSend_64KB"
     },
     {
-      "span": "00:00:00.8280000",
-      "steps": 4000,
-      "taskName": "WebSocket",
-      "measurementName": "PartialSend_64KB"
-    },
-    {
-      "span": "00:00:00.8280000",
-      "steps": 4000,
-      "taskName": "WebSocket",
-      "measurementName": "PartialSend_64KB"
-    },
-    {
-      "span": "00:00:00.8480000",
+      "span": "00:00:00.8290000",
       "steps": 4000,
       "taskName": "WebSocket",
       "measurementName": "PartialSend_64KB"
@@ -2071,79 +2059,85 @@
       "measurementName": "PartialSend_64KB"
     },
     {
-      "span": "00:00:00.2710000",
+      "span": "00:00:00.7560000",
+      "steps": 4000,
+      "taskName": "WebSocket",
+      "measurementName": "PartialSend_64KB"
+    },
+    {
+      "span": "00:00:00.7640000",
+      "steps": 4000,
+      "taskName": "WebSocket",
+      "measurementName": "PartialSend_64KB"
+    },
+    {
+      "span": "00:00:00.2990000",
       "steps": 110,
       "taskName": "WebSocket",
       "measurementName": "PartialSend_1MB"
     },
     {
-      "span": "00:00:00.2810000",
+      "span": "00:00:00.2820000",
       "steps": 110,
       "taskName": "WebSocket",
       "measurementName": "PartialSend_1MB"
     },
     {
-      "span": "00:00:00.2680000",
+      "span": "00:00:00.2800000",
       "steps": 110,
       "taskName": "WebSocket",
       "measurementName": "PartialSend_1MB"
     },
     {
-      "span": "00:00:00.2670000",
+      "span": "00:00:00.2790000",
       "steps": 110,
       "taskName": "WebSocket",
       "measurementName": "PartialSend_1MB"
     },
     {
-      "span": "00:00:00.2710000",
+      "span": "00:00:00.2890000",
       "steps": 110,
       "taskName": "WebSocket",
       "measurementName": "PartialSend_1MB"
     },
     {
-      "span": "00:00:02.3850000",
+      "span": "00:00:02.2920000",
       "steps": 129900,
       "taskName": "WebSocket",
       "measurementName": "PartialReceive_1B"
     },
     {
-      "span": "00:00:02.3250000",
+      "span": "00:00:02.3400000",
       "steps": 129900,
       "taskName": "WebSocket",
       "measurementName": "PartialReceive_1B"
     },
     {
-      "span": "00:00:02.3120000",
+      "span": "00:00:02.2870000",
       "steps": 129900,
       "taskName": "WebSocket",
       "measurementName": "PartialReceive_1B"
     },
     {
-      "span": "00:00:02.3170000",
+      "span": "00:00:02.2820000",
       "steps": 129900,
       "taskName": "WebSocket",
       "measurementName": "PartialReceive_1B"
     },
     {
-      "span": "00:00:02.3220000",
+      "span": "00:00:02.2990000",
       "steps": 129900,
       "taskName": "WebSocket",
       "measurementName": "PartialReceive_1B"
     },
     {
-      "span": "00:00:00.0150000",
+      "span": "00:00:00.0160000",
       "steps": 501,
       "taskName": "WebSocket",
       "measurementName": "PartialReceive_10KB"
     },
     {
-      "span": "00:00:00.0230000",
-      "steps": 501,
-      "taskName": "WebSocket",
-      "measurementName": "PartialReceive_10KB"
-    },
-    {
-      "span": "00:00:00.0130000",
+      "span": "00:00:00.0250000",
       "steps": 501,
       "taskName": "WebSocket",
       "measurementName": "PartialReceive_10KB"
@@ -2161,110 +2155,116 @@
       "measurementName": "PartialReceive_10KB"
     },
     {
-      "span": "00:00:00.0030000",
-      "steps": 100,
+      "span": "00:00:00.0110000",
+      "steps": 501,
       "taskName": "WebSocket",
-      "measurementName": "PartialReceive_100KB"
-    },
-    {
-      "span": "00:00:00.0020000",
-      "steps": 100,
-      "taskName": "WebSocket",
-      "measurementName": "PartialReceive_100KB"
-    },
-    {
-      "span": "00:00:00.0030000",
-      "steps": 100,
-      "taskName": "WebSocket",
-      "measurementName": "PartialReceive_100KB"
-    },
-    {
-      "span": "00:00:00.0020000",
-      "steps": 100,
-      "taskName": "WebSocket",
-      "measurementName": "PartialReceive_100KB"
+      "measurementName": "PartialReceive_10KB"
     },
     {
       "span": "00:00:00.0010000",
       "steps": 100,
       "taskName": "WebSocket",
       "measurementName": "PartialReceive_100KB"
+    },
+    {
+      "span": "00:00:00.0020000",
+      "steps": 100,
+      "taskName": "WebSocket",
+      "measurementName": "PartialReceive_100KB"
+    },
+    {
+      "span": "00:00:00.0020000",
+      "steps": 100,
+      "taskName": "WebSocket",
+      "measurementName": "PartialReceive_100KB"
+    },
+    {
+      "span": "00:00:00.0020000",
+      "steps": 100,
+      "taskName": "WebSocket",
+      "measurementName": "PartialReceive_100KB"
+    },
+    {
+      "span": "00:00:00.0030000",
+      "steps": 100,
+      "taskName": "WebSocket",
+      "measurementName": "PartialReceive_100KB"
     }
   ],
   "minTimes": {
-    "AppStart, Page show": 38.15079365079365,
-    "AppStart, Reach managed": 432.42857142857144,
-    "AppStart, Reach managed cold": 7099,
-    "Exceptions, NoExceptionHandling": 5.9213155202385466E-05,
-    "Exceptions, TryCatch": 8.098380323935213E-05,
-    "Exceptions, TryCatchThrow": 0.030176036300185043,
-    "Exceptions, TryCatchFilter": 8.055910543130991E-05,
-    "Exceptions, TryCatchFilterInline": 8.094249201277956E-05,
-    "Exceptions, TryCatchFilterThrow": 0.0354667939961386,
-    "Exceptions, TryCatchFilterThrowApplies": 0.026189444432980474,
-    "Exceptions, TryFinally": 8.665801643699358E-05,
-    "Json, non-ASCII text serialize": 1.0987925356750823,
-    "Json, non-ASCII text deserialize": 1.9462151394422311,
-    "Json, small serialize": 0.05642871425714857,
-    "Json, small deserialize": 0.15481807277089166,
-    "Json, large serialize": 15.9472049689441,
-    "Json, large deserialize": 44.1219512195122,
-    "Span, Reverse bytes": 0.017456508698260348,
+    "AppStart, Page show": 33.56687898089172,
+    "AppStart, Reach managed": 449,
+    "AppStart, Reach managed cold": 7096.666666666667,
+    "Exceptions, NoExceptionHandling": 6.0232719464148396E-05,
+    "Exceptions, TryCatch": 8.111764626754882E-05,
+    "Exceptions, TryCatchThrow": 0.03036518296920799,
+    "Exceptions, TryCatchFilter": 8.236421725239617E-05,
+    "Exceptions, TryCatchFilterInline": 8.233226837060703E-05,
+    "Exceptions, TryCatchFilterThrow": 0.036183284968566404,
+    "Exceptions, TryCatchFilterThrowApplies": 0.02700597794055738,
+    "Exceptions, TryFinally": 8.898220355928814E-05,
+    "Json, non-ASCII text serialize": 1.090450054884742,
+    "Json, non-ASCII text deserialize": 1.9533864541832668,
+    "Json, small serialize": 0.05682863427314537,
+    "Json, small deserialize": 0.1515793682526989,
+    "Json, large serialize": 15.801242236024844,
+    "Json, large deserialize": 43.144,
+    "Span, Reverse bytes": 0.017443178031060453,
     "Span, Reverse chars": 0.043964540425248284,
-    "Span, IndexOf bytes": 0.000252749450109978,
+    "Span, IndexOf bytes": 0.0002533493301339732,
     "Span, IndexOf chars": 0.018869559421449043,
-    "Span, IndexOf strings": 0.0003465973471972272,
+    "Span, IndexOf strings": 0.00033993201359728057,
     "Span, SequenceEqual bytes": 0.014057188562287543,
-    "Span, SequenceEqual chars": 0.027934413117376523,
-    "String, Normalize": 2.105349122090649,
-    "String, IsNormalized": 0.2680881648298994,
-    "String, Normalize ASCII": 0.016303405985469574,
-    "String, TextInfo ToLower": 1.4627629334849346,
-    "String, TextInfo ToUpper": 1.3408152734778123,
-    "String, TextInfo ToTitleCase": 7.131614654002714,
+    "Span, SequenceEqual chars": 0.027921082450176632,
+    "String, Normalize": 2.1058091286307055,
+    "String, IsNormalized": 0.26805111821086264,
+    "String, Normalize ASCII": 0.016276744651069788,
+    "String, TextInfo ToLower": 1.4633314383172258,
+    "String, TextInfo ToUpper": 1.3402992776057792,
+    "String, TextInfo ToTitleCase": 7.151967435549525,
     "String, String Compare": 0.2838359956173231,
     "String, String Equals": 0.2836219858550983,
     "String, CompareInfo Compare": 0.28356629726569027,
-    "String, CompareInfo IsPrefix": 21.948529411764707,
-    "String, CompareInfo IsSuffix": 43.851851851851855,
-    "String, String StartsWith": 21.94485294117647,
-    "String, String EndsWith": 43.86666666666667,
-    "String, String IndexOf": 30.695876288659793,
-    "String, String LastIndexOf": 47.432,
-    "Vector, Create Vector128": 5.663366336633663E-05,
-    "Vector, Pack Vector128 (Constant)": 5.821782178217822E-05,
-    "Vector, Pack Vector128": 5.722772277227723E-05,
+    "String, CompareInfo IsPrefix": 21.96323529411765,
+    "String, CompareInfo IsSuffix": 44.007407407407406,
+    "String, String StartsWith": 21.955555555555556,
+    "String, String EndsWith": 44.007407407407406,
+    "String, String IndexOf": 30.783505154639176,
+    "String, String LastIndexOf": 47.52,
+    "Vector, Create Vector128": 5.940711697261332E-05,
+    "Vector, Pack Vector128 (Constant)": 5.7984192015185455E-05,
+    "Vector, Pack Vector128": 5.8458500334328074E-05,
     "Vector, Add 2 Vector128\u0027s": 5.940711697261332E-05,
     "Vector, Multiply 2 Vector128\u0027s": 5.8458500334328074E-05,
-    "Vector, Dot product int": 6.613412359238902E-05,
-    "Vector, Dot product ulong": 6.32015835257543E-05,
-    "Vector, Dot product float": 6.652174175975264E-05,
-    "Vector, Dot product double": 6.142292732896945E-05,
-    "Vector, Sum sbyte": 7.18562874251497E-05,
-    "Vector, Sum short": 6.682445891172502E-05,
-    "Vector, Sum uint": 6.462450848318215E-05,
+    "Vector, Dot product int": 6.58102792810387E-05,
+    "Vector, Dot product ulong": 6.332016060553995E-05,
+    "Vector, Dot product float": 6.585798946465462E-05,
+    "Vector, Dot product double": 6.166008148854077E-05,
+    "Vector, Sum sbyte": 7.041420257227224E-05,
+    "Vector, Sum short": 6.640316467996698E-05,
+    "Vector, Sum uint": 6.426877724382518E-05,
     "Vector, Sum double": 6.011857945132725E-05,
-    "Vector, Min float": 6.154150440875512E-05,
+    "Vector, Min float": 6.142292732896945E-05,
     "Vector, Max float": 6.0711464850255526E-05,
-    "Vector, Min double": 6.154150440875512E-05,
+    "Vector, Min double": 6.142292732896945E-05,
     "Vector, Max double": 6.0711464850255526E-05,
-    "Vector, Normalize float": 7.179487321094425E-05,
-    "Vector, Equals Int32": 6.00000023715416E-05,
-    "Vector, Equals Float": 6.687747299910961E-05,
-    "JSInterop, JSExportInt": 11.324942791762014,
-    "JSInterop, JSExportString": 105.27450980392157,
-    "JSInterop, JSImportInt": 5.223480947476828,
-    "JSInterop, JSImportString": 109.58490566037736,
-    "JSInterop, JSImportManyArgs": 161.97142857142856,
-    "JSInterop, JSImportTask": 1413.75,
-    "JSInterop, JSImportTaskFail": 3635.5,
-    "JSInterop, JSImportFail": 553.7,
-    "WebSocket, PartialSend_1B": 0.016713147410358564,
-    "WebSocket, PartialSend_64KB": 0.195,
-    "WebSocket, PartialSend_1MB": 2.4272727272727272,
-    "WebSocket, PartialReceive_1B": 0.017798306389530408,
+    "Vector, Normalize float": 7.345167797735065E-05,
+    "Vector, Equals Int32": 6.0592887770469875E-05,
+    "Vector, Equals Float": 6.710059303945942E-05,
+    "JSInterop, JSExportInt": 12.084745762711865,
+    "JSInterop, JSExportString": 110.0204081632653,
+    "JSInterop, JSImportInt": 5.252885624344176,
+    "JSInterop, JSImportString": 117.68627450980392,
+    "JSInterop, JSImportManyArgs": 171.11764705882354,
+    "JSInterop, JSImportTask": 1439.5,
+    "JSInterop, JSImportTaskFail": 3626.5,
+    "JSInterop, JSImportFail": 553.4,
+    "WebSocket, PartialSend_1B": 0.016804780876494025,
+    "WebSocket, PartialSend_64KB": 0.18,
+    "WebSocket, PartialSend_1MB": 2.536363636363636,
+    "WebSocket, PartialReceive_1B": 0.017567359507313317,
     "WebSocket, PartialReceive_10KB": 0.021956087824351298,
     "WebSocket, PartialReceive_100KB": 0.01
   },
-  "timeStamp": "2024-10-25T09:03:52.427Z"
+  "timeStamp": "2024-10-24T18:44:19.848Z"
 }
