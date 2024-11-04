@@ -1,0 +1,8 @@
+commit f11dfc95e67ca5ccb52426feda922fe9bcd7adf4
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Wed Oct 30 19:53:47 2024 +0100
+
+    SPMI: Use Helix work directory for SPMI download (#109367)
+    
+    The correlation payload directory can have collections left over from
+    other workitems.
