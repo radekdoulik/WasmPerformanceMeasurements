@@ -1,0 +1,15 @@
+commit 3648d836eb2e8ef6aadd3b8b06f90ed130e787c9
+Author: Pranav Senthilnathan <pranav.senthilnathan@live.com>
+Date:   Sat Oct 26 00:19:04 2024 -0700
+
+    Add ReferenceHandler to JsonSourceGenerationOptions (#109174)
+    
+    * add reference handler prop
+    
+    * add tests
+    
+    * remove bom
+    
+    * refactor out ReferenceHandlingStrategy
+    
+    * Fix emit of enum and add tests
