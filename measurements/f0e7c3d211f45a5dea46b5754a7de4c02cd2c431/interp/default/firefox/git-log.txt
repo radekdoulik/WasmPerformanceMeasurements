@@ -1,0 +1,7 @@
+commit f0e7c3d211f45a5dea46b5754a7de4c02cd2c431
+Author: Radek Doulik <radek.doulik@gmail.com>
+Date:   Thu Oct 31 17:56:52 2024 +0100
+
+    [mono] Use sync unwind tables on all arm64 targets (#109406)
+    
+    This can help with https://github.com/dotnet/runtime/issues/109220
