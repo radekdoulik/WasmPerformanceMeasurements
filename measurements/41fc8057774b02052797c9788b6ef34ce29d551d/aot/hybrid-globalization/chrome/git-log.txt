@@ -1,0 +1,9 @@
+commit 41fc8057774b02052797c9788b6ef34ce29d551d
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Fri Oct 25 16:53:14 2024 +0200
+
+    SPMI: Fix superpmi.py tpdiff report generation (#109216)
+    
+    This function was moved out of the SuperPMIReplayThroughputDiff a couple
+    of months ago when the report generation was made available as a
+    separate command.
