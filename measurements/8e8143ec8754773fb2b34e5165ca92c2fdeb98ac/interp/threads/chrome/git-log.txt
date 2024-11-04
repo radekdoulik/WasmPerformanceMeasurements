@@ -1,0 +1,14 @@
+commit 8e8143ec8754773fb2b34e5165ca92c2fdeb98ac
+Author: Milos Kotlar <kotlarmilos@gmail.com>
+Date:   Thu Oct 24 11:18:13 2024 +0200
+
+    Fix `IsOSVersionAtLeast` when build or revision are not provided (#108748)
+    
+    * Unspecified build/revision components are to be treated as zeros
+    
+    * Normalize build component to 0 if undefined
+    
+    ---------
+    
+    Co-authored-by: Adeel Mujahid <3840695+am11@users.noreply.github.com>
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
