@@ -1,0 +1,5 @@
+commit 789bc64ad46b855bc7c0646e35e3ccf371960629
+Author: Andy Ayers <andya@microsoft.com>
+Date:   Sun Oct 27 08:01:56 2024 -0700
+
+    unblock inlining of generics with static fields (#109256)
