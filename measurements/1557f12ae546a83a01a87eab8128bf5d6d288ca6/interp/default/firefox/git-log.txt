@@ -1,0 +1,13 @@
+commit 1557f12ae546a83a01a87eab8128bf5d6d288ca6
+Author: Viktor Hofer <viktor.hofer@microsoft.com>
+Date:   Wed Oct 30 07:44:57 2024 +0100
+
+    Forward NetCoreAppToolCurrentVersion in DotNetBuild.props (#109331)
+    
+    * Forward NetCoreAppToolCurrent in DotNetBuild.props
+    
+    * Update DotNetBuild.props
+    
+    * Revert "Allow the cdac build tool to roll forward to whatever SDK is available (prerelease or otherwise) (#108946)"
+    
+    This reverts commit 2cbc23a2a3712d2546250a253db9138495831e79.
