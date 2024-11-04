@@ -1,0 +1,15 @@
+commit d450d9c9ee4dd5a98812981dac06d2f92bdb8213
+Author: Elinor Fung <elfung@microsoft.com>
+Date:   Thu Oct 24 13:04:05 2024 -0700
+
+    [cdac] Implement `ISOSDacInterface::GetModule` and `IXCLRDataModule::GetFileName` (#109133)
+    
+    - Add `ClrDataModule` to cDAC as its implementation of `IXCLRDataModule` and `IXCLRDataModule2`
+      - Delegates to legacy implementation for everything except for `GetFileName`
+      - Implements `ICustomQueryInterface` to handle QI-ing the legacy DAC for `IMetaDataImport`
+    - Implement `ISOSDacInterface::GetModule`
+      - Gets a module from the legacy DAC and passes it to the cDAC `ClrDataModule`
+    - Cache the module file name on `Module`
+      - Update comments around how it is expected to be set
+    - Add `GetFileName` to `Loader` contract
+    - Implement `IXClrDataModule::GetFileName`
