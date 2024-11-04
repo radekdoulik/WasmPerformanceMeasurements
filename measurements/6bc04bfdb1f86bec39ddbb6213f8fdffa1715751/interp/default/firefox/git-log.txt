@@ -1,0 +1,16 @@
+commit 6bc04bfdb1f86bec39ddbb6213f8fdffa1715751
+Author: Andy Ayers <andya@microsoft.com>
+Date:   Sun Oct 27 17:13:44 2024 -0700
+
+    JIT: empty array enumerator opt (#109237)
+    
+    For empty arrays, `GetEnumerator` returns a static instance rather
+    than a new instance. This hinders the JIT's ability to optimize when
+    it is able to stack allocate the new instance.
+    
+    Detect when a stack allocation comes from an array `GetEnumerator`
+    and fold the branch in the inlined enumerator method to always take
+    the new instance path (since it is now cheap, allocation free, and
+    is functionally equivalent).
+    
+    Contributes to #108913.
