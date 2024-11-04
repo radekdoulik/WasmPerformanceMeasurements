@@ -1,0 +1,9 @@
+commit 6fa9cfcdd9179a33a10c096c06150c4a11ccc93e
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Wed Oct 30 18:20:45 2024 -0400
+
+    Use properties for some [GeneratedRegex]s (#109118)
+    
+    * Use properties for some [GeneratedRegex]s
+    
+    * Address PR feedback
