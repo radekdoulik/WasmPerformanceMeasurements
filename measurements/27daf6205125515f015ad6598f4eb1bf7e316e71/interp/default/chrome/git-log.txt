@@ -1,0 +1,7 @@
+commit 27daf6205125515f015ad6598f4eb1bf7e316e71
+Author: Elinor Fung <elfung@microsoft.com>
+Date:   Fri Oct 25 13:45:33 2024 -0700
+
+    Update host test RID fallbacks to include arm64 (#109235)
+    
+    When running against a mock coreclr, host tests create a minimal Microsoft.NETCore.App.deps.json that also includes a sparse fallback RID graph. That graph gets used in tests for RID-specific asset resolution that target explicitly enabling the RID fallback graph. This change adds arm64 to the mock RID fallback graph, which should allow those tests to run properly on arm64.
