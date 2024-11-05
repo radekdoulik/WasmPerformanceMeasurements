@@ -1,0 +1,9 @@
+commit 10af5e04fdab9075832e6c3fa6a4f68d325f08a1
+Author: Sven Boemer <sbomer@gmail.com>
+Date:   Mon Nov 4 14:12:03 2024 -0800
+
+    Revert "Fix missing analyzer warning for generics in containing type (#109392)" (#109520)
+    
+    This reverts commit ed778146626f560ebb14ec69167d0b8f537dacbc.
+    
+    Fixes a timeout in CLR_Tools_Tests.
