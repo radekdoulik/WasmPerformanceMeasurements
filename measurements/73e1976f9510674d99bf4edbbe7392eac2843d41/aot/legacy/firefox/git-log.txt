@@ -1,0 +1,16 @@
+commit 73e1976f9510674d99bf4edbbe7392eac2843d41
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Tue Nov 5 11:12:46 2024 +0100
+
+    JIT: Add missing `lvTracked` check in `optLocalHasNonLoopUses` (#109505)
+    
+    `optLocalHasNonLoopUses` checks if a local might be used after a loop by
+    making use of its liveness information, but it does not check
+    `lvTracked` before doing so. This is generally not a problem as there
+    are other checks that the local is in SSA, and normally SSA implies
+    lvTracked, but that's not the case for locals put into SSA by CSE.
+    
+    Since it is possible to have CSE defs in a loop with uses outside the
+    loop, this check is necessary for correctness. It is expected to regress
+    a bunch of IV opts cases, but in the future we can get those back by
+    computing the necessary liveness when we insert into SSA.
