@@ -1,0 +1,21 @@
+commit 1e4140457df4a5d3c647ecf263b0057d84dbc210
+Author: Adeel Mujahid <3840695+am11@users.noreply.github.com>
+Date:   Sat Nov 2 09:49:32 2024 +0200
+
+    Update Roslyn to 4.13.0-1.24510.9 (#109467)
+    
+    * Update Roslyn to 4.13.0-1.24510.9
+    
+    * Update roslyn-analyzers
+    
+    * Fix first-class Span breaks
+    
+    * Remove LangVersion=latest
+    
+    * Fixup more places
+    
+    * Updates and fixes
+    
+    ---------
+    
+    Co-authored-by: Jan Jones <janjones@microsoft.com>
