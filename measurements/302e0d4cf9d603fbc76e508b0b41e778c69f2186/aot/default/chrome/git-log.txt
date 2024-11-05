@@ -1,0 +1,31 @@
+commit 302e0d4cf9d603fbc76e508b0b41e778c69f2186
+Author: VincentBu <44959937+VincentBu@users.noreply.github.com>
+Date:   Tue Nov 5 10:05:14 2024 +0800
+
+    Remove all kernel32.dll references and debug breakpoints (#108647)
+    
+    * remove all kernel32.dll and debugbreak references
+    
+    * log exception if run into oom
+    
+    * remove some comments
+    
+    * change debugBreakOnTestHang back to true
+    
+    * throw timeout exception when DebugBreakOnTestHang is false
+    
+    * throw exception if fail to write message to log file
+    
+    * set debugBreakOnTestHang to false by default
+    
+    * write message to log in timeout scenario
+    
+    * print out debug break when debugBreakOnTestHang is true
+    
+    * interrupt if debugbreak is presented, otherwise log and throw exception
+    
+    * add _debugBreakOnTestHang field and MissingTestException class
+    
+    * implement DebugBreakOrThrowException method
+    
+    * implement GenerateExceptionMessageAndHandler method
