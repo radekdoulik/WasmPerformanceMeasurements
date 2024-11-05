@@ -1,0 +1,7 @@
+commit 251ef76584bd6568439b5cbb3eb19bd13e42b93e
+Author: Pranav Senthilnathan <pranas@microsoft.com>
+Date:   Fri Nov 1 10:07:54 2024 -0700
+
+    Add TryAdd and TryGetValue overloads with `out int index` to OrderedDictionary (#109324)
+    
+    Add TryAdd and TryGetValue overloads with out var index
