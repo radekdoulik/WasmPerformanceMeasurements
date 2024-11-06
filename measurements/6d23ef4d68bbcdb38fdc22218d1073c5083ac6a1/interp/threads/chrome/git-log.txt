@@ -1,0 +1,11 @@
+commit 6d23ef4d68bbcdb38fdc22218d1073c5083ac6a1
+Author: Andy Ayers <andya@microsoft.com>
+Date:   Wed Nov 6 10:00:20 2024 -0800
+
+    JIT: some deabstraction prerequisites (#109575)
+    
+    Mark `IEnumerable<T>.GetEnumerator` as intrinsic and fix jit side issues
+    that ensued.
+    
+    Run object allocation in RPO. Since we're computing a DFS, remove any
+    unreachable blocks.
