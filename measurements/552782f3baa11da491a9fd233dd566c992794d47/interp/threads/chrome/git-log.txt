@@ -1,0 +1,37 @@
+commit 552782f3baa11da491a9fd233dd566c992794d47
+Author: Vladimir Sadov <vsadov@microsoft.com>
+Date:   Tue Nov 5 11:06:52 2024 -0800
+
+    Cleanup after GC info version update. (#108117)
+    
+    * ReadyToRunVersionToGcInfoVersion
+    
+    * removed AreSafePointsInterruptible, IsInterruptibleSafePoint, etc..
+    
+    * dead code
+    
+    * cleaned non-x86 path
+    
+    * some dead code
+    
+    * require disasm for fully interruptible x64
+    
+    * x86-specific cleanup
+    
+    * not supporting multireg returns on x86
+    
+    * some comments
+    
+    * fix for ARM32
+    
+    * asserts
+    
+    * another unreachable condition.
+    
+    * remove unused findNextFunclet
+    
+    * fix for UseRedirectForGcStress case.
+    
+    * update comments and revert mitigation for active ICF + g_TrapReturningThreads
+    
+    * fix after rebasing
