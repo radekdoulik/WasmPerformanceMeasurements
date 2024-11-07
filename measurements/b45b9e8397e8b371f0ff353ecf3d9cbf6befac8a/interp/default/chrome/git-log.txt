@@ -1,0 +1,14 @@
+commit b45b9e8397e8b371f0ff353ecf3d9cbf6befac8a
+Author: Sven Boemer <sbomer@gmail.com>
+Date:   Wed Nov 6 14:26:33 2024 -0800
+
+    Use type-level annotations for trimming/AOT analysis (#109571)
+    
+    Gets rid of a few warning suppressions on instance members where we
+    annotated constructors, by moving the constructor annotations to the
+    type level. In a few cases this required moving some static methods to
+    a separate class so that they don't produce warnings when called.
+    
+    ---------
+    
+    Co-authored-by: Eric Erhardt <eric.erhardt@microsoft.com>
