@@ -1,0 +1,33 @@
+commit 9c1f53e39f48b09be71097f1b7a47e45331e4906
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Thu Nov 7 11:17:50 2024 +0100
+
+    JIT: Put all CSEs into SSA (#106637)
+    
+    This adds an SSA updater that can incrementally put locals that were added to
+    the IR into SSA form and starts using this infrastructure from CSE. Previously
+    only single-def CSEs were put into SSA, which can cause e.g. IV opts to miss out
+    on them.
+    
+    The SSA updater requires all uses and definitions to be supplied. Based on the
+    definitions it is then possible to compute the candidate blocks for phi nodes in
+    the usual way as the iterated dominance frontier. Since we do not have liveness
+    for the local we do not insert the phi definitions eagerly; instead, we
+    recursively compute the reaching def for each use by walking its dominators.
+    Walking the dominators we either expect to find a real definition, or to hit a
+    block that is part of the iterated dominance frontier of the definitions, in
+    which case we know we have a live phi definition that we can insert.
+    
+    Inserting phi definitions needs to recursively do the same thing for the phi
+    arguments. To make this faster we could memoize the reaching SSA numbers for
+    each block, though this is not currently done.
+    
+    This also requires computing the DFS tree, dominators, and dominance frontiers
+    after RBO (which invalidates those). Since the DFS tree and dominator tree is
+    usually computed anyway by IV opts, this is not that costly. The cost is further
+    reduced by avoiding any of these computations in the single-def case (which CSE
+    already handled). This special case is also moved into the SSA updater.
+    
+    Finally, since IV opts need liveness to work, the SSA inserter also computes
+    liveness for the inserted locals. This is done by marking all paths from each
+    use back to its reaching definition as having that local live-in.
