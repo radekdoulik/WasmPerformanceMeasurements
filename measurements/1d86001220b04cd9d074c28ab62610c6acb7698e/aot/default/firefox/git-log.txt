@@ -1,0 +1,19 @@
+commit 1d86001220b04cd9d074c28ab62610c6acb7698e
+Author: Jeremy Koritzinsky <jekoritz@microsoft.com>
+Date:   Fri Nov 8 04:16:45 2024 -0800
+
+    Convert dotnet/runtime to use the new Arcade tooling for RPMs (#109526)
+    
+    * Convert dotnet/runtime to use the new Arcade tooling for RPMs.
+    
+    Fixes #109518
+    
+    * Build rpms and debs as part of the regular (default) build command on linux non-musl, including in the VMR.
+    
+    Fixes dotnet/source-build#4138
+    
+    * Now that we produce all of our packages by default, remove the YAML for producing them in separate steps in special containers and remove our references to those containers
+    
+    * Limit the architectures we build packages on
+    
+    * Now that we aren't making the symlink ourselves, leave LinuxInstallRoot as its default value.
