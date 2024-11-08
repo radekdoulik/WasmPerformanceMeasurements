@@ -1,0 +1,29 @@
+commit b567474c22d0766cf3a416592c39e4b633d015d9
+Author: Weihan Li <weihanli@outlook.com>
+Date:   Fri Nov 8 15:55:49 2024 +0800
+
+    use `Stopwatch.GetElapsedTime` for rate limiter (#109213)
+    
+    * use Stopwatch.GetElapsedTime
+    
+    * fix else
+    
+    * fix build
+    
+    * fix build
+    
+    * update RateLimiter.GetElapsedTime
+    
+    * add missing using
+    
+    * Remove inline attribute
+    
+    * move null check into shared logic to reduce duplicate
+    
+    * private TickFrequency
+    
+    * one more update
+    
+    ---------
+    
+    Co-authored-by: Stephen Toub <stoub@microsoft.com>
