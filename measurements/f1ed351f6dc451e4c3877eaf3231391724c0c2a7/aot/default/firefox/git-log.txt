@@ -1,0 +1,10 @@
+commit f1ed351f6dc451e4c3877eaf3231391724c0c2a7
+Author: Alexander Köplinger <alex.koeplinger@outlook.com>
+Date:   Sat Nov 9 09:22:18 2024 +0100
+
+    Fix upload conflict Microsoft.NETCore.App.Ref in official build (#109650)
+    
+    We're occasionally seeing errors on the official build during artifacts upload (https://github.com/dotnet/dnceng/issues/1916)
+    This is because multiple jobs are trying to push the Microsoft.NETCore.App.Ref nuget package to the same AzDO build artifacts container, causing conflicts.
+    
+    Since we'll be using the VMR in the near future and it is using a different asset selection the quick fix is to just delete the package on the jobs where it's not supposed to be uploaded rather than trying to introduce a complicated condition in msbuild.
