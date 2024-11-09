@@ -1,0 +1,15 @@
+commit d8208737f8b1ede2c6673a89769dc29fb7a7f6af
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Sat Nov 9 11:40:03 2024 -0500
+
+    Remove unnecessary StreamReader.EndOfStream call from NetworkInformation (#109631)
+    
+    * Remove unnecessary StreamReader.EndOfStream call from NetworkInformation
+    
+    * Update src/libraries/System.Net.NetworkInformation/src/System/Net/NetworkInformation/StringParsingHelpers.Statistics.cs
+    
+    Co-authored-by: Theodore Tsirpanis <teo@tsirpanis.gr>
+    
+    ---------
+    
+    Co-authored-by: Theodore Tsirpanis <teo@tsirpanis.gr>
