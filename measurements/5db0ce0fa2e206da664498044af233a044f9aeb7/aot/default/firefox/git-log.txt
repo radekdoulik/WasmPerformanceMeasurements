@@ -1,0 +1,9 @@
+commit 5db0ce0fa2e206da664498044af233a044f9aeb7
+Author: Adeel Mujahid <3840695+am11@users.noreply.github.com>
+Date:   Sun Nov 10 11:03:55 2024 +0200
+
+    Fix the condition to exclude only native shared libs (#109676)
+    
+    * Fix the condition to exclude only native shared libs
+    
+    * Update Microsoft.DotNet.ILCompiler.pkgproj
