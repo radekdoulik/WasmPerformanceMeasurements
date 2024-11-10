@@ -1,0 +1,21 @@
+commit 80cb4583c9079cf052e6148b51b43590771b4353
+Author: Emmanuel André <2341261+manandre@users.noreply.github.com>
+Date:   Sun Nov 10 13:36:17 2024 +0100
+
+    Add FromFile to BinaryData (#107231)
+    
+    * Add FromFile to BinaryData
+    
+    * Cleanup temporary files
+    
+    * Use FileStream async mode
+    
+    * Avoid code duplication
+    
+    * Use test helpers
+    
+    * Use ReadAllBytes{Async} where possible
+    
+    * Async wrapper
+    
+    * Tests cleaning
