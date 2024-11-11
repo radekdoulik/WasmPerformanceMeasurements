@@ -1,0 +1,17 @@
+commit 7ee5b7d24039c5696da5d1a5c90a32f7e1bb38c9
+Author: Dan Espinosa <30415120+danespinosa@users.noreply.github.com>
+Date:   Mon Nov 11 04:33:32 2024 -0800
+
+    Update IHttpClientLogger.cs and IHttpClientAsyncLogger.cs remarks (#109618)
+    
+    * Update IHttpClientLogger.cs remarks
+    
+    Updated IHttpClientLogger remarks to provide clearer documentation to a developer implementing this interface
+    
+    * Update IHttpClientAsyncLogger.cs
+    
+    Updated remarks to provide the developer implementing this interface clearer documentation
+    
+    ---------
+    
+    Co-authored-by: Natalia Kondratyeva <knatalia@microsoft.com>
