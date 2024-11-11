@@ -1,0 +1,7 @@
+commit 075b42d9b251ad2d38684c85b7305fbf349630ce
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Mon Nov 11 17:11:40 2024 +0100
+
+    JIT: Mark some intrinsics as must-expand for NAOT due to ILScanner dependencies (#109609)
+    
+    These two intrinsics are treated specially by ILScanner, and thus must always be expanded for NAOT, even in MinOpts.
