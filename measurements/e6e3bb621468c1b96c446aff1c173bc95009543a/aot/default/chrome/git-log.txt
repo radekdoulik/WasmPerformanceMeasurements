@@ -1,0 +1,11 @@
+commit e6e3bb621468c1b96c446aff1c173bc95009543a
+Author: Aaron Robinson <arobins@microsoft.com>
+Date:   Mon Nov 11 13:08:02 2024 -0800
+
+    Ignore modopts/modreqs for `UnsafeAccessor` field targets (#109694)
+    
+    * Ignore modopts/modreqs for `UnsafeAccessor` field targets
+    
+    The generated IL remains correct and doesn't require a
+    .volatile prefix for the accessor. This is based off of what Roslyn
+    currently emits if an accessor was manually written.
