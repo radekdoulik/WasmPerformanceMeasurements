@@ -1,0 +1,19 @@
+commit 49c46f3a4c7a1dc02046b7d537f1cf6ba3752578
+Author: LEI Hongfaan <lihangfan@hotmail.com>
+Date:   Tue Nov 12 17:17:00 2024 +0000
+
+    Add a missing = in BigInteger.cs (#105456)
+    
+    * Add a missing =
+    
+    * Add some tests for bigint AND.
+    
+    * Add some tests for bigint AND.
+    
+    * Update src/libraries/System.Runtime.Numerics/tests/BigInteger/SampleGeneration.cs
+    
+    Co-authored-by: Dan Moseley <danmose@microsoft.com>
+    
+    ---------
+    
+    Co-authored-by: Dan Moseley <danmose@microsoft.com>
