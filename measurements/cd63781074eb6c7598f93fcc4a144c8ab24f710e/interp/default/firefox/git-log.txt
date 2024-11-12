@@ -1,0 +1,9 @@
+commit cd63781074eb6c7598f93fcc4a144c8ab24f710e
+Author: Jeremy Barton <jbarton@microsoft.com>
+Date:   Tue Nov 5 09:17:25 2024 -0800
+
+    Eliminate redundant SafePasswordHandle values
+    
+    `new SafePasswordHandle(null, false)` is the value represented by
+    SafePasswordHandle.InvalidValue.  Instead of making a using scope
+    and a new object, just use the singleton.
