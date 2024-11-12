@@ -1,0 +1,5 @@
+commit 81cf4f5b6c7a531b939e51feffca9c2d1c208e84
+Author: Jeremy Koritzinsky <jekoritz@microsoft.com>
+Date:   Mon Nov 11 21:40:27 2024 -0800
+
+    Build the cdac as part of clr.tools instead of as a prereq to the runtime native build (#109598)
