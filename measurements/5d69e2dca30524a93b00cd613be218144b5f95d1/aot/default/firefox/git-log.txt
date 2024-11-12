@@ -1,0 +1,19 @@
+commit 5d69e2dca30524a93b00cd613be218144b5f95d1
+Author: Jackson Schuster <36744439+jtschuster@users.noreply.github.com>
+Date:   Tue Nov 12 14:15:41 2024 -0600
+
+    Add managed MachO signing (#108992)
+    
+    Creates a managed implementation of Mach-O object file signing for the apphost.
+    
+    This signer is byte-for-byte identical to the output of codesign except for padding at the end of the file and the corresponding size fields in the headers.
+    
+    The MachObjectFile and CodeSignature store all the relevant headers and signature information to add/remove a signature from a Mach Object. Most other files are details regarding header format and reading files with different endianness.
+    
+    The new signer uses a MemoryMappedViewAccessor instead of a Stream. Since memory mapped files can't be resized, MachObjectFile.CreateAdHocSignature() will write out the headers and load commands to the memory mapped file, but not the signature blob. The signature blob will instead be written to the destination file stream after the rest of the file is copied from the memory mapped file.
+    
+    The signature is composed of an EmbeddedSignature superblob with an ID and offset of 3 following blobs, followed by a CodeDirectory blob, an empty Requirements blob, and an empty CMS blob. The empty Requirements blob and an empty CMS blob are not strictly required but are added for compatibility with codesign. The CodeDirectory includes the identifier string, hashes of each page of the file and information required to verify the hashes.
+    
+    The signing process for an unsigned executable extends the __LINKEDIT segment (which is always at the end of the file) to make room for the signature blob, writes the signature blob to that location, and adds a CodeSignature load command that points the the signature. If the executable was already signed, it simply clears the old signature and replaces it, extends or shrinks the existing __LINKEDIT size and updates the existing CodeSignature load command.
+    
+    Co-authored-by: Adeel Mujahid <3840695+am11@users.noreply.github.com>
