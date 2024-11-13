@@ -1,0 +1,17 @@
+commit a67a869fa741033c477f6d1fe8f5050f9414fa25
+Author: Igor <sandro1991@yandex.ru>
+Date:   Fri Nov 1 18:56:01 2024 +0500
+
+    Make SocksException more informative (#109427)
+    
+    * Make SocksException more informative
+    
+    Pass SOCKS server error code to SocksException when can not connect to SOCKS server
+    
+    Fix #109404
+    
+    * Format error code to two digits
+    
+    * Review fixes
+    
+    Changed "ToString()" format, changed exception message
