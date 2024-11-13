@@ -1,0 +1,7 @@
+commit 30e08e69aeecac39d5c0ecde199bdf921d53be5e
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Wed Nov 13 08:33:41 2024 -0500
+
+    Update SseItem's ctor eventType argument to be nullable (#109765)
+    
+    Co-authored-by: Eirik Tsarpalis <eirik.tsarpalis@gmail.com>
