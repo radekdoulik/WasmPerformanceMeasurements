@@ -1,0 +1,16 @@
+commit 756f7ebbbdcc0b8cb8b383ef3b6e6b50430f1922
+Author: Sven Boemer <sbomer@gmail.com>
+Date:   Tue Nov 12 16:52:05 2024 -0800
+
+    Add AOT annotations to System.Private.Xml and System.Data.Common (#109528)
+    
+    * Add AOT annotations to System.Private.Xml
+    
+    * Remove DAM from TypeDesc, add more annotations
+    
+    DAM on TypeDesc would require bubbling up RDC to parts of
+    TypeScope (AddPrimitive of byte[]) that was unnecessarily viral.
+    
+    * Annotate System.Data.Common
+    
+    * Annotate a few serialization-related types at the type level
