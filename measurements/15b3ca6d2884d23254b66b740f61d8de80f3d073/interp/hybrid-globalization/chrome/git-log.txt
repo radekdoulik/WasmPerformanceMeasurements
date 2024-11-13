@@ -1,0 +1,10 @@
+commit 15b3ca6d2884d23254b66b740f61d8de80f3d073
+Author: Alexander Köplinger <alex.koeplinger@outlook.com>
+Date:   Wed Nov 13 20:05:52 2024 +0100
+
+    Allow building Mono Cross AOT compilers in the VMR (#109776)
+    
+    Introduce DotNetBuildMonoCrossAOT property to simplify the logic.
+    Also cleanup the similar logic for DotNetBuildRuntimeNativeAOTRuntimePack.
+    
+    Contributes to https://github.com/dotnet/source-build/issues/3902
