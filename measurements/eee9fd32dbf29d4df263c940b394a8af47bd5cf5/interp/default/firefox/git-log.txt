@@ -1,0 +1,7 @@
+commit eee9fd32dbf29d4df263c940b394a8af47bd5cf5
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Tue Nov 12 22:47:05 2024 +0100
+
+    Reference ILVerification projects from ILLink solutions (#109718)
+    
+    I wasn't able to run ILLink unit tests in VS without doing this. My steps:
