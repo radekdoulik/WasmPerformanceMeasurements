@@ -1,0 +1,69 @@
+commit 2c29c1db1abbdf8636092bfe349e1f4a4b88d6c4
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Mon Nov 11 15:50:55 2024 +0100
+
+    Add support for (experimental) profile-based trimming (#108049)
+    
+    * Add support for (experimental) profile-based trimming
+    
+    This was my hackathon project of this year. Since it’s in a pretty leaf-y location within the product, I think it would be fine to check it in under unsupported switches for experimentation.
+    
+    The question I was trying to answer is "How can we identify code that is statically reachable but is not needed at runtime (and we might be able to get rid of it by reorganizing the code a bit)?". The answer to that is profiling and profile-based code generation.
+    
+    The idea is simple:
+    
+    * We build a special version of the program that keeps track of what methods executed.
+    * At process termination, this data is written out to a file.
+    * We then recompile the program, passing in the method list as one of the inputs.
+    * When compiling a method that was in the list, compile as usual.
+    * When compiling a method that wasn’t in the list, replace it with a failfast.
+    * We still run the usual dependency analysis so the failfast methods are going to stop graph expansion at method boundaries. One could do better than this (cut off at basic block boundaries) but that’s a lot more work with a small benefit.
+    
+    The profiling file format is simple: list of assembly MVIDs, followed by an array of bools. Index within the array corresponds to a MethodDef token within the assembly. So if bool at index N of assembly A is true, method in assembly with MVID A at RID N is reachable. Using MVIDs (GUID) instead of assembly name helps identify mismatches between profile data and input assemblies. Best to build with `-p:Deterministic=true`.
+    
+    # Usage
+    
+    Build the app with `-p:_InstrumentReachability=true`. Run the app and exercise all the necessary codepaths. This produces a reach.mprof file in the current directory. You can run the app multiple times, the profile data will get merged automatically.
+    
+    Then build the app again with `-p:_ReachabilityInstrumentationFile=reach.mprof`. Output of this build will be a profile-based version.
+    
+    Just to give an idea of how small things will be:
+    
+    * dotnet new webapiaot: 4.1 MB (down from 8.7 MB)
+    * Hello World with OptimizationPreference=Size, StackTraceSupport=false, UseSystemResourceKeys=true: 425 kB
+    
+    The app may or may not actually work. Hello world works fine. Webapiaot hits an issue where our ability to optimize things better in the profile-based version leads to new codepaths being executed. It can be worked around by forcing something that triggers the optimization into profile data. For example, for webapiaot this helps:
+    
+    ```csharp
+    typeof(Holder).GetCustomAttribute<MyAttribute>().TheType.IsConstructedGenericType.ToString();
+    class MyAttribute : Attribute { public MyAttribute(Type t) => TheType = t; public Type TheType; }
+    class Gen<T> { }
+    [My(typeof(Gen<>))]
+    class Holder { }
+    ```
+    
+    (We need to call `IsConstructedGenericType` on a type that got its MethodTable optimized away.)
+    
+    It is not strictly necessary for the outputs to be runnable for this to be useful. The idea is to generate DGML/MSTAT of the unprofiled version, then DGML/MSTAT of the profiled version, and diff them. The diff might highlight parts of the app that could maybe be removed by reorganizing the code.
+    
+    Not everything will be removable. For example, in the Hello World, most of exception handling is gone, but one can still run into exceptions at runtime (I just didn’t when I profiled it).
+    
+    # Implementation
+    
+    There are 3 parts: compiler component to generate instrumented outputs, CoreLib change to save profile data on app exist, and compiler component to consume profile data.
+    
+    ## Generating profile data
+    
+    ReachabilityInstrumentationProvider is the main workhorse. It’s an ILProvider that wraps whatever IL we got from the input assembly and prefixes each method body with two instructions: ldc.i4.1 followed by stsfld. The stsfld targets a compiler-generated RVA static field. The compiler lays out all these fields in a way that their in-memory positions correspond to profile data positions (so saving profile data just means copying a memory range to a file).
+    
+    ReachabilityDataBlobNode is responsible for creating the data blob an laying out all the RVA static fields that the code refers to.
+    
+    Last but not least, InitializeMethod generates a small stub that informs corelib where to find the data blob at runtime. We hook up InitializeMethod into StartupCodeMain.
+    
+    ## Saving profile data
+    
+    Within CoreLib, we define two methods - one is called at startup and informs us where profile data blob lives. The other is the very last managed method executed. It saves the data blob to a file.
+    
+    ## Consuming profile data
+    
+    This is another ILProvider that either returns the underlying IL unmodified, or replaces it with a failfast call.
