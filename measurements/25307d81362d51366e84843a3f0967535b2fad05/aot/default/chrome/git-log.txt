@@ -1,0 +1,11 @@
+commit 25307d81362d51366e84843a3f0967535b2fad05
+Author: Sven Boemer <sbomer@gmail.com>
+Date:   Wed Nov 13 10:30:52 2024 -0800
+
+    Fix AOT warning in System.Linq.Expressions (#109758)
+    
+    The UnconditionalSuppressMessage didn't work correctly because
+    it wasn't targeting the static constructor. We don't need to suppress
+    this warning - we can just bubble it up because it looks like all references
+    to CallSiteOpsReflectionCache<T> are already annotated with
+    RequiresDynamicCode.
