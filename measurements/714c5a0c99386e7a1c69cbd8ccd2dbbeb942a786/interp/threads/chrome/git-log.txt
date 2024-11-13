@@ -1,0 +1,15 @@
+commit 714c5a0c99386e7a1c69cbd8ccd2dbbeb942a786
+Author: Andy Ayers <andya@microsoft.com>
+Date:   Wed Nov 13 07:44:15 2024 -0800
+
+    JIT: fix inliner profile consistency computation (#109714)
+    
+    It's possible for the JIT to inline a profiled inlinee into an unprofiled context, and then have a subsequent inline fold a profiled branch. If so we may see a case where the folded edges don't have profile information.
+    
+    Tolerate this.
+    
+    Fixes #109657
+    
+    Re-morphing of a statement during early-prop may mistakenly believe it has altered the flow graph and so invalidates DFS. Value numbering is not set up to handle this and crashes. Since this seems like a rare occurrence, have morph detect if it has really changed the flowgraph and avoid invalidating the DFS when it hasn't.
+    
+    Fixes #109730
