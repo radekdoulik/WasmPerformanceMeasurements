@@ -1,0 +1,14 @@
+commit 31e28adfc107ddc5484391251a34e46317c7be99
+Author: Viktor Hofer <viktor.hofer@microsoft.com>
+Date:   Thu Nov 14 19:22:44 2024 +0100
+
+    Downgrade STJ to 8.0.4 (#109818)
+    
+    * Downgrade STJ to 8.0.4
+    
+    We can't yet rely on a STJ/8.0.5 package as desktop msbuild doesn't have binding redirects for it yet.
+    
+    - Suppress the src/tasks vulnerability warning as STJ isn't used at runtime for msbuild tasks.
+    - Suppress the ones about HostModel's usage. We want to use a live STJ instead but that needs a separate PR (more work).
+    
+    * Update STJ and add temporary suppressions
