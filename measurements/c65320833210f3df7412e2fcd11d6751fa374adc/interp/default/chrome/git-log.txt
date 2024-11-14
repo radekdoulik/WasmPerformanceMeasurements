@@ -1,0 +1,10 @@
+commit c65320833210f3df7412e2fcd11d6751fa374adc
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Thu Nov 14 14:00:16 2024 +0100
+
+    JIT: Switch config values to UTF8 (#109418)
+    
+    - Switch JitConfig strings from UTF16 to UTF8
+    - Switch relevant JIT-EE and host methods to UTF8
+    - Remove `getJitTimeLogFilename` JIT-EE call, which seemingly existed to avoid
+      having a config parser in the JIT in release builds, but that ship has sailed
