@@ -1,0 +1,11 @@
+commit 1c4c0093a6f2008bafc034e35e08d019bef44cef
+Author: Noah Falk <noahfalk@users.noreply.github.com>
+Date:   Wed Nov 13 16:52:44 2024 -0800
+
+    Randomized allocation sampling (#104955)
+    
+    * Add Randomized Allocation Sampling
+    
+    This feature allows profilers to do allocation profiling based off randomized samples. It has better theoretical and empirically observed accuracy than our current allocation profiling approaches while also maintaining low performance overhead. It is designed for use in production profiling scenarios. For more information about usage and implementation, see the included doc docs/design/features/RandomizedAllocationSampling.md
+    
+    Much of this code was originally written in https://github.com/dotnet/runtime/pull/100356 by @chrisnas, but for logistical reasons we superceded it with this new PR.
