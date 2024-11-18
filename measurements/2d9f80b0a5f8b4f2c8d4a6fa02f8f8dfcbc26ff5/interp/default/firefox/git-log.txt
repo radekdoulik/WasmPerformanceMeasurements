@@ -1,0 +1,10 @@
+commit 2d9f80b0a5f8b4f2c8d4a6fa02f8f8dfcbc26ff5
+Author: Aaron Robinson <arobins@microsoft.com>
+Date:   Mon Nov 18 08:08:36 2024 -0800
+
+    Remove more HelperMethodFrames (HMF) from Reflection (#109882)
+    
+    Convert RuntimeTypeHandle.GetTypeFromHandle() to fast/slow paths.
+    Convert RuntimeTypeHandle.GetBaseType() to RuntimeType.GetParentType() QCall.
+    Consolidate Object.GetType() with RuntimeTypeHandle APIs.
+    Remove HMF from RuntimeFieldHandle.GetAttributes() and RuntimeFieldHandle.GetApproxDeclaringType().
