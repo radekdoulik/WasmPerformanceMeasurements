@@ -1,0 +1,37 @@
+commit e1aa9cf705a64cf17c3041c9dbd461f7f87e5a20
+Author: Ruihan-Yin <107431934+Ruihan-Yin@users.noreply.github.com>
+Date:   Mon Nov 18 11:52:02 2024 -0800
+
+    Update the CPUID and XSAVE logics for APX (#104637)
+    
+    * Add APX doc.
+    
+    * script-gen changes.
+    
+    * XSTATE changes
+    
+    * hand-written CPUID check part
+    
+    * fix
+    
+    * Fix merge error.
+    
+    * bug fixes
+    
+    * Bug fix
+    
+    * bug fix
+    
+    * resolve commnets.
+    
+    * re-generate the ISA changes to propagate the changes in ThunkGenerator.
+    
+    * resolve comments
+    
+    * use byte code for EGPR XSAVE logics.
+    
+    * resolve comments.
+    
+    ---------
+    
+    Co-authored-by: Tanner Gooding <tagoo@outlook.com>
