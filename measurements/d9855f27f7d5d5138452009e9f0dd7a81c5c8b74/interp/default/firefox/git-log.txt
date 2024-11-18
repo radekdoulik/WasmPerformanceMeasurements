@@ -1,0 +1,9 @@
+commit d9855f27f7d5d5138452009e9f0dd7a81c5c8b74
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Sat Nov 16 09:25:43 2024 +0100
+
+    Fix obtaining type handles of IDynamicInterfaceCastableImplementation (#109875)
+    
+    Fixes #109496.
+    
+    We try to optimize away type handles (MethodTables) of types that are only needed due to metadata. Trying to grab type handle of such type throws. This fixes it by unconditionally generating type handles of IDynamicInterfaceCastableImplementation.
