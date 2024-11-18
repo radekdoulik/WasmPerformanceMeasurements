@@ -1,0 +1,9 @@
+commit c20fe5f1fd34750fff0359e27c6ecdf765fb3bc6
+Author: Tomasz Sowiński <tomeksowi@gmail.com>
+Date:   Fri Nov 15 13:07:25 2024 +0100
+
+    [RISC-V][LoongArch64] Encode missing tailcall in GC info (#109512)
+    
+    * Encode missing tailcall in GC info
+    
+    * Documentation typos
