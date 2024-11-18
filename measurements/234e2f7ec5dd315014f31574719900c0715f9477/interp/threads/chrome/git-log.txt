@@ -1,0 +1,7 @@
+commit 234e2f7ec5dd315014f31574719900c0715f9477
+Author: Joel Dice <joel.dice@fermyon.com>
+Date:   Mon Nov 18 02:24:50 2024 -0700
+
+    [WASI] Skip signal handler registration on WASI (#109838)
+    
+    Signed-off-by: Joel Dice <joel.dice@fermyon.com>
