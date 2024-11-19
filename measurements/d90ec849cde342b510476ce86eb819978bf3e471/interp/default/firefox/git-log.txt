@@ -1,0 +1,5 @@
+commit d90ec849cde342b510476ce86eb819978bf3e471
+Author: Julien Lebosquain <julien@lebosquain.net>
+Date:   Mon Nov 18 10:10:14 2024 +0100
+
+    Avoid SerialPort IOLoop when there's no event handlers (#102829)
