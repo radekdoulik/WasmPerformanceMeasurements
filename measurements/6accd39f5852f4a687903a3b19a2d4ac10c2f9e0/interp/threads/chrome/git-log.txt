@@ -1,0 +1,11 @@
+commit 6accd39f5852f4a687903a3b19a2d4ac10c2f9e0
+Author: Alexander Köplinger <alex.koeplinger@outlook.com>
+Date:   Tue Nov 19 15:22:28 2024 +0100
+
+    [mono] Fix output directory for cross compilers if OutputRID is overridden (#109932)
+    
+    This happens e.g. in the VMR where OutputRID is set globally. We assumed in monoaotcross.proj that the inner mono cross compiler runtime build would put files into a path that matches the target RID but we were using OutputRID in the inner build.
+    
+    Instead use the preexisting MonoAotCrossDir property.
+    
+    Also fix marking DotNetBuildMonoCrossAOT=true as a ShortStack build.
