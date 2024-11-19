@@ -1,0 +1,8 @@
+commit 340629a5c0a53746ff37a5cf8edf898fdbb275dc
+Author: Joel Dice <joel.dice@fermyon.com>
+Date:   Tue Nov 19 06:02:53 2024 -0700
+
+    [WASI] throw PNSE in `ManualResetEventSlim.Wait` (#109839)
+    
+    Signed-off-by: Joel Dice <joel.dice@fermyon.com>
+    Co-authored-by: pavelsavara <pavel.savara@gmail.com>
