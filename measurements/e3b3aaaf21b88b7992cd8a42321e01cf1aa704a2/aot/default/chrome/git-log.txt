@@ -1,0 +1,24 @@
+commit e3b3aaaf21b88b7992cd8a42321e01cf1aa704a2
+Author: Mitchell Hwang <16830051+mdh1418@users.noreply.github.com>
+Date:   Tue Nov 19 11:24:31 2024 -0500
+
+    [EventTrace] Update check for provider triggered GC (#109587)
+    
+    * [EventTrace] Update check for provider triggered GC
+    
+    Re-add ControlCode check for ETW provider triggered GC
+    Prevent disabling an EventPipe provider from triggering GC
+    
+    * Use SessionChange to track EventPipe vs ETW
+    
+    * Cleanup macros
+    
+    * Update NativeAOT counterpart
+    
+    * Fixup NativeAOT condition
+    
+    * Extend ControlCode keyword definition to Unix
+    
+    * Update NativeAOT counterpart
+    
+    * Update NativeAOT hardcoded ControlCode check
