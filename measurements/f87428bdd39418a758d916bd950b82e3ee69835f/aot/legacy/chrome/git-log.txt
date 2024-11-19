@@ -1,0 +1,9 @@
+commit f87428bdd39418a758d916bd950b82e3ee69835f
+Author: Aman Khalid <amankhalid@microsoft.com>
+Date:   Mon Nov 18 21:01:21 2024 +0000
+
+    JIT: Relax cost improvement assert in 3-opt layout (#109835)
+    
+    Follow-up to #109741. Fixes #109831. Fixes #109905. Fixes #109903.
+    
+    Tolerate some floating-point imprecision when comparing the cost of a new layout produced by 3-opt to the previous layout's cost. The JitStress failures I looked all stressed JitOptRepeat, which can produce absurdly large loop block weights by rerunning optSetBlockWeights. Manually inspecting the layout decisions made for these methods shows 3-opt making reasonable transformations, but the assertion newLayoutCost < currLayoutCost fails due to imprecision from summing large block weights. Having a backup check that the layout costs are within some epsilon seems like a reasonable fix.
