@@ -1,0 +1,11 @@
+commit 3d63cf3d92aae9d0c22a6921125691a8fe6808c9
+Author: koenigst <koenigst@users.noreply.github.com>
+Date:   Tue Nov 19 12:20:25 2024 +0100
+
+    Improved the test coverage of XmlWriter. (#107680)
+    
+    * Replicated the test cases from TCWriteNode_XmlReader.cs for XPathNavigator.
+    * Removed the test cases that did not make sense due to the simplified XPath model.
+    * Enabled testing async methods of XmlWriter.
+    
+    Fixes #20428
