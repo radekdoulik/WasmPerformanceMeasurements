@@ -1,0 +1,17 @@
+commit 932da77192ece1a820c0ff3a1884af859ab8a3fb
+Author: xtqqczze <45661989+xtqqczze@users.noreply.github.com>
+Date:   Tue Nov 19 19:02:56 2024 +0000
+
+    Remove `unsafe` modifier from `Memory<T>.Span` (#106085)
+    
+    * Remove `unsafe` modifier from `Memory<T>.Span`
+    
+    * Make `desiredStartIndex` an `int`
+    
+    * Use `nuint` and add comment
+    
+    * fixup!b6b93d972b5b16b345e53c8c07c074cdc85cad9a
+    
+    ---------
+    
+    Co-authored-by: Stephen Toub <stoub@microsoft.com>
