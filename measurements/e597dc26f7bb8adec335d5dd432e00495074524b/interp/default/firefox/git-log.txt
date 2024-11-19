@@ -1,0 +1,143 @@
+commit e597dc26f7bb8adec335d5dd432e00495074524b
+Author: Alan Hayward <a74nh@users.noreply.github.com>
+Date:   Mon Nov 18 22:58:22 2024 +0000
+
+    ARM64-SVE: Allow LCLs to be of type MASK (#109286)
+    
+    * ARM64-SVE: Allow LCLs to be of type MASK
+    
+    * Trigger based on OptimizationDisabled
+    
+    * Add compConvertMaskToVectorUsed check
+    
+    * Initial version with hashtable
+    
+    * Use double weighting method
+    
+    * Move to lclmorph
+    
+    * Better commenting
+    
+    * Add TARGET_ARM64 check
+    
+    * tidy
+    
+    * Add DEBUG ifdefs
+    
+    * Add mask check in lsrabuild
+    
+    Change-Id: Ic18f575e266d63db38f95601d374441cdbf28b44
+    
+    * Add conversion for local var uses
+    
+    * Add conversion for local stores
+    
+    * Comment for simd types
+    
+    * Use weight_t for weighting values
+    
+    Change-Id: I0d39d59a121682e8e583cccd710d13f2dd33bdc5
+    
+    * Account for block weights and number of instructions in weighting.
+    
+    * Fix asserts
+    
+    * Split weighting into current and switch
+    
+    * Add tests
+    
+    * Allow tests to tier
+    
+    * update comments
+    
+    * additional comments
+    
+    * abort walking once found
+    
+    * add comment to LCLMasksCheckLCLVarVisitor
+    
+    * LCLMasks -> LclMasks
+    
+    * LCLStore -> LclStore
+    
+    * LCLVar -> LclVar
+    
+    * UpdateVarWeight -> UpdateUseWeight
+    
+    * combine checks
+    
+    * Catch conversions of both types
+    
+    * better float printing
+    
+    * dump the updated tree with conversion
+    
+    * fix formatting
+    
+    * Update explanation
+    
+    * extra tests and remove asserts
+    
+    * move pass to lclmasks.cpp
+    
+    * Use vistors to iterate all nodes
+    
+    * Rename visitors
+    
+    * fix formatting
+    
+    * Add checks for LCL_ADDR
+    
+    * Add config option
+    
+    * Single Fact for all the tests
+    
+    * Only check statements where there is a local of type TYP_SIMD16/TYP_MASK
+    
+    * Call fgSequenceLocals() once per statement
+    
+    * Use JitSmallPrimitiveKeyFuncs
+    
+    * allow for nullptr user
+    
+    * Remove uses of gtBashToNOP()
+    
+    * Use DISPTREE
+    
+    * update asserts
+    
+    * Remove searching of convertOp
+    
+    * remove "method" in tests
+    
+    * Use LookupPointerOrAdd()
+    
+    * Remove Set() to table
+    
+    * fix formatting
+    
+    * Rename all functions
+    
+    * Use TypeIs()
+    
+    * invalidate if cached simdtype differs
+    
+    * use constructor for weightsTable
+    
+    Change-Id: I884307955274dac90bf1b30c5dd44be1e2917d49
+    
+    * check for address exposed variables
+    
+    * Add allocator CMK_MaskConversionOpt
+    
+    * Simplify ChangeMatchUse.csproj
+    
+    * Hoist Sve check in testing
+    
+    * Check for parameters and OSR locals
+    
+    * rename tests
+    
+    * Don't convert uses of masks as vectors
+    
+    * fix formatting
