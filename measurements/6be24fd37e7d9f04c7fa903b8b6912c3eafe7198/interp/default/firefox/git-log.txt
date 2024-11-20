@@ -1,0 +1,19 @@
+commit 6be24fd37e7d9f04c7fa903b8b6912c3eafe7198
+Author: Radek Zikmund <32671551+rzikm@users.noreply.github.com>
+Date:   Wed Nov 20 09:05:53 2024 +0100
+
+    Use explicit full-path for loading MsQuic.dll on Windows (#109963)
+    
+    * Use explicit full-path for loading MsQuic.dll on Windows
+    
+    * Suppress IL3000 in MsQuicApi constructor
+    
+    A call to `Assembly.Location` was added in a recent fix. It has `IL30000` suppressed via `#pragma warning disable`, but that only applies to the compilation of the library itself. Consumers will hit it when doing something like publishing their app as NativeAOT.
+    
+    This change adds an `[UnconditionalSuppressMessage]` to the `MsQuicApi` static constructor such that `IL30000` should also be suppressed for apps consuming the runtime.
+    
+    This was caught in an aspnetcore deps flow PR coming from runtime.
+    
+    ---------
+    
+    Co-authored-by: Elinor Fung <elfung@microsoft.com>
