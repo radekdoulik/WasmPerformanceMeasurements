@@ -1,0 +1,7 @@
+commit 7eecb045f7ad800ff1495f46c61002d29700cdec
+Author: Aman Khalid <amankhalid@microsoft.com>
+Date:   Tue Nov 19 21:55:31 2024 +0000
+
+    JIT: Remove switch recognition fallthrough quirk (#109796)
+    
+    Part of #107749. Removes the last "TODO-NoFallThrough" in the JIT source. During switch recognition, we should only need to modify flow edges -- changing the lexical order of blocks to create fallthrough into one of the switch's successors is unnecessary, now that we're running block layout in the backend.
