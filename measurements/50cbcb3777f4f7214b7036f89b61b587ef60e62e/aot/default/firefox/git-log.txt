@@ -1,0 +1,5 @@
+commit 50cbcb3777f4f7214b7036f89b61b587ef60e62e
+Author: Egor Bogatov <egorbo@gmail.com>
+Date:   Wed Nov 20 13:20:40 2024 +0000
+
+    JIT: (x u>> cns) -> [0..(x's max value >> cns)] (#109900)
