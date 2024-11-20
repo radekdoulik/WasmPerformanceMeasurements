@@ -1,0 +1,23 @@
+commit 1c54b485e4049799ba8b284487d4ba178e5a5bdd
+Author: Radek Doulik <radek.doulik@gmail.com>
+Date:   Wed Nov 20 14:11:50 2024 +0100
+
+    [wasm] Re-enable skiasharp WBT tests (#109232)
+    
+    * [wasm] Re-enable skiasharp WBT tests
+    
+    * Disable Debug/AOT combination
+    
+    That would trigger build error, because we don't support that combination
+    anymore
+    
+    * Change order of native libs
+    
+    Put NativeFileReference files after the runtime libs. This server as
+    a workaround of #109289
+    
+    * Update llvm, emsdk and icu deps
+    
+    * Revert "Change order of native libs"
+    
+    This reverts commit e320fd67aabede113e274d0d569ca6d7be70bd3e.
