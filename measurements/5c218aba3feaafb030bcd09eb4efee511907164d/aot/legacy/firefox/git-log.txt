@@ -1,0 +1,21 @@
+commit 5c218aba3feaafb030bcd09eb4efee511907164d
+Author: Carlos Sánchez López <1175054+carlossanlop@users.noreply.github.com>
+Date:   Wed Nov 20 08:45:49 2024 -0800
+
+    Switch to non-incremental servicing and update ApiCompatNetCoreAppBaselineVersion to 9.0.0 (#109790)
+    
+    * Update ApiCompatNetCoreAppBaselineVersion to 9.0.0
+    
+    * Switch to non-incremental servicing by manually backporting 824bdd214e55727a03b942476ce02e8f5fdf7de8 from release/9.0
+    ---------
+    Co-authored-by: Eric StJohn <ericstj@microsoft.com>
+    
+    * Result of running: dotnet build src/libraries/apicompat/ApiCompat.proj /p:ApiCompatGenerateSuppresionFile=true
+    
+    * Update suppression files
+    
+    * Update NetCoreAppLatestStabel suppression file
+    
+    ---------
+    
+    Co-authored-by: Viktor Hofer <viktor.hofer@microsoft.com>
