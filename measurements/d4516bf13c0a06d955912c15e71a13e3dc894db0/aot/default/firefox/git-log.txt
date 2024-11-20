@@ -1,0 +1,9 @@
+commit d4516bf13c0a06d955912c15e71a13e3dc894db0
+Author: Alexander Köplinger <alex.koeplinger@outlook.com>
+Date:   Tue Nov 19 20:48:57 2024 +0100
+
+    Temporarily uninstall pkg-config@0.29.2 in install-dependencies.sh (#109968)
+    
+    This was added by AzDO in https://github.com/actions/runner-images/pull/10971 as a workaround for https://github.com/actions/runner-images/issues/10984, but that means the old package now conflicts with the new pkg-config which is an alias to pkgconf.
+    
+    Fixes the build issues we've seen with OSX image version 20241119.505
