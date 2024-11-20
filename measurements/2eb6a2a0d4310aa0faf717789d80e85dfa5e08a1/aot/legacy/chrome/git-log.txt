@@ -1,0 +1,10 @@
+commit 2eb6a2a0d4310aa0faf717789d80e85dfa5e08a1
+Author: Elinor Fung <elfung@microsoft.com>
+Date:   Tue Nov 19 18:44:57 2024 -0800
+
+    [cdac] Simplify usage of TestPlaceholderTarget in tests (#109873)
+    
+    - Make `TestPlaceholderTarget` (mock target) constructor take type infos and global values
+    - Handle reading of global values in mock target implementation
+    - Use Moq for creating a `ContractRegistry` instead of our own explicit implementation
+    - Remove subclasses of `TestPlaceholderTarget`
