@@ -1,0 +1,8 @@
+commit 3b91ac601980f3cc35e1d8687e7235e874ffc8ea
+Author: Sven Boemer <sbomer@gmail.com>
+Date:   Wed Nov 20 15:45:51 2024 -0800
+
+    Remove unsupported _AggressiveAttributeTrimming switch (#109994)
+    
+    This switch was never documented and is not supported, because it can
+    cause behavior differences when trimming without any warnings.
