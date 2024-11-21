@@ -1,0 +1,15 @@
+commit 5345dc51d3de3f0bd5c71adc19c50ee08877ca4b
+Author: Khushal Modi <kcmodi@asu.edu>
+Date:   Wed Nov 20 22:02:44 2024 -0800
+
+    Adding CPUID for AVX10.2 (#109302)
+    
+    * Add CPUID for AVX10.2
+    
+    * Handle AVX10.2 ISAs in missing places
+    
+    * Remove APX_X64 since it is unused
+    
+    * remove log file and change handling for AVX10v2_V512
+    
+    * resolve merge errors
