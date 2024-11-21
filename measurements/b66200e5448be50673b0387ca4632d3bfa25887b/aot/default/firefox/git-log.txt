@@ -1,0 +1,19 @@
+commit b66200e5448be50673b0387ca4632d3bfa25887b
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Thu Nov 21 08:41:04 2024 +0100
+
+    Update DynamicallyAccessedMembers annotation on EventSource (#110001)
+    
+    This takes advantage of #109814. This is in theory a breaking change in case someone took advantage
+    of our annotation and is doing their own reflection on `EventSource` descendants.
+    
+    Someone else reflecting on EventSource is problematic however. We placed around various suppressions
+    due to our own annotations like this:
+    
+    https://github.com/dotnet/runtime/blob/0d62887a30553b8177dc90f9e39559be0e6c7707/src/libraries/System.Private.CoreLib/src/System/Diagnostics/Tracing/EventSource.cs#L414-L424
+    
+    It means that if someone else is reflection-accessing these, they would not get a trimming warning.
+    Hopefully, nobody does that. This PR also assumes that nobody does that (and the PR should therefore
+    not be breaking in practice).
+    
+    We annotate the class for our purposes, but someone else could be taking advantage of that in their own code.
