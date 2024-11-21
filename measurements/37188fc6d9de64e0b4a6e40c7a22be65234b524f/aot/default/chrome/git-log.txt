@@ -1,0 +1,7 @@
+commit 37188fc6d9de64e0b4a6e40c7a22be65234b524f
+Author: Jeremy Koritzinsky <jekoritz@microsoft.com>
+Date:   Mon Nov 11 23:22:03 2024 -0800
+
+    Pass BaseOS property down to the inner build as well (#109705)
+    
+    This will be used by dotnet/arcade#15237
