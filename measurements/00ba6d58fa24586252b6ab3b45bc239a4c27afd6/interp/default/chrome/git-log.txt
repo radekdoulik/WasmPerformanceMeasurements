@@ -1,0 +1,7 @@
+commit 00ba6d58fa24586252b6ab3b45bc239a4c27afd6
+Author: Aman Khalid <amankhalid@microsoft.com>
+Date:   Wed Nov 20 18:11:19 2024 +0000
+
+    JIT: Refactor 3-opt utilities to facilitate expansion (#109982)
+    
+    Part of #107749. Follow-up to #103450. To facilitate implementing a global variant of 3-opt alongside the greedy variant, this moves some shared components to helper methods. I want to do this as a separate PR to ensure this change is truly no-diff, and has minimal (if any) TP impact.
