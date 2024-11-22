@@ -1,0 +1,5 @@
+commit 7fe4e4fc17d98e501725550007810152df8cef1b
+Author: Aman Khalid <amankhalid@microsoft.com>
+Date:   Thu Nov 21 23:45:35 2024 +0000
+
+    JIT: Fix JITDUMP null dereference during value numbering (#110066)
