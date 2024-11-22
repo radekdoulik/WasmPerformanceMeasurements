@@ -1,0 +1,13 @@
+commit 1b8518435bde23806d850ab399828f8f594e95a0
+Author: Jan Vorlicek <janvorli@microsoft.com>
+Date:   Fri Nov 22 10:27:23 2024 +0100
+
+    Enlarge stack overflow handling helper stack (#110068)
+    
+    The stack overflow coreclr tests started to fail recently. It turns out that
+    was caused by the size of the helper stack allocated for stack overflow
+    handling case is no longer sufficient. Moreover, there is a bug in
+    `Thread::CreateUtilityThread` that calls the `SetThreadName` even when the
+    thread creation fails.
+    
+    Close #109499
