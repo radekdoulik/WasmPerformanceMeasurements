@@ -1,0 +1,17 @@
+commit 35f2b1309a6380f1c8e3edfe1589307fd2a3e1d1
+Author: Clinton Ingram <clinton.ingram@outlook.com>
+Date:   Thu Nov 21 20:01:20 2024 -0800
+
+    Add GFNI Intrinsics (#109537)
+    
+    * add GFNI intrinsics
+    
+    * add tests
+    
+    * rename file
+    
+    * add missing tests and AOT handling
+    
+    * fix build
+    
+    * fix test result
