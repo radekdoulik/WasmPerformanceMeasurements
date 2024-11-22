@@ -1,0 +1,9 @@
+commit eed57c3ede7832d80b34bdf70ac2b66b44e9e437
+Author: Adeel Mujahid <3840695+am11@users.noreply.github.com>
+Date:   Fri Nov 22 18:29:06 2024 +0200
+
+    Skip ENOSYS filter in numa init (#110082)
+    
+    * Check for EPERM in numa init
+    
+    * Apply suggestions from code review
