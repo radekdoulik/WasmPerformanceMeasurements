@@ -1,0 +1,10 @@
+commit 09b30a4c0618ff378abd523fd02e113b2474e958
+Author: Elinor Fung <elfung@microsoft.com>
+Date:   Thu Nov 21 13:11:38 2024 -0800
+
+    [cdac] Make contracts tests use mock/placeholder target instead of actual target (#110027)
+    
+    - Separate helpers for testing an actual contract descriptor from helpers for mock memory
+      - Tests/helpers for the contract descriptor are now under the `ContractDescriptor` folder
+    - Make all contracts tests use the mock target instead of creating a contract descriptor and using the `ContractDescriptorTarget`
+    - Update root namespaces from `Microsoft.Diagnostics.DataContractReader.UnitTests` -> `Microsoft.Diagnostics.DataContractReader.Tests` to match assembly name
