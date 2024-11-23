@@ -1,0 +1,7 @@
+commit f1332ab0d82ee0e21ca387cbd1c8a87c5dfa4906
+Author: Andy Ayers <andya@microsoft.com>
+Date:   Fri Nov 22 16:36:06 2024 -0800
+
+    JIT: filter local assertion set (#110091)
+    
+    During `optAssertionProp_Lcl{Fld,Var}`, only consider assertions involving the local var.
