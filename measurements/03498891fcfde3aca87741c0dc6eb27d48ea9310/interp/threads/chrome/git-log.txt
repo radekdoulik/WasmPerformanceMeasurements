@@ -1,0 +1,14 @@
+commit 03498891fcfde3aca87741c0dc6eb27d48ea9310
+Author: Andy Ayers <andya@microsoft.com>
+Date:   Sun Nov 24 16:12:36 2024 -0800
+
+    JIT: implied Boolean range assertions for local prop (#109481)
+    
+    If morph sees an assignment of 0/1 to a local, have it generate a [0..1] range
+    assertion in addition to the constant assertion.
+    
+    This helps morph propagate more Boolean ranges at merges, which allows morph to
+    elide more casts.
+    
+    Also, bump up the local assertion table size since morph is now generating more
+    assertions.
