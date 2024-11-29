@@ -1,0 +1,9 @@
+commit 1f01bee2a41e0df97089fe083c09c59401437b49
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Thu Nov 28 22:41:33 2024 +0100
+
+    Warn if RequiresXXXCode is placed on an entrypoint (#110185)
+    
+    Fixes #109811.
+    
+    Motivated by real-world first party code that did this :(.
