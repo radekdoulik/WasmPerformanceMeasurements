@@ -1,0 +1,9 @@
+commit 0d55c5bb4f5342e2a880fe62a0202195fecdbe5c
+Author: Badre BSAILA <54767641+pedrobsaila@users.noreply.github.com>
+Date:   Thu Nov 21 17:17:42 2024 +0100
+
+    MailAddress accepts invalid email address with consecutive dots (#109690)
+    
+    * MailAddress accepts invalid email address with consecutive dots
+    
+    * update DotAtomReader class comment
