@@ -1,0 +1,7 @@
+commit 150d3141df4e5beddb846cfbc4585f115d0a6d36
+Author: Aman Khalid <amankhalid@microsoft.com>
+Date:   Fri Nov 29 16:04:19 2024 +0000
+
+    JIT: Remove lexical dependencies in switch recognition (#110253)
+    
+    Fixes #107076. Part of #107749. Instead of relying on the "not equal" target of each test block being the next block, explicitly follow the chain of "not equal" targets.
