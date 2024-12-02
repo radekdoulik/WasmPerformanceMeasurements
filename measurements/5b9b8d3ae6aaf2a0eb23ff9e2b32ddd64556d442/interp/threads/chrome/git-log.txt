@@ -1,0 +1,15 @@
+commit 5b9b8d3ae6aaf2a0eb23ff9e2b32ddd64556d442
+Author: Miha Zupan <mihazupan.zupan1@gmail.com>
+Date:   Mon Dec 2 00:57:28 2024 +0100
+
+    Rework HttpClient content buffering (#109642)
+    
+    * Rework HttpClient response buffering
+    
+    * Fix string preamble detection order
+    
+    * Less var
+    
+    * Lower initial buffer size for chunked responses to 16 KB
+    
+    * Apply some style changes
