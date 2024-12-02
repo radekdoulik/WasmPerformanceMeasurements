@@ -1,0 +1,22 @@
+commit 7ccf49137b4ffdc15ce67a4267ffd5ba66fa7ea8
+Author: Andy Ayers <andya@microsoft.com>
+Date:   Mon Dec 2 07:41:04 2024 -0800
+
+    JIT: enable removal of try/catch if the try can't throw. (#110273)
+    
+    If no tree in the try region of a try/catch can throw, then
+    we can remove the try and delete the catch.
+    
+    If no tree in the try region of a try/finally can throw, we can
+    remove the try and inline the finally. This slightly generalizes
+    the empty-try/finally opt we have been doing for a long time.
+    (We should do something similar for try/fault, but don't, yet).
+    
+    Since these optimization passes are cheap, and opportunities
+    for them arise after other optimizations and unblock subsequent
+    optimizations, run them early, middle, and late.
+    
+    Resolves #107191.
+    
+    I expect we'll see more of these cases in the future, say if
+    we unblock cloning of loops with EH.
