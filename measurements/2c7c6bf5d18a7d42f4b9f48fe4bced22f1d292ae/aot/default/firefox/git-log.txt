@@ -1,0 +1,23 @@
+commit 2c7c6bf5d18a7d42f4b9f48fe4bced22f1d292ae
+Author: SwapnilGaikwad <swapnil.gaikwad@arm.com>
+Date:   Mon Nov 18 13:50:08 2024 +0000
+
+    Detect mask usage for Across functions (#109218)
+    
+    * Detect mask usage for Across functions
+    
+    Fixes: #101973
+    
+    * Fix build errors on x86
+    
+    * Refactor containable check for csel
+    
+    * Remove optimisation of AddSequentialAcross and assembly checks
+    
+    * Add more tests with different mask values
+    
+    * Avoid containing csel that's already containing an embedded op
+    
+    * Add test for the Fuzzlyn reported failure
+    
+    * Fix test build failures
