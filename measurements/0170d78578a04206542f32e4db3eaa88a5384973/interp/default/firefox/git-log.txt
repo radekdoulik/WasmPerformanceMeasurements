@@ -1,0 +1,14 @@
+commit 0170d78578a04206542f32e4db3eaa88a5384973
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Tue Nov 26 10:39:20 2024 +0100
+
+    JIT: Use any reaching def for unreachable uses in incremental SSA builder (#110077)
+    
+    There really is no correct reaching definition in this case, so any reaching
+    definition will do here. This matches what happens normally in the JIT when
+    various phases optimize control flow after SSA has been built without removing
+    the now-unreachable blocks.
+    
+    Also give unreachable stores an SSA number.
+    
+    Fix #109971
