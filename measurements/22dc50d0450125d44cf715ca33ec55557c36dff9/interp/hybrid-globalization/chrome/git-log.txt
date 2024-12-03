@@ -1,0 +1,18 @@
+commit 22dc50d0450125d44cf715ca33ec55557c36dff9
+Author: Elinor Fung <elfung@microsoft.com>
+Date:   Thu Nov 14 20:15:19 2024 -0800
+
+    [cdac] Implement `ExecutionManager.ReadyToRunJitManager.GetMethodInfo` (minus handling of hot/cold lookup) (#109766)
+    
+    Implement `ExecutionManager.ReadyToRunJitManager.GetMethodInfo` without handling of hot/cold lookup. This maps to `ReadyToRunJitManager::JitCodeToMethodInfo` in the runtime. Basic logic is:
+    - Check if the address is in a thunk for `READYTORUN_HELPER_DelayLoad_MethodCall`
+    - Find the runtime function entry corresponding to the address
+    - Look up the `MethodDesc` for the entry point using the `ReadyToRunInfo`'s hash map
+    
+    Add tests for `ExecutionManager` for getting code blocks and method desc in R2R and for `HashMap` lookup functionality
+    - Start using `Moq` - this change only uses it to mock `IPlatformMetadata`, but I think we should be able to use this instead some of the explicit subclasses we have for testing.
+    - Simplify usage of `TestPlaceholderTarget` such that setting the reader delegate and data cache are not explicit operations - make its constructor take a reader delegate and always create a default data cache
+    - Slight clean up of `ExecutionManagerTestBuilder` - make it more consistent with `MockDescriptors.*`
+      - I think this should probably also be moved under `MockDescriptors`, but I didn't want to do that in this change (same with some helpers in other test classes, like PrecodeStubsTests)
+    
+    Manually validated with `!clrstack` and `!ip2md` in windbg that R2R functions now show up correctly (were `<unknown>` before this change).
