@@ -1,0 +1,22 @@
+commit 8975db4b2b8b671de5a6334da6d2c7bfecdfc7e0
+Author: Jeremy Barton <jbarton@microsoft.com>
+Date:   Wed Nov 6 14:57:12 2024 -0800
+
+    Fix erroneous success in AsnDecoder.ReadEncodedValue
+    
+    When AsnDecoder.ReadEncodedValue is used on a payload where
+    the encoded length plus the number of bytes representing the encoded
+    length plus the number of bytes representing the tag exceeds int.MaxValue
+    it erroneously reports success.
+    
+    Every known caller of this method immediately follows it with a call to
+    a Span or Memory .Slice, which results in an ArgumentException that the
+    requested length exceeds the number of bytes available in the buffer.
+    
+    Because AsnDecoder was extracted out of AsnReader, most AsnDecoder tests
+    are done indirectly as AsnReader tests, or are done in the same test class that
+    tests the related functionality on AsnReader.  Since there's not a clear
+    analogue for ReadEncodedValue (that does not immediately Slice), this change
+    introduces a new subtree for AsnDecoder tests, only populating it with
+    (Try)ReadEncodedValue tests.  It also adds "large length" tests for ReadSetOf
+    and ReadSequence, for good measure.
