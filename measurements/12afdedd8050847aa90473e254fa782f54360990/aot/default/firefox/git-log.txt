@@ -1,0 +1,7 @@
+commit 12afdedd8050847aa90473e254fa782f54360990
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Tue Dec 3 09:00:36 2024 +0100
+
+    Fix `GetHardwareIntrinsicId` on 32bit platforms (#110238)
+    
+    AFAIK methods on the nested X64/Arm64 classes shouldn't be considered intrinsics on 32bit platforms since they are as relevant as e.g. WASM intrinsics. This should fix widespread runtime-nativeaot-outerloop failure on x86. I think this regressed in #109137.
