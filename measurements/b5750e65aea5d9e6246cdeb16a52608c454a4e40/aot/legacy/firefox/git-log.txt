@@ -1,0 +1,35 @@
+commit b5750e65aea5d9e6246cdeb16a52608c454a4e40
+Author: Eirik Tsarpalis <eirik.tsarpalis@gmail.com>
+Date:   Wed Nov 20 09:57:42 2024 +0000
+
+    Add SseFormatter (#109832)
+    
+    * Add SseFormatter.
+    
+    * Update src/libraries/System.Net.ServerSentEvents/src/Resources/Strings.resx
+    
+    Co-authored-by: Stephen Toub <stoub@microsoft.com>
+    
+    * Document SseItem exceptions.
+    
+    * Misc improvements and fixes.
+    
+    * Reinstate ordering of parameters in serialization callback.
+    
+    * Add SseItem<T>.ReconnectionInterval.
+    
+    * Address feedback.
+    
+    * Add parser validation for too small or too large retry intervals.
+    
+    * Update src/libraries/System.Net.ServerSentEvents/src/System/Net/ServerSentEvents/SseFormatter.cs
+    
+    Co-authored-by: Stephen Toub <stoub@microsoft.com>
+    
+    * Handle CR line breaks.
+    
+    * Simplify PooledByteBufferWriter.
+    
+    ---------
+    
+    Co-authored-by: Stephen Toub <stoub@microsoft.com>
