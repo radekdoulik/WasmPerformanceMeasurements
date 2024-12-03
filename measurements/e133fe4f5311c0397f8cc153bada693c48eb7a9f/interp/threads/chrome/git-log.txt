@@ -1,0 +1,5 @@
+commit e133fe4f5311c0397f8cc153bada693c48eb7a9f
+Author: Aman Khalid <amankhalid@microsoft.com>
+Date:   Thu Nov 7 15:35:50 2024 +0000
+
+    JIT: Don't split up partially-hot call-finally pairs during 3-opt layout (#109592)
