@@ -1,0 +1,12 @@
+commit 91939711895b6141e1be509ee743a8afb7a64ee7
+Author: Austin Wise <AustinWise@gmail.com>
+Date:   Sun Nov 3 22:49:20 2024 -0800
+
+    Fix ifdef for RawArrayData in NativeAOT Runtime.Base. (#109494)
+    
+    The `BIT64` preprocessor symbol is not defined nor used anywhere in this
+    repository. This means that if you were to compile a Runtime.Base assembly
+    for 64-bit, helpers like `RhpLdelemaRef` would calculate an incorrect address.
+    
+    This PR fixes the problem by using the `TARGET_64BIT` preprossor directive
+    instead. Just like the System.Private.CoreLib version of this class.
