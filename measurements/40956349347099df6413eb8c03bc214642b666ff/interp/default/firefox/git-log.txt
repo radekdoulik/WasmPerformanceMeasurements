@@ -1,0 +1,9 @@
+commit 40956349347099df6413eb8c03bc214642b666ff
+Author: Marie Píchová <11718369+ManickaP@users.noreply.github.com>
+Date:   Wed Nov 13 18:01:14 2024 +0100
+
+    [HTTP] WinHttpHandler - Increase the default drain size (#109610)
+    
+    * Increase the default drain size
+    
+    * Fix unit test
