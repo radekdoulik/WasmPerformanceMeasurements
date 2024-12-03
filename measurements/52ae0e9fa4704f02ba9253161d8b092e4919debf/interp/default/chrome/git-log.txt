@@ -1,0 +1,7 @@
+commit 52ae0e9fa4704f02ba9253161d8b092e4919debf
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Tue Nov 26 14:06:37 2024 -0500
+
+    Stop using LINQ in Tensors (#109415)
+    
+    Using `IEnumerable<T>` and associated LINQ extensions for numerical processing is not appropriate at this level of the stack. The only remaining use is where the input provided by the user is already an `IEnumerable<T>` and `ToArray` is used to get the required `T[]`, which is fine.
