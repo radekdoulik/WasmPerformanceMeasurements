@@ -1,0 +1,9 @@
+commit 0d62887a30553b8177dc90f9e39559be0e6c7707
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Wed Nov 20 07:20:10 2024 +0100
+
+    Fix dataflow analysis for GetNestedType (#109814)
+    
+    https://github.com/dotnet/linker/pull/2133 adjusted rooting logic to keep `.All` on all nested types preserved with PublicNestedTypes/NonPublicNestedTypes. The PR resolved the bug and the analysis work that was identified in the review as necessary never happened. So we just uselessly preserve members.
+    
+    This adds dataflow analysis to propagate this. Since we never had the dataflow analysis, I'm exposing this not as .All, but a subset of .All that doesn't do the worst part - doesn't require reflectability of interface methods.
