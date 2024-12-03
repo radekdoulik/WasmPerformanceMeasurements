@@ -1,0 +1,9 @@
+commit ed0d56e79a927a05332b119813f65f8e47f98364
+Author: Elinor Fung <elfung@microsoft.com>
+Date:   Mon Nov 11 13:25:37 2024 -0800
+
+    [cdac] Slight clean-up of mock descriptors test helpers (#109651)
+    
+    - Make mock descriptors helpers consistent in how tests create them and get their types and globals
+    - Split `MockDescriptors` inner classes into separate files
+    - Move helper from `CodeVersionsTests` to `MockDescriptors`
