@@ -1,0 +1,57 @@
+commit 6d3f9b564edddbca4bd079187a67ce817f17f8fd
+Author: Loni Tra <lonitra@microsoft.com>
+Date:   Wed Nov 13 12:16:26 2024 -0800
+
+    Avoid Blocking Finalizer Thread During Shutdown in SystemEvents (#108489)
+    
+    * Add switch to enable legacy Thread.Join in SystemEvents.Shutdown and obsolete EventsThreadShutdown
+    
+    * code cleanup
+    
+    * Add regression test
+    
+    * Call PostQuitMessage instead of PostMessage(WM_QUIT)
+    
+    * Remove compat switch and address PR feedback
+    
+    * rebuild with /p:ApiCompatGenerateSuppressionFile=true
+    
+    * Call PostQuitMessage on SystemEvents thread
+    
+    * Try removing left/right on compatbilitysuppression.xml
+    
+    * Obsolete EventsThreadShutdown
+    
+    * Remove shutdown handling to make behavior deterministic
+    
+    * Adjust obsolete message
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
+    
+    * Add obsoletion to refs
+    
+    * Set IncludeInternalObsoleteAttribute in ref project
+    
+    * re-include Obsoletions.cs in ref project
+    
+    * revert 134aca8 and hardcode obsoletion
+    
+    * Add IncludeInternalObsoleteAttribute to System.Events project
+    
+    * remove Obsoletions.cs from compile include
+    
+    * Revert "remove Obsoletions.cs from compile include"
+    
+    This reverts commit 452146d76bce8cdf69223cc541104c3504fdc7da.
+    
+    * Update suppression file
+    
+    * Update obsolete message
+    
+    Co-authored-by: Stephen Toub <stoub@microsoft.com>
+    
+    ---------
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
+    Co-authored-by: Viktor Hofer <viktor.hofer@microsoft.com>
+    Co-authored-by: Stephen Toub <stoub@microsoft.com>
