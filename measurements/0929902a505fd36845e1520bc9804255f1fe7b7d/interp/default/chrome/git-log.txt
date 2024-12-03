@@ -1,0 +1,11 @@
+commit 0929902a505fd36845e1520bc9804255f1fe7b7d
+Author: Eirik Tsarpalis <eirik.tsarpalis@gmail.com>
+Date:   Fri Nov 1 13:43:55 2024 +0000
+
+    Add annotations and regression testing for members accessed by legacy schema generation. (#109424)
+    
+    * Add annotations and regression testing for members accessed by legacy schema generation.
+    
+    * Update src/libraries/System.Text.Json/src/System/Text/Json/Serialization/Metadata/JsonPropertyInfo.cs
+    
+    * Incorporate feedback from https://github.com/dotnet/extensions/pull/5591
