@@ -1,0 +1,32 @@
+commit ffcef3dec5f16289a8f71f332091266529288d5c
+Author: Trung Nguyen <57174311+trungnt2910@users.noreply.github.com>
+Date:   Wed Nov 6 21:48:28 2024 +1100
+
+    Haiku: Add Haiku support for CoreCLR/PAL (#93907)
+    
+    * Haiku: Add Haiku support for CoreCLR/PAL
+    
+    This contains a part of the code required to build CoreCLR and get
+    `paltests` to pass on Haiku.
+    
+    This commit covers `src/coreclr/pal/**`.
+    
+    Co-authored-by: Jessica Hamilton <jessica.l.hamilton@gmail.com>
+    
+    * ilasm: Haiku build fixes
+    
+    Some OSes like Haiku define the `_EXPORT` and `_IMPORT` marcos.
+    
+    Symbols beginning with an underscore followed immediately by an
+    uppercase letter are reserved anyway.
+    
+    Add the guards to get them out of the way.
+    
+    * pal: Remove usage of MAP_FILE
+    
+    This flag is a compatibility flag and not required on most OSes.
+    Some, including Haiku, does not even define it.
+    
+    ---------
+    
+    Co-authored-by: Jessica Hamilton <jessica.l.hamilton@gmail.com>
