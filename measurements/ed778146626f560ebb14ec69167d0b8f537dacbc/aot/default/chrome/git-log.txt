@@ -1,0 +1,8 @@
+commit ed778146626f560ebb14ec69167d0b8f537dacbc
+Author: Sven Boemer <sbomer@gmail.com>
+Date:   Fri Nov 1 09:17:27 2024 -0700
+
+    Fix missing analyzer warning for generics in containing type (#109392)
+    
+    Fixes IL2091 warnings missed by the analyzer for generic arguments
+    with nested types.
