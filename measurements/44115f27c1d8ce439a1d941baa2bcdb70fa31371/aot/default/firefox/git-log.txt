@@ -1,0 +1,24 @@
+commit 44115f27c1d8ce439a1d941baa2bcdb70fa31371
+Author: Jan Vorlicek <janvorli@microsoft.com>
+Date:   Wed Nov 6 00:33:26 2024 +0100
+
+    Fix FP state restore on macOS exception forwarding (#109458)
+    
+    The change that enabled AVX512 support in the past has introduced a subtle
+    issue in restoring context for forwarding hardware exceptions that occur
+    in 3rd party non-managed code. In that case, the restored floating point
+    state is garbled.
+    
+    The problem is due to the fact that we pass a x86_avx512_state context to
+    the thread_set_state. That context contains a header field describing the
+    format of the context (it can be AVX, AVX512, 32 or 64 bit, ...). That is
+    then followed by the actual context structure. This style of context is
+    identified e.g. by x86_AVX_STATE flavor. The header field contains the
+    specific flavor, which would be x86_AVX_STATE64 or x86_AVX512_STATE64.
+    The thread_set_state uses the flavor to detect whether the context passed
+    to it is this combined one or just x86_AVX_STATE64 or x86_AVX512_STATE64
+    which doesn't have the header field.
+    The issue was that while we were passing in the combined context, we were
+    passing in the flavor extracted from its header. So the thread_set_state
+    used the header as part of the context. That resulted e.g. in xmm register
+    contents being shifted by 8 bytes, thus garbling the state.
