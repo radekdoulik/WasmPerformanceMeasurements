@@ -1,0 +1,8 @@
+commit e33be4d53ab951272c9161c50b549e5e7db60262
+Author: Noah Falk <noahfalk@users.noreply.github.com>
+Date:   Mon Nov 18 16:17:56 2024 -0800
+
+    Fix failing test on NativeAOT (#109853)
+    
+    Fixes https://github.com/dotnet/runtime/issues/109828
+    This test hadn't been updated to account for NativeAOT's lack of type names in the new randomized sampling allocation events.
