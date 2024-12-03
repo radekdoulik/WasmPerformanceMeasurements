@@ -1,0 +1,5 @@
+commit aaafed265a5231ccc2eba2ab48bce92f1bf269b2
+Author: Tanner Gooding <tagoo@outlook.com>
+Date:   Sun Nov 17 17:48:19 2024 -0800
+
+    Ensure that MultiplyAddEstimate exits for cases where GT_MUL is unsupported (#109842)
