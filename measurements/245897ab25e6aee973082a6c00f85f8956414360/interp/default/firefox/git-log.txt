@@ -1,0 +1,7 @@
+commit 245897ab25e6aee973082a6c00f85f8956414360
+Author: Alexander Köplinger <alex.koeplinger@outlook.com>
+Date:   Sat Nov 16 09:16:12 2024 +0100
+
+    Add cpio to Codespaces Dockerfiles (#109817)
+    
+    Right now it fails when building installers (we don't do that during prebuild so we didn't notice)
