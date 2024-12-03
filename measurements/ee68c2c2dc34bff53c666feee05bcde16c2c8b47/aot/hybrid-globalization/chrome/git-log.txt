@@ -1,0 +1,16 @@
+commit ee68c2c2dc34bff53c666feee05bcde16c2c8b47
+Author: Adam Sitnik <adam.sitnik@gmail.com>
+Date:   Fri Nov 8 16:48:13 2024 +0100
+
+    Handle IOV_MAX limit in RandomAccess, add missing test (#109340)
+    
+    * add test for Int32 overflow for WriteGather in RandomAccess
+    
+    * add failing test fore more than IOV_MAX buffers
+    
+    * fix both the native and managed parts
+    
+    ---------
+    
+    Co-authored-by: Adeel Mujahid <3840695+am11@users.noreply.github.com>
+    Co-authored-by: Stephen Toub <stoub@microsoft.com>
