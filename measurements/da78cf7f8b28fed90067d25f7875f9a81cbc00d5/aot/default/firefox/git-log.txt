@@ -1,0 +1,9 @@
+commit da78cf7f8b28fed90067d25f7875f9a81cbc00d5
+Author: Jan Kotas <jkotas@microsoft.com>
+Date:   Mon Nov 4 16:58:25 2024 -0800
+
+    Disable GS cookie checks for LightUnwind (#109524)
+    
+    LightUnwind does not track sufficient context to compute GS cookie address
+    
+    Fixes #109242
