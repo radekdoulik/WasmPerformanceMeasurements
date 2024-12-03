@@ -1,0 +1,9 @@
+commit ed2e02c772226a27174054e6bef4df9df3d71bd9
+Author: Jeremy Barton <jbarton@microsoft.com>
+Date:   Thu Nov 14 11:54:23 2024 -0800
+
+    Ensure proper cleanup of key files when not persisting them
+    
+    Code inspection suggested that keys imported into the CNG MachineKey store
+    from PFXImportCertStore were not getting properly cleaned up.  This change
+    adds tests that prove that supposition, and then fixes the bug so they pass.
