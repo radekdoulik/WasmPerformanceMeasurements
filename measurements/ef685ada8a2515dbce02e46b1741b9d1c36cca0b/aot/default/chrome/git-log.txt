@@ -1,0 +1,10 @@
+commit ef685ada8a2515dbce02e46b1741b9d1c36cca0b
+Author: Alexander Köplinger <alex.koeplinger@outlook.com>
+Date:   Fri Nov 8 10:05:34 2024 +0100
+
+    [mono] Check in offsets files used for AOT cross compilers (#109612)
+    
+    This allows us to remove a join point in the VMR build.
+    Instead of generating the offsets during the AOT cross compiler build we use the checked in files and change the existing CI job to validate that the generated file matches the checked in ones.
+    
+    Fixes https://github.com/dotnet/source-build/issues/3701
