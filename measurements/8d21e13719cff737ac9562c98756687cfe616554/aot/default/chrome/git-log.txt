@@ -1,0 +1,7 @@
+commit 8d21e13719cff737ac9562c98756687cfe616554
+Author: Alexander Köplinger <alex.koeplinger@outlook.com>
+Date:   Wed Nov 13 23:25:20 2024 +0100
+
+    Fix name of MonoAOTOffsets artifact in runtime.yml (#109797)
+    
+    To match the message in the build log, see https://github.com/dotnet/runtime/pull/109363#issuecomment-2474689843
