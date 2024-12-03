@@ -1,0 +1,13 @@
+commit 96ae7cfefb0ae0ad621edc56bf690da174d9c7ab
+Author: delreluca <35895923+delreluca@users.noreply.github.com>
+Date:   Sun Nov 17 02:23:11 2024 +0100
+
+    `TensorPrimitives` XML docs: `MinNumber`/`ReciprocalSqrt`/`ReciprocalSqrtEstimate` oversights (#109889)
+    
+    * Fix XML docs for `MinNumber`
+    
+    They ware accidentally referring to maxima
+    
+    * Add `T.Sqrt` to XML docs of reciprocal square root
+    
+    The effective code was copied from the other reciprocal
