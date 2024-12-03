@@ -1,0 +1,11 @@
+commit 3f0a23d76d6133f2d507f69d2158afcf54ae7e76
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Wed Nov 6 16:17:47 2024 -0500
+
+    Dedup remaining MemoryExtensions Span overloads (#109501)
+    
+    * Dedup remaining MemoryExtensions Span overloads
+    
+    Most of the non-mutating Span-based methods on MemoryExtensions just delegate to the ReadOnlySpan counterparts. And moving forward, we're not going to be adding such Span-based overloads, as the only reason we were doing so was to enable them them to show up via extension syntax, but now that this will "just work" with C# 14, there's no need. Thus, this PR removes the remaining duplication so that all of the existing span-based methods are on the same plan.
+    
+    * Address feedback
