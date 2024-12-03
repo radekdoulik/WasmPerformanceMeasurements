@@ -1,0 +1,45 @@
+commit fe7062386e7c2f96b1dee17f91e71e0276fb6d41
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Fri Nov 22 10:14:35 2024 +0100
+
+    JIT: Use reaching definitions in CSE to update conservative VNs (#109959)
+    
+    Now that CSE always inserts into SSA we can update it to make use of the
+    reaching definition information that it has access to. CSE already spent
+    effort to track some extra information to try to do this, which we can
+    remove.
+    
+    - Remove `optCSECheckedBoundMap`: this was used by CSE to try to update
+      conservative VNs of ancestor bounds checks. This is unnecessary since
+      all descendants of the CSE definitions should get the same
+      conservative VNs automatically now.
+    - Remove `CSEdsc::defConservNormVN`; this was used to update
+      conservative VNs in the single-def case, which again is unnecessary
+      now.
+    
+    Making this change requires a bit of refactoring to the incremental SSA
+    builder. Before this PR the builder takes all defs and all uses and then
+    inserts everything into SSA. After this change the builder is used in a
+    multi-step process as follows:
+    1. All definitions are added with `IncrementalSsaBuilder::InsertDef`
+    2. The definitions are finalized with
+       `IncrementalSsaBuilder::FinalizeDefs`
+    3. Uses are inserted (one by one) with
+       `IncrementalSsaBuilder::InsertUse`. No finalization are necessary;
+       each use is directly put into SSA as a result of calling this
+       method.
+    
+    The refactoring allows CSE to use the incremental SSA builder such that
+    it can access reaching definition information for each of the uses as
+    part of making replacements. However, this still requires some
+    refactoring such that CSE performs replacements of all defs before
+    performing the replacements of all uses.
+    
+    Additionally, this PR fixes various incorrect VN updating made by CSE.
+    
+    VN and CSE still track VNs that are interesting bounds check. However,
+    VN was sometimes inserting VNs with exception sets into the set, which
+    is not useful (the consumers always use normal VNs when querying the
+    set). This PR fixes VN to insert the normal VN instead.
+    
+    Fix #109745
