@@ -1,0 +1,11 @@
+commit e03b9a4692a15eb3ffbb637439241e8f8e5ca95f
+Author: Aaron Robinson <arobins@microsoft.com>
+Date:   Thu Nov 7 16:27:50 2024 -0800
+
+    Respect `ClassInterfaceAttribute` during COM server activation (#109616)
+    
+    * Respect ClassInterface during COM server activation
+    
+    Managed COM servers can define the ClassInterfaceAttribute
+    to indicate if IDispatch is supported.
+    Add tests for these activation scenarios.
