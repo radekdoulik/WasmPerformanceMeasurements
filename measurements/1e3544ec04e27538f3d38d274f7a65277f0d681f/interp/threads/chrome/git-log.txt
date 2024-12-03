@@ -1,0 +1,7 @@
+commit 1e3544ec04e27538f3d38d274f7a65277f0d681f
+Author: Aman Khalid <amankhalid@microsoft.com>
+Date:   Tue Nov 19 22:01:44 2024 +0000
+
+    JIT: Continue profile consistency checks until after finally cloning (#109792)
+    
+    Part of #107749. The next few opt phases alter flow substantially, such that we need to propagate new weight throughout the flowgraph. That will probably justify running profile synthesis after, in a later PR.
