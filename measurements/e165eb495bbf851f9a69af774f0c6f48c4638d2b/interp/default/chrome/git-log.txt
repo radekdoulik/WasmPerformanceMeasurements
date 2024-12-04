@@ -1,0 +1,9 @@
+commit e165eb495bbf851f9a69af774f0c6f48c4638d2b
+Author: Adeel Mujahid <3840695+am11@users.noreply.github.com>
+Date:   Wed Dec 4 17:04:48 2024 +0200
+
+    Move GetRefAny (with FCThrow) to managed (#110344)
+    
+    * Move GetRefAny (with FCThrow) to managed
+    
+    * Move impl. to TypeReference
