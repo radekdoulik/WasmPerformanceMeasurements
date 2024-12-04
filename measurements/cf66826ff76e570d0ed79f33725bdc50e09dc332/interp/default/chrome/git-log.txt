@@ -1,0 +1,13 @@
+commit cf66826ff76e570d0ed79f33725bdc50e09dc332
+Author: Vlad Brezae <brezaevlad@gmail.com>
+Date:   Thu Nov 28 18:06:11 2024 +0200
+
+    [mono][aot] Fix compilation crashes when type load exception is generated in code (#110078)
+    
+    * [mono][aot] Fix stack state when emitting type load throw
+    
+    Method compilation was continuing and we ended up failing with invalid IL.
+    
+    * [mono][aot] Mark clauses as dead when replacing method code with exception throw
+    
+    In the final stages of method compilation, when trying to compute clause ranges, we were asserting because the clause bblocks haven't been reached for compilation.
