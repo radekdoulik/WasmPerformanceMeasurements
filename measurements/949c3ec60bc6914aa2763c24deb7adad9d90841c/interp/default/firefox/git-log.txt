@@ -1,0 +1,74 @@
+commit 949c3ec60bc6914aa2763c24deb7adad9d90841c
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Wed Dec 4 11:17:08 2024 +0100
+
+    JIT: Allow strength reducing to GCD of IVs (#110222)
+    
+    This adds support for strength reduction to create a new primary IV that
+    is the GCD of several IVs found in the loop. When the same index is used
+    to access arrays of different sizes we will often see the IV being
+    multiplied by different values; however, it is usually still profitable
+    to strength reduce to the GCD of the step values and then "recover" the
+    final IV by scaling.
+    
+    Example:
+    ```csharp
+    public static void Foo()
+    {
+        string puzzle = "003020600900305001001806400008102900700000008006708200002609500800203009005010300";
+        int[] board = new int[81];
+    
+        for (int i = 0; i < puzzle.Length; i++)
+        {
+            board[i] = puzzle[i] - '0';
+        }
+    }
+    ```
+    
+    Codegen diff for loop:
+    ```diff
+            xor      ecx, ecx
+    +       mov      edx, 81
+    
+     G_M24659_IG03:
+    -       mov      edx, ecx
+    -       movzx    r8, word  ptr [rbx+2*rdx+0x10]
+    +       movzx    r8, word  ptr [rbx+rcx+0x10]
+            add      r8d, -48
+    -       mov      dword ptr [rax+4*rdx+0x10], r8d
+    -       inc      ecx
+    -       cmp      ecx, 81
+    -       jl       SHORT G_M24659_IG03
+    -                                               ;; size=24 bbWeight=3.96 PerfScore 19.80
+    +       mov      dword ptr [rax+2*rcx+0x10], r8d
+    +       add      rcx, 2
+    +       dec      edx
+    +       jne      SHORT G_M24659_IG03
+    +                                               ;; size=23 bbWeight=3.96 PerfScore 18.81
+    ```
+    
+    A similar diff in ``System.Linq.Enumerable+EnumerableSorter`2[System.__Canon,System.Decimal]:ComputeKeys(System.__Canon[],int)``:
+    ```diff
+    +       xor      edx, edx
+     G_M57524_IG05:
+    -       mov      edx, r15d
+    -       mov      r8, gword ptr [rbx+8*rdx+0x10]
+    +       mov      r8, gword ptr [rbx+rdx+0x10]
+            vmovups  xmm0, xmmword ptr [r8+0x20]
+            vmovups  xmmword ptr [rsp+0x28], xmm0
+    -       shl      rdx, 4
+            vmovups  xmm0, xmmword ptr [rsp+0x28]
+    -       vmovups  xmmword ptr [r14+rdx+0x10], xmm0
+    -       inc      r15d
+    -       cmp      r13d, r15d
+    -       jg       SHORT G_M57524_IG05
+    -                                               ;; size=45 bbWeight=75.73 PerfScore 1079.10
+    +       vmovups  xmmword ptr [r14+2*rdx+0x10], xmm0
+    +       add      rdx, 8
+    +       dec      r13d
+    +       jne      SHORT G_M57524_IG05
+    +                                               ;; size=39 bbWeight=75.73 PerfScore 1022.31
+    ```
+    
+    Fix #102068
+    Fix #105241
