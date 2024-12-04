@@ -1,0 +1,7 @@
+commit 6d12a304b3068f8a9308a1aec4f3b95dd636a693
+Author: Aman Khalid <amankhalid@microsoft.com>
+Date:   Tue Dec 3 21:25:35 2024 +0000
+
+    JIT: Do greedy 4-opt for backward jumps in 3-opt layout (#110277)
+    
+    Part of #107749. Follow-up to #103450. Greedy 3-opt (i.e. an implementation that requires each move to be profitable on its own) is not well-suited for discovering profitable moves for backward jumps, as such movement requires an unrelated move to first place the source block lexically behind the destination block. Thus, the 3-opt implementation added in #103450 incorporates a 4-opt move for backward jumps, where we partition 1) before the destination block, 2) before the source block, and 3) directly after the source block. This 4-opt implementation can be expanded to search for the best cut point between the destination and source blocks to maximize its efficacy.
