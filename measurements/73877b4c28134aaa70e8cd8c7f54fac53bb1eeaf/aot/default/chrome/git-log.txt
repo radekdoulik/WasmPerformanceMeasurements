@@ -1,0 +1,11 @@
+commit 73877b4c28134aaa70e8cd8c7f54fac53bb1eeaf
+Author: Tarek Mahmoud Sayed <10833894+tarekgh@users.noreply.github.com>
+Date:   Wed Dec 4 09:32:55 2024 -0800
+
+    Fix Configuration to throw with ErrorOnUnknownConfiguration option (#110209)
+    
+    * Fix Configuration to throw with ErrorOnUnknownConfiguration option
+    
+    * Fix the fired Debug.Assert
+    
+    * address the feedback
