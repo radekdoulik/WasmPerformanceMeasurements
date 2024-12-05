@@ -1,0 +1,11 @@
+commit b7713a4718241a7a78c0967d697e5722adaf4321
+Author: Szczepan Ćwikliński <sec@thinkcode.pl>
+Date:   Wed Dec 4 23:05:45 2024 +0100
+
+    Help finding Brotli headers when doing VMR build under FreeBSD (#110079)
+    
+    * Find to help Brotli headers when doing VMR build under FreeBSD
+    
+    * Use existing approach
+    
+    * Use CLR_CMAKE_HOST_FREEBSD
