@@ -1,0 +1,7 @@
+commit 11031c4171b5a46eedcae777fe805e7d29a94411
+Author: kzrnm <gengesa@gmail.com>
+Date:   Thu Dec 5 04:03:05 2024 +0900
+
+    Avoid an allocation in BigInteger.Parse("-2147483648") (#104666)
+    
+    Co-authored-by: Dan Moseley <danmose@microsoft.com>
