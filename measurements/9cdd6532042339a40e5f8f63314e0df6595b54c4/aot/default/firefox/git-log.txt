@@ -1,0 +1,8 @@
+commit 9cdd6532042339a40e5f8f63314e0df6595b54c4
+Author: Elinor Fung <elfung@microsoft.com>
+Date:   Wed Dec 4 17:53:59 2024 -0800
+
+    [cdac] Handle type descs in `RuntimeTypeSystem_1.GetLoaderModule` (#110325)
+    
+    - Update `RuntimeTypeSystem_1.GetLoaderModule` to handle type descs
+    - Fix incorrect reading of `TypeArg` on `ParamTypeDesc` (found while adding unit tests)
