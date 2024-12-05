@@ -1,0 +1,21 @@
+commit e99557baffbe864d624cc1c95c9cbf2eefae684f
+Author: Adeel Mujahid <3840695+am11@users.noreply.github.com>
+Date:   Thu Dec 5 11:55:33 2024 +0200
+
+    Fix zlib-ng build with cmake 3.31.0 (#110359)
+    
+    * Fix zlib-ng build with cmake 3.31.0
+    
+    * Dummy change in JIT
+    
+    * Use POST_BUILD in add_custom_command
+    
+    * Normalize paths before install
+    
+    * Revert dummy change; CI is green
+    
+    * Update functions.cmake
+    
+    * Update functions.cmake
+    
+    * Update src/native/external/zlib-ng/CMakeLists.txt
