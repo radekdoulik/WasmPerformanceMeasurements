@@ -1,0 +1,7 @@
+commit 4780c09169ef4ac8187ab4037414f0a554b32bf4
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Wed Dec 4 23:51:30 2024 +0100
+
+    Increase smoke testing around HW intrinsics (#110385)
+    
+    These often fail in outerloop. We should catch this before the code is checked in.
