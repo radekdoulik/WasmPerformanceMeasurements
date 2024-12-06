@@ -1,0 +1,14 @@
+commit 223dea5d66a1fd0257b6f4c65ba0fc3caffd4f0e
+Author: Aaron Robinson <arobins@microsoft.com>
+Date:   Thu Dec 5 09:16:19 2024 -0800
+
+    Remove Helper Method Frames (HMF) from Reflection (#110377)
+    
+    Remove HMF from RuntimeFieldHandle.GetLoaderAllocator() and RuntimeMethodHandle.GetLoaderAllocator().
+    Convert RuntimeTypeHandle.IsEquivalentTo() to QCall.
+    Convert RuntimeTypeHandle.GetMethodAt() to QCall.
+    Remove HMF from Signature.GetParameterOffset().
+    Clean up TypeEquivalence feature defines.
+    Convert RuntimeTypeHandle.GetArgumentTypesFromFunctionPointer() to QCall.
+    ---------
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
