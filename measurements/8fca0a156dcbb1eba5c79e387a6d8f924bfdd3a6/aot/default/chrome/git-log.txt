@@ -1,0 +1,9 @@
+commit 8fca0a156dcbb1eba5c79e387a6d8f924bfdd3a6
+Author: Tanner Gooding <tagoo@outlook.com>
+Date:   Thu Dec 5 21:44:30 2024 -0800
+
+    Don't do opportunistic ISA lightup if there are plans to run the AltJit code (#110419)
+    
+    * Don't do opportunistic ISA lightup if there are plans to run the AltJit code
+    
+    * Ensure that we can compile in Release builds
