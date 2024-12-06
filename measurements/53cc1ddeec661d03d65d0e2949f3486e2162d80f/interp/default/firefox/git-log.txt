@@ -1,0 +1,5 @@
+commit 53cc1ddeec661d03d65d0e2949f3486e2162d80f
+Author: Egor Bogatov <egorbo@gmail.com>
+Date:   Mon Nov 25 09:31:38 2024 +0100
+
+    Remove redundant sign/zero extension for SIMD broadcasts (#108824)
