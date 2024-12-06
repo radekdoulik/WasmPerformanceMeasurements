@@ -1,0 +1,7 @@
+commit 49ba409d0be30850c8f75f9869b4eb24fc8e3283
+Author: Elinor Fung <elfung@microsoft.com>
+Date:   Thu Dec 5 10:19:41 2024 -0800
+
+    Handle not truncating root folder in CorUnix::InternalCanonicalizeRealPath for all architectures instead of only amd64 (#110425)
+    
+    We had this handling (of not truncating if the path is right in the root folder `/`) ifdef-ed under `HOST_AMD64` for some reason. As a result, on other architectures we determine that the path doesn't exist and fail to load any assemblies from the root. This change simply removes the ifdef such that we have this handling on all architectures.
