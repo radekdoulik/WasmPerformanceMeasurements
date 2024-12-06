@@ -1,0 +1,23 @@
+commit bf44aaab18b8f8281264b0ccdd47f8a621514aa2
+Author: Trung Nguyen <57174311+trungnt2910@users.noreply.github.com>
+Date:   Fri Dec 6 11:52:57 2024 +1100
+
+    Haiku: Initial CoreCLR support (#109580)
+    
+    * Haiku: Initial CoreCLR support
+    
+    This contains a part of the code required to build CoreCLR and get
+    `paltests` to pass on Haiku.
+    
+    This commit covers `src/coreclr/**`, except the PAL files included
+    in the previous commit.
+    
+    Co-authored-by: Jessica Hamilton <jessica.l.hamilton@gmail.com>
+    
+    * pal: Add back checks for HAVE_CLOCK_THREAD_CPUTIME
+    
+    This was removed in #103441 but required for Haiku builds.
+    
+    ---------
+    
+    Co-authored-by: Jessica Hamilton <jessica.l.hamilton@gmail.com>
