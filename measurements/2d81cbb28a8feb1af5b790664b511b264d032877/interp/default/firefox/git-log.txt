@@ -1,0 +1,26 @@
+commit 2d81cbb28a8feb1af5b790664b511b264d032877
+Author: David Wrighton <davidwr@microsoft.com>
+Date:   Fri Dec 6 15:37:36 2024 -0800
+
+    Remove 2 more casting helper method frames (#110064)
+    
+    * Remove 2 more casting helper method frames
+    
+    * Update src/coreclr/System.Private.CoreLib/src/System/Runtime/CompilerServices/CastHelpers.cs
+    
+    Co-authored-by: Adeel Mujahid <3840695+am11@users.noreply.github.com>
+    
+    * Update src/coreclr/System.Private.CoreLib/src/System/Runtime/CompilerServices/CastHelpers.cs
+    
+    Co-authored-by: Adeel Mujahid <3840695+am11@users.noreply.github.com>
+    
+    * Update src/coreclr/vm/jitinterface.h
+    
+    Co-authored-by: Theodore Tsirpanis <teo@tsirpanis.gr>
+    
+    * More code updates as suggested by am11
+    
+    ---------
+    
+    Co-authored-by: Adeel Mujahid <3840695+am11@users.noreply.github.com>
+    Co-authored-by: Theodore Tsirpanis <teo@tsirpanis.gr>
