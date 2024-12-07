@@ -1,0 +1,7 @@
+commit e2e4642f95b3fbbc81d0593030aae4859d844e94
+Author: Aman Khalid <amankhalid@microsoft.com>
+Date:   Fri Dec 6 16:55:04 2024 +0000
+
+    JIT: Don't run `fgComputeBlockWeights` in MinOpts (#110451)
+    
+    Block weights don't seem particularly useful in MinOpts. Skipping fgComputeBlockWeights when we aren't optimizing had few diffs locally, so this looks like an opportunity to save some TP.
