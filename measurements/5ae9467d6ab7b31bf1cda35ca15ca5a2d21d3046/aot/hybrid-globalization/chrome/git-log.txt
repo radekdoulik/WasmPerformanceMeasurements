@@ -1,0 +1,15 @@
+commit 5ae9467d6ab7b31bf1cda35ca15ca5a2d21d3046
+Author: Andy Ayers <andya@microsoft.com>
+Date:   Sat Dec 7 08:44:27 2024 -0800
+
+    JIT: add more "simple" complexity helpers (#110486)
+    
+    In early phases we haven't set tree costs or size estimates, so we fall back
+    to counting statements or nodes.
+    
+    Capture some of this in some helper methods, both pure counting and "exceeds"
+    variants (which are potentially cheaper when comparing against a budget).
+    
+    Update the loop cloning size check to use this.
+    
+    Co-authored-by: Aman Khalid <amankhalid@microsoft.com>
