@@ -1,0 +1,9 @@
+commit 28cf901ccec85466635407edbe93d45b0ad2452d
+Author: Adeel Mujahid <3840695+am11@users.noreply.github.com>
+Date:   Mon Dec 9 13:47:06 2024 +0200
+
+    Fix linux-armel build (#110514)
+    
+    This syncs the gcc version in toolchian file with what's in the newest container build.
+    
+    Fixes #110517
