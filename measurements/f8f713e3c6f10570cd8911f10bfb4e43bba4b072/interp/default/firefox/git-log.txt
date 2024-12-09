@@ -1,0 +1,9 @@
+commit f8f713e3c6f10570cd8911f10bfb4e43bba4b072
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Sun Dec 8 20:52:36 2024 -0500
+
+    Fix nullability of LocalCertificateSelectionCallback return (#110479)
+    
+    * Fix nullability of LocalCertificateSelectionCallback return
+    
+    * Fix possible null ref in quic
