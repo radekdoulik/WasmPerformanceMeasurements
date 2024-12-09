@@ -1,0 +1,11 @@
+commit b085dadd160066d945ea638f0391091b1c96524d
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Mon Dec 9 08:46:46 2024 +0100
+
+    Remove some RuntimeExport/RuntimeImport indirections (#110437)
+    
+    We had indirections set up where we'd `RuntimeExport` a method under a symbolic name and then `RuntimeImport` it elsewhere (or call the export from JIT-generated code).
+    
+    Most of this was motivated by the old Redhawk layering where things like casting and interface dispatch were part of Runtime.Base and not part of CoreLib. Since we decided if we ever reintroduce a Runtime.Base, we wouldn't have casting in it, this indirection will no longer be needed.
+    
+    Motivated by #110267 (and also the reason why I'm only doing it for `RuntimeExport`s used from the JIT right now). Once that PR gets in, calling methods through `RuntimeExport`s would actually become a bigger deoptimization than it is now.
