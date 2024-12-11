@@ -1,0 +1,8 @@
+commit 4ece14b6d3c986208506640cbb3fc6cb35f67e64
+Merge: 1b1dbae4bf8 a1c01e9e033
+Author: Pavel Savara <pavelsavara@microsoft.com>
+Date:   Wed Sep 18 11:32:47 2024 +0200
+
+    [NativeAOT-LLVM] Add tracked SSA locals to the first basic block LiveIn set. #2684
+    
+    [NativeAOT-LLVM] Add tracked SSA locals to the first basic block LiveIn set.
