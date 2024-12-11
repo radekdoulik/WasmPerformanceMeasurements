@@ -1,0 +1,13 @@
+commit ad304792cfd5af4155120f054b48850bf91acf62
+Author: Vlad Brezae <brezaevlad@gmail.com>
+Date:   Tue Dec 10 14:04:42 2024 +0200
+
+    [mono][interp] Remove no_inlining functionality for dead bblocks (#110468)
+    
+    Many methods in the BCL, especially hwintrins related, contain a lot of code that is detected as dead during compilation. On mono, inlining happens during IL import and a lot of optimizations are run as later passes. This exposed the issue where we have a lot of dead code bloat from inlining, with optimizations later running on it.
+    
+    A simple solution for this problem was tracking jump counts for each bblock (https://github.com/dotnet/runtime/pull/97514), which are initialized when bblocks are first created, before IL import stage. Then a small set of IL import level optimizations were added, in order to reduce the jump targets of each bblock. As we were further importing IL, if we reached a bblock with 0 jump targets, we would disable inlining into it, in order to reduce code bloat. Disabling code emit altogether was too challenging. Another limitation of this approach was that we would fail to detect dead code if it was part of a loop. The results were good however, by reducing mem usage in `System.Numerics.Tensor.Tests` from 6GB to 600MB.
+    
+    For an unrelated issue, the order in which we generate bblocks was redesigned in order to account for bblock stack state initialization in weird control flow scenarios (https://github.com/dotnet/runtime/pull/108731). This was achieved by deferring IL import into bblocks that were not yet reached from other live bblocks. A side effect of this is that we no longer generate code at all in unreachable bblocks, completely superseding the previous approach while addressing both the problems of inlining into loops or generating IR for dead IL. In the previously mentioned test suite, this further reduced the memory usage to 300MB.
+    
+    Remnants of the unnecessary `no_inlining` approach still lingered in the code, leading to disabling of inline optimization in some reachable code. This triggered a significant performance regression which this PR addresses.
