@@ -1,0 +1,11 @@
+commit 39111b0942ce8cd3a941c347afcf980158369c00
+Author: Ilona Tomkowicz <32700855+ilonatommy@users.noreply.github.com>
+Date:   Wed Dec 11 16:02:35 2024 +0100
+
+    [browser] Remove WASM `HybridGlobalization` from library tests, WBT and docs (#110534)
+    
+    * Remove `HybridGlobalization` from library tests.
+    
+    * Remove `HybridGlobalization` from WBT.
+    
+    * Remove docs about HG on WASM.
