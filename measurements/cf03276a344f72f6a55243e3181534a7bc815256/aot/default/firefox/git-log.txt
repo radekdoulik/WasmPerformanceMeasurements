@@ -1,0 +1,8 @@
+commit cf03276a344f72f6a55243e3181534a7bc815256
+Author: Max Charlamb <44248479+max-charlamb@users.noreply.github.com>
+Date:   Wed Dec 11 04:30:49 2024 -0800
+
+    [cDAC] SOSDacImpl::GetMethodDescData DynamicMethodObject (#110545)
+    
+    * allow SOSDacImpl::GetMethodDescData to handle dynamic functions
+    * zero-out managedDynamicMethodObject as it is not being used and cDAC does not yet support fetching managed fields
