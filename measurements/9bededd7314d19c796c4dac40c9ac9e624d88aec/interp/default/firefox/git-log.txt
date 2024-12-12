@@ -1,0 +1,21 @@
+commit 9bededd7314d19c796c4dac40c9ac9e624d88aec
+Author: Linus Hamlin <78953007+lilinus@users.noreply.github.com>
+Date:   Wed Dec 11 18:56:53 2024 +0100
+
+    Fix TensorExtensions.StdDev (#110392)
+    
+    * Fix TensorExtensions.StdDev
+    
+    * Add constraint to ref
+    
+    * Revert "Add constraint to ref"
+    
+    This reverts commit f740f503a9ef0b763f71442fd8b4e578142f9c83.
+    
+    * Revert "Fix TensorExtensions.StdDev"
+    
+    This reverts commit c21298471fe1ea272930c3e5427bf986dba275b6.
+    
+    * Use pow method
+    
+    * Use existing variable
