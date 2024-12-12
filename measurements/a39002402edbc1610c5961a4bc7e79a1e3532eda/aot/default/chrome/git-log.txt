@@ -1,0 +1,29 @@
+commit a39002402edbc1610c5961a4bc7e79a1e3532eda
+Author: Mitchell Hwang <16830051+mdh1418@users.noreply.github.com>
+Date:   Wed Dec 11 16:35:42 2024 -0500
+
+    [Profiler] Avoid Recursive ThreadStoreLock in Profiling Thread Enumerator (#110548)
+    
+    * [Profiler] Avoid Recursive ThreadStoreLock
+    
+    Profiling Enumerators look to acquire the ThreadStoreLock.
+    In release config, re-acquiring the ThreadStoreLock and
+    releasing it in ProfilerThreadEnum::Init will cause
+    problems if the callback invoking EnumThread has logic
+    that depends on the ThreadStoreLock being held.
+    To avoid recursively acquiring the ThreadStoreLock,
+    expand the condition when the profiling thread enumerator
+    shouldn't acquire the ThreadStoreLock.
+    
+    * [Profiler] Change order to set fProfilerRequestedRuntimeSuspend
+    
+    There was a potential race condition when setting the flag
+    before suspending and resetting the flag after restarting.
+    For example, if the thread restarting runtime is preempted
+    right after resuming runtime, the flag could remain unset
+    by the time another thread looks to suspend runtime, which
+    would see that the flag as set.
+    
+    * [Profiler][Tests] Add unit test for EnumThreads during suspension
+    
+    * [Profiler][Tests] Fixup EnumThreads test
