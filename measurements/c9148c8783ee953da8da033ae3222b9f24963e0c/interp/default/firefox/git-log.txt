@@ -1,0 +1,15 @@
+commit c9148c8783ee953da8da033ae3222b9f24963e0c
+Author: Andy Gocke <angocke@microsoft.com>
+Date:   Mon Dec 9 22:04:17 2024 -0800
+
+    Remove ld_classic in 16+ (#110542)
+    
+    * Remove ld_class in 16+
+    
+    * Update src/coreclr/nativeaot/BuildIntegration/Microsoft.NETCore.Native.Unix.targets
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
+    
+    ---------
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
