@@ -1,0 +1,22 @@
+commit fc620a3525288ac0dff1ef007996e9575e7c1be9
+Author: Pierre Arnaud <arnaud@epsitec.ch>
+Date:   Wed Dec 11 15:32:13 2024 +0100
+
+    Fix comments in AggregateException.GetBaseException() (#107743)
+    
+    * Fix comments in AggregateException.GetBaseException()
+    
+    The public <summary> incorrectly stated that the method returned an AggregateException.
+    
+    * Update src/libraries/System.Private.CoreLib/src/System/AggregateException.cs
+    
+    Co-authored-by: Stephen Toub <stoub@microsoft.com>
+    
+    * Extract GetBaseException() <summary> content to <remarks>
+    
+    * Update src/libraries/System.Private.CoreLib/src/System/AggregateException.cs
+    
+    ---------
+    
+    Co-authored-by: Stephen Toub <stoub@microsoft.com>
+    Co-authored-by: Dan Moseley <danmose@microsoft.com>
