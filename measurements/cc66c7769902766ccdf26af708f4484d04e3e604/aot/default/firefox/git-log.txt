@@ -1,0 +1,5 @@
+commit cc66c7769902766ccdf26af708f4484d04e3e604
+Author: Miha Zupan <mihazupan.zupan1@gmail.com>
+Date:   Tue Dec 10 19:26:48 2024 +0100
+
+    Remove duplicate IsAscii check in string.IsNormalized (#110576)
