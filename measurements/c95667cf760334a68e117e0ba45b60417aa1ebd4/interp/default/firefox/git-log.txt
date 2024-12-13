@@ -1,0 +1,7 @@
+commit c95667cf760334a68e117e0ba45b60417aa1ebd4
+Author: Radek Doulik <radek.doulik@gmail.com>
+Date:   Fri Dec 13 12:31:34 2024 +0100
+
+    [wasm] Add bench output log, to the file and to the console (#110669)
+    
+    This improves diagnostic in our measurement infra
