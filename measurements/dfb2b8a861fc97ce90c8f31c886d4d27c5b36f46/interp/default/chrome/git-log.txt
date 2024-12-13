@@ -1,0 +1,77 @@
+commit dfb2b8a861fc97ce90c8f31c886d4d27c5b36f46
+Author: Adeel Mujahid <3840695+am11@users.noreply.github.com>
+Date:   Thu Dec 12 13:25:30 2024 +0200
+
+    Update dependencies from dotnet/roslyn (#110105)
+    
+    * Update dependencies from https://github.com/dotnet/roslyn build 20241122.2
+    
+    Microsoft.SourceBuild.Intermediate.roslyn , Microsoft.CodeAnalysis , Microsoft.CodeAnalysis.CSharp , Microsoft.Net.Compilers.Toolset
+     From Version 4.13.0-2.24570.4 -> To Version 4.13.0-2.24572.2
+    
+    * Update dependencies from https://github.com/dotnet/roslyn build 20241122.15
+    
+    Microsoft.SourceBuild.Intermediate.roslyn , Microsoft.CodeAnalysis , Microsoft.CodeAnalysis.CSharp , Microsoft.Net.Compilers.Toolset
+     From Version 4.13.0-2.24570.4 -> To Version 4.13.0-2.24572.15
+    
+    * Update dependencies from https://github.com/dotnet/roslyn build 20241124.5
+    
+    Microsoft.SourceBuild.Intermediate.roslyn , Microsoft.CodeAnalysis , Microsoft.CodeAnalysis.CSharp , Microsoft.Net.Compilers.Toolset
+     From Version 4.13.0-2.24570.4 -> To Version 4.13.0-2.24574.5
+    
+    * Update dependencies from https://github.com/dotnet/roslyn build 20241125.18
+    
+    Microsoft.SourceBuild.Intermediate.roslyn , Microsoft.CodeAnalysis , Microsoft.CodeAnalysis.CSharp , Microsoft.Net.Compilers.Toolset
+     From Version 4.13.0-2.24570.4 -> To Version 4.13.0-3.24575.18
+    
+    * Update dependencies from https://github.com/dotnet/roslyn build 20241127.2
+    
+    Microsoft.SourceBuild.Intermediate.roslyn , Microsoft.CodeAnalysis , Microsoft.CodeAnalysis.CSharp , Microsoft.Net.Compilers.Toolset
+     From Version 4.13.0-2.24570.4 -> To Version 4.13.0-3.24577.2
+    
+    * Update dependencies from https://github.com/dotnet/roslyn build 20241128.2
+    
+    Microsoft.SourceBuild.Intermediate.roslyn , Microsoft.CodeAnalysis , Microsoft.CodeAnalysis.CSharp , Microsoft.Net.Compilers.Toolset
+     From Version 4.13.0-2.24570.4 -> To Version 4.13.0-3.24578.2
+    
+    * Update dependencies from https://github.com/dotnet/roslyn build 20241128.3
+    
+    Microsoft.SourceBuild.Intermediate.roslyn , Microsoft.CodeAnalysis , Microsoft.CodeAnalysis.CSharp , Microsoft.Net.Compilers.Toolset
+     From Version 4.13.0-2.24570.4 -> To Version 4.13.0-3.24578.3
+    
+    * Update dependencies from https://github.com/dotnet/roslyn build 20241130.1
+    
+    Microsoft.SourceBuild.Intermediate.roslyn , Microsoft.CodeAnalysis , Microsoft.CodeAnalysis.CSharp , Microsoft.Net.Compilers.Toolset
+     From Version 4.13.0-2.24570.4 -> To Version 4.13.0-3.24580.1
+    
+    * Update dependencies from https://github.com/dotnet/roslyn build 20241130.2
+    
+    Microsoft.SourceBuild.Intermediate.roslyn , Microsoft.CodeAnalysis , Microsoft.CodeAnalysis.CSharp , Microsoft.Net.Compilers.Toolset
+     From Version 4.13.0-2.24570.4 -> To Version 4.13.0-3.24580.2
+    
+    * Update dependencies from https://github.com/dotnet/roslyn build 20241201.2
+    
+    Microsoft.SourceBuild.Intermediate.roslyn , Microsoft.CodeAnalysis , Microsoft.CodeAnalysis.CSharp , Microsoft.Net.Compilers.Toolset
+     From Version 4.13.0-2.24570.4 -> To Version 4.13.0-3.24601.2
+    
+    * Update dependencies from https://github.com/dotnet/roslyn build 20241202.26
+    
+    Microsoft.SourceBuild.Intermediate.roslyn , Microsoft.CodeAnalysis , Microsoft.CodeAnalysis.CSharp , Microsoft.Net.Compilers.Toolset
+     From Version 4.13.0-2.24570.4 -> To Version 4.13.0-3.24602.26
+    
+    * Use explicit AsSpan
+    
+    * Fix LibraryImportGenerator.UnitTests
+    
+    * Fix regex tests
+    
+    * Adjust trimming test for new codegen
+    
+    With this roslyn update, the generated iterator state machine
+    for this test includes a Dispose method which assigns null to the
+    array, inhibiting dataflow analysis.
+    
+    ---------
+    
+    Co-authored-by: dotnet-maestro[bot] <dotnet-maestro[bot]@users.noreply.github.com>
+    Co-authored-by: Sven Boemer <sbomer@gmail.com>
