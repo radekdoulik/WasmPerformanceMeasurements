@@ -1,0 +1,7 @@
+commit 4a30be3a2d2907b73ff3fe6be49912fe2030e2fc
+Author: Aman Khalid <amankhalid@microsoft.com>
+Date:   Thu Dec 12 15:23:18 2024 +0000
+
+    JIT: Remove `VisitLoopBlocksLexical` utility (#110490)
+    
+    Follow-up to #110227. In the few places where we still visit loop blocks in lexical order, just visit them in RPO instead.
