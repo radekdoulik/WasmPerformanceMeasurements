@@ -1,0 +1,7 @@
+commit 016d356e43659b7789d23defe570628c8864ee73
+Author: Elinor Fung <elfung@microsoft.com>
+Date:   Mon Dec 9 10:56:41 2024 -0800
+
+    [cdac] Handle no method def token when trying to get the IL version state (#110449)
+    
+    Some methods have a nil token - for example, special runtime methods like array functions. When we tried to look up their IL version state, we were throwing an exception. Methods like this will have no versioning state, so check for a nil token and skip the lookup.
