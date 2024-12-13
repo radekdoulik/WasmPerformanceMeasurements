@@ -1,0 +1,7 @@
+commit f0e64f5f0166da5a66c931ad0b2210b3e3cf51a3
+Author: Elinor Fung <elfung@microsoft.com>
+Date:   Thu Dec 12 13:58:03 2024 -0800
+
+    [cdac] Always re-read global pointers in GetUsefulGlobals (#110633)
+    
+    `GetUsefulGlobals` can be called before the runtime is actually initialized, so we need to re-read the global pointers instead of storing any of them.
