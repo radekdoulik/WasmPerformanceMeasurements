@@ -1,0 +1,10 @@
+commit 90dfc04d8f863e053e42edf0992c1b63398b12fb
+Author: Elinor Fung <elfung@microsoft.com>
+Date:   Fri Dec 13 12:26:16 2024 -0800
+
+    [cdac] Handle non-IL method descs in `RuntimeTypeSystem_1.GetMethodClassificationDataType` (#110602)
+    
+    - Add the different method desc types to the data descriptor
+      - We only need their size right now
+    - Add tests for different method desc classifications
+      - Mostly fill-in for things I found we didn't cover - `GetNativeCode_StableEntryPoint_NonVtableSlot` is the one that actually hits the updated code in this change
