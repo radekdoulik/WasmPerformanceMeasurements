@@ -1,0 +1,7 @@
+commit 87f0e70e40ad6f6e88e4de4ae9f18353182be401
+Author: Max Charlamb <44248479+max-charlamb@users.noreply.github.com>
+Date:   Fri Dec 13 15:28:10 2024 -0800
+
+    [cDAC] Implement GCCover portion of SOSDacImpl::GetMethodDescData (#110322)
+    
+    * Add GetGCStressCodeCopy to ICodeVersions and IRuntimeTypeSystem
