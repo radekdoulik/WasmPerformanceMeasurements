@@ -1,0 +1,12 @@
+commit fa451cf3e460baa1440f70b641853cc0d97bdd06
+Author: Mark Plesko <markples@microsoft.com>
+Date:   Fri Dec 6 11:26:40 2024 -0800
+
+    ConditionalWeakTable - don't link Containers when no entries are transferred (#108941)
+    
+    ConditionalWeakTable uses internal Container objects for the underlying table.  Container entries are write-once because the read path is lock-free.  When a Container is full, a new Container is allocated, entries are copied, and compaction can occur (if there aren't any currently live enumerators relying on specific indices).
+    
+    A two-pass finalization scheme is used to free the entries (dependent handles) and then the Containers themselves.  Finalization provides a guarantee that the Container is no longer in use, and the second pass accounts for finalization resurrection.  Because entries can be duplicated across Containers, each Container contains a link to the one that replaces it.
+     This can _greatly_ extend the lifetime of Containers.  (See https://github.com/dotnet/runtime/issues/50683 and https://github.com/dotnet/runtime/issues/108447.)
+    
+    However, if the Container is empty and not being enumerated, there is no need to link it to the next Container.  This PR handles that case, which includes microbenchmarks where single entries are added and removed from ConditionalWeakTable and equivalent tests where TransactionScope is functioning as a wrapper around a ConditionalWeakTable entry.  Of course, this is only a partial solution because a single live entry or enumerator leaves the old behavior.  Another caveat is that the finalization queue can be filled faster than it can be emptied, though this is more likely in microbenchmarks where other work isn't being done.
