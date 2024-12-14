@@ -1,0 +1,27 @@
+commit 09eea2a3889189c3242e8135193ff9a095272743
+Author: Thays Grazia <thaystg@gmail.com>
+Date:   Mon Dec 9 11:48:56 2024 -0300
+
+    [debugger] Fix a step that becomes a go (#110484)
+    
+    * Fixing step becomes a go
+    
+    * Trying to avoid step that becomes a go
+    
+    * Adding comments and more protections.
+    
+    * fixing comment
+    
+    * Checking if removing this comments, CI failures are gone.
+    
+    * Adding part of the changes to understand the failures on CI
+    
+    * Update src/coreclr/debug/ee/controller.cpp
+    
+    Co-authored-by: mikelle-rogers <45022607+mikelle-rogers@users.noreply.github.com>
+    
+    * Fixing wrong fix.
+    
+    ---------
+    
+    Co-authored-by: mikelle-rogers <45022607+mikelle-rogers@users.noreply.github.com>
