@@ -1,0 +1,7 @@
+commit f7974ea6fa005dc2e9c19e7e04cb22f50656347e
+Author: Simon Felix <sf@iru.ch>
+Date:   Wed Dec 4 18:06:35 2024 +0100
+
+    JIT_CountProfile: Avoid BSR instruction for low counts (#110258)
+    
+    The JIT_CountProfile32 and JIT_CountProfile64 functions used BitScanReverse functions to compute the log2 of counters, and then compare that to a threshold. This changes it so that the counter is directly compared to `1<<threshold` instead.
