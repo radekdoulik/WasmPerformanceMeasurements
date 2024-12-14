@@ -1,0 +1,22 @@
+commit d6c034d4e1668a3524adfb15a6b20e21ae8ce809
+Author: Elinor Fung <elfung@microsoft.com>
+Date:   Fri Dec 13 18:23:22 2024 -0800
+
+    [cdac] Clear cached data as part of IXCLRDataProcess::Flush (#110700)
+    
+    Found this while running the diagnostics repo SOS tests with the cDAC enabled. General sequence for the repro was:
+    ```
+    !sethostruntime -none
+    !bpmd <firstLocation>
+    !bpmd <secondLocation>
+    g
+    g
+    !clrstack
+    ```
+    Printed stack shows `<unknown>` for some method(s).
+    
+    Between the first and second breakpoints, more methods were jitted and the corresponding code heap list updated. When a new method in the stack for `<secondLocation>` had the same code heap list as any method from `<firstLocation>`, we'd end up with a stale end address for the heap list and determine that the method was invalid (outside the address range).
+    
+    The cdac was assuming that the target would be created every time the state changes, but that is not the case (for the repro above, `!sethostruntime -none` resulted in not re-creating the target). We need to handle `IXCLRDataProcess::Flush` calls to clear out any cached data.
+    
+    With this change, the SOS tests with the cDAC enabled run successfully with both a Release and Debug cdacreader (on a Release runtime).
