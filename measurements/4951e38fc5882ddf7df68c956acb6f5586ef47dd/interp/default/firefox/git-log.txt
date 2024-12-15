@@ -1,0 +1,24 @@
+commit 4951e38fc5882ddf7df68c956acb6f5586ef47dd
+Author: Adam Sitnik <adam.sitnik@gmail.com>
+Date:   Thu Dec 12 20:22:36 2024 +0100
+
+    More WriteGather fixes (#109826)
+    
+    * don't run these tests in parallel, as each test cases uses more than 4 GB ram and disk!
+    
+    * fix the test: handle incomplete reads that should happen when we hit the max buffer limit
+    
+    * incomplete write fix:
+    
+    - pin the buffers only once
+    - when re-trying, do that only for the actual reminder
+    
+    * Use native memory to get OOM a soon as we run out of memory (hoping to avoid the process getting killed on Linux when OOM happens)
+    
+    * For macOS preadv and pwritev can fail with EINVAL when the total length of all vectors overflows a 32-bit integer.
+    
+    * add an assert that is going to warn us if vector.Count is ever more than Int32.MaxValue
+    
+    ---------
+    
+    Co-authored-by: Michał Petryka <35800402+MichalPetryka@users.noreply.github.com>
