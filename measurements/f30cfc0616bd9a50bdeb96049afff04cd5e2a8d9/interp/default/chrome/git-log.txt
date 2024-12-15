@@ -1,0 +1,47 @@
+commit f30cfc0616bd9a50bdeb96049afff04cd5e2a8d9
+Author: Ilona Tomkowicz <32700855+ilonatommy@users.noreply.github.com>
+Date:   Thu Dec 12 11:41:06 2024 +0100
+
+    All `WasmBuildTests` use static project from assets or `dotnet new`, unification of browser tests (#109069)
+    
+    * Fix build errors in WASI - refactor of WASI in a future PR.
+    
+    * Fix binlog location.
+    
+    * Update README.
+    
+    * Feedback: non-nullable _projectDir.
+    
+    * Fix `SatelliteAssembliesTests` and other test that require 3 states of `WasmBuildNative`
+    
+    * `RebuildTests` fix after introducing figerprinting.
+    
+    * Fix no-worklod tests: 1) do not double-assert `AssertRuntimePackPath` in blazor 2) `AssertRuntimePackPath` is correct  only when workload is there 3) NativeBuild should allow undefined in blazor tests as well.
+    
+    * Fix `NativeBuildTests` - AppBundle was not asserted here originally.
+    
+    * `WasmGenerateAppBundle=false` when workloads used (set in workload manifest). The check is incorrect in the current process of testing.
+    
+    * Fix `MainWithArgsTests`. Url query can have arg key duplicates -> is better represented by `NameValueCollection` than `Dictionary`
+    
+    * AppBundle was never asserted for size in `OptimizationFlagChangeTests` + use statistics that are fingerprinting insensitive.
+    
+    * Reading from config is a known issue.
+    
+    * Fix `ReferenceNewAssemblyRebuildTest`: Json lib was already referenced before the change in the test. Use Cryptography lib instead.
+    
+    * Keep blazor workload tests together.
+    
+    * Fix: `PInvokeTableGeneratorTests` on Windows.
+    
+    * Move all no-workload blazor tests to one class.
+    
+    * Use more meaningful name for `MiscTests3`.
+    
+    * `PInvokeTableGeneratorTests` takes 2-3 times more time than average WBT class, divide it.
+    
+    * Block the timeouting test with exisiting issue.
+    
+    * Try avoiding port collisions in blazor tests run on kestrel.
+    
+    * Removal of files and comments that were supposed to be deleted after approval.
