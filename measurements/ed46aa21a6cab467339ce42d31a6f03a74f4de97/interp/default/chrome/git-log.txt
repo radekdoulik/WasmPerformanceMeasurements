@@ -1,0 +1,8 @@
+commit ed46aa21a6cab467339ce42d31a6f03a74f4de97
+Author: Andy Ayers <andya@microsoft.com>
+Date:   Fri Dec 13 17:00:51 2024 -0800
+
+    JIT: capture class types when spilling a GDV arg (#110675)
+    
+    If we need to spill ref type args for a GDV, try to annotate the spilled
+    locals with type information.
