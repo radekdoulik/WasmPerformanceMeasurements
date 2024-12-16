@@ -1,0 +1,11 @@
+commit 20dc14622a3985fb4eac2b31194bf1c2a8c64680
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Mon Dec 16 09:37:08 2024 +0100
+
+    Fix calling convention mismatch in GC callouts (#110685)
+    
+    Fixes #110607.
+    
+    The native side expected fastcall, managed side didn't.
+    
+    Filed #110684 on the test hole. We would have caught it during x86 bringup if this had _any_ tests since this is a guaranteed stack corruption and crash.
