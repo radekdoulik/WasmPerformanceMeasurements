@@ -1,0 +1,7 @@
+commit 60a29248bbb501dd037d2984daea3635cf20b412
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Tue Dec 3 23:12:58 2024 +0100
+
+    Delete System.Array special case in TryResolveTypeNameForCreateInstanceAndMark (#110345)
+    
+    https://github.com/dotnet/runtime/pull/110166/files/3b95e0b3c6a403567c6baf3d42f301db170735c5#r1867075215
