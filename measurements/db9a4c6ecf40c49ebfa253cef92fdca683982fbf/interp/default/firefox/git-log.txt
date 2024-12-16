@@ -1,0 +1,9 @@
+commit db9a4c6ecf40c49ebfa253cef92fdca683982fbf
+Author: Alex4414 <alex4414@yahoo.com>
+Date:   Mon Dec 16 18:22:49 2024 +0300
+
+    Fix potential NRE in GenericSpecializationPartCreationInfo (#110569)
+    
+    * Fix potential NRE in GenericSpecializationPartCreationInfo
+    
+    * CR: remove redundant !
