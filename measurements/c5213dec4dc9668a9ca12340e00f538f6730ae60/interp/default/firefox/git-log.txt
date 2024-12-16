@@ -1,0 +1,11 @@
+commit c5213dec4dc9668a9ca12340e00f538f6730ae60
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Tue Dec 3 13:38:19 2024 +0100
+
+    Enable more ILLink test cases with native AOT (#110166)
+    
+    When I was working on the `DAMT.All*`, I noticed we don't run many Reflection tests, this is progress towards that.
+    
+    Also fixes rare `CreateInstance` overloads - these were never worth the effort to implement honestly, but more code sharing made implementing them a breeze.
+    
+    Contributes to #82447.
