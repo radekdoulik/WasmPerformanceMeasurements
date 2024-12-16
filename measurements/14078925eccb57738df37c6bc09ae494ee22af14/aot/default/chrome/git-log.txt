@@ -1,0 +1,9 @@
+commit 14078925eccb57738df37c6bc09ae494ee22af14
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Thu Dec 5 00:05:41 2024 +0100
+
+    Add support for emitting Source Link data (#110270)
+    
+    Fixes #81415.
+    
+    We read the source link data from the portable PDB, map file names to URLs, and emit into a JSON file. Then pass the JSON file to link.exe. We make no effort to make the source link data more compact. We could attempt to find common prefixes and emit as `*` but I left that as a future potential extension. The extra data in the expanded form is nothing compared to the size of native PDBs.
