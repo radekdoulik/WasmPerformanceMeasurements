@@ -1,0 +1,23 @@
+commit 6d6f2bd36c7d5e134177383958b02522b770bd04
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Tue Dec 17 15:34:09 2024 +0100
+
+    Fix base type marking for DAM annotated classes (#110655)
+    
+    Fixes #104740, also implements #110563 for ILC.
+    
+    The annotation on DAM annotated classes gets triggered by calling GetType on a location typed as something DAM annotated (or deriving/implementing from it).
+    
+    The marking is done in layers so that warning suppressions can be properly applied. The bug was that we didn't walk down the hierarchy and assumed someone else will do it. Nobody did. I'm adding a new node type to do the marking.
+    
+    Previously, we only used one node for tracking. The node got dropped into the dependency graph when we saw GetType being called and it ensured the proper marking for that one type (not the bases). We also added conditional dependencies into MethodTables so that `Derived` can depend on this node of the `Base`. This ensured that if GetType was called on Base, we'd treat it same as GetType on Derived. This was resulting in marking too much and too little (we'd mark right away when we saw GetType call, irrespective of the MethodTable existence, and we wouldn't walk down to Base if the GetType was called on Derived.
+    
+    The fix is to use two node types. One simply tracks "GetType was called on something". It doesn't bring any other dependencies with it. We only use it to condition other nodes. The other node represents "the dependencies from the annotations".
+    
+    The way this works is:
+    * We see GetType called on Base, so we add ObjectGetTypeCalledNode for Base.
+    * We generate MethodTable for Derived, which adds a conditional dependency on ObjectGetTypeCalledNode of Derived if ObjectGetTypeCalledNode of Base is in the graph. (This ensures "walking up the hierarchy".)
+    * MethodTable of Derived also adds a conditional dependency on ObjectGetTypeFlowDependenciesNode of Derived if ObjectGetTypeCalledNode of Derived is part of the graph. This will do the actual marking but only if the MethodTable and GetType call was seen.
+    * ObjectGetTypeFlowDependenciesNode also "walks down the hierarchy" and makes sure ObjectGetTypeFlowDependenciesNode of all the bases and interfaces are present in the graph.
+    
+    This happens to also address #110563. Because of that, I had to update tests since ILC started trimming more stuff without seeing the type as constructed.
