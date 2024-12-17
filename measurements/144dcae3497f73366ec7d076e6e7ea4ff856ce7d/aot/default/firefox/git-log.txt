@@ -1,0 +1,7 @@
+commit 144dcae3497f73366ec7d076e6e7ea4ff856ce7d
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Mon Dec 16 19:31:58 2024 -0500
+
+    Avoid a list/array allocation in Task.WhenAll(enumerable) (#110536)
+    
+    When the incoming enumerable isn't a `Task[]` or `List<Task>`, we end up allocating either a `Task[]` or a `List<T>` (which then may incur one or more array allocations under the covers). We can avoid that by using a builder, either seeded with stack memory for
