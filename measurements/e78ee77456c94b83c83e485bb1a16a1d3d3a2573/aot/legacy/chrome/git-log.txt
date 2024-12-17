@@ -1,0 +1,18 @@
+commit e78ee77456c94b83c83e485bb1a16a1d3d3a2573
+Author: Aaron Robinson <arobins@microsoft.com>
+Date:   Mon Dec 16 19:09:35 2024 -0800
+
+    Remove Helper Method Frames (HMF) from Reflection (#110627)
+    
+    Convert Signature.GetSignature() to QCall.
+    Rename Signature.GetSignature() to Signature.Init().
+    Remove HMF from Signature.GetTypeParameterOffset().
+    Remove HMF from Signature.GetCallingConventionFromFunctionPointerAtOffset().
+    Convert Signature.GetCustomModifiersAtOffset() to QCall.
+    Convert RuntimeTypeHandle.GetDeclaringMethodForGenericParameter() to QCall.
+    Rename RuntimeTypeHandle.GetDeclaringMethod() to RuntimeTypeHandle.GetDeclaringMethodForGenericParameter().
+    Convert RuntimeTypeHandle.CanCastTo() to slow/fast paths using FCall/QCall.
+    Remove HMF from RuntimeMethodHandle::GetMethodDef().
+    Convert RuntimeMethodHandle.GetStubIfNeeded() to fast/slow paths using FCall/QCall.
+    Convert RuntimeTypeHandle.SatisfiesConstraints() to QCall.
+    Convert RuntimeMethodHandle.GetMethodBody() to QCall.
