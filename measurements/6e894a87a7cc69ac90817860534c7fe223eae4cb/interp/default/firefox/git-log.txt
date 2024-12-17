@@ -1,0 +1,23 @@
+commit 6e894a87a7cc69ac90817860534c7fe223eae4cb
+Author: Radek Doulik <radek.doulik@gmail.com>
+Date:   Tue Dec 17 12:58:24 2024 +0100
+
+    [wasm] Fix rebuild of browser-bench with startup apps (#110776)
+    
+    This fixes 2 issues
+    
+     * clean build of browser-bench with startup apps failed, because
+       WBT's dotnet-latest wasn't available when setting the sdk spath
+     * problem with rebuilding WBT, where WBT fails with
+    
+    ```
+    runtime/src/mono/nuget/Microsoft.NET.Runtime.WorkloadTesting.Internal/Sdk/WorkloadTesting.Core.targets(201,5): error MSB4018: The "InstallWorkloadFromArtifacts" task failed unexpectedly. [runtime/src/mono/wasm/Wasm.Build.Tests/Wasm.Build.Tests.csproj] [runtime/src/mono/sample/wasm/browser-bench/Wasm.Browser.Bench.Sample.csproj]
+    runtime/src/mono/nuget/Microsoft.NET.Runtime.WorkloadTesting.Internal/Sdk/WorkloadTesting.Core.targets(201,5): error MSB4018: System.IO.IOException: Directory not empty : 'runtime/artifacts/bin/dotnet-latest/host/fxr/10.0.0-alpha.1.24610.2' [runtime/src/mono/wasm/Wasm.Build.Tests/Wasm.Build.Tests.csproj] [runtime/src/mono/sample/wasm/browser-bench/Wasm.Browser.Bench.Sample.csproj]
+    runtime/src/mono/nuget/Microsoft.NET.Runtime.WorkloadTesting.Internal/Sdk/WorkloadTesting.Core.targets(201,5): error MSB4018: at System.IO.FileSystem.RemoveDirectoryRecursive(String fullPath) [runtime/src/mono/wasm/Wasm.Build.Tests/Wasm.Build.Tests.csproj] [runtime/src/mono/sample/wasm/browser-bench/Wasm.Browser.Bench.Sample.csproj]
+    runtime/src/mono/nuget/Microsoft.NET.Runtime.WorkloadTesting.Internal/Sdk/WorkloadTesting.Core.targets(201,5): error MSB4018: at Microsoft.Workload.Build.Tasks.InstallWorkloadFromArtifacts.Execute() [runtime/src/mono/wasm/Wasm.Build.Tests/Wasm.Build.Tests.csproj] [runtime/src/mono/sample/wasm/browser-bench/Wasm.Browser.Bench.Sample.csproj]
+    runtime/src/mono/nuget/Microsoft.NET.Runtime.WorkloadTesting.Internal/Sdk/WorkloadTesting.Core.targets(201,5): error MSB4018: at Microsoft.Build.BackEnd.TaskExecutionHost.Execute() [runtime/src/mono/wasm/Wasm.Build.Tests/Wasm.Build.Tests.csproj] [runtime/src/mono/sample/wasm/browser-bench/Wasm.Browser.Bench.Sample.csproj]
+    runtime/src/mono/nuget/Microsoft.NET.Runtime.WorkloadTesting.Internal/Sdk/WorkloadTesting.Core.targets(201,5): error MSB4018: at Microsoft.Build.BackEnd.TaskBuilder.ExecuteInstantiatedTask(TaskExecutionHost taskExecutionHost, TaskLoggingContext taskLoggingContext, TaskHost taskHost, ItemBucket bucket, TaskExecutionMode howToExecuteTask) [runtime/src/mono/wasm/Wasm.Build.Tests/Wasm.Build.Tests.csproj] [runtime/src/mono/sample/wasm/browser-bench/Wasm.Browser.Bench.Sample.csproj]
+          0 Warning(s)
+          1 Error(s)
+    
+    ```
