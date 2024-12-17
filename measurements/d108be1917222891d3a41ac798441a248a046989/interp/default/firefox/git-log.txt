@@ -1,0 +1,8 @@
+commit d108be1917222891d3a41ac798441a248a046989
+Author: Elinor Fung <elfung@microsoft.com>
+Date:   Mon Dec 16 14:32:22 2024 -0800
+
+    [cdac] Remove GetMethodDescData fallback to legacy DAC (#110702)
+    
+    - Make cDAC `GetMethodDescData` implementation stop delegating to the legacy DAC as a fallback.
+    - Debug.Assert cDAC/DAC hresults on failure
