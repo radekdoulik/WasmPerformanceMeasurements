@@ -393,6 +393,10 @@ async function mainJS() {
         }
     }
 
+    function getCollapsibleId(id) {
+        return id.replaceAll("/", "--").replaceAll(".", "-");
+    }
+
     function getCollapsible(task, test, path, folder = false)
     {
         let parts = path.split("/");
@@ -409,19 +413,19 @@ async function mainJS() {
         }
 
         if (folder) {
-            let collapsible = d3.select("#" + path.replaceAll("/", "--") + "collapsible");
+            let collapsible = d3.select("#" + getCollapsibleId(path) + "collapsible");
             if (!collapsible.empty())
                 return collapsible;
         }
 
         let parentPath = path.substring(0, path.lastIndexOf("/"));
-        let parentId = parentPath.replaceAll("/", "--") + "collapsible";
+        let parentId = getCollapsibleId(parentPath) + "collapsible";
         let parentCollapsible = d3.select("#" + parentId);
         if (parentCollapsible.empty())
             parentCollapsible = getCollapsible(task, test, parentPath, true);
 
         if (folder)
-            return addCollapsible(parentId, path.replaceAll("/", "--"), parts[parts.length - 1]);
+            return addCollapsible(parentId, getCollapsibleId(path), parts[parts.length - 1]);
 
         return parentCollapsible;
     }
