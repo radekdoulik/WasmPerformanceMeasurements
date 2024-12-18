@@ -1,0 +1,7 @@
+commit 237c7594967573e809db40b09dded0d4a6d98cec
+Author: Jan Kotas <jkotas@microsoft.com>
+Date:   Wed Dec 18 06:09:12 2024 -0800
+
+    Revert "Use FLS detach as thread termination notification on windows. (#110589)" (#110801)
+    
+    This reverts commit 69d80765741a92af937f91c9c944a6b7ec56297b.
