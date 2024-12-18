@@ -1,0 +1,5 @@
+commit e34ec6cf555b46998a500764d0aef9eed37cf0ef
+Author: eterekhin <Evgeny.Terekhin@jetbrains.com>
+Date:   Mon Dec 16 20:46:34 2024 +0100
+
+    Check loaded in dac values to avoid SIGSEGV on null pointers (#110303)
