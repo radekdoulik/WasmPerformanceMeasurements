@@ -1,0 +1,13 @@
+commit e65457031da52f57d03da721f381a82a5be64c03
+Author: Matthew P. Del Buono <mpdelbuono@gmail.com>
+Date:   Tue Dec 17 12:01:35 2024 -0800
+
+    Update TagName docs to include behavior if tag is not found (#109934)
+    
+    * Clarify documentation for TagList.IndexOf
+    
+    Adds documentation to TagList.IndexOf that states the behavior when the key was not found.
+    
+    * Clarify documentation for TagList.IndexOf
+    
+    Adds documentation to TagList.IndexOf that states the behavior when the key was not found.
