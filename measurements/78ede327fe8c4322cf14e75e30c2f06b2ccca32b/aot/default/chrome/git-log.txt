@@ -1,0 +1,13 @@
+commit 78ede327fe8c4322cf14e75e30c2f06b2ccca32b
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Tue Dec 17 19:31:57 2024 +0100
+
+    Fix `DiagnosticMethodInfo.Create(Delegate)` for valuetype methods (#110782)
+    
+    Fixes #108688.
+    
+    We actually have test coverage for this here:
+    
+    https://github.com/dotnet/runtime/blob/ce9dd2ad46a4842f5cf0f03c4a30b4d29bd0b4cc/src/libraries/System.Diagnostics.StackTrace/tests/DiagnosticMethodInfoTests.cs#L137-L147
+    
+    But hitting the bug requires not considering the method to be target of reflection. We root libraries tests due to xUnit. Reflection can deal with both boxed and unboxed entrypoints, stack trace metadata can't.
