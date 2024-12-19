@@ -1,0 +1,27 @@
+commit ddc786706341544a2e0fb209862b31b4d1d34b6f
+Author: Vladimir Sadov <vsadov@microsoft.com>
+Date:   Wed Dec 18 22:37:04 2024 -0800
+
+    Remove uses of DECODE_RETURN_KIND part of GCInfo (#110799)
+    
+    * make hijack frames leaf frames
+    
+    * not using DECODE_RETURN_KIND in NativeAOT
+    
+    * delete DECODE_RETURN_KIND
+    
+    * Fix for unix (x64)
+    
+    * fixes for AOT
+    
+    * arm64 fixes
+    
+    * fix for RISC platforms
+    
+    * fix arm32 build
+    
+    * remove unnecessary now PTFF_RAX_IS_GCREF and similar.
+    
+    * fix fir arm32
+    
+    * revert to the former value of DECODE_HAS_TAILCALLS - in case there are dependencies in diagnostics.
