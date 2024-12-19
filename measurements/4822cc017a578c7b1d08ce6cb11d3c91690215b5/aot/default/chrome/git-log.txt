@@ -1,0 +1,10 @@
+commit 4822cc017a578c7b1d08ce6cb11d3c91690215b5
+Author: Andy Ayers <andya@microsoft.com>
+Date:   Wed Dec 18 13:01:26 2024 -0800
+
+    JIT: revise how we track if nodes have been morphed (#110787)
+    
+    Allow remorphing. Require that all nodes be morphed. Ensure that no node
+    is morphed more than a handful of times.
+    
+    Fixes #6218, #56962, #107542
