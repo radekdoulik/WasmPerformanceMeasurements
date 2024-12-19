@@ -1,0 +1,15 @@
+commit d7e85d93c12aaa43937f8ef5f920c36b5afc756d
+Author: Jan Kotas <jkotas@microsoft.com>
+Date:   Wed Dec 18 07:21:59 2024 -0800
+
+    Move ComWrappers AddRef to C/C++ (#110762)
+    
+    * Move ComWrappers AddRef to C/C++
+    
+    Xaml invokes AddRef while holding a lock that it *also* holds while a GC is in progress. Managed AddRef had to synchronize with the GC that caused intermittent deadlocks with the other thread holding Xaml's lock.
+    
+    This change reverts the managed AddRef implementation to match .NET Native and CoreCLR.
+    
+    Fixes #110747
+    
+    Co-authored-by: Aaron Robinson <arobins@microsoft.com>
