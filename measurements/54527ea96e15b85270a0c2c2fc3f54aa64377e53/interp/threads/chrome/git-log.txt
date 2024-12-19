@@ -1,0 +1,9 @@
+commit 54527ea96e15b85270a0c2c2fc3f54aa64377e53
+Author: Miha Zupan <mihazupan.zupan1@gmail.com>
+Date:   Thu Dec 19 00:28:32 2024 +0100
+
+    Fix race condition when cancelling pending HTTP connection attempts (#110744)
+    
+    * Fix race condition when cancelling pending HTTP connection attempts
+    
+    * Improve comments and naming
