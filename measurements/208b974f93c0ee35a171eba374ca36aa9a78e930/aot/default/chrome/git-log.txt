@@ -1,0 +1,24 @@
+commit 208b974f93c0ee35a171eba374ca36aa9a78e930
+Author: Alex Covington <68252706+alexcovington@users.noreply.github.com>
+Date:   Thu Dec 19 13:15:10 2024 -0800
+
+    Add vector support to System.Numerics.Tensors.TensorPrimitives.LeadingZeroCount for Byte and Int16 (#110333)
+    
+    * Working for byte
+    
+    * Working for ushort
+    
+    * Cleanup
+    
+    * Formatting
+    
+    * Update src/libraries/System.Numerics.Tensors/src/System/Numerics/Tensors/netcore/TensorPrimitives.LeadingZeroCount.cs
+    
+    Co-authored-by: Tanner Gooding <tagoo@outlook.com>
+    
+    * Add comment for usage of PermuteVar64x8x2
+    
+    ---------
+    
+    Co-authored-by: Alex Covington (Advanced Micro Devices <b-alexco@microsoft.com>
+    Co-authored-by: Tanner Gooding <tagoo@outlook.com>
