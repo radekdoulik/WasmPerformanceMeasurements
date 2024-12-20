@@ -1,0 +1,9 @@
+commit 347a56832738f629773a527e0c7239072c87e421
+Author: Tomasz Sowiński <tomeksowi@gmail.com>
+Date:   Fri Dec 20 10:46:48 2024 +0100
+
+    [RISC-V] JIT: Fix emitInsMayWriteToGCReg (#110390)
+    
+    * Remove instructions from privileged ISA
+    
+    * Fix emitInsMayWriteToGCReg; it's easier to inspect instruction opcodes than indices
