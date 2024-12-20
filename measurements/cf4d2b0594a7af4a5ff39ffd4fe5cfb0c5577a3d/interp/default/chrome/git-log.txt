@@ -1,0 +1,7 @@
+commit cf4d2b0594a7af4a5ff39ffd4fe5cfb0c5577a3d
+Author: Michał Petryka <35800402+MichalPetryka@users.noreply.github.com>
+Date:   Fri Dec 20 05:45:08 2024 +0100
+
+    Fix OSEncoding math overflow (#110796)
+    
+    Discovered by @GrabYourPitchforks
