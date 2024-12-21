@@ -1,0 +1,7 @@
+commit 57ab984bd0dbbacd02315d41e09144d2823e9475
+Author: Alexander Köplinger <alex.koeplinger@outlook.com>
+Date:   Fri Dec 20 21:28:53 2024 +0100
+
+    Fix workload id for mobile-library-builder in 9.0 WorkloadManifest.json.in (#110868)
+    
+    It shouldn't have the .0 suffix to match the other workloads.
