@@ -1,0 +1,33 @@
+commit 004f2054128e000a8ee4a327b4f429e10e4275b8
+Author: MaxPatri <maxpatri113@gmail.com>
+Date:   Sun Dec 22 10:34:30 2024 +0300
+
+    Fix ReadBufferState dispose cases (#110739)
+    
+    * Move ReadBufferState initialization after other operations
+    
+    * Move ReadBufferState initialization after other operations
+    
+    * Update src/libraries/System.Text.Json/src/System/Text/Json/Serialization/Metadata/JsonTypeInfoOfT.ReadHelper.cs
+    
+    * Move ReadBufferState initialization under try clause
+    
+    * Move ReadBufferState initialization under try clause
+    
+    * Return initial change. Add explanatory comment
+    
+    * Return initial change. Add explanatory comment
+    
+    * Fix typo
+    
+    * Fix typo
+    
+    * Update comment
+    
+    * Update comment
+    
+    * Change bufferState initialization style
+    
+    ---------
+    
+    Co-authored-by: Eirik Tsarpalis <eirik.tsarpalis@gmail.com>
