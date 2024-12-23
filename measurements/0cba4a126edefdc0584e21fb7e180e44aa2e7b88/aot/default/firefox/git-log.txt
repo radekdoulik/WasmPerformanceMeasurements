@@ -1,0 +1,17 @@
+commit 0cba4a126edefdc0584e21fb7e180e44aa2e7b88
+Author: Vladimir Sadov <vsadov@microsoft.com>
+Date:   Sun Dec 22 08:34:33 2024 -0800
+
+    Do not encode safe points with -1 offset. (#110845)
+    
+    * Do not record safe points with -1 adjustmnt
+    
+    * NORMALIZE_CODE_OFFSET  on RISC
+    
+    * denormalize code offsets in ILCompiler.Reflection.ReadyToRun.Amd64
+    
+    * bump the min R2R version and GCInfo version
+    
+    * Do not record Return Kind
+    
+    * m_ReturnKind is not needed in non-legacy GC encoder, regardless X86 or not.
