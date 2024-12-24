@@ -1,0 +1,7 @@
+commit f3d43efa514a87f04aa994749409297e8f3e94e2
+Author: Aman Khalid <amankhalid@microsoft.com>
+Date:   Tue Dec 24 03:05:35 2024 +0000
+
+    JIT: Don't move EH region entries when aligning backward jumps (#110918)
+    
+    Follow-up to #110277. Fixes #110756. Don't consider 4-opt cut points that would move the entry block of a try/handler region below other blocks in the region. Previously, either future moves would put the entry block back at the top of the region, or we would get unlucky in the rare case and hit asserts.
