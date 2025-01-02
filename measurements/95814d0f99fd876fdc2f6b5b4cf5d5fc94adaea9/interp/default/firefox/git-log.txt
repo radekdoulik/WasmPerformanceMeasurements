@@ -1,0 +1,19 @@
+commit 95814d0f99fd876fdc2f6b5b4cf5d5fc94adaea9
+Author: dotnet-maestro[bot] <42748379+dotnet-maestro[bot]@users.noreply.github.com>
+Date:   Thu Jan 2 11:31:10 2025 +0100
+
+    [main] Update dependencies from dnceng/internal/dotnet-optimization (#110904)
+    
+    * Update dependencies from https://dev.azure.com/dnceng/internal/_git/dotnet-optimization build 20241222.6
+    
+    optimization.linux-arm64.MIBC.Runtime , optimization.linux-x64.MIBC.Runtime , optimization.windows_nt-arm64.MIBC.Runtime , optimization.windows_nt-x64.MIBC.Runtime , optimization.windows_nt-x86.MIBC.Runtime , optimization.PGO.CoreCLR
+     From Version 1.0.0-prerelease.24612.6 -> To Version 1.0.0-prerelease.24622.6
+    
+    * Update dependencies from https://dev.azure.com/dnceng/internal/_git/dotnet-optimization build 20241227.6
+    
+    optimization.linux-arm64.MIBC.Runtime , optimization.linux-x64.MIBC.Runtime , optimization.windows_nt-arm64.MIBC.Runtime , optimization.windows_nt-x64.MIBC.Runtime , optimization.windows_nt-x86.MIBC.Runtime , optimization.PGO.CoreCLR
+     From Version 1.0.0-prerelease.24612.6 -> To Version 1.0.0-prerelease.24627.6
+    
+    ---------
+    
+    Co-authored-by: dotnet-maestro[bot] <dotnet-maestro[bot]@users.noreply.github.com>
