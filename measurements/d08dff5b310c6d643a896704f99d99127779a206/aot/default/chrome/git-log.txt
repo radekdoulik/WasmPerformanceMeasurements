@@ -1,0 +1,33 @@
+commit d08dff5b310c6d643a896704f99d99127779a206
+Author: Sven Boemer <sbomer@gmail.com>
+Date:   Fri Dec 20 10:29:14 2024 -0800
+
+    Update to .NET 10 build images (#110198)
+    
+    * Update to .NET 10 build images
+    
+    This updates the libc requirement to:
+    - glibc 2.27
+    - musl libc 1.2.3
+    
+    These images have LLVM 19.
+    
+    * Use musl tags, update docs
+    
+    * Fix arm32 build
+    
+    The NEON_AVAILABLE and NEON_HAS_LD4 checks in zlib-ng attempt to pass
+    -mfpu=neon via CMAKE_REQUIRED_FLAGS, but our toolchain.cmake sets
+    -mfpu=vfpv4 via add_compile_options, which overrides the former.
+    
+    Work around this by disabling neon on arm32 linux, matching .NET 9.
+    
+    * Use FreeBSD 14 images
+    
+    Co-authored-by: Adeel Mujahid <3840695+am11@users.noreply.github.com>
+    
+    * Fix alpine arm32 build
+    
+    ---------
+    
+    Co-authored-by: Adeel Mujahid <3840695+am11@users.noreply.github.com>
