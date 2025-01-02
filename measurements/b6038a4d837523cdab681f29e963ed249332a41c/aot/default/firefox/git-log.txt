@@ -1,0 +1,26 @@
+commit b6038a4d837523cdab681f29e963ed249332a41c
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Fri Dec 20 16:48:42 2024 +0100
+
+    JIT: Generalize parameter register to local mapping in the backend (#110795)
+    
+    This PR generalizes the backend's treatment of which parameter registers are
+    mapped to which locals. Before this PR, parameter locals implicitly are defined
+    from the incoming parameter registers/stack. For old promotion, the backend then
+    knows that some registers can be mapped cleanly into the fields of those
+    promoted locals, allowing for efficient handling of structs passed in registers.
+    
+    This PR adds an explicit data structure that indicates if the backend needs to
+    make any special mappings for parameter registers. The data structure maps
+    incoming register segments to locals. The PR changes the backend to use this
+    data structure as follows:
+    - Lowering is changed to create these mapping for old promoted local struct
+      fields
+    - LSRA is changed to consult the mappings when building definitions for
+      parameters
+    - Codegen is changed to consult the mappings when physically generating the code
+      that moves incoming parameter registers to their corresponding local
+    
+    In the future, the lowering part can be changed to recognize and optimize IR in
+    the initial block when it looks like creating more mappings will be beneficial.
+    The IR physical promotion creates will allow this optimization to kick in.
