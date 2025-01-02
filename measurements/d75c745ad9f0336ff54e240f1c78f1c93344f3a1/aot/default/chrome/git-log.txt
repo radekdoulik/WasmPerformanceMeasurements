@@ -1,0 +1,7 @@
+commit d75c745ad9f0336ff54e240f1c78f1c93344f3a1
+Author: Jackson Schuster <36744439+jtschuster@users.noreply.github.com>
+Date:   Thu Jan 2 11:20:36 2025 -0600
+
+    Warn on message formatting failure instead of crash, and fix Native AOT MakeGenericType failure (#110330)
+    
+    ILC doesn't make sure that an instantiation from MakeGenericType/Method fulfills the constraints of the generic type/method, which can create to nonsense types that fail asserts in other places. The fix is to ensure that the constraints are valid before determining the dependencies of the instantiated generic.
