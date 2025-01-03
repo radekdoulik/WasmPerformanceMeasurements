@@ -1,0 +1,9 @@
+commit efdd29953304f1fc494bb45c5785d37961c4a14b
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Thu Jan 2 22:04:42 2025 +0100
+
+    Do not substitute return values of constrained calls (#111030)
+    
+    Fixes #110932.
+    
+    The constraint would need to be resolved first.
