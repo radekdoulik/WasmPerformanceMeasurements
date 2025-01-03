@@ -1,0 +1,7 @@
+commit 1a5d477f6c70d2474e05e7a8ed6a1f1bc6264bd4
+Author: Xu Liangyu <xuliangyu@loongson.cn>
+Date:   Fri Jan 3 22:35:22 2025 +0800
+
+    [LoongArch64] Disabled 'largeframe secondary' case within stackoverflowtester.sh test for LA64. (#111063)
+    
+    Change-Id: If7ae1f5c5d803452c0a98a9fcda4d7eda1eaa47a
