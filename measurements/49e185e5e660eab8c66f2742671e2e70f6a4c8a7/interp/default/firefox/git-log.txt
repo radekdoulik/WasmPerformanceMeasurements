@@ -1,0 +1,8 @@
+commit 49e185e5e660eab8c66f2742671e2e70f6a4c8a7
+Author: Jan Vorlicek <janvorli@microsoft.com>
+Date:   Fri Jan 3 10:35:08 2025 +0100
+
+    Fix PAL tests compilation on Alpine Linux (#111045)
+    
+    I've noticed that coreclr PAL tests don't compile successfully on Alpine
+    Linux in the CI. This change fixes it.
