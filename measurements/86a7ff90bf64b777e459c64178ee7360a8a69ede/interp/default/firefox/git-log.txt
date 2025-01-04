@@ -1,0 +1,24 @@
+commit 86a7ff90bf64b777e459c64178ee7360a8a69ede
+Author: Jan Vorlicek <janvorli@microsoft.com>
+Date:   Fri Jan 3 19:47:45 2025 +0100
+
+    Fix LoaderAllocator of DynamicMethodTable (#111038)
+    
+    * Fix LoaderAllocator of DynamicMethodTable
+    
+    There is one `DynamicMethodTable` allocated per `Module` if needed. When its
+    instance is being created, an incorrect `LoaderAllocator` is passed to the
+    `CreateMinimalMethodTable` function. Instead of the `Module`'s
+    `LoaderAllocator`, it passes in the default one.
+    That fires an assert in non-release builds of the runtime and it results in
+    incorrect marking of the `MethodTable` as not collectible in case the `Module`'s
+    LoaderAllocator is collectible.
+    
+    This change fixes it by passing in the `LoaderAllocator` of the module
+    instead.
+    
+    Close #110987
+    
+    * Add regression test
+    
+    * Change the test to use MemoryStream
