@@ -1,0 +1,9 @@
+commit 33351e6a9574afaad33a5c23cbd502bb14333ad5
+Author: Jeremi Kurdek <59935235+jkurdek@users.noreply.github.com>
+Date:   Fri Jan 3 17:45:56 2025 +0100
+
+    [mono] [llvm-aot] Fixed storing Vector3 into memory (#111000)
+    
+    * [mono] [llvm-aot] Fixed storing Vector3 into memory
+    
+    * Removed unused variable
