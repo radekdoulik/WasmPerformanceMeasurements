@@ -1,0 +1,8 @@
+commit dae890906431049d32e24d498a1d707a441a64a8
+Author: Aaron Robinson <arobins@microsoft.com>
+Date:   Sat Jan 4 11:25:57 2025 -0800
+
+    Remove HMFs from JIT helpers (#111088)
+    
+    Remove unused JIT_StressGC.
+    Convert JIT_GetRuntimeFieldStub and JIT_GetRuntimeMethodStub to C#.
