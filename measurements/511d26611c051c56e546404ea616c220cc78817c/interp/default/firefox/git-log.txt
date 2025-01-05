@@ -1,0 +1,13 @@
+commit 511d26611c051c56e546404ea616c220cc78817c
+Author: Jackson Schuster <36744439+jtschuster@users.noreply.github.com>
+Date:   Tue Dec 31 16:05:37 2024 -0600
+
+    Warn on method access in Requires analyzers (#110086)
+    
+    The issue with calling Methods with requires is the the method itself,
+    not the parameters. Warning on the entire invocation including the
+    parameters can be confusing. Instead, we should warn just on the method
+    access for Requires. DynamicallyAccessedMembers should still warn on the
+    invocation.
+    
+    Also updates the Microsoft.Extensions.Configuration diagnostic suppressor to work suppress warnings on the method access, not only on method invocation warnings.
