@@ -1,0 +1,9 @@
+commit 3f918c377110a8b50aa97aa5b7594922d77b3e50
+Author: Alexander Köplinger <alex.koeplinger@outlook.com>
+Date:   Mon Dec 30 09:27:41 2024 +0100
+
+    Use correct product version in SPC in servicing (#110980)
+    
+    I noticed we missed to port the version changes from https://github.com/dotnet/runtime/pull/108899#pullrequestreview-2371679935 to main. This does that so we embed the correct version number for `FrameworkDescription` into System.Private.CoreLib even during servicing when using the stabilized version.
+    
+    I simplified the source generator to pass the InformationalVersion msbuild property into the compilation instead of using reflection on the generator assembly.
