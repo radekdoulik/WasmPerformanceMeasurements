@@ -1,0 +1,7 @@
+commit da27f27850a29d824f165e139a338524dc0c8ff3
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Tue Jan 7 10:49:38 2025 +0100
+
+    JIT: Check DFS tree containment before checking ancestry (#111128)
+    
+    Fix #110957
