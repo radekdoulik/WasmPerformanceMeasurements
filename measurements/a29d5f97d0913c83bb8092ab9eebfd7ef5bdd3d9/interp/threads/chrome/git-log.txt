@@ -1,0 +1,7 @@
+commit a29d5f97d0913c83bb8092ab9eebfd7ef5bdd3d9
+Author: Jan Kotas <jkotas@microsoft.com>
+Date:   Mon Jan 6 22:44:23 2025 -0800
+
+    Revert "Fix NativeAOT ThunksPool thunk data block size handling. (#110732)" (#110983)
+    
+    This reverts commit b91087f9234bdc529d23dd2905f9813248615c3c.
