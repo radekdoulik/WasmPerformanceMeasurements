@@ -1,0 +1,9 @@
+commit c2423833d123f4f5cd730a1737f92f9e69589d12
+Author: Tarek Mahmoud Sayed <10833894+tarekgh@users.noreply.github.com>
+Date:   Mon Jan 6 07:03:13 2025 -0800
+
+    Fix hashing in Logging source gen (#111073)
+    
+    * Fix hashing in Logging source gen
+    
+    * remove un-needed overflow check
