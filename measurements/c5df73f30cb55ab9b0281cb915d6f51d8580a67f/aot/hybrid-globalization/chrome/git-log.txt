@@ -1,0 +1,10 @@
+commit c5df73f30cb55ab9b0281cb915d6f51d8580a67f
+Author: Andy Ayers <andya@microsoft.com>
+Date:   Mon Jan 6 17:13:22 2025 -0800
+
+    JIT: handle nested try case in empty try removal (#111129)
+    
+    When we remove a try region, the try entry block may still be a try entry
+    for enclosing try regions, so we can't unconditionally drop the DONT_REMOVE flag.
+    
+    Fixes #110958
