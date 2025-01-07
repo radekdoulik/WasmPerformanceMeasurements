@@ -1,0 +1,7 @@
+commit f3763295c91146b2fab5622ff44e405499ee813e
+Author: Aman Khalid <amankhalid@microsoft.com>
+Date:   Mon Jan 6 15:40:41 2025 +0000
+
+    JIT: Reuse LSRA's block sequence for initial layout during block reordering (#110921)
+    
+    Follow-up to #108903. If LSRA did not introduce new basic blocks, we can reuse its block sequence as the initial layout during block reordering, avoiding the overhead of recomputing a loop-aware RPO. Also, delete some unused flowgraph-related `Compiler` members.
