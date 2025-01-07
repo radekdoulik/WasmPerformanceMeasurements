@@ -1,0 +1,13 @@
+commit 1fb6148f03f206be40d08c02166ef7d850fea1ff
+Author: Jackson Schuster <36744439+jtschuster@users.noreply.github.com>
+Date:   Mon Jan 6 13:07:21 2025 -0500
+
+    Unwrap NullableValue for diagnostics creation and add try/catch for formatting diagnostics (#110229)
+    
+    Fixes #109536
+    
+    See #93800 for more context.
+    
+    When a NullableValue is the source of an assignment, we consider use the TypeArgumentTargetsX diagnostic since the underlying value is a generic argument, but use the source of the generic argument for diagnostics. This leads to some confusing warning messages, and sometimes crashes in formatting the diagnostics. Ideally, we would want to unwrap the NullableValues and use the UnderlyingTypeValue as the source, but this would be a breaking change for the situations that don't crash.
+    
+    FieldValue and MethodReturnValue only provide 1 diagnostic arguments, but the diagnostics for TypeArgumentTargetsX expects 2 arguments from the source. This caused crashes when the situation was encountered. Since they didn't work before at all, this won't be a breaking change to provide the correct warning here.
