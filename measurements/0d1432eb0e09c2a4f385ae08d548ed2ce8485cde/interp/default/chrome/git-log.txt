@@ -1,0 +1,5 @@
+commit 0d1432eb0e09c2a4f385ae08d548ed2ce8485cde
+Author: Jeremy Koritzinsky <jekoritz@microsoft.com>
+Date:   Mon Jan 6 19:48:31 2025 -0800
+
+    Exit the lock before we call into user code and handle losing the race for the RCW table (#110828)
