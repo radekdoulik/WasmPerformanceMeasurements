@@ -1,0 +1,14 @@
+commit 7ddd2f6dea8a1aa2eb3e97750831cbedb3e25e6a
+Author: Viktor Hofer <viktor.hofer@microsoft.com>
+Date:   Tue Jan 7 18:24:42 2025 +0100
+
+    Pass the -pack switch to repo source-build leg (#111153)
+    
+    * Pass the -pack switch to repo source-build leg
+    
+    The -pack switch is necessary to create the rid agnostic libraries packages which are then wrapped into the source-build intermediate package.
+    
+    Regressed with 19c25fd93aa1c4b392de9981573e3fc5a88fb003
+    Unblocks https://github.com/dotnet/runtime/pull/111010
+    
+    * Add missing Pack target to BuildIntegration.proj
