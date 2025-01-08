@@ -1,0 +1,8 @@
+commit 951ec77587aab75b38e54bfd2f16d2ec81a692ef
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Wed Jan 8 11:22:00 2025 +0100
+
+    JIT: Unify Swift parameter register homing with normal homing (#110859)
+    
+    The normal homing is general enough now to handle the Swift parameter
+    registers.
