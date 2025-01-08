@@ -1,0 +1,40 @@
+commit cce6bdfc9a897faa5cd64900cfcb73d8d7a62d5f
+Author: dotnet-maestro[bot] <42748379+dotnet-maestro[bot]@users.noreply.github.com>
+Date:   Tue Jan 7 23:02:29 2025 +0100
+
+    [main] Update dependencies from dotnet/roslyn (#111081)
+    
+    * Update dependencies from https://github.com/dotnet/roslyn build 20250103.2
+    
+    Microsoft.SourceBuild.Intermediate.roslyn , Microsoft.CodeAnalysis , Microsoft.CodeAnalysis.CSharp , Microsoft.Net.Compilers.Toolset
+     From Version 4.13.0-3.25052.5 -> To Version 4.13.0-3.25053.2
+    
+    * Update dependencies from https://github.com/dotnet/roslyn build 20250104.1
+    
+    Microsoft.SourceBuild.Intermediate.roslyn , Microsoft.CodeAnalysis , Microsoft.CodeAnalysis.CSharp , Microsoft.Net.Compilers.Toolset
+     From Version 4.13.0-3.25052.5 -> To Version 4.13.0-3.25054.1
+    
+    * Update dependencies from https://github.com/dotnet/roslyn build 20250105.1
+    
+    Microsoft.SourceBuild.Intermediate.roslyn , Microsoft.CodeAnalysis , Microsoft.CodeAnalysis.CSharp , Microsoft.Net.Compilers.Toolset
+     From Version 4.13.0-3.25052.5 -> To Version 4.13.0-3.25055.1
+    
+    * Update dependencies from https://github.com/dotnet/roslyn build 20250106.2
+    
+    Microsoft.SourceBuild.Intermediate.roslyn , Microsoft.CodeAnalysis , Microsoft.CodeAnalysis.CSharp , Microsoft.Net.Compilers.Toolset
+     From Version 4.13.0-3.25052.5 -> To Version 4.13.0-3.25056.2
+    
+    * Update dependencies from https://github.com/dotnet/roslyn build 20250106.21
+    
+    Microsoft.SourceBuild.Intermediate.roslyn , Microsoft.CodeAnalysis , Microsoft.CodeAnalysis.CSharp , Microsoft.Net.Compilers.Toolset
+     From Version 4.13.0-3.25052.5 -> To Version 4.13.0-3.25056.21
+    
+    * Fix scoped variance breaks
+    
+    * Use params instead of scoped in TextWriter to match the base method
+    
+    ---------
+    
+    Co-authored-by: dotnet-maestro[bot] <dotnet-maestro[bot]@users.noreply.github.com>
+    Co-authored-by: Jan Jones <janjones@microsoft.com>
+    Co-authored-by: Alexander Köplinger <alex.koeplinger@outlook.com>
