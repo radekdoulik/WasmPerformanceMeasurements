@@ -1,0 +1,9 @@
+commit 058fe35cd83bc87aceab639e0a60e1f12f0ecb32
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Thu Jan 9 10:05:50 2025 +0100
+
+    JIT: Avoid reporting call-sites in MinOpts on all targets (#103950)
+    
+    When the call-sites have no interesting GC information we avoid
+    reporting them, but this behavior was enabled only for x86/x64. Enable
+    this on other platforms too.
