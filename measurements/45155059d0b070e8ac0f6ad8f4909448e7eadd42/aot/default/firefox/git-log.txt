@@ -1,0 +1,7 @@
+commit 45155059d0b070e8ac0f6ad8f4909448e7eadd42
+Author: Jan Kotas <jkotas@microsoft.com>
+Date:   Wed Jan 8 14:31:51 2025 -0800
+
+    Fix reloc type produced by ilasm in PE64 images (#111212)
+    
+    Fixes #111189
