@@ -1,0 +1,9 @@
+commit 0e03405bd250104e6c6e84704424c9f6c174555d
+Author: Adam Sitnik <adam.sitnik@gmail.com>
+Date:   Thu Jan 9 11:00:19 2025 +0100
+
+    don't run drawing tests on Mono (#111208)
+    
+    * don't run Drawing-related tests that do things like creating Bitmaps on Mono, as it's not supported (it does not support ComWrappers)
+    
+    * re-enable the tests
