@@ -1,0 +1,15 @@
+commit 11f3549e8392f2220aeadfa34aa578ccb47b80c0
+Author: Pent Ploompuu <kaalikas@gmail.com>
+Date:   Thu Jan 9 04:59:16 2025 +0200
+
+    Optimize DateTimeOffset (#111112)
+    
+    * Optimize DateTimeOffset
+    
+    * Fix build. Address PR feedback.
+    
+    * Branchless DateTime.Kind
+    
+    * Address PR feedback
+    
+    * Address PR feedback
