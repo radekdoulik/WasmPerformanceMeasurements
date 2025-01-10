@@ -1,0 +1,7 @@
+commit 3bbd4037e17e2fc4701a286f3eee18bbbadc8c67
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Fri Jan 10 08:51:33 2025 +0100
+
+    Treat `--sourcelink` as output option (#111144)
+    
+    Fixes `--make-repro-path`-generated ZIP files.
