@@ -1,0 +1,34 @@
+commit 289aa17cac46fc4c2fb3e5889030f5379ca8e92a
+Author: Adeel Mujahid <3840695+am11@users.noreply.github.com>
+Date:   Fri Jan 10 00:59:57 2025 +0200
+
+    Add linux-riscv64 nativeaot runtime build (#110688)
+    
+    * Fix registers/offsets in riscv-nativeaot.
+    
+    * Fix *.S files in riscv-nativeaot.
+    
+    * Fix riscv64 nativeaot native build
+    
+    * Managed build fixes
+    
+    * Apply suggestions from code review
+    
+    Co-authored-by: Tymoteusz Wenerski <tymoteusz.wenerski@gmail.com>
+    
+    * Apply suggestions from code review
+    
+    Co-authored-by: Tomasz Sowiński <tomeksowi@gmail.com>
+    
+    * Update other macros in AsmOffsetsVerify
+    
+    * Update src/coreclr/tools/aot/ILCompiler.Compiler/Compiler/ObjectWriter/ElfObjectWriter.cs
+    
+    Co-authored-by: Adeel Mujahid <3840695+am11@users.noreply.github.com>
+    
+    ---------
+    
+    Co-authored-by: sunlijun <sunlijun@loongson.cn>
+    Co-authored-by: Tomek Sowiński <tomeksowi@gmail.com>
+    Co-authored-by: Tymoteusz Wenerski <tymoteusz.wenerski@gmail.com>
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
