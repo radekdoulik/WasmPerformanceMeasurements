@@ -1,0 +1,7 @@
+commit eb0490e68045f277f976f713f18cb70ecfe12905
+Author: Aman Khalid <amankhalid@microsoft.com>
+Date:   Thu Jan 9 22:00:03 2025 +0000
+
+    [ILASM] Add support for deterministic builds and PDB checksums (#109091)
+    
+    Follow-up to #85344. Fixes #8293. Fixes #62484.
