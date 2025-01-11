@@ -1,0 +1,5 @@
+commit 0df31bcc243c67bcc575bf48f4e8dfe931ae583f
+Author: karakasa <karakasa@users.noreply.github.com>
+Date:   Fri Jan 10 19:22:14 2025 +0800
+
+    Include correct `HResult` in `IOException` during preallocation when the disk is full (#110281)
