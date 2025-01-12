@@ -1,0 +1,9 @@
+commit 61feac11f2ffc9a8aae3a685c7006c8084d5cc4f
+Author: Alexander Köplinger <alex.koeplinger@outlook.com>
+Date:   Sat Jan 11 13:45:21 2025 +0100
+
+    Fix accidentally duplicated global-build-step.yml in runtime-official.yml (#111302)
+    
+    Regressed with https://github.com/dotnet/runtime/pull/111136
+    
+    I noticed because a second "Build product" step got injected that was building Debug in runtime-official
