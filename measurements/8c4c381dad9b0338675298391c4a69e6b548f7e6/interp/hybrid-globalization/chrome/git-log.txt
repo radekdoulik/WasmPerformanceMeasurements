@@ -1,0 +1,5 @@
+commit 8c4c381dad9b0338675298391c4a69e6b548f7e6
+Author: Pavel Savara <pavel.savara@gmail.com>
+Date:   Mon Jan 20 11:45:18 2025 +0100
+
+    Use Queue instead of ConcurrentQueue in single-threaded thread pool, non-generic ThreadPoolTypedWorkItemQueue (#111245)
