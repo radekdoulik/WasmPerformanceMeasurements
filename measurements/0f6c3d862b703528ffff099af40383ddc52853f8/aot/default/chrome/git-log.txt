@@ -1,0 +1,9 @@
+commit 0f6c3d862b703528ffff099af40383ddc52853f8
+Author: Kevin Jones <kevin@vcsjones.com>
+Date:   Fri Jan 3 20:14:59 2025 -0500
+
+    Fix WriteNamedBitList for enums with negative values.
+    
+    WriteNamedBitList internally operates on a ulong when writing down bits. If the enum is backed by a signed type and the enum value is negative, it would be signed extended when being converted to a long, then ulong. This resulted in all negative values being written down as 64 bits set regardless of the width of the enum type.
+    
+    This changes the write to instead convert to the signed types corresponding unsigned type first, then converting to a ulong, which results in the value being zero extended.
