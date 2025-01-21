@@ -1,0 +1,23 @@
+commit 243ca017a35e5cd6db83adf01da937dc669d06c0
+Author: Huo Yaoyuan <huoyaoyuan@hotmail.com>
+Date:   Thu Jan 9 03:53:18 2025 +0800
+
+    Rename COM+ in code comments (#111097)
+    
+    * Rename obvious cases to CLR
+    
+    * Code/path impact
+    
+    * Variant
+    
+    * Mentions of CLR 1.0
+    
+    * IL impact
+    
+    * Unused ntimage definition
+    
+    * Avoid 'CLR signature'
+    
+    * Apply suggestions from code review
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
