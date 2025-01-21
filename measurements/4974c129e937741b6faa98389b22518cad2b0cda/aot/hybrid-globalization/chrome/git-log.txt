@@ -1,0 +1,20 @@
+commit 4974c129e937741b6faa98389b22518cad2b0cda
+Author: Rich Lander <rich@lander.ca>
+Date:   Tue Jan 21 07:50:11 2025 -0800
+
+    Add Ubuntu 24.10 image (#111504)
+    
+    * Add Ubuntu 24.10 image
+    
+    * Fix TimeZone tests to avoid failures because of deprecated zone names
+    
+    * Update eng/pipelines/libraries/helix-queues-setup.yml
+    
+    Co-authored-by: Rich Lander <rlander@microsoft.com>
+    
+    * DIsable System.Net.Security failing test
+    
+    ---------
+    
+    Co-authored-by: Tarek Mahmoud Sayed <tarekms@microsoft.com>
+    Co-authored-by: Tarek Mahmoud Sayed <10833894+tarekgh@users.noreply.github.com>
