@@ -1,0 +1,27 @@
+commit 128321e88e2c93d69766e15ad4f06bab70b753b7
+Author: David Wrighton <davidwr@microsoft.com>
+Date:   Fri Jan 10 07:13:17 2025 -0800
+
+    Fix race condition in cleanup of collectible thread static variables (#111257)
+    
+    * Fix issue 110837
+    
+    There was a race condition where we could have collected all of the managed state of a LoaderAllocator, but not yet started cleaning up the actual LoaderAllocator object in native code. If a thread which had a TLS variable defined in a code associated with a collectible loader allocator was terminated at that point, then the runtime would crash.
+    
+    The fix is to detect if the LoaderAllocator managed state is still alive, and if so, do not attempt to clean it up.
+    
+    * Disable test on NativeAOT
+    
+    * Update src/tests/Loader/CollectibleAssemblies/Statics/CollectibleTLSStaticCollection.cs
+    
+    Co-authored-by: Copilot <175728472+Copilot@users.noreply.github.com>
+    
+    * Update src/tests/Loader/CollectibleAssemblies/Statics/CollectibleTLSStaticCollection.cs
+    
+    Co-authored-by: Copilot <175728472+Copilot@users.noreply.github.com>
+    
+    * Fix missing adjustment missed by copilot
+    
+    ---------
+    
+    Co-authored-by: Copilot <175728472+Copilot@users.noreply.github.com>
