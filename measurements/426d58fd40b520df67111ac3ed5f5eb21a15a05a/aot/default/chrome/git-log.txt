@@ -1,0 +1,14 @@
+commit 426d58fd40b520df67111ac3ed5f5eb21a15a05a
+Author: Sven Boemer <sbomer@gmail.com>
+Date:   Thu Jan 16 16:51:03 2025 -0800
+
+    Fix stack overflow in compiler-generated state (#109207)
+    
+    When building the compiler-generated type info for a type, there are
+    some cases that produce warnings due to unexpected IL. This can
+    recurse back into the compiler-generated type info logic when checking
+    for warning suppressions, leading to stack overflow.
+    
+    This fixes the issue by delaying the logging of warnings until after
+    the compiler-generated type info has been fully built for a given
+    type.
