@@ -1,0 +1,12 @@
+commit 06a6ea78fbe99fd86f2f46df9b046cb4c4ea18a7
+Author: uo1 <ulrich.obermeier@outlook.com>
+Date:   Wed Jan 8 18:06:28 2025 +0100
+
+    Fix LocalizableString to work with internal ResourceType (#111130)
+    
+    * Fix LocalizableString to work with internal ResourceType
+    
+    Removed check for Resource Type to be public.
+    Added test for DisplayAttribute to ensure it works with with internal Resource Type.
+    
+    * remove the line numbers from the DisplayAttributeTests.cs file
