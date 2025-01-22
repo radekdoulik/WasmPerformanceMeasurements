@@ -1,0 +1,20 @@
+commit abf8e94296b7842e4d8ba7c9791eaffaf63d2a09
+Author: Jan Vorlicek <janvorli@microsoft.com>
+Date:   Tue Jan 21 21:48:11 2025 +0100
+
+    Make longjmp over managed frames work (#111259)
+    
+    * Make longjmp over managed frames work
+    
+    The new exception handling has broken hosting Lua on Windows when
+    a Lua code throws an exception that ends up crossing managed frames.
+    Lua uses longjmp for its exception handling mechanism and the new
+    exception handling reported the longjmp as an unhandled `SEHException`.
+    
+    This change makes the new EH behave like the legacy one w.r.t. the longjmp propagation over managed frames on Windows. It is a best effort fix though just to get rid of the regression related to the legacy exception handling. New code should not rely on this. And it doesn't work on non-windows targets (neither did it work with the legacy exception handling).
+    
+    Close #111242
+    
+    ---------
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
