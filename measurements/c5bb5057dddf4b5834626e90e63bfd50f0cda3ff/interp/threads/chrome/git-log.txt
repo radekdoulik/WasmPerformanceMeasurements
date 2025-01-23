@@ -1,0 +1,15 @@
+commit c5bb5057dddf4b5834626e90e63bfd50f0cda3ff
+Author: Aman Khalid <amankhalid@microsoft.com>
+Date:   Wed Jan 22 19:22:49 2025 -0800
+
+    JIT: Add bounds check for ordinals in `ThreeOptLayout::ConsiderEdge` (#111719)
+    
+    When setting up the data structures needed for 3-opt layout, we allocate an array of basic blocks that is large enough to fit everything reachable via a RPO traversal. However, we only initialize as much of the array as needed to fit the blocks hot enough to be considered for reordering, so we frequently have uninitialized space at the end of the array. Thus, our current strategy to check if a block is in the set of candidates takes two steps:
+    
+    Check if the block's ordinal is less than the number of hot blocks. If it isn't, then it cannot possibly be in the set.
+    If the ordinal is valid, check if the block in the array matches the block in question.
+    We were neglecting to do the first step in ThreeOptLayout::ConsiderEdge, which meant in rare cases, we would compare a block outside the candidate set to some uninitialized part of the array, and the comparison would happen to be equal. Thus, we would later consider creating fallthrough along a flow edge that breaks 3-opt's invariants.
+    
+    To solve this, we can either add the bounds check mentioned above, or we can default-initialize the entire block array to ensure comparisons outside the candidate set are with nullptr. I've decided to pursue the former.
+    
+    Fixes #111563.
