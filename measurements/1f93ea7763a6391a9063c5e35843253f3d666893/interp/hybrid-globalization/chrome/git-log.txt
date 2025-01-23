@@ -1,0 +1,15 @@
+commit 1f93ea7763a6391a9063c5e35843253f3d666893
+Author: Jan Vorlicek <janvorli@microsoft.com>
+Date:   Wed Jan 22 10:40:06 2025 +0100
+
+    Fix build with FEATURE_STANDALONE_GC disabled (#111682)
+    
+    * Fix build with FEATURE_STANDALONE_GC disabled
+    
+    Currently, the build fails, because the gc_pal is built only when
+    standalone GC is enabled, but it is used for the built-in GC as
+    well.
+    
+    This change fixes it.
+    
+    * PR feedback
