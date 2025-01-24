@@ -1,0 +1,5 @@
+commit d917005f9f24470a12cf4fbe5f8c711a31fd7d5f
+Author: Jeremy Koritzinsky <jekoritz@microsoft.com>
+Date:   Thu Jan 23 14:40:01 2025 -0800
+
+    Remove the crosscomponents.cmake logic and use various components that already exist to build "run on host" binaries (#111677)
