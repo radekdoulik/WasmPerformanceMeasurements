@@ -1,0 +1,9 @@
+commit c75166b10cd3337376fd65190a554e3969a7b130
+Author: Andy Ayers <andya@microsoft.com>
+Date:   Thu Jan 23 07:37:14 2025 -0800
+
+    JIT: enable cloning of loops with EH in release (#111726)
+    
+    My earlier changes left this enabled only in debug and checked builds.
+    
+    Fixes #111351.
