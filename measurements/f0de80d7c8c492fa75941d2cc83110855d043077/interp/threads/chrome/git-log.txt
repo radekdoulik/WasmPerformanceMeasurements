@@ -1,0 +1,9 @@
+commit f0de80d7c8c492fa75941d2cc83110855d043077
+Author: Edward Neal <55035479+edwardneal@users.noreply.github.com>
+Date:   Fri Jan 24 22:00:33 2025 +0000
+
+    Fix Zip64ExtraField handling (#111802)
+    
+    * Correct absolute addressing in Zip64ExtraField
+    
+    * Correct byte counts in WriteDataDescriptor
