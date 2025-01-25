@@ -1,0 +1,14 @@
+commit f91ff5e443dbc9149447eefa9ddb173cfddc2735
+Author: Kevin Jones <kevin@vcsjones.com>
+Date:   Fri Jan 24 19:34:30 2025 -0500
+
+    Change empty subject test certificate to include a critical SAN.
+    
+    This test was marked SkipOnPlatform for Android because the test would fail. However,
+    it turns out that Android does support empty subjects in certificates. If the subject
+    is empty, then the SubjectAltName extension must be marked critical. This is in accordance
+    with RFC 5280:
+    
+    > If the subject field contains an empty sequence, then the issuing CA MUST include a subjectAltName extension that is marked as critical.
+    
+    With a critical SAN extension, this test now passes on all platforms.
