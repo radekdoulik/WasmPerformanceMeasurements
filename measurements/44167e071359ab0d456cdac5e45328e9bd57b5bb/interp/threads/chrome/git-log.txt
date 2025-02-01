@@ -1,0 +1,44 @@
+commit 44167e071359ab0d456cdac5e45328e9bd57b5bb
+Author: Steve <hez2010@outlook.com>
+Date:   Sun Feb 2 01:01:45 2025 +0900
+
+    JIT: Update type when return temp is freshly created (#111948)
+    
+    * Teach the JIT about System.SZArrayHelper.GetEnumerator
+    
+    * A better approach
+    
+    * Format JIT
+    
+    * Use lvaInlineeReturnSpillTempFreshlyCreated
+    
+    * Update src/coreclr/jit/fgopt.cpp
+    
+    Co-authored-by: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+    
+    * Update assertion
+    
+    * Nit
+    
+    * Nit
+    
+    * Address review feedbacks
+    
+    * Make the check always available
+    
+    * Deploy a fix for COM objects
+    
+    * Revert "Deploy a fix for COM objects"
+    
+    This reverts commit e94839bf462b636e07e13e3d14553de4281e781a.
+    
+    * The real fix
+    
+    * Address review feedback
+    
+    * Fix typo
+    
+    ---------
+    
+    Co-authored-by: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+    Co-authored-by: Andy Ayers <andya@microsoft.com>
