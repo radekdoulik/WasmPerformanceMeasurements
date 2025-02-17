@@ -1,0 +1,9 @@
+commit c9f0d049340a2ade9fe469c0037cf47ad19bad99
+Author: Adeel Mujahid <3840695+am11@users.noreply.github.com>
+Date:   Mon Jan 13 17:59:16 2025 +0200
+
+    Initialize CrossCompileArch with _targetArch (#111277)
+    
+    * Initialize CrossCompileArch with _targetArch
+    
+    * Relax arch validation in publishing
