@@ -1,0 +1,5 @@
+commit 25b72b0e9164830fe8a5c3014770eccbf3f2678b
+Author: Jeremy Koritzinsky <jekoritz@microsoft.com>
+Date:   Mon Jan 13 23:40:04 2025 -0800
+
+    Call from the monocrossaot traversal project into the sfxproj using the regular ProjectReference flow. Simplify the sfxproj to not do unnecessary additional work. (#111372)
