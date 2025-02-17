@@ -1,0 +1,10 @@
+commit d6cfa2039309c1d5cef630e95eb5274a556dc726
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Mon Feb 17 10:03:00 2025 +0100
+
+    SPMI: Ensure proper zero extension for isObjectImmutable and friends (#112617)
+    
+    Whether pointers are signed or unsigned is implementation defined,
+    meaning that casts from a pointer to a 64-bit integer on 32-bit targets
+    can be either zero or sign extended. SPMI provides `CastHandle` to
+    handle this, but a couple of recording helpers were not using these.
