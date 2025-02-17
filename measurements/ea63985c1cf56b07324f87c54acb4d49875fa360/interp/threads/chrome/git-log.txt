@@ -1,0 +1,13 @@
+commit ea63985c1cf56b07324f87c54acb4d49875fa360
+Author: xtqqczze <45661989+xtqqczze@users.noreply.github.com>
+Date:   Mon Feb 17 11:29:29 2025 +0000
+
+    Enable `SA1015`: Closing generic bracket should not be followed by a space (#112597)
+    
+    * Enable `SA1015`: Closing generic bracket should not be followed by a space
+    
+    Do not enable for `src/tools/illink/` due to different code style.
+    
+    https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/SA1015.md
+    
+    * Fix `SA1015`
