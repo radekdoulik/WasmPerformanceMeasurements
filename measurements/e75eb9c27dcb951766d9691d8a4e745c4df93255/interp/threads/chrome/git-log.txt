@@ -1,0 +1,5 @@
+commit e75eb9c27dcb951766d9691d8a4e745c4df93255
+Author: Kevin Jones <kevin@vcsjones.com>
+Date:   Tue Feb 18 20:59:46 2025 -0500
+
+    Use encode callback instead of renting a buffer to write to in DSAKeyFormatHelper
