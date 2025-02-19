@@ -1,0 +1,5 @@
+commit d086ec6d86a850830874b6ca7599239152b208e3
+Author: Medha Tiwari <75640645+medhatiwari@users.noreply.github.com>
+Date:   Tue Feb 18 21:23:34 2025 +0530
+
+    [System.DirectoryServices.Protocols] Fix ProtocolVersion Overflow on Big Endian Systems (#112391)
