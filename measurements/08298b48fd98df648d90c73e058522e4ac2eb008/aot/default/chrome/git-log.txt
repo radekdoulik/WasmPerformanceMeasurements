@@ -1,0 +1,15 @@
+commit 08298b48fd98df648d90c73e058522e4ac2eb008
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Wed Feb 26 09:57:13 2025 -0500
+
+    Fix Contains for Distinct/Union with custom comparer (#112815)
+    
+    * Fix Contains for Distinct/Union with custom comparer
+    
+    The recently-added optimization needs to factor in a non-default comparer.
+    
+    * Address feedback
+    
+    ---------
+    
+    Co-authored-by: Eirik Tsarpalis <eirik.tsarpalis@gmail.com>
