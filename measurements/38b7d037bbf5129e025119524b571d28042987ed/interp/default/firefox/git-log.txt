@@ -1,0 +1,20 @@
+commit 38b7d037bbf5129e025119524b571d28042987ed
+Author: Jan Vorlicek <janvorli@microsoft.com>
+Date:   Wed Feb 26 13:42:49 2025 +0100
+
+    Disable GC stress tests for the interpreter test (#112906)
+    
+    * Disable GC stress tests for the interpreter test
+    
+    There is a problem with the interpreter codegen and GC stress. The
+    runtime is attempting to sprinkle breakpoints in the interpreter IR.
+    
+    Temporarily disable the GC stress for the test until it is fixed.
+    
+    * Update src/tests/JIT/interpreter/InterpreterTester.csproj
+    
+    Co-authored-by: Larry Ewing <lewing@microsoft.com>
+    
+    ---------
+    
+    Co-authored-by: Larry Ewing <lewing@microsoft.com>
