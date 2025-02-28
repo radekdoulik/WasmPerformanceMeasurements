@@ -1,0 +1,8 @@
+commit 577c36cee56480dec4d4610b35605b5d5836888b
+Author: Filip Navara <filip.navara@gmail.com>
+Date:   Fri Feb 28 12:24:57 2025 +0100
+
+    Remove unnecessary _DARWIN_C_SOURCE definition in CMake files, we define it globally (#112141)
+    
+    We define this globally:
+    https://github.com/dotnet/runtime/blob/d44116e0dc18ffd94b910bd03cdcf2c8219a59bd/eng/native/configurecompiler.cmake#L301-L304
