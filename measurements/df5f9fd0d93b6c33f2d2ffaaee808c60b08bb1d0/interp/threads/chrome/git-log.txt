@@ -1,0 +1,7 @@
+commit df5f9fd0d93b6c33f2d2ffaaee808c60b08bb1d0
+Author: Filip Navara <filip.navara@gmail.com>
+Date:   Thu Feb 27 22:20:21 2025 +0100
+
+    Fix dump_processor_state debug code to compile and work on Android (#112970)
+    
+    Fix typo in GC bridge comparison message (SCCS -> XREFS)
