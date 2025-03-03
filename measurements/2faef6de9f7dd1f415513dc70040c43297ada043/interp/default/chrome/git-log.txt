@@ -1,0 +1,11 @@
+commit 2faef6de9f7dd1f415513dc70040c43297ada043
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Wed Feb 5 16:07:43 2025 -0500
+
+    Factor positive lookaheads better into find optimizations (#112107)
+    
+    * Factor positive lookaheads better into find optimizations
+    
+    A positive lookahead at the start of a pattern can be used for determining find optimizations even when the non-zero-width portions of the pattern aren't. This helps particularly in cases where the positive lookahead contains an anchor or a literal.
+    
+    Also extends the existing alternation reduction optimization to factor out anchors that begin every branch of an alternation.
