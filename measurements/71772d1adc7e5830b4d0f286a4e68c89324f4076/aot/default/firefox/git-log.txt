@@ -1,0 +1,32 @@
+commit 71772d1adc7e5830b4d0f286a4e68c89324f4076
+Author: Aman Khalid <amankhalid@microsoft.com>
+Date:   Mon Mar 3 12:59:43 2025 -0500
+
+    JIT: Consolidate layout passes into one phase (#112004)
+    
+    Part of #107749. This replaces our RPO layout and cold code motion phases with a single loop-aware RPO computation (with cold blocks ignored) that we feed into 3-opt as its initial layout. This has the nice property of needing to reorder the block list only once, and never leaving it in a temporarily invalid state (i.e. with EH regions broken up).
+    
+    My initial plan was for this PR to be zero-diff since I split out all the invariant changes (like not reordering cold/handler blocks at all) into separate PRs, but I found it necessary to implement moving try regions around to avoid regressing layout quality. Suppose we have some initial layout that looks like this:
+    
+    [BB01 (hot)]
+    [BB02 (cold)]
+    [BB03 (hot, try entry)]
+    [BB04 (hot, try exit)]
+    [BB05 (hot)]
+    When reordering the block list, we want to only reorder within try regions to avoid breaking their contiguity. Suppose 3-opt wants the block list to look like BB01 -> BB03 -> BB04 -> BB05 -> BB02. If we only reorder within regions, we cannot place BB03 after BB01, so the layout remains as-is, with the cold block inline. And if BB05 were somewhere else in the initial layout, we wouldn't be able to move it after BB04 because they're in different regions.
+    
+    We can be a bit clever and remember the last hot block in each region, so that EH region boundaries don't trip us up. However, this only enables better movement within regions, and nested regions end up sinking down the method. We end up with the following layout:
+    
+    [BB01 (hot)]
+    [BB05 (hot)]
+    [BB02 (cold)]
+    [BB03 (hot, try entry)]
+    [BB04 (hot, try exit)]
+    The hot part of the main method body is compact, but the try region is interleaved with cold code. After adding support for try region movement, we can now move try regions up to their ideal successors, when doing so doesn't break EH nesting invariants:
+    
+    [BB01 (hot)]
+    [BB03 (hot, try entry)]
+    [BB04 (hot, try exit)]
+    [BB05 (hot)]
+    [BB02 (cold)]
+    Thus, this change has some churn, but it looks mostly like a PerfScore win.
