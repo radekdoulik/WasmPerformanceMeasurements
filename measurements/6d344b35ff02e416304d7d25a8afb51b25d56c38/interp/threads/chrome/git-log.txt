@@ -1,0 +1,5 @@
+commit 6d344b35ff02e416304d7d25a8afb51b25d56c38
+Author: Andrew Au <andrewau@microsoft.com>
+Date:   Mon Mar 3 18:20:19 2025 -0800
+
+    Use minipal_getcpufeatures to detect for AVX (#113032)
