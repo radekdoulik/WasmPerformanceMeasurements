@@ -1,0 +1,7 @@
+commit 4fb40206e16efb0b43ef68d40b4bbf9abf873b8c
+Author: Khushal Modi <kcmodi@asu.edu>
+Date:   Mon Mar 3 16:16:38 2025 -0800
+
+    Optimize Min/Max paths with AVX10.2 intrinsics (#112535)
+    
+    Co-authored-by: Ruihan-Yin <ruihan.yin@intel.com>
