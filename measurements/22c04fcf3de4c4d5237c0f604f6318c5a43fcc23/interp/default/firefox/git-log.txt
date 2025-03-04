@@ -1,0 +1,5 @@
+commit 22c04fcf3de4c4d5237c0f604f6318c5a43fcc23
+Author: Marie Píchová <11718369+ManickaP@users.noreply.github.com>
+Date:   Tue Jan 21 16:48:04 2025 +0100
+
+    Do not close the connection before we set _firstRejectedStreamId (#111623)
