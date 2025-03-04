@@ -1,0 +1,7 @@
+commit 3cf22b78d833dbac3d7e32f32406419bcb7511c0
+Author: Aman Khalid <amankhalid@microsoft.com>
+Date:   Mon Mar 3 18:36:04 2025 -0500
+
+    JIT: Template EH-specific checks in 3-opt layout (#111437)
+    
+    3-opt performs various checks within hot loops to maintain EH invariants. Since we know beforehand if the method has EH regions or not, we can save a bit of throughput in the latter case by skipping these checks. Also, relax an invariant around considering edges out of call-finally pairs.
