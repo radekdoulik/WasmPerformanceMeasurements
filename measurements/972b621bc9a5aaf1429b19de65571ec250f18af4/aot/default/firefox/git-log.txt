@@ -1,0 +1,11 @@
+commit 972b621bc9a5aaf1429b19de65571ec250f18af4
+Author: Marie Píchová <11718369+ManickaP@users.noreply.github.com>
+Date:   Thu Feb 20 16:33:05 2025 +0100
+
+    [WinHTTP] Remove unnecessary recursion (#112698)
+    
+    * Remove unnecessary recursion
+    
+    * Feedback - refetch the last error
+    
+    * Fix
