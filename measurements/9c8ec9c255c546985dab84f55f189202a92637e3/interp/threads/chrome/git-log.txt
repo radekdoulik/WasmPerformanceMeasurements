@@ -1,0 +1,8 @@
+commit 9c8ec9c255c546985dab84f55f189202a92637e3
+Author: Elinor Fung <elfung@microsoft.com>
+Date:   Mon Mar 3 10:15:14 2025 -0800
+
+    [android] Make Android app on coreclr use host-runtime contract and provide external assembly probe (#112938)
+    
+    - Update app builder targets / tasks to allow specifying multiple runtime header directories
+    - Make Android app on coreclr use `host_runtime_contract::external_assembly_probe`
