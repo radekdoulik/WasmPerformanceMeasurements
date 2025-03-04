@@ -1,0 +1,7 @@
+commit f0aa3abca0e52afdae7b2e804529529f9d3aaee9
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Tue Mar 4 10:56:18 2025 -0500
+
+    Use invariant culture when formatting transfer capture in regex source generator (#113081)
+    
+    A balancing group can result in TransferCapture being emitted with a negative "capnum". If the compiler is running under a culture that uses something other than '-' as the negative sign, the resulting generated code will fail to compile.
