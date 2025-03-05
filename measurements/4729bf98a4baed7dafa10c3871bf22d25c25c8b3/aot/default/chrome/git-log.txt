@@ -1,0 +1,5 @@
+commit 4729bf98a4baed7dafa10c3871bf22d25c25c8b3
+Author: Egor Bogatov <egorbo@gmail.com>
+Date:   Wed Mar 5 11:42:21 2025 +0100
+
+    Use TryGetRangeFromAssertions to fold more relops in global assert prop (#112824)
