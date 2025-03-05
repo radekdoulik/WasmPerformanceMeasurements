@@ -1,0 +1,9 @@
+commit 28facae4645a4437e2447a885429c279e89541af
+Author: Kunal Pathak <Kunal.Pathak@microsoft.com>
+Date:   Wed Mar 5 10:40:36 2025 -0800
+
+    Fix Sve test templates to avoid buffer overrun (#113113)
+    
+    * Fix SveLoadVectorFirstFaultingTest.template
+    
+    * fix SveLoadVectorMaskedTest.template
