@@ -1,0 +1,7 @@
+commit 76209ca399516a5dfeeba9081a5730fc42cbb5cb
+Author: Katelyn Gadd <kg@luminance.org>
+Date:   Tue Mar 4 13:29:21 2025 -0800
+
+    Temporarily disable ARM NEON path in simdhash due to performance issues (#113092)
+    
+    Currently on ARM Mac the ARM NEON path in simdhash is very slow; scalar search path is fast. Follow-up PR will re-enable ARM NEON with a new implementation that's fast enough to use.
