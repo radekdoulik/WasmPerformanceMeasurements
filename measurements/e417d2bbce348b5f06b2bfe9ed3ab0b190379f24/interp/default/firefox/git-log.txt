@@ -1,0 +1,9 @@
+commit e417d2bbce348b5f06b2bfe9ed3ab0b190379f24
+Author: Jan Kotas <jkotas@microsoft.com>
+Date:   Wed Feb 12 14:18:24 2025 -0800
+
+    Simplify TypeBuilderImpl.MatchesTheFilter (#112464)
+    
+    Fixes number of corner cases
+    
+    Contributes to #112344
