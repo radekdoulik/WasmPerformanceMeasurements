@@ -1,0 +1,53 @@
+commit 12fa8646917828c72903eb85827407095ad97f0e
+Author: Jan Vorlicek <janvorli@microsoft.com>
+Date:   Fri Feb 7 17:28:20 2025 +0100
+
+    Fix exception handling in the prestub worker (#111937)
+    
+    * Fix exception handling in prestub worker
+    
+    There is a bug in the new exception handling when ThePreStub is called
+    from CallDescrWorkerInternal and the exception is propagated through
+    that. One of such cases is when a managed class is being initialized
+    during JITting and the constructor is in an assembly that's not found.
+    The bug results in skipping all the native frames upto a managed frame
+    that called that native chain that lead to the exception. In the
+    specific case I've mentioned, a lock in the native code is left in
+    locked state. That later leads to a hang. This was case was observed
+    with Roslyn invoking an analyzer where one of the dependencies was
+    missing.
+    
+    The fix is to ensure that when ThePreStub is called by
+    CallDescrWorkerInternal, the exception is not caught in the
+    PreStubWorker. It is left flowing into the native calling code instead.
+    
+    On Windows, we also need to prevent the ProcessCLRException invocation
+    to call into the managed exception handling code.
+    
+    * Regression test
+    
+    * Fix ExternalMethodFixupWorker and VSD_ResolveWorker too
+    
+    These two need the same treatment when they end up being called from
+    CallDescrWorkerInternal.
+    
+    Add regression tests for those cases too. These two cases don't result
+    in a visible failure, so the regression tests just exercise the specific
+    code paths.
+    
+    * Disable the regression test for NativeAOT / MonoAOT
+    
+    * Reverting change in PrestubWorker_Preemptive
+    
+    This change is not needed, as that function cannot be called via
+    CallDescrWorker.
+    
+    * Few forgotten cleanups
+    
+    * Remove the RequiresProcessIsolation
+    
+    * Disable the regression test for WASM
+    
+    * Attempt to properly disable the test for WASM
+    
+    * Another attempt to prevent running the test on WASM
