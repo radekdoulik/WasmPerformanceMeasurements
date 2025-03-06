@@ -1,0 +1,16 @@
+commit 4eff254880789bf59bab922763446161b1f80640
+Author: Adam Sitnik <adam.sitnik@gmail.com>
+Date:   Wed Mar 5 18:31:53 2025 +0100
+
+    [NRBF] Remove [Experimental] (#113021)
+    
+    * Revert "Mark the System.Formats.Nrbf assembly as [Experimental] with SYSLIB5005 (#107905)"
+    
+    This reverts commit b08181bdd3742887534c719b030dc264e78e97ee.
+    
+    # Conflicts:
+    #       docs/project/list-of-diagnostics.md
+    #       src/libraries/Common/src/System/Experimentals.cs
+    #       src/libraries/System.Formats.Nrbf/src/System.Formats.Nrbf.csproj
+    
+    * this should stay

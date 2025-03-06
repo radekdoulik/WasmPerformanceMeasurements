@@ -1,0 +1,69 @@
+{
+  "results": [
+    {
+      "span": "00:00:41.5640000",
+      "steps": 1,
+      "taskName": "JSInterop",
+      "measurementName": "JSImportTask"
+    },
+    {
+      "span": "00:00:41.6430000",
+      "steps": 1,
+      "taskName": "JSInterop",
+      "measurementName": "JSImportTask"
+    },
+    {
+      "span": "00:00:41.1520000",
+      "steps": 1,
+      "taskName": "JSInterop",
+      "measurementName": "JSImportTask"
+    },
+    {
+      "span": "00:00:42.5780000",
+      "steps": 1,
+      "taskName": "JSInterop",
+      "measurementName": "JSImportTask"
+    },
+    {
+      "span": "00:00:41.1630000",
+      "steps": 1,
+      "taskName": "JSInterop",
+      "measurementName": "JSImportTask"
+    },
+    {
+      "span": "00:00:42.5740000",
+      "steps": 1,
+      "taskName": "JSInterop",
+      "measurementName": "JSImportTaskFail"
+    },
+    {
+      "span": "00:00:42.4940000",
+      "steps": 1,
+      "taskName": "JSInterop",
+      "measurementName": "JSImportTaskFail"
+    },
+    {
+      "span": "00:00:42.4380000",
+      "steps": 1,
+      "taskName": "JSInterop",
+      "measurementName": "JSImportTaskFail"
+    },
+    {
+      "span": "00:00:42.4250000",
+      "steps": 1,
+      "taskName": "JSInterop",
+      "measurementName": "JSImportTaskFail"
+    },
+    {
+      "span": "00:00:43.2780000",
+      "steps": 1,
+      "taskName": "JSInterop",
+      "measurementName": "JSImportTaskFail"
+    }
+  ],
+  "minTimes": {
+    "JSInterop, JSImportTask": 41152,
+    "JSInterop, JSImportTaskFail": 42425
+  },
+  "timeStamp": "2025-03-06T00:17:57.276Z"
+}
