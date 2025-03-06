@@ -1,0 +1,17 @@
+commit e9303d3a0f1e3839c8d8c3084062da2e3caee516
+Author: Miha Zupan <mihazupan.zupan1@gmail.com>
+Date:   Thu Mar 6 15:14:44 2025 +0100
+
+    Speed up single-value SearchValues<string> candidate verification (#108365)
+    
+    * Speed up single-value SearchValues<string> candidate verification
+    
+    * Improve comment, add extra assert
+    
+    * Add path for Vector128
+    
+    * Add test stress for smaller vector sizes
+    
+    * Print type of SearchValues<string> on fuzzer failure
+    
+    * Expand SimpleIndexOfAnyValues test a bit more
