@@ -1,0 +1,15 @@
+commit d09a42b9149e14a37c8ef8363cdb7e17bb922c37
+Author: Jeremy Barton <jbarton@microsoft.com>
+Date:   Thu Mar 6 10:40:29 2025 -0800
+
+    Seed in the skeleton of ML-DSA based on current prototyping
+    
+    
+    
+    This seeds a lot of untested boilerplate code as non-public types in System.Security.Cryptography.
+    
+    When we start work on ML-DSA, we can take this, make MLDsa and MLDsaAlgorithm public, start to write tests, and wire up an implementation. We can also take this and clone+customize it for the other PQC algorithms.
+    
+    It does not define all span-vs-array overloads for all spanified members, just one candidate per method group.
+    
+    As the PQC experiment needs to make it further before we can commit to the shape, it is both starting without API Review, and pre-emptively applying the Experimental attribute.
