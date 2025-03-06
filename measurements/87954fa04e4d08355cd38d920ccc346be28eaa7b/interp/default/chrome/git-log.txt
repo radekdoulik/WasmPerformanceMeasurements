@@ -1,0 +1,9 @@
+commit 87954fa04e4d08355cd38d920ccc346be28eaa7b
+Author: Steve Pfister <steveisok@users.noreply.github.com>
+Date:   Wed Mar 5 19:10:32 2025 -0500
+
+    Establish runtime-diagnostics pipeline (#113169)
+    
+    The idea behind this pipeline is to pull in dotnet/diagnostics in order to supply live runtimes to diagnostics test runs. Although it will run on a schedule, the primary reason to have this is for PR validation when making changes we know could impact the diagnostics repo.
+    
+    Note that this change is bare bones in order to establish the pipeline in AzDo.
