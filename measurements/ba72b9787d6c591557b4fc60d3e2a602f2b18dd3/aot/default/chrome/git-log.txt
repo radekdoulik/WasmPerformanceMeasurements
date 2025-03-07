@@ -1,0 +1,7 @@
+commit ba72b9787d6c591557b4fc60d3e2a602f2b18dd3
+Author: Viktor Hofer <viktor.hofer@microsoft.com>
+Date:   Thu Jan 23 15:36:12 2025 +0100
+
+    Fix MonoEnableLLVM* properties (#111746)
+    
+    Counter-part change in https://github.com/dotnet/sdk/pull/46239
