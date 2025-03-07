@@ -1,0 +1,9 @@
+commit 5a0ea7c73840f2b5acfc7fcee0af84e2c28e192c
+Author: Katelyn Gadd <kg@luminance.org>
+Date:   Thu Mar 6 20:28:10 2025 -0800
+
+    Better ARM intrinsics implementation for dn_simdhash (#113095)
+    
+    * New ARM NEON implementation of find_first_matching_suffix_simd
+    * Restrict neon implementation to arm64 because arm32 neon doesn't have wide vector registers
+    * Cleanup simdhash arch header and remove redundant assert
