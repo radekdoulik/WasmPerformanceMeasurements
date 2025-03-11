@@ -1,0 +1,105 @@
+commit 9283581f414305c4b829d91d6313ae54e73060cc
+Author: Khushal Modi <kcmodi@asu.edu>
+Date:   Tue Feb 18 15:04:31 2025 -0800
+
+    Use Avx10.2 Instructions in Floating Point Conversions (#111775)
+    
+    * Add support for AVX10.2. Add AVX10.2 API surface and template tests. Lower Avx10.2 nodes accordingly.
+    
+    * Add support and template tests for AVX10v2_V512
+    
+    * Add new coredistools.dll build from latest llvm repo
+    
+    * Limit JIT unit suite within the subsets which are stable in SDE.
+    
+    * Rename API as per latest API proposal discussions
+    
+    * fix sample tests in handwritten project
+    
+    * Revert "Limit JIT unit suite within the subsets which are stable in SDE."
+    
+    This reverts commit 067e31e0b7b55fc3c70d69592e4fed9dd577f462.
+    
+    * Limit JIT unit suite within the subsets which are stable in SDE.
+    
+    * Allow a prefix of 0x00 for AVX10.2 instructions.
+    
+    * Revert "Limit JIT unit suite within the subsets which are stable in SDE."
+    
+    This reverts commit 067e31e0b7b55fc3c70d69592e4fed9dd577f462.
+    
+    * Limit JIT unit suite within the subsets which are stable in SDE.
+    
+    * remove developer comments from files
+    
+    * Enable all template tests and enable ymm embedded rounding
+    
+    * Make emitter independent of ISa and based on insOpts for ymm embedded rounding
+    
+    * Enable ymm embedded rounding based on architecture
+    
+    * Revert "Make emitter independent of ISa and based on insOpts for ymm embedded rounding"
+    
+    This reverts commit 493572f098e1390a11fa1523b03fcd2833a98173.
+    
+    * Separate Avx10.2 unit testing framework from APX framework
+    
+    * Revert "Limit JIT unit suite within the subsets which are stable in SDE."
+    
+    This reverts commit 067e31e0b7b55fc3c70d69592e4fed9dd577f462.
+    
+    * Revert "Add new coredistools.dll build from latest llvm repo"
+    
+    This reverts commit 61719f8b1ec9867514323d8f2322915f1de448a8.
+    
+    * Fix formatting
+    
+    * Use new keyword for class V512 to hide Avx10v1.V512 and correct CI errors
+    
+    * Remove MinMax APis from lowering for numargs=2
+    
+    * Add docstrings for APIs
+    
+    * revert changes for sde execution of tests
+    
+    * Add appropriate comments from reviews
+    
+    * Apply suggestions from code review
+    
+    Co-authored-by: Bruce Forstall <brucefo@microsoft.com>
+    
+    * Add emitter tests for XMM9/16 to make sure special handling does not interfere.
+    
+    * Format code
+    
+    * Handle sizePrefix = 0 case when decoding evex instruction
+    
+    * Add assert in appropriate places
+    
+    * Club similar instructions together in perf calculation in emitxarch
+    
+    * Run formatting
+    
+    * Add assembly prints for debug assembly capturing for Avx10.2
+    
+    * Use correct size when running emitter tests
+    
+    * Ad appropriate comments and make review changes
+    
+    * Use AVX10.2 instructions in conversions
+    
+    * Run formatting
+    
+    * Update comment
+    
+    Co-authored-by: Michał Petryka <35800402+MichalPetryka@users.noreply.github.com>
+    
+    * Optimize the need for compIsa checks and edit comments
+    
+    * Run formatting
+    
+    ---------
+    
+    Co-authored-by: Ruihan-Yin <ruihan.yin@intel.com>
+    Co-authored-by: Bruce Forstall <brucefo@microsoft.com>
+    Co-authored-by: Michał Petryka <35800402+MichalPetryka@users.noreply.github.com>
