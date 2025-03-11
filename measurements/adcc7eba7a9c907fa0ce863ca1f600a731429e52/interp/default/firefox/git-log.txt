@@ -1,0 +1,7 @@
+commit adcc7eba7a9c907fa0ce863ca1f600a731429e52
+Author: Elinor Fung <elfung@microsoft.com>
+Date:   Mon Mar 10 22:55:14 2025 -0700
+
+    [android][coreclr] Fix lifetime of host_runtime_contract in template (#113341)
+    
+    The host-runtime contract needs to live for the app, not just initialization.
