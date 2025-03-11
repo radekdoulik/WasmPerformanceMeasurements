@@ -1,0 +1,9 @@
+commit fd9c728bd3560850afde9a38a063a07dc1f3ed96
+Author: Eric StJohn <ericstj@microsoft.com>
+Date:   Mon Feb 3 12:51:37 2025 -0800
+
+    Include PDB for all TfmRuntimeSpecificPackageFile (#111879)
+    
+    Previously this would only include the PDB for the primary output which
+    missed any other additions to TfmRuntimeSpecificPackageFile - such as
+    those from references or packages.
