@@ -1,0 +1,7 @@
+commit 8fad985ec9cc418827ff0203d200b5fe54f91aca
+Author: Aman Khalid <amankhalid@microsoft.com>
+Date:   Tue Mar 11 15:00:25 2025 +0000
+
+    JIT: Run switch peeling only once (#113326)
+    
+    Part of #107749. fgReorderBlocks runs switch peeling, which means we have both an early and a late pass of it; the former pass seems unnecessary. I've refactored our switch peeling pass to make it easier to incorporate into the switch recognition loop so that we only loop the block list once. I expected the refactor part of this PR to be no-diff, but it turns out we don't propagate the fgHasSwitch member of inlinee compilers to the root compiler, which pessimized the old switch peeling pass. These changes unlock switch peeling in a few more cases.
