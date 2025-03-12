@@ -1,0 +1,25 @@
+commit 3da53bf569b7275ac4775115a19836dd1cdbf6ae
+Author: Vladimir Sadov <vsadov@microsoft.com>
+Date:   Tue Mar 11 16:23:46 2025 -0700
+
+    [NativeAOT] Initialize COM before initializing FLS slot. (#113194)
+    
+    * simplify detaching
+    
+    * minor cleanups
+    
+    * init COM + FLS in finalizer thread.
+    
+    * remove managed finalizer+COM stuff
+    
+    * Unify assert message with CoreCLR
+    
+    * Treat failure to allocate FLS slot similar to OOM.
+    
+    * Exit from finalizer thread if FLS or COM failed to initialize.
+    
+    * Apply suggestions from code review
+    
+    ---------
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
