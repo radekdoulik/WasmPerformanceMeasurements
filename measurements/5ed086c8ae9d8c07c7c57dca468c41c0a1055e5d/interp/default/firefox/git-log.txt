@@ -1,0 +1,13 @@
+commit 5ed086c8ae9d8c07c7c57dca468c41c0a1055e5d
+Author: Jan Vorlicek <janvorli@microsoft.com>
+Date:   Tue Mar 11 18:59:12 2025 +0100
+
+    Add another set of debugging prints for stack overflow issue (#112284)
+    
+    * Add another set of debugging prints for stack overflow issue
+    
+    This adds more debugging output to help figure out the mysterious failure
+    of the stack overflow tests that occur regularly in the lab, but that
+    I am unable to repro locally.
+    
+    * Another set of prints
