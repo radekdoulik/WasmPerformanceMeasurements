@@ -1,0 +1,15 @@
+commit d15a82e479b5e6d2b98924f79d24a3b4736c82bd
+Author: Jeremy Koritzinsky <jekoritz@microsoft.com>
+Date:   Tue Mar 11 21:14:43 2025 -0700
+
+    Fix blob and symbol package publishing (#113377)
+    
+    * Fix metadata updating for symbol packages to ensure we still publish them
+    
+    * Fix symbol package folders and publish VSSetup as shipping (as requested by upstack folks)
+    
+    * Don't process symbol packages for the manifest packages. They're just duplicates.
+    
+    * Fix publishing the asset manifest for source build (needed for SB intermediates)
+    
+    * Fix input job for some artifacts
