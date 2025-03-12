@@ -1,0 +1,9 @@
+commit 42bbfebfd80ff2a0a88aaf3976501845c5397279
+Author: Jeremy Koritzinsky <jekoritz@microsoft.com>
+Date:   Wed Mar 12 09:36:26 2025 -0700
+
+    Don't set PreserveRepoOrigin (#113422)
+    
+    This only works when artifacts have a repo origin specified.
+    
+    Fixes the runtime official build
