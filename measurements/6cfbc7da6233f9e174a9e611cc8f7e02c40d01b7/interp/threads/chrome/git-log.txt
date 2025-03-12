@@ -1,0 +1,12 @@
+commit 6cfbc7da6233f9e174a9e611cc8f7e02c40d01b7
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Wed Mar 12 14:35:21 2025 +0100
+
+    Enable `UseSizeOptimizedLinq` by default on native AOT (#113214)
+    
+    The motivation is:
+    
+    * This has been enabled by default on mobile platforms for several releases and it wasn't a source of issues
+    * It is easy to opt out of it. (That cannot be said about mobile platforms in the past that hardcoded it at repo build).
+    * Doesn't have measurable throughput impact on any ASP.NET scenarios we measure perf of.
+    * It is a meaningful size saving (seen 5+%).
