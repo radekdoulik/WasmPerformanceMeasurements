@@ -1,0 +1,5 @@
+commit bf6cfefbdc2510270fa2fb285e6d0fbda9a3f192
+Author: Egor Bogatov <egorbo@gmail.com>
+Date:   Tue Mar 11 22:54:40 2025 +0100
+
+    Don't update side-effects in a statement that doesn't exist (#113351)
