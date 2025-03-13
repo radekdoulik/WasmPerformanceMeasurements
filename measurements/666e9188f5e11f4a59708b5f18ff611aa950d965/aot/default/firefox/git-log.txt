@@ -1,0 +1,29 @@
+commit 666e9188f5e11f4a59708b5f18ff611aa950d965
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Thu Mar 6 06:35:16 2025 +0100
+
+    Downgrade MethodTables used in reflection invoke (#111610)
+    
+    When we make a method reflection-callable, we have to make sure the reflection stack can get type handles of types within the method signature. The type handles are used as part of reflection activation to do castability checks (is it valid to call the method with this parameter?) and to do boxing of return values.
+    
+    In the past, what we did:
+    
+    * If the type has a canonical form, generate type loader template for it.
+    * Otherwise, generate a constructed MethodTable.
+    
+    This was too much, so we restricted it in #92994 into:
+    
+    * If the type is a GC pointer, don't generate anything. Update reflection stack to be able to deal with a null type handle if and only if this is a reference type and nobody actually allocated such reference type.
+    * Otherwise do what we did above.
+    
+    This is still a bit too much, as demonstrated in https://github.com/dotnet/runtime/issues/111544#issuecomment-2601660738.
+    
+    In this PR, I'm restricting this further to:
+    
+    * If the type is in the canonical form (not just "has canonical form" - "_is_ canonical form"), generate type loader template.
+    * If the type is an out valuetype parameter, generate constructed method table (since reflection stack is going to end up boxing)
+    * Generate necessary (unconstructed) method table otherwise (since we're only going to do castability checks and necessary method tables are exactly for that)
+    
+    I'm deleting the "GC pointer could have null methodtable" complication since it doesn't help much in practice once we downgraded to necessary method tables (that revert is in https://github.com/dotnet/runtime/pull/111610/commits/dc34018ec09e337b8cd6924c0b71ebac9033e369 and rt-sz measurements show it really doesn't affect much).
+    
+    Cc @dotnet/ilc-contrib
