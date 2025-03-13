@@ -1,0 +1,9 @@
+commit 9c9178f37155eae923db9b686538297bd3afcfc8
+Author: Anton Firszov <Anton.Firszov@microsoft.com>
+Date:   Thu Mar 13 16:58:14 2025 +0100
+
+    run stress tests nightly against staging branches (#113432)
+    
+    This PR is the first step to address #113372:
+    - `always: true` should ensure that the nightly run will happen even if there were no recent commits
+    - The runs should happen against staging branches to make sure changes impact stress runs early
