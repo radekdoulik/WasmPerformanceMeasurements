@@ -1,0 +1,21 @@
+commit aba4de871061b82361f9d91886f2db7f41ff72d0
+Author: Tarek Mahmoud Sayed <10833894+tarekgh@users.noreply.github.com>
+Date:   Thu Mar 6 12:16:20 2025 -0800
+
+    Fix encoding missed overridden properties (#113167)
+    
+    * Fix encoding missed overriden properties
+    
+    * Update src/libraries/System.Text.Encoding.CodePages/src/System/Text/EncodingNLS.cs
+    
+    Co-authored-by: Carlos Sánchez López <1175054+carlossanlop@users.noreply.github.com>
+    
+    * Small test fix
+    
+    * Fix the tuple package reference in the csproj file
+    
+    * apply missed feedback
+    
+    ---------
+    
+    Co-authored-by: Carlos Sánchez López <1175054+carlossanlop@users.noreply.github.com>
