@@ -1,0 +1,13 @@
+commit 6e1486e7bf62d4268c198833fa3590b8f79cd99d
+Author: David Wrighton <davidwr@microsoft.com>
+Date:   Wed Jan 15 16:39:22 2025 -0800
+
+    Allow nested types inside of the <Module> type (#111435)
+    
+    * Allow nested types inside of the <Module> type
+    - This isn't disallowed by spec, although ilasm and ildasm cannot handle these cases
+    - Simply skip adding the type to the available class hash.
+    
+    * Fix issue where TokenFromRid parameters are out of order in a number of places in the runtime
+    
+    Fix #111164
