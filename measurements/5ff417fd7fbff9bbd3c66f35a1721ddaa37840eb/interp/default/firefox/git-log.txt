@@ -1,0 +1,7 @@
+commit 5ff417fd7fbff9bbd3c66f35a1721ddaa37840eb
+Author: Kevin Jones <kevin@vcsjones.com>
+Date:   Wed Mar 12 19:32:22 2025 -0400
+
+    Allow null key parameters for public keys and certificates
+    
+    If an X.509 certificate or PublicKey contained a subject public key info that lacked key parameters entirely, this would be represented as an empty array. A number of places incorrectly handled empty key parameters, and assumed key parameters would always be supplied. This changes the key parameters to be nullable, and return null instead. The places that were incorrectly handling missing parameters now correctly handle "null".
