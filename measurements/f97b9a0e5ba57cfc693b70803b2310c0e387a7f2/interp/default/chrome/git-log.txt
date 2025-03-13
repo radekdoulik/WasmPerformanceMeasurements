@@ -1,0 +1,13 @@
+commit f97b9a0e5ba57cfc693b70803b2310c0e387a7f2
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Wed Jan 22 18:54:43 2025 +0100
+
+    JIT: Relax assertion for handlers of unreachable try clauses (#111652)
+    
+    For unreachable try clauses it is possible to still see spurious flow
+    into their handlers because of second pass EH. We can then end up with a
+    case where a handler is dominated by one of its enclosed blocks. For
+    definitions in that enclosed block we thus won't find any phi in the
+    enclosing handler; tolerate this case.
+    
+    Fix #111341
