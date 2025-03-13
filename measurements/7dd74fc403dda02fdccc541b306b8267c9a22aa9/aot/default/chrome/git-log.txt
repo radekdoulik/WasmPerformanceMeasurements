@@ -1,0 +1,9 @@
+commit 7dd74fc403dda02fdccc541b306b8267c9a22aa9
+Author: JongHeonChoi <j-h.choi@samsung.com>
+Date:   Thu Mar 6 05:32:23 2025 +0900
+
+    Check for an empty string for the TimeZoneDirectory environment variable (#112831)
+    
+    * Check for an empty string for the TimeZoneDirectory environment variable
+    
+    * Code feedback
