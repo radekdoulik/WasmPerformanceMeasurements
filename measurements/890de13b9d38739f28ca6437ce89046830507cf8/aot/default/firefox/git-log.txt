@@ -1,0 +1,11 @@
+commit 890de13b9d38739f28ca6437ce89046830507cf8
+Author: Fred Silberberg <frsilb@microsoft.com>
+Date:   Wed Mar 12 04:17:34 2025 -0700
+
+    Add InlineArrayX types (#113403)
+    
+    * Add InlineArrayX types
+    
+    Closes https://github.com/dotnet/runtime/issues/111973. Implements the API as proposed.
+    
+    * PR feedback
