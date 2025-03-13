@@ -1,0 +1,9 @@
+commit 64388a0b85cc4fd102256a8d77b8abe8eaa6e938
+Author: xtqqczze <45661989+xtqqczze@users.noreply.github.com>
+Date:   Wed Mar 12 22:13:29 2025 +0000
+
+    Fix `IDE0004` for object comparison (#110206)
+    
+    * Fix `IDE0004` for object comparison
+    
+    * revert `src/libraries/System.Private.CoreLib/src/System/RuntimeType.cs`
