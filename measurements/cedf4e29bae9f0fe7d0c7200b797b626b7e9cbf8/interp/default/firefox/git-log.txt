@@ -1,0 +1,12 @@
+commit cedf4e29bae9f0fe7d0c7200b797b626b7e9cbf8
+Author: Andy Ayers <andya@microsoft.com>
+Date:   Fri Jan 24 14:16:55 2025 -0800
+
+    JIT: revise `optRelopImpliesRelop` to always set `reverseSense` (#111803)
+    
+    Update clients to rely on `reverseSense` rather than parsing `vnRelation`.
+    
+    Also revised the and/or inference slightly as I found it hard to follow;
+    hopefully it's clearer now.
+    
+    Fixes an issue that came up in testing #111766.
