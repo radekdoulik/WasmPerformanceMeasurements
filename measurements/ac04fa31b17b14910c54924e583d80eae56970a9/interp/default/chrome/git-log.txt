@@ -1,0 +1,7 @@
+commit ac04fa31b17b14910c54924e583d80eae56970a9
+Author: Aman Khalid <amankhalid@microsoft.com>
+Date:   Tue Mar 11 17:55:06 2025 +0000
+
+    JIT: Remove `fgRelocateEHRegions` (#113330)
+    
+    Part of #107749. Block layout will now ensure cold EH regions are moved out of the hot part of the method, so fgRelocateEHRegions is no longer necessary.
