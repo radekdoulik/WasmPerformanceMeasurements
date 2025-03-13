@@ -1,0 +1,23 @@
+commit d2650b6ae7023a2d9d2c74c56116f1f18472ab04
+Author: Rolf Bjarne Kvinge <rolf@xamarin.com>
+Date:   Fri Mar 7 14:03:37 2025 +0100
+
+    [mono] Fix detecting [DisableRuntimeMarshalling] in MarshalingPInvokeScanner. (#112981)
+    
+    * [mono] Fix detecting [DisableRuntimeMarshalling] in MarshalingPInvokeScanner.
+    
+    Fix detecting the [DisableRuntimeMarshalling] attribute in
+    MarshalingPInvokeScanner for assemblies that reference the attribute from
+    another assembly (i.e. any assembly except System.Runtime.dll).
+    
+    Fixes https://github.com/dotnet/runtime/issues/112980.
+    
+    * Update src/tasks/MonoTargetsTasks/MarshalingPInvokeScanner/MarshalingPInvokeScanner.cs
+    
+    Co-authored-by: Theodore Tsirpanis <teo@tsirpanis.gr>
+    
+    * Fix formatting.
+    
+    ---------
+    
+    Co-authored-by: Theodore Tsirpanis <teo@tsirpanis.gr>
