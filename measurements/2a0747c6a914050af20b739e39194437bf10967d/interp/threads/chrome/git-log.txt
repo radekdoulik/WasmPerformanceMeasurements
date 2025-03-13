@@ -1,0 +1,7 @@
+commit 2a0747c6a914050af20b739e39194437bf10967d
+Author: Aman Khalid <amankhalid@microsoft.com>
+Date:   Wed Mar 12 17:31:05 2025 -0400
+
+    JIT: Don't skip non-funclet try regions with handlers in `fgFindTryRegionEnds` (#113424)
+    
+    Fixes #113417.
