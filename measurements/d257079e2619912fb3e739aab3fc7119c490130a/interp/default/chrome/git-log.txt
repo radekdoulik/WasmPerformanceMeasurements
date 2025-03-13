@@ -1,0 +1,11 @@
+commit d257079e2619912fb3e739aab3fc7119c490130a
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Tue Feb 4 18:19:09 2025 +0100
+
+    JIT: Unify handling of InstParam argument during inlining (#112119)
+    
+    * Handle InstParam in the same way as all other arguments
+    * Insert the evaluation of the InstParam in the right spot when inlining
+      succeeded
+    
+    Fix #112092
