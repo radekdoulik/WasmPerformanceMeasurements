@@ -1,0 +1,11 @@
+commit f50e71c240110a639722000311a537a20e680057
+Author: Jan Kotas <jkotas@microsoft.com>
+Date:   Tue Mar 11 18:51:19 2025 -0700
+
+    Delete unused legacy hosting flags (#112975)
+    
+    * Delete unused legacy hosting flags
+    
+    * Delete unused AppDomain code
+    
+    * Delete isTerminating arg
