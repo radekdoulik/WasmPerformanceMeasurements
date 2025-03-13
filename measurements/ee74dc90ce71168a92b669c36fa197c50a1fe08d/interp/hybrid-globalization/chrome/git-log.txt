@@ -1,0 +1,29 @@
+commit ee74dc90ce71168a92b669c36fa197c50a1fe08d
+Author: Larry Ewing <lewing@microsoft.com>
+Date:   Thu Mar 13 09:59:33 2025 -0500
+
+    ISimdVector vector intrinsics fixes (#113288)
+    
+    * Add SN Vector interpreter intrinsics
+    
+    * Fix explicit implict implementation filtering
+    
+    * try something else
+    
+    * split up the prefix parsing
+    
+    * remove superfluous check
+    
+    * fix namespace in importer
+    
+    * Fixup coreclr checks too
+    
+    * Fix the formatting
+    
+    * Fix typo
+    
+    * Copilot... sigh
+    
+    * reduce repeat compares
+    
+    * On arm don't try to create an sri Vector<T>
