@@ -1,0 +1,7 @@
+commit 6e3e19372595f57327ad9679c3d9019916c94335
+Author: Eirik Tsarpalis <eirik.tsarpalis@gmail.com>
+Date:   Fri Feb 21 09:49:31 2025 +0000
+
+    Use pooled Utf8JsonWriter when doing sync streaming serialization. (#112745)
+    
+    Co-authored-by: Stephen Toub <stoub@microsoft.com>
