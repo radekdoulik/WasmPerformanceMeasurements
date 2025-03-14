@@ -1,0 +1,21 @@
+commit 1c3b1b5835cce7c61bb5c7bdab8468bb6ced47b6
+Author: Theodore Tsirpanis <teo@tsirpanis.gr>
+Date:   Mon Feb 10 02:16:47 2025 +0200
+
+    Add `GetDeclaringType` to `PropertyDefinition` and `EventDefinition`. (#111646)
+    
+    * Add `GetDeclaringType` to `PropertyDefinition` and `EventDefinition`.
+    
+    * Add test.
+    
+    * Add documentation to all `GetDeclaringType` APIs.
+    
+    * Remove unnecessary code.
+    
+    * Update tests.
+    
+    We assert that the test assembly has types with events and properties, and acknowledge that it does not have nested types.
+    
+    ---------
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
