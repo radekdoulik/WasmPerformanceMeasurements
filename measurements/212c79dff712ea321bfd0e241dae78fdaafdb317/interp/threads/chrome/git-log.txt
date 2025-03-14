@@ -1,0 +1,13 @@
+commit 212c79dff712ea321bfd0e241dae78fdaafdb317
+Author: KubaD <kubadrazka+github@microsoft.com>
+Date:   Fri Mar 14 19:02:50 2025 +0100
+
+    dotnet-runtime-perf-build pipeline triggering fix (#113545)
+    
+    * private jobs are now run for automatically triggered individualCI build reason
+    
+    * Display name of runPrivateJobs updated so it is more descriptive
+    
+    ---------
+    
+    Co-authored-by: Jakub Dražka <kubadrazka@microsoft.com>
