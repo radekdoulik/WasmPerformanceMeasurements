@@ -1,0 +1,11 @@
+commit 528dc0f2bb82669b4d555e2b5253211c204bd131
+Author: Anton Firszov <Anton.Firszov@microsoft.com>
+Date:   Fri Mar 14 18:35:49 2025 +0100
+
+    Clear diagnostic headers on request reuse (#113342)
+    
+    As noted in https://github.com/dotnet/runtime/issues/86094#issuecomment-1553131803, `DiagnosticsHandler` does not clear manually configured diagnostics headers on a request to avoid interfering with existing user logic. Because of this, if a request is being reused (eg. in Polly retries), `DiagnosticsHandler` will produce incorrect traces because it reuses the trace state of the first request span for subsequent sends.
+    
+    However, there is an existing escape mechnism to this rule: in case we detect a redirect we will clear the headers. The presence of redirections is indicated by a flag in `HttpRequestMessage`.
+    
+    This PR repurposes the mentioned flag to make sure that headers are also cleared when a request is being reused in a user-supplied handler. This is done by moving the location of flag flipping from `RedirectHandler` to `DiagnosticsHandler` while ensuring that user-defined headers are not cleared at the first send attempt.
