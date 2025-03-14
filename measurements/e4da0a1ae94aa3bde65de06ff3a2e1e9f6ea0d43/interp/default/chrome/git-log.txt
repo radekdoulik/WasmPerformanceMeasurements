@@ -1,0 +1,5 @@
+commit e4da0a1ae94aa3bde65de06ff3a2e1e9f6ea0d43
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Fri Mar 14 21:10:26 2025 +0100
+
+    JIT: Fix bad constant folding of (0 shift x) => x (#113493)
