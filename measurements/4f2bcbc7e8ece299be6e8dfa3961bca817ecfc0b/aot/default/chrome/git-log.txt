@@ -1,0 +1,9 @@
+commit 4f2bcbc7e8ece299be6e8dfa3961bca817ecfc0b
+Author: Radek Zikmund <32671551+rzikm@users.noreply.github.com>
+Date:   Fri Mar 14 13:14:27 2025 +0100
+
+    Fix obsoletion message for SslStream properties (#113375)
+    
+    * Fix SYSLIB0058 obsoletion message.
+    
+    * Revert unwanted whitespace changes
