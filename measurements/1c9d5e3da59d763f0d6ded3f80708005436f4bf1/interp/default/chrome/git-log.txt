@@ -1,0 +1,15 @@
+commit 1c9d5e3da59d763f0d6ded3f80708005436f4bf1
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Mon Mar 10 12:57:23 2025 +0100
+
+    JIT: Introduce `LclVarDsc::lvIsMultiRegDest` (#113294)
+    
+    With recent work to expand returned promoted locals into `FIELD_LIST`
+    the only "whole references" of promoted locals we should see is when
+    stored from a multi-reg node. This is the only knowledge the backend
+    should need for correctness purposes, so introduce a bit to track this
+    property, and switch the backend to check this instead.
+    
+    The existing `lvIsMultiRegRet` is essentially this + whether the local
+    is returned. We should be able to remove this, but it is currently used
+    for some heuristics in old promotion, so keep it around for now.
