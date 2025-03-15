@@ -1,0 +1,12 @@
+commit a5f99c6f990ae7bcbde018232bafa93335afe1eb
+Author: Andy Ayers <andya@microsoft.com>
+Date:   Thu Feb 13 07:33:06 2025 -0800
+
+    JIT: fix local assertion prop error for partial local comparisons (#112506)
+    
+    If a JTRUE comparison only involves part of a local value we cannot make assertions
+    about the local as a whole.
+    
+    Fixes #111352.
+    
+    Restrict to TYP_LONG locals.
