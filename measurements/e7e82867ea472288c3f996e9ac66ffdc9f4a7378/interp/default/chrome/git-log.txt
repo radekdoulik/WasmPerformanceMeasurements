@@ -1,0 +1,14 @@
+commit e7e82867ea472288c3f996e9ac66ffdc9f4a7378
+Author: Max Charlamb <44248479+max-charlamb@users.noreply.github.com>
+Date:   Wed Feb 5 18:23:47 2025 -0800
+
+    [cDAC] Implement ISOSDacInterface::GetMethodDescPtrFromIp (#110755)
+    
+    Contributes to #108553
+    
+    Tested using `!sos ip2md <ip>`.
+    
+    ---------
+    
+    Co-authored-by: Max Charlamb <maxcharlamb@microsoft.com>
+    Co-authored-by: Elinor Fung <elfung@microsoft.com>
