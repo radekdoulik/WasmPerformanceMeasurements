@@ -1,0 +1,49 @@
+commit 219622a23cef3dde6a08378ac9829cb2b242cead
+Author: Cameron Aavik <99771732+caaavik-msft@users.noreply.github.com>
+Date:   Tue Feb 4 10:21:12 2025 +1000
+
+    [PERF] Move performance testing YAML from dotnet/runtime to dotnet/performance (#111454)
+    
+    * Move runtime yaml to performance
+    
+    * Fix yaml path
+    
+    * Fix extends template parameters
+    
+    * Try to fix invalid stages
+    
+    * Try defining resource in root template
+    
+    * Change default branch during testing
+    
+    * Use additionalJobIdentifier
+    
+    * Use correct checkout paths
+    
+    * Ensure isScenario is passed in for ios_scenarios
+    
+    * Remove perfBranch now that we can set branch in Run pipeline dialog
+    
+    * Set default ref during testing
+    
+    * Move all job listings to performance repository
+    
+    * Fix template conditions
+    
+    * Fix perf_slow pipeline
+    
+    * Use new paths for yamls in performance repo
+    
+    * Move all remaining perf templates to performance directory
+    
+    * Fix missing parameters
+    
+    * Update all remaining references from old paths to new paths. Add comments to pipelines which will be deleted in next PR.
+    
+    * Remove clr subsets from mono build jobs
+    
+    * Fix capitalization of true
+    
+    * Change public CI job to point to fork during testing
+    
+    * Revert removing clr subsets from mono builds. Reset repository resources to correct values.
