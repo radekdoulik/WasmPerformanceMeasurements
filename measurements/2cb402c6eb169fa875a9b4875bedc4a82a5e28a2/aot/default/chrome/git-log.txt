@@ -1,0 +1,51 @@
+commit 2cb402c6eb169fa875a9b4875bedc4a82a5e28a2
+Author: Jan Vorlicek <janvorli@microsoft.com>
+Date:   Fri Feb 21 00:25:02 2025 +0100
+
+    Fix exception handling in the prestub worker - take 2 (#112666)
+    
+    * Fix exception handling in the prestub worker
+    
+    There is a bug in the new exception handling when ThePreStub is called
+    from CallDescrWorkerInternal and the exception is propagated through
+    that. One of such cases is when a managed class is being initialized
+    during JITting and the constructor is in an assembly that's not found.
+    The bug results in skipping all the native frames upto a managed frame
+    that called that native chain that lead to the exception. In the
+    specific case I've mentioned, a lock in the native code is left in
+    locked state. That later leads to a hang. This was case was observed
+    with Roslyn invoking an analyzer where one of the dependencies was
+    missing.
+    
+    The fix is to ensure that when ThePreStub is called by
+    CallDescrWorkerInternal, the exception is not caught in the
+    PreStubWorker. It is left flowing into the native calling code instead.
+    
+    The same treatment is applied to ExternalMethodFixupWorker and
+    VSD_ResolveWorker too.
+    
+    On Windows, we also need to prevent the ProcessCLRException invocation
+    to call into the managed exception handling code.
+    
+    * Fix missing ContextFlags setting
+    
+    I was hitting intermittent crashes in the unhandled exception test
+    with GC stress C enabled due to this when GetSSP tried to access the
+    SSP in the extended part of the context.
+    
+    * Fix couple of issues
+    
+    * The previous set of changes removed popping of ExInfos too. That's not
+      correct though. But it should be done in a different place than the
+      ProcessCLRExceptionNew.
+    * There was a problem (even before the fix) that an exception caught in
+      DispatchInfo::InvokeMember was reported (via console log and to the
+      debugger) as unhandled.
+    
+    This change also adds a new flavor of the unhandled exception test that
+    throws an unhandled exception on a secondary thread to exercise the
+    related code path.
+    
+    ---------
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
