@@ -1,0 +1,10 @@
+commit bfc881417c984ee23c8903b2bd7aa42e75cbc800
+Author: Max Charlamb <44248479+max-charlamb@users.noreply.github.com>
+Date:   Thu Feb 27 11:12:40 2025 -0500
+
+    [cDAC] Implement core stackwalking (#111759)
+    
+    * Adds IStackWalk contract
+    * Implements core of cDAC stackwalking mechanics
+    * Support for targeting amd64 and arm64 architectures
+    * Support Windows amd64 host
