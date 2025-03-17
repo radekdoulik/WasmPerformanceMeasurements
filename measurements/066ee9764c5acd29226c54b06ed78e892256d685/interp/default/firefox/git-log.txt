@@ -1,0 +1,11 @@
+commit 066ee9764c5acd29226c54b06ed78e892256d685
+Author: Marie Píchová <11718369+ManickaP@users.noreply.github.com>
+Date:   Mon Mar 17 20:01:04 2025 +0100
+
+    [WinHTTP] Let OS chose SSL/TLS protocol if not set to `WinHttpHandler` (#113525)
+    
+    * Do not set SSL/TLS protocols to WinHTTP and let the OS chose.
+    
+    * Remove SecurityProtocol.cs.
+    
+    * Feedback
