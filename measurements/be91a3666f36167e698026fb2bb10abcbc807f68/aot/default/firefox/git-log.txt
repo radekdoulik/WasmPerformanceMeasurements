@@ -1,0 +1,9 @@
+commit be91a3666f36167e698026fb2bb10abcbc807f68
+Author: xtqqczze <45661989+xtqqczze@users.noreply.github.com>
+Date:   Wed Jan 29 22:19:14 2025 +0000
+
+    Avoid `Unsafe.As` for `Memory<T>` and `ReadOnlyMemory<T>` conversion (#111023)
+    
+    * Use `Unsafe.BitCast`to cast `Memory<T>` and `ReadOnlyMemory<T>`
+    
+    * remove use of `Unsafe`
