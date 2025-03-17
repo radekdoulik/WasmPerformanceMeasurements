@@ -1,0 +1,7 @@
+commit c6586edaad22867db7086e95abeeff51b274bf80
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Mon Mar 17 19:25:54 2025 +0100
+
+    JIT: Remove `LclVarDsc::_lvArgReg` and `LclVarDsc::_lvOtherArgReg` (#113501)
+    
+    No longer used with recent work to switch to new ABI info.
