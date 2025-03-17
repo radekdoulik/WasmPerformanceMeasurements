@@ -1,0 +1,12 @@
+commit e6c3353d03b4e73461d335f36e2c1a840cebd506
+Author: Andy Ayers <andya@microsoft.com>
+Date:   Tue Jan 21 12:00:24 2025 -0800
+
+    JIT: tolerate unreachable callfinallies during EH removal (#111668)
+    
+    If we unexpectedly see multiple (likely unreachable) callfinallies from an
+    empty try, just defer optimizing away the try. Now that we run multiple
+    passes of EH removal, we will  redo the opt later once flow opts have cleaned
+    up those unreachable blocks.
+    
+    Fixes #111617
