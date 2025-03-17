@@ -1,0 +1,7 @@
+commit dfd3cc0166484125d8a913b5a8dce3d60e921e90
+Author: Filip Navara <filip.navara@gmail.com>
+Date:   Fri Mar 14 17:15:00 2025 +0100
+
+    [browser] Fix double dispose of GCHandle in BrowserWebSocket (#113464)
+    
+    Co-authored-by: pavelsavara <pavel.savara@gmail.com>
