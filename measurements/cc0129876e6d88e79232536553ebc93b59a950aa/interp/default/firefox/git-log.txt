@@ -1,0 +1,9 @@
+commit cc0129876e6d88e79232536553ebc93b59a950aa
+Author: Jeremy Koritzinsky <jekoritz@microsoft.com>
+Date:   Thu Mar 13 10:48:01 2025 -0700
+
+    Include xmmintrin.h early on x86 as well (#113279)
+    
+    * Include xmmintrin.h early on X86 as well
+    
+    * Don't extern "C" main
