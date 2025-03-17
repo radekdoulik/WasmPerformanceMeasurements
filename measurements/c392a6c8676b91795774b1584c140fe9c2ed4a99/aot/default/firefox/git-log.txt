@@ -1,0 +1,7 @@
+commit c392a6c8676b91795774b1584c140fe9c2ed4a99
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Mon Mar 17 10:28:04 2025 +0100
+
+    Use `GetUninitializedObject` to marshal LayoutClass (#113529)
+    
+    The marshalling rule is that `Marshal.PtrToStructure` will use the parameterless constructor to create instance and refuse working if there isn't one, but p/invoke will use `GetUninitializedObject` and ignore any constructors.
