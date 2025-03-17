@@ -1,0 +1,9 @@
+commit 3232b4407f1ea18195cbfe13422b31b174f01a38
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Wed Feb 19 09:38:31 2025 -0500
+
+    Fix LINQ handling of iterator.Take(...).Last(...) (#112680)
+    
+    When the Take amount is larger than the number of elements in the source `Iterator<T>`, Last ends up throwing an exception and LastOrDefault ends up returning the default value, rather than returning the last value in the taken region.
+    
+    As part of fixing this, I sured up the tests to try to cover more such sequences of operations. In doing so, the tests got a lot slower, so I tracked down and fixed places where we were doing a lot of unnecessary work.
