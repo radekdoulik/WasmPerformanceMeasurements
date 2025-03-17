@@ -1,0 +1,7 @@
+commit 599996a65fd7c4e239215bcea460bf8a23303dae
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Mon Mar 17 18:08:11 2025 +0100
+
+    Fix GetInterfaceMap with respect to generics (#113611)
+    
+    This API is still generally broken because the partial implementation from https://github.com/dotnet/corert/pull/8144 is still only partial, but this should either return correct result or throw. Here we can compute the correct result. Full fix still tracked at #89157.
