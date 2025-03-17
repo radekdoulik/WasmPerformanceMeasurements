@@ -1,0 +1,24 @@
+commit 544cf0ccbc744015001933658c04f4bf364abb07
+Author: Andy Ayers <andya@microsoft.com>
+Date:   Sun Mar 16 16:54:41 2025 -0700
+
+    JIT: fix issue in cloning loops with trys in handlers (#113586)
+    
+    Loop cloning with EH had a bug when:
+    * the loop contained a try T0 that was within a handler H1
+    * the associated try T1 was also within the loop
+    * the entire loop was within another try T2
+    
+    Here T0's containing try is T2, and its enclosing try index was properly
+    adjusted when the EH table expands as part of cloning. We were doing another
+    index adjustment later which lead to an out of bounds index.
+    
+    Also cleaned up the code that detects which try regions need cloning as in the
+    above we only need to consider T1. When we go to clone it we also will clone H1
+     and hence T2.
+    
+    Also fixed/added some more dumping, and some new test cases.
+    
+    This fix addresses a problem that came up stress testing #112998. Since the
+    underlying bug does not require inlining to create the EH setup above,
+    I am fixing it separately.
