@@ -1,0 +1,7 @@
+commit 4f9ecbf78bc71b72b153c26a50babf1b99304782
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Tue Mar 18 04:59:12 2025 +0100
+
+    Disable LongProcessNamesAreSupported on OSX (#113600)
+    
+    This is consistently failing on osx after updating Helix to osx13.
