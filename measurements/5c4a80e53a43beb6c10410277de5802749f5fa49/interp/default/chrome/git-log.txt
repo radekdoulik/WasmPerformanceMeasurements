@@ -1,0 +1,9 @@
+commit 5c4a80e53a43beb6c10410277de5802749f5fa49
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Sun Mar 16 23:54:17 2025 +0100
+
+    JIT: Ensure `fgTryMorphStructArg` morphs created trees (#113496)
+    
+    In particular we could create `LCL_FLD` or `LCL_VAR` nodes for address
+    exposed locals without marking them with `GTF_GLOB_REF`. This would
+    result in not creating some necessary copies.
