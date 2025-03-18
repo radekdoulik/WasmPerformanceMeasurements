@@ -1,0 +1,17 @@
+commit 79edb640661c29fc3917eac0a6f06e908f4cf617
+Author: Carlos Sánchez López <1175054+carlossanlop@users.noreply.github.com>
+Date:   Tue Mar 18 13:10:10 2025 -0700
+
+    Additional Tar tests for filled in size when data is empty (#107815)
+    
+    * Additional Tar tests for filled in size when data is empty.
+    
+    * Remove deleted test
+    
+    * Apply suggestion for archiveStream contents.
+    
+    * Fix paste error
+    
+    ---------
+    
+    Co-authored-by: Stephen Toub <stoub@microsoft.com>
