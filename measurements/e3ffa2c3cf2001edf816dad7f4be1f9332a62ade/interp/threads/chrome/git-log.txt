@@ -1,0 +1,9 @@
+commit e3ffa2c3cf2001edf816dad7f4be1f9332a62ade
+Author: Jan Kotas <jkotas@microsoft.com>
+Date:   Mon Mar 17 23:13:34 2025 -0700
+
+    Fix misaligned reads in NativeAOT code manager (#113637)
+    
+    The fix replaces the native implementation of the native format decoder with the clone of the managed implementation.
+    
+    Fixes #113609
