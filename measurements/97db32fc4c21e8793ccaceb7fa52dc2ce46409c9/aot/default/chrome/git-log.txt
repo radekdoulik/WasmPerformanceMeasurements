@@ -1,0 +1,13 @@
+commit 97db32fc4c21e8793ccaceb7fa52dc2ce46409c9
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Mon Mar 17 23:18:03 2025 +0100
+
+    Use reflection metadata to represent methods/fields in native layout (#113413)
+    
+    Native layout is a parallel form of metadata that was introduced in .NET Native mostly because in the structuring of that compiler, the decisions about reflection metadata and decisions about native layout happened in different components written in different languages (reflection metadata in C# during IL2IL transforms, native layout in C++ in NUTC).
+    
+    Native layout has its own representation of methods and fields. There is a bunch of code to read and reconcile those two formats at runtime. This then introduces problems such as in #91381 where updating one format necessitates updating the other one.
+    
+    Instead of adding more code to native layout generation/reading/reconciliation to account for custom modifiers, I'm just deleting ~2000 lines of code responsible for native layout metadata from the product instead.
+    
+    One thing I needed to adjust was that native layout metadata is more compact than reflection metadata - so I added a new way of emitting reflection metadata for methods where the generated method won't have any custom attributes or parameter names. This hobbled method is not reachable with trim safe code. If someone gets a hold of it, more things will be broken than just the ability to invoke it.
