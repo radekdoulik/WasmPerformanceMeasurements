@@ -1,0 +1,5 @@
+commit 9d742b6666e896f261cf3b62c5dfbeb7a94e8097
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Tue Mar 18 05:11:12 2025 +0100
+
+    Do not throw for `Marshal.SizeOf(typeof(delegate*<void>))` (#113603)
