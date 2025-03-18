@@ -1,0 +1,17 @@
+commit cee9527dc42b304e4dea11a5cc4f18c703456522
+Author: Ruihan-Yin <107431934+Ruihan-Yin@users.noreply.github.com>
+Date:   Mon Mar 17 17:14:34 2025 -0700
+
+    [APX] Complete EGPR encoding in X64 backend (#113237)
+    
+    * EGPR-encoding-part-1
+    
+    * EGPR-encoding-part-2
+    
+    * bug fix
+    
+    * revert LSRA changes.
+    
+    * formatting.
+    
+    * Make sure KMOV does not use EVEX under X86
