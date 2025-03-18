@@ -1,0 +1,9 @@
+commit 3d5015eb902a40e008fc0f2293bc0ef2654e1ecc
+Author: Clinton Ingram <clinton.ingram@outlook.com>
+Date:   Mon Mar 17 18:31:11 2025 -0700
+
+    JIT: Handle containment for shift instructions with EVEX encoding (#111644)
+    
+    * handle containment for EVEX-encoded shift instructions
+    
+    * use tuple type instead of instruction list
