@@ -1,0 +1,7 @@
+commit 48ace183c442e367738374671a86bd82ed60e7d9
+Author: Aman Khalid <amankhalid@microsoft.com>
+Date:   Wed Mar 19 12:21:55 2025 -0400
+
+    JIT: Re-introduce late `fgOptimizeBranch` pass (#113491)
+    
+    Part of #107749. fgReorderBlocks runs fgOptimizeBranch when it decides not to reorder a particular block. Turning off the old layout in favor of RPO layout in .NET 9 had the unintended consequence of also disabling the later fgOptimizeBranch pass the JIT used to do. After finding cases in #113108 that benefit from cloning and hoisting loop tests, I decided to reintroduce this late pass. These regressions also highlight that fgOptimizeBranch can create compaction opportunities inside loop bodies that we don't currently take advantage of; I've added a check to handle this.
