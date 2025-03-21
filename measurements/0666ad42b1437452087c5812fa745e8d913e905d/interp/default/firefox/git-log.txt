@@ -1,0 +1,9 @@
+commit 0666ad42b1437452087c5812fa745e8d913e905d
+Author: David Wrighton <davidwr@microsoft.com>
+Date:   Wed Mar 19 10:29:28 2025 -0700
+
+    Stub Precode variant for DynamicHelpers (#113402)
+    
+    Run DynamicHelpers logic with StubPrecodes instead of dynamically generating the stubs.
+    
+    Performance measurements indicate that this path is about 1% faster than the current approach for startup of my powershell benchmark, and results seem similar between X64 and Arm64 which was a surprise to me. Throughput results look like roughly a wash. I'd like to merge this PR in with its current state of changing all Arm64 and X64 behavior to use the new path to get a full set of performance data, as it appears this might just be a better approach than generating stubs dynamically.
