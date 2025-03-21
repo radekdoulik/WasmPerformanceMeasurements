@@ -1,0 +1,8 @@
+commit 8cab0b2780a7fbc4a386b26293cd117c1fc0ae8f
+Author: Katelyn Gadd <kg@luminance.org>
+Date:   Wed Mar 19 10:49:37 2025 -0700
+
+    [mono] Fix for issue 109410 (#113140)
+    
+    * Speculative assertions for issue 109410
+    * Add memory barrier
