@@ -1,0 +1,7 @@
+commit 1f067293272ab6d42e329782798bc2f7398d1907
+Author: Radek Zikmund <32671551+rzikm@users.noreply.github.com>
+Date:   Fri Mar 21 08:26:52 2025 +0100
+
+    Revert "Reenable SslStreamTlsResumeTests.ClientDisableTlsResume_Succeeds (#11…" (#113730)
+    
+    This reverts commit 230a4ce927e04c0223659218873239593ebf2dd4.
