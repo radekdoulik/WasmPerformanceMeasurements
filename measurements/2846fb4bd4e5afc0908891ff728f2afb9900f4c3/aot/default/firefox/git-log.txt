@@ -1,0 +1,12 @@
+commit 2846fb4bd4e5afc0908891ff728f2afb9900f4c3
+Author: Aaron Robinson <arobins@microsoft.com>
+Date:   Mon Mar 24 07:58:52 2025 -0700
+
+    Remove all explicit GC Poll calls in unmanaged code. (#113715)
+    
+    Remove explicit GC Poll from GC.SuppressFinalize().
+    Remove GC Poll from FCall and move it to managed, Buffer.__BulkMoveWithWriteBarrier().
+    Remove unneccessary explicit FC_GC_POLL() calls.
+    Remove unneccessary explicit FC_GC_POLL_RET() calls.
+    Remove unmanaged GCPoll implementation.
+    Implement JIT intrinsic for GC Poll, Thread.FastGCPoll.
