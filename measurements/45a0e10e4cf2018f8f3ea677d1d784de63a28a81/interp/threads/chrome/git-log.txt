@@ -1,0 +1,17 @@
+commit 45a0e10e4cf2018f8f3ea677d1d784de63a28a81
+Author: Fuad Ismail <fuad1502@gmail.com>
+Date:   Tue Mar 25 00:43:59 2025 +0700
+
+    [RISC-V] Detect Zba & Zbb extensions (#113676)
+    
+    * [RISC-V] Detect Zba & Zbb extensions
+    
+    * [RISC-V] Reflect constants in cpufeatures.h to HardwareIntrinsicHelpers.cs
+    
+    * [RISC-V] Use hwprobe syscall directly
+    
+    * [RISC-V] Check syscall return value and use baseline support on failure
+    
+    * [RISC-V] Regenerate JIT version GUID
+    
+    * [RISC-V] Add Zba Zbb extension configuration variables
