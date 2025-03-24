@@ -1,0 +1,29 @@
+commit 61d250c185beeff442b1abdda259c086e8682646
+Author: dotnet-maestro[bot] <42748379+dotnet-maestro[bot]@users.noreply.github.com>
+Date:   Wed Feb 12 21:25:50 2025 -0600
+
+    [main] Update dependencies from dotnet/hotreload-utils, dotnet/icu, dotnet/runtime-assets, dotnet/sdk (#112337)
+    
+    * Update dependencies from https://github.com/dotnet/hotreload-utils build 20250203.1
+    
+    Microsoft.DotNet.HotReload.Utils.Generator.BuildTool
+     From Version 10.0.0-alpha.0.25077.1 -> To Version 10.0.0-alpha.0.25103.1
+    
+    * Update dependencies from https://github.com/dotnet/sdk build 20250208.4
+    
+    Microsoft.DotNet.ApiCompat.Task
+     From Version 10.0.100-alpha.1.25077.2 -> To Version 10.0.100-preview.2.25108.4
+    
+    * Update dependencies from https://github.com/dotnet/icu build 20250209.1
+    
+    Microsoft.NETCore.Runtime.ICU.Transport
+     From Version 10.0.0-preview.2.25102.3 -> To Version 10.0.0-preview.2.25109.1
+    
+    * Update dependencies from https://github.com/dotnet/runtime-assets build 20250210.1
+    
+    Microsoft.DotNet.CilStrip.Sources , Microsoft.NET.HostModel.TestData , System.ComponentModel.TypeConverter.TestData , System.Data.Common.TestData , System.Drawing.Common.TestData , System.Formats.Tar.TestData , System.IO.Compression.TestData , System.IO.Packaging.TestData , System.Net.TestData , System.Private.Runtime.UnicodeData , System.Runtime.Numerics.TestData , System.Runtime.TimeZoneData , System.Security.Cryptography.X509Certificates.TestData , System.Text.RegularExpressions.TestData , System.Windows.Extensions.TestData
+     From Version 10.0.0-beta.25103.1 -> To Version 10.0.0-beta.25110.1
+    
+    ---------
+    
+    Co-authored-by: dotnet-maestro[bot] <dotnet-maestro[bot]@users.noreply.github.com>
