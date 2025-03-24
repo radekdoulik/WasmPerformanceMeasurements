@@ -1,0 +1,9 @@
+commit 509c12b093c045e9ac086e486af39bc87d2d6d11
+Author: Anton Firszov <Anton.Firszov@microsoft.com>
+Date:   Mon Feb 24 21:43:53 2025 +0100
+
+    Narrow AddressFamily passed to getaddrinfo when IPv6 is unsupported (#112642)
+    
+    When IPv6 is unsupported or disabled, we should avoid passing `AF_UNSPEC` to the platform calls since those will do `AAAA` resolve attempts which might result in failures surfacing to the user, see #107979. Instead, we can narrow down the query to `AF_INET` so failures are avoided.
+    
+    The change has been validated by packet captures on Windows and Linux. There are no `AAAA` questions when `System.Net.DisableIPv6` is set to `true`.
