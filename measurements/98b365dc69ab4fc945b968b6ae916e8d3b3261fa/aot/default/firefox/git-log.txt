@@ -1,0 +1,7 @@
+commit 98b365dc69ab4fc945b968b6ae916e8d3b3261fa
+Author: Alexander Köplinger <alex.koeplinger@outlook.com>
+Date:   Tue Mar 25 09:20:07 2025 +0100
+
+    Use dotnet-install script directly from CDN instead of dot.net (#113847)
+    
+    The dot.net redirector is currently having issues, we should be using the script directly from the CDN anyway.
