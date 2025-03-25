@@ -1,0 +1,11 @@
+commit 71cd23bbb81e94f5d865dd79544b6e1fc6bd412b
+Author: Anton Firszov <Anton.Firszov@microsoft.com>
+Date:   Tue Mar 25 16:05:04 2025 +0100
+
+    [HttpStress] Re-enable ASAN for msquic (#113669)
+    
+    * re-enable ASAN for msquic
+    
+    * bump gcc version in LD_PRELOAD path
+    
+    * use same asan options as CoreCLR
