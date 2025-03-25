@@ -1,0 +1,9 @@
+commit fa4c14e0d82447c25aa0fa4d9735c905e30836ac
+Author: Elinor Fung <elfung@microsoft.com>
+Date:   Mon Mar 24 20:00:00 2025 -0700
+
+    Reapply "Refactor `external_assembly_probe` to be separate from single-file bundle probing" (#113776)
+    
+    Undo the revert in https://github.com/dotnet/runtime/pull/113738
+    
+    Fix on top of the original: Make a copy of the host contract information on initialization instead of just operating on a pointer to the struct. This should address intermittent failures on shutdown where a thread is still running after coreclr_shutdown has completed and the actual contract struct provided by a host may be cleaned up. The assumption is that any function pointers provided on the host contract at initialization should remain valid for the process lifetime.
