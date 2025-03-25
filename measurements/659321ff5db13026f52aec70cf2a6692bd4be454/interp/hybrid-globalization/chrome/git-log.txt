@@ -1,0 +1,22 @@
+commit 659321ff5db13026f52aec70cf2a6692bd4be454
+Author: Filip Navara <filip.navara@gmail.com>
+Date:   Mon Mar 24 22:53:02 2025 +0100
+
+    Fix an edge case in the Tarjan GC bridge that leads to losing xref information (#112825)
+    
+    * Fix an edge case in the Tarjan SCC that lead to losing xref information
+    
+    In the Tarjan SCC bridge processing there's a color graph used to find out
+    connections between SCCs. There was a rare case which only manifested when
+    a cycle in the object graph points to another cycle that points to a bridge
+    object. We only recognized direct bridge pointers but not pointers to other
+    non-bridge SCCs that in turn point to bridges and where we already calculated
+    the xrefs. These xrefs were then lost.
+    
+    * Add test case to sgen-bridge-pathologies and add an assert to catch the original bug
+    
+    * Add review
+    
+    ---------
+    
+    Co-authored-by: Vlad Brezae <brezaevlad@gmail.com>
