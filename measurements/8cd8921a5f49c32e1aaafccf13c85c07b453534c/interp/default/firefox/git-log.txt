@@ -1,0 +1,12 @@
+commit 8cd8921a5f49c32e1aaafccf13c85c07b453534c
+Author: Max Charlamb <44248479+max-charlamb@users.noreply.github.com>
+Date:   Thu Mar 20 16:39:26 2025 -0700
+
+    [cDAC] Stack walk support more Frame types (#112997)
+    
+    Adds cDAC support for runtime Frame types:
+    * `TransitionFrame` (and subclasses)
+    * `FuncEvalFrame`
+    * `ResumableFrame` (and subclasses)
+    * `FaultingExceptionFrame`
+    * `HijackFrame`
