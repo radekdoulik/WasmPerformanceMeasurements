@@ -1,0 +1,7 @@
+commit 68db36feedae1c308e810d28a6fb148679eeabfd
+Author: Marc Brooks <IDisposable@gmail.com>
+Date:   Thu Mar 27 11:00:56 2025 -0500
+
+    Make the eager-enumerator a sealed class (#113927)
+    
+    Per [review feedback from @stephentoub](https://github.com/dotnet/runtime/pull/113775#discussion_r2014543804) post-merge
