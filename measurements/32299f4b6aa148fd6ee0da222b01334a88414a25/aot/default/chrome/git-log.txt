@@ -1,0 +1,7 @@
+commit 32299f4b6aa148fd6ee0da222b01334a88414a25
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Tue Mar 25 14:29:45 2025 +0100
+
+    Cut off deep recursion over arrays (#113825)
+    
+    When we hit a generic recursion over arrays, we detect it, but there was no cutoff logic to cut off the expansion. The result is a compile time OOM. This adds a cutoff, using the same cutoff number we use to look for deep generics.
