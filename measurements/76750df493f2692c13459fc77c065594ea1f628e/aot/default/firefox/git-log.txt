@@ -1,0 +1,11 @@
+commit 76750df493f2692c13459fc77c065594ea1f628e
+Author: David Wrighton <davidwr@microsoft.com>
+Date:   Mon Mar 24 14:36:23 2025 -0700
+
+    Remove helper method frames from Monitors (#113242)
+    
+    - Convert to the FCALL fast path/QCALL slow path approach
+    - Make EnterHelperResult/LeaveHelperAction into enum class so that they can safely be silently marshaled between native and managed
+    - Move the lockTaken flag handling to managed code so we can share more helpers
+    
+    Benchmarking indicates this may actually be faster than the previous approach. I'm a bit skeptical, but its not out of the question.
