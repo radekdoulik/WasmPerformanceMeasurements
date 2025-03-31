@@ -1,0 +1,15 @@
+commit bd24074af017236c97d8c15b3f77a16e84fff937
+Author: Alexey Zakharov <alexeyzakharov@unity3d.com>
+Date:   Tue Mar 4 01:59:27 2025 +0100
+
+    [main] Fix LoaderAllocator computation for a generic type instance (#111706)
+    
+    * Take defining type loader allocator into account when computing loader allocator of a generic type instance
+    
+    (cherry picked from commit b3a73f3b66589df3cd8d00c7333ad28e84d669d2)
+    
+    * Added a test that validates ALC unload when it participates in a static field of a generic class
+    
+    * Addressed codereview comment
+    
+    * Updated https://github.com/mono/mono/issues/15142 to https://github.com/dotnet/runtime/issues/34072
