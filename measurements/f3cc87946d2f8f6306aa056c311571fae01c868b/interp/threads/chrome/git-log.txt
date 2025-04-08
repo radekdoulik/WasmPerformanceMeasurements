@@ -1,0 +1,11 @@
+commit f3cc87946d2f8f6306aa056c311571fae01c868b
+Author: kzrnm <gengesa@gmail.com>
+Date:   Tue Apr 8 16:47:35 2025 +0900
+
+    Call build.cmd directly from build.sh (#114341)
+    
+    * Call build.cmd directly from build.sh
+    
+    * Remove cygpath
+    
+    Windows style is available on MinGW, but not Cygwin
