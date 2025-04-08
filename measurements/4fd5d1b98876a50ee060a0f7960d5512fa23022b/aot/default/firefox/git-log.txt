@@ -1,0 +1,7 @@
+commit 4fd5d1b98876a50ee060a0f7960d5512fa23022b
+Author: Anton Firszov <Anton.Firszov@microsoft.com>
+Date:   Tue Apr 8 15:25:56 2025 +0200
+
+    Fix discrepancy between HttpRequest/ResponseMessage.ToString and HttpHeaders.ToString (#114101)
+    
+    Reuse `HttpHeaders.ToString()` logic in `HeaderUtilities.DumpHeaders()` so the outputs are similar. Values for the same key will be shown in the same line.
