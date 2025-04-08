@@ -1,0 +1,15 @@
+commit 548aadc94b8922da96294625c4dd4d9a4fd00872
+Author: Vlad Brezae <brezaevlad@gmail.com>
+Date:   Tue Apr 8 15:37:24 2025 +0300
+
+    [clr-interp] Refactor passing of configuration environment variables (#114300)
+    
+    * [clr-interp] Refactor consumation of configuration properties from environment
+    
+    * [clr-interp] Verbose logging for method passed in DOTNET_InterpDump
+    
+    * [clr-interp] Add support for DOTNET_InterpHalt
+    
+    This flag adds a `INTOP_BREAKPOINT` instruction at the beginning of the method. This opcode calls the `InterpBreakpoint` method. In order to make use of this debug option, you need to add a breakpoint to this method.
+    
+    An alternative would be to use special instructions to trigger a trap in the debugger, but there is no clean cross platform way to do this currently. Using `__builtin_debugtrap()` on arm64 doesn't allow for step/continue, you would need to set the PC register manually to the next instruction in order to exit the trap, making it a pain to use.
