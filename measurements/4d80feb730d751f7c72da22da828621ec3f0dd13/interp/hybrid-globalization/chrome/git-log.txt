@@ -1,0 +1,17 @@
+commit 4d80feb730d751f7c72da22da828621ec3f0dd13
+Author: Jan Vorlicek <janvorli@microsoft.com>
+Date:   Wed Apr 9 12:28:08 2025 +0200
+
+    Ensure proper interpreter frames ordering (#114418)
+    
+    The stack walking over interpreter frames relies on the fact that the
+    `InterpreterFrame` is always at higher address than all the
+    `InterpMethodContextFrame` instances of the underlying interpreter frames.
+    In the `ExecuteInterpretedMethod`, there are instances of both of these
+    types and I haven't realized before that the compiler is free to pick
+    any order of storing them in the stack frame of the method. It actually
+    happens in Checked builds and results in an assert in the stack walker,
+    because the `InterpreterFrame` is then determined to be skipped.
+    
+    This change fixes it by ensuring proper ordering of those instances
+    using a wrapper struct.
