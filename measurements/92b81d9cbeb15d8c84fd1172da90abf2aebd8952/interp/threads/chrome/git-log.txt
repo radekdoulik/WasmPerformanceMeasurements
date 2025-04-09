@@ -1,0 +1,7 @@
+commit 92b81d9cbeb15d8c84fd1172da90abf2aebd8952
+Author: Larry Ewing <lewing@microsoft.com>
+Date:   Tue Apr 8 22:32:29 2025 -0500
+
+    [wasm][interp] Add Round alias (#114399)
+    
+    Implements Vector Round intrinsic in terms of PackedSimd.
