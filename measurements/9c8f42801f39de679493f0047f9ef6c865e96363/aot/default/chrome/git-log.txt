@@ -1,0 +1,14 @@
+commit 9c8f42801f39de679493f0047f9ef6c865e96363
+Author: David Wrighton <davidwr@microsoft.com>
+Date:   Wed Apr 9 14:35:53 2025 -0700
+
+    Alternate approach for HELPER_METHOD_FRAME removal for arithmetic divide (take2) (#114352)
+    
+    This is a combination of @am11's work in PR https://github.com/dotnet/runtime/pull/109087 and some work to just rewrite the Windows X86 helpers in assembly.
+    
+    For non 64-bit platforms, remove the helpers
+    For Unix platforms, rely on an implementation which uses an FCall to native code to invoke the various operations.
+    For Windows X86 on CoreCLR, rewrite the helpers in assembly with a tail-call approach for throwing.
+    Also it was noted that the existing helpers do a fair bit of unnecessary stack manipulation, and the manual rewrite avoids all of that. Maybe this will actually be faster. (Turns out it is about the same on performance. The real win would come from re-ordering the argument order, but that's a much more invasive change in the JIT, which I judge to be too risky)
+    
+    Revert #114308  and fix the X86 NativeAOT build
