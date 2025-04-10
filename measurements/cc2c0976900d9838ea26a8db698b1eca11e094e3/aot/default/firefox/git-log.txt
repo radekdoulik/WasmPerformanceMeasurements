@@ -1,0 +1,7 @@
+commit cc2c0976900d9838ea26a8db698b1eca11e094e3
+Author: Radek Doulik <radek.doulik@gmail.com>
+Date:   Thu Apr 10 20:41:21 2025 +0200
+
+    [wasm][bench] Fix the template dir creation (#114482)
+    
+    The path was wrong, not updated after copy/paste?
