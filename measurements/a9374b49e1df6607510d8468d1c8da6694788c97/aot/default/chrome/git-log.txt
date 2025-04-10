@@ -1,0 +1,16 @@
+commit a9374b49e1df6607510d8468d1c8da6694788c97
+Author: Bruce Forstall <brucefo@microsoft.com>
+Date:   Wed Apr 9 21:42:37 2025 -0700
+
+    Fix GC hole with `rorx` instruction (#114467)
+    
+    The `rorx` instruction uses format IF_RWR_ARD_CNS. This format was not
+    handled when killing GC refs in `emitOutputAM`.
+    
+    I added other cases of register write "ARD" address mode formats
+    to the same case as "defense in depth" -- most or all of them are
+    probably SIMD instructions with SIMD destination registers, and won't go
+    down this code path.
+    
+    Diffs include cases in the HardwareIntrinsics tests, but also in the
+    libraries code, for both x64 and x86.
