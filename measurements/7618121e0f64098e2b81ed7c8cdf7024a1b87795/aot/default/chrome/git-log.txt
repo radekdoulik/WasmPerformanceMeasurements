@@ -1,0 +1,12 @@
+commit 7618121e0f64098e2b81ed7c8cdf7024a1b87795
+Author: Max Charlamb <44248479+max-charlamb@users.noreply.github.com>
+Date:   Thu Apr 10 13:01:58 2025 -0400
+
+    [cDAC] Adds DAC like entrypoint with new COM interface (#113899)
+    
+    * adds DAC like entrypoint
+    * adds support for passing cDAC contract globals as strings
+    * adds RuntimeInfo contract to fetch target OS/Arch
+    * adds portable RID to contract for future use, currently unused
+    
+    Co-authored-by: Max Charlamb <maxcharlamb@microsoft.com>
