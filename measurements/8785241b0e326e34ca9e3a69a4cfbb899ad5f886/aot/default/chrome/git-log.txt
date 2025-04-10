@@ -1,0 +1,7 @@
+commit 8785241b0e326e34ca9e3a69a4cfbb899ad5f886
+Author: Anton Firszov <Anton.Firszov@microsoft.com>
+Date:   Wed Apr 9 21:00:47 2025 +0200
+
+    Propagate exceptions in `GetAddressInfoExCallback` (#113444)
+    
+    Unhandled OOM in `GetAddressInfoExCallback` may crash the process. We should catch and forward exceptions in the method.
