@@ -1,0 +1,35 @@
+commit 4bfdd53a625de820396d5476a84aafa9f19a7a96
+Author: Johan Lorensson <lateralusx.github@gmail.com>
+Date:   Fri Apr 11 08:44:56 2025 +0200
+
+    Fix issue when logging stack overflow in WinForm apps. (#114432)
+    
+    * Fix issue when logging stack overflow in WinForm apps.
+    
+    WinForm apps doesn't have a console and apparently, Windows implementation
+    of fileno doesn't have same behaviour as POSIX implementation where a
+    return of -1 means error. On Windows, fileno will return
+    -2 when there is no console attached to the app. This bypass the check
+    in write_file that should have return 0, instead it will call_write that
+    will return an error that was not fully accounted for leading to a
+    infinite loop.
+    
+    Fix makes sure Windows implementation sees -1 and -2 as invalid file
+    descriptors. Fix also account for errors returned by _write breaking
+    out of the loop.
+    
+    Fixes https://github.com/dotnet/runtime/issues/114412.
+    
+    * According to POSIX and Win32 documentation of fileno/_fileno there
+    is no real error return, so as long as it gets called with a valid
+    stream, it should return something that write/_write should handle
+    and since we handle error returns from calls to write/_write, in
+    minipal_log_write it might be better to let underlying API's
+    decode the meaning of file descriptors returned by fileno/_fileno.
+    
+    minipal_log_write will only pass stdout/stderr to fileno/_fileno
+    and they should always be valid file streams, even if there is no
+    console attached. On a Windows app running without console, it will
+    return back a file descriptor of -2 in that case that _write will
+    see as a unavailable console and return -1 that minipal_log_write
+    will handle.
