@@ -1,0 +1,7 @@
+commit 982912a31bf65ce80d6bfef09a493c27e554937d
+Author: Andy Ayers <andya@microsoft.com>
+Date:   Thu Apr 10 18:40:34 2025 -0700
+
+    Block inlines with different exception wrapping behavior (#113849)
+    
+    Fixes #113815
