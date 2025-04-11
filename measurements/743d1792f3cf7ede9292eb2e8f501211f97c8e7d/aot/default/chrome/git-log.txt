@@ -1,0 +1,10 @@
+commit 743d1792f3cf7ede9292eb2e8f501211f97c8e7d
+Author: Jeremy Barton <jbarton@microsoft.com>
+Date:   Thu Apr 10 14:28:43 2025 -0700
+
+    Make CertificateRequest et al work with ML-DSA
+    
+    * Add ctors to CertificateRequest
+    * Enlighten CertificateRequest that future signing algorithms might not require a HashAlgorithmName
+    * Add support to CertificateRequestListBuilder
+    * Add cert.GetMLDsaPublicKey/GetMLDsaPrivateKey/CopyWithPrivateKey to power the above.
