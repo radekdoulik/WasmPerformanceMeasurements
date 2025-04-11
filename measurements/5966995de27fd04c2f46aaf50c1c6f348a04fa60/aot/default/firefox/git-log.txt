@@ -1,0 +1,11 @@
+commit 5966995de27fd04c2f46aaf50c1c6f348a04fa60
+Author: Elinor Fung <elfung@microsoft.com>
+Date:   Thu Apr 10 19:52:36 2025 -0700
+
+    Remove setting `$ORIGIN/netcoredeps` rpath (#114512)
+    
+    The original use case for setting the RPATH was self-contained Linux apps.
+    
+    Some time between .NET 6 and .NET 8, we started using a newer linker, such that this setting sets RUNPATH instead of RPATH. This meant it only applied to the host executable, not the runtime libraries (like coreclr).
+    
+    The netcoredeps behaviour was from a time when our dependencies were more complicated and even its intended use case has no support story.
