@@ -1,0 +1,8 @@
+commit 258b1ee5a8b25f06606e5794dd91a96eafbdaaf0
+Author: Trung Nguyen <57174311+trungnt2910@users.noreply.github.com>
+Date:   Fri Apr 11 14:26:55 2025 +1000
+
+    Haiku: Fix context register name (#114518)
+    
+    This fixes CoreCLR builds after the changes in
+    haiku/haiku@317307ff469e3ac310099d8eb4823c9711a677ea.
