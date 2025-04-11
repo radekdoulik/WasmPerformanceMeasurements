@@ -1,0 +1,7 @@
+commit 20b579bdbb6d8f11af41014d540c82f1d832de61
+Author: Trung Nguyen <57174311+trungnt2910@users.noreply.github.com>
+Date:   Sat Apr 12 01:39:01 2025 +1000
+
+    Haiku: Fix IPC socket (#114520)
+    
+    Haiku also does not support `fchmod` on a socket.
