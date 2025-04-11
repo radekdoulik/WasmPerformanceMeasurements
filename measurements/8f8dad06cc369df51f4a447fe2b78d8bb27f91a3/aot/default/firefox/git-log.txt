@@ -1,0 +1,9 @@
+commit 8f8dad06cc369df51f4a447fe2b78d8bb27f91a3
+Author: Larry Ewing <lewing@microsoft.com>
+Date:   Thu Apr 10 17:52:07 2025 -0500
+
+    [mono][interp] Add convert aliases (#114501)
+    
+    * Add ConvertToInt32 packedsimd alias
+    
+    * Add ConvertToSingle alias
