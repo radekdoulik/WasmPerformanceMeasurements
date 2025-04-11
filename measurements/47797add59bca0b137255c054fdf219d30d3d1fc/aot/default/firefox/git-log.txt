@@ -1,0 +1,9 @@
+commit 47797add59bca0b137255c054fdf219d30d3d1fc
+Author: Kunal Pathak <Kunal.Pathak@microsoft.com>
+Date:   Thu Apr 10 23:01:59 2025 -0700
+
+    Force storing GC state until we see a labeled IG (#114475)
+    
+    * Force storing GC state until we see a labelled IG
+    
+    * review feedback
