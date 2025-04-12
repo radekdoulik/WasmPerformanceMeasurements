@@ -1,0 +1,14 @@
+commit e6f38d7160ec950a657eda1e21848d6b73bfad73
+Author: David Wrighton <davidwr@microsoft.com>
+Date:   Sat Apr 12 07:19:16 2025 -0700
+
+    Split up loader heap implementations (#114246)
+    
+    We have long had 3 rather different heaps embedded in one structure called a LoaderHeap. They have shared ... some infrastructure, but there is a mess of confusing flags and code paths which only work for one or the other type of heap.
+    
+    This PR changes that to supporting the 3 different types of heaps with separate codebases, and keeps as much of the shared infrastructure as I could manage. Its, not what I would call a pretty separation, as there is a bit of a mess around the way the DAC apis can access the heaps, but I think this is an improvement. Notably, in a followon PR I'm intending to provide a new mechanism for the interleaved heap to work off of contents of a file instead of creating unique pages per stub block. (This should slighly improve the cache locality of .NET programs, and is a prerequisite for running on some heavily locked down platforms.) This PR prepares for that by making the Interleaved heap its own thing, so adding new behavior variants is a reviewable piece of work.
+    
+    The only functional change that happens with this PR is the newly added capability of the interleaved heaps to support freeing memory. (It was always possible to free, but for some reason the re-allocation behavior was not actually supported.)
+    
+    
+    Add support for a free list that actually works in the stub heaps.
