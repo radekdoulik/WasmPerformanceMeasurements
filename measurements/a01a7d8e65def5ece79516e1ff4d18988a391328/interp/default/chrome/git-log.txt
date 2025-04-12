@@ -1,0 +1,10 @@
+commit a01a7d8e65def5ece79516e1ff4d18988a391328
+Author: Bruce Forstall <brucefo@microsoft.com>
+Date:   Fri Apr 11 20:47:31 2025 -0700
+
+    Prevent DynamicOptimization test from running with DOTNET_ForceRelocs=1 (#114578)
+    
+    ForceRelocs causes the JIT to re-JIT every function on x64, which causes
+    the test to fail because it is counting JIT compilations.
+    
+    Simply force `DOTNET_ForceRelocs=0`.
