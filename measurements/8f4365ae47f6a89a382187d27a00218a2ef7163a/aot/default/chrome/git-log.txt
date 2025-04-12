@@ -1,0 +1,7 @@
+commit 8f4365ae47f6a89a382187d27a00218a2ef7163a
+Author: Alexander Köplinger <alex.koeplinger@outlook.com>
+Date:   Fri Apr 11 21:36:36 2025 +0200
+
+    Only remove publishing workload manifests in the runtime join job (#114558)
+    
+    We still need it temporarily for the worklods build job.
