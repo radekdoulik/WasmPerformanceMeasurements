@@ -1,0 +1,8 @@
+commit 43273482d7c150090bb044656871467a9ae5012c
+Author: Trung Nguyen <57174311+trungnt2910@users.noreply.github.com>
+Date:   Sat Apr 12 06:37:26 2025 +1000
+
+    Haiku: Define `libroot.so` as the `libc` (#114522)
+    
+    Make `SystemNative_LoadLibrary` look for `libroot.so` when `libc` is
+    requested.
