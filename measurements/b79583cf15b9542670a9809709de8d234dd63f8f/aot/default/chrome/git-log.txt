@@ -1,0 +1,10 @@
+commit b79583cf15b9542670a9809709de8d234dd63f8f
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Mon Mar 17 19:24:47 2025 +0100
+
+    JIT: Properly handle param reg targets with multiple register assignments (#113499)
+    
+    LSRA can assign different registers to the same local over its lifetime.
+    When this happens for a parameter, there is special logic to ensure that
+    the parameter gets its right initial register assignment. This handling
+    was missing for mapped parameter register targets.
