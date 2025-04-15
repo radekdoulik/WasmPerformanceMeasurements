@@ -1,0 +1,29 @@
+commit 212b1202f36d21360d3a932a36478ab5b5eff711
+Author: Andy Ayers <andya@microsoft.com>
+Date:   Tue Apr 15 08:55:50 2025 -0700
+
+    JIT: enhance escape analysis to understand local struct fields (#113977)
+    
+    Continuation of #113141
+    
+    Implement a very simplistic "field sensitive" analysis for gc structs where we model each struct as simply its gc field(s).
+    
+    That is, given a gc struct `G` with GC field `f`, we model
+    ```
+    G.f = ...
+    ```
+    as an assignment to `G` and
+    ```
+       = G.f
+    ```
+    as a read from `G`. Since we know `G` itself cannot escape, "escaping" of `G` means `G.f` can escape.
+    
+    Note this conflates the fields of `G`: either they all escape or none of them do. We could make this more granular
+    but it's not clear that doing so is worthwhile, and it requires more up-front work to determine how to track each field's status.
+    
+    If the struct or struct fields are only consumed locally, we may be able to prove the gc referents don't escape.
+    
+    This is a subset/elaboration of #112543 that does not try and reason interprocedurally.
+    
+    Contributes to #104936 / #108913
+    Fixes #113236 (once the right inlines happen)
