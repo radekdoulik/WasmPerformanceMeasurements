@@ -1,0 +1,7 @@
+commit d0e6ce8332a514d70b635ca4829bf863157256fe
+Author: Pavel Savara <pavel.savara@gmail.com>
+Date:   Tue Apr 15 14:07:40 2025 +0200
+
+    disable/trim MetricsHandler when System.Diagnostics.Metrics.Meter.IsSupported is false (#114326)
+    
+    Co-authored-by: Anton Firszov <antonfir@gmail.com>
