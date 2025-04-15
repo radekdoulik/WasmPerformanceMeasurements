@@ -1,0 +1,15 @@
+commit f79c09818ad2cf449cfb05a95e5b41d11f8f7d3e
+Author: Anton Firszov <Anton.Firszov@microsoft.com>
+Date:   Tue Apr 15 16:11:07 2025 +0200
+
+    [S.N.Quic] Observe exceptions in ResettableValueTaskSource (#114226)
+    
+    * Observe exceptions in ResettableValueTaskSource
+    
+    * Update src/libraries/System.Net.Quic/src/System/Net/Quic/Internal/ResettableValueTaskSource.cs
+    
+    Co-authored-by: Marie Píchová <11718369+ManickaP@users.noreply.github.com>
+    
+    ---------
+    
+    Co-authored-by: Marie Píchová <11718369+ManickaP@users.noreply.github.com>
