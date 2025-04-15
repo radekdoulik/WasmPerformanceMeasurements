@@ -1,0 +1,14 @@
+commit b2335c5726db63cb4e5e2a7b840db200055c3582
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Wed Apr 9 09:36:30 2025 +0200
+
+    Switch patchpoint key to <func version, IL offset> (#114381)
+    
+    This PR changes the patchpoint key to be a pair <function
+    version, IL offset> instead of by IP of the return address. This is in
+    preparation for runtime async changes where suspension inside OSR
+    methods have to be resumed via resumption stub -> tier 0 -> OSR method.
+    The latter step needs to retransition into the right OSR method from the
+    tier 0 resumption code. With the current key this is problematic
+    because the return address is not going to be the same as the original
+    patchpoint that induced the OSR transition.
