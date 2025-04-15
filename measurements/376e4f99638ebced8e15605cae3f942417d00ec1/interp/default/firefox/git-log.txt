@@ -1,0 +1,11 @@
+commit 376e4f99638ebced8e15605cae3f942417d00ec1
+Author: Kunal Pathak <Kunal.Pathak@microsoft.com>
+Date:   Tue Apr 8 20:55:38 2025 -0700
+
+    SVE: Slightly better calculation of stack frame for ldr/str (#114284)
+    
+    * slightly better calculation of stack frame for SVE ldr/str
+    
+    * add comments
+    
+    * review feedback
