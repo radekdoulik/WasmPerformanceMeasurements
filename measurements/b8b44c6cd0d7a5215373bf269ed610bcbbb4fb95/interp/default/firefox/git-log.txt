@@ -1,0 +1,9 @@
+commit b8b44c6cd0d7a5215373bf269ed610bcbbb4fb95
+Author: Elinor Fung <elfung@microsoft.com>
+Date:   Tue Apr 8 18:03:08 2025 -0700
+
+    Make host trace to `<exe_name>.<pid>.log` if `COREHOST_TRACEFILE` is set to a directory (#114362)
+    
+    Currently, host tracing can output to a file specified by the `COREHOST_TRACEFILE` environment variable. With multiple concurrent processes, the tracing gets interleaved in the resulting log.
+    
+    With this change, if `COREHOST_TRACEFILE` is set to a directory that exists, the host will trace to a file named `<exe_name>.<pid>.log` in that directory. If the specified path does not exist or is not a directory, the host uses the existing behavior of tracing to the file specified.
