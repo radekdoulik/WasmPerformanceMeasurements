@@ -1,0 +1,11 @@
+commit 0f60b6d4981dfe832a8f402246d4b07eb43dee6c
+Author: Casper Verhaar <casper.verhaar@gmail.com>
+Date:   Thu Apr 10 15:33:52 2025 +0200
+
+    Fix link to documentation file (#114481)
+    
+    The documentation file was moved in commit
+    a21da8f6d945002bbb7cdb426c148867f60be528, but this link still pointed to
+    the old file.
+    
+    Co-authored-by: Manish Godse <61718172+mangod9@users.noreply.github.com>
