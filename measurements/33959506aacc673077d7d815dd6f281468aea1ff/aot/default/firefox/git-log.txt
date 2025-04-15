@@ -1,0 +1,7 @@
+commit 33959506aacc673077d7d815dd6f281468aea1ff
+Author: Radek Doulik <radek.doulik@gmail.com>
+Date:   Wed Apr 9 13:59:38 2025 +0200
+
+    [wasm coreclr] simplify build (#114111)
+    
+    Add mono.emsdk subset for clr.runtime on browser
