@@ -1,0 +1,14 @@
+commit 9fd6a57e74714fbb37662ec23e30863c1abc2255
+Author: David Wrighton <davidwr@microsoft.com>
+Date:   Tue Apr 15 09:06:05 2025 -0700
+
+    Add an IsFuncletCache to the EECodeInfo (#114580)
+    
+    * Add an IsFuncletCache to the EECodeInfo, and do a cheap computation at EECodeInfo::Init time to fill it in if there aren't any funclets in the method
+    - This avoids the fairly complex IsFunclet logic on the JitManager, as well as the virtual call to get there in some cases.
+    
+    * Code review feedback to make this a bit more like the other optimized cases in EECodeInfo
+    
+    ---------
+    
+    Co-authored-by: Copilot <175728472+Copilot@users.noreply.github.com>
