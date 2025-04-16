@@ -1,0 +1,15 @@
+commit bdd0daed0d8d8f5beff0534b6d07da412d1e1e71
+Author: Maoni Stephens <Maoni0@users.noreply.github.com>
+Date:   Wed Apr 16 12:41:01 2025 -0700
+
+    fix the regression in regions when handling heavily pinning scenarios (#112403)
+    
+    this is to make regions behave very similarly to segments for heavily pinning scenarios. previously we observed regression in heap size due to regions not being aggressively demoted. changes included in this PR -
+    
+    + use the same policy for demotion of pinned plugs as much as possible for regions. since objects in a region can only belong to one generation, for pins observed skip_pins_in_alloc_region they will not use the same policy as they must belong to what's already allocated in that region. this policy is only applicable for regions with only pins left.
+    
+    + attribute the pins to the higher generation's generation_allocation_size when appropriate.
+    
+    + update data for events correctly for these pins.
+    
+    with these changes I'm seeing a heavily pinned scenario be able to keep the heap size much lower and basically stable, vs without fix it goes up steadily. there can be some regression in % time in GC by design since we now leave more pins in gen0 which increases the amount of survived memory gen0 has to process.
