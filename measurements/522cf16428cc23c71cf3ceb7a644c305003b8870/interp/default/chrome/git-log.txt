@@ -1,0 +1,5 @@
+commit 522cf16428cc23c71cf3ceb7a644c305003b8870
+Author: Jeremy Koritzinsky <jekoritz@microsoft.com>
+Date:   Tue Apr 15 15:52:02 2025 -0700
+
+    Produce the productVersion.txt files in runtime in the "final publish" step so we don't need to munge them through the different runtime jobs (#114706)
