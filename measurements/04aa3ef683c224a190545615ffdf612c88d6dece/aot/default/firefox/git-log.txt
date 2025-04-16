@@ -1,0 +1,21 @@
+commit 04aa3ef683c224a190545615ffdf612c88d6dece
+Author: Johan Lorensson <lateralusx.github@gmail.com>
+Date:   Fri Mar 21 16:46:06 2025 +0100
+
+    Initial CoreClr Android logcat log integration. (#113416)
+    
+    Initial CoreClr Android logcat integration was removed from cf2aae6. This PR adds a unified approach re-routing runtime console logging though a central log API defined in native/minipal/log.h potential shared between components as well as runtimes.
+    
+    This initial PR starts out defining a new header under native/minipal/log.h that includes a straightforward API to log formatted and raw output using different priority. It includes regular printf/vprintf style functions as well as low level none crt direct write capabilities, usable in high speed or async safe logging.
+    
+    API closely mimics Mono's logging API defined in glib.h and the idea is to potentially rewire Mono's logging to use this new API going forward potentially adding more capabilities into native/minipal/log.h
+    
+    Ability to log different log message using different priority is inherited from Mono and maps close to logcat priority levels, where different priorities can be filtered directly in logcat, creating virtual log streams. API includes a way to log directly to virtual standard error/output streams in case no specific need for fine grained priority-based logging exists. On platforms supporting stderr/stdout this will be a 1:1 mapping, but on platforms like logcat, stderr/stdout will be mapped to similar priority levels (error, info).
+    
+    There is no buffering when calling logcat log functions, each log call will end up as a new log entry. Code that relies on ability to do multiple logging calls and expect to get a new line only when writing \n into the log buffer, won't behave as expected when using logcat. This PR adjust a couple of places where such assumptions are made, appending logging into a string buffer before passed to minipal_log_write API's. Logcat has an internal buffer limitation of 4068 bytes, buffers larger than that will be truncated. To mitigate this logging targeting Android includes a mechanism splitting up the bigger buffer into smaller chunks based on \n in log message, if there is no \n in bigger log message, message will still be logged in chunks, but each chunk ending up as a separate logcat message. Internal chunk size has been defined to 4000 bytes, making room for future internal logcat buffer reduction. Regular console logging enforces a buffer size limit as well on low level write calls, this limitation was directly inherited from previous implementation in src/coreclr/vm/util.cpp into native/minipal/log.c, if buffer exceeds chunk size, it will be split into multiple chunks where each chunk is written "as is" to underlying write function.
+    
+    On Mono, formatted print style logcat implementation uses dynamic memory allocation + vsnprintf and low level __android_log_write. Current implementation in native/minipal/log.h adapt a similar schema but tries to first use a smaller stack buffer, inline with Androids internal implementation of __android_log_vprint use of 1024 bytes buffer. If log message is below 1024, implementation will match __android_log_vprint and use stack memory, but if exceeding 1024, implementation fallbacks to dynamic memory allocation, format message into dynamic memory buffer and then pass it through minipal_log_write to correctly handle max payload limitations as described above.
+    
+    This initial PR adapts a smaller set of source files under src/coreclr to use the new logging API as a first step adaption. It makes sure the LOG macro as well as exception handling gets emitted through the new log API ending up in logcat. PR also adapts jit logging as well as diagnostic servers pause message, currently written directly to console.
+    
+    This PR will be followed by an additional PR adapting more sources under src/coreclr/vm to use the new logging API enabling more log messages to end up in logcat on Android. Once the initial pass is done, adaption to new logging API will probably happen on a case-by-case basis.
