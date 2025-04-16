@@ -1,0 +1,31 @@
+commit 76b41d39387925b7f2283ff01cbb32415e1be0b2
+Author: Tarek Mahmoud Sayed <10833894+tarekgh@users.noreply.github.com>
+Date:   Wed Apr 16 09:43:50 2025 -0700
+
+    Support W3C Propagator (#114583)
+    
+    * Support W3C Propagator
+    
+    * Fix the comment
+    
+    * Remove wrong assert
+    
+    * try fix tracestate in http tests
+    
+    * fix failure cases in the http tests
+    
+    * More http test fixes
+    
+    * fix typo in test
+    
+    * Address the feedback
+    
+    * Swap the comments
+    
+    * Add baggage extraction test with correlation-context
+    
+    * Address Miha's feedback
+    
+    * Feedback
+    
+    * Add the new exposed APIs
