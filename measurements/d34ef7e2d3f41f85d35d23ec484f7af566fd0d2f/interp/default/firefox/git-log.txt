@@ -1,0 +1,46 @@
+commit d34ef7e2d3f41f85d35d23ec484f7af566fd0d2f
+Author: Johan Lorensson <lateralusx.github@gmail.com>
+Date:   Thu Mar 20 11:20:08 2025 +0100
+
+    [Mono]: Additional support for signal async safe stack-walks. (#113645)
+    
+    * [Mono]: Fix additional stack-walks to be async safe.
+    
+    Mono's stack-walker can be signal/async safe when needed,
+    making sure it won't allocate additional memory or taking internal
+    runtime locks. It is however up to the caller of the stack walking API's
+    to decide if it should be signal and/or async safe. Currently this is
+    controlled using two different flags, the MONO_UNWIND_SIGNAL_SAFE as well
+    as mono_thread_info_is_async_context.
+    
+    This is problematic since callers wants signal safe stack-walking but
+    since not both are set, it will not behave fully signal safe.
+    
+    https://github.com/dotnet/android/issues/9365 hit a couple of scenarios
+    described here:
+    
+    https://github.com/dotnet/android/issues/9365#issuecomment-2725069793
+    
+    that ends up deadlocking due to the fact that they did stack-walking
+    from within a signal handler and deadlocked or dumping stack on suspended
+    thread holding runtime loader lock, but without making the stack-walk async safe.
+    
+    Fix makes sure that calls to stack-walk API's can be made signal and/or
+    async safe and that identified areas uses the correct set of flags given
+    state of threads when stack-walking.
+    
+    * Add signal async safe stack unwind option.
+    
+    * Assert that walk_stack_full_llvm_only is only called in llvm only mode.
+    
+    * Correct some bool usage.
+    
+    * Make signal safe unwind option, signal async safe.
+    
+    Mono's current MONO_UNWIND_SIGNAL_SAFE was not fully signal safe since
+    it was not async safe, that could lead to taking loader lock. This
+    will fix MONO_UNWIND_SIGNAL_SAFE to be signal asycn safe, it will also
+    change current use of MONO_UNWIND_SIGNAL_SAFE to MONO_UNWIND_NONE since
+    they where equal before this fix, meaning old calls using
+    MONO_UNWIND_SIGNAL_SAFE will behave identical using MONO_UNWIND_NONE
+    so no regression.
