@@ -1,0 +1,5 @@
+commit b281500fa1f42732455f8d4f06bcb376d88cdfdd
+Author: Jeremy Koritzinsky <jekoritz@microsoft.com>
+Date:   Wed Apr 16 23:03:38 2025 -0700
+
+    Don't use BaseOS as the RID for publishing NativeAOT'd assets when OutputRID is the SDK's RID (#114755)
