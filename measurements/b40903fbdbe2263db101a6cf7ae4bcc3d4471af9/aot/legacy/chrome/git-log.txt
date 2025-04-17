@@ -1,0 +1,10 @@
+commit b40903fbdbe2263db101a6cf7ae4bcc3d4471af9
+Author: Carlos Sánchez López <1175054+carlossanlop@users.noreply.github.com>
+Date:   Thu Apr 17 03:00:16 2025 -0700
+
+    Zip async implementation (#114421)
+    
+    Added new public async APIs for System.IO.Compression and System.IO.Compression.ZipFile.
+    Modified existing unit tests to validate both sync and async depending on an async argument.
+    Added fuzzing tests for ZipArchive.
+    Added new tests to confirm that no sync API is calling async APIs internally and viceversa.
