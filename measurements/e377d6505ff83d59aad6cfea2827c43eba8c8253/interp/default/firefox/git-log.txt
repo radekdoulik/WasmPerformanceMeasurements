@@ -1,0 +1,8 @@
+commit e377d6505ff83d59aad6cfea2827c43eba8c8253
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Wed Mar 19 12:47:50 2025 +0100
+
+    Delete vestiges of unused assembly formats (#113646)
+    
+    * Vestigial support for loading assemblies in IL format
+    * Vestigial support for "overflow scopes" in native metadata, which is something we had in .NET Native at some point I guess (ability to split metadata for a single assembly into multiple native modules?)
