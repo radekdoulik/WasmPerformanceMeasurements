@@ -1,0 +1,7 @@
+commit 694dd4f5dc66567b9cb31af64e54e4221e83ef25
+Author: Anton Firszov <Anton.Firszov@microsoft.com>
+Date:   Wed Mar 19 13:46:07 2025 +0100
+
+    Compress SafeSocketHandle.Unix booleans (#112417)
+    
+    Reduces the logical size of `SafeSocketHandle` by 6-7 bytes on Unix, crossing a treshold that lowers the number of words consumed by the type by 1 on 64bit
