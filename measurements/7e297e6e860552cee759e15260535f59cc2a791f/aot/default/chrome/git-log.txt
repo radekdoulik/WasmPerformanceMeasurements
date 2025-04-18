@@ -1,0 +1,51 @@
+commit 7e297e6e860552cee759e15260535f59cc2a791f
+Author: Fuad Ismail <fuad1502@gmail.com>
+Date:   Fri Apr 18 23:15:12 2025 +0700
+
+    [RISC-V] Utilize `Zba` extension instructions (#113999)
+    
+    * [RISC-V] Group arrRef with index
+    
+    * [RISC-V] Add Zba instructions
+    
+    * [RISC-V] Create Shxadd GenTree
+    
+    * [RISC-V] Lower ADD(LSH) node to SH(X)ADD(.UW) node
+    
+    * [RISC-V] Utilize SH(X)ADD instruction for GT_INDEX_ADDR
+    
+    * [RISC-V] Fix build error: correct format & add preprocessor directives
+    
+    * [RISC-V] Update conditions for transforming ADD(LSH) into SHXADD
+    
+    * [RISC-V] Update GT_SHXADD* register liveliness
+    
+    * [RISC-V] Guard SHXADD instruction usage with extension check
+    
+    * [RISC-V] Add description comments to SHXADD node and struct
+    
+    * [RISC-V] Add more JIT dumps
+    
+    * [RISC-V] Remove GenTreeShxadd and create separate nodes (SH1ADD, SH1ADD_UW, etc.)
+    
+    * [RISC-V] Only use SH(X)ADD when ADD is expected, not ADDW.
+    
+    * [RISC-V] Support add.uw instruction.
+    
+    * [RISC-V] Utilize ADD.UW for zero extension
+    
+    * [RISC-V] Support slli.uw instruction
+    
+    * [RISC-V] Refactor
+    
+    * [RISC-V] Fix missed optimization: contain slli.uw into sh(x)add.uw
+    
+    * [RISC-V] Remove repeated directive condition
+    
+    Co-authored-by: Bruce Forstall <brucefo@microsoft.com>
+    
+    * [RISC-V] Update comment to reflect changes
+    
+    ---------
+    
+    Co-authored-by: Bruce Forstall <brucefo@microsoft.com>
