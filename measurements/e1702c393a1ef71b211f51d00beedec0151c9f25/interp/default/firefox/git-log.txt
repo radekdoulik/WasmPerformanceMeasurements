@@ -1,0 +1,31 @@
+commit e1702c393a1ef71b211f51d00beedec0151c9f25
+Author: Tomasz Sowiński <tomeksowi@gmail.com>
+Date:   Fri Apr 18 00:11:46 2025 +0200
+
+    [RISC-V] Introduce Zbb (#114150)
+    
+    * Rotations
+    
+    * ReverseEndianness
+    
+    * Don't temp register for Zbb rotations
+    
+    * (and|or|xor)-not
+    
+    * Handle both negated operands of and, or, and xor
+    
+    * Add 'not' pseudo to disasm
+    
+    * Extend small ints
+    
+    * Small cleanup
+    
+    * slli for small swaps
+    
+    * Fix slli disasm
+    
+    * TryGetUse in LowerBinaryArithmetic
+    
+    * Fix disasm
+    
+    * Fix windows build
