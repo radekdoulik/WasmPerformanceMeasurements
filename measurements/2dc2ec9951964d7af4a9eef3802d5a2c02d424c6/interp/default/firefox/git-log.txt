@@ -1,0 +1,9 @@
+commit 2dc2ec9951964d7af4a9eef3802d5a2c02d424c6
+Author: Alexander Köplinger <alex.koeplinger@outlook.com>
+Date:   Thu Apr 17 19:47:50 2025 +0200
+
+    Workaround MSVC miscompiling sgen_clz (#114786)
+    
+    After the recent VS upgrade from 17.12.5 to 17.13.2 we started seeing access violations in the mono-aot-cross.exe when targetting wasm.
+    
+    We tracked it down to sgen_clz being miscompiled, we can workaround the compiler bug by switching from ternary condition to if/else.
