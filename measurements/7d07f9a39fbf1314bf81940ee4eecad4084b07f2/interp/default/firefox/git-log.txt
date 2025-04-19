@@ -1,0 +1,13 @@
+commit 7d07f9a39fbf1314bf81940ee4eecad4084b07f2
+Author: Alexander Köplinger <alex.koeplinger@outlook.com>
+Date:   Sat Apr 19 00:38:34 2025 +0200
+
+    Remove test project dir after test finished in trimmingTests.targets (#114819)
+    
+    * Remove test project dir in trimmingTests.targets
+    
+    Should help with the out of disk space errors we've been seeing in the dotnet-linker-tests pipeline.
+    
+    * Improve test project cleanup logic
+    
+    * Fix comment
