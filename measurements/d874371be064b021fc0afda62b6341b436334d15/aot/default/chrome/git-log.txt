@@ -1,0 +1,15 @@
+commit d874371be064b021fc0afda62b6341b436334d15
+Author: Vlad Brezae <brezaevlad@gmail.com>
+Date:   Sat Apr 19 16:22:15 2025 +0300
+
+    [clr-interp] Add support for virtual method calls  (#114529)
+    
+    * [clr-interp] Add support for virtual calls (including interface)
+    
+    This follows a trivial approach where we resolve the MethodDesc of the target method by reusing existing functionality. Long term, virtual dispatching should go through slots continaing interpreter IR code pointer, in a similar fashion to JIT.
+    
+    * Add test for virtual method dispatch
+    
+    * Disable test for now
+    
+    No gc support yet
