@@ -1,0 +1,11 @@
+commit d06c2f6ec8228addc77cb7b7856c3fe07c3d1f02
+Author: Larry Ewing <lewing@microsoft.com>
+Date:   Tue Apr 15 19:52:13 2025 -0500
+
+    [wasm][interp] Add Store intrinsics (#114711)
+    
+    * Add alias for SN SquareRoot as well
+    
+    * Add store alias
+    
+    * Add Store intrinsics
