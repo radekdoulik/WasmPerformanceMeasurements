@@ -1,0 +1,9 @@
+commit 55b8f9fe7b0e3b00d5d1419f64763e141570f206
+Author: Aaron Robinson <arobins@microsoft.com>
+Date:   Fri Apr 18 20:42:13 2025 -0700
+
+    Replace compiler specific options with C++ `thread_local` keyword (#114660)
+    
+    * Rename gCurrentThreadInfo to t_CurrentThreadInfo.
+    ---------
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
