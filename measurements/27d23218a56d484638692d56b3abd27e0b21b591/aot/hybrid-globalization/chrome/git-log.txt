@@ -1,0 +1,10 @@
+commit 27d23218a56d484638692d56b3abd27e0b21b591
+Author: Andy Ayers <andya@microsoft.com>
+Date:   Sat Apr 19 08:55:47 2025 -0700
+
+    Remove getTypeForBoxOnStack from jit interface (#114754)
+    
+    Along with the `StackAllocatedBox` type. The JIT can now represent on-stack
+    boxes directly via class layouts.
+    
+    Closes #114204
