@@ -1,0 +1,5 @@
+commit 7b2de1e5ed6368c536ee646346e6fd81939e6fe6
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Fri Apr 18 17:00:09 2025 -0400
+
+    Use extension everything to polyfill ArgumentNullException.ThrowIfNull (#114644)
