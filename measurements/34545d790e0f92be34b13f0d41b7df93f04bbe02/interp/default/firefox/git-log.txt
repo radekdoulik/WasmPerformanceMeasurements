@@ -1,0 +1,24 @@
+commit 34545d790e0f92be34b13f0d41b7df93f04bbe02
+Author: Andy Ayers <andya@microsoft.com>
+Date:   Sun Apr 20 19:03:19 2025 -0700
+
+    JIT: don't mark callees noinline for non-fatal observations with pgo (#114821)
+    
+    Some inline policy decisions are sensitive to the root method having valid
+    PGO data.  And sometimes the decision is that a particular callee can never
+    be a viable inline.  If so, the policy will have the runtime mark the method
+    as `NoInlining` to short-circuit future inlining decisions and save some JIT
+    throughput.
+    
+    But if the method had valid PGO data the policy may have made a different
+    decision. By marking this method noinline, the JIT will immediately reject
+    all future inline attempts (say from other calling methods with valid PGO data).
+    
+    For instance, without PGO, the policy may limit the number of basic blocks in
+    a viable callee to 5. But with PGO the policy is willing to consider callees
+    with many more blocks.
+    
+    In this PR we modify the reporting policy so that if TieredPGO is active,
+    we only ever report back methods with truly fatal inlining issues, not just
+    "informational" or "performance" issues, regardless of the state of the
+    PGO data for the method being jitted.
