@@ -1,0 +1,14 @@
+commit ca451bfcbc2415d2d85f5dc51c6f577011f274f7
+Author: Katelyn Gadd <kg@luminance.org>
+Date:   Fri Apr 18 08:16:55 2025 -0700
+
+    [mono] Switch simdhash to prime bucket counts; increase load factor
+    
+    Add some measurements for simdhash ght
+    Introduce scan data that's fetched once per bucket
+    Targeted simdhash optimizations via new dn_simdhash_ght_get_value_or_default
+    Switch to spaced prime bucket counts instead of power of two bucket counts for better collision resistance
+    Fix cache alignment of ght compatible and ptr ptr simdhash variants on 64-bit
+    Higher simdhash load factor (closer to ghashtable's; improves performance for bad hashes)
+    Add sequential keys measurements
+    Increase load factor to 30%
