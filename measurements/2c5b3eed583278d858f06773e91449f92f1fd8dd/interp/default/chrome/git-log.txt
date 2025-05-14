@@ -1,0 +1,7 @@
+commit 2c5b3eed583278d858f06773e91449f92f1fd8dd
+Author: Thays Grazia <thaystg@gmail.com>
+Date:   Wed Apr 2 10:03:06 2025 -0300
+
+    [mono] [hotreload] Adjust row_size and size_bitfield  from the baseline based on the delta sizes (#113995)
+    
+    * Fix applying hot reload changes when the delta table has a bigger len than the baseline table.
