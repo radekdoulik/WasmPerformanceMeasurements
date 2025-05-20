@@ -1,0 +1,12 @@
+commit 2f8efe6cd00bbad3968ab9ad613be5cfcb20324d
+Author: Larry Ewing <lewing@microsoft.com>
+Date:   Tue May 6 17:45:56 2025 -0500
+
+    [wasm] Use packedsimd in hexconverter (#115062)
+    
+    Implement a PackedSimd vectorized version of Hexconverter.TryDecodeFromUtf16
+    
+    Then fix several things that were broken in the AOT intrinsics to make that optimization work.
+    - a fix for PackedSimd.BitwiseSelect argument ordering
+    - removing OP_WASM_ONESCOMPLEMENT and using the common path for OP_ONES_COMPLEMENT now that llvm is fixed
+    - additional tests
