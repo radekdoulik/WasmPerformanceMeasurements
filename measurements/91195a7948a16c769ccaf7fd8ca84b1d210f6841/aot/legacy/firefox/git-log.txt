@@ -1,0 +1,9 @@
+commit 91195a7948a16c769ccaf7fd8ca84b1d210f6841
+Author: Jan Kotas <jkotas@microsoft.com>
+Date:   Thu May 15 13:58:02 2025 -0700
+
+    Delete runtime built-in handling for SIGTERM (#115494)
+    
+    The runtime built-in handling for SIGTERM signals is not correct for all appmodels. It is better to leave it to each model appmodel to handle it in appmodel specific way if necessary. The popular console appmodel based on HostingHostBuilderExtensions.UseConsoleLifetime does that already.
+    
+    Fixes #115206
