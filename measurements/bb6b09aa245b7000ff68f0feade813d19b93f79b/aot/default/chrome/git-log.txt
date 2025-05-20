@@ -1,0 +1,52 @@
+commit bb6b09aa245b7000ff68f0feade813d19b93f79b
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Wed Apr 30 12:12:33 2025 +0200
+
+    JIT: Add runtime async transformation (#114861)
+    
+    Add the JIT parts of runtime async. This introduces a new transformation that
+    runs before lowering and that transforms the function into a state machine, with
+    states set up to allow suspension and resumption at async calls (the suspension
+    points).
+    
+    Suspension is indicated by the callee returning a continuation object using a
+    new calling convention. When suspension happens, the caller similarly suspends
+    by capturing all live state and saving it in a continuation object. These
+    continuation objects are then linked together and continue to be propagated back
+    to the callers until we finally get to a caller that is not async anymore (i.e.
+    that expects to see a `Task`/`Task<T>`). The VM synthesizes a `Task`/`Task<T>`
+    wrapper for the async functions that hide away the management the continuation
+    objects. See https://github.com/dotnet/runtime/pull/114675 for more details
+    around this and around the calling convention.
+    
+    The continuation objects can later be used to resume the function at the point
+    where suspension happened. This is accomplished by async functions also taking a
+    continuation object as a parameter. When such a parameter is passed (i.e. it is
+    non-null), the JIT will restore all live state from the continuation and resume
+    from the correct location. The continuations store a state number so that
+    resumption can know where to resume.
+    
+    The full resumption process also involves an IL stub called the async resumption
+    stub. This stub is responsible for calling the async function with the right
+    stack frame setup for arguments and simultaneously passing a non-null
+    continuation. The stack frame setup done by the IL async resumption stub is
+    important as the JIT uses this space to restore live parameters from the
+    continuation.
+    
+    Continuations similarly support propagation of the return values from the callee
+    and of potential exceptions thrown by the callee. Return values are stored in a
+    known location in the continuation object, and the async resumption stubs are
+    responsible for propagating these values into the next continuation when
+    suspension/resumption has happened. The JIT's resumption code will fetch the
+    return value from the known location and copy it to the right place in the
+    caller. Similarly, exceptions are kept in a known place and are handled by being
+    rethrown from the right location when present.
+    
+    OSR functions come with complications. Since they rely on frame setup done by
+    the corresponding tier-0 method the resumption of these methods needs to happen
+    through the tier 0 method. When OSR methods suspend they store their IL offset
+    in the continuation object, while tier 0 methods with patchpoints will store -1
+    in the continuation object. The VM then always resumes these methods in the tier
+    0 method, which knows to use the IL offset to determine whether resumption
+    should happen in the tier 0 method or whether control needs to continue into an
+    OSR method.
