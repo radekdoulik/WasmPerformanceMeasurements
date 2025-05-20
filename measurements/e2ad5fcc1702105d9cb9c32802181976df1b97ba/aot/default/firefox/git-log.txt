@@ -1,0 +1,50 @@
+commit e2ad5fcc1702105d9cb9c32802181976df1b97ba
+Author: Alan Hayward <a74nh@users.noreply.github.com>
+Date:   Sat May 17 03:08:12 2025 +0100
+
+    Arm64: Implement region write barriers (#111636)
+    
+    Extend the Arm64 writebarrier function to support regions and use the WriteBarrierManager, similar to Amd64. This results in 10 different versions of the JIT_WriteBarrier, with the WriteBarrierManager deciding on which version to use.
+    
+    Pseudo code for the writebarrier is included in GC-write-barriers.md
+    
+    This is expected to make the writebarrier slower, but improve the performance of the GC. DOTNET_GCWriteBarrier=3 can be used give the same functionality as before this change.
+    
+    The behavior of the writebarrier is:
+    Before the PR: check ephemeral bounds, update a byte in the card table, mark the card bundle
+    After the PR:
+    DOTNET_GCWriteBarrier=1 (default, bit region write barriers): check ephemeral bounds, check regions, update a bit in the card table, mark the card bundle
+    DOTNET_GCWriteBarrier=2 (byte region write barriers): check ephemeral bounds, check regions, update a byte in the card table, mark the card bundle
+    DOTNET_GCWriteBarrier=3 (server write barriers): check ephemeral bounds, update a byte in the card table, mark the card bundle. This is the same as before the PR.
+    DOTNET_gcServer=1: update a byte in the card table, mark the card bundle.
+    
+    Test results on an 8 core Cobalt 100.
+    
+    Ephemeral test (dotnet/performance)
+    WB_nonephemeral : -20%
+    WB_ephemeral: -16%
+    
+    WKS GC is calculating the generation of regions in addition to comparing with g_ephemeral_low/high". So while it might set fewer cards, it is more expensive and it shows.
+    
+    With DOTNET_GCWriteBarrier=3:
+    WB_nonephemeral : +15%
+    WB_ephemeral: +1%
+    
+    SVR GC WB also became more expensive but it sets way fewer cards (for nonephemeral it should set almost no cards).
+    
+    GCPerfsim
+    Flags: -tc 2 -tagb 200 -tlgb 2 -lohpi 0 -sohsi 50 -ramb 20 -rlmb 0.2 -sohpi 0
+    
+    No environment variables set:
+    Gen0 pause: -21.06%. Gen1 pause -14.25%
+    
+    DOTNET_GCWriteBarrier=2:
+    Gen0 pause: -6.7%. Gen1 pause -2.78%
+    
+    DOTNET_GCWriteBarrier=3 :
+    Gen0 pause: -1.37%. Gen1 pause -1.26%
+    
+    DOTNET_gcServer=1 DOTNET_GCHeapCount=8:
+    Gen0 pause: -7.24%. Gen1 pause -3.49%
+    
+    Above are linux numbers. On windows for no env var set we are seeing not as much but still quite noticeable pause improvements around 8% to 10% for this config of GCPerfSim.
