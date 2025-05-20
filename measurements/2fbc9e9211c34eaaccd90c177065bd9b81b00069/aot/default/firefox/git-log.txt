@@ -1,0 +1,13 @@
+commit 2fbc9e9211c34eaaccd90c177065bd9b81b00069
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Sat May 17 12:56:40 2025 +0200
+
+    Revert "Vector128.WithElement codegen regression in .NET 9.0 (#115645)
+    
+    * Revert "JIT: Apply format suggested by automation (#115416)"
+    
+    This reverts commit df1eba9ff061ae77265ffc777da711b7ba7d32bc.
+    
+    * Revert "Vector128.WithElement codegen regression in .NET 9.0 (#115348)"
+    
+    This reverts commit e42c072da6a7cd43fce9144774dd8e4bde1062fb.
