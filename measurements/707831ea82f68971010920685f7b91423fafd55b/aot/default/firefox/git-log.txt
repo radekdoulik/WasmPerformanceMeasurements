@@ -1,0 +1,8 @@
+commit 707831ea82f68971010920685f7b91423fafd55b
+Author: Katelyn Gadd <kg@luminance.org>
+Date:   Thu May 15 12:30:31 2025 -0700
+
+    [WIP] Interpreter boxing/unboxing (#115549)
+    
+    * Introduce box/unbox/unbox_any opcodes into the interpreter
+    * Interpreter name normalization
