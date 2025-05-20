@@ -1,0 +1,15 @@
+commit dcf79a484f0c19ea70e58a38cee2e9d5e1939cec
+Author: Radek Zikmund <32671551+rzikm@users.noreply.github.com>
+Date:   Fri May 16 11:51:25 2025 +0200
+
+    Replace ATP pattern with async/await in SmtpClient (part 1) (#115366)
+    
+    * Test improvements
+    
+    * SmtpCommands and SmtpReplyReader
+    
+    * MailMessage and friends
+    
+    * Remove allocations in SmtpCommands
+    
+    * More feedback
