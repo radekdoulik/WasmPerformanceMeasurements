@@ -1,0 +1,13 @@
+commit 006ad21887ac61bdf105197cd23539aa820a6aca
+Author: Andy Ayers <andya@microsoft.com>
+Date:   Thu Apr 24 16:36:07 2025 -0700
+
+    JIT: boost inlining for methods that may return small arrays (#114806)
+    
+    Look for inlinees that may be allocating and returning small fixed sized arrays.
+    When inlined, these array allocations may end up non-escaping and be stack allocated.
+    
+    This analysis is approximate; we can't tell for sure in the IL scan what the array
+    size is, and we can't easily tell if the allocated array is actually returned.
+    
+    Contributes to #113236
