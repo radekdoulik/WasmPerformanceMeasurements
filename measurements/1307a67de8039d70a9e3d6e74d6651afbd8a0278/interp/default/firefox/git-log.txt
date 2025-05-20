@@ -1,0 +1,15 @@
+commit 1307a67de8039d70a9e3d6e74d6651afbd8a0278
+Author: Johan Lorensson <lateralusx.github@gmail.com>
+Date:   Fri May 16 02:07:26 2025 +0200
+
+    [Mono] Fix c11 ARM64 atomics to issue full memory barrier. (#115573)
+    
+    * Fix C11 atomic seq cst on ARM64.
+    
+    * Add library regression test.
+    
+    * Add functional regression test.
+    
+    * Adjust functional test to work under NAOT.
+    
+    * Add comment to C11_MEMORY_ORDER_SEQ_CST + align atomic_load barrier to JIT.
