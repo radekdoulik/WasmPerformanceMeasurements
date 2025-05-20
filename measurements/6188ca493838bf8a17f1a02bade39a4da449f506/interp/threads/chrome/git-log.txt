@@ -1,0 +1,10 @@
+commit 6188ca493838bf8a17f1a02bade39a4da449f506
+Author: Thays Grazia <thaystg@gmail.com>
+Date:   Thu May 15 10:36:17 2025 -0300
+
+    Fix generation of minidump (#115562)
+    
+    This PR addresses a minidump generation issue by wrapping IL version method calls with a try-catch block to ensure that an exception in GetIL doesn’t prevent dumping a full callstack.
+    
+    Wraps GetIL and related ILCodeVersion calls in an exception block
+    Uses EX_CATCH_RETHROW_ONLY_COR_E_OPERATIONCANCELLED to selectively rethrow only specific exceptions
