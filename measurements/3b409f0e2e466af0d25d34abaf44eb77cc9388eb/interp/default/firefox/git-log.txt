@@ -1,0 +1,11 @@
+commit 3b409f0e2e466af0d25d34abaf44eb77cc9388eb
+Author: Kunal Pathak <Kunal.Pathak@microsoft.com>
+Date:   Wed May 14 21:43:42 2025 -0700
+
+    Remove unwanted ternary node in lowering (#115584)
+    
+    * Remove unwanted ternary node
+    
+    * fix the test case
+    
+    * review feedback
