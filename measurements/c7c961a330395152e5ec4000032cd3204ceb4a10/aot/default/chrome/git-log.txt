@@ -1,0 +1,5 @@
+commit c7c961a330395152e5ec4000032cd3204ceb4a10
+Author: Tanner Gooding <tagoo@outlook.com>
+Date:   Wed May 14 17:29:38 2025 -0700
+
+    Ensure that NI_SSE2_Extract and NI_SSE41_Extract are simdSize=16 (#115580)
