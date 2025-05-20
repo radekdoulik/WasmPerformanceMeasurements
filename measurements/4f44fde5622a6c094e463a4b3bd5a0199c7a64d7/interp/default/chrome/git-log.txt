@@ -1,0 +1,5 @@
+commit 4f44fde5622a6c094e463a4b3bd5a0199c7a64d7
+Author: Jeremy Koritzinsky <jekoritz@microsoft.com>
+Date:   Tue Apr 15 20:38:42 2025 -0700
+
+    Make sure we add the System.Private.* assemblies when using the NativeAOT runtime pack as the runtime package. (#114556)
