@@ -1,0 +1,9 @@
+commit 30779a120b9604d0b7c409b9a385fb54825e36a0
+Author: Xu Liangyu <xuliangyu@loongson.cn>
+Date:   Thu May 15 15:48:42 2025 +0800
+
+    [LoongArch64] Fix NativeAOT libs.tests error: System.Runtime.Tests & System.Runtime.Numerics.Tests. (#115598)
+    
+    * Fix the boundary error with `imm = (~0)` for `Unsigned GT_LE/GT_GT` in `CodeGen::genCodeForCompare()`.
+    * Fix the IntCastOverflowPositiveCheck with `UINT32_MAX` in `CodeGen::genIntCastOverflowCheck()`.
+    * Optimize `CodeGen::genIntCastOverflowCheck()` similar to riscv.
