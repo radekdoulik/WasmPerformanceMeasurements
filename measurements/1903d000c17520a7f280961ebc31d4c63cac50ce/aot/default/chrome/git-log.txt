@@ -1,0 +1,5 @@
+commit 1903d000c17520a7f280961ebc31d4c63cac50ce
+Author: Liu An <liuan@loongson.cn>
+Date:   Thu May 15 17:30:39 2025 +0800
+
+    [LoongArch64] Disable FastTailCall in case of split arg (#115600)
