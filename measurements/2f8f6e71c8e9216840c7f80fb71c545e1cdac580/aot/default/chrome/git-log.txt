@@ -1,0 +1,7 @@
+commit 2f8f6e71c8e9216840c7f80fb71c545e1cdac580
+Author: Aman Khalid <amankhalid@microsoft.com>
+Date:   Fri May 16 11:19:42 2025 -0400
+
+    JIT: Skip extra SPMI queries when we don't know the exact type (#115637)
+    
+    Fixes #114934.
