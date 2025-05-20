@@ -1,0 +1,9 @@
+commit b8752af999a212847b43034e7ef44cf6292b98c3
+Author: Filip Navara <filip.navara@gmail.com>
+Date:   Fri May 16 08:59:25 2025 +0200
+
+    Add support for no GC regions in x86 GC info (#115602)
+    
+    * Add support for no GC regions in x86 GC info
+    
+    * Disable cpObj unrolling optimization
