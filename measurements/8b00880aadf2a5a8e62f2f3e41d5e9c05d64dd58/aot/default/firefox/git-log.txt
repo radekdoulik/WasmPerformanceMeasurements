@@ -1,0 +1,29 @@
+commit 8b00880aadf2a5a8e62f2f3e41d5e9c05d64dd58
+Author: Clinton Ingram <clinton.ingram@outlook.com>
+Date:   Fri May 2 17:04:07 2025 -0400
+
+    JIT: Shrink data section for const vector loads (#114040)
+    
+    * shrink data for scalar instructions with contained const vectors
+    
+    * allow CreateScalarUnsafe to remain scalar const
+    
+    * formatting
+    
+    * revert CreateScalarUnsafe changes
+    
+    * shrink constants in genSetRegToConst
+    
+    * fix build
+    
+    * fix throughput regression
+    
+    * use correct instruction for SIMD8
+    
+    * update compress logic
+    
+    * add comment
+    
+    ---------
+    
+    Co-authored-by: Bruce Forstall <brucefo@microsoft.com>
