@@ -1,0 +1,13 @@
+commit bd3ff5d26379616e9495ab75f5ee4a267e46e087
+Author: Carlos Sánchez López <1175054+carlossanlop@users.noreply.github.com>
+Date:   Fri May 9 17:48:56 2025 -0700
+
+    Tar: Fix 3 bugs (#115211)
+    
+    atime and ctime are problematic fields because the GNU spec decided to write them in the header location where other formats expect to find the prefix field. This causes other tools to consider our entries malformed when we write those two values (the filenames were being prefixed with the octal bytes of the atime and/or ctime). In previous fixes we were being conservative and setting the value to zeros, but that wasn't enough. The proper fix is to not set these two fields to default(DateTime.MinValue) by default and translate that value internally to null bytes. There are only two cases where we will write an actual value for atime and ctime:
+      - When the user sets them manually.
+      - When writing with TarWriter a GNU entry that came from another archive (using a TarReader), and the entry happens to have these values set.
+    
+    The checksum was being written with an extra trailing null byte. The spec indicates that the checksum field needs to be written in octal, have leading zero characters, and end with a null byte and a space. When we were internally converting the decimal value to octal, the returned span was getting a null char added at the end. This was not necessary for checksum, but it is necessary for other fields.
+    
+    In the GNU format, if the name field was 100 chars in length including the terminating null char, we were writing a GNU LongPath entry to store that long name field. The bug was that other formats don't count the null terminating character towards these 100 fields. This was causing us to write extra LongPath entries that would increase the size of the archive unnecessarily. The fix is to exclude the nullchar from that count, and if the length is exactly 100 chars, write name in the regular header field, no extra entries needed.
