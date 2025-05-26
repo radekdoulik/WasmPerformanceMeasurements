@@ -1,0 +1,5 @@
+commit 30160aa7213eab1b183f3f1b98a8b6d0f0c955a9
+Author: Egor Bogatov <egorbo@gmail.com>
+Date:   Mon May 26 21:09:14 2025 +0200
+
+    Move GenTreeIntCon::gtCompileTimeHandle field to be a global map (#115542)
