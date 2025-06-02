@@ -1,0 +1,9 @@
+commit 9376d466ea8f62269954949af4d8dfba3e4b6d14
+Author: Tomasz Sowiński <tomeksowi@gmail.com>
+Date:   Wed May 28 14:23:22 2025 +0200
+
+    [RISC-V][LoongArch64] Handle reversed fields in lowered structs (#115933)
+    
+    * Lower FP structs with reversed fields
+    
+    * Fix GC info when pointer is in the second field
