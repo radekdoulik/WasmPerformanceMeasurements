@@ -1,0 +1,13 @@
+commit 39e8c08cbbed6b655fbc0a4264d1ccd2cb626477
+Author: Jan Vorlicek <janvorli@microsoft.com>
+Date:   Mon Jun 2 20:21:02 2025 +0200
+
+    Disable CoreCLR interpreter test for JIT stress (#116219)
+    
+    There is a problem in the interpreter when handling calls to code that
+    doesn't have native code yet, but that has precode already. The call to
+    MethodDesc::PrepareInitialCode triggers an assert down its call chain
+    due to the prestub existence.
+    
+    This change disables running the interpreter test with JIT stress until
+    the problem is solved.
