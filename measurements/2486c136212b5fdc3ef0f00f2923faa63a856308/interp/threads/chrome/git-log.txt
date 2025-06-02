@@ -1,0 +1,9 @@
+commit 2486c136212b5fdc3ef0f00f2923faa63a856308
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Tue May 27 18:50:46 2025 +0200
+
+    Switch away from AzureLinux host docker testing temporarily (#115993)
+    
+    containerd on the host has a default 1024 NOFILE limit, which is not
+    enough for our testing. Switch to Ubuntu host testing until the changes
+    that increase this limit are rolled out.
