@@ -1,0 +1,14 @@
+commit 1a5af14f8cdbe7ab09d2324ab4e9e10f72e610cd
+Author: David Wrighton <davidwr@microsoft.com>
+Date:   Thu May 22 15:04:23 2025 -0700
+
+    Debugger fixes for the Windows X86 EH Funclets model (#115630)
+    
+    Notable areas improved
+    - The funclets model uses the vectored exception handler to funnel debug events to the debugger
+    - FramePointer details for the debugger are inscrutable and weird. I've made it work, but enough of this is driven by subtleties in the stackwalker that I would not be surprised if there are additional issues here
+    - RtlpGetFunctionEndAddress needs to use a DAC pointer to read the unwind info.
+    - Funclet prologs for CoreCLR X86 Funclets need to have at least 1 instruction in them so that the Native->IL mapping is correct. Otherwise it gets shadowed by a mapping which says it is a PROLOG instruction. This is probably fixable by allowing an Native -> IL mapping for both the PROLOG as well as the IL offset in the funclet, but a nop here is both easy to generate an unlikely to be a major cost.
+    - Likewise, EnC frame generation is no longer able to rely on the shadow stack pointer logic injected by EH handling, and needed 1 bit of info not in the current emitted stack information. Notably, that there is synchronized codegen in the method. Instead of modifying the gcinfo to include that data, we just put in fake offsets for where the synchronized region is, and use the existence of any data as a flag in the EnC layout. NOTE: I also removed the general purpose logic to read the synchronized range from the data. The fix for this also needs to fix the runtime behavior around stackwalking, and in another case in the presence of a locallloc instruction in the method.
+    
+    Contributes to #113985
