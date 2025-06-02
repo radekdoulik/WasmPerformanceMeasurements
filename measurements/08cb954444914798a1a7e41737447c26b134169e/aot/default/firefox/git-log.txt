@@ -1,0 +1,13 @@
+commit 08cb954444914798a1a7e41737447c26b134169e
+Author: Katelyn Gadd <kg@luminance.org>
+Date:   Thu May 8 03:20:39 2025 -0700
+
+    Interpreter GC info stage 3: Report locals to the GC (#114469)
+    
+    Allocate stack slot IDs for interp vars and record liveness ranges
+    Specialize GetStackSlot for the interpreter because we stash the actual stack location in the frame register
+    Handle allocation failure in simdhash
+    Add test coverage for structs containing refs
+    Patch initlocals once we have allocated offsets so that we zero our vars in addition to IL vars (GC safety)
+    Introduce globalVarsStackTop, the high water mark for global vars that might contain refs or interior pointers
+    Enable disabled tests
