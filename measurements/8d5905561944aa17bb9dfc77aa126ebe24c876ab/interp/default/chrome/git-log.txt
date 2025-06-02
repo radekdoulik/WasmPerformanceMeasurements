@@ -1,0 +1,70 @@
+commit 8d5905561944aa17bb9dfc77aa126ebe24c876ab
+Author: Jan Vorlicek <janvorli@microsoft.com>
+Date:   Mon Jun 2 18:48:18 2025 +0200
+
+    Interpreter EH implementation (#116046)
+    
+    * Interpreter EH implementation
+    
+    This change implements EH support in the interpreter compiler and
+    execution parts.
+    
+    Here is a summary of the changes:
+    
+    On the compilation side:
+    * Adds support for CEE_THROW, CEE_RETHROW, CEE_ENDFILTER,
+      CEE_ENDFINALLY, CEE_LEAVE and CEE_ISINST opcodes
+    * Adds building of EH info with IR code offsets
+    * Implements proper funclet handling in the same way the JIT does. All
+      handlers and filters are moved to the end of the method and out of any
+      try ranges recursively to enable proper behavior of the EH.
+    * Fixes a bug related to wrong SVar and and an issue with IL offset of
+      inserted instructions in AllocOffsets
+    * Fixes a bug in the CEEOpcodeSize - off by one check for the end of the
+      code
+    
+    On the execution side:
+    * Add funclet start address extraction
+    * Add calling funclets in the interpreted code
+    * Removed GCX_PREEMP_NO_DTOR from the
+      CallDescrWorkerUnwindFrameChainHandler, because it was not correct
+    * Added new IR opcodes:
+      * INTOP_LOAD_FRAMEVAR to load parent frame stack pointer in filter
+        funclets that need to run in the context of the parent, but at the
+        top of the current interpreter stack.
+      * INTOP_RETHROW to rethrow an exception
+      * INTOP_CALL_FINALLY to call finally funclet in non-exceptional cases
+      * INTOP_LEAVE_FILTER to exit a filter funclet and return the filter result
+      * INTOP_LEAVE_CATCH to exit a catch handler and return the resume
+        address
+    * Added calls to COMPlusThrow for division by zero, stack overflow and
+      few other exceptions where the interpreter had just TODO and assert
+      for adding those.
+    * Modified the InterpExecMethod so that extra information can be passed
+      in case of a funclet invocation.
+    
+    It also adds tests to verify various interesting EH scenarios
+    
+    Here are some more details on moving out the funclets:
+    For each finally funclet, we create a finally call island that stays in
+    the code where the original finally was. That island calls the finally and
+    then branches to the next (outer) finally if any. The last finally call
+    island branches to the actual leave target.
+    The interpreter compiler generates a separate sequence of finally call
+    islands for each leave instruction target. And when the leave is
+    executed, it jumps to the beginning or into the middle of the chain.
+    In other words, for example, if all leave instructions in the method go
+    to the same target, there would be just one call finally island chain.
+    
+    * PR feedback
+    
+    * Fix linux build - missing UNREACHABLE();
+    
+    * Fix issue in checked build of the tests
+    
+    The call finally islands were not classified by the clause they are in.
+    Their instructions had IL offsets set to the offset of the finally
+    block, but they need to have no IL offset as they are not generated
+    from IL.
+    
+    * PR feedback
