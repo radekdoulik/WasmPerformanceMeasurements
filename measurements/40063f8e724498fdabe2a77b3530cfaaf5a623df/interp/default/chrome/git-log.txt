@@ -1,0 +1,20 @@
+commit 40063f8e724498fdabe2a77b3530cfaaf5a623df
+Author: Jonathan Davies <jonathan.davies@arm.com>
+Date:   Thu May 29 17:08:18 2025 +0100
+
+    arm64: Rename SVE Prefetch APIs names to use Bit (#115609)
+    
+    * arm64: Rename SVE Prefetch APIs names to use Bit
+    - Fixes #114909
+    
+    * Update src/coreclr/jit/hwintrinsiclistarm64sve.h
+    
+    * Update src/coreclr/jit/hwintrinsiclistarm64sve.h
+    
+    * Reorder constants & functions
+    
+    * Remove CompatibilitySuppressions.xml
+    
+    ---------
+    
+    Co-authored-by: Kunal Pathak <Kunal.Pathak@microsoft.com>
