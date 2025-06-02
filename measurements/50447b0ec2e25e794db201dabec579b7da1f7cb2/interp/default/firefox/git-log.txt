@@ -1,0 +1,11 @@
+commit 50447b0ec2e25e794db201dabec579b7da1f7cb2
+Author: Clinton Ingram <clinton.ingram@outlook.com>
+Date:   Mon May 26 17:27:59 2025 -0700
+
+    Enable AVX2 optimistically with AVX on NAOT (#114575)
+    
+    * enable AVX2 optimistically with AVX on NAOT
+    
+    * don't change getPreferredVectorByteLength
+    
+    * restrict Vector<T> size when AVX2 is not in the baseline supported ISAs
