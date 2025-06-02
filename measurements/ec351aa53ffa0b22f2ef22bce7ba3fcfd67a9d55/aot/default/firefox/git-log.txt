@@ -1,0 +1,21 @@
+commit ec351aa53ffa0b22f2ef22bce7ba3fcfd67a9d55
+Author: Tomasz Sowiński <tomeksowi@gmail.com>
+Date:   Tue May 27 15:41:24 2025 +0200
+
+    [RISC-V] Optimize comparisons (#115039)
+    
+    * 12-bit immediates for sltiu
+    
+    * Sign-extend for sltu
+    
+    * Use sub for calculating difference for GT_EQ and GT_NE
+    
+    * Special-case for -1, 0, 1
+    
+    * Sign-extend operands for branch comparisons
+    
+    * Fix assert
+    
+    * Implement load imm
+    
+    * Fix sltiu rd, rs, 0
