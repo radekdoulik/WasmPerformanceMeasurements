@@ -1,0 +1,14 @@
+commit 4afdf63044be77d9256a0a62adc0a3f61f343b7f
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Wed Apr 30 23:14:10 2025 +0200
+
+    Build host.native for native AOT libraries testing (#114764)
+    
+    We don't have a need for host in native AOT but after #113765 the outerloop started failing with:
+    
+    ```
+      Building native export: "/usr/local/bin/clang-20" -O2 -shared -fpic -D DNNE_ASSEMBLY_NAME=Microsoft.Interop.Tests.NativeExports -D DNNE_COMPILE_AS_SOURCE -I "/__w/1/s/.packages/dnne/2.0.5/tools/platform" -I "/__w/1/s/artifacts/bin/linux-arm64.Release/corehost" -o "/__w/1/s/artifacts/obj/NativeExports/Release/net10.0/linux-arm64/dnne/bin/Microsoft.Interop.Tests.NativeExportsNE.so" --target=aarch64-linux-gnu --gcc-toolchain=/crossrootfs/arm64/usr --sysroot=/crossrootfs/arm64  "/__w/1/s/artifacts/obj/NativeExports/Release/net10.0/linux-arm64/dnne/Microsoft.Interop.Tests.NativeExports.g.c" "/__w/1/s/.packages/dnne/2.0.5/tools/platform/platform.c" -lstdc++ "/__w/1/s/artifacts/bin/linux-arm64.Release/corehost/libnethost.a" --target=aarch64-linux-gnu --gcc-toolchain=/crossrootfs/arm64/usr --sysroot=/crossrootfs/arm64 -fuse-ld=lld  -Wl,--rpath-link=/crossrootfs/arm64/lib/aarch64-linux-gnu -Wl,--rpath-link=/crossrootfs/arm64/usr/lib/aarch64-linux-gnu
+    clang-20 : error : no such file or directory: '/__w/1/s/artifacts/bin/linux-arm64.Release/corehost/libnethost.a' [/__w/1/s/src/libraries/System.Runtime.InteropServices/tests/TestAssets/NativeExports/NativeExports.csproj]
+    ```
+    
+    because some of the interop testing uses DNNE. This is a blind attempt to fix it.
