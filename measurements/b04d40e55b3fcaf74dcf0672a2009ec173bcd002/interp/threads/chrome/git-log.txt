@@ -1,0 +1,5 @@
+commit b04d40e55b3fcaf74dcf0672a2009ec173bcd002
+Author: Clinton Ingram <clinton.ingram@outlook.com>
+Date:   Tue May 27 01:35:42 2025 -0700
+
+    JIT: Don't allow broadcast lowering to remove cast from decomposed long (#116002)
