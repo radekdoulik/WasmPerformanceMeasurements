@@ -1,0 +1,16 @@
+commit e8617b7d6f267976e1cb051b4cc51ccc3e095902
+Author: Larry Ewing <lewing@microsoft.com>
+Date:   Mon May 5 12:15:06 2025 -0500
+
+    [wasm][aot] Reenable AOT System.Runtime.Intrinsics/tests and fix problems that exposed (#115204)
+    
+    Enable System.Runtime.Intrinsics/tests in wasm smoke tests then fix the Shuffle intrinsics crash the tests exposed.
+    
+    See #115062 for details.
+    
+    The crash would happen when a non-constant index vector was passed to the llvm shuffle intrinsic which was exposed when the ShuffleNative path was added to the tests. The PR works around it by using the swizzle intrinsic which does not require a const index vector. If this does cause a regression it we should be able to restore the original implementation when we can verify a constant index vector is being passed.
+    
+    This also fixes the PackedSimd.Min/Max intrinsic implementation which had accidentally reversed min an max.
+    
+    Fixes #115203
+    * Fix the aot min/max intrinsics
