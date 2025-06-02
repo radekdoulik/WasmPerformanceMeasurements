@@ -1,0 +1,9 @@
+commit e163124bce28b7e868b62f4efd498fcaa7f95301
+Author: Katelyn Gadd <kg@luminance.org>
+Date:   Wed May 21 17:31:55 2025 -0700
+
+    Implement ldtoken in the interpreter (#115723)
+    
+    * Implements a new LDTOKEN interpreter opcode with support for method/field/type tokens. Only type tokens have been tested, it's not currently possible to test the other two.
+    * Adds an integrity check header to InterpMethod because the behavior if we jump to something that isn't a valid InterpMethod is very messy and harder to debug.
+    * Fixes a bug in the CallStub generator for sysv (we weren't handling certain argument types.)
