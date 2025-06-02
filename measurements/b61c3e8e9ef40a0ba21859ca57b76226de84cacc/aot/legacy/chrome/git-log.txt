@@ -1,0 +1,9 @@
+commit b61c3e8e9ef40a0ba21859ca57b76226de84cacc
+Author: Venkad000 <75372676+Venkad000@users.noreply.github.com>
+Date:   Mon May 26 21:52:01 2025 +0530
+
+    Added another case in the switch block to handle the object returned by Mono which differs from the object returned by CoreCLR (#115885)
+    
+    * Fixes dotnet/runtime#115295 . Added another case in the switch block to handle the object returned by Mono which differs from CoreCLR.
+    
+    * Added test cases where we see a discrepancy in NullabilityState between Mono and CoreCLR
