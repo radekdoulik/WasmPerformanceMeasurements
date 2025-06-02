@@ -1,0 +1,13 @@
+commit ef640d05edef9e47a9709233955a8b0e0da81126
+Author: Elinor Fung <elfung@microsoft.com>
+Date:   Wed May 21 16:20:27 2025 -0700
+
+    Allow using flat layout for component assemblies of composite R2R (#115631)
+    
+    Allow using flat layout for component assemblies of composite R2R. The component assemblies don't have native code, so we can just use their flat layout without loading / mapping them to virtual addresses. For scenarios where we can't just map from a file for the load - for example, external data (Android), this avoids copying all the data of component assemblies.
+    - Skip emitting empty sections in R2R images
+      - When we had no data for a section, we'd emit a single-byte section. Avoid including the section altogether
+    - Use read-only section for R2R headers
+      - This was using writeable data on non-Windows. We do the mapping ourselves and don't need this to be writeable on any platform. The way we emit R2R PE images, the read-only data goes into .text, so this should not incur the penalty of an extra section.
+    - Relax checks for component assembly initialization to stop requiring a loaded layout
+    - Handle getting the owner composite name for a flat layout of a component assembly of composite R2R
