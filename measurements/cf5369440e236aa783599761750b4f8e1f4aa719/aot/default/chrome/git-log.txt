@@ -1,0 +1,9 @@
+commit cf5369440e236aa783599761750b4f8e1f4aa719
+Author: Filip Navara <filip.navara@gmail.com>
+Date:   Sat May 24 05:39:51 2025 +0200
+
+    x86/funclets: Handle longjmp (#115932)
+    
+    * x86: Implement basic support for unwinding longjmp across managed frames to match x64 behavior
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
