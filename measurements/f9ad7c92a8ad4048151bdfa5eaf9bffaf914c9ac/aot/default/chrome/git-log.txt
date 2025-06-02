@@ -1,0 +1,113 @@
+commit f9ad7c92a8ad4048151bdfa5eaf9bffaf914c9ac
+Author: Milos Kotlar <kotlarmilos@gmail.com>
+Date:   Wed May 21 21:51:07 2025 +0200
+
+    [Android] Run CoreCLR library tests on Android (#114148)
+    
+    * Enable running library tests
+    
+    * Add jobs to extra-platforms
+    
+    * Fix System.Runtime tests
+    
+    * Fix arm64 android coreclr tests
+    
+    * Add TestUtilities project reference
+    
+    * Add support for local android test execution on windows
+    
+    * Disable failing tests on Android devices
+    
+    * Disable failing tests on Android devices
+    
+    * Disable failing tests
+    
+    * Remove unnecessary using System directive
+    
+    * Disable failing tests
+    
+    * Disable failing tests
+    
+    * Fix typo
+    
+    * Disable failing tests
+    
+    * Disable ConfigSwitchIsHonored test
+    
+    * Disable failing tests
+    
+    * Fix typo
+    
+    * Enable System.Runtime.Loader.Tests tests
+    
+    * Enable System.Text.RegularExpressions tests
+    
+    * Disable failing tests
+    
+    * Try run disabled tests
+    
+    * Fix build
+    
+    * Disable failing tests
+    
+    * Enable tests that are passing
+    
+    * Fix typo
+    
+    * Fix ActiveIssue annotation
+    
+    * Disable failing tests
+    
+    * Add comment
+    
+    * Disable failing tests
+    
+    * Fix test annotations
+    
+    * Update ProjectExclusions tracking issue
+    
+    * Disable failing tests on Android platform
+    
+    * Skip MutexTests on CoreCLR Android
+    
+    * Disable tests on CoreCLR Android
+    
+    * Fix ActiveIssue annotation
+    
+    * Disable failing tests
+    
+    * Disable failing tests
+    
+    * Exclude System.Net.Security.Tests from project builds
+    
+    * Exclude System.Net.Security.Tests from project builds
+    
+    * Disable CoreCLR tests on Mono
+    
+    * Disable System.Net.WebSockets.Tests due to disk space limitation
+    
+    * Exclude debug symbols
+    
+    * Update StripDebugSymbols property
+    
+    * Disable failing tests
+    
+    * Fix build
+    
+    * Disable tests
+    
+    * Disable failing tests
+    
+    * Test run
+    
+    * Use Debug config to ensure android:debuggable=true
+    
+    * Fix StripDebugSymbols
+    
+    * Fix formatting
+    
+    * Test run
+    
+    ---------
+    
+    Co-authored-by: Steve Pfister <stpfiste@microsoft.com>
