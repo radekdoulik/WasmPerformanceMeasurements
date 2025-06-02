@@ -1,0 +1,23 @@
+commit be6751023bf7837fa2f58bf1f7f6e7f6507c9798
+Author: Filip Navara <filip.navara@gmail.com>
+Date:   Mon May 26 10:42:00 2025 +0200
+
+    Enable new exception handling on win-x86 (#115957)
+    
+    * Change win-x86 configuration to build with FEATURE_EH_FUNCLETS
+    
+    * Update CLR ABI document
+    
+    * Bump R2R version
+    
+    * Update JIT-EE interface GUID
+    
+    * Report funclet prologs and epilogs as no-GC regions in x86 GC info
+    
+    * Fix isFilterFunclet code path in EnumGcRefsX86
+    
+    * Implement ShouldParentToFuncletUseUnwindTargetLocationForGCReporting code path on x86
+    
+    * Fix hasReversePInvoke condition not to trigger when unwinding from funclet
+    
+    * Cleanup usages of WantsReportOnlyLeaf
