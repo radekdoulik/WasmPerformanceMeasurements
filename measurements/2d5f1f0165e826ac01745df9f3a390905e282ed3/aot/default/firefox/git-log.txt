@@ -1,0 +1,36 @@
+commit 2d5f1f0165e826ac01745df9f3a390905e282ed3
+Author: Tarek Mahmoud Sayed <10833894+tarekgh@users.noreply.github.com>
+Date:   Sun May 25 22:28:52 2025 -0700
+
+    Support out of proc Histogram Base 2 Exponential aggregation (#115852)
+    
+    * Support out of proc Histogram Base 2 Exponential aggregation
+    
+    * Update src/libraries/System.Diagnostics.DiagnosticSource/src/System/Diagnostics/Metrics/Base2ExponentialHistogramAggregator.cs
+    
+    Co-authored-by: Copilot <175728472+Copilot@users.noreply.github.com>
+    
+    * ensure scale in range
+    
+    * Feedback addressing 1
+    
+    * Explicity write "Copyright"
+    
+    * Apply suggestions from code review
+    
+    Co-authored-by: Reiley Yang <reyang@microsoft.com>
+    
+    * Update src/libraries/System.Diagnostics.DiagnosticSource/src/System/Diagnostics/Metrics/CircularBufferBuckets.cs
+    
+    Co-authored-by: Reiley Yang <reyang@microsoft.com>
+    
+    * Address the feedback
+    
+    * fix issue causing failing test
+    
+    * Refactor metric outer loop tests to separate projects to avoid timeout issues
+    
+    ---------
+    
+    Co-authored-by: Copilot <175728472+Copilot@users.noreply.github.com>
+    Co-authored-by: Reiley Yang <reyang@microsoft.com>
