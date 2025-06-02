@@ -1,0 +1,10 @@
+commit d709a73e1bac6994c319c3bb44f0fe90989c0555
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Tue May 27 17:38:03 2025 +0200
+
+    JIT: Always intersect exception sets of defs (#116007)
+    
+    The existing logic would only intersect the exception sets of subsequent
+    defs if it had also seen a use. That meant for a list [DEF, DEF, USE] of
+    CSE candidates we would only validate that the first def's exception
+    sets were sufficient for the use.
