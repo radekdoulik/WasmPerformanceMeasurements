@@ -1,0 +1,12 @@
+commit e01d8f5df160b9fb047d45b019922b3d5c6bcf5e
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Wed May 28 12:05:54 2025 +0200
+
+    JIT: Refactor CSE candidate storage slightly (#116009)
+    
+    CSE candidates had separate storage for the first candidate and
+    subsequent candidates. This introduces some awkwardness when adding the
+    second candidate to the list.
+    
+    Refactor things so that the first candidate is stored inline in `CSEdsc`
+    as a normal list entry.
