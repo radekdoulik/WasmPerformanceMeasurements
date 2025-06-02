@@ -1,0 +1,8 @@
+commit 7e7e19568fc8ba398e7acdf0cbeee0160d95da85
+Author: Natalia Kondratyeva <knatalia@microsoft.com>
+Date:   Thu May 22 12:09:03 2025 +0200
+
+    Create copilot-setup-steps.yml (#115834)
+    
+    Based on https://github.com/dotnet/aspire/blob/5c4f9f5b9faac3748b939bfd96bc9a72ce0f9c1e/.github/workflows/copilot-setup-steps.yml and https://github.com/dotnet/aspnetcore/blob/aebd07af9854541970d0c05d99dc2e6e8bd2fdd4/.github/workflows/copilot-setup-steps.yml
+    Script args based on https://github.com/dotnet/runtime/blob/28e603e0a100dc83e3efc8a772e7798d712984f4/eng/pipelines/common/templates/runtimes/send-to-helix-inner-step.yml#L18
