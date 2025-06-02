@@ -1,0 +1,16 @@
+commit d8dd8daa6604662e5ba64b2780755d9201ca6a48
+Author: Rameel <rameel-b@hotmail.com>
+Date:   Thu May 29 08:06:37 2025 +0500
+
+    Skip adding NullChangeToken instances to the composite list (#115684)
+    
+    * Skip adding NullChangeToken instances to the composite list
+    
+    * Address feedback
+    
+    Co-authored-by: Theodore Tsirpanis <teo@tsirpanis.gr>
+    
+    ---------
+    
+    Co-authored-by: Theodore Tsirpanis <teo@tsirpanis.gr>
+    Co-authored-by: Stephen Toub <stoub@microsoft.com>
