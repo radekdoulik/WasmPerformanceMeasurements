@@ -1,0 +1,15 @@
+commit 82ef5415c39f669b7a67d68fa88c9a168affc90a
+Author: Radek Doulik <radek.doulik@gmail.com>
+Date:   Mon May 26 16:28:46 2025 +0200
+
+    [wasm coreclr] Make clr.runtime+libs build on Windows (#115058)
+    
+    * [coreclr][wasm] Make clr.runtime+libs build on Windows
+    
+    * Try to enable windows build of wasm coreclr
+    
+    * More things required to do the right things on windows
+    
+    ---------
+    
+    Co-authored-by: Steve Pfister <stpfiste@microsoft.com>
