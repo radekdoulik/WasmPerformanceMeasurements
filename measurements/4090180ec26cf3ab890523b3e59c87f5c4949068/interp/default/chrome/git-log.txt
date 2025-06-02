@@ -1,0 +1,11 @@
+commit 4090180ec26cf3ab890523b3e59c87f5c4949068
+Author: Andy Ayers <andya@microsoft.com>
+Date:   Wed May 21 09:12:40 2025 -0700
+
+    Add a helper utility to clear the environment variables for tests (#115752)
+    
+    This preserves most ambient variables other than LANG and anything prefixed with DOTNET_SYSTEM_GLOBALIZATION.
+    
+    Fixes #100505
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
