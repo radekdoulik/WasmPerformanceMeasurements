@@ -1,0 +1,15 @@
+commit d1e4319367175fdb2e60d7c7ab5247d1f2794036
+Author: Vladimir Sadov <vsadov@microsoft.com>
+Date:   Fri May 23 18:01:53 2025 +0000
+
+    When cloning method descs be careful with fields that have different offsets between the source and destination.  (#115798)
+    
+    * clean old locations when shifting data inside methoddesc
+    
+    * better fix
+    
+    * added a test
+    
+    * PR feedback
+    
+    * missing rename
