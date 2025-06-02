@@ -1,0 +1,8 @@
+commit ef86e25b2f0caa2f400aba8760d8a82081627e86
+Author: TickThunder <152080055+TickThunder@users.noreply.github.com>
+Date:   Sat May 24 03:30:04 2025 +0800
+
+    [NativeAOT] Fix: Prevent EETypeKindMask invalidation from uint16_t cast (#115925)
+    
+    Co-authored-by: CHQ <chenhaiqing1998@foxmail.com>
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
