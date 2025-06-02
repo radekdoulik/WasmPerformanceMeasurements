@@ -1,0 +1,9 @@
+commit b4bd13d3d81d8d91ad62946a8f1d24bf8e753d8d
+Author: Huo Yaoyuan <huoyaoyuan@hotmail.com>
+Date:   Thu May 22 23:27:35 2025 +0800
+
+    Fix build break for paltests (#115877)
+    
+    * Use minipal_lowres_ticks for paltests
+    
+    * Delete unused GetHighPrecisionTimeStamp
