@@ -1,0 +1,7 @@
+commit fa1604a0ee39a2cb21b384262f65af10f6f26d2c
+Author: Anton Firszov <Anton.Firszov@microsoft.com>
+Date:   Fri May 23 15:47:35 2025 +0200
+
+    Make HttpStress fail on unobserved exceptions (#115849)
+    
+    There were no unobserved exceptions in recent HttpStress runs, so it should be OK (and desired) to fail the test run if we detect one.
