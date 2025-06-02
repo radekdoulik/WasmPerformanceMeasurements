@@ -1,0 +1,17 @@
+commit 113198b33db82053f9244d6d87a8e5f2ffa4144c
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Thu May 22 10:26:57 2025 +0200
+
+    JIT: Fix SysV first/second return register GC info mismatch when generating calls (#115827)
+    
+    On SysV it is possible to have mixed SIMD/integer return registers for
+    calls. This leads to a case where the first return register is a SIMD
+    register, while the second return register is an integer register. In
+    that particular case, the emitter would get confused and expect GC
+    information for the second return register to refer to `rdx`, when in
+    reality it refers to `rax`.
+    
+    Fix the problem by detecting the case where the second register is
+    `rax`, and communicating the right information back to the emitter. Also
+    add a test case that reliably segfaults under `DOTNET_GCStress=C`
+    without the fix.
