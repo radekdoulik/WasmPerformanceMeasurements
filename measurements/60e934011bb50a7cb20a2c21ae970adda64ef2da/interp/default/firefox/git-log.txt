@@ -1,0 +1,9 @@
+commit 60e934011bb50a7cb20a2c21ae970adda64ef2da
+Author: Andy Ayers <andya@microsoft.com>
+Date:   Fri May 30 10:28:22 2025 -0700
+
+    JIT: generalize escape analysis delegate invoke expansion slightly (#116099)
+    
+    Expand the invoke when the delegate object address has been substituted directly.
+    
+    Addresses example in #84872.
