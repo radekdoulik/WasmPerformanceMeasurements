@@ -1,0 +1,13 @@
+commit 7dce8f67fd3d65743dd5a6212e5e9d2d0f5d6f29
+Author: Michael Sharp <51342856+michaelgsharp@users.noreply.github.com>
+Date:   Tue May 27 17:28:19 2025 -0600
+
+    Mark some Tensor extension methods as scoped (#115575)
+    
+    * Removing extension methods
+    
+    * Use `this scoped in` so APIs can remain extension methods
+    
+    ---------
+    
+    Co-authored-by: Tanner Gooding <tagoo@outlook.com>
