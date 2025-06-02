@@ -1,0 +1,11 @@
+commit 8ccec0a463e1fa67b53fb546080d51acbc29a0b6
+Author: snickolls-arm <151848422+snickolls-arm@users.noreply.github.com>
+Date:   Thu May 22 18:44:12 2025 +0100
+
+    Implement SVE2 BitwiseSelect, BitwiseSelectLeftInverted, BitwiseSelectRightInverted (#115775)
+    
+    * Implement SVE2 BitwiseSelect, BitwiseSelectLeftInverted, BitwiseSelectRightInverted
+    
+    * Add missing PlatformNotSupported lines
+    
+    * Fix the list order
