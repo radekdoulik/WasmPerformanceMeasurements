@@ -1,0 +1,21 @@
+commit c96e01ba98ee31a1ce2455ab7b42456fd2de20cb
+Author: Tom Deseyn <tom.deseyn@gmail.com>
+Date:   Wed May 28 20:54:34 2025 +0200
+
+    System.Formats.Tar: default to no ctime/atime. (#115778)
+    
+    * System.Formats.Tar: default to no ctime/atime.
+    
+    atime and ctime are not well supported on non-PAX formats.
+    
+    Even for PAX formats, tools do not include these timestamps by default because they are of limited use.
+    
+    This makes .NET to also default to not include these timestamps.
+    
+    * Add back attribute lists in the XML docs.
+    
+    * Copy atime/ctime.
+    
+    * Move atime/ctime copy back to GnuTarEntry ctor.
+    
+    * Test conversion with atime/ctime set.
