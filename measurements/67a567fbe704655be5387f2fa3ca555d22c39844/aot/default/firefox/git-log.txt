@@ -1,0 +1,21 @@
+commit 67a567fbe704655be5387f2fa3ca555d22c39844
+Author: Tarek Mahmoud Sayed <10833894+tarekgh@users.noreply.github.com>
+Date:   Sun May 25 10:41:04 2025 -0700
+
+    Fix Creating Undermined Culture (#115919)
+    
+    * Fix Creating Undermined Culture
+    
+    * Update src/libraries/System.Private.CoreLib/src/System/Globalization/CultureData.cs
+    
+    Co-authored-by: Copilot <175728472+Copilot@users.noreply.github.com>
+    
+    * Update to work on OSX
+    
+    * restore removed empty line
+    
+    * Feedback
+    
+    ---------
+    
+    Co-authored-by: Copilot <175728472+Copilot@users.noreply.github.com>
