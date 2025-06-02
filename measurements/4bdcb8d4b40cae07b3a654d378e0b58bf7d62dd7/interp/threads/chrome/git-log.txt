@@ -1,0 +1,5 @@
+commit 4bdcb8d4b40cae07b3a654d378e0b58bf7d62dd7
+Author: Milos Kotlar <kotlarmilos@gmail.com>
+Date:   Mon Jun 2 14:47:33 2025 +0200
+
+    Fix invalid continuation caused by exception after inlining in `TryRunInline` (#115659)
