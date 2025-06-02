@@ -1,0 +1,18 @@
+commit 8115429a72fa599584135f217f3a34bd4aef8cf4
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Sun May 25 15:31:12 2025 +0200
+
+    JIT: Disallow forward substitution of async calls (#115936)
+    
+    This can be forwarded into an overlapping byref temp, which is invalid
+    IR.
+    
+    We could look for that condition specifically, but that's more complex. Do the
+    simple thing for now and skip forward substituting trees containing async calls.
+    In the future when we have async contexts in SPMI collections we can try the
+    more precise check and see if it makes a difference.
+    
+    The opposite might also be possible: forward substituting a TYP_BYREF
+    into a tree with an async call. However, I am not 100% sure that can
+    create overlapping lifetimes, so let's wait and see if Fuzzlyn comes up
+    with an example.
