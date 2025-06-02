@@ -1,0 +1,9 @@
+commit d4c23c6e87eb144f8030eb83f035d6d69e0076c8
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Fri May 23 09:32:36 2025 +0200
+
+    JIT: Remove overzealous async assert (#115883)
+    
+    The store can come from a `STORE_LCL_FLD`, so in reality there is no
+    relation between the type of the resultLcl and the call type. The code
+    below handles `STORE_LCL_FLD` correctly, so just remove the assert.
