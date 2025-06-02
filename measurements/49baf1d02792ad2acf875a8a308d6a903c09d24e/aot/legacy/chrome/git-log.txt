@@ -1,0 +1,7 @@
+commit 49baf1d02792ad2acf875a8a308d6a903c09d24e
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Thu May 22 16:41:33 2025 +0200
+
+    Decrease number of allocations in new test (#115887)
+    
+    Otherwise the test runs very slowly under DOTNET_GCStress=1/3.
