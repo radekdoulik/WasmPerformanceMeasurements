@@ -1,0 +1,13 @@
+commit 5ffe44f2453a06f52685780976dc99fd52098bc5
+Author: snickolls-arm <151848422+snickolls-arm@users.noreply.github.com>
+Date:   Mon Jun 2 21:03:50 2025 +0100
+
+    Implement SVE2 Xor, XorRotateRight (#115891)
+    
+    * Implement SVE2 Xor, XorRotateRight
+    
+    * Remove HW_Category_RotateByImmediate
+    
+    * Remove unnecessary immediate bounds case
+    
+    * Remove unnecessary containment case
