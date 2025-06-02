@@ -1,0 +1,13 @@
+commit 87b35f477c09f146107a6c11627317f6b15e9d3e
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Fri May 23 09:34:11 2025 +0200
+
+    JIT: Avoid implicit byref retbufs in async calls (#115888)
+    
+    The check in the importer did not take into account that a `LCL_ADDR` of
+    an implicit byref local will turn into `LCL_VAR` after morph. The async
+    transformation requires the retbuf to be the address of a local, so
+    enhance the check to take this into account.
+    
+    Also switch the `compIsAsync()` check to `call->IsAsync()`. Inside async
+    functions it is ok for non-async calls to use the normal logic.
