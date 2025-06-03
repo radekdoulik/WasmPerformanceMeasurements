@@ -1,0 +1,19 @@
+commit d6cd5777ad238107d66503fb834abbaab849f440
+Author: Marie Píchová <11718369+ManickaP@users.noreply.github.com>
+Date:   Mon Apr 14 15:02:52 2025 +0200
+
+    [H/3] Clean up and fix Alt-Svc handling (#114528)
+    
+    * Alt-Svc allow empty ALPN
+    
+    * Fix Alt-Svc handling of clear and authority equality.
+    
+    * Test alt-svc clear
+    
+    * Update src/libraries/System.Net.Http/src/System/Net/Http/Headers/AltSvcHeaderValue.cs
+    
+    Co-authored-by: Miha Zupan <mihazupan.zupan1@gmail.com>
+    
+    ---------
+    
+    Co-authored-by: Miha Zupan <mihazupan.zupan1@gmail.com>
