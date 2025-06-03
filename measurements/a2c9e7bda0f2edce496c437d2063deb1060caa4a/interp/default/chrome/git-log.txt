@@ -1,0 +1,10 @@
+commit a2c9e7bda0f2edce496c437d2063deb1060caa4a
+Author: Marc Brooks <IDisposable@gmail.com>
+Date:   Mon Jun 2 20:38:25 2025 -0500
+
+    Unify the JsonDocument and Utf8JsonReader handling of DateTime/Offset (#113929)
+    
+    Since so much of the code is identical, move it to JsonReaderHelper
+    Closes #28931
+    
+    Co-authored-by: Pranav Senthilnathan <pranas@microsoft.com>
