@@ -1,0 +1,11 @@
+commit 5fab56b0932ebb9a03cc47fbf77154e66262c441
+Author: Pent Ploompuu <kaalikas@gmail.com>
+Date:   Tue Jun 3 04:33:27 2025 +0300
+
+    Reduce allocations in PollingWildCardChangeToken (#116175)
+    
+    * Reduce allocations in PollingWildCardChangeToken
+    
+    * Address PR feedback
+    
+    * Style fix
