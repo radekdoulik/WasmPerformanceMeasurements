@@ -1,0 +1,7 @@
+commit 6f75b3b239578e5da0811d8624a82a60afc771d8
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Tue May 20 22:02:05 2025 +0200
+
+    Add support for hot/cold code split based on instrumentation (#115777)
+    
+    The existing `MethodLayoutAlgorithm.HotCold` uses sampling data to do the split. Introduce a hot/cold split that is based on _any_ profile data for the method.
