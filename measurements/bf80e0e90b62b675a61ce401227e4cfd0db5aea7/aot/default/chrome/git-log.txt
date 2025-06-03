@@ -1,0 +1,5 @@
+commit bf80e0e90b62b675a61ce401227e4cfd0db5aea7
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Tue Jun 3 12:37:07 2025 +0200
+
+    JIT: Avoid VN-based removal of dead byref store in async funcs (#116136)
