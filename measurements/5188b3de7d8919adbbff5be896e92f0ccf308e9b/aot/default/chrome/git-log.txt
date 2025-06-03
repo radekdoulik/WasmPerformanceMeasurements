@@ -1,0 +1,7 @@
+commit 5188b3de7d8919adbbff5be896e92f0ccf308e9b
+Author: Alexander Köplinger <alex.koeplinger@outlook.com>
+Date:   Sat Apr 5 14:51:28 2025 +0200
+
+    Don't use property for msbuild versions in Versions.props (#114298)
+    
+    Avoids issues with source-build overwriting them.
