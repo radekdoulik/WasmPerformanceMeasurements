@@ -1,0 +1,9 @@
+commit 6ab0311319cc7c975ac7ed1b84df809e881dfb13
+Author: Jacob Crawley <66950962+jacob-crawley@users.noreply.github.com>
+Date:   Tue Jun 3 15:14:15 2025 +0100
+
+    SVE2 API for AbsoluteDifferenceAdd  (#115513)
+    
+    * SVE2 API for AbsoluteDifferenceAdd and widening variants
+    
+    * Removing the 'unsafe' keyword from the intrinsic definitions
