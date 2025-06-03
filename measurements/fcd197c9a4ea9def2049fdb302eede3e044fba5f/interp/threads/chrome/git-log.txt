@@ -1,0 +1,11 @@
+commit fcd197c9a4ea9def2049fdb302eede3e044fba5f
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Mon Jun 2 23:27:07 2025 -0400
+
+    Support bounded channel with bound of 0 (rendezvous) (#116097)
+    
+    * Support bounded channel with bound of 0 (rendezvous)
+    
+    This PR enables Channel.CreateBounded(0), whereas currently a bound of < 1 is exceptional. A bound is the number of items the channel can buffer, so a bound of 0 means it can't buffer anything, which makes it into a rendezvous, where the reader and writer must be at the channel at the same time in order to directly hand off from the writer to the reader. This is the same meaning as in other languages/libraries, e.g. if in go you don't specify a bound or you specify a bound of 0, you similarly get an unbuffered rendezvous channel.
+    
+    * Address PR feedback
