@@ -1,0 +1,9 @@
+commit fcbc76add236b383b78d789c7fab7598f6405be3
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Wed Jun 4 11:13:45 2025 +0200
+
+    JIT: Remove PUTARG_SPLIT (#116074)
+    
+    Instead replace arguments that are passed split across registers and
+    stack by two arguments in lowering. With recent ABI and class layout
+    work this is now straightforward.
