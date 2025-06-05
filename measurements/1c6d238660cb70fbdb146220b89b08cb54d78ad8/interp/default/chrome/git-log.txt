@@ -1,0 +1,11 @@
+commit 1c6d238660cb70fbdb146220b89b08cb54d78ad8
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Sun Jun 1 00:24:59 2025 -0400
+
+    Fix PipeStream leak on Windows when pipe is disposed with a pending operation (#115453)
+    
+    * Fix PipeStream cleanup on Windows when pipe is disposed with a pending operation
+    
+    The same pattern occurs in a couple of other places, as well.
+    
+    * Make dispose cancellation unconditional
