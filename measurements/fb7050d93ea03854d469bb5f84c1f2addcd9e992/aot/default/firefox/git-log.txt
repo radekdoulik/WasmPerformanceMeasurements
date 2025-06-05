@@ -1,0 +1,9 @@
+commit fb7050d93ea03854d469bb5f84c1f2addcd9e992
+Author: Viktor Hofer <viktor.hofer@microsoft.com>
+Date:   Mon May 12 17:12:34 2025 +0200
+
+    Update System.Net.ServerSentEvents.Tests.csproj (#115470)
+    
+    Unblocks the use of a newer .NET SDK that contains this runtime commit https://github.com/dotnet/runtime/commit/819bff14702a6e488a54400f0381846eb5a0f5b7
+    
+    This is necessary as System.Net.ServerSentEvents got moved inbox.
