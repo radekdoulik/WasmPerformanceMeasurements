@@ -1,0 +1,7 @@
+commit ddf67a78018fefc4bee1ca663aad0eea462e02f3
+Author: Vlad Brezae <brezaevlad@gmail.com>
+Date:   Fri May 30 12:47:52 2025 +0300
+
+    [mono][interp] Fix broken code attempting to reapply superinstruction optimization (#116069)
+    
+    For each instruction in a basic block we check for patterns. In a certain case, once we replaced the instruction with a new one, we were attempting to do a loop reiteration by setting `ins = ins->prev` so after the loop reincrements with `ins = ins->next` we check super instruction patterns again for the current instruction. This is broken if `ins` was the first instruction in a basic block, aka `ins->prev` is NULL. This used to be impossible before SSA optimizations, since super instruction pass was applying optimizations in a single basic block only.
