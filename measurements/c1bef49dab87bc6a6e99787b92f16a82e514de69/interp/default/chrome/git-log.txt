@@ -1,0 +1,7 @@
+commit c1bef49dab87bc6a6e99787b92f16a82e514de69
+Author: Vlad Brezae <brezaevlad@gmail.com>
+Date:   Fri Jun 6 15:45:37 2025 +0300
+
+    Fix conversion opcode emit for implicit conversion part of conditional branches (#116367)
+    
+    There was a bug leading to adding of conversion in a different basic block. This also simplifies code a little bit. Backport of corresponding mono fix.
