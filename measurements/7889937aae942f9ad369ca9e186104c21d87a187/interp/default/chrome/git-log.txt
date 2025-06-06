@@ -1,0 +1,12 @@
+commit 7889937aae942f9ad369ca9e186104c21d87a187
+Author: Jonathan Davies <jonathan.davies@arm.com>
+Date:   Fri Jun 6 15:09:47 2025 +0100
+
+    arm64: Implement missing SVE extract methods (#116095)
+    
+    * arm64: Implement missing SVE extract methods
+    * Fixes #115336
+    
+    * Remove asserts & align intrinsic definitions
+    
+    * Remove HasRMWSemantics from ExtractAfterLastActiveElementScalar
