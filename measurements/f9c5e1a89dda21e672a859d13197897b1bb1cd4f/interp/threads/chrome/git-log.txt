@@ -1,0 +1,8 @@
+commit f9c5e1a89dda21e672a859d13197897b1bb1cd4f
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Fri Jun 6 09:56:11 2025 +0200
+
+    Avoid building JITs for cross tools when unnecessary (#116332)
+    
+    Makes the builds that happen in the SPMI pipelines a bit faster. Maybe
+    helps in some other cases too.
