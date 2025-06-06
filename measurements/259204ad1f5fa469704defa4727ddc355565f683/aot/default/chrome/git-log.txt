@@ -1,0 +1,17 @@
+commit 259204ad1f5fa469704defa4727ddc355565f683
+Author: Filip Navara <filip.navara@gmail.com>
+Date:   Fri Jun 6 08:26:38 2025 +0200
+
+    Remove dead code for parsing/emitting X86 instructions (#116292)
+    
+    * Remove dead code for parsing/emitting X86 instructions
+    
+    * Restrict X86NearJump to X86
+    
+    * Inline both usages of X86EmitR2ROp
+    
+    * Inline the value of X86_INSTR_MOVAPS_R_RM
+    
+    * Remove kESP_Unsafe
+    
+    * Remove X86EmitEspOffset on x64
