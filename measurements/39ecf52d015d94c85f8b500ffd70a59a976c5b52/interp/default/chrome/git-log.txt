@@ -1,0 +1,13 @@
+commit 39ecf52d015d94c85f8b500ffd70a59a976c5b52
+Author: Clinton Ingram <clinton.ingram@outlook.com>
+Date:   Sat Jun 7 04:28:54 2025 -0700
+
+    JIT: Allow baseline intrinsics in JIT code unconditionally (#116196)
+    
+    * allow any baseline intrinsics in JIT
+    
+    * formatting
+    
+    * remove IsBaselineSimdIsaSupported
+    
+    * update comments
