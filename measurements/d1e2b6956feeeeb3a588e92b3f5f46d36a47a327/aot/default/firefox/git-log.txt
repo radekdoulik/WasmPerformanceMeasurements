@@ -1,0 +1,12 @@
+commit d1e2b6956feeeeb3a588e92b3f5f46d36a47a327
+Author: Elinor Fung <elfung@microsoft.com>
+Date:   Fri Jun 6 14:04:28 2025 -0700
+
+    Make single-file test cases delete extraction directory after test run (#116347)
+    
+    Single-file scenarios that bundle additional content (via non-default bundling options) extract to a directory at run time. For tests that redirect the extraction root, we delete the extraction directory. However, for tests that use the default extraction root ($HOME/.net, <getpwuid>/.net, or %TMP%/.net), we do not. Especially for self-contained, this can result in a lot of extracted files left over by the test run.
+    
+    - Update `BundledAppWithSubDirs` tests to delete the extraction directory used by the tests case
+    - Add assertions for expected new or reused extraction
+    - Make `NativeLibraries` specify the extraction root instead of using the default
+    - Move tests for app launch failure out of `BundledAppWithSubDirs` to `AppLaunch` test class.
