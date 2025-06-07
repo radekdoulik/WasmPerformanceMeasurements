@@ -1,0 +1,15 @@
+commit 705771984d59d506a2f4523f0dbecfb4ffc3ce21
+Author: Andy Gocke <angocke@microsoft.com>
+Date:   Sat Jun 7 09:03:26 2025 -0700
+
+    Revert change to follow symlinks of dotnet host  (#115315)
+    
+    https://github.com/dotnet/runtime/pull/99576 changed the host to first
+    resolve symlinks before resolving the application directory. This means
+    that relative loads happen relative to the pointed-at file, not the
+    symbolic link. This was a breaking change made to match the symbolic
+    link behavior on all platforms.
+    
+    Unfortunately, it seems a number of users have taken a dependency on the
+    Windows-specific behavior. This PR reverts the change and puts back in
+    place the old Windows behavior.
