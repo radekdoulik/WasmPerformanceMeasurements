@@ -1,0 +1,13 @@
+commit e9957dcaf12a8c4a17e1e49a2dbc1ee6cd4d62ea
+Author: Jan Kotas <jkotas@microsoft.com>
+Date:   Sat Jun 7 12:21:51 2025 -0700
+
+    Partial revert of "Delete LOADEDMODULES cache", additional cleanup (#116374)
+    
+    * Revert "Delete LOADEDMODULES cache (#116126)"
+    
+    This reverts commit 7a06f23fa12559cddd5f440acdd37006149fc8c2.
+    
+    * Revert caching by file name path
+    
+    * Additional cleanup
