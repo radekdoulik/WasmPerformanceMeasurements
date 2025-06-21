@@ -1,0 +1,7 @@
+commit 624737eb3796e1a760465912b27ac349965d8ba5
+Author: Alexander Köplinger <alex.koeplinger@outlook.com>
+Date:   Thu Jun 5 10:09:23 2025 +0200
+
+    Fix bash array expansion (#116321)
+    
+    Follow-up to https://github.com/dotnet/runtime/pull/116315#issuecomment-2941125952
