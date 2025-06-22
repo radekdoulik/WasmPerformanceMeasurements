@@ -1,0 +1,14 @@
+commit 2ddab7bdb06004e94f843552891e76bfb387cf33
+Author: Matous Kozak <55735845+matouskozak@users.noreply.github.com>
+Date:   Tue Jun 10 12:48:35 2025 +0200
+
+    [infra][Apple] Fix Apple mobile runtime test reporting (#114862)
+    
+    Runtime test results reporting is broken on Apple mobile CI, see e.g., https://dev.azure.com/dnceng-public/public/_build/results?buildId=1020751&view=results and the log below.
+    
+    This PR switches to using `apple test` instead of `apple run` (introduced in https://github.com/dotnet/runtime/pull/107118) to correctly detect exit codes. Also removing the base64 encoding for `AppleEntryPoint` XML results dump (introduced in https://github.com/dotnet/runtime/pull/67393, not sure why?)
+    
+    ### Additional changes
+    - New merged runner is not correctly detecting running platform as such some tests are currently failing even though they should be disabled. This PR disables them directly in the test source files.
+    - Disabling managed test suit on non-Windows Mono configurations due to issue with TCP (see https://github.com/dotnet/runtime/pull/114862#issuecomment-2841610076).
+    - Adding MacCatalyst arm64/x64 runtime test pipeline
