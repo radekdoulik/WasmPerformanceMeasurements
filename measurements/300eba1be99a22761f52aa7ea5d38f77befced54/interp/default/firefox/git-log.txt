@@ -1,0 +1,11 @@
+commit 300eba1be99a22761f52aa7ea5d38f77befced54
+Author: David Wrighton <davidwr@microsoft.com>
+Date:   Tue Jun 17 12:36:27 2025 -0700
+
+    Fix remaining uses of hccall (#116561)
+    
+    * Remove HCCALL use from R2R helpers
+    
+    * Get rid of the other uses of HCCALL
+    
+    * Address the usage of the jit helpers by just removing them
