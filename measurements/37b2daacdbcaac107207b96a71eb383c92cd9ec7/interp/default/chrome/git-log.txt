@@ -1,0 +1,11 @@
+commit 37b2daacdbcaac107207b96a71eb383c92cd9ec7
+Author: Elinor Fung <elfung@microsoft.com>
+Date:   Thu Jun 19 10:31:42 2025 -0700
+
+    Disable core dumps in host tests that intentionally crash (#116725)
+    
+    For tests that intentionally crash, we were already clearing out `DOTNET_DbgEnableMiniDump`/`COMPlus_DbgEnableMiniDump`, but OS core dumps were still enabled.
+    - In tests that are explicitly throwing an unhandled exception, call into OS APIs to disable dumps for the current process
+    - When launching a command that should have dumps disabled, call `ulimit -c 0` before the command (for cases where the test doesn't have control over the process)
+    
+    For Unix, this avoids creating any dumps for intentional crashes. On Windows, we still have two created for `Muxer_NonAssemblyWithExeExtension` and `UnhandledException_BreadcrumbThreadDoesNotFinish`.
