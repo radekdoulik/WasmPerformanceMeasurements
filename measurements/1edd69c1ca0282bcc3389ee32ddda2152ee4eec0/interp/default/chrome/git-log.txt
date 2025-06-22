@@ -1,0 +1,11 @@
+commit 1edd69c1ca0282bcc3389ee32ddda2152ee4eec0
+Author: Andy Ayers <andya@microsoft.com>
+Date:   Mon Jun 9 07:31:21 2025 -0700
+
+    JIT: fix issue in assertion prop phi inference (#116326)
+    
+    Check if there are block preds that are not in phi preds if initial phi-inference succeeds.
+    
+    Also add the ability to dump the flow graph via hash.
+    
+    Fixes #116212.
