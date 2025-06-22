@@ -1,0 +1,7 @@
+commit 3ae4edb2b542a0fd61356547d88f99adb951bfb8
+Author: Alex Covington <68252706+alexcovington@users.noreply.github.com>
+Date:   Wed Jun 18 12:41:50 2025 -0700
+
+    Remove guards in TrailingZeroCountOperator<T>.Invoke for Vector256 and Vector512 paths (#116721)
+    
+    Co-authored-by: Alex Covington (Advanced Micro Devices Inc) <b-alexco@microsoft.com>
