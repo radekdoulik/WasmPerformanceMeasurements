@@ -1,0 +1,12 @@
+commit f0168ee80ba9aca18a7e7140b2bb436defda623c
+Author: Jan Kotas <jkotas@microsoft.com>
+Date:   Sat Jun 21 12:28:18 2025 -0700
+
+    Change g_fEEShutDown to be Volatile (#116885)
+    
+    g_fEEShutDown is read without locks. Make it volatile to ensure that the
+    up-to-date value is read with Arm64 weak memory model.
+    
+    Cleanup g_fEEShutDown flags
+    
+    Fixes #106242
