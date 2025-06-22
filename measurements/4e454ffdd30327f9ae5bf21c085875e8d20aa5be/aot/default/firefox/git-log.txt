@@ -1,0 +1,11 @@
+commit 4e454ffdd30327f9ae5bf21c085875e8d20aa5be
+Author: Anton Firszov <Anton.Firszov@microsoft.com>
+Date:   Tue Jun 17 01:46:45 2025 +0200
+
+    Harden CancelSendPingAsync tests (#116588)
+    
+    Fixes #113831.
+    
+    Separate `SendPingAsync(hostname)` and `SendPingAsync(IPAddress)` test implementations:
+    - `SendPingAsync(hostname)`: we didn't see issues with this variant in the CI. It effectively tests if the resolution of `www.microsoft.com` is cancelled as part of the `SendPingAsync` call. Keep the existing logic in a separate method.
+    - `SendPingAsync(IPAddress)`: occasionally, pinging the valid IP likely resulted in replies before the cancellation could kick in on Helix Mac machines. Instead, let's ping an unreachable IP to avoid this. Since that can also sometimes result to an ICMP reply instead of a timeout, use the same trick as in #116500, repeating the test with other hosts if it happens.
