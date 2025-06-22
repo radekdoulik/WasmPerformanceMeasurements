@@ -1,0 +1,7 @@
+commit 086ecfba9f48391929bdc6fa9739f0e4ae4606b0
+Author: Tom McDonald <tommcdon@microsoft.com>
+Date:   Fri Jun 13 04:15:09 2025 -0400
+
+    Revert "Fix reporting of foreign native exception not handled by runtime (#115750)" (#116621)
+    
+    This reverts commit 90236b918746148c9ae11ef4fca77fd57e388e74.
