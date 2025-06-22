@@ -1,0 +1,20 @@
+commit 9ed11b9729f17813247a8bebd39873c32305fc7e
+Author: Michael Sharp <51342856+michaelgsharp@users.noreply.github.com>
+Date:   Sat Jun 14 15:46:56 2025 -0600
+
+    Tensor<T> select. Iteration along dimensions (#113697)
+    
+    * base code in place
+    
+    * enum tests
+    
+    * Update to match the approved API refinements
+    
+    * Update the suppression file
+    
+    * Update reference assembly and suppressions
+    
+    ---------
+    
+    Co-authored-by: Tanner Gooding <tagoo@outlook.com>
+    Co-authored-by: Eric StJohn <ericstj@microsoft.com>
