@@ -1,0 +1,11 @@
+commit 595514b2f35ad9fe7e7b7df8f83a9d754f9d9f61
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Wed Jun 11 07:51:46 2025 +0200
+
+    SPMI: Run 64-bit diffs on OSX.14.Arm64.Open (#116299)
+    
+    This should make the 64-bit diffs quite a bit faster because:
+    1. The existing Windows queues are Azure managed, so they often need to
+       scale up as part of running Helix work items, which adds time
+    2. The OSX queues are on-prem queues and always have machines ready to
+       accept work. Additionally each machine is very powerful.
