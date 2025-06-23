@@ -1,0 +1,17 @@
+commit 957aaac995147595a1f048418220b76c91942f3d
+Author: Steve Pfister <steveisok@users.noreply.github.com>
+Date:   Fri Apr 25 07:17:14 2025 -0400
+
+    [cdac] Create transport package and rename the native cdac reader library (#114812)
+    
+    This change adds new cdac transport packages that are built for Windows, MacOS, and Linux. Each package contains a host specific native cdac library that is meant to ride along with various diagnostics tools.
+    
+    The native library that is part of the transport package was renamed from 'cdacreader' to 'mscordaccore_universal'.
+     
+    Contributes to https://github.com/dotnet/runtime/issues/108720
+    
+    
+    
+    ---------
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
