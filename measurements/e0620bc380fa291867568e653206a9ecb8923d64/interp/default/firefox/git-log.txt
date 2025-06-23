@@ -1,0 +1,14 @@
+commit e0620bc380fa291867568e653206a9ecb8923d64
+Author: Jan Vorlicek <janvorli@microsoft.com>
+Date:   Thu Jun 12 15:39:30 2025 +0200
+
+    Fix bug in interpreter finally call islands generation (#116560)
+    
+    I have accidentally used a wrong link when walking the list of finally
+    call island basic blocks at the time we generate them. Instead of the
+    pNextBB that links together the basic blocks for various leave targets,
+    I've used the pFinallyCallIslandBB link that links the basic blocks for
+    the same leave target across multiple try regions.
+    
+    It has surfaced in a number of coreclr tests when executed with the
+    interpreter.
