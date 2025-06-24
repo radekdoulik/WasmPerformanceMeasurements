@@ -1,0 +1,56 @@
+commit 9bf9358fbd1aa5e41b2041c12eb190dea30dc142
+Author: Copilot <198982749+Copilot@users.noreply.github.com>
+Date:   Tue Jun 24 13:27:09 2025 +0300
+
+    Fix buffer slicing in (U)Int128 property name serialization (#116868)
+    
+    * Initial plan for issue
+    
+    * Fix buffer slicing in (U)Int128 property name serialization
+    
+    Co-authored-by: PranavSenthilnathan <12225508+PranavSenthilnathan@users.noreply.github.com>
+    
+    * Add regression tests for Int128/UInt128 property name serialization
+    
+    Co-authored-by: PranavSenthilnathan <12225508+PranavSenthilnathan@users.noreply.github.com>
+    
+    * Address PR feedback: simplify test assertions and remove junk data checks
+    
+    Co-authored-by: PranavSenthilnathan <12225508+PranavSenthilnathan@users.noreply.github.com>
+    
+    * Add JSON content validation to Int128/UInt128 dictionary tests
+    
+    Co-authored-by: PranavSenthilnathan <12225508+PranavSenthilnathan@users.noreply.github.com>
+    
+    * Update src/libraries/System.Text.Json/tests/System.Text.Json.Tests/Serialization/Value.WriteTests.cs
+    
+    * Replace multiple assertions with single E2E validation in Int128 dictionary test
+    
+    Co-authored-by: eiriktsarpalis <2813363+eiriktsarpalis@users.noreply.github.com>
+    
+    * Address PR feedback: remove implementation details and add JSON content validation
+    
+    Co-authored-by: eiriktsarpalis <2813363+eiriktsarpalis@users.noreply.github.com>
+    
+    * Replace Assert.Contains with Assert.Equal for E2E JSON validation in Int128/UInt128 tests
+    
+    Co-authored-by: eiriktsarpalis <2813363+eiriktsarpalis@users.noreply.github.com>
+    
+    * Restore multi-key dictionaries in Int128/UInt128 tests as requested
+    
+    Co-authored-by: eiriktsarpalis <2813363+eiriktsarpalis@users.noreply.github.com>
+    
+    * Use raw string literals for JSON assertions in Int128/UInt128 tests
+    
+    Co-authored-by: eiriktsarpalis <2813363+eiriktsarpalis@users.noreply.github.com>
+    
+    * Remove superficial comments from Int128/UInt128 dictionary tests
+    
+    Co-authored-by: eiriktsarpalis <2813363+eiriktsarpalis@users.noreply.github.com>
+    
+    ---------
+    
+    Co-authored-by: copilot-swe-agent[bot] <198982749+Copilot@users.noreply.github.com>
+    Co-authored-by: PranavSenthilnathan <12225508+PranavSenthilnathan@users.noreply.github.com>
+    Co-authored-by: Eirik Tsarpalis <eirik.tsarpalis@gmail.com>
+    Co-authored-by: eiriktsarpalis <2813363+eiriktsarpalis@users.noreply.github.com>
