@@ -1,0 +1,7 @@
+commit 9ec21903ae9c7f6312b868c05d6e45ce68e725c1
+Author: Jackson Schuster <36744439+jtschuster@users.noreply.github.com>
+Date:   Tue Jun 24 13:10:10 2025 -0700
+
+    Make SingleFile BundleID the expected length (12 bytes) (#116656)
+    
+    Originally, the BundleID of a singlefile bundle was 12 characters long from using GetRandomFileName, but this was changed to be a substring of a deterministic hash of a file in #52930. That change used SubString(12) instead of SubString(0, 12), so the BundleID was (HashAsBase64Length - 12) characters long. The BundleID is encoded as a variable-length field, so updating the length didn't cause issues then and isn't expected to cause issues here, and doesn't require a version bump.
