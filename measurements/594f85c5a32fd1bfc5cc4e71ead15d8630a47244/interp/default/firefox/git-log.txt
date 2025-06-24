@@ -1,0 +1,7 @@
+commit 594f85c5a32fd1bfc5cc4e71ead15d8630a47244
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Mon Jun 23 17:13:52 2025 -0400
+
+    Vectorize TensorPrimitives.CosineSimilarity<Half> (#116898)
+    
+    Vectorize for Half by processing it as shorts, using the existing widening routine to two vectors of floats, and operating on those floats. Even for non-vectorized, this improves throughput as each intermediate operation is operating on floats rather than constantly needing to convert back to Half.
