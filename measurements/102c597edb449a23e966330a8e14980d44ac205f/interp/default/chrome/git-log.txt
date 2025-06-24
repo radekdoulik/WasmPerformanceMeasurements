@@ -1,0 +1,13 @@
+commit 102c597edb449a23e966330a8e14980d44ac205f
+Author: Sven Boemer <sbomer@gmail.com>
+Date:   Tue Jun 24 09:49:43 2025 -0700
+
+    Add trimming intrinsic for EventInfo.EventHandlerType.GetMethod("Invoke") (#116931)
+    
+    Because ILLink and ILC keep the `Invoke` method on delegates, there
+    shouldn't be a warning for the common pattern of
+    `EventInfo.EventHandlerType.GetMethod("Invoke")`.
+    
+    It's possible to break this logic by using a custom `EventInfo`, but
+    we don't support the scenario where this breaks the contract that
+    `EventHandlerType` should be a delegate.
