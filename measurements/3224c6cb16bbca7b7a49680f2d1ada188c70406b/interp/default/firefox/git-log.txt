@@ -1,0 +1,28 @@
+commit 3224c6cb16bbca7b7a49680f2d1ada188c70406b
+Author: snickolls-arm <151848422+snickolls-arm@users.noreply.github.com>
+Date:   Wed Jun 25 17:10:38 2025 +0100
+
+    Implement various SVE2 Right Shift intrinsics (#116914)
+    
+    Includes:
+    * ShiftRightAndInsert
+    * ShiftRightArithmeticAdd
+    * ShiftRightArithmeticNarrowingSaturateEven
+    * ShiftRightArithmeticNarrowingSaturateOdd
+    * ShiftRightArithmeticNarrowingSaturateUnsignedEven
+    * ShiftRightArithmeticNarrowingSaturateUnsignedOdd
+    * ShiftRightArithmeticRounded
+    * ShiftRightArithmeticRoundedAdd
+    * ShiftRightArithmeticRoundedNarrowingSaturateEven
+    * ShiftRightArithmeticRoundedNarrowingSaturateOdd
+    * ShiftRightArithmeticRoundedNarrowingSaturateUnsignedEven
+    * ShiftRightArithmeticRoundedNarrowingSaturateUnsignedOdd
+    * ShiftRightLogicalAdd
+    * ShiftRightLogicalNarrowingEven
+    * ShiftRightLogicalNarrowingOdd
+    * ShiftRightLogicalRounded
+    * ShiftRightLogicalRoundedAdd
+    * ShiftRightLogicalRoundedNarrowingEven
+    * ShiftRightLogicalRoundedNarrowingOdd
+    * ShiftRightLogicalRoundedNarrowingSaturateOdd
+    * ShiftRightLogicalRoundedNarrowingSaturateEven
