@@ -1,0 +1,24 @@
+commit cecbc68bd6e0ca18b8a4145fd5ccbe25ff19b20e
+Author: dotnet-maestro[bot] <42748379+dotnet-maestro[bot]@users.noreply.github.com>
+Date:   Tue May 13 19:12:03 2025 -0500
+
+    [main] Update dependencies from dotnet/hotreload-utils, dotnet/icu, dotnet/runtime-assets (#115465)
+    
+    * Update dependencies from https://github.com/dotnet/hotreload-utils build 20250505.1
+    
+    Microsoft.DotNet.HotReload.Utils.Generator.BuildTool
+     From Version 10.0.0-alpha.0.25222.1 -> To Version 10.0.0-alpha.0.25255.1
+    
+    * Update dependencies from https://github.com/dotnet/icu build 20250511.1
+    
+    Microsoft.NETCore.Runtime.ICU.Transport
+     From Version 10.0.0-preview.5.25255.1 -> To Version 10.0.0-preview.5.25261.1
+    
+    * Update dependencies from https://github.com/dotnet/runtime-assets build 20250512.1
+    
+    Microsoft.DotNet.CilStrip.Sources , Microsoft.NET.HostModel.TestData , System.ComponentModel.TypeConverter.TestData , System.Data.Common.TestData , System.Drawing.Common.TestData , System.Formats.Tar.TestData , System.IO.Compression.TestData , System.IO.Packaging.TestData , System.Net.TestData , System.Private.Runtime.UnicodeData , System.Runtime.Numerics.TestData , System.Runtime.TimeZoneData , System.Security.Cryptography.X509Certificates.TestData , System.Text.RegularExpressions.TestData , System.Windows.Extensions.TestData
+     From Version 10.0.0-beta.25255.1 -> To Version 10.0.0-beta.25262.1
+    
+    ---------
+    
+    Co-authored-by: dotnet-maestro[bot] <dotnet-maestro[bot]@users.noreply.github.com>
