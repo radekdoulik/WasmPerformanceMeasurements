@@ -1,0 +1,9 @@
+commit 56a3e2d2e8180a0fbe102f5d442f1c2aec87f0fa
+Author: Jan Kotas <jkotas@microsoft.com>
+Date:   Sun Jun 22 07:20:02 2025 -0700
+
+    Simplify generic floating point->integer conversions (#116896)
+    
+    Floating point to integer conversions for 32-bit and 64-bit integers have predictable saturating behavior on all platforms now. The manual saturation should be unnecessary.
+    
+    Keep the existing behavior for Mono since Mono has not been fixed to have the predictable saturating behavior.
