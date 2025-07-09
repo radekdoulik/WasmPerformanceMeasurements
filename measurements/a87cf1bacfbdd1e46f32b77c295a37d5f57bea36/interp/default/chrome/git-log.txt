@@ -1,0 +1,15 @@
+commit a87cf1bacfbdd1e46f32b77c295a37d5f57bea36
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Sat Jun 21 20:39:54 2025 -0400
+
+    Fix FileSystemWatcher state cleanup on dispose/finalization on Windows (#116830)
+    
+    * Fix FileSystemWatcher state cleanup on dispose/finalization on Windows
+    
+    When the FSW is disposed or finalized while it's in use, on Windows the implementation disposes of the directory handle as a mechanism to stop the monitoring. If by that point the state object's weak reference to the FSW has been cleared out (which it always will have been in the case of finalization), the state object's relevant members are not disposed, leaking several objects. This fixes that to ensure the state is cleaned up, by cleaning it up when the callback is unable to get the FSW instance.
+    
+    This also addresses concerns over long-pinned managed buffers by switching to using a native buffer. Today the buffer is allocated and then immediately pinned, due to being passed immediately to the OS via a P/Invoke, and all writes to that buffer happen in unmanaged code. All reading also is already happening via a bounds-checked span. So instead of allocating and pinning a managed array, just allocate a native buffer.
+    
+    * Address PR feedback
+    
+    * Address PR feedback
