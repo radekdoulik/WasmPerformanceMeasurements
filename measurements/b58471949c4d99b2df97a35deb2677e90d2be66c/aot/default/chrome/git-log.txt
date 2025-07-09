@@ -1,0 +1,27 @@
+commit b58471949c4d99b2df97a35deb2677e90d2be66c
+Author: Huo Yaoyuan <huoyaoyuan@hotmail.com>
+Date:   Sun Jun 22 13:37:54 2025 +0800
+
+    Cleanup unused code from nativeaot and ilc (#116480)
+    
+    * Use BitConverter
+    
+    * SequenceEqual(array) bounds to span
+    
+    * Use CollectionsMarshal.AsSpan
+    
+    * EqualOnlyComparerHelper
+    
+    * Count -> !Any
+    
+    * Unnecessary AsEnumerable
+    
+    * Remove unnecessary ToList call
+    
+    * Delete unnecessary Select(.ToString)
+    
+    * Cleanup FlagsToString
+    
+    ---------
+    
+    Co-authored-by: Austin Wise <AustinWise@gmail.com>
