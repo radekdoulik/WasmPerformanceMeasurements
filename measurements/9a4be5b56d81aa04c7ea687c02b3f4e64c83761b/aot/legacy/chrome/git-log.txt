@@ -1,0 +1,14 @@
+commit 9a4be5b56d81aa04c7ea687c02b3f4e64c83761b
+Author: Sergio Pedri <sergio0694@live.com>
+Date:   Sun Jun 22 14:43:31 2025 -0700
+
+    Optimize '[Guid]' parsing on Native AOT (#116324)
+    
+    * Optimize '[Guid]' parsing on Native AOT
+    
+    * Avoid copying UTF8 buffer entirely
+    
+    * Add missing 'IsNil' check
+    
+    Co-authored-by: kasperk81 <83082615+kasperk81@users.noreply.github.com>
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
