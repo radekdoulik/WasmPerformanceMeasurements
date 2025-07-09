@@ -1,0 +1,13 @@
+commit 3e5c258367977a21c30071e4f351bd9bd1213a24
+Author: Radek Zikmund <32671551+rzikm@users.noreply.github.com>
+Date:   Mon Jun 30 10:11:48 2025 +0200
+
+    Ignore revocation checking failures on HTTPS tests on OSX (#116910)
+    
+    * Log cert validation errors
+    
+    * Add a test server
+    
+    * Apply fix from https://github.com/dotnet/corefx/pull/22305
+    
+    * Apply suggestions from code review
