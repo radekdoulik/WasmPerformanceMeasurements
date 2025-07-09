@@ -1,0 +1,11 @@
+commit e3d3d910e7b79cefe6ebd6f785e9b978cad7ec40
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Sun Jun 22 03:02:59 2025 -0400
+
+    Enable vectorization of TensorPrimitives.ConvertTruncating for float/double (#116895)
+    
+    * Enable vectorization of TensorPrimitives.ConvertTruncating for float/double
+    
+    These were disabled against a PR that has already been merged.
+    
+    * Address PR feedback
