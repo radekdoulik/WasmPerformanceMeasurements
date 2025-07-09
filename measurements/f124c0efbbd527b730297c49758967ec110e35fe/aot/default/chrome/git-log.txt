@@ -1,0 +1,27 @@
+commit f124c0efbbd527b730297c49758967ec110e35fe
+Author: Tanner Gooding <tagoo@outlook.com>
+Date:   Sat Jun 21 05:11:31 2025 -0700
+
+    Allow the vector and scalar code paths for min, max, and fma APIs to share logic (#116804)
+    
+    * Allow the vector and scalar code paths for min/max APIs to share logic
+    
+    * Allow the vector and scalar code paths for fma APIs to share logic
+    
+    * Ensure max is handled for simdSize 32 and 64
+    
+    * Fix the riscv64 build
+    
+    * Ensure integer min/max magnitude is handled
+    
+    * Ensure the parameter ordering is correct
+    
+    * Apply formatting patch
+    
+    * Ensure that the remaining code paths execute when importing minMax intrinsics
+    
+    * Ensure we don't pop the args on platforms which aren't treating min/max as intrinsic
+    
+    * Responding to PR feedback
+    
+    * Check IsVectorNegativeZero using the node's simd base type
