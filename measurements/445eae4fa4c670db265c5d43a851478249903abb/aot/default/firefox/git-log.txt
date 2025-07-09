@@ -1,0 +1,9 @@
+commit 445eae4fa4c670db265c5d43a851478249903abb
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Tue Jul 8 12:58:32 2025 +0200
+
+    Handle async continuation in `TransitionFrame` and `ArgIterator` (#117104)
+    
+    - Handle extra arg for async functions
+    - On x86 move the async continuation to be before the generic context arg (so
+      that the generic context arg stays last, like `ArgIterator` expects)
