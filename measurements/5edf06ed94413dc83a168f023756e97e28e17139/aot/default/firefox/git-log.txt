@@ -1,0 +1,9 @@
+commit 5edf06ed94413dc83a168f023756e97e28e17139
+Author: Rob Hague <rob.hague00@gmail.com>
+Date:   Tue Jun 3 05:19:50 2025 +0200
+
+    Use span copy in BigInteger.TryGetBytes when applicable (#115445)
+    
+    When the value is positive (we don't need to do two's complement conversion) and
+    on a little endian machine, we can copy the bytes out from the underlying uint[]
+    storage.
