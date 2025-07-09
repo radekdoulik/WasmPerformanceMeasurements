@@ -1,0 +1,15 @@
+commit d9f9d3db4bd787a5e392b1d7790eb4671ef5a7f2
+Author: Mitchell Hwang <16830051+mdh1418@users.noreply.github.com>
+Date:   Mon Jun 23 22:40:59 2025 -0400
+
+    [EventPipe][UserEvents] Add copy of user_events structs (#116930)
+    
+    * [EventPipe][UserEvents] Add copy of user_events structs
+    
+    * Use hex representation
+    
+    * Various compiler warnings
+    
+    __attribute__((__packed__)) isn't declared in src/native
+    uint8_t __reserved as a field name will somehow be interpreted as
+    unsigned char
