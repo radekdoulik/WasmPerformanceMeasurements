@@ -1,0 +1,15 @@
+commit 32d3dc74c82fe72de030a70081ea5731fd449acc
+Author: Viktor Hofer <viktor.hofer@microsoft.com>
+Date:   Tue Jun 24 03:03:35 2025 -0700
+
+    Fix building coreclr SPC inside VS (#116925)
+    
+    * Fix building coreclr SPC inside VS
+    
+    - Use the correct hook points for illink targets (CoreCompileDependsOn)
+    - Move target imports into a D.B.targets file as inside the project file
+      is too early to override properties.
+    - Update targetingpacks.targets to not throw error in design time build
+    - Remove unnecessary target from S.P.CoreLib.csproj
+    
+    * nit: add empty new line
