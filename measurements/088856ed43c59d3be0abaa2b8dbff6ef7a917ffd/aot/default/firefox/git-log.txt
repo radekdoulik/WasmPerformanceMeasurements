@@ -1,0 +1,9 @@
+commit 088856ed43c59d3be0abaa2b8dbff6ef7a917ffd
+Author: Max Charlamb <44248479+max-charlamb@users.noreply.github.com>
+Date:   Thu Jun 5 14:05:32 2025 -0400
+
+    [cDAC] Implement sign extension for ClrDataAddresses (#116222)
+    
+    * Added managed ClrDataAddress to represent CLRDATA_ADDRESS
+    * Properly sign extend ClrDataAddress when converting from 32 to 64 bits
+    * Add overflow check when converting 64 to 32 bits
