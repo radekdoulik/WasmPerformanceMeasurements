@@ -1,0 +1,15 @@
+commit 664ac25dcc16cb1531f90765295ececf5b45a0e3
+Author: Vitek Karas <10670590+vitek-karas@users.noreply.github.com>
+Date:   Mon Jun 2 23:06:11 2025 +0200
+
+    Fix parsing of json with UTF 8 BOM in the host (#115967)
+    
+    There are two bugs in this line:
+    https://github.com/dotnet/runtime/blob/d896e8518a6ddba11bb58634a19a6bcb2a001927/src/native/corehost/json_parser.cpp#L126
+    
+    A typo where the last comparison should compare the 3rd byte.
+    Comparing chars to numbers. Chars are treated as signed, so the comparison will actually never succeed because the constant numbers are treated as positive numbers, but the effective value of the BOM will be treated as negative numbers.
+    
+    This change fixes it and adds tests for both runtimeconfig anf deps.json.
+    
+    Fixes https://github.com/dotnet/runtime/issues/115915
