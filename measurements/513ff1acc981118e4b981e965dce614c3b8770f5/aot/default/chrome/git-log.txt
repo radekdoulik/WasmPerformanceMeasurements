@@ -1,0 +1,15 @@
+commit 513ff1acc981118e4b981e965dce614c3b8770f5
+Author: Marie Píchová <11718369+ManickaP@users.noreply.github.com>
+Date:   Wed Jul 9 09:18:01 2025 +0200
+
+    [H/3] Fix large header tests (#117412)
+    
+    * Replace HandleRequestAsync with read request, send response to avoid GO_AWAY.
+    
+    * Apply suggestion from @Copilot
+    
+    Co-authored-by: Copilot <175728472+Copilot@users.noreply.github.com>
+    
+    ---------
+    
+    Co-authored-by: Copilot <175728472+Copilot@users.noreply.github.com>
