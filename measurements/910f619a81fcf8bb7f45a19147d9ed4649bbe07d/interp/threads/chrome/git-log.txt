@@ -1,0 +1,15 @@
+commit 910f619a81fcf8bb7f45a19147d9ed4649bbe07d
+Author: Viktor Hofer <viktor.hofer@microsoft.com>
+Date:   Wed Jul 9 23:46:23 2025 +0200
+
+    Use ProjectReferences in libs shared framework source projects (#116772)
+    
+    * Use P2Ps in inbox src libs
+    
+    * Additional changes needed to have all references available
+    
+    * Set PackageId for non-packable projects to differentiate identity
+    
+    * React to S.Threading.AccessControl moving inbox
+    
+    * PR feedback
