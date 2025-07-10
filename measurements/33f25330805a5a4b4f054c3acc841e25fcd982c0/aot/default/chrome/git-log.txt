@@ -1,0 +1,15 @@
+commit 33f25330805a5a4b4f054c3acc841e25fcd982c0
+Author: Sven Boemer <sbomer@gmail.com>
+Date:   Thu Jul 10 08:36:27 2025 -0700
+
+    More ILLink formatting fixes (#117396)
+    
+    - Format ILCompiler.TrimmingTests
+    - Fix ILLink.RoslynAnalyzer generated tests
+    - Fix whitespace in comments and #if'd out code
+    - Remove suppression for spacing around keywords
+    - Update analyzer test expected warning locations
+    
+    ---------
+    
+    Co-authored-by: Jackson Schuster <36744439+jtschuster@users.noreply.github.com>
