@@ -1,0 +1,16 @@
+commit f3548eff5bbba25f84653d4359400a26ec2b6b4f
+Author: David Wrighton <davidwr@microsoft.com>
+Date:   Wed Jul 9 23:31:57 2025 -0700
+
+    Walk compressed IL -> Native map for EventTrace and stacktrace symbolication scenarios (#116031)
+    
+    Add paths for reading the IL-Native map which doesn't create a `DebuggerMethodInfo` or `DebuggerJitInfo`
+    Use it in the stackwalker code for EH, and for the event tracing `MethodToILMap`
+    
+    This process is somewhat slower than the path through the diagnostic infrastructure, but it has no expensive locks required. To mitigate the performance loss, the format of the compressed bounds information was changed to an encoding where all entries in the table are fixed size, but the actual bit widths of the various fields are optimally small. Overall this results in a size savings of about 50KB on System.Private.CoreLib.dll, as well as capturing back all of the performance costs of this change for relatively small functions.
+    
+    In combination with the NativeToIL map cache added a few days ago, this allows us to eliminate locks from the native offset to il offset path, which should substantially reduce the cost when heavily multithreaded applications are experiencing significant error rates. (And the cache added mitigates the remaining performance loss from using the compressed data instead of the uncompressed form.)
+    
+    In addition, by changing the event trace path to use the same approach, we will remove the `DebuggerJitInfo` generation path from most customers non-debugging scenarios. (It still remains in the `ICorProfiler::GetILToNativeMapping` apis, but usage of that api is relatively rare).
+    
+    There is validation which utilizes the debugger apis to validate that the behavior hasn't changed at all.
