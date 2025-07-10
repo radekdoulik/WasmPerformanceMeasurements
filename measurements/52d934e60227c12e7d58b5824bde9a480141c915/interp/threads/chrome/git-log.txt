@@ -1,0 +1,35 @@
+commit 52d934e60227c12e7d58b5824bde9a480141c915
+Author: dotnet-maestro[bot] <42748379+dotnet-maestro[bot]@users.noreply.github.com>
+Date:   Thu Jul 10 11:51:08 2025 +0200
+
+    [main] Source code updates from dotnet/dotnet (#117450)
+    
+    * [VMR] Codeflow eaa19c2-919597a
+    
+    [[ commit created by automation ]]
+    
+    * Update dependencies from https://github.com/dotnet/dotnet build 274386
+    Updated Dependencies:
+    System.CommandLine (Version 2.0.0-beta6.25351.106 -> 2.0.0-beta6.25358.102)
+    Microsoft.DotNet.Cecil (Version 0.11.5-alpha.25351.106 -> 0.11.5-alpha.25358.102)
+    Microsoft.NET.Workload.Emscripten.Current.Manifest-10.0.100.Transport, Microsoft.DotNet.ApiCompat.Task (Version 10.0.100-preview.7.25351.106 -> 10.0.100-preview.7.25358.102)
+    Microsoft.DotNet.Arcade.Sdk, Microsoft.DotNet.XliffTasks, Microsoft.DotNet.Helix.Sdk, Microsoft.DotNet.GenAPI, Microsoft.DotNet.GenFacades, Microsoft.DotNet.XUnitExtensions, Microsoft.DotNet.Build.Tasks.Archives, Microsoft.DotNet.Build.Tasks.Packaging, Microsoft.DotNet.Build.Tasks.Installers, Microsoft.DotNet.Build.Tasks.Templating, Microsoft.DotNet.Build.Tasks.Workloads, Microsoft.DotNet.CodeAnalysis, Microsoft.DotNet.Build.Tasks.TargetFramework, Microsoft.DotNet.RemoteExecutor, Microsoft.DotNet.Build.Tasks.Feed, Microsoft.DotNet.SharedFramework.Sdk, Microsoft.DotNet.PackageTesting (Version 10.0.0-beta.25351.106 -> 10.0.0-beta.25358.102)
+    Microsoft.DotNet.XUnitAssert, Microsoft.DotNet.XUnitConsoleRunner (Version 2.9.2-beta.25351.106 -> 2.9.2-beta.25358.102)
+    Microsoft.NETCore.App.Ref, runtime.native.System.IO.Ports, Microsoft.NETCore.ILAsm, Microsoft.NET.Sdk.IL, System.Text.Json, System.Reflection.Metadata, System.Reflection.MetadataLoadContext (Version 10.0.0-preview.7.25351.106 -> 10.0.0-preview.7.25358.102)
+    Microsoft.Net.Compilers.Toolset, Microsoft.CodeAnalysis, Microsoft.CodeAnalysis.CSharp, Microsoft.CodeAnalysis.Analyzers (Version 5.0.0-1.25351.106 -> 5.0.0-1.25358.102)
+    Microsoft.CodeAnalysis.NetAnalyzers (Version 10.0.0-preview.25351.106 -> 10.0.0-preview.25358.102)
+    
+    * Update dependencies from https://github.com/dotnet/dotnet build 274568
+    Updated Dependencies:
+    System.CommandLine (Version 2.0.0-beta6.25358.102 -> 2.0.0-beta6.25359.101)
+    Microsoft.DotNet.Cecil (Version 0.11.5-alpha.25358.102 -> 0.11.5-alpha.25359.101)
+    Microsoft.NET.Workload.Emscripten.Current.Manifest-10.0.100.Transport, Microsoft.DotNet.ApiCompat.Task (Version 10.0.100-preview.7.25358.102 -> 10.0.100-preview.7.25359.101)
+    Microsoft.DotNet.Arcade.Sdk, Microsoft.DotNet.XliffTasks, Microsoft.DotNet.Helix.Sdk, Microsoft.DotNet.GenAPI, Microsoft.DotNet.GenFacades, Microsoft.DotNet.XUnitExtensions, Microsoft.DotNet.Build.Tasks.Archives, Microsoft.DotNet.Build.Tasks.Packaging, Microsoft.DotNet.Build.Tasks.Installers, Microsoft.DotNet.Build.Tasks.Templating, Microsoft.DotNet.Build.Tasks.Workloads, Microsoft.DotNet.CodeAnalysis, Microsoft.DotNet.Build.Tasks.TargetFramework, Microsoft.DotNet.RemoteExecutor, Microsoft.DotNet.Build.Tasks.Feed, Microsoft.DotNet.SharedFramework.Sdk, Microsoft.DotNet.PackageTesting (Version 10.0.0-beta.25358.102 -> 10.0.0-beta.25359.101)
+    Microsoft.DotNet.XUnitAssert, Microsoft.DotNet.XUnitConsoleRunner (Version 2.9.2-beta.25358.102 -> 2.9.2-beta.25359.101)
+    Microsoft.NETCore.App.Ref, runtime.native.System.IO.Ports, Microsoft.NETCore.ILAsm, Microsoft.NET.Sdk.IL, System.Text.Json, System.Reflection.Metadata, System.Reflection.MetadataLoadContext (Version 10.0.0-preview.7.25358.102 -> 10.0.0-preview.7.25359.101)
+    Microsoft.Net.Compilers.Toolset, Microsoft.CodeAnalysis, Microsoft.CodeAnalysis.CSharp, Microsoft.CodeAnalysis.Analyzers (Version 5.0.0-1.25358.102 -> 5.0.0-1.25359.101)
+    Microsoft.CodeAnalysis.NetAnalyzers (Version 10.0.0-preview.25358.102 -> 10.0.0-preview.25359.101)
+    
+    ---------
+    
+    Co-authored-by: dotnet-maestro[bot] <dotnet-maestro[bot]@users.noreply.github.com>
