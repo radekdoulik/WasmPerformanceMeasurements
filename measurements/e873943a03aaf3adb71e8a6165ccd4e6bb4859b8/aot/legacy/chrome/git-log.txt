@@ -1,0 +1,7 @@
+commit e873943a03aaf3adb71e8a6165ccd4e6bb4859b8
+Author: SingleAccretion <62474226+SingleAccretion@users.noreply.github.com>
+Date:   Thu Jul 10 08:53:29 2025 +0300
+
+    [NativeAOT] Split `ExternSymbolNode` into two types for data and functions (#117346)
+    
+    This allows to distinguish the symbol type for a node with a simple type check.
