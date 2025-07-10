@@ -1,0 +1,19 @@
+commit 45e14ea5e8d2646693299e68310cad7603bbe4c8
+Author: Tomasz Sowiński <tomeksowi@gmail.com>
+Date:   Thu Jul 10 14:08:01 2025 +0200
+
+    [RISC-V] Use auipc for code addresses in INS_OPTS_{RL,RC,JALR} (#116780)
+    
+    * Emit auipc+addi for non-reloc label addresses
+    
+    * Emit auipc+jalr for INS_OPT_JALR
+    
+    * Fix jal target register
+    
+    * Fold branches for forward and backward jumps
+    
+    * Emit auipc+load/addi for cold sections INS_OPTS_RC
+    
+    * cleanup
+    
+    * overflow check
