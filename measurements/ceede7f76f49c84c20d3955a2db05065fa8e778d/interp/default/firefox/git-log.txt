@@ -1,0 +1,7 @@
+commit ceede7f76f49c84c20d3955a2db05065fa8e778d
+Author: Jackson Schuster <36744439+jtschuster@users.noreply.github.com>
+Date:   Wed Jul 9 14:18:33 2025 -0700
+
+    Use the NativeBinary property instead of reconstructing the path in NativeAOT target (#117294)
+    
+    Use the NativeBinary property instead of reconstructing the path.
