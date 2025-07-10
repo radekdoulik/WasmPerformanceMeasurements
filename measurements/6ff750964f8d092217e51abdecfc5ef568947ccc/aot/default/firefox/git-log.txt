@@ -1,0 +1,12 @@
+commit 6ff750964f8d092217e51abdecfc5ef568947ccc
+Author: Noah Falk <noahfalk@users.noreply.github.com>
+Date:   Wed Jul 9 13:08:38 2025 -0700
+
+    Ensure profiler test output is flushed (#117407)
+    
+    This might fix issue #114608
+    
+    These tests redirect profilee output to a parent which can cause it to get buffered. Given that the last line of output is
+    missing but the Profiler.dll!Profiler::Shutdown message emitted just before is present it seems more likely that this
+    is a buffering issue rather than a process crash in that small window. Notably, every other profiler Shutdown() method
+    includes this fflush() call but it was missing for the transitions profiler.
