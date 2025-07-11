@@ -1,0 +1,5 @@
+commit 78ccbe1bac9f19d50c4d297772d2b9c0c43f97c3
+Author: Aman Khalid <amankhalid@microsoft.com>
+Date:   Wed Jul 2 10:00:15 2025 -0400
+
+    JIT: Remove overzealous fake-splitting assert for x86 unwind info (#117156)
