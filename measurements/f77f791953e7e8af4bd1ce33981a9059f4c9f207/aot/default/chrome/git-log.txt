@@ -1,0 +1,17 @@
+commit f77f791953e7e8af4bd1ce33981a9059f4c9f207
+Author: Eirik Tsarpalis <eirik.tsarpalis@gmail.com>
+Date:   Thu Jun 26 16:28:33 2025 +0300
+
+    Add tests validating that append-only hash table collections are enumerated preserving insertion order. (#116964)
+    
+    * Add tests validating that hash table collections are enumerated preserving insertion order.
+    
+    * Use string-based keys instead.
+    
+    * Update src/libraries/System.Collections/tests/Generic/Dictionary/Dictionary.Tests.cs
+    
+    Co-authored-by: Pranav Senthilnathan <pranav.senthilnathan@live.com>
+    
+    ---------
+    
+    Co-authored-by: Pranav Senthilnathan <pranav.senthilnathan@live.com>
