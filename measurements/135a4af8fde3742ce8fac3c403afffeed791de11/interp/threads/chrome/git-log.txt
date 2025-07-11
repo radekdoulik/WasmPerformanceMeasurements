@@ -1,0 +1,9 @@
+commit 135a4af8fde3742ce8fac3c403afffeed791de11
+Author: Vlad Brezae <brezaevlad@gmail.com>
+Date:   Thu Jul 10 22:20:48 2025 +0300
+
+    [mono][interp] Fix alignment for simd args (#117476)
+    
+    For untiered code, we don't use the var offset allocator, the offset for vars is computed on the fly as we push and pop them from the execution stack during initial IL import compilation phase. These offsets (and their alignment) follow the same rules as if they would be passed as arguments to a method. When we initially push a var we don't know if this var will be an argument to a call, so it might not have the stack alignment of 16 bytes. In this case, at the moment of a call we add a MINT_MOV_STACK_UNOPT opcode which moves the entire var space so it has the right alignment. The problem is that all simd params (which need 16byte alignment) will now become unaligned. `interp_realign_simd_params` is called to resolve this problem by doing another mov, this time starting at the location of the first simd argument.
+    
+    This realignment is meant to be done only once, because once a simd argument is properly aligned, all following arguments are aligned as well, due to the way they are initially pushed on the execution stack. The issue was that we were not breaking the loop once we do the realignment starting at the first simd argument.
