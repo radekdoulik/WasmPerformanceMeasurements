@@ -1,0 +1,7 @@
+commit af19702225f41955ab928fdadec43712322aa9f2
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Tue Jul 1 07:08:06 2025 +0200
+
+    Improve constant value analysis for method IL (#117084)
+    
+    Refactors `TryGetMethodConstantValue` to use a stack-based IL interpreter, enabling more robust constant folding and handling of more complex control flow and method calls. This addresses patterns that often show up around Metrics code (calling a helper that checks several diagnostic switches like `someLog.Log.IsSupported` and using it in an `if` check).
