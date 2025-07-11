@@ -1,0 +1,17 @@
+commit d4ae57c10d27e17a07f57452f6abe8a68a6fdde5
+Author: Steve Pfister <steveisok@users.noreply.github.com>
+Date:   Thu Jul 3 07:12:47 2025 -0400
+
+    Zero initialize FrameInfo so that we don't mistake an InlineCallFrame for a CLRToCOMMethodFrame (#117252)
+    
+    This one was a doozy.
+    
+    If you try to step in to a static function and the static cctor hasn't run, the debugger will treat it as a go. Moving the [static helpers to managed](https://github.com/dotnet/runtime/pull/108167) altered the debugger flow such that you would have managed -> native interop -> managed (implied .cctor) frames. The debugger would detect the last managed one is an implied .cctor and step out. When it stepped out to the next managed frame, it would then incorrectly calculate the offset and issue a breakpoint the instruction  **before** the qcall into native code. Thus, the code already ran and it's effectively a go.
+    
+    After a bunch of logging and discussion, I at first thought the stackwalker was at fault where it somehow ignored the unmanaged frames. I then noticed we have a [block](https://github.com/dotnet/runtime/blob/5399d5da8376270995adade66457d94b83955bea/src/coreclr/debug/ee/controller.cpp#L392-L409) that intentionally suppresses native frames when stepping out similar to what is now happening.
+    
+    After even more logging, I noticed that `pInfo->fIgnoreThisFrameIfSuppressingUMChainFromCLRToCOMMethodFrameGeneric` was true even though nothing ran to set it that way. This lead to the fix where we zero initialize a `FrameInfo` instance to make sure that bool is false.
+    
+    Note: I would not be surprised if there are other interop stepping issues lurking. Additionally, there are other places where we don't zero initialize various structs on the stack. As a follow up, we should do that in order to avoid this kind of madness.
+    
+    Fixes https://github.com/dotnet/runtime/issues/114820
