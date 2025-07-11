@@ -1,0 +1,7 @@
+commit d0b2d081056f70fe4c1ab3fa7a9a46a21245c59a
+Author: Aman Khalid <amankhalid@microsoft.com>
+Date:   Mon Jun 30 12:11:25 2025 -0400
+
+    JIT: Modify switch and finally-ret successors using edge redirection helpers (#117102)
+    
+    Follow-up to #116933. By mutating the existing edge during switch successor modifications, we can avoid invalidating the unique switch successor map. Also adds a helper for removing edges from the switch successor map without needing to trash the whole entry. I'd like to get to a point where we always have accurate switch successor sets available -- we could even consider rearchitecting BBswtDesc to model BBehfDesc and hold unique successor edges.
