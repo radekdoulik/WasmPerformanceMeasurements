@@ -1,0 +1,9 @@
+commit d7da56a440ebc88b37505a95f59366f7f76eefaf
+Author: Elinor Fung <elfung@microsoft.com>
+Date:   Wed Jun 11 14:58:09 2025 -0700
+
+    Fix libhost scenarios (COM, C++/CLI, custom component host) incorrect coreclr path determination (#116504)
+    
+    There is a fallback for apps with no .deps.json where the host will consider the app directory for loading coreclr. In component hosting scenarios, we do not have an app path / directory. We were incorrectly going down the path of looking for coreclr in the (empty string) app directory.
+    
+    This change skips that path for libhost scenarios. It also adds checks that the paths we determine for loading coreclr, hostpolicy, and hostfxr are absolute.
