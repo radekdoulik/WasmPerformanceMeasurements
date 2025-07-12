@@ -1,0 +1,9 @@
+commit cd1eb0637bcdbf3326e9b1d63ea9e0dd4103c259
+Author: Marie Píchová <11718369+ManickaP@users.noreply.github.com>
+Date:   Fri Jun 20 16:54:35 2025 +0200
+
+    [HTTP/3] Handle all QUIC exceptions in H/3 stream (#116851)
+    
+    * Handle all QuicExceptions in H/3
+    
+    * Added test
