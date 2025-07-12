@@ -1,0 +1,27 @@
+commit a50dedf326cf31e2320cbc97d3ae721b26a1f2b2
+Author: Marc Gravell <marc.gravell@gmail.com>
+Date:   Mon May 19 11:27:07 2025 +0100
+
+    HybridCache: add net10 HybridCache zero-alloc fetch API (#114427)
+    
+    * Add net10 HybridCache zero-alloc fetch API
+    
+    fixes #112866
+    
+    * make ref API happy
+    
+    * copy/pasta
+    
+    * add clarifying comments
+    
+    * fix the namespace in the ref pack
+    
+    * Update src/libraries/Microsoft.Extensions.Caching.Abstractions/src/Hybrid/HybridCache.cs
+    
+    Co-authored-by: Theodore Tsirpanis <teo@tsirpanis.gr>
+    
+    * unify key handling
+    
+    ---------
+    
+    Co-authored-by: Theodore Tsirpanis <teo@tsirpanis.gr>
