@@ -1,0 +1,34 @@
+commit a8c0a03465b1a15f90f8d5286000d97569298752
+Author: Rich Lander <rlander@microsoft.com>
+Date:   Fri Jun 27 15:08:29 2025 -0700
+
+    Update build and test images to Alpine 3.22 (#116167)
+    
+    * Update Alpine 3.21 -> 3.22
+    
+    * Update build image
+    
+    * Update eng/pipelines/libraries/helix-queues-setup.yml
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
+    
+    * Update distribution of distros
+    
+    * Update images
+    
+    * Restructure linux-x64 libraries conditions
+    
+    * Switch to using Else syntax
+    
+    * Unify mono inner and outer loops into testing on Ubuntu
+    
+    * Update eng/pipelines/libraries/helix-queues-setup.yml
+    
+    * Remove `main` conditional for linux-musl-arm64
+    
+    * Update helix-queues-setup.yml
+    
+    ---------
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
+    Co-authored-by: Juan Hoyos <19413848+hoyosjs@users.noreply.github.com>
