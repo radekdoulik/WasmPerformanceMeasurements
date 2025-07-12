@@ -1,0 +1,7 @@
+commit a7bd51e9805f5be32d2b2ca13545bb101c399490
+Author: Jan Kotas <jkotas@microsoft.com>
+Date:   Mon Jun 16 05:12:26 2025 -0700
+
+    Avoid CORINFO_..._HANDLEs in JIT helper signatures (#116675)
+    
+    CORINFO_..._HANDLEs are meant to be JIT/EE interface abstraction. Using them in JIT helper signatures causes confusion.
