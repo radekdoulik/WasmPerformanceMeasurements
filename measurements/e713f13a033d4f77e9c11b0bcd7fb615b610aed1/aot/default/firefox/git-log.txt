@@ -1,0 +1,11 @@
+commit e713f13a033d4f77e9c11b0bcd7fb615b610aed1
+Author: David Wrighton <davidwr@microsoft.com>
+Date:   Thu Jun 12 15:19:56 2025 -0700
+
+    Implementation of ldftn and calli (#116449)
+    
+    - This implements ldftn by matching the implementation in the JIT. Integration with the delegate construction path is not done, so we always go down slow path delegate creation, but it does work.
+    - This implementation leverages our CallStubGenerator to create stubs for calli instructions. To get the appropriate call stub to the right location, we use a new jit interface api called `GetCookieForInterpreterCalliSig` to pass the needed cookie around.
+    - As a bonus it is now possible to call delegates by calling the Invoke method on the delegate. We will likely want to translate that to using an INTOP_CALLI in the future, but it does work for now.
+    
+    NOTE: This logic results in going through an interpreter->native->interpreter calling thunks to make interpreter to interpreter calls. We will likely want to build an optimized path which uses of NonVirtualEntry2MethodDesc or an interpreter specific form to avoid bouncing through the calling convention trampolines, but I'd like to have a fully functional system before diving into doing that sort of thing as an optimization.
