@@ -1,0 +1,7 @@
+commit af399c4a6f9243104260419074a41ff2546bb1ba
+Author: Copilot <198982749+Copilot@users.noreply.github.com>
+Date:   Sun Jun 8 21:35:38 2025 +0000
+
+    Fix invalid IL in RefFields test - remove ldind.ref on value type references (#116416)
+    
+    Co-authored-by: AaronRobinsonMSFT <30635565+AaronRobinsonMSFT@users.noreply.github.com>
