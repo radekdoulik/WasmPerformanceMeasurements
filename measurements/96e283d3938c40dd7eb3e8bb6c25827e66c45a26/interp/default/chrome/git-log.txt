@@ -1,0 +1,9 @@
+commit 96e283d3938c40dd7eb3e8bb6c25827e66c45a26
+Author: Andy Ayers <andya@microsoft.com>
+Date:   Wed Jun 18 19:38:09 2025 -0700
+
+    JIT: remove unnecessary inlining restriction (#116773)
+    
+    We can still inline methods even if they make generic virtual calls.
+    
+    Fixes #116740.
