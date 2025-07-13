@@ -1,0 +1,9 @@
+commit bdfb8725b17d97f6aea73ebfc16b683ab9c5895f
+Author: Jan Kotas <jkotas@microsoft.com>
+Date:   Mon Jun 30 07:25:59 2025 -0700
+
+    Re-enable test disabled against #72801 (#117125)
+    
+    * Re-enable test disabled against #72801
+    
+    * Explicitly enable EventSourceSupport for NAOT
