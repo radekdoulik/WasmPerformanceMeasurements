@@ -1,0 +1,27 @@
+commit 919597ab3aa5e91f8a6ea63ba58de2b842edc833
+Author: dotnet-maestro[bot] <42748379+dotnet-maestro[bot]@users.noreply.github.com>
+Date:   Thu Jul 3 20:09:22 2025 +0200
+
+    [main] Source code updates from dotnet/dotnet (#117274)
+    
+    * [VMR] Codeflow 61f2ad6-61f2ad6
+    
+    [[ commit created by automation ]]
+    
+    * Update dependencies from https://github.com/dotnet/dotnet build 273855
+    Updated Dependencies:
+    System.CommandLine (Version 2.0.0-beta5.25311.107 -> 2.0.0-beta6.25351.106)
+    Microsoft.DotNet.Cecil (Version 0.11.5-alpha.25311.107 -> 0.11.5-alpha.25351.106)
+    Microsoft.NET.Workload.Emscripten.Current.Manifest-10.0.100.Transport, Microsoft.DotNet.ApiCompat.Task (Version 10.0.100-preview.6.25311.107 -> 10.0.100-preview.7.25351.106)
+    Microsoft.DotNet.Arcade.Sdk, Microsoft.DotNet.XliffTasks, Microsoft.DotNet.Helix.Sdk, Microsoft.DotNet.GenAPI, Microsoft.DotNet.GenFacades, Microsoft.DotNet.XUnitExtensions, Microsoft.DotNet.Build.Tasks.Archives, Microsoft.DotNet.Build.Tasks.Packaging, Microsoft.DotNet.Build.Tasks.Installers, Microsoft.DotNet.Build.Tasks.Templating, Microsoft.DotNet.Build.Tasks.Workloads, Microsoft.DotNet.CodeAnalysis, Microsoft.DotNet.Build.Tasks.TargetFramework, Microsoft.DotNet.RemoteExecutor, Microsoft.DotNet.Build.Tasks.Feed, Microsoft.DotNet.SharedFramework.Sdk, Microsoft.DotNet.PackageTesting (Version 10.0.0-beta.25311.107 -> 10.0.0-beta.25351.106)
+    Microsoft.DotNet.XUnitAssert, Microsoft.DotNet.XUnitConsoleRunner (Version 2.9.2-beta.25311.107 -> 2.9.2-beta.25351.106)
+    Microsoft.NETCore.App.Ref, runtime.native.System.IO.Ports, Microsoft.NETCore.ILAsm, Microsoft.NET.Sdk.IL, System.Text.Json, System.Reflection.Metadata, System.Reflection.MetadataLoadContext (Version 10.0.0-preview.6.25311.107 -> 10.0.0-preview.7.25351.106)
+    Microsoft.Net.Compilers.Toolset, Microsoft.CodeAnalysis, Microsoft.CodeAnalysis.CSharp, Microsoft.CodeAnalysis.Analyzers (Version 5.0.0-1.25311.107 -> 5.0.0-1.25351.106)
+    Microsoft.CodeAnalysis.NetAnalyzers (Version 10.0.0-preview.25311.107 -> 10.0.0-preview.25351.106)
+    
+    * Disable CA1861 to unblock the build
+    
+    ---------
+    
+    Co-authored-by: dotnet-maestro[bot] <dotnet-maestro[bot]@users.noreply.github.com>
+    Co-authored-by: Alexander Köplinger <alex.koeplinger@outlook.com>
