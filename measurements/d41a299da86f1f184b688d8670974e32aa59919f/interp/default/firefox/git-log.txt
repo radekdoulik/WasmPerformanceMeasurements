@@ -1,0 +1,7 @@
+commit d41a299da86f1f184b688d8670974e32aa59919f
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Wed Jun 18 11:47:45 2025 +0200
+
+    Generate rank information in BulkType events (#116749)
+    
+    Port https://github.com/dotnet/coreclr/pull/27516 to native AOT.
