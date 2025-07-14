@@ -1,0 +1,5 @@
+commit cbb1610c92bf83a1ddbf21760b5af97e0f3a4e88
+Author: Petr Houška <houskape@gmail.com>
+Date:   Tue Jul 8 03:08:39 2025 +0200
+
+    Skip null loggers when creating loggers in Logger factory. (#117334)
