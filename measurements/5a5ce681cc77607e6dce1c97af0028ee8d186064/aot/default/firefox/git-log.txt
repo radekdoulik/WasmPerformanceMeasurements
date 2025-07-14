@@ -1,0 +1,10 @@
+commit 5a5ce681cc77607e6dce1c97af0028ee8d186064
+Author: Andy Ayers <andya@microsoft.com>
+Date:   Thu Jun 26 15:16:56 2025 -0700
+
+    JIT: Fix assert in object allocation phase (#117066)
+    
+    The previous DFS and remove  phase may leave unreachable pred blocks around.
+    Bail out of conditional escape analysis when this happens.
+    
+    Fixes #117039.
