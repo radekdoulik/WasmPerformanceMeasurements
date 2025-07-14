@@ -1,0 +1,8 @@
+commit e4bbf7e49bff2ba7574e796bcede64e4321c3319
+Author: David Wrighton <davidwr@microsoft.com>
+Date:   Wed Jul 2 00:12:28 2025 -0700
+
+    Handle calls to shared generic interfaces from shared generic code (#117210)
+    
+    - The implementation uses the true LDVIRTFTN path for this. Since it thunks to using function pointer the perf is likely not ideal, but we will need a new generic dictionary entry kind to make this simple, and I'd like to avoid making that change to unblock progress here
+    - This expensive path was probably fine for use with virtual generic methods, but regular interface dispatch shouldn't be this expensive, so we'll want to fix this later
