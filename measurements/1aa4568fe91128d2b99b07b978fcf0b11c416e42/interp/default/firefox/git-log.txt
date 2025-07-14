@@ -1,0 +1,5 @@
+commit 1aa4568fe91128d2b99b07b978fcf0b11c416e42
+Author: Vladimir Sadov <vsadov@microsoft.com>
+Date:   Thu May 29 23:57:45 2025 +0000
+
+    Disable building async tests on configurations that are not yet supported. (#116084)
