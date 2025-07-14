@@ -1,0 +1,13 @@
+commit b581381fcc0cdfce6a8a8a54d9edc8311af59064
+Author: Milos Kotlar <kotlarmilos@gmail.com>
+Date:   Mon Jun 9 23:01:01 2025 +0200
+
+    [clr-interp] Implement array support for reference and value types (#116384)
+    
+    * Implement missing ref array support
+    
+    * Implement CreateMultiDimArray and kArrayTypeMismatchException checks
+    
+    * Remove TestArrayAddress in favor of other tests
+    
+    * Fix kArrayTypeMismatchException checks
