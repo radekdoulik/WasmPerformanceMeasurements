@@ -1,0 +1,41 @@
+commit c86774fd8c3452b8aecad30c514b781dbd84c18e
+Author: Jacob Crawley <jacob.crawley@arm.com>
+Date:   Thu Jun 19 23:57:16 2025 +0100
+
+    Implement SVE AddCarryWidening (Upper/Lower) (#116429)
+    
+    * SVE2 API for AddCarryWideningLower
+    
+    * SVE2 API for AddCarryWideningUpper
+    
+    * Adding bounds checks in AddCarry helper functions
+    
+    * Handling RMW semantics on 3rd operand in lsra and codegen
+    
+    * Fixing formatting
+    
+    * Updating array validation in helper functions
+    
+    Change-Id: I9dd753d27af6041f96792ad2958a5cc4f0093ca4
+    
+    * adding parentheses to subexpressions
+    
+    Change-Id: Ibb95a18ad5abffae2a4b215a31412395c750ba89
+    
+    * Update src/tests/JIT/HardwareIntrinsics/Arm/Shared/Helpers.cs
+    
+    * Update src/tests/JIT/HardwareIntrinsics/Arm/Shared/Helpers.cs
+    
+    * Update src/tests/JIT/HardwareIntrinsics/Arm/Shared/Helpers.cs
+    
+    * Update src/tests/JIT/HardwareIntrinsics/Arm/Shared/Helpers.cs
+    
+    * Update src/tests/JIT/HardwareIntrinsics/Arm/Shared/Helpers.cs
+    
+    * Update src/tests/JIT/HardwareIntrinsics/Arm/Shared/Helpers.cs
+    
+    * Update src/tests/JIT/HardwareIntrinsics/Arm/Shared/Helpers.cs
+    
+    ---------
+    
+    Co-authored-by: Kunal Pathak <Kunal.Pathak@microsoft.com>
