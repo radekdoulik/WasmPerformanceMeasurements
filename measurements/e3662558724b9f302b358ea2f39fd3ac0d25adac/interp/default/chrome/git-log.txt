@@ -1,0 +1,13 @@
+commit e3662558724b9f302b358ea2f39fd3ac0d25adac
+Author: Jonathan Davies <jonathan.davies@arm.com>
+Date:   Fri Jun 13 15:24:53 2025 +0100
+
+    arm64: Add InterleavingXorEvenOdd & InterleavingXorOddEven (#116525)
+    
+    * arm64: Add InterleavingXorEvenOdd & InterleavingXorOddEven
+    
+    * Implements #94020
+    
+    * Remove duplicate functions
+    
+    * Add RWM flag
