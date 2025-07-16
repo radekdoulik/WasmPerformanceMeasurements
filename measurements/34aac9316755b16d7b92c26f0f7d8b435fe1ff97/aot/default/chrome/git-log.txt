@@ -1,0 +1,27 @@
+commit 34aac9316755b16d7b92c26f0f7d8b435fe1ff97
+Author: Steve <hez2010@outlook.com>
+Date:   Mon Jun 2 07:00:39 2025 +0900
+
+    JIT: Refactor around impDevirtualizeCall for GVM devirt (#112610)
+    
+    * Add IsDevirtualizationCandidate
+    
+    * Use GetMethodHandle instead of gtCallMethHnd
+    
+    * Introduce a well-known arg
+    
+    * Adjust arg order
+    
+    * Nit
+    
+    * Add NAOT helper as well
+    
+    * Add an assertion
+    
+    * JIT format
+    
+    * Oops
+    
+    * Address several regressions
+    
+    * JIT format
