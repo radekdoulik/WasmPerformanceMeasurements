@@ -1,0 +1,19 @@
+commit c048ff05d9c21d83c71a85ed7bb42c96acb84bd4
+Author: Tanner Gooding <tagoo@outlook.com>
+Date:   Fri May 30 18:35:12 2025 -0700
+
+    Rework how EVEX+AVX512+AVX10 are supported by the JIT to greatly simplify things (#115983)
+    
+    * Rework how EVEX+AVX512+AVX10 are supported by the JIT to greatly simplify things
+    
+    * Rework how X86Base+SSE+SSE2 are supported by the JIT to greatly simplify things
+    
+    * Fix the containment check for NI_AVX512_Shuffle byte
+    
+    * Remove unnecessary config knobs and instruction-set switches
+    
+    * Ensure that AdvSimd is still tracked to ensure Linux works
+    
+    * Add back the R2R values for back-compat
+    
+    * Adjust ARM64_ATOMICS_FEATURE_FLAG_BIT to match the new bit position
