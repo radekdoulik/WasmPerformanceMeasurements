@@ -1,0 +1,13 @@
+commit 35514cad21c2af903b8178ba97d6f1037db7e245
+Author: David Wrighton <davidwr@microsoft.com>
+Date:   Tue May 20 16:22:44 2025 -0700
+
+    Reapply "Create a single copy of stub templates (#115749)
+    
+    * Reapply "Create a single copy of stub templates (#114462)" (#115665)
+    
+    This reverts commit f7fc17859c961a3b2b58a8502a69fd37cc5e2b6b.
+    
+    * Disable feature on Apple platforms for now
+    
+    Co-authored-by: Tom McDonald <tommcdon@microsoft.com>
