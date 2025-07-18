@@ -1,0 +1,37 @@
+commit 86f6fa91825cb9a52a2dd248a8a34d29ecabfa17
+Author: Copilot <198982749+Copilot@users.noreply.github.com>
+Date:   Tue May 20 18:12:18 2025 +0200
+
+    Unify certificate chain building between SslStream and WinHttpHandler (#115761)
+    
+    * Initial plan for issue
+    
+    * Update WinHttpRequestCallback to use CertificateValidation
+    
+    Co-authored-by: liveans <45091041+liveans@users.noreply.github.com>
+    
+    * Remove unused WinHttpCertificateHelper.cs file
+    
+    Co-authored-by: liveans <45091041+liveans@users.noreply.github.com>
+    
+    * Fix formatting issues in WinHttpRequestCallback.cs
+    
+    Co-authored-by: liveans <45091041+liveans@users.noreply.github.com>
+    
+    * Fix compatibility with .NET Framework by using GetLastWin32Error
+    
+    Co-authored-by: liveans <45091041+liveans@users.noreply.github.com>
+    
+    * Fix FakeX509Certificates.cs to clarify empty namespace
+    
+    Co-authored-by: krwq <660048+krwq@users.noreply.github.com>
+    
+    * Remove unnecessary code per review comments
+    
+    Co-authored-by: liveans <45091041+liveans@users.noreply.github.com>
+    
+    ---------
+    
+    Co-authored-by: copilot-swe-agent[bot] <198982749+Copilot@users.noreply.github.com>
+    Co-authored-by: liveans <45091041+liveans@users.noreply.github.com>
+    Co-authored-by: krwq <660048+krwq@users.noreply.github.com>
