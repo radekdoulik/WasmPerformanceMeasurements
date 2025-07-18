@@ -1,0 +1,17 @@
+commit 7c5ea10f93f45603786cf2987b12571cf8bed1ad
+Author: Andy Ayers <andya@microsoft.com>
+Date:   Fri Jul 18 13:21:31 2025 -0700
+
+    JIT: constrain max IL size for OSR inlining (#117816)
+    
+    If we inline too aggressively at intermediate tiers, we can lose profile
+    data that would be beneficial at the final tier.
+    
+    Extend the recent fixes made for limiting max IL size at Tier1+Instr to
+    include OSR as well. This one is a arguably bit more delicate as OSR may
+    well be the final tier, but there is no way to know that.
+    
+    We are just returning to the .NET 9 behavior here.
+    
+    Fixes #117717. May also fix some of the other regressions that have
+    not yet been analyzed in depth.
