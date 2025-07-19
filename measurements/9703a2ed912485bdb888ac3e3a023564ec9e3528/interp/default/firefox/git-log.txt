@@ -1,0 +1,8 @@
+commit 9703a2ed912485bdb888ac3e3a023564ec9e3528
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Wed May 28 16:51:00 2025 +0200
+
+    JIT: Copy loop memory dependence recursively on hoisting (#116068)
+    
+    When hoisting we were cloning the full tree but only copying memory
+    dependence of the root node. Ensure we copy it for the full tree.
