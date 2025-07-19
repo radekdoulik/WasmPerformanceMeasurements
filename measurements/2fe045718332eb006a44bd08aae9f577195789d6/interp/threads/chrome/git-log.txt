@@ -1,0 +1,7 @@
+commit 2fe045718332eb006a44bd08aae9f577195789d6
+Author: Aman Khalid <amankhalid@microsoft.com>
+Date:   Fri Jul 18 17:21:33 2025 -0400
+
+    JIT: Consider conditionally executed loop statements for hoisting (#117829)
+    
+    Fixes the roughly 10x regression in #116486. This quirks loop hoisting to iterate all loop blocks, and consider hoisting expensive statements even if they don't execute every iteration. The `(IND_COST_EX * 16)` cutoff was chosen to minimize churn, while still solving the above regression.
