@@ -1,0 +1,21 @@
+commit d757c03be2c39968bca1db2ce9349fce8f1463a3
+Author: Tanner Gooding <tagoo@outlook.com>
+Date:   Fri Jul 18 16:30:29 2025 -0700
+
+    Add some additional Tensor APIs (#117739)
+    
+    * Remove unnecessary usings from Tensor code
+    
+    * Add the TensorMarshal class
+    
+    * Fix the naming of various tensor create APIs to remove ambiguities
+    
+    * Add support for directly getting a contiguous span from a tensor
+    
+    * Update the compatibility supressions file for S.N.Tensors
+    
+    * Add tests for the new APIs
+    
+    * Fix some tests
+    
+    * Ensure the test calls TryGetSpan
