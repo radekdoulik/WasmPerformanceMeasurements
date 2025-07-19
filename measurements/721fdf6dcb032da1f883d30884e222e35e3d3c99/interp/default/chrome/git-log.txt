@@ -1,0 +1,9 @@
+commit 721fdf6dcb032da1f883d30884e222e35e3d3c99
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Fri Jun 27 08:34:47 2025 -0400
+
+    Fix handling of culture in logging generator for > 6 parameters (#117009)
+    
+    * Fix handling of culture in logging generator for > 6 parameters
+    
+    * Address PR feedback
