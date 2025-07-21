@@ -1,0 +1,8 @@
+commit 9c3fe895f281c9438df0a5a2698d36a299a71bef
+Author: Sanjam Panda <36253777+saitama951@users.noreply.github.com>
+Date:   Mon Jul 21 14:09:11 2025 +0530
+
+    [mono] fallback to scalar operation for ExtractMostSignificantBits (#117276)
+    
+    Add a scalar fallback for ExtractMostSignificantBits
+    related to https://github.com/dotnet/runtime/pull/116779/commits/8dcc633d8082f92cc8fb7ea04fbe5da804467a80#r2167007340
