@@ -1,0 +1,7 @@
+commit ad1257421933929ffa5590dfe273ef836d8a4788
+Author: Jan Kotas <jkotas@microsoft.com>
+Date:   Mon Jul 21 10:29:17 2025 -0700
+
+    Delete ECHash (#117861)
+    
+    We do not need FCall entrypoint to MethodDesc reverse mappinng now that there are no FCall with HelperMethodFrames
