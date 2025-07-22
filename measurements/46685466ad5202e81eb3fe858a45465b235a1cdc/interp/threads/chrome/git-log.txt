@@ -1,0 +1,5 @@
+commit 46685466ad5202e81eb3fe858a45465b235a1cdc
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Tue Jul 22 08:10:44 2025 -0400
+
+    Escape dashes in RegexCharClass.DescribeSet (#117909)
