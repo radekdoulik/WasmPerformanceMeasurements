@@ -1,0 +1,24 @@
+commit 0d7b88c85c3a78bc5fde5d281e0dff54337dff52
+Author: Tom Deseyn <tom.deseyn@gmail.com>
+Date:   Mon Jul 21 22:48:10 2025 +0200
+
+    Tar: fix handing of null terminated fields. (#117410)
+    
+    * Tar: fix handing of null terminated fields.
+    
+    The current implementation is trimming spaces and nulls from the end.
+    
+    Instead we need to find the terminating null from the start,
+    and we shouldn't trim spaces at the end.
+    
+    * Fix not advancing over datastream with length 1, which caused the DataOffset_RegularFile_SecondEntry test to fail.
+    
+    * Skip test cases that depend on checksum being checked.
+    
+    * Simplify LimitByRemaining.
+    
+    * Add test.
+    
+    * Refactor SetReachedEnd.
+    
+    * Throw InvalidDataException when the extended header contains invalid records.
