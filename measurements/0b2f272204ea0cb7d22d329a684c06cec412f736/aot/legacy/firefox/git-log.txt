@@ -1,0 +1,15 @@
+commit 0b2f272204ea0cb7d22d329a684c06cec412f736
+Author: Clinton Ingram <clinton.ingram@outlook.com>
+Date:   Mon Jul 21 20:55:36 2025 -0700
+
+    JIT: Allow more containment opts in Tier0 (#117622)
+    
+    * allow more containment opts in tier0
+    
+    * disable aligned load containment when opts disabled
+    
+    * revert TryFoldCnsVecForEmbeddedBroadcast changes
+    
+    ---------
+    
+    Co-authored-by: Tanner Gooding <tagoo@outlook.com>
