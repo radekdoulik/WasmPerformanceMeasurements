@@ -1,0 +1,7 @@
+commit 2edd5fc63f7999c5e0570f9968f38df0bde0e83b
+Author: Aman Khalid <amankhalid@microsoft.com>
+Date:   Tue Jul 22 15:37:34 2025 -0400
+
+    JIT: Simplify `Compiler::getHWIntrinsicImmTypes` (#117784)
+    
+    Numerous SVE2 PRs have had to expand the checks in this function to catch new intrinsics. These checks aren't necessary for computing the intrinsic's immediates' sizes/types. They are essentially debug checks that are (or ought to be) checked downstream. Removing them simplifies later intrinsic additions, and cleans up the function quite a bit.
