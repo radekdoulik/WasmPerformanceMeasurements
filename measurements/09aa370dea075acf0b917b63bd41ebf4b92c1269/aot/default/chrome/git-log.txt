@@ -1,0 +1,8 @@
+commit 09aa370dea075acf0b917b63bd41ebf4b92c1269
+Author: Elinor Fung <elfung@microsoft.com>
+Date:   Fri Jul 25 10:43:20 2025 -0700
+
+    Add `LocalPath` property to `RuntimeFile` and `ResourceAssembly` for writing/reading deps.json (#118034)
+    
+    - Add `LocalPath` property and constructors taking a local path to `RuntimeFile` and `ResourceAssembly`
+    - Update JSON serialization/deserialization to handle the new property
