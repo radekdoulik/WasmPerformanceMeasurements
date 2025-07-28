@@ -1,0 +1,7 @@
+commit a1667657373d846df5c8df8fc613a6d709f89957
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Mon Jul 28 09:55:53 2025 -0400
+
+    Support Notones in alternation reductions that merge sets (#118109)
+    
+    Today, given an alternation like `a|b|[cd]|efg`, that gets reduced to `[abcd]|efg`, supporting One and Set nodes. But it doesn't support Notone nodes. That means the semi-common idiom `.|\n` that folks use to express any character when not using Singleline doesn't get reduced and remains an alternation. This extends the existing reduction pass to also recognize Notones, just by treating them as one or two ranges.
