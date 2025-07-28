@@ -1,0 +1,7 @@
+commit 7a6890342caa6360b4e8cb23c598b63046320088
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Sun Jul 27 20:16:09 2025 -0400
+
+    Remove positive lookarounds that wrap only zero-width assertions (#118091)
+    
+    A positive lookahead effectively changes its contents to be zero-width. If the contents is already zero-width, the lookaround adds no value.
