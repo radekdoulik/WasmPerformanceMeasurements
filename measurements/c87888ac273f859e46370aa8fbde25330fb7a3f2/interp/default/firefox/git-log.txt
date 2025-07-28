@@ -1,0 +1,21 @@
+commit c87888ac273f859e46370aa8fbde25330fb7a3f2
+Author: David Nguyen <87228593+davidnguyen-tech@users.noreply.github.com>
+Date:   Mon Jul 28 09:41:29 2025 +0200
+
+    [Android][CoreCLR] Add runtimeconfig.json support for test host (#117980)
+    
+    * Add placeholders for setting AppContext keys and values
+    
+    * For CoreCLR, add runtimeconfig.json parsing and set AppContext keys and values by replacing the template placeholders
+    
+    * Setting the env variables is now redundant
+    
+    * Enable newly fixed tests
+    
+    * Enable the test
+    
+    * Add a null check instead of using the null-forgiving operator
+    
+    * Refactoring: rename method and variables and add comments
+    
+    * Rename variable
