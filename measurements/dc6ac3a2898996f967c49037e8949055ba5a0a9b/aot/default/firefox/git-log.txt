@@ -1,0 +1,7 @@
+commit dc6ac3a2898996f967c49037e8949055ba5a0a9b
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Sun Jul 27 23:57:57 2025 -0400
+
+    Normalize some well-known negated sets (#118106)
+    
+    Some folks end up writing sets like `[^\d]` instead of `\D`, `[^\w]` instead of `\W`, or `[^\s]` instead of `\S`. This defeats some special recognition of the common \D, \W, and \S sets. Normalize them.
