@@ -1,0 +1,15 @@
+commit 307753a093721b963df0671777fad237c384efdd
+Author: Shiming Ge <v-shige@microsoft.com>
+Date:   Tue Jul 29 02:15:31 2025 +0800
+
+    Fix the issue that the test exits with cannot find Microsoft.Win32.Primitives.dll (#117699)
+    
+    * fix the issue that the test exits with cannot find Microsoft.Win32.Primitives.dll
+    
+    * Update src/tests/GC/Stress/Framework/ReliabilityFramework.cs
+    
+    Co-authored-by: Copilot <175728472+Copilot@users.noreply.github.com>
+    
+    ---------
+    
+    Co-authored-by: Copilot <175728472+Copilot@users.noreply.github.com>
