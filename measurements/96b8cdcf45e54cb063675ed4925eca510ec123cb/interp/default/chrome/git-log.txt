@@ -1,0 +1,8 @@
+commit 96b8cdcf45e54cb063675ed4925eca510ec123cb
+Author: Jonathan Davies <jonathan.davies@arm.com>
+Date:   Mon Jul 28 16:07:53 2025 +0100
+
+    arm64: Refactor Helpers.cs (#118125)
+    
+    * Remove duplicate functions
+    * Use template functions where possible
