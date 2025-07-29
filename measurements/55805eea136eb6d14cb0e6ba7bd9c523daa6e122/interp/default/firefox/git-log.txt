@@ -1,0 +1,5 @@
+commit 55805eea136eb6d14cb0e6ba7bd9c523daa6e122
+Author: Tanner Gooding <tagoo@outlook.com>
+Date:   Tue Jul 29 09:05:13 2025 -0700
+
+    Don't do an invalid mask conversion optimization for conditional select nodes (#118154)
