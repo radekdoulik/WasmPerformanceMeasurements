@@ -1,0 +1,7 @@
+commit 27cc30f08536880f766d7f65f3ff4247c7858e29
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Mon Jul 28 20:37:14 2025 -0400
+
+    Transform regex `X|` into `X?` and `|X` into `X??` (#118087)
+    
+    An alternation with two branches where the second is empty is the same as the first branch just being an optional loop; similarly, when the first branch is empty, it's a lazy optional loop of the second branch. Expressing as an optional is better optimized elsewhere in the regex transforms, e.g. with loop coalescing, so we're better off with the optional representation.
