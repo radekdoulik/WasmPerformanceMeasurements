@@ -1,0 +1,12 @@
+commit 97d94229eb62859038cd05fb864fd39e9be0a1a0
+Author: snickolls-arm <151848422+snickolls-arm@users.noreply.github.com>
+Date:   Tue Jul 29 19:51:46 2025 +0100
+
+    Simplify SVE unary test template (#118129)
+    
+    * Replace DataTable with PinnedVector class
+    * Add functions for generating random Vectors
+    * Add functions for converting between Vector and Array types
+    * Generate an expected Vector for comparison and log to terminal
+    * Simplify validation functions
+    * Remove RetVectorType and Op1VectorType template variables
