@@ -1,0 +1,7 @@
+commit 26d4886e813cf1d55d5e373fcdfb5665a143122b
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Mon Jul 28 16:25:53 2025 -0400
+
+    Fix compilation failure from regex source generator with some lazy loops (#118132)
+    
+    Because of some possible complicated control flow, the compiler thinks these variables are not deterministically initialized.
