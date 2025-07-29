@@ -1,0 +1,7 @@
+commit 9c714ff298234940026ac48095f9523ef30a1fa0
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Tue Jul 29 16:35:18 2025 +0200
+
+    Fix building with GVM_RESOLUTION_TRACE defined (#118160)
+    
+    `MethodNameAndSignature` no longer has the `string`-typed property.
