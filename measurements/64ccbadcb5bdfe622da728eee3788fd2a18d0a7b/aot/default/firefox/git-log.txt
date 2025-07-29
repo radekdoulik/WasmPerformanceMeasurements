@@ -1,0 +1,11 @@
+commit 64ccbadcb5bdfe622da728eee3788fd2a18d0a7b
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Tue Jul 29 13:33:29 2025 -0400
+
+    Enable lookarounds to influence atomicity (#118153)
+    
+    * Enable lookarounds to influence atomicity
+    
+    As part of our auto-atomicity handling, today we give up when the subsequent node is a lookaround. This improves it to support the case when the subsequent node is a positive lookahead.
+    
+    * Update src/libraries/System.Text.RegularExpressions/tests/UnitTests/RegexReductionTests.cs
