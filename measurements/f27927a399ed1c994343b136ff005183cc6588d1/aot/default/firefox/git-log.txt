@@ -1,0 +1,17 @@
+commit f27927a399ed1c994343b136ff005183cc6588d1
+Author: xtqqczze <45661989+xtqqczze@users.noreply.github.com>
+Date:   Sat Jul 26 00:25:58 2025 +0100
+
+    Simplify lazy initialization by removing `Volatile.Read` (#117868)
+    
+    Replaced `Volatile.Read` with plain field reads. The memory barriers provided by `CompareExchange` are
+    sufficient to ensure thread safety and visibility, making `Volatile.Read`
+    unnecessary.
+    
+    Follow-up to https://github.com/dotnet/runtime/pull/117817
+    
+    Related: https://github.com/dotnet/runtime/pull/100969
+    
+    cc: @stephentoub
+    
+    Co-authored-by: Tanner Gooding <tagoo@outlook.com>
