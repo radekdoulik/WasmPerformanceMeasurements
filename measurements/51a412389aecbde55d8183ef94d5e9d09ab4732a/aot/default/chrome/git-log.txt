@@ -1,0 +1,11 @@
+commit 51a412389aecbde55d8183ef94d5e9d09ab4732a
+Author: Sven Boemer <sbomer@gmail.com>
+Date:   Thu Jul 31 09:00:54 2025 -0700
+
+    Default IsAotCompatible for ref projects (#118222)
+    
+    Defaults IsAotCompatible to true for ref projects, and moves the
+    opt-out to be shared between src/ref projects.
+    
+    Needed to flow AssemblyMetadata("IsAotCompatible", "True") to ref
+    assemblies.
