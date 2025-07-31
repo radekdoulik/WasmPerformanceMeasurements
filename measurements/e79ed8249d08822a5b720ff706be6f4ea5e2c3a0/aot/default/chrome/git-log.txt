@@ -1,0 +1,5 @@
+commit e79ed8249d08822a5b720ff706be6f4ea5e2c3a0
+Author: Egor Bogatov <egorbo@gmail.com>
+Date:   Thu Jul 31 15:51:22 2025 +0200
+
+    Partially revert "Combine cast => negate => compare on ARM64 #112944" (#118208)
