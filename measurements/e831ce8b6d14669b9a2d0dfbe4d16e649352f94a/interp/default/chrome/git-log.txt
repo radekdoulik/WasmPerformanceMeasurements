@@ -1,0 +1,9 @@
+commit e831ce8b6d14669b9a2d0dfbe4d16e649352f94a
+Author: Aman Khalid <amankhalid@microsoft.com>
+Date:   Fri Jul 25 17:21:25 2025 +0000
+
+    JIT: Rework `*ComplexityExceeds` helpers to take caller-defined complexity computation (#118046)
+    
+    Allow Compiler::gtComplexityExceeds et al to compute the complexity of a tree as something other than the count of its nodes by relying on a callback function. We don't diverge from this definition of complexity anywhere at the moment, though this means callers can compute additional information, like the total node count for a block or loop, without needing out parameters by simply including such computations in the callback. I was motivated to do this by a want for additional insight into the optimization potential of loop inversion candidates, like whether a loop might also benefit from cloning because it contains bounds checks. Such information can be included in the callback to the complexity check.
+    
+    In the near future, we might want to diverge from the number of nodes in a code segment as our definition of complexity and employ something more sophisticated. These changes should make that easy to try out.
