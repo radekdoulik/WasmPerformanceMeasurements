@@ -1,0 +1,19 @@
+commit 3fb6fbb3efaa7f2ae5e76bf235615d7f70005201
+Author: Jacob Crawley <jacob.crawley@arm.com>
+Date:   Fri Jul 18 23:33:05 2025 +0100
+
+    SVE2 API DotProductComplex and DotProductComplexBySelectedIndex (#117706)
+    
+    * SVE2 DotProductComplex*
+    
+    Implementation for DotProductComplex and DotProductComplexBySelectedIndex
+    
+    * Renaming to DotProductRotateComplex
+    
+    * Adding constant range to rotation parameter
+    
+    * Update src/coreclr/jit/hwintrinsiccodegenarm64.cpp
+    
+    ---------
+    
+    Co-authored-by: Aman Khalid <amankhalid@microsoft.com>
