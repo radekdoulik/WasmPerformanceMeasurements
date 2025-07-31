@@ -1,0 +1,15 @@
+commit 260d02b6405980ca2f27467fd336ed18451421a2
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Thu Jul 31 12:45:00 2025 +0200
+
+    Do not look at unboxing bit when looking up constructed generic methods (#118211)
+    
+    Fixes #118072.
+    
+    In the bug we were ending up in a situation where we remember generic dictionary for a `MethodDesc` with `UnboxingStub` bit set to true and then try to look up a generic dictionary for a `MethodDesc` with unboxing stub bit set to false (the false is hardcoded in the code I'm updating).
+    
+    This is all sorts of wrong. The unboxing MethodDescs in the runtime type system were a mistake. We get by without them in the compiler.
+    
+    This is really difficult to hit because the runtime type system is mutable (this is yet another mistake) and if we still have a cached version of this mutable type system around, this lookup is not used.
+    
+    The regression test I added is really annoying and takes like 40 seconds to run in checked builds. I hate it, but this is not hittable in any other way. I'm not sure if this one is 100% reliable at triggering the type system flush either.
