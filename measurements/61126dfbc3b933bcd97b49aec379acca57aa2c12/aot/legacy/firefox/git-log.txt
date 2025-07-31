@@ -1,0 +1,22 @@
+commit 61126dfbc3b933bcd97b49aec379acca57aa2c12
+Author: Andy Ayers <andya@microsoft.com>
+Date:   Thu Jul 31 07:44:15 2025 -0700
+
+    JIT: fix issue in conditional escape analysis (#118214)
+    
+    Conditional escape analysis is triggered by a GDV guarded call to
+    `GetEnumerator`. On the fast path this call is devirtualized and inlined
+    and exposes one or more enumerator object allocations. The "more" allows
+    for collections to do special-case optimizations like returning a static
+    enumerator object for an empty collection.
+    
+    When there is more than one enumerator object allocation under the GDV guard,
+    ensure that only the allocation that was analyzed for conditional escape is stack
+    allocated; the remaining enumerators will end up on the "slow path" where enumeration
+    happens via interface calls, and so must be heap objects.
+    
+    If we clone an allocation site the allocation block won't be in
+    the DFS tree. Such sites will not be in an enumerator GDV hammock
+    so can be exempted from checking.
+    
+    Fixes #111922.
