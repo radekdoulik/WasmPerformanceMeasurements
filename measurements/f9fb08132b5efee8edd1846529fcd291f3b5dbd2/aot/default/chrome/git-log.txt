@@ -1,0 +1,15 @@
+commit f9fb08132b5efee8edd1846529fcd291f3b5dbd2
+Author: Sven Boemer <sbomer@gmail.com>
+Date:   Tue Jul 29 10:14:53 2025 -0700
+
+    Import illink.targets for ref projects (#118144)
+    
+    This lets the logic from the ILLink targets add
+    `AssemblyMetadata("IsTrimmable", "true")` to ref projects which have
+    trimming enabled.
+    
+    Also moves the trimming opt-out into `Directory.Build.props` when it
+    should be shared between src and corresponding ref projects.
+    
+    This will be used to enable the Roslyn analyzer to produce a warning
+    for references to assemblies that aren't marked "IsTrimmable".
