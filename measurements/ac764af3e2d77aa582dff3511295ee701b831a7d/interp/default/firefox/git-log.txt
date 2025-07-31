@@ -1,0 +1,16 @@
+commit ac764af3e2d77aa582dff3511295ee701b831a7d
+Author: Rachel <rachel.jarvi@gmail.com>
+Date:   Wed Jul 30 16:54:09 2025 -0700
+
+    Adding write capabilities and SetOtherNotificationFlags cDAC API (#118141)
+    
+    * * adding target write capabilities to cDAC
+    * implementing SetOtherNotificationFlags cDAC API
+    
+    * adding writebuffer
+    
+    * Apply suggestions from code review
+    
+    Co-authored-by: Copilot <175728472+Copilot@users.noreply.github.com>
+    
+    ---------
