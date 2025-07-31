@@ -1,0 +1,9 @@
+commit b6e34b8c14fc531b6997795024374302447372d7
+Author: Katelyn Gadd <kg@luminance.org>
+Date:   Tue Jul 29 18:27:13 2025 -0700
+
+    [interp] Forcibly enable intrinsics when we encounter a must-expand call (#117727)
+    
+    * When encountering a must expand intrinsic self-call in an interpreted method, always expand it even if intrinsics are turned off.
+    * Clean up a minor edge case in the 'is reference or contains references' intrinsic
+    * Remove an alignment assert that is causing failures in the startup path
