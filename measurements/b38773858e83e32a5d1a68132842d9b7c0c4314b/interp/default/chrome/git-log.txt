@@ -1,0 +1,7 @@
+commit b38773858e83e32a5d1a68132842d9b7c0c4314b
+Author: Alexander Köplinger <alex.koeplinger@outlook.com>
+Date:   Fri Jul 18 21:59:24 2025 +0200
+
+    [wasm] Make sure we use bash environment for emsdk_env.sh script (#117833)
+    
+    Codespaces prebuild currently fails because of that. This matches what we do in mono.proj.
