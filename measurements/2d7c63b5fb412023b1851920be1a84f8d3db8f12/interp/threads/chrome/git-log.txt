@@ -1,0 +1,15 @@
+commit 2d7c63b5fb412023b1851920be1a84f8d3db8f12
+Author: Jackson Schuster <36744439+jtschuster@users.noreply.github.com>
+Date:   Thu Jul 31 08:46:28 2025 -0700
+
+    Deduplicate base interfaces from another assembly in COM generator (#111931)
+    
+    Fixes cross-assembly interface inheritance.
+    
+    Deduplicate external ComInterfaceInfos in the pipeline.
+    
+    Don't remove external interface methods in the generator pipeline - these are required to create the new VTable struct type introduced in #116289.
+    
+    Creates a new SourceAvailableIncrementalMethodStubGenerationContext for methods with source available and use IncrementalMethodStubGenerationContext as a base for externally defined methods.
+    
+    Moves the ComInterfaces from SharedTypes to the Common folder, and defines a limited set of base interfaces in SharedTypes for interfaces in ComInterfaceGenerator to derived from. Adds a number of tests for different levels of inheritance across assemblies.
