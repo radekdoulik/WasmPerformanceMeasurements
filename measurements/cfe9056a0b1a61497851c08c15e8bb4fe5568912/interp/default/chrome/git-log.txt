@@ -1,0 +1,15 @@
+commit cfe9056a0b1a61497851c08c15e8bb4fe5568912
+Author: Johan Lorensson <lateralusx.github@gmail.com>
+Date:   Wed Jul 30 12:05:18 2025 +0200
+
+    Adjust Test_wait_interrupted_user_apc test timeout to handle deviation due to lowres timers. (#116066)
+    
+    * Adjust test timeout to handle deviation due to lowres timers.
+    
+    * Acceept 500 ms deviation on wait time.
+    
+    * Reenable test.
+    
+    * Adjust wait time calculation.
+    
+    * Reduce wait delta to 20ms to account for low vs high res timers.
