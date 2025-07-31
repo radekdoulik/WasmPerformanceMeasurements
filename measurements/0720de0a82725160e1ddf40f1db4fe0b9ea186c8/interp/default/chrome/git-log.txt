@@ -1,0 +1,7 @@
+commit 0720de0a82725160e1ddf40f1db4fe0b9ea186c8
+Author: Jan Kotas <jkotas@microsoft.com>
+Date:   Thu Jul 31 11:51:47 2025 -0700
+
+    Rename ManagedAssemblyLoadContext to AssemblyLoadContext (#118227)
+    
+    There is no unmanaged assembly load context, so the "Managed" prefix is superfluous.
