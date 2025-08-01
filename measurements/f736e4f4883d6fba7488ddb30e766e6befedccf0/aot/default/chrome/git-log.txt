@@ -1,0 +1,7 @@
+commit f736e4f4883d6fba7488ddb30e766e6befedccf0
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Fri Aug 1 08:14:12 2025 +0200
+
+    Disable AdvSimd_ro test on native AOT (#118235)
+    
+    Native AOT outerloops are broken, we need outerloops green.
