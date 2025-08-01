@@ -1,0 +1,5 @@
+commit 46648f3f0591d29e8cc3c65119a0f748afa99fb3
+Author: Jeremy Koritzinsky <jekoritz@microsoft.com>
+Date:   Thu Jul 31 21:01:33 2025 -0700
+
+    Fix size calculation for derived explicit layout types with no fields (#118245)
