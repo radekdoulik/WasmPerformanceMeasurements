@@ -1,0 +1,7 @@
+commit 2cc52c2d2a0c38065b2d1a12e47b14494e48f82c
+Author: Vlad Brezae <brezaevlad@gmail.com>
+Date:   Fri Aug 1 19:18:09 2025 +0300
+
+    [wasm] Fix sharing of wbarrier card between los object and wbarrier roots (#118271)
+    
+    In the change disabling los section allocator on wasm (via sgen_los_enable_sections_allocator), we aligned these los objects to 512 bytes, which is the memory range mapped by a card byte. This alignment prevented two los objects having memory mapped to the same card. Sharing with other objects is impossible since they are allocated in separate spaces with high alignment (the nursery and major blocks). There was however an oversight, which is the possibility of having wbarrier roots allocated in this space (These roots are just variable sized memory ranges containing refs, that are scanned only if the corresponding card is marked). In this situation, scanning the cards for the los object could end up clearing cards for these roots that will no longer be scanned
