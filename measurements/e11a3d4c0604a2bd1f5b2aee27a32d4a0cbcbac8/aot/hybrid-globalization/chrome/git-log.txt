@@ -1,0 +1,25 @@
+commit e11a3d4c0604a2bd1f5b2aee27a32d4a0cbcbac8
+Author: Eric StJohn <ericstj@microsoft.com>
+Date:   Fri Aug 1 09:36:00 2025 -0700
+
+    Revert "Remove custom allocator." (#117949)
+    
+    * Revert "Remove custom allocator."
+    
+    This reverts commit c62bc5b2721673b14e702348a8ccf5f976a2b7a3.
+    
+    * Remove zlib custom allocator for linux.
+    
+    * Remove cookie check from windows custom zlib allocator
+    
+    * Remove zeroing of memory in zlib-allocator
+    
+    * Don't use custom allocator on x86
+    
+    * Refine allocator condition
+    
+    * Update src/native/libs/System.IO.Compression.Native/CMakeLists.txt
+    
+    ---------
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
