@@ -1,0 +1,7 @@
+commit b5f8e98f63411ea6a6a974884e039d65c37717b2
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Wed Jul 30 18:05:12 2025 -0400
+
+    Improve boundary handling in atomic tests (#118191)
+    
+    These were set up to require what comes after the boundary to also be disjoint from its predecessor being tested. But that's not necessary; the boundary itself is sufficient to determine atomicity.
