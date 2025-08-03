@@ -1,0 +1,9 @@
+commit 1ae288b13d41b98c614ff5220b4c326ce9a40bf9
+Author: SingleAccretion <62474226+SingleAccretion@users.noreply.github.com>
+Date:   Sun Aug 3 02:50:31 2025 +0300
+
+    Move a couple of WASM threading files to the shared partition (#118304)
+    
+    * Move threading files
+    
+    * Also move the WASI files for consistency
