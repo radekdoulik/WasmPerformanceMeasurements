@@ -1,0 +1,13 @@
+commit 973279821cc166d4502de6ea580913243363d454
+Author: Jan Kotas <jkotas@microsoft.com>
+Date:   Sun Aug 3 20:32:44 2025 -0700
+
+    Regenerate reference assembly for System.Runtime.Serialization.Xml (#118311)
+    
+    * Regenerate reference assembly for System.Runtime.Serialization.Xml
+    
+    Fixes #80236
+    
+    * Revert InvalidDataContractException
+    
+    * Revert
