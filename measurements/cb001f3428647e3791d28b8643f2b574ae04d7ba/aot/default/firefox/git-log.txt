@@ -1,0 +1,28 @@
+commit cb001f3428647e3791d28b8643f2b574ae04d7ba
+Author: Andy Ayers <andya@microsoft.com>
+Date:   Mon Aug 4 08:58:31 2025 -0700
+
+    JIT: fix retyping of some storeinds during object stack allocation (#118251)
+    
+    This PR fixes an issue that comes up in the LogicArray benchmark where
+    the JIT misses cloning a key loop. In that benchmark there is a struct local
+    `Workspace` that contains an array reference, and the JIT is now able to
+    prove the array does not escape.
+    
+    In the mainline code the field is retyped to TYP_BYREF but the store
+    of the array value is typed as TYP_I_IMPL. This mixed typing of this field
+    hinders physical promotion, which in turn induces morph to create a comma-defined
+    temp for the array references, which in turn creates an in-loop
+    assignment that blocks loop cloning.
+    
+    In general we may sometimes store a non-GC type in a TYP_BYREF field of a
+    local struct, if say that field can hold both GC refs and stack allocated
+    object refs, or if (as here) we are in an OSR method where we have to assume
+    that object allocations might come from the Tier0 code.
+    
+    If so we should still try and consistently type the store as TYP_BYREF,
+    so as to not confuse physical promotion. During the escape analysis phase
+    we built up a store map to track how each store is modeled, so we can
+    consult this during retyping to figure out which type to use for the store.
+    
+    Fixes #114999.
