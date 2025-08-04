@@ -1,0 +1,30 @@
+commit bca7bfa91efaf6e7911a6b0ba6071e4aef0ee7b4
+Author: Jan Vorlicek <janvorli@microsoft.com>
+Date:   Mon Aug 4 23:33:48 2025 +0200
+
+    Fix thread abort issue with funceval (#118354)
+    
+    There is a problem with threadabort in funceval in case there is no
+    managed frame on the stack between the abortion point and the
+    `FuncEvalFrame`. That can happen e.g. when invoking a static method via
+    funceval for a type with static constructor that was not invoked yet and
+    takes a long time to complete.
+    
+    The problem is caused by the fact that when EH is called to propagate
+    the ThreadAbortException, it starts at the first managed frame and so it
+    skips the try/catch in the funceval native code.
+    
+    This change fixes it by using `RaiseTheExceptionInternalOnly` to
+    raise the `ThreadAbortException` in the `Thread::HandleThreadAbort`. The
+    `Thread::HandleThreadAbort` is always called by native code that has a
+    native catch or (on Windows) ends up calling the `ProcessCLRException`.
+    
+    I have originally made the change to call the `DispatchManagedException`
+    from the `Thread::HandleThreadAbort`, but this issue shows it is
+    problematic.
+    
+    I have verified that the repro provided by @eterekhin in the issue
+    report no longer causes the process to crash with failfast, but
+    reports the funceval as timed out as expected.
+    
+    Close #118015
