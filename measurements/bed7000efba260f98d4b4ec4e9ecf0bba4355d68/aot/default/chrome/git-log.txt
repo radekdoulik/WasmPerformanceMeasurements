@@ -1,0 +1,8 @@
+commit bed7000efba260f98d4b4ec4e9ecf0bba4355d68
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Mon Aug 4 13:26:31 2025 -0400
+
+    Simplify/fix loop descriptions in regex source generator (#118341)
+    
+    - There's no need to say "greedily and atomically"... "atomically" covers it.
+    - "lazily and atomically" doesn't make sense... "lazily" covers it.
