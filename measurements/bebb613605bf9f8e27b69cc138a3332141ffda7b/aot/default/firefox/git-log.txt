@@ -1,0 +1,7 @@
+commit bebb613605bf9f8e27b69cc138a3332141ffda7b
+Author: Jan Kotas <jkotas@microsoft.com>
+Date:   Sun Aug 3 18:07:02 2025 -0700
+
+    Avoid redundant GetRVA calls when fetching IL header (#118318)
+    
+    Change more places to use MethodDesc::MayHaveILHeader introduced by recent PR
