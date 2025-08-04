@@ -1,0 +1,13 @@
+commit 35ffd43b350d09b641a61a057996aa7b0ca3b830
+Author: Tomasz Sowiński <tomeksowi@gmail.com>
+Date:   Mon Aug 4 13:05:00 2025 +0200
+
+    [RISC-V] Use auipc for code addresses in INS_OPTS_C (#117196)
+    
+    * auipc in EmitOutputCall also non-reloc
+    
+    * Always record relocation for auipc+jalr like on arm64
+    
+    * Stop squirelling link register in lowest bit of the call address
+    
+    * Handle auipc+I-type reloc in superpmi
