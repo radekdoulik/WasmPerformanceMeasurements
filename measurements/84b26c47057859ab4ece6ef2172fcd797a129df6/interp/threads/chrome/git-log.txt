@@ -1,0 +1,9 @@
+commit 84b26c47057859ab4ece6ef2172fcd797a129df6
+Author: Adam Sitnik <adam.sitnik@gmail.com>
+Date:   Mon Aug 4 11:01:30 2025 +0200
+
+    [NRBF] Allow the users to decode System.Nullable<UserStruct> (#118276)
+    
+    * add a failing test that was super hard to extract from the repro
+    
+    * fix: allow any SystemClass to be represented as ClassWithMembersAndTypes in the payload
