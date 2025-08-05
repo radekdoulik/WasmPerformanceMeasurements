@@ -1,0 +1,7 @@
+commit a483fd3c4cbc6598fab067267332c40206477431
+Author: xtqqczze <45661989+xtqqczze@users.noreply.github.com>
+Date:   Tue Aug 5 00:40:54 2025 +0100
+
+    Use `nint` for native-sized integers in `Interlocked` (#118336)
+    
+    * Fix CA2020: Prevent behavioral change
