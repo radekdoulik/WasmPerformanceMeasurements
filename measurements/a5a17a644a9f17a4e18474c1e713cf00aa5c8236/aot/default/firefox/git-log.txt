@@ -1,0 +1,7 @@
+commit a5a17a644a9f17a4e18474c1e713cf00aa5c8236
+Author: Elinor Fung <elfung@microsoft.com>
+Date:   Mon Aug 18 08:54:49 2025 -0700
+
+    Remove NativeHostApis multi-level lookup tests (#118796)
+    
+    Multi-level lookup was disabled in 7.0 with no option to enable for these APIs. These tests validating that it is actually disabled are no longer useful.
