@@ -1,0 +1,18 @@
+commit 386cb8d92b2ff53b54ec8572132215c78b2d0f00
+Author: Andy Ayers <andya@microsoft.com>
+Date:   Wed Aug 6 18:15:50 2025 -0700
+
+    JIT: create inferred GDVs for enumerator var uses that lack PGO (#118461)
+    
+    Long-running enumerator loops at Tier0+instr will see their executions
+    transition over to a non-instrumented OSR version of the code.
+    
+    This can cause loss of PGO data in the portions of the method that
+    execute after the leaving the loop that inspires OSR.
+    
+    For enumerator vars we can safely deduce the likely classes from
+    probes made earlier in the method. So when we see a class profile
+    for an enumerator var, remember it and use it for subsequent calls
+    that lack their own profile data.
+    
+    Addresses part of #118420.
