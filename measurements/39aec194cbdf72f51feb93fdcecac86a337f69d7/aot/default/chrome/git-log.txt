@@ -1,0 +1,9 @@
+commit 39aec194cbdf72f51feb93fdcecac86a337f69d7
+Author: Sven Boemer <sbomer@gmail.com>
+Date:   Mon Aug 18 09:33:24 2025 -0700
+
+    Add trim analysis for implicit constructors (#118755)
+    
+    Adds support for analyzing implicit constructors to ILLink.RoslynAnalyzer.
+    The implicit constructors aren't analyzed using the operation block APIs,
+    so instead we add a special case for them.
