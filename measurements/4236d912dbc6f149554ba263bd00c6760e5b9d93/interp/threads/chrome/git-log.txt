@@ -1,0 +1,11 @@
+commit 4236d912dbc6f149554ba263bd00c6760e5b9d93
+Author: Jan Kotas <jkotas@microsoft.com>
+Date:   Mon Aug 18 07:46:19 2025 -0700
+
+    Disable release assert on disallowed thread re-initialization for managed C++ (#118827)
+    
+    * IJW workaround
+    
+    ---------
+    
+    Co-authored-by: Copilot <175728472+Copilot@users.noreply.github.com>
