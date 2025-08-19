@@ -1,0 +1,7 @@
+commit 34d517fb1191c6d5cf36056f318b6f2cf6e6db19
+Author: Max Charlamb <44248479+max-charlamb@users.noreply.github.com>
+Date:   Tue Aug 19 17:31:42 2025 -0400
+
+    [cDAC] Use specific exception for virtual read failures (#118895)
+    
+    * use VirtualReadException instead of InvalidOperationException for read failures
