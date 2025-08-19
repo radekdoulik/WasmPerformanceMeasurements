@@ -1,0 +1,17 @@
+commit 090dd070138d70eb4397ba5fdc1f525e3331b75f
+Author: Huo Yaoyuan <huoyaoyuan@hotmail.com>
+Date:   Tue Aug 19 09:30:05 2025 +0800
+
+    [NativeAOT] Cleanup LowLevelList<T> (#118649)
+    
+    * Remove chunk allocation in FunctionPointerOps
+    
+    * Remove LowLevelList
+    
+    * Remove Empty.cs
+    
+    * Replace simple cases with ArrayBuilder
+    
+    ---------
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
