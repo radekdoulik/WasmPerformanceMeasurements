@@ -1,0 +1,5 @@
+commit b267b85fd0ad76c74548757bd2bb96a4497ff2de
+Author: Eduardo Velarde <32459232+eduardo-vp@users.noreply.github.com>
+Date:   Mon Aug 11 17:40:57 2025 -0700
+
+    Extend allowed SemaphoreSlim wait TimeSpan values to match Timer and other APIs (#117398)
