@@ -1,0 +1,5 @@
+commit 19b9833fccb8885ee04152f4f05f9e2ac0dd215a
+Author: Katelyn Gadd <kg@luminance.org>
+Date:   Tue Aug 19 07:32:06 2025 -0700
+
+    Fix bad deallocate for zero-length allocations in alloc.h (#118866)
