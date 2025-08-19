@@ -1,0 +1,27 @@
+commit b622b6bf03dbdd83a3b378941b13f89c7ce50690
+Author: Copilot <198982749+Copilot@users.noreply.github.com>
+Date:   Thu Aug 7 10:03:41 2025 +0300
+
+    Merge PriorityQueue.Enumerator.MoveNextRare into MoveNext and use ThrowHelper for version checks (#118467)
+    
+    * Merge PriorityQueue.Enumerator.MoveNextRare into MoveNext method
+    
+    Co-authored-by: stephentoub <2642209+stephentoub@users.noreply.github.com>
+    
+    * Use ThrowHelper.ThrowVersionCheckFailed() instead of manual exception throwing
+    
+    Co-authored-by: stephentoub <2642209+stephentoub@users.noreply.github.com>
+    
+    * Set _index to -1 in PriorityQueue enumerator to match List<T> pattern
+    
+    Co-authored-by: stephentoub <2642209+stephentoub@users.noreply.github.com>
+    
+    * Apply suggestions from code review
+    
+    Co-authored-by: xtqqczze <45661989+xtqqczze@users.noreply.github.com>
+    
+    ---------
+    
+    Co-authored-by: copilot-swe-agent[bot] <198982749+Copilot@users.noreply.github.com>
+    Co-authored-by: Stephen Toub <stoub@microsoft.com>
+    Co-authored-by: xtqqczze <45661989+xtqqczze@users.noreply.github.com>
