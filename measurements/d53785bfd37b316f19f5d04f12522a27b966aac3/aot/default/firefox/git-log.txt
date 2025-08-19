@@ -1,0 +1,7 @@
+commit d53785bfd37b316f19f5d04f12522a27b966aac3
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Tue Aug 19 02:22:55 2025 +0200
+
+    Avoid marking types as reflected on in CreateSpan (#118832)
+    
+    This seems to be at least one of the reasons why Hello World on Linux still needs support for boxed enums. `CreateSpan` is used with an enum type in Unix System.Console, which brings a boxed enum into whole program view and we can't undo the damage this causes to the whole program view during compilation anymore (even though we no longer need the `typeof` then because RyuJIT always expands `CreateSpan`).
