@@ -1,0 +1,106 @@
+commit 0b0b4b28bf585bbedf13e4bd35a8fba9e809167b
+Author: Radek Doulik <radek.doulik@gmail.com>
+Date:   Tue Aug 19 14:20:56 2025 +0200
+
+    Move FlushProcessWriteBuffers to minipal (#118161)
+    
+    * Move FlushProcessWriteBuffers to minipal
+    
+    Implements https://github.com/dotnet/runtime/issues/117977
+    
+    Also move the initialization of it and get of page size
+    
+    * Fix build
+    
+    * Fix linux build
+    
+    * Update definitions
+    
+    Co-authored-by: Adeel Mujahid <3840695+am11@users.noreply.github.com>
+    
+    * Feedback
+    
+    Do not care about cleanup
+    
+    * Feedback
+    
+    Do not move page size to minipal
+    
+    * Feedback
+    
+    Rename the files
+    
+    * Feedback
+    
+    Changes which were missed in earlier commits
+    
+    * Feedback
+    
+    Remove PalFlushProcessWriteBuffers wrapper
+    
+    * Feedback
+    
+    Remove parts around g_helperPage on mac
+    
+    * Feedback
+    
+    Rename to memory_barrier_process_wide
+    
+    * Fix mac build
+    
+    Co-authored-by: Adeel Mujahid <3840695+am11@users.noreply.github.com>
+    
+    * Fix build
+    
+    * Fix windows build
+    
+    * More specific include
+    
+    Co-authored-by: Adeel Mujahid <3840695+am11@users.noreply.github.com>
+    
+    * Fix windows build
+    
+    Co-authored-by: Adeel Mujahid <3840695+am11@users.noreply.github.com>
+    
+    * Feedback
+    
+    Remove windows wrapper too
+    
+    * Use more generic include again
+    
+    Co-authored-by: Adeel Mujahid <3840695+am11@users.noreply.github.com>
+    
+    * Apply suggestions from code review
+    
+    Refactor ifdefs
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
+    
+    * Fix build
+    
+    * Complete the suggestion from feedback
+    
+    * Feedback
+    
+    Call `minipal_initialize_memory_barrier_process_wide` from unix
+    `GCToOSInterface::Initialize`. Let it return true if it was previously
+    successfully initialized.
+    
+    * Fix windows build
+    
+    * Apply suggestions from code review
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
+    
+    * Feedback
+    
+    Refactor minipal_memory_barrier_process_wide
+    
+    * Fix build
+    
+    * Apply suggestions from code review
+    
+    ---------
+    
+    Co-authored-by: Adeel Mujahid <3840695+am11@users.noreply.github.com>
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
