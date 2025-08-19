@@ -1,0 +1,7 @@
+commit ed96395518a0d6a8f22e1412d1f91b497b5a03d0
+Author: Jan Kotas <jkotas@microsoft.com>
+Date:   Mon Aug 18 22:05:17 2025 -0700
+
+    [NativeAOT] Streamline GetAssemblyCount (#118863)
+    
+    Avoid unnecessary code and allocations
