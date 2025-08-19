@@ -1,0 +1,16 @@
+commit 647cdc5f6cd25f604573bbd460c137f33d9904af
+Author: Aaron Robinson <arobins@microsoft.com>
+Date:   Mon Aug 11 16:01:18 2025 -0700
+
+    Cache the `AssemblyQualifiedName` property value (#118495)
+    
+    * Cache the AssemblyQualifiedName
+    
+    This follows the pattern for other names that
+    are cached on RuntimeType.
+    
+    * Add tests for Type.FullName and Type.Name.
+    
+    ---------
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
