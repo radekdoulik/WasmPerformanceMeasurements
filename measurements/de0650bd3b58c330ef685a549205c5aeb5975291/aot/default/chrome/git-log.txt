@@ -1,0 +1,27 @@
+commit de0650bd3b58c330ef685a549205c5aeb5975291
+Author: Vladimir Sadov <vsadov@microsoft.com>
+Date:   Tue Aug 19 01:32:00 2025 -0700
+
+    Implement UnhandledException hook for finalizer scenario in Mono. (#118563)
+    
+    * Implement UnhandledException hook for finalizers in Mono.
+    
+    * Cache the finalize method on wasm
+    
+    * Precompile invoke helper for GuardedFinalize
+    
+    * only check for GuardedFinalize in corlib
+    
+    * make GuardedFinalize virtual
+    
+    * use mono_runtime_try_invoke, since we can wih instance methods
+    
+    * comment out unused
+    
+    * Move GuardedFinalize to a helper class
+    
+    * make it static
+    
+    * some cleanup
+    
+    * remove no longer relevant comment
