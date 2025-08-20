@@ -1,0 +1,10 @@
+commit 749340b8e1d84e6f33f6057656e82199be921b76
+Author: Katelyn Gadd <kg@luminance.org>
+Date:   Wed Aug 20 09:33:41 2025 -0700
+
+    Migrate interpreter stack maps to InterpCompiler and use them in place of  CORINFO_FLG_CONTAINS_GC_PTR (#118860)
+    
+    * Use GetInterpreterStackMap to determine whether a class actually contains any refs
+    * Keep a unique stackmap hashtable per InterpCompiler instance that is owned by the compiler
+    * Add dtor to InterpreterStackMap that frees slots if present
+    * Add optional ValueDestroyCallback ctor arg to dn_simdhash_ptr_ptr_holder
