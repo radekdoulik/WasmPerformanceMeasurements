@@ -1,0 +1,10 @@
+commit 1f4a061411dffdcbf8d7f75dcd0e2632e5cc9a9d
+Author: Andy Ayers <andya@microsoft.com>
+Date:   Wed Aug 20 07:58:23 2025 -0700
+
+    JIT: fix double reporting of some failures in the inline tree (#118902)
+    
+    We now eagerly create inlinee contexts when we try and inline, so in post-inline
+    debug when we go to scan the trees for the calls that remain, we need to remember
+    which ones were failed inline candidates and which ones we were never inline
+    candidates.
