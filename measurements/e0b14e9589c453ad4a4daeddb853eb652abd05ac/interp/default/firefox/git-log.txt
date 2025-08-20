@@ -1,0 +1,7 @@
+commit e0b14e9589c453ad4a4daeddb853eb652abd05ac
+Author: Aman Khalid <amankhalid@microsoft.com>
+Date:   Tue Aug 12 15:12:09 2025 +0000
+
+    JIT: Remove side effect detection quirk in loop hoisting (#118463)
+    
+    Partially addresses some of the regressions in #116486 and #116754. Hoisting's traversal of the loop body was previously not sensitive to execution flow, so it was overly conservative in its side effect detection, operating under the assumption that every block after the loop header could execute after the first global side effect. Now that hoisting visits every loop block in RPO, we can remove this assumption.
