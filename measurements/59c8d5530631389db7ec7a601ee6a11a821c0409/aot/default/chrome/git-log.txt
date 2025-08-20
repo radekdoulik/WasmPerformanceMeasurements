@@ -1,0 +1,9 @@
+commit 59c8d5530631389db7ec7a601ee6a11a821c0409
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Fri Aug 15 13:09:10 2025 +0200
+
+    Put `LogExceptionThrown` on the `NativeRuntimeEventSource` plan (#118729)
+    
+    This unifies `LogExceptionThrown` with the other eventing that is implemented in the native runtime (threads/threadpool).
+    
+    Noticed this in https://github.com/dotnet/runtime/issues/107418#issuecomment-3187925557 where we run an awful lot of code in situations where event source is not even enabled.
