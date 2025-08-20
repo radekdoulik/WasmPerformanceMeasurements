@@ -1,0 +1,55 @@
+commit 688beda0d9943935cd8ff4735d488d2658baa3eb
+Author: Fuad Ismail <fuad1502@gmail.com>
+Date:   Wed Aug 20 17:26:09 2025 +0700
+
+    [RISC-V] Introduce C extension for Integer Register-Register Operations (#117408)
+    
+    * Introduce C extension; decrease code alignment to 2 bytes
+    
+    * Utilize C extension for the rest of integer register-register operations
+    
+    * Apply suggestions from code review
+    
+    Co-authored-by: Tomasz Sowiński <tomeksowi@gmail.com>
+    
+    * Ensure compressed instructions are not yet used in prolog / epilog generation
+    
+    Co-authored-by: Tomasz Sowiński <tomeksowi@gmail.com>
+    
+    * Temporarily disable assertion & return early instead when trying to generate compressed instruction in prolog / epilog
+    
+    * Fix missed adjustments to unwind info
+    
+    * Update GCInfoTypes and UnwindInfo to reflect code alignment change
+    
+    * Use unsigned type for RVC reg numbers
+    
+    * Move _MvAdd & MiscAlu cost calculation to the correct place
+    
+    * Use labels instead of hard coded branch offsets
+    
+    * Modify TODO comments to TODO-RISCV64-RVC for C extension specific todos
+    
+    * Fix skip calculation in unwinder
+    
+    * Update assumption on RISC-V instruction length
+    
+    * Update minimum code alignment of RISC-V in TargetDetails.cs
+    
+    * Update RISC-V ELF header to include RVC bit
+    
+    * Adjust and add RISCV64-RVC specific todos
+    
+    * Adjust RISC-V RVC instruction formatting in R2RDump
+    
+    * Add TODO comment on introducing a switch in jitconfigvalues.h to show c.* prefix in RVC instruction names
+    
+    * Fix if defined guard usage
+    
+    Co-authored-by: Tomasz Sowiński <tomeksowi@gmail.com>
+    
+    * Temporarily disable ProbeRiscV64Quirks
+    
+    ---------
+    
+    Co-authored-by: Tomasz Sowiński <tomeksowi@gmail.com>
