@@ -1,0 +1,9 @@
+commit 2da0155ee04969ffc4144e9f0c12c87fca5118e0
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Wed Aug 20 16:28:47 2025 +0200
+
+    Reuse characteristic mechanism for IDynIntfCastable trimming (#118884)
+    
+    Implements suggestion from https://github.com/dotnet/runtime/pull/118769#issuecomment-3192084645.
+    
+    We could probably replace `CanHaveDynamicInterfaceImplementations` with this too, but we'd need to make it so that characteristics are available in `Compilation` class. They are currently hidden in `SubstitutionILProvider`.
