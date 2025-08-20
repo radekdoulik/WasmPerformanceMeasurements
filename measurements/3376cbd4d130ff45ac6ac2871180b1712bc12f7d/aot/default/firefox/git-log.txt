@@ -1,0 +1,8 @@
+commit 3376cbd4d130ff45ac6ac2871180b1712bc12f7d
+Author: Pavel Savara <pavel.savara@gmail.com>
+Date:   Wed Aug 20 09:54:45 2025 +0200
+
+     [browser][ws] fix race condition during message and close events (#118887)
+    
+    - delay setting close to receive_status_ptr to not conflict with on-message event
+    - fix status for wasm_ws_close_sent
