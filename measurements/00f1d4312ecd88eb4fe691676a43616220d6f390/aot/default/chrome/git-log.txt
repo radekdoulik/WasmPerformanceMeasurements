@@ -1,0 +1,8 @@
+commit 00f1d4312ecd88eb4fe691676a43616220d6f390
+Author: Jeremy Koritzinsky <jekoritz@microsoft.com>
+Date:   Wed Aug 20 20:45:46 2025 -0700
+
+    Port the Shared Mutex logic from CoreCLR PAL to work alongside the managed wait subsystem (#117635)
+    
+    Co-authored-by: Adeel Mujahid <3840695+am11@users.noreply.github.com>
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
