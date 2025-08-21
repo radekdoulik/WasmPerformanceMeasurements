@@ -1,0 +1,7 @@
+commit 6265b719c12ef4d5373fcf777216adea2c6aca98
+Author: Tomasz Sowiński <tomeksowi@gmail.com>
+Date:   Thu Aug 21 14:29:28 2025 +0200
+
+    [RISC-V] Compressed mnemonics in disassembly (#118949)
+    
+     Is32BitInstruction, fix reading out of bounds in emitDispIns
