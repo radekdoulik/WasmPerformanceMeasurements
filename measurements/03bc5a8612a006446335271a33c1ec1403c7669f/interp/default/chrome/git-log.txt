@@ -1,0 +1,9 @@
+commit 03bc5a8612a006446335271a33c1ec1403c7669f
+Author: Katelyn Gadd <kg@luminance.org>
+Date:   Thu Aug 21 07:57:14 2025 -0700
+
+    [interp] Disable tiered compilation if the interpreter is enabled (#118911)
+    
+    Disable Tiered Compilation if DOTNET_Interpreter or DOTNET_InterpMode are used.
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
