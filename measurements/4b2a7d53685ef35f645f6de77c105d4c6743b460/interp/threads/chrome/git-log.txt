@@ -1,0 +1,28 @@
+commit 4b2a7d53685ef35f645f6de77c105d4c6743b460
+Author: Jan Vorlicek <janvorli@microsoft.com>
+Date:   Thu Aug 21 20:08:05 2025 +0200
+
+    Set of interpreter related fixes for coreclr tests (#118617)
+    
+    * Set of interpreter related fixes for coreclr tests
+    
+    The changes in this PR were made to fix various issues uncovered by the
+    coreclr tests.
+    * Handle case when a try block is eliminated because it can never be
+      executed.
+    * Ensure call stubs are generated for IL stubs.
+    * Fix shadow stack updating during stack walk
+    * Fix handling managed exceptions thrown as SEH from managed code called
+      by JIT / Interpreter compiler in interpreted code.
+    * Fix resuming after catch in interpreted code for cases when
+      interpreted code calls another interpreted code via a prestub, which
+      currently happens for delegates.
+    * Ensure that ip is saved to the pFrame->ip before calling native
+      methods that can throw to make sure that the stack walk reports
+      correct return IP.
+    
+    * Fix build break
+    
+    * One more build break
+    
+    * Fix WASM build break
