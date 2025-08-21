@@ -1,0 +1,10 @@
+commit 0e9ec23698968f5205f7266ffc22529a71df8ae0
+Author: Copilot <198982749+Copilot@users.noreply.github.com>
+Date:   Wed Aug 20 15:53:32 2025 -0700
+
+    Replace calls to Marshal.PtrToStringUTF8 methods with Utf8StringMarshaller and improve type consistency (#118862)
+    
+    Fixes #118861
+    
+    Co-authored-by: copilot-swe-agent[bot] <198982749+Copilot@users.noreply.github.com>
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
