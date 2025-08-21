@@ -1,0 +1,5 @@
+commit d3425021075c54d095e7d6b3afd611c4fd81b913
+Author: David Wrighton <davidwr@microsoft.com>
+Date:   Thu Aug 21 12:55:10 2025 -0700
+
+    [clr-interp] Fix behavior of newobj on interpreter when used with constructors of built-in types (#118962)
