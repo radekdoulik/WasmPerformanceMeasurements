@@ -1,0 +1,16 @@
+commit eb247f3984b71df88e0fdea0e877ff964c2f5b7f
+Author: Aaron Robinson <arobins@microsoft.com>
+Date:   Thu Aug 21 09:12:27 2025 -0700
+
+    Remove shared IL stubs for forward P/Invokes. (#117901)
+    
+    * Set the CodeHeader to contain the NDirectMethodDesc
+    instead of the IL Stub's DynamicMethodDesc.
+    
+    * Clean up the CodeHeapRequestInfo type.
+    
+    * Add MethodDesc to VASigCookie
+    
+    Stop passing the MethodDesc to all forward
+    P/Invoke scenarios.
+    Address stepping on vararg P/Invokes (mixed mode).
