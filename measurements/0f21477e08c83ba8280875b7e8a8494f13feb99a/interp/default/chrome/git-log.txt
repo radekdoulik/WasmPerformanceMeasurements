@@ -1,0 +1,9 @@
+commit 0f21477e08c83ba8280875b7e8a8494f13feb99a
+Author: Katelyn Gadd <kg@luminance.org>
+Date:   Thu Aug 21 17:26:37 2025 -0700
+
+    [interp] Implement basic tailcalls (#118901)
+    
+    * Add and generate dedicated interpreter opcodes for tail calls
+    * Implement regular and virtual tail calls from interpreted code to interpreted code
+    * Other types of tail calls are not yet implemented
