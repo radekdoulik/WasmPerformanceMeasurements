@@ -1,0 +1,28 @@
+commit cda0bf49e724c2ba4a8bc4c881f649e0a8cadb72
+Author: dotnet-maestro[bot] <42748379+dotnet-maestro[bot]@users.noreply.github.com>
+Date:   Thu Aug 21 23:41:49 2025 +0000
+
+    [main] Source code updates from dotnet/dotnet (#118914)
+    
+    * Backflow from https://github.com/dotnet/dotnet / 04752cb build 280037
+    
+    [[ commit created by automation ]]
+    
+    * Update dependencies from https://github.com/dotnet/dotnet build 280037
+    Updated Dependencies:
+    Microsoft.CodeAnalysis, Microsoft.CodeAnalysis.Analyzers, Microsoft.CodeAnalysis.CSharp, Microsoft.Net.Compilers.Toolset (Version 5.0.0-2.25418.105 -> 5.0.0-2.25419.104)
+    Microsoft.CodeAnalysis.NetAnalyzers (Version 10.0.0-preview.25418.105 -> 10.0.100-rc.1.25419.104)
+    Microsoft.DotNet.ApiCompat.Task, Microsoft.NET.Workload.Emscripten.Current.Manifest-10.0.100.Transport (Version 10.0.100-rc.1.25418.105 -> 10.0.100-rc.1.25419.104)
+    Microsoft.DotNet.Arcade.Sdk, Microsoft.DotNet.Build.Tasks.Archives, Microsoft.DotNet.Build.Tasks.Feed, Microsoft.DotNet.Build.Tasks.Installers, Microsoft.DotNet.Build.Tasks.Packaging, Microsoft.DotNet.Build.Tasks.TargetFramework, Microsoft.DotNet.Build.Tasks.Templating, Microsoft.DotNet.Build.Tasks.Workloads, Microsoft.DotNet.CodeAnalysis, Microsoft.DotNet.GenAPI, Microsoft.DotNet.GenFacades, Microsoft.DotNet.Helix.Sdk, Microsoft.DotNet.PackageTesting, Microsoft.DotNet.RemoteExecutor, Microsoft.DotNet.SharedFramework.Sdk, Microsoft.DotNet.XliffTasks, Microsoft.DotNet.XUnitExtensions (Version 10.0.0-beta.25418.105 -> 10.0.0-beta.25419.104)
+    Microsoft.DotNet.Cecil (Version 0.11.5-alpha.25418.105 -> 0.11.5-alpha.25419.104)
+    Microsoft.DotNet.XUnitAssert, Microsoft.DotNet.XUnitConsoleRunner (Version 2.9.3-beta.25418.105 -> 2.9.3-beta.25419.104)
+    Microsoft.NET.Sdk.IL, Microsoft.NETCore.App.Ref, Microsoft.NETCore.ILAsm, runtime.native.System.IO.Ports, System.Reflection.Metadata, System.Reflection.MetadataLoadContext, System.Text.Json (Version 10.0.0-rc.1.25418.105 -> 10.0.0-rc.1.25419.104)
+    NuGet.Frameworks, NuGet.Packaging, NuGet.ProjectModel, NuGet.Versioning (Version 7.0.0-preview.1.41905 -> 7.0.0-preview.1.42004)
+    System.CommandLine (Version 2.0.0-rc.1.25418.105 -> 2.0.0-rc.1.25419.104)
+    
+    * Update path to Microsoft.CodeAnalysis.NetAnalyzers.dll
+    
+    ---------
+    
+    Co-authored-by: dotnet-maestro[bot] <dotnet-maestro[bot]@users.noreply.github.com>
+    Co-authored-by: Eric StJohn <ericstj@microsoft.com>
