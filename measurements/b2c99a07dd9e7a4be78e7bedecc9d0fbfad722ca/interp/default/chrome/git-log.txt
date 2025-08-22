@@ -1,0 +1,5 @@
+commit b2c99a07dd9e7a4be78e7bedecc9d0fbfad722ca
+Author: Katelyn Gadd <kg@luminance.org>
+Date:   Fri Aug 22 08:48:38 2025 -0700
+
+    Fix GitHub_25027 in the interpreter by verifying stack depth at CEE_RET (#118976)
