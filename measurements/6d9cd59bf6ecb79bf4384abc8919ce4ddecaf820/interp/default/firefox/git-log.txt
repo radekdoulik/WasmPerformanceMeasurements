@@ -1,0 +1,8 @@
+commit 6d9cd59bf6ecb79bf4384abc8919ce4ddecaf820
+Author: Katelyn Gadd <kg@luminance.org>
+Date:   Fri Aug 22 15:51:03 2025 -0700
+
+    Fix passing Vector3s from the interpreter to native code (#119020)
+    
+    * Fix passing Vector3s from the interpreter to native code
+    * Add DOTNET_InterpHaltOnCall to make the interpreter assert when compiling a call to a specified method
