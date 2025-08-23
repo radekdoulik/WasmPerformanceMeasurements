@@ -1,0 +1,7 @@
+commit 28216aca3f72a4fb22fd6d4c6714be039873e726
+Author: Elinor Fung <elfung@microsoft.com>
+Date:   Fri Aug 22 10:55:46 2025 -0700
+
+    Add tracing to `hostpolicy_init_t::init` (#118973)
+    
+    We're hitting an intermittent crash in CI on macOS x64. Without a dump, we just have the trace messages to narrow down where it is happening - seems to be between the start of `hostpolicy_init_t::init` (called by `corehost_load`) and when `corehost_main` is called (right after `corehost_load`). This adds a bunch of tracing to `hostpolicy_init_t::init` (can be removed when we figure out what is going on and where).
