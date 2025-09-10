@@ -1,0 +1,128 @@
+commit b1cd0f4414316e0190a26cdef19aa0542798485d
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Wed Sep 10 15:25:00 2025 +0200
+
+    JIT: Support bitwise field extractions from parameter registers (#112740)
+    
+    Recent work now allows us to finally add support for the backend to
+    extract fields out of parameters without spilling them to stack.
+    Previously this was only supported when the fields mapped cleanly to
+    registers.
+    
+    A win-x64 example:
+    ```csharp
+    static int Foo(int? foo)
+    {
+        return foo.HasValue ? foo.Value : 0;
+    }
+    ```
+    ```diff
+     ; Method Program:Foo(System.Nullable`1[int]):int (FullOpts)
+     G_M19236_IG01:  ;; offset=0x0000
+    -       mov      qword ptr [rsp+0x08], rcx
+    -                                               ;; size=5 bbWeight=0.50 PerfScore 0.50
+    +                                               ;; size=0 bbWeight=0.50 PerfScore 0.00
+    
+    -G_M19236_IG02:  ;; offset=0x0005
+    -       movzx    rcx, cl
+    -       xor      eax, eax
+    -       test     ecx, ecx
+    -       cmovne   eax, dword ptr [rsp+0x0C]
+    -                                               ;; size=12 bbWeight=0.50 PerfScore 1.38
+    +G_M19236_IG02:  ;; offset=0x0000
+    +       movzx    rax, cl
+    +       shr      rcx, 32
+    +       xor      edx, edx
+    +       test     eax, eax
+    +       mov      eax, edx
+    +       cmovne   eax, ecx
+    +                                               ;; size=16 bbWeight=0.50 PerfScore 0.88
+    
+    -G_M19236_IG03:  ;; offset=0x0011
+    +G_M19236_IG03:  ;; offset=0x0010
+            ret
+                                                    ;; size=1 bbWeight=0.50 PerfScore 0.50
+    -; Total bytes of code: 18
+    -
+    +; Total bytes of code: 17
+    ```
+    
+    Another win-x64 example:
+    ```csharp
+    static float Sum(PointF p)
+    {
+        return p.X + p.Y;
+    }
+    ```
+    
+    ```diff
+     ; Method Program:Sum(System.Drawing.PointF):float (FullOpts)
+     G_M48891_IG01:  ;; offset=0x0000
+    -       mov      qword ptr [rsp+0x08], rcx
+    -                                               ;; size=5 bbWeight=1 PerfScore 1.00
+    +                                               ;; size=0 bbWeight=1 PerfScore 0.00
+    
+    -G_M48891_IG02:  ;; offset=0x0005
+    -       vmovss   xmm0, dword ptr [rsp+0x08]
+    -       vaddss   xmm0, xmm0, dword ptr [rsp+0x0C]
+    -                                               ;; size=12 bbWeight=1 PerfScore 8.00
+    +G_M48891_IG02:  ;; offset=0x0000
+    +       vmovd    xmm0, ecx
+    +       shr      rcx, 32
+    +       vmovd    xmm1, ecx
+    +       vaddss   xmm0, xmm0, xmm1
+    +                                               ;; size=16 bbWeight=1 PerfScore 7.50
+    
+    -G_M48891_IG03:  ;; offset=0x0011
+    +G_M48891_IG03:  ;; offset=0x0010
+            ret
+                                                    ;; size=1 bbWeight=1 PerfScore 1.00
+    -; Total bytes of code: 18
+    +; Total bytes of code: 17
+    ```
+    
+    An arm64 example:
+    ```csharp
+    static bool Test(Memory<int> mem)
+    {
+        return mem.Length > 10;
+    }
+    ```
+    
+    ```diff
+     ; Method Program:Test(System.Memory`1[int]):ubyte (FullOpts)
+     G_M53448_IG01:  ;; offset=0x0000
+    -            stp     fp, lr, [sp, #-0x20]!
+    +            stp     fp, lr, [sp, #-0x10]!
+                 mov     fp, sp
+    -            stp     x0, x1, [fp, #0x10]        // [V00 arg0], [V00 arg0+0x08]
+    -                                               ;; size=12 bbWeight=1 PerfScore 2.50
+    +                                               ;; size=8 bbWeight=1 PerfScore 1.50
+    
+    -G_M53448_IG02:  ;; offset=0x000C
+    -            ldr     w0, [fp, #0x1C]    // [V00 arg0+0x0c]
+    +G_M53448_IG02:  ;; offset=0x0008
+    +            lsr     x0, x1, #32
+                 cmp     w0, #10
+                 cset    x0, gt
+    -                                               ;; size=12 bbWeight=1 PerfScore 3.00
+    +                                               ;; size=12 bbWeight=1 PerfScore 2.00
+    
+    -G_M53448_IG03:  ;; offset=0x0018
+    -            ldp     fp, lr, [sp], #0x20
+    +G_M53448_IG03:  ;; offset=0x0014
+    +            ldp     fp, lr, [sp], #0x10
+                 ret     lr
+                                                    ;; size=8 bbWeight=1 PerfScore 2.00
+    -; Total bytes of code: 32
+    +; Total bytes of code: 28
+    ```
+    
+    Float -> float extractions that do not map cleanly is still not supported, but
+    should be doable (via vector register extractions). Float -> int extractions are
+    not supported, but I'm not sure we see these.
+    
+    This is often not a code size improvement, but typically a perfscore
+    improvement. Also this seems to have some bad interactions with call arguments
+    since they do not yet support something similar, but hopefully that can be
+    improved separately.
