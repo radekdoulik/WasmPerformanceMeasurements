@@ -1,0 +1,8 @@
+commit dcf86807937706d8d961a4aff0b98a8f55b563ba
+Author: Katelyn Gadd <kg@luminance.org>
+Date:   Wed Sep 10 07:47:33 2025 -0700
+
+    Update list of disabled crossgen2 tests (#119122)
+    
+    * Re-enable some disabled crossgen2 tests that now pass
+    * Broaden exclusion for DevDiv_255294 since it is not an ARM specific failure
