@@ -1,0 +1,23 @@
+commit 6271266ad1acda6899c39f2c7e6a645c751ded64
+Author: David Wrighton <davidwr@microsoft.com>
+Date:   Tue Sep 2 11:39:57 2025 -0700
+
+    Fix unloadability issue (#119196)
+    
+    * Add test, and fix logging of collectible assemblies
+    
+    * Enhance logging even further, and fix the bug by only running the forced cleanup path for LoaderAllocators without any assemblies associated with them
+    
+    * Fix unix build failure
+    
+    * Update src/coreclr/vm/loaderallocator.hpp
+    
+    Co-authored-by: Copilot <175728472+Copilot@users.noreply.github.com>
+    
+    * Update src/tests/Regressions/coreclr/GitHub_116953/test116953.cs
+    
+    Co-authored-by: Copilot <175728472+Copilot@users.noreply.github.com>
+    
+    ---------
+    
+    Co-authored-by: Copilot <175728472+Copilot@users.noreply.github.com>
