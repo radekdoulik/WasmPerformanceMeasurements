@@ -1,0 +1,17 @@
+commit fde7c8fa6b982a287e7b23fc6c9d84b12b6edd57
+Author: Gordon Ross <Gordon.W.Ross@gmail.com>
+Date:   Wed Sep 10 08:26:41 2025 -0400
+
+    Fix illumos compile errors in coreclr/tools/superpmi/mcs/verbmerge.cpp (#117464)
+    
+    /runtime/src/coreclr/tools/superpmi/mcs/verbmerge.cpp: In static member function 'static bool verbMerge::DirectoryFilterDirectories(FilterArgType*)':
+      /runtime/src/coreclr/tools/superpmi/mcs/verbmerge.cpp:188:19: error: 'verbMerge::FilterArgType' {aka 'struct dirent'} has no member named 'd_type'
+        188 |     if (findData->d_type == DT_DIR)
+            |                   ^~~~~~
+    
+    For the fix, do similarly as: src/native/corehost/hostmisc/pal.unix.cpp
+    
+    Let FilterArgType use struct FindData to simplify filters.
+    Handle the possibility of finding d_type == DT_UNKOWN
+    
+    Add HAVE_DIRENT_D_TYPE introspection
