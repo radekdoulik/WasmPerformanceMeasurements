@@ -1,0 +1,9 @@
+commit da676379893abc2337005bbef72f34a48ace9494
+Author: Elinor Fung <elfung@microsoft.com>
+Date:   Wed Sep 10 20:25:06 2025 -0700
+
+    Revert "Add tracing to `hostpolicy_init_t::init` (#118973)" (#119552)
+    
+    This reverts commit 28216aca3f72a4fb22fd6d4c6714be039873e726.
+    
+    This extra logging was added for investigating #118904 because it was intermittent and we couldn't get dumps. We can remove it now.
