@@ -1,0 +1,17 @@
+commit 58a885140b895e588754371c4696c20960c6f66a
+Author: dotnet-maestro[bot] <42748379+dotnet-maestro[bot]@users.noreply.github.com>
+Date:   Wed Sep 10 17:58:51 2025 -0700
+
+    Update dependencies from https://github.com/dotnet/dotnet build 282460 (#119517)
+    
+    Updated Dependencies:
+    Microsoft.CodeAnalysis, Microsoft.CodeAnalysis.Analyzers, Microsoft.CodeAnalysis.CSharp, Microsoft.Net.Compilers.Toolset (Version 5.0.0-2.25458.105 -> 5.0.0-2.25458.110)
+    Microsoft.CodeAnalysis.NetAnalyzers, Microsoft.DotNet.ApiCompat.Task, Microsoft.NET.Workload.Emscripten.Current.Manifest-10.0.100.Transport (Version 10.0.100-rc.1.25458.105 -> 10.0.100-rc.1.25458.110)
+    Microsoft.DotNet.Arcade.Sdk, Microsoft.DotNet.Build.Tasks.Archives, Microsoft.DotNet.Build.Tasks.Feed, Microsoft.DotNet.Build.Tasks.Installers, Microsoft.DotNet.Build.Tasks.Packaging, Microsoft.DotNet.Build.Tasks.TargetFramework, Microsoft.DotNet.Build.Tasks.Templating, Microsoft.DotNet.Build.Tasks.Workloads, Microsoft.DotNet.CodeAnalysis, Microsoft.DotNet.GenAPI, Microsoft.DotNet.GenFacades, Microsoft.DotNet.Helix.Sdk, Microsoft.DotNet.PackageTesting, Microsoft.DotNet.RemoteExecutor, Microsoft.DotNet.SharedFramework.Sdk, Microsoft.DotNet.XliffTasks, Microsoft.DotNet.XUnitExtensions (Version 11.0.0-beta.25458.105 -> 11.0.0-beta.25458.110)
+    Microsoft.DotNet.Cecil (Version 0.11.5-alpha.25458.105 -> 0.11.5-alpha.25458.110)
+    Microsoft.DotNet.XUnitAssert, Microsoft.DotNet.XUnitConsoleRunner (Version 2.9.3-beta.25458.105 -> 2.9.3-beta.25458.110)
+    Microsoft.NET.Sdk.IL, Microsoft.NETCore.App.Ref, Microsoft.NETCore.ILAsm, runtime.native.System.IO.Ports, System.Reflection.Metadata, System.Reflection.MetadataLoadContext, System.Text.Json (Version 10.0.0-rc.1.25458.105 -> 10.0.0-rc.1.25458.110)
+    NuGet.Frameworks, NuGet.Packaging, NuGet.ProjectModel, NuGet.Versioning (Version 7.0.0-preview.1.45905 -> 7.0.0-preview.1.45910)
+    System.CommandLine (Version 2.0.0-rc.1.25458.105 -> 2.0.0-rc.1.25458.110)
+    
+    Co-authored-by: dotnet-maestro[bot] <dotnet-maestro[bot]@users.noreply.github.com>
