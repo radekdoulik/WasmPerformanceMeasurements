@@ -1,0 +1,7 @@
+commit 745d23058d8a9466af46b5a71470185854dcf0dd
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Thu Sep 11 21:49:07 2025 -0400
+
+    Fix null dereference in logging in Task (#119563)
+    
+    If Task.Start and Task.Wait are used concurrently, it's possible for Wait to execute the task as part of the inlining logic, causing the task's completion logic to null out its m_action during the call to Start. This isn't generally a functional issue, as synchronization ensures it's only ever invoked once, however EventSource-based tracing code may try to extract the method name from the delegate, and it can end up hitting an ArgumentNullException due to the race causing the delegate to be null.
