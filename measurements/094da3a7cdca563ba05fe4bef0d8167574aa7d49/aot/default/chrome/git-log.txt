@@ -1,0 +1,5 @@
+commit 094da3a7cdca563ba05fe4bef0d8167574aa7d49
+Author: Radek Zikmund <32671551+rzikm@users.noreply.github.com>
+Date:   Fri Sep 12 13:23:42 2025 +0200
+
+    Disable DisableUnusedRsaPadding_Connects/DisableUsedRsaPadding_Throws on OpenSSL 1.1.1 (#119589)
