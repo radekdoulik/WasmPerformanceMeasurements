@@ -1,0 +1,11 @@
+commit 729f6e688e4c4b7d73c6fcbd9ae179376fc10317
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Fri Sep 5 13:04:11 2025 +0200
+
+    JIT: Handle more unsupported argument conversion cases (#119328)
+    
+    On 32-bit platforms we can end up with long operands to a function
+    taking a parameter in a double. We would try to create bitcasts for this
+    cast.
+    
+    Generalize a condition to properly detect this unsupported case.
