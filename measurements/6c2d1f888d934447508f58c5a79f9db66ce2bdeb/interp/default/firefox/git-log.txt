@@ -1,0 +1,9 @@
+commit 6c2d1f888d934447508f58c5a79f9db66ce2bdeb
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Fri Sep 12 10:24:56 2025 +0200
+
+    JIT: Generalize pattern-based IV analysis (#119537)
+    
+    - Follow unique preds when locating the init statement for the iterator
+      variable
+    - Generalize zero-trip detection by similarly following unique preds
