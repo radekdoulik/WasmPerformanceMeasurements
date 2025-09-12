@@ -1,0 +1,22 @@
+commit 1ae0da8cf1b171616ee82160c5662cc0d5f7ad8f
+Author: Copilot <198982749+Copilot@users.noreply.github.com>
+Date:   Fri Sep 12 08:08:55 2025 -0700
+
+    Add C# Dev Kit extension to all devcontainer configurations (#119602)
+    
+    * Initial plan
+    
+    * Add C# Dev Kit extension to all devcontainer configurations
+    
+    This change ensures that when creating a new codespace from a PR,
+    the C# Dev Kit extension (ms-dotnettools.csdevkit) is automatically
+    installed alongside the basic C# extension, providing a better
+    development experience with enhanced IntelliSense, debugging,
+    and project management capabilities.
+    
+    Co-authored-by: ericstj <8918108+ericstj@users.noreply.github.com>
+    
+    ---------
+    
+    Co-authored-by: copilot-swe-agent[bot] <198982749+Copilot@users.noreply.github.com>
+    Co-authored-by: ericstj <8918108+ericstj@users.noreply.github.com>
