@@ -1,0 +1,36 @@
+commit c09afe191039b447f92efda8a75d4b326134588e
+Author: Jeremy Koritzinsky <jekoritz@microsoft.com>
+Date:   Wed Aug 27 18:34:27 2025 -0700
+
+    Implement Thread.Interrupt on NativeAOT on Windows (#118968)
+    
+    * Implement Thread.Interrupt on NativeAOT on Windows
+    
+    * Apply suggestions from code review
+    
+    Co-authored-by: Copilot <175728472+Copilot@users.noreply.github.com>
+    
+    * Cleanup
+    
+    * Structure the loops like the re-entrant wait handling, insert a try-finally block around the re-entrant wait loop
+    
+    * Add ifdef around flag only used on Windows
+    
+    * Check interrupt before we wait (in case the APC ran at thread startup).
+    
+    Change check to assert.
+    
+    * Update Thread.NativeAot.Windows.cs
+    
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
+    
+    * Use Timeout constants and move state clearing to be manually done before throwing the exception instead of in a finally block
+    
+    * Fix the "unstarted" interrupt case
+    
+    * Remove null checks and only attach uninitialized threads
+    
+    ---------
+    
+    Co-authored-by: Copilot <175728472+Copilot@users.noreply.github.com>
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
