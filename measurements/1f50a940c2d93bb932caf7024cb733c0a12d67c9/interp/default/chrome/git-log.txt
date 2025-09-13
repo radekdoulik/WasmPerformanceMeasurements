@@ -1,0 +1,9 @@
+commit 1f50a940c2d93bb932caf7024cb733c0a12d67c9
+Author: Katelyn Gadd <kg@luminance.org>
+Date:   Sat Sep 13 04:25:59 2025 -0700
+
+    [interp] Patch mov_src_off opcodes at emit time so live end offsets are correct (#119656)
+    
+    * Add diagnostic prints of end of method code
+    * Patch mov_src_off opcodes at emit time so that live end calculations are correct
+    Fixes JIT\Regression\JitBlue\Runtime_64208
