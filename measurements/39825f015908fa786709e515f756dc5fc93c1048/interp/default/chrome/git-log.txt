@@ -1,0 +1,7 @@
+commit 39825f015908fa786709e515f756dc5fc93c1048
+Author: xtqqczze <45661989+xtqqczze@users.noreply.github.com>
+Date:   Sat Sep 13 04:07:48 2025 +0100
+
+    Remove redundant CS8500 suppression (#119653)
+    
+    Remove suppression of `CS8500: takes address of managed type` as it is suppressed for the entire repo.
