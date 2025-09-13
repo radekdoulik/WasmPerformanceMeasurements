@@ -1,0 +1,14 @@
+commit b9bdc4098e981cd0fa54f939ce96a3ccdf15038f
+Author: Andy Ayers <andya@microsoft.com>
+Date:   Fri Aug 8 14:57:02 2025 -0700
+
+    Mark the vectorized CRC update methods noinline (#118544)
+    
+    This works around a deficiency in the jit inliner. When it tries to inline a large
+    method with many important callees into a small method, it runs out of budget trying to inline
+    the callees.
+    
+    The budget is set based on the size of the root method, so the vectorized update methods
+    have enough budget to inline their callees.
+    
+    Fixes #114383.
