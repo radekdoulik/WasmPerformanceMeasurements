@@ -1,0 +1,9 @@
+commit 2bcadad3045934b54672e626bbb6131f7d0a523c
+Author: Michal Strehovský <MichalStrehovsky@users.noreply.github.com>
+Date:   Sat Sep 13 17:08:06 2025 +0200
+
+    Allow using UTF-8 in CompilerGeneratedNames (#119605)
+    
+    The managed type system switched to UTF-8, The `CompilerGeneratedNames` class is forcing us to materialize hundreds of thousands of UTF-16 strings (in a `dotnet new webapiaot` sample). Add overloads that take UTF-8.
+    
+    I was thinking to do some code reuse with clever use of structs and interfaces but this is one of the cases where simpler is just better, so a copy it is.
