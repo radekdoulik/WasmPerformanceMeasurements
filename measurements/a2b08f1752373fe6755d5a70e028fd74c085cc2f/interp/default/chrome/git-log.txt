@@ -1,0 +1,51 @@
+commit a2b08f1752373fe6755d5a70e028fd74c085cc2f
+Author: Copilot <198982749+Copilot@users.noreply.github.com>
+Date:   Sat Jul 26 04:21:30 2025 -0700
+
+    Add XML documentation for 29 undocumented .NET 7.0 APIs (#117697)
+    
+    * Initial plan
+    
+    * Add documentation for System.Data.SqlTypes and System.Diagnostics APIs
+    
+    Co-authored-by: jeffhandley <1031940+jeffhandley@users.noreply.github.com>
+    
+    * Add documentation for System.Reflection.Metadata, System.Runtime.Versioning, System.Security.Cryptography.Cose and System.Runtime.Serialization.Json APIs
+    
+    Co-authored-by: jeffhandley <1031940+jeffhandley@users.noreply.github.com>
+    
+    * Add documentation for System.Security.Cryptography.X509Certificates.X509SubjectAlternativeNameExtension and System.Runtime.Serialization.DataContracts.DataContract APIs
+    
+    Co-authored-by: jeffhandley <1031940+jeffhandley@users.noreply.github.com>
+    
+    * Use <see> tags and remove trailing whitespace
+    
+    * Remove trailing whitespace
+    
+    * Add missing <see> tag
+    
+    * Revert to using <inheritdoc/> where it already existed
+    
+    * Remove redundant X509SubjectAlternativeNameExtension documentation
+    
+    Co-authored-by: PranavSenthilnathan <12225508+PranavSenthilnathan@users.noreply.github.com>
+    
+    * Update TraceConfiguration summary to reference TraceSource with proper XML doc tags
+    
+    Co-authored-by: tarekgh <10833894+tarekgh@users.noreply.github.com>
+    
+    * Apply XML documentation feedback: improve cref tags, fix whitespace, and restore X509SubjectAlternativeNameExtension docs
+    
+    Co-authored-by: tarekgh <10833894+tarekgh@users.noreply.github.com>
+    
+    * Apply feedback from code review: update FieldTypeEncoder.CustomModifiers documentation
+    
+    Co-authored-by: tarekgh <10833894+tarekgh@users.noreply.github.com>
+    
+    ---------
+    
+    Co-authored-by: copilot-swe-agent[bot] <198982749+Copilot@users.noreply.github.com>
+    Co-authored-by: jeffhandley <1031940+jeffhandley@users.noreply.github.com>
+    Co-authored-by: Jeff Handley <jeffhandley@users.noreply.github.com>
+    Co-authored-by: PranavSenthilnathan <12225508+PranavSenthilnathan@users.noreply.github.com>
+    Co-authored-by: tarekgh <10833894+tarekgh@users.noreply.github.com>
