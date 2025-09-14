@@ -1,0 +1,11 @@
+commit d17882c6953a168c0332dfe9aa81dd7dbf2cef79
+Author: Milos Kotlar <kotlarmilos@gmail.com>
+Date:   Wed Jul 23 22:41:25 2025 +0200
+
+    Set explicit launch timeout for xharness on Apple mobile (#117979)
+    
+    * [Apple] Disable failing Apple mobile string tests
+    
+    * Add LaunchTimeout to XHarnessAppBundleToTest for iOS
+    
+    * Add LaunchTimeout property to XHarnessAppBundleToTest for Apple mobile targets
