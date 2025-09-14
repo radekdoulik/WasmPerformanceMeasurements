@@ -1,0 +1,5 @@
+commit ed9a5053b9e3c655210df0de9b98a37632859183
+Author: Jakob Botsch Nielsen <Jakob.botsch.nielsen@gmail.com>
+Date:   Wed Aug 13 13:59:19 2025 +0200
+
+    JIT: Do not remove type changing casts in lowering optimization (#118636)
