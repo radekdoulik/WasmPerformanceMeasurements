@@ -1,0 +1,7 @@
+commit d61ca90362f81bcdeb1d2b6822cb51c200cf740b
+Author: David Wrighton <davidwr@microsoft.com>
+Date:   Thu Aug 7 18:26:11 2025 -0700
+
+    [clr-interp] Handle some forms of unboxing stub (#118501)
+    
+    When encountering an UnboxingStub to execute, invoke it as a compiled method instead of as a interpreted one
