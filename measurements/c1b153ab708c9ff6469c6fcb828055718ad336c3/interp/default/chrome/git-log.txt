@@ -1,0 +1,17 @@
+commit c1b153ab708c9ff6469c6fcb828055718ad336c3
+Author: dotnet-maestro[bot] <42748379+dotnet-maestro[bot]@users.noreply.github.com>
+Date:   Mon Sep 15 12:51:48 2025 +0200
+
+    [main] Update dependencies from dotnet/hotreload-utils, dotnet/icu (#119702)
+    
+    * Update dependencies from https://github.com/dotnet/icu build 20250913.1
+    On relative base path root
+    Microsoft.NETCore.Runtime.ICU.Transport From Version 11.0.0-alpha.1.25461.1 -> To Version 11.0.0-alpha.1.25463.1
+    
+    * Update dependencies from https://github.com/dotnet/hotreload-utils build 20250912.3
+    On relative base path root
+    Microsoft.DotNet.HotReload.Utils.Generator.BuildTool From Version 11.0.0-alpha.0.25461.1 -> To Version 11.0.0-alpha.0.25462.3
+    
+    ---------
+    
+    Co-authored-by: dotnet-maestro[bot] <dotnet-maestro[bot]@users.noreply.github.com>
