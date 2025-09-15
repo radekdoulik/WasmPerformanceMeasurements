@@ -1,0 +1,38 @@
+commit be7db811e5d11f176ecad493bb623e22985e7a85
+Author: Alex Covington <68252706+alexcovington@users.noreply.github.com>
+Date:   Mon Sep 15 07:54:18 2025 -0700
+
+    Vector int divide short byte (#117996)
+    
+    * Extend vector divide to allow for short
+    
+    * Support byte/sbyte
+    
+    * Move logic to gentree
+    
+    * Fix issue with unsigned types
+    
+    * Jit formatting
+    
+    * Allow for vectorization with AVX
+    
+    * Fix issue with narrowing, jit formatting
+    
+    * SSE 4.2 support
+    
+    * Add shuffle for SSE4.2 path
+    
+    * Support uint for SSE4.2
+    
+    * Fix bug with registor allocation, make sure to allocate XMM0 when AVX is not supported
+    
+    * Cleanup, jit formatting
+    
+    * Feedback, simplify some checks, remove redundant checks
+    
+    * Remove assert that is no longer needed
+    
+    ---------
+    
+    Co-authored-by: Alex Covington (Advanced Micro Devices Inc) <b-alexco@microsoft.com>
+    Co-authored-by: Egor Bogatov <egorbo@gmail.com>
