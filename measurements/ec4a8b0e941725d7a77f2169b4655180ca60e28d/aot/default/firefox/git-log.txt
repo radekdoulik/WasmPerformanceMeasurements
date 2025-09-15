@@ -1,0 +1,5 @@
+commit ec4a8b0e941725d7a77f2169b4655180ca60e28d
+Author: Jan Kotas <jkotas@microsoft.com>
+Date:   Sun Sep 14 23:24:15 2025 -0700
+
+    Change RhpGcAlloc size argument type to intptr_t for consistency (#119691)
