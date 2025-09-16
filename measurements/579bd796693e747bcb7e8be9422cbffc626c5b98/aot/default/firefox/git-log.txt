@@ -1,0 +1,7 @@
+commit 579bd796693e747bcb7e8be9422cbffc626c5b98
+Author: Katelyn Gadd <kg@luminance.org>
+Date:   Tue Sep 16 13:01:50 2025 -0700
+
+    Address IDE0060 build break (#119772)
+    
+    Restore missing Append call that was removed during a past refactoring in #119385
