@@ -1,0 +1,52 @@
+commit b352164d00337eddf6c86d3c619662b1b35999c8
+Author: Copilot <198982749+Copilot@users.noreply.github.com>
+Date:   Tue Sep 16 08:54:39 2025 +0200
+
+    Use forTls parameter to enable TLS-compatible certificate key types while maintaining platform compatibility (#119265)
+    
+    * Initial plan
+    
+    * Add CRYPTO_TESTS preprocessor directive and differentiate RSA key sizes
+    
+    Co-authored-by: rzikm <32671551+rzikm@users.noreply.github.com>
+    
+    * Add comprehensive tests to validate different RSA key sizes in crypto vs networking tests
+    
+    Co-authored-by: rzikm <32671551+rzikm@users.noreply.github.com>
+    
+    * Switch to NETWORKING_TESTS directive and remove test files per feedback
+    
+    Co-authored-by: rzikm <32671551+rzikm@users.noreply.github.com>
+    
+    * Remove explicit keyFactory parameter to use conditional RSA key sizes
+    
+    Co-authored-by: rzikm <32671551+rzikm@users.noreply.github.com>
+    
+    * Add NETWORKING_TESTS directive to all networking test projects that use CertificateAuthority
+    
+    Co-authored-by: rzikm <32671551+rzikm@users.noreply.github.com>
+    
+    * Implement forTls parameter approach for TLS-compatible certificate key type selection
+    
+    Co-authored-by: bartonjs <10642668+bartonjs@users.noreply.github.com>
+    
+    * Revert all .csproj changes as they are no longer needed
+    
+    Co-authored-by: bartonjs <10642668+bartonjs@users.noreply.github.com>
+    
+    * Add debug
+    
+    * Disable SLH-DSA on linux
+    
+    * Revert "Add debug"
+    
+    This reverts commit 11d2ce23f533ff4ae1ad1cc197aeb61f5390bd50.
+    
+    * Force RSA certificates for MsQuic on non-windows platform
+    
+    ---------
+    
+    Co-authored-by: copilot-swe-agent[bot] <198982749+Copilot@users.noreply.github.com>
+    Co-authored-by: rzikm <32671551+rzikm@users.noreply.github.com>
+    Co-authored-by: bartonjs <10642668+bartonjs@users.noreply.github.com>
+    Co-authored-by: Radek Zikmund <r.zikmund.rz@gmail.com>
