@@ -1,0 +1,23 @@
+commit 2bd4439c7cc527a9fb37824a648ccad4b2128de2
+Author: kzrnm <gengesa@gmail.com>
+Date:   Wed Sep 17 04:14:30 2025 +0900
+
+    Optimize `BigInteger.ToString` for large decimal string (#112178)
+    
+    * Add test
+    
+    * ToString by DivideAndConquer
+    
+    * ToStringTestThreshold
+    
+    * Fix base1E9Buffer
+    
+    * Rount up digitRatio
+    
+    * Remove inline method
+    
+    * Rename
+    
+    ---------
+    
+    Co-authored-by: Jeff Handley <jeffhandley@users.noreply.github.com>
