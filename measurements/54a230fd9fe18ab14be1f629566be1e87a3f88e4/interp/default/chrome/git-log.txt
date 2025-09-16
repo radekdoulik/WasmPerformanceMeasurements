@@ -1,0 +1,9 @@
+commit 54a230fd9fe18ab14be1f629566be1e87a3f88e4
+Author: Alexander Köplinger <alex.koeplinger@outlook.com>
+Date:   Tue Sep 16 12:21:54 2025 +0200
+
+    Simplify null checks to fix IDE0031 (#119722)
+    
+    Don't set severity for dotnet_style_null_propagation so the value in eng/CodeAnalysis.src.globalconfig takes precedence
+    
+    Fixes https://github.com/dotnet/runtime/issues/119391
