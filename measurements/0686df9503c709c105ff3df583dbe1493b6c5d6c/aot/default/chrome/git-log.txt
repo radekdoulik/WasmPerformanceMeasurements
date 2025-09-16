@@ -1,0 +1,7 @@
+commit 0686df9503c709c105ff3df583dbe1493b6c5d6c
+Author: Stephen Toub <stoub@microsoft.com>
+Date:   Tue Aug 5 05:40:52 2025 -0400
+
+    Fix perf bug in RegexCompiler when handling .*? (#118373)
+    
+    We have a special-code path that exists to optimize a singleline `.*?`, in which case we can just search for what comes after the loop in the pattern because the loop itself will lazily match everything. Unfortunately, we're passing the wrong node to the EmitIndexOf helper that emits that search. We should be passing the node which represents the subsequent literal, but we're accidentally passing the set loop itself. We're only here if that set loop matches everything, so we're emitting an IndexOfAnyInRange(0, \uFFFF) call. This is functionally ok, but perf tanks because we end up needing to do non-trivial work for every character that matches the loop.
