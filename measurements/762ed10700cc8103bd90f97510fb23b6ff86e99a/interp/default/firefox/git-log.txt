@@ -1,0 +1,8 @@
+commit 762ed10700cc8103bd90f97510fb23b6ff86e99a
+Author: Sven Boemer <sbomer@gmail.com>
+Date:   Tue Sep 16 09:16:03 2025 -0700
+
+    Address warnings from MicrosoftCodeAnalysisVersion_LatestVS update (#119077)
+    
+    Remove warning suppressions and address errors from
+    `MicrosoftCodeAnalysisVersion_LatestVS` update to 4.14.0.
