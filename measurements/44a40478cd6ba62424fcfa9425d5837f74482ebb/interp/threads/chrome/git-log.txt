@@ -1,0 +1,22 @@
+commit 44a40478cd6ba62424fcfa9425d5837f74482ebb
+Author: Jan Vorlicek <janvorli@microsoft.com>
+Date:   Wed Sep 17 13:07:03 2025 +0200
+
+    Disable some coreclr tests for interpreter (#119785)
+    
+    * Disable some coreclr tests for interpreter
+    
+    * Add mechanism to disable tests when interpreted
+    * Disable tests that are incompatible with interpreter
+    
+    * Fix typo
+    
+    * Update src/tests/JIT/Directed/PREFIX/volatile/1/arglist_Target_64BIT_volatile.ilproj
+    
+    * Update src/tests/JIT/Directed/arglist/vararg_TargetUnix.csproj
+    
+    * Update src/tests/JIT/Directed/arglist/vararg_TargetWindows.csproj
+    
+    * Update src/tests/JIT/Regression/JitBlue/GitHub_27924/GitHub_27924.csproj
+    
+    * Update src/tests/JIT/Regression/JitBlue/Runtime_45090/Runtime_45090.csproj
