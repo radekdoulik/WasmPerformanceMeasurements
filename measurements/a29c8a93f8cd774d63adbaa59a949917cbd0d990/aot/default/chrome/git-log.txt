@@ -1,0 +1,15 @@
+commit a29c8a93f8cd774d63adbaa59a949917cbd0d990
+Author: kzrnm <gengesa@gmail.com>
+Date:   Thu Sep 18 00:17:53 2025 +0900
+
+    Optimize bit operations of BigInteger (#113005)
+    
+    * Optimize bit operations of BigInteger
+    
+    * Remove unused using
+    
+    * vectorize
+    
+    ---------
+    
+    Co-authored-by: Jeff Handley <jeffhandley@users.noreply.github.com>
