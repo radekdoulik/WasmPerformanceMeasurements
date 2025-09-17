@@ -1,0 +1,27 @@
+commit 116db00b333e27b70b6e97c93bcfb304ca4245ab
+Author: karakasa <karakasa@users.noreply.github.com>
+Date:   Wed Sep 17 07:53:13 2025 +0800
+
+    Improve the performance of `BigInteger`.`{Max|Min}Magnitude`/`Abs` & fix a edge case of `TryParse` (#105570)
+    
+    * Update BigInteger.cs
+    
+    Improved performance of BigInteger.{Max|Min}Magnitude/Abs/operator-
+    
+    Co-Authored-By: PetSerAl <17184058+petseral@users.noreply.github.com>
+    
+    * replace switch statements with if due to perf issues
+    
+    * adjusted formatting
+    
+    * Remove runtime check from internal ctors of BigInteger. Fix overflow exception thrown by TryParse.
+    
+    * fix typo
+    
+    * Revise code comment per feedback
+    
+    ---------
+    
+    Co-authored-by: PetSerAl <17184058+petseral@users.noreply.github.com>
+    Co-authored-by: Jeff Handley <jeffhandley@users.noreply.github.com>
+    Co-authored-by: Tanner Gooding <tagoo@microsoft.com>
