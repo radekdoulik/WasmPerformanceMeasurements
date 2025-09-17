@@ -1,0 +1,9 @@
+commit 68ba4489fe5af4d61add01e153310e99da1f1f78
+Author: xtqqczze <45661989+xtqqczze@users.noreply.github.com>
+Date:   Tue Sep 16 23:23:23 2025 +0100
+
+    Remove suppression of PreSharp 56503 (#119765)
+    
+    * Remove suppression of PreSharp 56503
+    
+    Remove suppression of PreSharp 56503: Property get methods should not throw exceptions.
