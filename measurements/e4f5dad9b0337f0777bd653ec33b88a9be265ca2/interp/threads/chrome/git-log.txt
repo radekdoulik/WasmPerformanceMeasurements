@@ -1,0 +1,5 @@
+commit e4f5dad9b0337f0777bd653ec33b88a9be265ca2
+Author: Tarek Mahmoud Sayed <10833894+tarekgh@users.noreply.github.com>
+Date:   Tue Sep 16 18:56:17 2025 -0700
+
+    Fix trace state key parsing in W3C propagator to support digits (#119778)
