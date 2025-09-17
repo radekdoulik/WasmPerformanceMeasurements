@@ -1,0 +1,40 @@
+commit 9130524f431ecbb134031e6ce031b2eab8eac740
+Author: Copilot <198982749+Copilot@users.noreply.github.com>
+Date:   Wed Sep 17 10:44:42 2025 -0700
+
+    Fix LDAP network timeout not being honored on Linux (#119210)
+    
+    * Initial plan
+    
+    * Implement LDAP_OPT_NETWORK_TIMEOUT for Linux LDAP connections
+    
+    Co-authored-by: ericstj <8918108+ericstj@users.noreply.github.com>
+    
+    * Add tests to verify LDAP network timeout functionality on Linux
+    
+    Co-authored-by: ericstj <8918108+ericstj@users.noreply.github.com>
+    
+    * Fix microseconds calculation for LDAP network timeout
+    
+    Co-authored-by: ericstj <8918108+ericstj@users.noreply.github.com>
+    
+    * Address PR feedback: improve tests and error handling
+    
+    Co-authored-by: ericstj <8918108+ericstj@users.noreply.github.com>
+    
+    * Mark unreachable server timeout test as OuterLoop
+    
+    Co-authored-by: ericstj <8918108+ericstj@users.noreply.github.com>
+    
+    * Update src/libraries/System.DirectoryServices.Protocols/tests/LdapConnectionTests.cs
+    
+    * Update src/libraries/System.DirectoryServices.Protocols/src/System/DirectoryServices/Protocols/ldap/LdapConnection.Linux.cs
+    
+    Co-authored-by: Copilot <175728472+Copilot@users.noreply.github.com>
+    
+    ---------
+    
+    Co-authored-by: copilot-swe-agent[bot] <198982749+Copilot@users.noreply.github.com>
+    Co-authored-by: ericstj <8918108+ericstj@users.noreply.github.com>
+    Co-authored-by: Eric StJohn <ericstj@microsoft.com>
+    Co-authored-by: Copilot <175728472+Copilot@users.noreply.github.com>
