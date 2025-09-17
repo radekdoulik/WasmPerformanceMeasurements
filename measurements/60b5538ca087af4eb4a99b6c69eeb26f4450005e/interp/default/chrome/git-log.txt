@@ -1,0 +1,10 @@
+commit 60b5538ca087af4eb4a99b6c69eeb26f4450005e
+Author: Max Charlamb <44248479+max-charlamb@users.noreply.github.com>
+Date:   Mon Aug 11 14:22:21 2025 -0400
+
+    [cDAC] Implement IXCLRDataProcess.EnumMethodInstancesByAddress (#115131)
+    
+    * Implement `IXCLRDataProcess.EnumMethodInstancesByAddress`
+    * Implement `IXCLRDataMethodInstance.GetTokenAndScope`
+    * Implement `IXCLRDataMethodInstance.GetRepresentativeEntryAddress`
+    * Adds to cDAC ILoader and IRuntimeTypeSystem API
