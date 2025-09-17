@@ -1,0 +1,7 @@
+commit 0ed71cd18a332e4a418f8f5f3dc7a43ee4591c7c
+Author: Katelyn Gadd <kg@luminance.org>
+Date:   Wed Sep 17 14:36:18 2025 -0700
+
+    [interp] Fix compile failures causing silent fallback to JIT (#119775)
+    
+    Fix interpreter compile failures causing silent fallback to JIT, so that unsupported code causes a runtime exception instead
