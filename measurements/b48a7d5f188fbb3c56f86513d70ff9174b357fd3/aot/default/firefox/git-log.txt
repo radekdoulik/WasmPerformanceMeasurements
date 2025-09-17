@@ -1,0 +1,9 @@
+commit b48a7d5f188fbb3c56f86513d70ff9174b357fd3
+Author: xtqqczze <45661989+xtqqczze@users.noreply.github.com>
+Date:   Tue Sep 16 23:25:53 2025 +0100
+
+    Remove suppression of PreSharp 56500 (#119744)
+    
+    * Remove suppression of PreSharp 56500
+    
+    Remove suppression of PreSharp error 56500: Avoid swallowing errors by catching non-specific exceptions
