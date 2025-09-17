@@ -1,0 +1,7 @@
+commit a54973e96758c02dca072e1a20108b56e442a4bc
+Author: Katelyn Gadd <kg@luminance.org>
+Date:   Tue Sep 16 20:03:19 2025 -0700
+
+    [interp] Suppress tailcall flag if target is a non-marshaled pinvoke (#119777)
+    
+    Fixes JIT\Regression\CLR-x86-JIT\V1-M09.5-PDC\b28901
