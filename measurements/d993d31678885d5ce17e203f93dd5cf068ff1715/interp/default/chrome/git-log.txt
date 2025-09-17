@@ -1,0 +1,17 @@
+commit d993d31678885d5ce17e203f93dd5cf068ff1715
+Author: Omair Majid <omajid@redhat.com>
+Date:   Wed Sep 17 08:53:44 2025 -0400
+
+    Fix filtering of FORTIFY_SOURCE flags (#119719)
+    
+    On Fedora and RHEL, when building the VMR (and runtime) we provide
+    additional CFLAGS/CXXFLAGS to the build, including this set:
+    
+        -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS
+    
+    This is filtered incorrectly in eng/native/configureplatform.cmake,
+    resulting in this CFLAG:
+    
+        -Wp,-Wp,-D_GLIBCXX_ASSERTIONS
+    
+    This is invalid and makes the build fail.
