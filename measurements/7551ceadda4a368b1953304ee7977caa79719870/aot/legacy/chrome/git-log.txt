@@ -1,0 +1,20 @@
+commit 7551ceadda4a368b1953304ee7977caa79719870
+Author: Copilot <198982749+Copilot@users.noreply.github.com>
+Date:   Thu Sep 18 08:53:39 2025 -0400
+
+    Fix DefaultIfEmptyIterator.TryGetElementAt returning default value for out-of-bounds indices (#119838)
+    
+    * Initial plan
+    
+    * Fix DefaultIfEmptyIterator.TryGetElementAt to return default when element not found
+    
+    Co-authored-by: eiriktsarpalis <2813363+eiriktsarpalis@users.noreply.github.com>
+    
+    * Add regression test and finalize fix for DefaultIfEmptyIterator.TryGetElementAt
+    
+    Co-authored-by: eiriktsarpalis <2813363+eiriktsarpalis@users.noreply.github.com>
+    
+    ---------
+    
+    Co-authored-by: copilot-swe-agent[bot] <198982749+Copilot@users.noreply.github.com>
+    Co-authored-by: eiriktsarpalis <2813363+eiriktsarpalis@users.noreply.github.com>
