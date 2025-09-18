@@ -1,0 +1,7 @@
+commit e9dd250942d329658df303ca4bf9a8e42ac4c9fc
+Author: Vlad Brezae <brezaevlad@gmail.com>
+Date:   Wed Jul 30 13:03:56 2025 +0300
+
+    Don't use vfork on android (#118085)
+    
+    When we start the child process, we clear all signal handlers. This operations ends up clearing the signal handlers also for the parent process. Revert to just using fork for simplicity.
