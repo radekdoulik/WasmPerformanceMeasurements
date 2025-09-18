@@ -1,0 +1,26 @@
+commit aa77683d50d60575655f089ce50b98b5ea6c0542
+Author: David Wrighton <davidwr@microsoft.com>
+Date:   Wed Sep 17 16:35:45 2025 -0700
+
+    [clr-interp] Add missing MustExpand non vector or hardware intrinsics (#119670)
+    
+    Add the missing MustExpand intrinsics that are not related to vector or hardware intrinsics
+    
+    - 8 and 16 bit forms of Interlocked.Exchange
+    - Interlocked.ExchangeAdd
+    - Interlocked.MemoryBarrier
+    - Volatile.WriteBarrier
+    - Double.MultiplyAddEstimate and Single.MultiplyAddEstimate
+    - Double.ConvertToIntegerNative and Single.ConvertToIntegerNative
+    - Math.ReciprocalEstimate and MathF.ReciprocalEstimate
+    - Math.ReciprocalSqrtEstimate and MathF.ReciprocalSqrtEstimate
+    And finally as a bonus a related non must-expand intrinsic
+    - Math.Sqrt and MathF.Sqrt
+    
+    Detect MustExpand correctly. (virtual functions cannot be MustExpand)
+    
+    Also in debug builds, print unconditionally when a MustExpand intrinsic is not expanded, and run the NO_WAY code. (In practice on platforms with a JIT this will fall back to running the JIT to provide the implementation)
+    
+    Collectively, this unblocks use of InterpMode=3 for some tests. Previously some of these tests would stack overflow in InterpMode=3.
+    
+    We may want to revisit some of these implementations (notably MultiplyAddEstimate, ConvertToIntegerNative, ReciprocalEstimate, and ReciprocalSqrtEstimate since their behavior will not necessarily match that of the JIT, but for now this will provide generally functional implementations of all of this.)
