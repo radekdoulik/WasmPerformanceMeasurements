@@ -1,0 +1,13 @@
+commit f2c544a1b97865d3e475844c929d43d912905ee9
+Author: Tomasz Sowiński <tomeksowi@gmail.com>
+Date:   Thu Sep 18 17:04:51 2025 +0200
+
+    [RISC-V] Single bit checks (#117461)
+    
+    * Lower const single bit test, variable WiP
+    
+    * Reuse xarch code for extracting bit index
+    
+    * Disable removeCast
+    
+    * Don't check JTRUE context for constant bit index lowering
