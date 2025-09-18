@@ -1,0 +1,9 @@
+commit ea4bea9142f297a5dad13c717b653c7111b56b15
+Author: Kevin Jones <kevin@vcsjones.com>
+Date:   Wed Sep 17 19:45:01 2025 -0400
+
+    Extract HMAC.HashData{Async} into HMACStatic
+    
+    * Move the HashData and HashDataAsync implementations to HMACStatic so we can deduplicate all of the parameter checking and implementation.
+    
+    * Move the platform checks in to HMACStatic for SHA-3. This revealed an issue with Verify - we were doing the platform check before the parameter checks. The throw order between HashData and Verify is now consistent.
