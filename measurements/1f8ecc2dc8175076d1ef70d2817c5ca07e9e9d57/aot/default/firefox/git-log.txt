@@ -1,0 +1,5 @@
+commit 1f8ecc2dc8175076d1ef70d2817c5ca07e9e9d57
+Author: Eric StJohn <ericstj@microsoft.com>
+Date:   Thu Sep 18 00:07:56 2025 -0700
+
+    Fix duplicate PDB in packages that specify IncludeSymbolsInPackage (#119827)
