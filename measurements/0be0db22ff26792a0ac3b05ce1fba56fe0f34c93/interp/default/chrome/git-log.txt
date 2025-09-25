@@ -1,0 +1,7 @@
+commit 0be0db22ff26792a0ac3b05ce1fba56fe0f34c93
+Author: Jan Kotas <jkotas@microsoft.com>
+Date:   Wed Aug 27 05:51:14 2025 -0700
+
+    Add cast to ComAwareWeakReference rehydrate path (#119132)
+    
+    Prevents hard to diagnose crashes caused by COM interop rehydrating wrong type.
