@@ -1,0 +1,21 @@
+commit 87ecdeb292fa2dbaec596051208caa23af816784
+Author: Vladimir Sadov <vsadov@microsoft.com>
+Date:   Mon Sep 22 06:35:12 2025 -0700
+
+    [RuntimeAsync] A few fixes for issues found when enabling rt async in Libraries. (#119864)
+    
+    * Fix AV due to GS cookie check overwriting the continuation return register
+    
+    * runtime async thunks for ValueTask-returning methods.
+    
+    * fix an assert for `(callInfo.SynchronizationContextLclNum != BAD_VAR_NUM)`
+    
+    * JIT format
+    
+    * Update src/coreclr/jit/codegenxarch.cpp
+    
+    Co-authored-by: Copilot <175728472+Copilot@users.noreply.github.com>
+    
+    ---------
+    
+    Co-authored-by: Copilot <175728472+Copilot@users.noreply.github.com>
