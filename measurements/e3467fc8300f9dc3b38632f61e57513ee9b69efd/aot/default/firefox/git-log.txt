@@ -1,0 +1,10 @@
+commit e3467fc8300f9dc3b38632f61e57513ee9b69efd
+Author: Katelyn Gadd <kg@luminance.org>
+Date:   Mon Sep 1 21:00:21 2025 -0700
+
+    [interp] Reverse p/invoke (#119133)
+    
+    
+    * Implements GetStubContext intrinsic in the interpreter
+    * For interpreted reverse p/invoke stubs, we ensure that TheUMEntryPrestubWorker runs for every invocation so that it can capture the hidden argument in a thread local. The interpreter can then recover the hidden argument from the thread local in order to offer it via GetStubContext later.
+    * Upon entry to interpreted methods that accept a hidden argument, we store the hidden argument (that was saved by the um entry prestub worker) into a special local that can be read from later by calls to GetStubContext.
