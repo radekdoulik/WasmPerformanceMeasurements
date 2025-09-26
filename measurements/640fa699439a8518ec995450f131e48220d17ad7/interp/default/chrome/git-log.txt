@@ -1,0 +1,7 @@
+commit 640fa699439a8518ec995450f131e48220d17ad7
+Author: David Wrighton <davidwr@microsoft.com>
+Date:   Tue Sep 23 15:19:49 2025 -0700
+
+    [clr-interp] Fix unbox.any for small integer types (#120016)
+    
+    - Since we unbox onto the evaluation stack directly, we need to ensure that the value we loaded is properly sign/zero extended to 4 bytes.
