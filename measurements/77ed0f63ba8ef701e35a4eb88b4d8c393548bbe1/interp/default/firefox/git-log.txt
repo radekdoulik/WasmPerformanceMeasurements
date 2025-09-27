@@ -1,0 +1,11 @@
+commit 77ed0f63ba8ef701e35a4eb88b4d8c393548bbe1
+Author: Radek Zikmund <32671551+rzikm@users.noreply.github.com>
+Date:   Wed Sep 3 15:46:18 2025 +0200
+
+    Fix misleading order of EventSource log and AcquireClientCredentials call (#119262)
+    
+    * Fix misleading order of EventSource log and AcquireClientCredentials call
+    
+    Discovered while investigating #119259. `AcquireClientCredentials` produces other events as well, so the order in the log is misleading and makes investigations harder.
+    
+    * Update src/libraries/System.Net.Security/src/System/Net/Security/SslStream.Protocol.cs
