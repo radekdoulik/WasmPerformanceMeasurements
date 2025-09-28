@@ -1,0 +1,9 @@
+commit ffafc0de94dc9263d7030b749b0b0fc6ae2c98e3
+Author: Aaron Robinson <arobins@microsoft.com>
+Date:   Sun Sep 7 10:33:21 2025 -0700
+
+    Create `FEATURE_PORTABLE_HELPERS` (#119414)
+    
+    Rename USE_PORTABLE_HELPERS to FEATURE_PORTABLE_HELPERS in native AOT.
+    Add place holder directory for portable implementations under runtime/.
+    Move empty WASM stubs to portable locations and enable FEATURE_PORTABLE_HELPERS on WASM.
