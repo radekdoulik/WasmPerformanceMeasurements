@@ -1,0 +1,11 @@
+commit 04a748b71133b974990d998641abad4da5cd9509
+Author: Vlad Brezae <brezaevlad@gmail.com>
+Date:   Mon Sep 22 16:08:44 2025 +0300
+
+    [mono] Enable configuration at runtime of the compressed interface bitmap feature (#119881)
+    
+    * Add option to configure use of compressed interface bitmaps
+    
+    This optimization is disabled by default. Enable it with `MONO_COMPRESSED_INTERFACE_BITMAP=1`
+    
+    * Add support for detecting mismatch with aot images
