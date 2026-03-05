@@ -1,0 +1,27 @@
+commit 349bdb09a14676140b4a70232edfd9cea4fb176d
+Author: Noah Falk <noahfalk@users.noreply.github.com>
+Date:   Thu Mar 5 01:35:41 2026 -0800
+
+    Add RecommendedReaderVersion advisory mechanism to cDAC RuntimeInfo contract (#125029)
+    
+    …ontract
+    
+    Adds a new CDAC_RECOMMENDED_READER_VERSION constant and
+    RecommendedReaderVersion global to datadescriptor.inc. The runtime team
+    can increment this value when making changes where updating diagnostic
+    tools is recommended. This is purely advisory and does not necessarily
+    mean a breaking change occurred.
+    
+    The RuntimeInfo contract exposes two new properties:
+    - CurrentReaderVersion: a compile-time constant representing the reader
+    version this contract was authored against (currently 1)
+    - RecommendedReaderVersion: reads the runtime global of the same name
+    
+    Diagnostic tools can compare these to determine whether to recommend an
+    update to the user. When the runtime ships a higher
+    RecommendedReaderVersion than a tool's CurrentReaderVersion, the tool
+    knows newer contracts are available.
+    
+    ---------
+    
+    Co-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>
