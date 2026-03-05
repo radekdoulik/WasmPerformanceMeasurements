@@ -1,0 +1,25 @@
+commit 8ffb9060f8f4ce714cf7f5506686b8ba675af097
+Author: Mike Voorhees <mrvoorhe@users.noreply.github.com>
+Date:   Wed Mar 4 18:24:00 2026 -0500
+
+    Fix locating files in `GetCommonSourceFiles` (#125123)
+    
+    `_testCase.RootCasesDirectory` is meant to be configurable. For example,
+    Unity uses the same test framework to run tests that live in
+    `Unity.Linker.Tests.Cases`. When we run tests,
+    `_testCase.RootCasesDirectory` is going to be the path to our
+    `Unity.Linker.Tests.Cases` directory. When that happens
+    `GetCommonSourceFiles` cannot locate the files relative to
+    `_testCase.RootCasesDirectory`.
+    
+    Since `GetCommonSourceFiles` is trying to explicitly locate files
+    relative to the ILLink test case directory structure the code should be
+    using a known directory to start from rather than a path that is
+    configurable.
+    
+    I added the new helper methods to `PathUtilities` and followed the
+    `AppContext.GetData` pattern. I tried to use `[CallerFilePath]` but I
+    couldn't get that to work on CI.
+    
+    While I was here I thought I'd make `GetCommonSourceFiles` virtual just
+    in case Unity needs to override it in the future.
