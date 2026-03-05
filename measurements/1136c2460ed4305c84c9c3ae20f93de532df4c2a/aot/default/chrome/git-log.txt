@@ -1,0 +1,28 @@
+commit 1136c2460ed4305c84c9c3ae20f93de532df4c2a
+Author: David Wrighton <davidwr@microsoft.com>
+Date:   Thu Mar 5 09:55:16 2026 -0800
+
+    Reduce custom operator behavior in the Volatile<T> structure (#124244)
+    
+    - None of the logic changed here is actually significant. The only
+    actual bug here is the behavior of `Module::SetDebuggerInfoBits`, and
+    `Module::EnableEditAndContinue` which now use interlocked operations for
+    situations that can theoretically race, due to the behavior of
+    Reflection.Emit.
+    - The PAL changes are to remove marking fields which are always
+    protected with a critical section for using volatile
+    - The GC changes are mostly around alloc_context_count which has
+    interesting behavior. It is intentionally written using racy logic which
+    is approximately correct. I'm hesitant to actually change the behavior
+    here without much more extensive testing, but we may want to consider
+    whether or not the increased re-order buffer lengths and whatnot in
+    modern CPUS make it more important to consider using atomic
+    increment/decrement here.
+    
+    These are most of the non-rote changes extracted from #124106, for
+    independent review/merge.
+    
+    ---------
+    
+    Co-authored-by: Copilot <175728472+Copilot@users.noreply.github.com>
+    Co-authored-by: Jan Kotas <jkotas@microsoft.com>
