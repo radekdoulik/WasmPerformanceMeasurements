@@ -1,0 +1,47 @@
+commit e722f654430bb3ebff09be6c9b582ca66898a634
+Author: Copilot <198982749+Copilot@users.noreply.github.com>
+Date:   Thu Mar 5 12:30:18 2026 +0100
+
+    Add visit budget checks to IsMonotonicallyIncreasing and ComputeDoesOverflow (#125156)
+    
+    `IsMonotonicallyIncreasing` and `ComputeDoesOverflow` lacked the
+    `m_nVisitBudget` guard that `ComputeRange` already uses, allowing
+    unbounded recursion cost in pathological cases.
+    
+    ## Description
+    
+    Added early-exit budget checks to both functions, consistent with the
+    existing pattern in `ComputeRange`:
+    
+    ```cpp
+    if (IsOverBudget())
+    {
+        return false;
+    }
+    m_nVisitBudget--;
+    ```
+    
+    - **`IsMonotonicallyIncreasing`**: `false` is the conservative result
+    ("not proven monotonic"), so this is safe to return when over budget.
+    - **`ComputeDoesOverflow`**: `false` ("doesn't overflow") is slightly
+    optimistic in isolation, but `ComputeRange` independently returns
+    `Unknown` when over budget, which already blocks bounds-check
+    elimination — so no unsound optimization can occur.
+    
+    Both checks are placed **before** `GetSearchPath()->Set(...)` to avoid
+    leaving stale entries in the search path on early exit.
+    
+    <!-- START COPILOT CODING AGENT TIPS -->
+    ---
+    
+    ✨ Let Copilot coding agent [set things up for
+    you](https://github.com/dotnet/runtime/issues/new?title=✨+Set+up+Copilot+instructions&body=Configure%20instructions%20for%20this%20repository%20as%20documented%20in%20%5BBest%20practices%20for%20Copilot%20coding%20agent%20in%20your%20repository%5D%28https://gh.io/copilot-coding-agent-tips%29%2E%0A%0A%3COnboard%20this%20repo%3E&assignees=copilot)
+    — coding agent works faster and does higher quality work when set up for
+    your repo.
+    
+    ---------
+    
+    Co-authored-by: copilot-swe-agent[bot] <198982749+Copilot@users.noreply.github.com>
+    Co-authored-by: EgorBo <523221+EgorBo@users.noreply.github.com>
+    Co-authored-by: Egor Bogatov <egorbo@gmail.com>
+    Co-authored-by: Copilot <175728472+Copilot@users.noreply.github.com>
