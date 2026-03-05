@@ -1,0 +1,7 @@
+commit 57b4485d61b1b794b797603843b9902d03cd2845
+Author: Barbara Rosiak <76071368+barosiak@users.noreply.github.com>
+Date:   Thu Mar 5 12:15:12 2026 -0800
+
+    [cDAC] Implement GetCurrentAppDomain on IXCLRDataTask (#124996)
+    
+    Implement GetCurrentAppDomain for cDAC
