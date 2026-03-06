@@ -1,0 +1,11 @@
+commit 51b1e92136c22c1828393b23571de0c2a49e9f62
+Author: Andy Gocke <angocke@microsoft.com>
+Date:   Thu Mar 5 14:46:25 2026 -0800
+
+    Revert "A few fixes in the threadpool semaphore. Unify Windows/Unix implementation of LIFO policy." (#125193)
+    
+    Reverts dotnet/runtime#123921
+    
+    This change appears to have caused a large regression in NuGet restore
+    performance. Reverting is confirmed to produce a significant improvement
+    (10-15%).
