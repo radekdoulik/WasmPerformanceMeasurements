@@ -1,0 +1,14 @@
+commit b85f10962df5d097ca466ec0ed83664835671e42
+Author: David Wrighton <davidwr@microsoft.com>
+Date:   Thu Mar 5 19:17:01 2026 -0800
+
+    Allocate all long-lived contents of interpreter memory via the jit interface allocation apis (#125091)
+    
+    This makes all allocation of memory for the interpreter which are
+    long-lived be allocated in the one big allocation. This should fix any
+    issues where we have memory leaking from collectible assemblies.
+    
+    ---------
+    
+    Co-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>
+    Co-authored-by: Copilot <175728472+Copilot@users.noreply.github.com>
