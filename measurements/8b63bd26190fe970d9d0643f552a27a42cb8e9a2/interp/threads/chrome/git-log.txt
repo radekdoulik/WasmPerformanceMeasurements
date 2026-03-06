@@ -1,0 +1,219 @@
+commit 8b63bd26190fe970d9d0643f552a27a42cb8e9a2
+Author: Karim Salem <karimsalem@microsoft.com>
+Date:   Fri Mar 6 00:16:10 2026 -0800
+
+    Expose HTTP.sys kernel response buffering control for HttpListener on Windows (#124720)
+    
+    This PR adds an opt-in `AppContext` switch to enable kernel response
+    buffering in HttpListener (Windows implementation only). When enabled,
+    the flag `HTTP_SEND_RESPONSE_FLAG_BUFFER_DATA` is set on all calls to
+    `HttpSendHttpResponse` and `HttpSendResponseEntityBody` (consistent with
+    [Win32
+    docs](https://learn.microsoft.com/en-us/windows/win32/api/http/nf-http-httpsendresponseentitybody#:~:text=HTTP_SEND_RESPONSE_FLAG_BUFFER_DATA)).
+    This mirrors the behavior for setting the
+    `HttpSysOptions.EnableKernelResponseBuffering` flag in [ASP.NET HTTP.sys
+    code](https://github.com/dotnet/aspnetcore/blob/2a88012113497bac5056548f16d810738b069198/src/Servers/HttpSys/src/RequestProcessing/ResponseBody.cs#L499).
+    
+    Motivation in [issue
+    #123425](https://github.com/dotnet/runtime/issues/123425).
+    
+    Sample usage:
+    ```csharp
+    AppContext.SetSwitch("System.Net.HttpListener.EnableKernelResponseBuffering", true);
+    
+    using var listener = new HttpListener();
+    listener.Prefixes.Add("http://localhost:8080/");
+    listener.Start();
+    
+    Console.WriteLine("Listening...");
+    while (true)
+    {
+        var context = await listener.GetContextAsync().ConfigureAwait(false);
+        _ = Task.Run(() => HandleRequestAsync(context));
+    }
+    ```
+    
+    Notes:
+    - No public API changes
+    - Default behavior remains unchanged
+    - Since API is internal, tests use reflection to validate flag behavior.
+    - Added dedicated Windows-only test classes for `HttpListener` and
+    `HttpResponseStream`, and consolidated existing Windows-only tests there
+    for consistency.
+    
+    # Repro and validation
+    
+    Setup:
+    - Client: Azure VM in West US 2
+    - Server: Azure VM in Australia East
+    
+    Client uses HttpClient to send requests to the server and measures total
+    latency. Server is running HttpListener and returns 7MB responses while
+    varying the server-side response buffer size (from 32KB to 7MB). Server
+    also records avg timing per individual response Write() call.
+    
+    ## Benchmark
+    
+    ### Kernel Buffering Disabled (Existing Behavior)
+    
+    | Buffer Size (bytes) | Latency (ms) | Write Time (µs) |
+    |---------------------|--------------|-----------------|
+    | 32768               | 33911        | 158414          |
+    | 65536               | 16923        | 158108          |
+    | 131072              | 8609         | 159346          |
+    | 262144              | 4323         | 159938          |
+    | 524288              | 2296         | 163629          |
+    | 1048576             | 1181         | 168004          |
+    | 2097152             | 701          | 173846          |
+    | 4194304             | 468          | 206004          |
+    | 7000000             | 492          | 384459          |
+    
+    ### Kernel Buffering Enabled (New Behavior)
+    
+    | Buffer Size (bytes) | Latency (ms) | Write Time (µs) |
+    |---------------------|--------------|-----------------|
+    | 32768               | 1154         | 4589            |
+    | 65536               | 1149         | 9211            |
+    | 131072              | 1142         | 18205           |
+    | 262144              | 1107         | 35590           |
+    | 524288              | 1137         | 69975           |
+    | 1048576             | 686          | 75492           |
+    | 2097152             | 386          | 92539           |
+    | 4194304             | 451          | 109173          |
+    | 7000000             | 490          | 2356            |
+    
+    - Enabling HttpListener kernel buffering reduces E2E latency by up to
+    30x (34s → 1s for 32KB buffers)
+    - Average `Write()` time drops significantly (158,414 µs → 4,589 µs at
+    32 KB).
+    
+    These results confirm that without kernel buffering, small writes cause
+    RTT amplification. Enabling kernel buffering eliminates small-write
+    fragmentation over the wire and dramatically reduces latency.
+    
+    ## Packet Capture
+    
+    ### Packet analysis
+    
+    Without kernel buffering, when the server sends a 7MB response using a
+    32KB buffer, packet capture shows that each server Write() results in a
+    32KB TCP segment (Length=32768, [PSH, ACK]). Each segment is transmitted
+    approx. 1 RTT apart (~0.158s matching Azure-advertised RTT b/w the two
+    regions). Transmission is effectively ACK-gated.
+    
+    <img width="1965" height="702" alt="image"
+    src="https://github.com/user-attachments/assets/5f5eb251-8d79-423a-8c1b-54f139e9f907"
+    />
+    
+    E2E the request takes ~34s:
+    
+    <img width="1689" height="146" alt="image"
+    src="https://github.com/user-attachments/assets/47080e30-4f84-49bf-be98-36ee50ee59d2"
+    />
+    
+    With kernel buffering enabled, the TCP stack transmits large bursts of
+    packets rather than one per RTT.
+    
+    <img width="2399" height="1307" alt="image"
+    src="https://github.com/user-attachments/assets/a8d62e17-534c-4b1b-b3f8-a8536e9f9a03"
+    />
+    
+    E2E latency dropped from ~34s to ~1s (first request ~1.9s due to TCP
+    slow start, subsequent requests stabilize at ~0.95s).
+    
+    <img width="2158" height="360" alt="image"
+    src="https://github.com/user-attachments/assets/9cdfd2df-167a-4917-a354-faef86b033f0"
+    />
+    
+    ### TCP stream graph
+    The diff in behavior is best visualized using the Stevens TCP stream
+    graph:
+    
+    Without kernel buffering, the graph shows each ~32 KB increment in
+    response transmission is separated by approx. one RTT. The slope is
+    shallow (slow rate of growth) and evenly spaced.
+    
+    <img width="3792" height="1788" alt="image"
+    src="https://github.com/user-attachments/assets/dcc98a89-a2e1-4385-af9a-41fb9e8bb9f9"
+    />
+    
+    With kernel buffering enabled, the slope becomes significantly steeper.
+    Multiple segments are transmitted back-to-back before the next RTT
+    boundary.
+    
+    <img width="3786" height="1857" alt="image"
+    src="https://github.com/user-attachments/assets/b439ea87-3fea-4b6a-aeb8-5d6ea981c77e"
+    />
+    
+    This visualizes the core issue: without buffering, small writes are
+    RTT-amplified. With buffering, HTTP.sys aggregates response data in
+    kernel space and transmits in large bursts, eliminating per-write RTT
+    pacing.
+    
+    ### Repro code
+    
+    #### Init HttpListener with EnableKernelResponseBuffering switch
+    
+    ```c#
+    
+    var listener = new HttpListener();
+    if (enableBuffering)
+    {
+        AppContext.SetSwitch(
+            "System.Net.HttpListener.EnableKernelResponseBuffering",
+            true);
+    }
+    
+    listener.Prefixes.Add("http://+:80/");
+    listener.Start();
+    
+    while (true)
+    {
+        var context = await listener.GetContextAsync();
+    
+        try
+        {
+            long responseSize = long.Parse(context.Request.QueryString["size"]);
+            int bufferSize = int.Parse(context.Request.QueryString["buffer"]);
+    
+            context.Response.StatusCode = 200;
+            await SendListenerResponse(context, responseSize, bufferSize);
+        }
+        finally
+        {
+            context.Response.Close();
+        }
+    }
+    ```
+    
+    #### Server multi-write response routine
+    ```c#
+    var buf = new byte[bufferSize];
+    
+    long totalWriteUs = 0;
+    int writeCount = 0;
+    
+    long totalSent = 0;
+    while (totalSent < size)
+    {
+        int writeSize = (int)Math.Min(size - totalSent, bufferSize);
+    
+        long start = Stopwatch.GetTimestamp();
+    
+        await stream.WriteAsync(buf.AsMemory(0, writeSize));
+    
+        long end = Stopwatch.GetTimestamp();
+        totalWriteUs += (end - start) / 10;
+        writeCount++;
+    
+        totalSent += writeSize;
+    }
+    
+    long avgWriteUs = totalWriteUs / writeCount;
+    ```
+    
+    Thanks @ManickaP for all the help!
+    
+    ---------
+    
+    Co-authored-by: Marie Píchová <11718369+ManickaP@users.noreply.github.com>
